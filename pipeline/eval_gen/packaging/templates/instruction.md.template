@@ -1,0 +1,27 @@
+Replicate the multi-page website design shown in the reference screenshots.
+
+**Input:** `/reference/` contains {n_screenshots} PNG files — one per page at desktop — named `{{page}}.desktop.png`:
+
+```
+{page_listing}
+```
+
+Viewport: `desktop` = 1440px. All screenshots are **full-page** captures (height extends below the fold). The {n_pages} pages share a single design system — same nav, footer, colors, typography, button styles.
+
+**Output:** Save HTML + CSS to `/app/`. The grader will look for:
+
+```
+{app_listing}
+```
+
+You may use a shared CSS file (e.g. `/app/styles.css`) and link to it from each HTML. Anything in `/app/` is fair game; CSS files can be referenced via relative paths.
+
+**How you'll be graded:**
+Each of your HTML files will be rendered in headless Chromium at 1440px desktop width and compared to the corresponding reference screenshot. Cross-page consistency matters — a broken page meaningfully lowers your overall score.
+
+**Constraints:**
+- HTML and CSS only. The grader runs offline, so external resources (CDNs, web fonts, hotlinked images) will not load. Design self-contained output.
+- No JavaScript is needed; functionality is out of scope.
+- Aim for visual replication across all {n_pages} pages at desktop — layout, typography, colors, spacing, and content.
+
+The grader is a black box. Focus on producing faithful visual replicas.
