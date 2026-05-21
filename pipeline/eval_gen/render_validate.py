@@ -238,45 +238,46 @@ def validate_library_css(
     screenshots_dir = site_dir / "screenshots"
     screenshots_dir.mkdir(parents=True, exist_ok=True)
 
-    # Render at the configured desktop viewport. (Smoke wave is desktop-only
-    # per R12 — mobile/tablet dropped because broken-responsive references
-    # corrupted the RL signal.)
-    vp_name, (vp_w, vp_h) = next(iter(cfg.viewports.items()))
     OVERFLOW_TOLERANCE_PX = 5
-    out_png = screenshots_dir / f"_library_smoke.{vp_name}.png"
-    try:
-        meta = _render_mod.render(
-            source=str(smoke_html),
-            output_png=out_png,
-            viewport_width=vp_w,
-            viewport_height=vp_h,
-            full_page=True,
-            fail_on_off_origin=False,
-        )
-        scroll_w = meta.get("scroll_width", vp_w)
-        if scroll_w > vp_w + OVERFLOW_TOLERANCE_PX:
-            issues.append(
-                f"library overflows horizontally at {vp_name} (scrollWidth {scroll_w}px > viewport {vp_w}px) — "
-                f"a primitive in styles.css has a fixed width on body/html/.container/.nav. "
-                f"Use `max-width: 1280px` + `width: 100%` for containers and remove any wrapper width > {vp_w}px."
-            )
-        for req in meta.get("off_origin_requests") or []:
-            issues.append(
-                f"library triggers off-origin request to {req.get('url')} — remove any external @import / url()"
-            )
-            break
-    except Exception as e:
-        issues.append(f"library smoke render failed: {type(e).__name__}: {e}")
-    finally:
-        # Clean up the smoke HTML; keep the screenshot if there were issues
-        # so the user can see what went wrong.
+    smoke_pngs: list[Path] = []
+
+    for vp_name, (vp_w, vp_h) in cfg.viewports.items():
+        out_png = screenshots_dir / f"_library_smoke.{vp_name}.png"
+        smoke_pngs.append(out_png)
         try:
-            smoke_html.unlink()
-        except Exception:
-            pass
-        if not issues:
+            meta = _render_mod.render(
+                source=str(smoke_html),
+                output_png=out_png,
+                viewport_width=vp_w,
+                viewport_height=vp_h,
+                full_page=True,
+                fail_on_off_origin=False,
+            )
+            scroll_w = meta.get("scroll_width", vp_w)
+            if scroll_w > vp_w + OVERFLOW_TOLERANCE_PX:
+                issues.append(
+                    f"library overflows horizontally at {vp_name} (scrollWidth {scroll_w}px > viewport {vp_w}px) — "
+                    f"a primitive in styles.css has a fixed width. "
+                    f"Use `max-width` + `width: 100%` for containers and add @media rules to collapse "
+                    f"grids/nav at {vp_w}px."
+                )
+            for req in meta.get("off_origin_requests") or []:
+                issues.append(
+                    f"library triggers off-origin request to {req.get('url')} — remove any external @import / url()"
+                )
+                break
+        except Exception as e:
+            issues.append(f"library smoke render failed at {vp_name}: {type(e).__name__}: {e}")
+
+    # Clean up smoke HTML; keep screenshots only if there were issues.
+    try:
+        smoke_html.unlink()
+    except Exception:
+        pass
+    if not issues:
+        for p in smoke_pngs:
             try:
-                out_png.unlink()
+                p.unlink()
             except Exception:
                 pass
 

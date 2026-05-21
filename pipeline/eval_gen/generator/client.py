@@ -67,13 +67,15 @@ def complete(
             # duration would exceed 10 minutes (true at our 32K/64K caps).
             # Streaming has no such limit; the context manager accumulates
             # the final message just like create() would have returned.
-            with client.messages.stream(
+            kwargs = dict(
                 model=model,
                 max_tokens=max_tokens,
-                temperature=temperature,
                 system=system,
                 messages=[{"role": "user", "content": user}],
-            ) as stream:
+            )
+            if "opus" not in model:
+                kwargs["temperature"] = temperature
+            with client.messages.stream(**kwargs) as stream:
                 final = stream.get_final_message()
             latency = time.time() - t0
             text = "".join(

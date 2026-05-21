@@ -45,15 +45,31 @@ OUTPUT FORMAT — exact:
 ```
 
 CRITICAL CONSTRAINTS:
-- **Target desktop only (1440px).** No mobile/tablet handling required.
+- **Mobile-first responsive.** The shared `styles.css` is written
+  mobile-first: defaults target 375px, with `@media (min-width: 768px)`
+  and `@media (min-width: 1024px)` for wider layouts. Your page-specific
+  `<style>` must follow the same pattern — default CSS for mobile,
+  `min-width` queries to enhance for wider screens. Any page-specific
+  grids (stat rows, filter bars, multi-column sections) must stack to a
+  single column by default and only expand in `min-width` queries.
+  **No element may cause horizontal scrolling at 375px.**
+  **Grid / flex overflow rules (CRITICAL):** Every grid child must have
+  `min-width: 0` — without it, content overflows the grid track at narrow
+  viewports. Every flex child that contains text or tables: `min-width: 0`.
+  Any element with `min-width: <N>px` (e.g., tables, heatmaps) MUST be
+  inside a wrapper with `overflow-x: auto; max-width: 100%;` so the
+  fixed width scrolls inside the wrapper instead of expanding the page.
+  Never set `min-width` on a layout-level element without an overflow
+  wrapper.
 - HTML + CSS only. **No JavaScript**. No `<script>` tag may appear. No event
   handlers (`onclick=`, etc.). No JS-driven anything.
 - **No animations or `@keyframes`.** Static page only. CSS `transition` on
   `:hover`/`:focus` is allowed (invisible in resting-state screenshot).
-- **Use only the component classes defined in the shared `styles.css`** —
+- **Use the component classes defined in the shared `styles.css`** —
   `.btn`, `.btn--primary`, `.card`, `.nav`, `.input`, `.table`, `.dialog`,
-  `.kpi`, etc. Inline `<style>` is for page-specific layout grid only, not
-  for re-styling components.
+  `.kpi`, etc. Inline `<style>` is for page-specific layout (grids,
+  data visualizations, charts, heatmaps) — not for re-styling the
+  shared components' colors, fonts, or spacing.
 - **No external resources of any kind.** The ONLY allowed `<link>` is the
   relative `styles.css`. Specifically forbidden: any `<link>` to
   fonts.googleapis.com or any CDN; any `@import url(...)`; any `@font-face`
@@ -125,8 +141,15 @@ def make_user_content(
         retry_note = (
             "\nPREVIOUS ATTEMPT FAILED VALIDATION. Fix these specific issues:\n"
             f"{issues_list}\n\n"
-            "Re-emit the entire HTML page, with the issues above corrected. Do not\n"
-            "explain — just emit the corrected HTML.\n"
+            "DEBUGGING CHECKLIST for horizontal overflow:\n"
+            "1. Search your inline <style> for any grid container — every grid child\n"
+            "   MUST have `min-width: 0` or content will overflow the track.\n"
+            "2. Any element with a fixed `min-width` or `width` in px MUST be inside\n"
+            "   a wrapper with `overflow-x: auto; max-width: 100%`.\n"
+            "3. Flex children with text: add `min-width: 0`.\n"
+            "4. Default (no media query) CSS must work at 375px — multi-column grids\n"
+            "   must be `grid-template-columns: 1fr` by default.\n\n"
+            "Re-emit the entire HTML page with these fixes applied. No explanation.\n"
         )
 
     page_block = (

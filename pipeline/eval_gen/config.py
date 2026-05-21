@@ -44,12 +44,11 @@ class GenConfig:
     # Stage 5 — render validation viewports. Match existing
     # pipeline/grader/grade.py VIEWPORTS exactly so the generated tasks reuse
     # the shipped grader unchanged.
-    # Desktop-only smoke (R12) — responsive references unreliable; mobile/tablet
-    # references degraded the RL gradient. Re-enable per-viewport for pilot
-    # only after the reference generator can produce responsive output reliably.
     viewports: dict[str, tuple[int, int]] = field(
         default_factory=lambda: {
             "desktop": (1440, 900),
+            "tablet": (768, 1024),
+            "mobile": (375, 800),
         }
     )
 

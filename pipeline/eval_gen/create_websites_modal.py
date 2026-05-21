@@ -61,14 +61,14 @@ image = (
 )
 
 
-app = modal.App("worktrial-create-websites-v4", image=image)
+app = modal.App("worktrial-create-websites-v7", image=image)
 
 # Persistent volume for the generated output. Phase 1 writes reference_sites/<site>/
 # here; Phase 2 reads it back to assemble Harbor task directories under
 # the same volume at smoke/<site>/. The local entrypoint downloads the
 # volume contents to the user's filesystem after each phase.
 output_volume = modal.Volume.from_name(
-    "worktrial-eval-gen-output", create_if_missing=True
+    "worktrial-eval-gen-v6", create_if_missing=True
 )
 
 VOLUME_MOUNT_PATH = "/work/output"
@@ -254,7 +254,48 @@ def generate(n_sites: int = 5, run_suffix: str = ""):
     results = list(generate_one_site_remote.map(site_args))
     n_ok = sum(1 for r in results if r.get("ok"))
     print(f">>> {n_ok}/{len(results)} sites generated")
+    print(f">>> to download: modal run pipeline/eval_gen/create_websites_modal.py::download")
 
+
+@app.local_entrypoint()
+def retry(site_index: int, n_sites: int = 10, run_suffix: str = ""):
+    """Re-run a single failed site by its 1-based index within the original run.
+
+    Recomputes the same spec deterministically (same seed + run_suffix + index)
+    and dispatches it to a single Modal container.
+
+    Example:
+        modal run pipeline/eval_gen/create_websites_modal.py::retry --site-index 4 --n-sites 10 --run-suffix v7adv
+    """
+    import random as _random
+    from pipeline.eval_gen.config import DEFAULT as cfg
+    from pipeline.eval_gen.generator.brand_spec import (
+        sample_brand_specs,
+        resolve_page_list,
+    )
+
+    if not run_suffix:
+        raise ValueError("--run-suffix is required for retry (must match the original run)")
+
+    all_specs = sample_brand_specs(n_sites=n_sites, seed=cfg.seed, run_suffix=run_suffix)
+    idx = site_index - 1
+    if idx < 0 or idx >= len(all_specs):
+        raise ValueError(f"site_index {site_index} out of range [1, {len(all_specs)}]")
+
+    spec = all_specs[idx]
+    rng_pages = _random.Random(f"{cfg.seed}-{run_suffix}-pages-{site_index}")
+    n_pages = rng_pages.randint(*cfg.pages_per_site_range)
+    resolve_page_list(spec, n_pages, rng_pages)
+
+    print(f">>> retrying site {site_index}: {spec.site_id}  archetype={spec.archetype['name']}  palette={spec.palette['name']}  theme={spec.theme_mode}")
+    result = generate_one_site_remote.remote({"spec": spec.to_dict(), "n_pages": n_pages, "run_suffix": run_suffix})
+    ok = result.get("ok", False)
+    print(f">>> {'success' if ok else 'FAILED'}: {result}")
+
+
+@app.local_entrypoint()
+def download():
+    """Download reference_sites/ from Modal volume to local filesystem."""
     print(">>> downloading reference_sites/ from Modal volume...")
     local_ref = REPO_ROOT / "reference_sites"
     n_files = _download_volume_subtree("/reference_sites", local_ref)

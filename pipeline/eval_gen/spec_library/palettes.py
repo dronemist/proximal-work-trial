@@ -32,6 +32,7 @@ class Palette(TypedDict):
 
 
 PALETTES: list[Palette] = [
+    # ----- Easy baselines (well-known design systems) -----------------------
     {
         "name": "primer-default",
         "source": "GitHub Primer (MIT)",
@@ -56,84 +57,6 @@ PALETTES: list[Palette] = [
             "accent_fg": "#ffffff",
             "success": "#3fb950",
             "danger": "#f85149",
-        },
-    },
-    {
-        "name": "carbon-gray-10",
-        "source": "IBM Carbon (Apache 2.0)",
-        "light": {
-            "bg": "#f4f4f4",
-            "surface": "#ffffff",
-            "fg": "#161616",
-            "fg_muted": "#525252",
-            "border": "#e0e0e0",
-            "accent": "#0f62fe",
-            "accent_fg": "#ffffff",
-            "success": "#198038",
-            "danger": "#da1e28",
-        },
-        "dark": {
-            "bg": "#161616",
-            "surface": "#262626",
-            "fg": "#f4f4f4",
-            "fg_muted": "#a8a8a8",
-            "border": "#393939",
-            "accent": "#4589ff",
-            "accent_fg": "#ffffff",
-            "success": "#42be65",
-            "danger": "#fa4d56",
-        },
-    },
-    {
-        "name": "polaris-cool",
-        "source": "Shopify Polaris (MIT)",
-        "light": {
-            "bg": "#f1f2f4",
-            "surface": "#ffffff",
-            "fg": "#202223",
-            "fg_muted": "#616a72",
-            "border": "#c9cccf",
-            "accent": "#00527c",
-            "accent_fg": "#ffffff",
-            "success": "#007f5f",
-            "danger": "#b03930",
-        },
-        "dark": {
-            "bg": "#1a1c1e",
-            "surface": "#26282b",
-            "fg": "#e3e5e7",
-            "fg_muted": "#a0a3a6",
-            "border": "#3a3d40",
-            "accent": "#4d9ec9",
-            "accent_fg": "#0a1620",
-            "success": "#3aae8a",
-            "danger": "#d57067",
-        },
-    },
-    {
-        "name": "material3-warm",
-        "source": "Material 3 (Apache 2.0) — seeded #6750A4",
-        "light": {
-            "bg": "#fffbfe",
-            "surface": "#f7f2fa",
-            "fg": "#1c1b1f",
-            "fg_muted": "#49454f",
-            "border": "#cac4d0",
-            "accent": "#6750a4",
-            "accent_fg": "#ffffff",
-            "success": "#386a20",
-            "danger": "#b3261e",
-        },
-        "dark": {
-            "bg": "#1c1b1f",
-            "surface": "#2b2930",
-            "fg": "#e6e1e5",
-            "fg_muted": "#cac4d0",
-            "border": "#49454f",
-            "accent": "#d0bcff",
-            "accent_fg": "#371e73",
-            "success": "#b6f397",
-            "danger": "#f2b8b5",
         },
     },
     {
@@ -330,6 +253,142 @@ PALETTES: list[Palette] = [
             "fg_muted": "#cccc88", "border": "#ffff00",
             "accent": "#ff44cc", "accent_fg": "#000000",
             "success": "#44ff88", "danger": "#ff4488",
+        },
+    },
+    # ----- Japanese traditional (wabi-sabi) ---------------------------------
+    {
+        "name": "nippon-wabi",
+        "source": "hand-curated (Japanese traditional colors)",
+        "light": {
+            "bg": "#f5f0e6", "surface": "#faf7f0", "fg": "#2b2421",
+            "fg_muted": "#6c6024", "border": "#d8d0c0",
+            "accent": "#7b90b0", "accent_fg": "#f5f0e6",
+            "success": "#6c6024", "danger": "#a04050",
+        },
+        "dark": {
+            "bg": "#1e1c18", "surface": "#2a2720", "fg": "#e0d8c8",
+            "fg_muted": "#b5a4a4", "border": "#3a362e",
+            "accent": "#94a8c8", "accent_fg": "#1a1816",
+            "success": "#8a8040", "danger": "#c06070",
+        },
+    },
+    # ----- African textile / kente-inspired ---------------------------------
+    {
+        "name": "kente-bold",
+        "source": "hand-curated (African textile-inspired)",
+        "light": {
+            "bg": "#f8f0e0", "surface": "#fffaf0", "fg": "#1a1208",
+            "fg_muted": "#5c4a2e", "border": "#d8c8a0",
+            "accent": "#cc7722", "accent_fg": "#1a1208",
+            "success": "#2e6b40", "danger": "#b83020",
+        },
+        "dark": {
+            "bg": "#141008", "surface": "#221c10", "fg": "#f0e4c8",
+            "fg_muted": "#b8a878", "border": "#3a3018",
+            "accent": "#e89830", "accent_fg": "#141008",
+            "success": "#50a060", "danger": "#e05040",
+        },
+    },
+    # ----- 70s retro earth (avocado + harvest gold) -------------------------
+    {
+        "name": "seventies-earth",
+        "source": "hand-curated (70s retro)",
+        "light": {
+            "bg": "#f4efe0", "surface": "#faf6ea", "fg": "#3a3020",
+            "fg_muted": "#6b6040", "border": "#d4c8a8",
+            "accent": "#6b8e23", "accent_fg": "#faf6ea",
+            "success": "#708238", "danger": "#a0522d",
+        },
+        "dark": {
+            "bg": "#1e1c14", "surface": "#2a2818", "fg": "#e4dcc4",
+            "fg_muted": "#a8a070", "border": "#3d3820",
+            "accent": "#daa520", "accent_fg": "#1a1808",
+            "success": "#8aaa50", "danger": "#c86840",
+        },
+    },
+    # ----- Art deco (black + gold + emerald) --------------------------------
+    {
+        "name": "deco-noir",
+        "source": "hand-curated (art deco)",
+        "light": {
+            "bg": "#f8f6f0", "surface": "#ffffff", "fg": "#1a1a18",
+            "fg_muted": "#50504a", "border": "#c8c4b0",
+            "accent": "#b8860b", "accent_fg": "#1a1a18",
+            "success": "#1a6850", "danger": "#8b0000",
+        },
+        "dark": {
+            "bg": "#0a0a08", "surface": "#181814", "fg": "#e8e4d0",
+            "fg_muted": "#908c78", "border": "#2e2e24",
+            "accent": "#daa520", "accent_fg": "#0a0a08",
+            "success": "#2e9070", "danger": "#c04040",
+        },
+    },
+    # ----- Scandinavian frost (ultra-muted, near-neutral) -------------------
+    {
+        "name": "scandi-frost",
+        "source": "hand-curated (Scandinavian minimal)",
+        "light": {
+            "bg": "#f2f0ed", "surface": "#fafaf8", "fg": "#2a2826",
+            "fg_muted": "#787470", "border": "#dcdad6",
+            "accent": "#6e8898", "accent_fg": "#f2f0ed",
+            "success": "#5a7a68", "danger": "#9a5050",
+        },
+        "dark": {
+            "bg": "#1c1b19", "surface": "#262422", "fg": "#e2e0dc",
+            "fg_muted": "#9a9894", "border": "#3a3836",
+            "accent": "#88a2b4", "accent_fg": "#1c1b19",
+            "success": "#78a088", "danger": "#c07070",
+        },
+    },
+    # ----- Dusty rose + ink (desaturated feminine) --------------------------
+    {
+        "name": "dusty-rose-ink",
+        "source": "hand-curated (desaturated feminine)",
+        "light": {
+            "bg": "#f8f2f0", "surface": "#fffafa", "fg": "#2a1f22",
+            "fg_muted": "#6b5560", "border": "#dcd0d4",
+            "accent": "#b07080", "accent_fg": "#fffafa",
+            "success": "#5a8068", "danger": "#a04048",
+        },
+        "dark": {
+            "bg": "#1e1618", "surface": "#2a2024", "fg": "#e8dce0",
+            "fg_muted": "#a89098", "border": "#3a2e34",
+            "accent": "#d090a0", "accent_fg": "#1e1618",
+            "success": "#78a888", "danger": "#d07078",
+        },
+    },
+    # ----- Ocean + brass (nautical luxury) ----------------------------------
+    {
+        "name": "ocean-brass",
+        "source": "hand-curated (nautical luxury)",
+        "light": {
+            "bg": "#f0f2f6", "surface": "#fafbff", "fg": "#0e1b30",
+            "fg_muted": "#4a5568", "border": "#c8ceda",
+            "accent": "#1a3a5c", "accent_fg": "#f0f2f6",
+            "success": "#2a7050", "danger": "#9a2828",
+        },
+        "dark": {
+            "bg": "#0a1020", "surface": "#141c30", "fg": "#dce0e8",
+            "fg_muted": "#8090a8", "border": "#243040",
+            "accent": "#c0982a", "accent_fg": "#0a1020",
+            "success": "#48a870", "danger": "#d06060",
+        },
+    },
+    # ----- Indigo + coral (warm-cool tension) -------------------------------
+    {
+        "name": "indigo-coral",
+        "source": "hand-curated (warm-cool tension)",
+        "light": {
+            "bg": "#f4f2f8", "surface": "#fdfcff", "fg": "#1a1430",
+            "fg_muted": "#504868", "border": "#d0cce0",
+            "accent": "#e07050", "accent_fg": "#1a1430",
+            "success": "#3a8a58", "danger": "#b03030",
+        },
+        "dark": {
+            "bg": "#12101e", "surface": "#1e1a2e", "fg": "#e4e0f0",
+            "fg_muted": "#9890b0", "border": "#302a48",
+            "accent": "#f09070", "accent_fg": "#12101e",
+            "success": "#60b878", "danger": "#e06060",
         },
     },
 ]

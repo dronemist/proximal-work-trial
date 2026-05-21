@@ -43,7 +43,56 @@ every page on a multi-page website will link to. The stylesheet defines:
    spacing utilities tied to the spacing scale.
 
 CRITICAL CONSTRAINTS:
-- **Target desktop only (1440px).** No mobile/tablet handling required.
+
+**MOBILE-FIRST RESPONSIVE CSS.**
+Write all default styles for mobile (375px). Then progressively enhance:
+  - `@media (min-width: 768px)` — tablet enhancements
+  - `@media (min-width: 1024px)` — desktop enhancements
+
+The golden rule: **default (no media query) CSS must produce a clean,
+non-overflowing layout at 375px wide.** Everything wider is added via
+`min-width` media queries. Never use `max-width` queries.
+
+What this means in practice:
+  - `.container`: `width: 100%; padding-inline: 16px;` by default.
+    At ≥1024px add `max-width: 1280px; margin-inline: auto;`.
+  - `.grid-2`, `.grid-3`, `.grid-4`: `grid-template-columns: 1fr` by
+    default (stacked). At ≥768px: 2 columns. At ≥1024px: full column count.
+  - **Grid overflow prevention (CRITICAL):** Every direct child of a CSS
+    grid container MUST have `min-width: 0`. Without this, grid children
+    default to `min-width: auto` and their content can overflow the track,
+    breaking the layout at narrow viewports. Apply globally:
+    `.grid-2 > *, .grid-3 > *, .grid-4 > * { min-width: 0; }`
+    and on any custom layout grids (e.g., `.split > *`, two-column
+    layouts, sidebar + main). Do NOT use `overflow: hidden` on layout
+    containers — it clips shadows, tooltips, and dropdowns.
+  - `.nav`: horizontal top bar by default (wrapping flex row). If the
+    site's layout grammar calls for a sidebar (dashboards, admin panels),
+    promote to a sticky left sidebar at ≥1024px. The parent must be a
+    flex row so sticky works:
+    ```
+    .app-layout { display: flex; }
+    .nav { position: sticky; top: 0; height: 100vh; overflow-y: auto;
+           width: var(--nav-width); flex-shrink: 0; }
+    .main-content { flex: 1; min-width: 0; }
+    ```
+    NEVER use `position: fixed` — fixed elements do not extend in
+    full-page screenshots and will appear cut off. For non-sidebar
+    sites, keep the nav as a simple top bar at all breakpoints.
+  - `.table-wrap`: set `overflow-x: auto; max-width: 100%;` so tables
+    scroll horizontally without expanding the page body. The inner
+    `.table` may use `min-width` for readability — the wrapper contains it.
+    Use `white-space: nowrap` on `th`/`td` ONLY if the table is inside
+    `.table-wrap`; otherwise let text wrap naturally.
+  - Never set `width`, `min-width`, or `flex-basis` to a fixed px value
+    wider than 100% on layout elements. Use `max-width` + `width: 100%`
+    or percentage-based sizing. Reserve `min-width` for elements INSIDE
+    an `overflow-x: auto` wrapper only.
+  - All flex containers: `flex-wrap: wrap` by default. All flex children
+    that might contain text or tables: `min-width: 0`.
+
+No element in this stylesheet may cause horizontal overflow at 375px.
+
 - HTML+CSS only. NO JavaScript anywhere — no `<script>` tags, no event
   handlers, no JS-driven anything.
 - NO animations or `@keyframes`. Only static `transition` on `:hover` /
