@@ -1,14 +1,14 @@
 """Stage 9 — write a Harbor task directory for one generated site.
 
-Per-site output layout (mirrors tasks/002-lumen-multipage):
+Per-site output layout (mirrors pipeline/task_template):
 
     tasks_generated/smoke/<NN-slug>/
     ├── task.toml
     ├── instruction.md
     ├── environment/
-    │   ├── Dockerfile               (copied verbatim from tasks/002-lumen-multipage)
-    │   ├── entrypoint.sh            (copied verbatim)
-    │   ├── proxy.py                 (copied verbatim)
+    │   ├── Dockerfile               (from pipeline/task_template/environment/)
+    │   ├── entrypoint.sh            (from pipeline/task_template/environment/)
+    │   ├── proxy.py                 (from pipeline/proxy.py)
     │   └── reference/               (per-page screenshots — what the agent sees)
     │       ├── {page}.{viewport}.png ...
     ├── tests/
@@ -16,7 +16,7 @@ Per-site output layout (mirrors tasks/002-lumen-multipage):
     │   ├── metrics.py               (copied verbatim from pipeline/grader/)
     │   ├── anticheat.py             (copied verbatim from pipeline/grader/)
     │   ├── render.py                (copied verbatim from pipeline/render.py)
-    │   ├── test.sh                  (copied verbatim from tasks/002-lumen-multipage/tests/)
+    │   ├── test.sh                  (from pipeline/task_template/tests/)
     │   └── reference_truth/         (ground truth — same PNGs, verifier-only)
     │       ├── {page}.{viewport}.png ...
     ├── solution/
@@ -40,16 +40,14 @@ import tarfile
 from dataclasses import asdict
 from pathlib import Path
 
-from pipeline.eval_gen.config import REPO_ROOT, DEFAULT
+from pipeline.eval_gen.config import DEFAULT
 from pipeline.eval_gen.generator.brand_spec import BrandSpec
 
 
 TEMPLATES_DIR = Path(__file__).resolve().parent / "templates"
 
 # Files copied verbatim from existing pipeline & a reference task.
-# We use 002-lumen-multipage as the template because it's already multi-page.
-GRADER_SRC_FILES = ["grade.py", "metrics.py", "anticheat.py"]
-ENV_SRC_FILES = ["Dockerfile", "entrypoint.sh", "proxy.py"]
+GRADER_SRC_FILES = ["grade.py", "metrics.py", "anticheat.py", "viewports.py"]
 
 
 def _copy_grader_files(target_tests_dir: Path, cfg=DEFAULT) -> None:
@@ -63,18 +61,19 @@ def _copy_grader_files(target_tests_dir: Path, cfg=DEFAULT) -> None:
         shutil.copy(src, target_tests_dir / fname)
     shutil.copy(cfg.render_src_path, target_tests_dir / "render.py")
 
-    # test.sh copied from the existing multipage task — viewport-agnostic
-    # shell wrapper that just invokes the grader.
-    template_test_sh = REPO_ROOT / "tasks" / "002-lumen-multipage" / "tests" / "test.sh"
-    shutil.copy(template_test_sh, target_tests_dir / "test.sh")
+    from pipeline.eval_gen.config import REPO_ROOT as _root
+    task_template = _root / "pipeline" / "task_template"
+    shutil.copy(task_template / "tests" / "test.sh", target_tests_dir / "test.sh")
     (target_tests_dir / "test.sh").chmod(0o755)
 
 
 def _copy_env_files(target_env_dir: Path, cfg=DEFAULT) -> None:
+    from pipeline.eval_gen.config import REPO_ROOT as _root
     target_env_dir.mkdir(parents=True, exist_ok=True)
-    src = cfg.reference_env_template_dir
-    for fname in ENV_SRC_FILES:
-        shutil.copy(src / fname, target_env_dir / fname)
+    env_template = _root / "pipeline" / "task_template" / "environment"
+    for fname in ("Dockerfile", "entrypoint.sh"):
+        shutil.copy(env_template / fname, target_env_dir / fname)
+    shutil.copy(_root / "pipeline" / "proxy.py", target_env_dir / "proxy.py")
     (target_env_dir / "entrypoint.sh").chmod(0o755)
 
 
@@ -96,14 +95,18 @@ def _write_task_toml(
 
 
 def _write_instruction(target_dir: Path, spec: BrandSpec) -> None:
-    template = (TEMPLATES_DIR / "instruction.md.template").read_text()
+    from pipeline.eval_gen.config import REPO_ROOT as _root
+    from pipeline.grader.viewports import VIEWPORTS
+    template = (_root / "pipeline" / "task_template" / "instruction.md.template").read_text()
+    viewport_tags = list(VIEWPORTS.keys())
     n_pages = len(spec.page_list)
     page_listing = "\n".join(
-        f"{p['slug']}.desktop.png" for p in spec.page_list
+        "  ".join(f"{p['slug']}.{vp}.png" for vp in viewport_tags)
+        for p in spec.page_list
     )
     app_listing = "\n".join(f"/app/{p['slug']}.html" for p in spec.page_list)
     text = template.format(
-        n_screenshots=n_pages,
+        n_screenshots=n_pages * len(viewport_tags),
         n_pages=n_pages,
         page_listing=page_listing,
         app_listing=app_listing,
@@ -150,7 +153,7 @@ def _build_solution_tarball(site_dir: Path, page_slugs: list[str]) -> str:
 
 
 def _write_solve_sh(target_dir: Path, b64_payload: str) -> None:
-    """Mirror tasks/002-lumen-multipage/solution/solve.sh format."""
+    """Write oracle solve.sh that extracts reference HTMLs into /app/."""
     content = (
         "#!/bin/bash\n"
         "# Oracle solution: extracts the canonical reference site into /app/.\n"

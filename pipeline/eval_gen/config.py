@@ -11,6 +11,13 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 
 
+def _get_viewports() -> dict[str, tuple[int, int]]:
+    import sys
+    sys.path.insert(0, str(REPO_ROOT / "pipeline" / "grader"))
+    from viewports import VIEWPORTS
+    return dict(VIEWPORTS)
+
+
 @dataclass
 class GenConfig:
     n_tasks: int = 5
@@ -37,20 +44,15 @@ class GenConfig:
     output_root: Path = field(default_factory=lambda: REPO_ROOT / "tasks")
     grader_src_dir: Path = field(default_factory=lambda: REPO_ROOT / "pipeline" / "grader")
     render_src_path: Path = field(default_factory=lambda: REPO_ROOT / "pipeline" / "render.py")
-    reference_env_template_dir: Path = field(
-        default_factory=lambda: REPO_ROOT / "tasks" / "002-lumen-multipage" / "environment"
+    task_template_dir: Path = field(
+        default_factory=lambda: REPO_ROOT / "pipeline" / "task_template"
     )
 
-    # Stage 5 — render validation viewports. Match existing
-    # pipeline/grader/grade.py VIEWPORTS exactly so the generated tasks reuse
-    # the shipped grader unchanged.
-    # Desktop-only smoke (R12) — responsive references unreliable; mobile/tablet
-    # references degraded the RL gradient. Re-enable per-viewport for pilot
-    # only after the reference generator can produce responsive output reliably.
+    # Stage 5 — render validation viewports. Imported from the canonical
+    # source in pipeline/grader/viewports.py so grader, build_task, scaffold,
+    # and eval_gen all agree.
     viewports: dict[str, tuple[int, int]] = field(
-        default_factory=lambda: {
-            "desktop": (1440, 900),
-        }
+        default_factory=lambda: _get_viewports()
     )
 
     # Stage 5 structural floor
