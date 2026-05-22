@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Practice settings · Quartz Grove Lab</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .clinic-head {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px; align-items: center;
+  }
+  .clinic-head .title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+  .clinic-head .stats { display: flex; gap: 16px; flex-wrap: wrap; }
+  .clinic-head .stat-mini { padding: 0 16px; border-right: 1px solid var(--border); }
+  .clinic-head .stat-mini:last-child { border-right: 0; }
+  .clinic-head .stat-mini .l { font-size: 10px; text-transform: uppercase; color: var(--text-3); letter-spacing: .06em; font-weight: 600; }
+  .clinic-head .stat-mini .v { font-size: 18px; font-weight: 700; }
+
+  .day-hours { display: grid; grid-template-columns: 90px 1fr auto; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .day-hours:last-child { border-bottom: 0; }
+
+  .settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--border); }
+  .settings-row:first-child { border-top: 0; }
+  .settings-row .info { flex: 1; }
+  .settings-row .info .name { font-weight: 600; font-size: 13px; }
+  .settings-row .info .desc { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+
+  .integration {
+    display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center;
+    padding: 12px; border: 1px solid var(--border); border-radius: 8px;
+  }
+  .integration .icon { width: 36px; height: 36px; border-radius: 8px; background: #eef2ff; display: flex; align-items: center; justify-content: center; color: var(--primary-700); font-weight: 700; font-size: 12px; }
+  .integration .name { font-weight: 600; font-size: 13px; }
+  .integration .desc { font-size: 11px; color: var(--text-3); margin-top: 2px; }
+
+  .archive-banner {
+    background: #f9fafb; border: 1px dashed var(--border-strong); border-radius: 12px;
+    padding: 22px; text-align: center;
+  }
+
+  .key-pill {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    background: #f3f4f6; border: 1px solid var(--border);
+    border-radius: 6px; padding: 4px 8px; font-size: 12px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <span class="brand"><span class="brand-mark"></span>Quartz Grove Lab</span>
+    <nav class="primary-nav">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html" class="active">Settings</a>
+    </nav>
+    <div class="search">Search settings…</div>
+    <span class="avatar">RV</span>
+  </div>
+</header>
+
+<main class="container page">
+
+  <div class="clinic-head mb-16">
+    <div style="flex:1;min-width:280px;">
+      <div class="eyebrow">PRACTICE SETTINGS · ADMINISTRATOR</div>
+      <div class="title">Quartz Grove Family Clinic</div>
+      <div class="text-sm muted mt-4">Tend to clinic details, hours, billing, and the way care teams talk. Most changes save automatically — just a soft confirmation toast to let you know.</div>
+      <div class="row gap-8 mt-12">
+        <span class="badge badge-blue badge-dot">All systems healthy</span>
+        <span class="badge badge-gray">Plan: Practice Pro</span>
+        <span class="badge badge-green">Audit ready</span>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat-mini"><div class="l">Staff seats</div><div class="v">7</div></div>
+      <div class="stat-mini"><div class="l">Locations</div><div class="v">14</div></div>
+      <div class="stat-mini"><div class="l">Integrations</div><div class="v">9 connected</div></div>
+      <div class="stat-mini"><div class="l">Uptime · 30 d</div><div class="v">99.97 %</div></div>
+    </div>
+    <div>
+      <button class="btn btn-primary">+</button>
+    </div>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-7">
+      <div class="card-header">
+        <h3>Clinic profile</h3>
+        <button class="btn-link text-sm">Edit details</button>
+      </div>
+      <div class="card-body">
+        <div class="grid cols-2 gap-12">
+          <div class="field-row"><label class="field">Display name</label><input class="input" value="Quartz Grove Family Clinic"></div>
+          <div class="field-row"><label class="field">Legal name</label><input class="input" value="Quartz Grove Health PLLC"></div>
+          <div class="field-row"><label class="field">NPI / Tax ID</label><input class="input" value="1144-220-8821 · EIN 80-5566"></div>
+          <div class="field-row"><label class="field">Phone</label><input class="input" value="(503) 555-0140"></div>
+          <div class="field-row" style="grid-column: span 2;"><label class="field">Primary address</label><input class="input" value="1240 Linden Way, Suite 204, Portland OR"></div>
+          <div class="field-row"><label class="field">State / region</label><select class="input"><option>North Carolina</option></select></div>
+          <div class="field-row"><label class="field">Time zone</label><select class="input"><option>(GMT –5:00) US · Eastern</option></select></div>
+          <div class="field-row" style="grid-column: span 2;"><label class="field">Patient-facing description</label><textarea class="input" rows="3">Independent family medicine clinic serving Linden Hills and East Portland for 14 years. Wheelchair accessible, on-site phlebotomy.</textarea></div>
+        </div>
+        <div class="row mt-12">
+          <span class="text-xs muted">Last edited Sep 28 by Mara Ellsworth</span>
+          <button class="btn btn-primary right">Save</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card col-span-5">
+      <div class="card-header">
+        <h3>Operating hours</h3>
+        <button class="btn-link text-sm">Holidays</button>
+      </div>
+      <div class="card-body">
+        <div class="day-hours"><span class="fw-600">Mon</span><input class="input" value="8:00 AM – 6:00 PM"><span class="toggle on"></span></div>
+        <div class="day-hours"><span class="fw-600">Tue</span><input class="input" value="8:00 AM – 6:00 PM"><span class="toggle on"></span></div>
+        <div class="day-hours"><span class="fw-600">Wed</span><input class="input" value="8:00 AM – 7:00 PM"><span class="toggle on"></span></div>
+        <div class="day-hours"><span class="fw-600">Thu</span><input class="input" value="8:00 AM – 6:00 PM"><span class="toggle on"></span></div>
+        <div class="day-hours"><span class="fw-600">Fri</span><input class="input" value="8:00 AM – 4:00 PM"><span class="toggle on"></span></div>
+        <div class="day-hours"><span class="fw-600">Sat</span><input class="input" value="9:00 AM – 12:00 PM"><span class="toggle on"></span></div>
+        <div class="day-hours"><span class="fw-600">Sun</span><input class="input" value="Closed" disabled><span class="toggle"></span></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-7">
+      <div class="card-header">
+        <h3>Notification preferences</h3>
+        <div class="row gap-8"><span class="badge badge-gray">SMS</span><span class="badge badge-gray">Email</span><span class="badge badge-blue">Push</span></div>
+      </div>
+      <div>
+        <div class="settings-row"><div class="info"><div class="name">New booking</div><div class="desc">Alert staff Slack channel when a new appointment is created.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">Appointment reminders</div><div class="desc">SMS reminder 48 hr before, then email morning of.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">No-show follow-up</div><div class="desc">Auto-message patients after a missed visit with rescheduling link.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">Statement &amp; balance alerts</div><div class="desc">Patients with balances over $250 get a statement notice each month.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">Lab results ready</div><div class="desc">Notify patients via portal when results are signed off.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">Marketing &amp; wellness tips</div><div class="desc">Monthly newsletter; double opt-in required.</div></div><span class="toggle"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">Staff daily digest</div><div class="desc">Morning summary of arrivals, holds, and unfinished notes.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">After-hours triage</div><div class="desc">Forward critical SMS to on-call clinician between 7 PM – 8 AM.</div></div><span class="toggle on"></span></div>
+      </div>
+    </section>
+
+    <section class="card col-span-5">
+      <div class="card-header">
+        <h3>Team &amp; roles</h3>
+        <button class="btn-link text-sm">+ Invite teammate</button>
+      </div>
+      <div>
+        <div class="settings-row"><div class="info row gap-8"><span class="av">SW</span><div><div class="name">Dr. Vasanti Wei</div><div class="desc">Owner · admin</div></div></div><span class="badge badge-blue">Admin</span></div>
+        <div class="settings-row"><div class="info row gap-8"><span class="av">IC</span><div><div class="name">Dr. Idris Cuellar</div><div class="desc">Clinician · scheduling</div></div></div><span class="badge badge-green">Clinician</span></div>
+        <div class="settings-row"><div class="info row gap-8"><span class="av">RV</span><div><div class="name">Renata Voss</div><div class="desc">Front office</div></div></div><span class="badge badge-purple">Manager</span></div>
+        <div class="settings-row"><div class="info row gap-8"><span class="av">ME</span><div><div class="name">Mara Ellsworth</div><div class="desc">Billing &amp; AR</div></div></div><span class="badge badge-amber">Billing</span></div>
+        <div class="settings-row"><div class="info row gap-8"><span class="av">HP</span><div><div class="name">Hana Petrov, NP</div><div class="desc">Pediatrics</div></div></div><span class="badge badge-green">Clinician</span></div>
+        <div class="settings-row"><div class="info row gap-8"><span class="av">AB</span><div><div class="name">Aaliyah Brooks, RN</div><div class="desc">Care coordinator</div></div></div><span class="badge badge-green">Clinician</span></div>
+        <div class="settings-row"><div class="info row gap-8"><span class="av">LO</span><div><div class="name">Luna Owusu</div><div class="desc">Intake · part-time</div></div></div><span class="badge badge-gray">Staff</span></div>
+      </div>
+    </section>
+  </div>
+
+  <section class="card mb-16">
+    <div class="card-header">
+      <h3>Integrations</h3>
+      <div class="row gap-8">
+        <span class="badge badge-gray">9 connected</span>
+        <button class="btn-link text-sm">Browse marketplace</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="grid cols-3 gap-12">
+        <div class="integration"><div class="icon">QB</div><div><div class="name">Quartz e-Prescribing</div><div class="desc">EPCS-certified prescriptions.</div></div><span class="badge badge-green">Connected</span></div>
+        <div class="integration"><div class="icon">SD</div><div><div class="name">Spot Diagnostics</div><div class="desc">Imaging orders &amp; results.</div></div><span class="badge badge-green">Connected</span></div>
+        <div class="integration"><div class="icon">AT</div><div><div class="name">Acalla Telehealth</div><div class="desc">HIPAA video visits.</div></div><span class="badge badge-green">Connected</span></div>
+        <div class="integration"><div class="icon">SU</div><div><div class="name">Stripe</div><div class="desc">Card payments + ACH.</div></div><span class="badge badge-green">Connected</span></div>
+        <div class="integration"><div class="icon">PR</div><div><div class="name">Practice Reach</div><div class="desc">SMS + voice reminders.</div></div><span class="badge badge-green">Connected</span></div>
+        <div class="integration"><div class="icon">DR</div><div><div class="name">DrChrono Labs</div><div class="desc">Bidirectional lab interface.</div></div><span class="badge badge-amber">Needs review</span></div>
+        <div class="integration"><div class="icon">PG</div><div><div class="name">Postmark Email</div><div class="desc">Transactional email.</div></div><span class="badge badge-green">Connected</span></div>
+        <div class="integration"><div class="icon">GS</div><div><div class="name">Google Workspace</div><div class="desc">SSO &amp; calendar.</div></div><span class="badge badge-green">Connected</span></div>
+        <div class="integration"><div class="icon">SL</div><div><div class="name">Acmehyt for nonprofits</div><div class="desc">Sliding-fee program export.</div></div><span class="badge badge-blue">Available</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-5">
+      <div class="card-header">
+        <h3>Branding</h3>
+        <span class="text-xs muted">Used in patient communications and portal</span>
+      </div>
+      <div class="card-body">
+        <div class="grid cols-2 gap-12">
+          <div>
+            <div class="field-row"><label class="field">Practice logo</label>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:60px;height:60px;border-radius:10px;background:#dbeafe;display:flex;align-items:center;justify-content:center;color:var(--primary-700);font-weight:700;">QG</div>
+                <button class="btn btn-sm">Upload</button>
+              </div>
+            </div>
+            <div class="field-row mt-12"><label class="field">Primary color</label><input class="input" value="#2563eb"></div>
+            <div class="field-row mt-12"><label class="field">Accent</label><input class="input" value="Soft sand"></div>
+          </div>
+          <div>
+            <div class="field-row"><label class="field">Reply-to email</label><input class="input" value="hello@quartzgrove.com"></div>
+            <div class="field-row mt-12"><label class="field">Voicemail script</label><textarea class="input" rows="5">Thank you for calling Quartz Grove Family Clinic. We're with another patient — please leave a name, callback number, and a brief reason. Press 1 for the nurse line.</textarea></div>
+          </div>
+        </div>
+        <div class="banner banner-blue mt-12">
+          <div>
+            <strong>Preview your portal view</strong>
+            <div class="text-xs">See exactly what a patient sees when they sign in.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card col-span-7">
+      <div class="card-header">
+        <h3>Patient portal</h3>
+        <button class="btn-link text-sm">Preview portal</button>
+      </div>
+      <div>
+        <div class="settings-row"><div class="info"><div class="name">Online self-scheduling</div><div class="desc">New patients can book directly into approved slot types.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">Direct message clinicians</div><div class="desc">48 hr response SLA; routes through care coordinator first.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">View immunization records</div><div class="desc">Pull from state registry on first sign-in.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">View account balances</div><div class="desc">Statement breakdowns and current payment plans.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">Pre-visit questionnaires</div><div class="desc">Send a forms packet 72 hr before each appointment.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">Family proxy access</div><div class="desc">Caregivers and guardians of pediatric patients.</div></div><span class="toggle on"></span></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-7">
+      <div class="card-header"><h3>Security &amp; compliance</h3><span class="badge badge-green">Audit ready</span></div>
+      <div>
+        <div class="settings-row"><div class="info"><div class="name">Require multi-factor sign-in</div><div class="desc">All teammates need a second factor at log-on.</div></div><span class="toggle on"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">Audit log retention</div><div class="desc">Months to retain administrative event log entries.</div></div><select class="input" style="width:140px"><option>36 months</option></select></div>
+        <div class="settings-row"><div class="info"><div class="name">IP allowlist</div><div class="desc">Limit admin actions to known networks.</div></div><span class="toggle"></span></div>
+        <div class="settings-row"><div class="info"><div class="name">Session timeout</div><div class="desc">Sign clinicians out after idle minutes.</div></div><select class="input" style="width:100px"><option>15 min</option></select></div>
+        <div class="settings-row"><div class="info"><div class="name">Patient export approval</div><div class="desc">Require admin sign-off on bulk PHI downloads.</div></div><span class="toggle on"></span></div>
+      </div>
+    </section>
+
+    <section class="card col-span-5">
+      <div class="card-header"><h3>API &amp; webhooks</h3><button class="btn-link text-sm">+ Add endpoint</button></div>
+      <div class="card-body">
+        <div class="field-row"><label class="field">Live key (read-only)</label>
+          <div class="row gap-8"><span class="key-pill">qgl_live_a1b2_c3d4_e5f6_g7h8</span><button class="btn btn-sm">Copy</button></div>
+        </div>
+        <div class="field-row mt-12"><label class="field">Webhook endpoint</label><input class="input" value="https://hooks.quartzgrove.health/v2/events"></div>
+        <div class="field-row mt-12"><label class="field">Subscribed events</label>
+          <div class="row gap-8" style="flex-wrap:wrap"><span class="badge badge-blue">appointment.created</span><span class="badge badge-blue">payment.received</span><span class="badge badge-blue">message.replied</span><span class="badge badge-gray">+ 3 more</span></div>
+        </div>
+        <div class="banner banner-gray mt-12 text-xs">
+          <div><strong>Latency · 7 d</strong><div>Median 124 ms · 0 failed deliveries.</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-7">
+      <div class="card-header"><h3>Recent activity</h3><button class="btn-link text-sm">View audit log</button></div>
+      <div class="card-body" style="font-size:13px;">
+        <ul class="timeline" style="padding:0;">
+          <li><div class="when">Today · 9 :05 AM</div><div class="what">Vasanti Wei enabled MFA enforcement</div><div class="desc">Affects 7 teammates · grace period 7 days.</div></li>
+          <li><div class="when">Today · 8 :14 AM</div><div class="what">Mara Ellsworth ran nightly billing batch</div><div class="desc">42 claims sent · 1 hold for review.</div></li>
+          <li><div class="when">Yesterday</div><div class="what">Luna Owusu added new appointment type</div><div class="desc">"Pediatric well, 45 min" available for booking.</div></li>
+          <li><div class="when">Oct 12</div><div class="what">Renata Voss invited new teammate</div><div class="desc">Sarah Whitford · clinician, accepted.</div></li>
+          <li><div class="when">Oct 10</div><div class="what">Updated voicemail script</div><div class="desc">Reviewed by Hana Petrov.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card col-span-5">
+      <div class="card-header"><h3>Plan &amp; billing</h3><button class="btn-link text-sm">Manage plan</button></div>
+      <div class="card-body">
+        <div class="text-xs muted">Current plan</div>
+        <div class="fw-700 text-xl">Practice Pro</div>
+        <div class="text-xs muted">7 of 10 seats used · billed monthly</div>
+        <div class="row between mt-12 fw-700 text-2xl"><span>$486.00</span><span class="text-xs muted">/ month</span></div>
+        <div class="text-xs muted">Next invoice Oct 31 · Visa • 4129</div>
+        <div class="row mt-12 gap-8">
+          <button class="btn">Download invoice</button>
+          <button class="btn btn-soft">Add seats</button>
+        </div>
+        <div class="row between mt-12 text-sm" style="padding-top:8px;border-top:1px solid var(--border)"><span>Estimated next charge</span><span class="fw-600">$486.00</span></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-7">
+      <div class="card-header"><h3>Helpful answers</h3></div>
+      <div class="card-body" style="display:flex;flex-direction:column;gap:8px;">
+        <div class="faq-item" style="font-weight:600;">How do I add a new provider to the schedule?</div>
+        <div class="faq-item">Can I customize patient intake forms?</div>
+        <div class="faq-item">How is patient data protected at rest?</div>
+        <div class="faq-item">What happens when an integration disconnects?</div>
+        <div class="faq-item">Where does pricing for new seats land?</div>
+      </div>
+    </section>
+
+    <section class="card col-span-5">
+      <div class="card-header"><h3>Archived locations</h3></div>
+      <div class="card-body">
+        <div class="archive-banner">
+          <div class="fw-600">Nothing in the archive</div>
+          <div class="text-xs muted mt-4">Archived locations stay available for billing &amp; audit. We'll list them here once you retire one.</div>
+          <button class="btn mt-12">Browse settings</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="card mb-16" style="border-color: #fecaca; background: #fef2f2;">
+    <div class="card-body">
+      <div class="row between">
+        <div>
+          <div class="fw-700" style="color:#991b1b">Careful, stop steps</div>
+          <div class="text-xs" style="color:#7f1d1d">Heavy actions that require an admin and may affect billing or compliance.</div>
+        </div>
+      </div>
+      <div class="grid cols-2 gap-12 mt-12">
+        <div class="settings-row" style="background:#fff;border:1px solid #fecaca;border-radius:8px;">
+          <div class="info">
+            <div class="name">Export the practice archive</div>
+            <div class="desc">Ten-year complete records as encrypted ZIP. Counts against your monthly export allowance.</div>
+          </div>
+          <button class="btn">Start export</button>
+        </div>
+        <div class="settings-row" style="background:#fff;border:1px solid #fecaca;border-radius:8px;">
+          <div class="info">
+            <div class="name">Close the practice</div>
+            <div class="desc">Cancel subscription, freeze new bookings, schedule data hand-off to patients.</div>
+          </div>
+          <button class="btn" style="color:#b91c1c;border-color:#fecaca;">Begin process</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© 2024 Quartz Grove Lab</span>
+    <nav class="footer-nav">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <span class="support">Support: care@quartzgrove.health · HIPAA-compliant</span>
+  </div>
+</footer>
+
+</body>
+</html>

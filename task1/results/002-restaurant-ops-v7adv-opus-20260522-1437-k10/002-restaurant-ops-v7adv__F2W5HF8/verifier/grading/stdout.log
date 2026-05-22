@@ -1,0 +1,176 @@
+[grade] VLM judge: 15 pairs in 10.8s
+{
+  "per_page_viewport": {
+    "discounts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.5937815196358818,
+          "extra": {
+            "reference_size": [
+              1440,
+              3780
+            ],
+            "candidate_size": [
+              1440,
+              3003
+            ],
+            "compared_size": [
+              1440,
+              3003
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.48261600732803345,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.23291821777820587,
+            "raw_score_before_sqrt": 0.23291820287704468
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8626679270794686,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.13733207292053135,
+            "page_diagonal_px": 4089.84414460958
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.6387757609287897,
+          "extra": {
+            "bg_score": 0.5242730279763539,
+            "fg_score": 0.7532784938812256,
+            "bg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 6,
+              "weighted_mean_oklab_distance": 0.0713590458035469,
+              "base_score_before_penalty": 0.5242730279763539,
+              "over_color_penalty": 0.0
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.03700822591781616,
+              "base_score_before_penalty": 0.7532784938812256,
+              "over_color_penalty": 0.0
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.8948993414258086,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.8498562020368696,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                12.0,
+                0.2802197802197802
+              ],
+              [
+                14.0,
+                0.6611721611721612
+              ],
+              [
+                15.0,
+                0.027472527472527472
+              ],
+              [
+                28.0,
+                0.01282051282051282
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.1225
+              ],
+              [
+                11.0,
+                0.135
+              ],
+              [
+                12.0,
+                0.615
+              ],
+              [
+                13.0,
+                0.1
+              ],
+              [
+                18.0,
+                0.01
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "ui-monospace"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.42452830188679247,
+          "extra": {
+            "reference_tokens": 811,
+            "candidate_tokens": 699,
+            "matched_tokens": 450,
+            "union_tokens": 1060,
+            "reference_unique": 367,
+            "candidate_unique": 363
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "The candidate halluccinates different discount codes (SMASHTRIO, RESTLITHC, ELEVENSEC, FORGE10, REPRINT-CARRY, etc.) versus the reference codes (INDUSTRY20, OYSTERHOUR, FAMILY15, RESTAURANT_WK, FIRST10, BIRTHDAY, CORK24, STAGEHAND, REOPEN, HARVEST, LUNCHRUN), fabricates different top performers and ",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 7.28
+          }
+        },
+        "_structured": 0.6082623263218637,
+        "_overflow_factor": 1.0,
+        "_composite": 0.3
+      },
+      "mobile": {
+        "ssim": {

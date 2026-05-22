@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reservations — Forge Foundry</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="brand-mark"></span>Forge Foundry</div>
+  <nav class="nav">
+    <a>Live Orders</a>
+    <a>Sales Reports</a>
+    <a>Promotions</a>
+    <a>Staff Schedule</a>
+    <a class="active">Reservations</a>
+  </nav>
+  <div class="top-right">
+    <span class="hide-mobile"><span class="dot"></span> SYNC OK</span>
+    <span class="hide-tablet">FRI · OCT 18</span>
+    <span>RT · 2024</span>
+  </div>
+</header>
+
+<main class="page">
+
+  <div class="crumbs">
+    <span>FRONT</span><span class="sep">/</span><span class="cur">TONIGHT</span>
+  </div>
+
+  <section class="hero">
+    <h1>Tonight's book, sorted by<br>who walks in next.</h1>
+    <p>Floor managers see covers due, party sizes, dietary notes, and table holds in one screen. Confirmations and no-show flags update live and the guest channel in real time — no separate tab, no second screen.</p>
+    <div class="hero-meta">
+      <span>SERVICE · DINNER · FRI OCT 18, 2024</span>
+      <span class="accent">142 COVERS BOOKED</span>
+      <span>27 ON WAITLIST</span>
+    </div>
+  </section>
+
+  <!-- KPI Strip -->
+  <section class="grid grid-4">
+    <div class="kpi">
+      <div class="label">COVERS BOOKED</div>
+      <div class="value">142</div>
+      <div class="sub"><span class="up">▲ 8</span><span>vs. last Fri.</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">SEATED</div>
+      <div class="value">36</div>
+      <div class="sub"><span>of 142</span><span class="accent">25%</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">% OF CAPACITY</div>
+      <div class="value">14</div>
+      <div class="sub"><span>open slots remaining</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">NO-SHOW RISK</div>
+      <div class="value">4.2%</div>
+      <div class="sub"><span class="down">▼ 0.8%</span><span>vs. forecast</span></div>
+    </div>
+  </section>
+
+  <!-- Slot density strip -->
+  <section class="grid mt-14" style="grid-template-columns: repeat(6, minmax(0,1fr));">
+    <div class="kpi">
+      <div class="label">17:30</div>
+      <div class="value" style="font-size:18px;">38</div>
+      <div class="bar thin mt-8"><span style="width:64%"></span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">18:00</div>
+      <div class="value" style="font-size:18px;">61</div>
+      <div class="bar thin mt-8"><span style="width:78%"></span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">18:30</div>
+      <div class="value" style="font-size:18px;">94</div>
+      <div class="bar thin mt-8"><span style="width:88%"></span></div>
+    </div>
+    <div class="kpi" style="border-color:var(--accent);">
+      <div class="label" style="color:var(--accent-2);">19:00</div>
+      <div class="value" style="font-size:18px;color:var(--accent-2);">142</div>
+      <div class="bar thin mt-8"><span style="width:100%"></span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">19:30</div>
+      <div class="value" style="font-size:18px;">196</div>
+      <div class="bar thin mt-8"><span style="width:96%"></span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">20:00</div>
+      <div class="value" style="font-size:18px;">214</div>
+      <div class="bar thin mt-8"><span style="width:90%"></span></div>
+    </div>
+  </section>
+
+  <!-- Booking tiers -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Booking tiers in effect tonight</h2>
+      <div class="meta"><span>FOUR ACTIVE BAND DEFINITIONS · MOVING AS SERVICE CONFIRMS</span></div>
+    </div>
+
+    <div class="grid grid-4">
+
+      <div class="tier-card">
+        <div class="tier-eyebrow"><span>BAND 01</span><span class="pill green">Counter</span></div>
+        <div class="tier-name">Counter</div>
+        <p class="muted small">Bar &amp; counter seats. No deposit, no SMS confirm. Hold collapses 15 min after arrival window.</p>
+        <div class="kv"><span class="k">Hold</span><span class="v">15 min</span></div>
+        <div class="kv"><span class="k">Cover cap</span><span class="v">2</span></div>
+        <div class="kv"><span class="k">Deposit</span><span class="v">$0</span></div>
+        <div class="kv"><span class="k">Live tonight</span><span class="v accent">14 covers</span></div>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-eyebrow"><span>BAND 02</span><span class="pill blue">Standard</span></div>
+        <div class="tier-name">Standard</div>
+        <p class="muted small">Dining floor with SMS-confirm window. SMS-confirm 24h prior. Auto-release after 12 min.</p>
+        <div class="kv"><span class="k">Hold</span><span class="v">12 min</span></div>
+        <div class="kv"><span class="k">Cover cap</span><span class="v">8</span></div>
+        <div class="kv"><span class="k">Deposit</span><span class="v">$0</span></div>
+        <div class="kv"><span class="k">Live tonight</span><span class="v accent">88 covers</span></div>
+      </div>
+
+      <div class="tier-card featured">
+        <div class="tier-eyebrow"><span>BAND 03</span><span class="pill solid">Prime</span></div>
+        <div class="tier-name">Prime</div>
+        <p class="muted small">Holds windows above 19:00. Deposit, confirms 48h, hand-off to floor manager. No re-seat after 8 min.</p>
+        <div class="kv"><span class="k">Hold</span><span class="v">8 min</span></div>
+        <div class="kv"><span class="k">Cover cap</span><span class="v">8</span></div>
+        <div class="kv"><span class="k">Deposit</span><span class="v">$25 / cover</span></div>
+        <div class="kv"><span class="k">Live tonight</span><span class="v accent">36 covers</span></div>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-eyebrow"><span>BAND 04</span><span class="pill outline-accent">Private</span></div>
+        <div class="tier-name">Private</div>
+        <p class="muted small">The single chef's table for tonight. Tasting menu confirmed at booking. No-show fee charged at door close.</p>
+        <div class="kv"><span class="k">Hold</span><span class="v">—</span></div>
+        <div class="kv"><span class="k">Cover cap</span><span class="v">10</span></div>
+        <div class="kv"><span class="k">Deposit</span><span class="v">$120 / guest</span></div>
+        <div class="kv"><span class="k">Live tonight</span><span class="v accent">4 covers</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming reservations -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Upcoming reservations</h2>
+      <div class="meta"><span>SORTED BY ARRIVAL · TONIGHT, 30 MIN AHEAD</span></div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-tools">
+        <div class="seg">
+          <span class="on">ALL · 142</span><span>SEATED · 36</span><span>WAITLIST · 14</span><span>NO-SHOW · 6</span>
+        </div>
+        <div class="field">Search by name or party</div>
+        <div class="spacer"></div>
+        <button class="btn primary sm">+ New booking</button>
+      </div>
+
+      <div style="padding:8px 12px;display:flex;gap:6px;border-bottom:1px solid var(--border-soft);background:var(--panel-2);flex-wrap:wrap;">
+        <span class="pill soft-accent">Confirmed</span>
+        <span class="pill amber">Holding</span>
+        <span class="pill green">Seated</span>
+        <span class="pill red">Pending</span>
+      </div>
+
+      <div>
+        <div class="res-slot">
+          <div class="time">18:30</div>
+          <div>
+            <div class="who">Alina Marchetti <span class="muted mono small">· 2 guests</span></div>
+            <div class="note">Standard · arr. window 18:25–18:38 · no dietary notes on file</div>
+          </div>
+          <div class="right"><span class="pill green">Seated</span><button class="btn xs">Hold</button></div>
+        </div>
+        <div class="res-slot">
+          <div class="time">18:45</div>
+          <div>
+            <div class="who">Devon Park <span class="muted mono small">· 2 guests</span></div>
+            <div class="note">Standard · birthday in dessert · "Easy, low-cal special"</div>
+          </div>
+          <div class="right"><span class="pill green">Seated</span><button class="btn xs">Hold</button></div>
+        </div>
+        <div class="res-slot">
+          <div class="time">19:00</div>
+          <div>
+            <div class="who">Hofstetter, party of 4 <span class="muted mono small">· 4 guests</span></div>
+            <div class="note">Prime · deposit confirmed · "Two granddads, two toddlers"</div>
+          </div>
+          <div class="right"><span class="pill soft-accent">Confirmed</span></div>
+        </div>
+        <div class="res-slot">
+          <div class="time">19:00</div>
+          <div>
+            <div class="who">Tobi Townes <span class="muted mono small">· 5 guests</span></div>
+            <div class="note">Prime · "celebration dinner — no candles"</div>
+          </div>
+          <div class="right"><span class="pill soft-accent">Confirmed</span><button class="btn xs">Move</button></div>
+        </div>
+        <div class="res-slot">
+          <div class="time">19:15</div>
+          <div>
+            <div class="who">Sacha Konstas <span class="muted mono small">· 6 guests</span></div>
+            <div class="note">Prime · vegetarian options — open kitchen</div>
+          </div>
+          <div class="right"><span class="pill soft-accent">Confirmed</span></div>
+        </div>
+        <div class="res-slot">
+          <div class="time">19:30</div>
+          <div>
+            <div class="who">Ramos / Yeo <span class="muted mono small">· 2 guests</span></div>
+            <div class="note">Standard · returning, server: Eva. seat upstairs</div>
+          </div>
+          <div class="right"><span class="pill amber">Holding</span><button class="btn xs">Bar wait</button></div>
+        </div>
+        <div class="res-slot">
+          <div class="time">19:30</div>
+          <div>
+            <div class="who">Yaki Franklin <span class="muted mono small">· 4 guests</span></div>
+            <div class="note">Prime · no shellfish · "First time visit · suggest tasting"</div>
+          </div>
+          <div class="right"><span class="pill soft-accent">Confirmed</span><button class="btn xs">Note</button></div>
+        </div>
+        <div class="res-slot">
+          <div class="time">19:45</div>
+          <div>
+            <div class="who">Bronson Volt <span class="muted mono small">· 2 guests</span></div>
+            <div class="note">Standard · counter only · drink, no kitchen</div>
+          </div>
+          <div class="right"><span class="pill green">Seated</span></div>
+        </div>
+        <div class="res-slot">
+          <div class="time">20:00</div>
+          <div>
+            <div class="who">Okafor, party of 6 <span class="muted mono small">· 6 guests</span></div>
+            <div class="note">Prime · pre-paid deposit, $30 per guest</div>
+          </div>
+          <div class="right"><span class="pill soft-accent">Confirmed</span></div>
+        </div>
+        <div class="res-slot">
+          <div class="time">20:30</div>
+          <div>
+            <div class="who">Linnea Sjoberg <span class="muted mono small">· 4 guests</span></div>
+            <div class="note">Standard · regular · "table 12, please"</div>
+          </div>
+          <div class="right"><span class="pill soft-accent">Confirmed</span></div>
+        </div>
+      </div>
+      <div class="table-foot">
+        <span>Showing 1–10 of 24 booked</span>
+        <div class="pager"><span class="pg">‹</span><span class="pg on">1</span><span class="pg">2</span><span class="pg">3</span><span class="pg">›</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tier behaviour side by side -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Tier behaviour, side by side</h2>
+      <div class="meta"><span>BAND DEFINITIONS ARE INSTANTLY SWAPPABLE IF AN INCOMING PARTY ESCALATES</span></div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table class="table">
+          <thead><tr><th></th><th>COUNTER</th><th>STANDARD</th><th>PRIME</th><th>PRIVATE</th></tr></thead>
+          <tbody>
+            <tr><td>Hold window after booking time</td><td>None</td><td>12 min</td><td>8 min</td><td class="muted">—</td></tr>
+            <tr><td>Maximum party size</td><td class="mono">2</td><td class="mono">8</td><td class="mono">8</td><td class="mono">10</td></tr>
+            <tr><td>Deposit / card auth</td><td class="muted">None</td><td class="muted">None</td><td class="mono">$25 / cover</td><td class="mono">Tasting prepaid</td></tr>
+            <tr><td>No-show charge</td><td class="muted">—</td><td class="muted">—</td><td>50%</td><td>100%</td></tr>
+            <tr><td>SMS confirmation thread</td><td>Opt-in</td><td>Required</td><td>Required (48h)</td><td>Concierge thread</td></tr>
+            <tr><td>Cancel cutoff</td><td>Walk-in</td><td>2 hr</td><td>4 hr</td><td>24 hr</td></tr>
+            <tr><td>Kitchen brief generated</td><td class="muted">—</td><td class="muted">—</td><td>Yes</td><td>Yes, plus chef notes</td></tr>
+            <tr><td>Allowed booking channels</td><td>Walk-in, web</td><td>Web, phone</td><td>Web, phone, concierge</td><td>Concierge</td></tr>
+            <tr><td>Plan tier required</td><td>Counter</td><td>Standard</td><td>Concept</td><td>Custom</td></tr>
+            <tr><td>Tonight's utilisation</td><td>6 / 14</td><td>88 / 110</td><td>36 / 36</td><td>4 / 10</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floor map & notes -->
+  <section class="section">
+    <div class="grid" style="grid-template-columns: 1.4fr 1fr;">
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-eyebrow">FLOOR · 19:00</div>
+            <h3 style="margin-top:4px;">Floor · 19:00</h3>
+          </div>
+          <div class="seg"><span>Dining</span><span class="on">Counter</span><span>Patio</span></div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;font-size:10.5px;">
+          <div style="background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:6px;padding:10px;color:var(--accent-2);">T1<br><span class="muted mono">19:00 · 2g</span></div>
+          <div style="background:var(--panel-hi);border:1px solid var(--border);border-radius:6px;padding:10px;">T2<br><span class="muted mono">open</span></div>
+          <div style="background:var(--panel-hi);border:1px solid var(--border);border-radius:6px;padding:10px;">T3<br><span class="muted mono">19:30 · 4g</span></div>
+          <div style="background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:6px;padding:10px;color:var(--accent-2);">T4<br><span class="muted mono">19:00 · 6g</span></div>
+          <div style="background:var(--panel-hi);border:1px solid var(--border);border-radius:6px;padding:10px;">T5<br><span class="muted mono">open</span></div>
+          <div style="background:var(--panel-hi);border:1px solid var(--border);border-radius:6px;padding:10px;">T6<br><span class="muted mono">20:00 · 2g</span></div>
+          <div style="background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:6px;padding:10px;color:var(--accent-2);">T7<br><span class="muted mono">19:15 · 4g</span></div>
+          <div style="background:var(--panel-hi);border:1px solid var(--border);border-radius:6px;padding:10px;">T8<br><span class="muted mono">held</span></div>
+          <div style="background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:6px;padding:10px;color:var(--accent-2);">T9<br><span class="muted mono">19:00 · 4g</span></div>
+          <div style="background:var(--panel-hi);border:1px solid var(--border);border-radius:6px;padding:10px;">T10<br><span class="muted mono">walk-in</span></div>
+          <div style="background:var(--panel-hi);border:1px solid var(--border);border-radius:6px;padding:10px;">T11<br><span class="muted mono">19:30 · 2g</span></div>
+          <div style="background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:6px;padding:10px;color:var(--accent-2);">T12<br><span class="muted mono">19:00 · 5g</span></div>
+        </div>
+        <div class="mt-14 small muted">Tap a table to see its booking. Holdsplit a table into two parties.</div>
+      </div>
+
+      <div>
+        <div class="card">
+          <div class="card-eyebrow">TONIGHT'S NOTES</div>
+          <div class="kv mt-8"><span class="k mono">19:00</span><span class="v">Hofstetter party (T4) — 2 high-chairs</span></div>
+          <div class="kv"><span class="k mono">19:30</span><span class="v">Ramos / Yeo — server Eva, table 12</span></div>
+          <div class="kv"><span class="k mono">20:30</span><span class="v">Linnea Sjoberg — regular, low-music if poss.</span></div>
+        </div>
+        <div class="card mt-14">
+          <div class="card-eyebrow">WAITLIST</div>
+          <div class="kv mt-8"><span class="k">Mira Eter</span><span class="v">2 · standby 18:30</span></div>
+          <div class="kv"><span class="k">Aiken + 1</span><span class="v">2 · standby 19:00</span></div>
+          <div class="kv"><span class="k">Quay</span><span class="v">3 · standby 20:00</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New booking modal-like footer card -->
+  <section class="section">
+    <div class="card" style="max-width:520px;margin:0 auto;">
+      <div class="card-head">
+        <h3>New booking</h3>
+        <span class="pill solid">Live capture</span>
+      </div>
+      <div class="kv"><span class="k">Guest name</span><span class="v">Manon Bouchara</span></div>
+      <div class="kv"><span class="k">Phone</span><span class="v">+1 (415) 555-0192</span></div>
+      <div class="kv"><span class="k">Date</span><span class="v">Sat 19 Oct 2024</span></div>
+      <div class="kv"><span class="k">Time</span><span class="v">19:30</span></div>
+      <div class="kv"><span class="k">Party</span><span class="v">4 guests</span></div>
+      <div class="kv"><span class="k">Tier</span><span class="v">Standard</span></div>
+      <div class="kv"><span class="k">Notes</span><span class="v">Returning guest — wood-fired tasting</span></div>
+      <div class="btn-row mt-14">
+        <button class="btn">Cancel</button>
+        <button class="btn ghost">Save as draft</button>
+        <button class="btn primary">Confirm &amp; send link</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>© 2025 Forge Foundry Systems</span>
+  <div class="links">
+    <a>Live Orders</a><a>Sales Reports</a><a>Promotions</a><a>Staff Schedule</a><a>Reservations</a>
+  </div>
+  <span>FOH · OK</span>
+</footer>
+
+</body>
+</html>

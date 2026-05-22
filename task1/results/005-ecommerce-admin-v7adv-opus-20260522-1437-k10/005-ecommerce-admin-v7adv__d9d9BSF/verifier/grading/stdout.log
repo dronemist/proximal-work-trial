@@ -1,0 +1,179 @@
+[grade] VLM judge: 15 pairs in 13.7s
+{
+  "per_page_viewport": {
+    "customers": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6461372300881548,
+          "extra": {
+            "reference_size": [
+              1440,
+              2179
+            ],
+            "candidate_size": [
+              1440,
+              1694
+            ],
+            "compared_size": [
+              1440,
+              1694
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4493725597858429,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.2019357681274414,
+            "raw_score_before_sqrt": 0.20193569362163544
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8558472193310535,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.14415278066894655,
+            "page_diagonal_px": 2635.6902711286593
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.3475965041404679,
+          "extra": {
+            "bg_score": 0.6951930082809358,
+            "fg_score": 0.0,
+            "bg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 25,
+              "weighted_mean_oklab_distance": 0.01846390590071678,
+              "base_score_before_penalty": 0.8769072939952215,
+              "over_color_penalty": 0.18171428571428572
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 15,
+              "weighted_mean_oklab_distance": 0.1534491628408432,
+              "base_score_before_penalty": 0.0,
+              "over_color_penalty": 0.096
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.816215194428716,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.951735992041023,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "mono"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.08143939393939394
+              ],
+              [
+                11.0,
+                0.13636363636363635
+              ],
+              [
+                12.0,
+                0.5492424242424242
+              ],
+              [
+                13.3,
+                0.020833333333333332
+              ],
+              [
+                15.0,
+                0.18181818181818182
+              ],
+              [
+                20.0,
+                0.011363636363636364
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.2217573221757322
+              ],
+              [
+                10.5,
+                0.02301255230125523
+              ],
+              [
+                11.0,
+                0.19665271966527198
+              ],
+              [
+                11.5,
+                0.12552301255230125
+              ],
+              [
+                12.0,
+                0.3117154811715481
+              ],
+              [
+                13.0,
+                0.09205020920502092
+              ],
+              [
+                15.0,
+                0.012552301255230125
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "ui-monospace"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.4803921568627451,
+          "extra": {
+            "reference_tokens": 558,
+            "candidate_tokens": 499,
+            "matched_tokens": 343,
+            "union_tokens": 714,
+            "reference_unique": 331,
+            "candidate_unique": 330
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content differences: the candidate halluccinates different customer names/emails/data (Marcus Chevad vs Marcus Olerud, Selena Boquard vs Solenne Beaupr\u00e9, Renata da Vi\u

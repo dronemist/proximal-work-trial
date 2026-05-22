@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>412 Linden Row — Ember Grove Works</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 6px;
+    height: 320px;
+    margin-bottom: 14px;
+  }
+  .gallery .g-main { grid-row: 1 / 3; }
+  .gallery .thumb-block {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .price-row {
+    display: flex; gap: 28px; align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .price-big { font-size: 30px; font-weight: 700; }
+  .price-row .col { display: flex; flex-direction: column; }
+  .price-row .col .lbl { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
+  .price-row .col .val { font-size: 15px; color: var(--text-2); font-weight: 600; }
+  .specs {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 14px;
+  }
+  .spec-item .lbl { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 4px; }
+  .spec-item .val { font-size: 16px; font-weight: 600; }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 18px;
+  }
+  .agent-card {
+    padding: 14px;
+  }
+  .agent-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #b35a47);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #1a0e08; font-weight: 700;
+  }
+  .offer-row {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+  .offer-row.accent { border-color: var(--accent); }
+  .activity-item {
+    display: grid;
+    grid-template-columns: 16px 1fr auto;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .activity-item:last-child { border-bottom: none; }
+  .activity-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 5px;
+  }
+  .doc-item {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .doc-item:last-child { border-bottom: none; }
+  .doc-icon {
+    width: 26px; height: 28px;
+    border: 1px solid var(--border-2);
+    border-radius: 3px;
+    background: var(--panel-2);
+  }
+  .snap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .snap-grid .stat {
+    background: var(--panel-2);
+    border-radius: 6px;
+    padding: 8px 10px;
+  }
+  .snap-grid .stat .v { font-size: 18px; font-weight: 600; }
+  .snap-grid .stat .l { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
+  @media (max-width: 1100px) {
+    .detail-grid { grid-template-columns: 1fr; }
+    .specs { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .specs { grid-template-columns: repeat(2, 1fr); }
+    .gallery { grid-template-columns: 1fr; grid-template-rows: 180px 90px 90px; height: auto; }
+    .gallery .g-main { grid-row: 1; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <div class="brand">Ember Grove Works</div>
+  <nav class="topnav-links">
+    <a href="listings.html">Listings</a>
+    <a href="listing-detail.html" class="active">Listing Detail</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="reports.html">Reports</a>
+    <a href="reports.html">Market Reports</a>
+  </nav>
+  <div class="topnav-search"><input placeholder="Search listings, contacts, documents…" /></div>
+  <div class="topnav-right">
+    <button class="icon-btn bell">◌</button>
+    <span class="avatar">MH</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Workspace</div>
+      <div class="sidebar-item"><span>All Listings</span><span class="count">142</span></div>
+      <div class="sidebar-item"><span>Calendar</span></div>
+      <div class="sidebar-item"><span>Market Reports</span></div>
+      <div class="sidebar-item"><span>Settings</span></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Active</div>
+      <div class="sidebar-item active"><span>412 Linden Row</span></div>
+      <div class="sidebar-item"><span>88 Cedar Mill Lane</span></div>
+      <div class="sidebar-item"><span>1207 Birchwood Ct</span></div>
+      <div class="sidebar-item"><span>26 Heron Bay Rd</span></div>
+      <div class="sidebar-item"><span>3344 Westover Ave</span></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Pending</div>
+      <div class="sidebar-item"><span>57 Hollow Brook</span></div>
+      <div class="sidebar-item"><span>910 Quarry Green</span></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Drafts</div>
+      <div class="sidebar-item"><span>Linden — Riverside</span></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Archive</div>
+      <div class="sidebar-item"><span>2024 Sold (14)</span></div>
+      <div class="sidebar-item"><span>2024 Withdrawn (3)</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="breadcrumbs">Listings <span class="sep">›</span> Active <span class="sep">›</span> <span>412 Linden Row</span></div>
+
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">412 Linden Row</h1>
+        <div class="page-subtitle">Forager Heights, Asheville NC 28804 · MLS # EG-4419 · Listed Mar 14, 2025</div>
+        <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="chip chip-success chip-dot">Active</span>
+          <span class="chip">Single Family</span>
+          <span class="chip">3 offers in</span>
+        </div>
+      </div>
+      <div class="page-actions">
+        <button class="btn">Share</button>
+        <button class="btn">Edit</button>
+        <button class="btn btn-primary">Log activity</button>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="thumb-block g-main"><div class="ph-icon">◔</div></div>
+      <div class="thumb-block"><div class="ph-icon">▦</div></div>
+      <div class="thumb-block"><div class="ph-icon">⌂</div></div>
+      <div class="thumb-block"><div class="ph-icon">◉</div></div>
+      <div class="thumb-block"><div class="ph-icon">⌂</div></div>
+    </div>
+    <div class="flex justify-between" style="margin-bottom:14px;">
+      <div class="text-muted text-small">17 photos · Updated by Marin H. on Mar 22</div>
+      <a class="text-accent text-small">View all photos →</a>
+    </div>
+
+    <div class="price-row">
+      <div>
+        <div class="price-big">$724,000</div>
+        <div class="text-muted text-small">List price · $312 / sq ft</div>
+      </div>
+      <div class="col">
+        <span class="lbl">Comps median</span>
+        <span class="val">$711,500</span>
+      </div>
+      <div class="col">
+        <span class="lbl">$1,640</span>
+        <span class="val">Highest current offer</span>
+      </div>
+      <div class="col">
+        <span class="lbl">Est. neighborhood high (90d)</span>
+        <span class="val">—</span>
+      </div>
+    </div>
+
+    <h3 class="section-title" style="margin-bottom:8px;">Specifications</h3>
+    <div class="specs">
+      <div class="spec-item"><div class="lbl">Bedrooms</div><div class="val">4</div></div>
+      <div class="spec-item"><div class="lbl">Bathrooms</div><div class="val">2.5</div></div>
+      <div class="spec-item"><div class="lbl">Interior</div><div class="val">2,318 sq ft</div></div>
+      <div class="spec-item"><div class="lbl">Lot</div><div class="val">0.34 acres</div></div>
+      <div class="spec-item"><div class="lbl">Year built</div><div class="val">1996</div></div>
+      <div class="spec-item"><div class="lbl">Garage</div><div class="val">2 car</div></div>
+      <div class="spec-item"><div class="lbl">HOA</div><div class="val">$0 / mo</div></div>
+      <div class="spec-item"><div class="lbl">Taxes (2024)</div><div class="val">$4,628</div></div>
+    </div>
+
+    <div class="detail-grid">
+      <div>
+        <div class="tabs">
+          <div class="tab active">Overview</div>
+          <div class="tab">Offers (3)</div>
+          <div class="tab">Activity</div>
+          <div class="tab">Documents</div>
+          <div class="tab">Showings</div>
+        </div>
+
+        <div class="section">
+          <h4 class="section-title" style="font-size:13.5px;">About this property</h4>
+          <p style="color:var(--text-2); font-size:12.5px; max-width:680px;">
+            Tucked at the quiet end of Linden Row, this 1996 craftsman has been thoughtfully kept by a single family since 2004. White oak floors run through the main level, with a renovated kitchen (2021) opening onto a screened porch that catches the afternoon light. The primary suite was reconfigured last year to add a walk-in closet and a reading nook. Mechanicals are current: roof replaced 2022, HVAC dual-zone 2019, on-demand water heater 2023. Sellers prefer a 45-day close and are flexible on rent-back through July 15.
+          </p>
+        </div>
+
+        <div class="section">
+          <h4 class="section-title" style="font-size:13.5px;">Offers — 3 active</h4>
+          <div class="offer-row accent">
+            <div class="font-mono">$731,500</div>
+            <div class="text-small text-muted">Buyer: J. &amp; A. Whitmore · Conventional, 25% down · 14-day inspection</div>
+            <div style="display:flex; gap:6px;"><span class="chip chip-success">Lead</span><button class="btn btn-sm">Review</button></div>
+          </div>
+          <div class="offer-row">
+            <div class="font-mono">$724,000</div>
+            <div class="text-small text-muted">Buyer: Renford Trust (cash) · 14-day close · Inspection only</div>
+            <div style="display:flex; gap:6px;"><span class="chip">Counter sent</span><button class="btn btn-sm">Review</button></div>
+          </div>
+          <div class="offer-row">
+            <div class="font-mono">$705,000</div>
+            <div class="text-small text-muted">Buyer: T. Holvenson · FHA, 5% down · Appraisal + financing</div>
+            <div style="display:flex; gap:6px;"><span class="chip">Below ask</span><button class="btn btn-sm">Review</button></div>
+          </div>
+          <div class="flex justify-between mt-2">
+            <a class="text-muted text-small">Export offer summary</a>
+            <a class="text-accent text-small">+ Log new offer</a>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4 class="section-title" style="font-size:13.5px;">Recent activity</h4>
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div><b>Offer received</b> from D. &amp; A. Whitmore at $731,500. Earnest money confirmed via Anchor Escrow.</div>
+            <span class="text-small text-muted">Today · 9:42 AM</span>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div><b>Showing completed</b> with buyer agent K. Strand (Berman &amp; Co.). Notes: kitchen and lot received the most attention.</div>
+            <span class="text-small text-muted">Yesterday · 6:10 PM</span>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div><b>Open house</b> Sat 11–2. 14 parties through the door. 4 sign-ins requested follow-up packets.</div>
+            <span class="text-small text-muted">Sat · Mar 22</span>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div><b>Price adjusted</b> from $735,000 → $724,000 after 16 days. Comp pull attached to documents.</div>
+            <span class="text-small text-muted">Mar 19</span>
+          </div>
+          <div class="activity-item">
+            <span class="activity-dot"></span>
+            <div><b>Photography</b> delivered by Hollis Studio. 17 stills, 1 drone pass, virtual tour.</div>
+            <span class="text-small text-muted">Mar 14</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4 class="section-title" style="font-size:13.5px;">Showing schedule</h4>
+          <table class="table">
+            <thead>
+              <tr><th>When</th><th>Agent</th><th>Brokerage</th><th>Type</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Wed Mar 27 · 4:30 PM</td><td>R. Strand</td><td>Berman &amp; Co.</td><td>Private</td><td><span class="chip chip-success">Confirmed</span></td></tr>
+              <tr><td>Thu Mar 28 · 10:00 AM</td><td>J. Olufemi</td><td>Cedar &amp; Vine</td><td>Private</td><td><span class="chip">Pending</span></td></tr>
+              <tr><td>Sat Mar 30 · 11:00–1:00</td><td>—</td><td>—</td><td>Open house</td><td><span class="chip chip-info">Scheduled</span></td></tr>
+              <tr><td>Sat Mar 30 · 2:15 PM</td><td>P. Reyes</td><td>Hollow &amp; Hart</td><td>Private</td><td><span class="chip">Pending</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card" style="padding:14px; margin-bottom:14px;">
+          <div class="section-title" style="font-size:13.5px;">Listing agent</div>
+          <div class="flex gap-3 items-center mb-3">
+            <span class="agent-avatar">MH</span>
+            <div>
+              <div style="font-weight:600;">Marin Halsey</div>
+              <div class="text-muted text-small">Lic #NC-43210</div>
+              <div class="text-small text-muted">marin@embergrove.co · (828) 555-0143</div>
+            </div>
+          </div>
+          <button class="btn" style="width:100%;">Reassign agent</button>
+        </div>
+
+        <div class="card" style="padding:14px; margin-bottom:14px;">
+          <div class="section-title" style="font-size:13.5px;">Sellers</div>
+          <div style="font-weight:600;">Robin &amp; Theodore Brock</div>
+          <div class="text-small text-muted">Primary contact: Robin (text)</div>
+          <div class="divider"></div>
+          <div class="text-small">Email <br><span class="text-muted">r.brock@evergreent.com</span></div>
+          <div class="text-small mt-2">Phone <br><span class="text-muted">(828) 555-0186</span></div>
+          <div class="text-small mt-2">Must vacate <br><span class="text-muted">Text, evenings</span></div>
+          <div class="text-small mt-2">Targeting <br><span class="text-muted">July 15</span></div>
+        </div>
+
+        <div class="card" style="padding:14px; margin-bottom:14px;">
+          <div class="section-title" style="font-size:13.5px;">Listing snapshot</div>
+          <div class="snap-grid">
+            <div class="stat"><div class="v">1,264</div><div class="l">Views (7d)</div></div>
+            <div class="stat"><div class="v">47</div><div class="l">Saves</div></div>
+            <div class="stat"><div class="v">12</div><div class="l">Inquiries</div></div>
+            <div class="stat"><div class="v">22</div><div class="l">Days on market</div></div>
+          </div>
+          <div class="text-small text-muted">▲ 38% vs prior 7 days</div>
+        </div>
+
+        <div class="card" style="padding:14px; margin-bottom:14px;">
+          <div class="section-title" style="font-size:13.5px;">Documents</div>
+          <div class="doc-item">
+            <div class="doc-icon"></div>
+            <div>
+              <div style="font-weight:600;">Listing Agreement.pdf</div>
+              <div class="text-small text-muted">Signed Mar 12 · 412 KB</div>
+            </div>
+            <span class="text-muted">⋯</span>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon"></div>
+            <div>
+              <div style="font-weight:600;">Seller Disclosures.pdf</div>
+              <div class="text-small text-muted">Signed Mar 13 · 6 pages</div>
+            </div>
+            <span class="text-muted">⋯</span>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon"></div>
+            <div>
+              <div style="font-weight:600;">Comp Pull — Mar 17.xlsx</div>
+              <div class="text-small text-muted">Uploaded by Marin</div>
+            </div>
+            <span class="text-muted">⋯</span>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon"></div>
+            <div>
+              <div style="font-weight:600;">Pre-listing Inspection.pdf</div>
+              <div class="text-small text-muted">Mar 8 · 22 pages</div>
+            </div>
+            <span class="text-muted">⋯</span>
+          </div>
+          <a class="text-accent text-small">+ Attach document</a>
+        </div>
+
+        <div class="card" style="padding:14px;">
+          <div class="section-title" style="font-size:13.5px;">Internal notes</div>
+          <div class="text-small" style="border-left: 2px solid var(--accent); padding-left:8px; margin-bottom:10px;">
+            <b>Marin · Mar 24</b> — Whitmore offer is the strongest on terms; their finance pre-approval is dated and we need to see updated docs before Tuesday standup.
+          </div>
+          <div class="text-small" style="border-left: 2px solid var(--border-2); padding-left:8px; margin-bottom:10px;">
+            <b>Marin · Mar 22</b> — Recommend countering Renford Trust at good-price asking before recasting.
+          </div>
+          <div class="text-small" style="border-left: 2px solid var(--border-2); padding-left:8px;">
+            <b>Marin · Mar 20</b> — Sellers want to keep showings paused Wed mornings — grandkids in town through Apr 3.
+          </div>
+        </div>
+      </aside>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div>© 2025 Ember Grove Works · v4.12.3 · Workspace: hai-tea.eg</div>
+  <div class="footer-links">
+    <a href="#">Help &amp; docs</a>
+    <a href="settings.html">Settings</a>
+  </div>
+</footer>
+
+</body>
+</html>

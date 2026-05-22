@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Company Settings · Onyx Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark"></span> Onyx Works</div>
+    <div class="nav-group nav">
+      <div class="nav-label">Workspace</div>
+      <a href="people-directory.html"><span class="nav-icon dot"></span> People</a>
+      <a href="org-chart.html"><span class="nav-icon"></span> Org Chart</a>
+      <a href="time-off.html"><span class="nav-icon"></span> Time Off</a>
+    </div>
+    <div class="nav-group nav">
+      <div class="nav-label">Finance</div>
+      <a href="expenses.html"><span class="nav-icon bar"></span> Expenses</a>
+    </div>
+    <div class="nav-group nav">
+      <div class="nav-label">Workplace</div>
+      <a href="settings.html" class="active"><span class="nav-icon"></span> Company Settings</a>
+    </div>
+    <div class="profile-card">
+      <span class="avatar blue">MR</span>
+      <div><div class="name">Mira Ravinaut</div><div class="role">People Operations Lead</div></div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="mobile-top">
+      <div class="brand"><span class="brand-mark"></span> Onyx Works</div>
+      <div class="hnav">
+        <a href="people-directory.html">People</a>
+        <a href="org-chart.html">Org Chart</a>
+        <a href="time-off.html">Time Off</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="settings.html" class="active">Company Settings</a>
+      </div>
+    </div>
+    <div class="second-strip">
+      <span class="sect-label">Workplace</span>
+      <div class="profile-card" style="background:transparent;padding:0;gap:6px;">
+        <span class="avatar blue" style="width:22px;height:22px;font-size:9px;">MR</span>
+        <div><div class="name" style="font-size:11.5px;">Mira Ravinaut</div><div class="role" style="font-size:10.5px;">People Operations Lead</div></div>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <div class="crumbs">
+        <span>Onyx Works Group</span><span class="sep">›</span>
+        <span>Hello Foundry, Inc.</span><span class="sep">›</span>
+        <strong>Company Settings</strong>
+      </div>
+      <div class="search">Search policies, holidays, entities</div>
+      <div class="topbar-actions">
+        <button class="btn btn-primary">+ New holiday</button>
+      </div>
+    </header>
+
+    <div class="page">
+      <div class="col-main">
+        <h1 class="page-title">Company Settings</h1>
+
+        <div class="tabs">
+          <div class="tab active">Profile</div>
+          <div class="tab">Holidays</div>
+          <div class="tab">Policies</div>
+          <div class="tab">Pay schedule</div>
+          <div class="tab">Entities</div>
+          <div class="tab">Permissions</div>
+          <div class="tab">Audit log</div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Company profile</div>
+            <div class="row" style="gap:8px;">
+              <span class="badge pink">▲ LAST EDITED 14 MAR</span>
+              <button class="btn btn-sm">Replace mark</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row" style="gap:14px;align-items:flex-start;">
+              <div class="avatar xl pink" style="border-radius:8px;">HF</div>
+              <div>
+                <div class="bold">Hello Foundry, Inc.</div>
+                <div class="small">EIN 87-2284018 · Delaware C-Corp · Incorporated 2017</div>
+              </div>
+            </div>
+            <div class="fields-2" style="margin-top:14px;">
+              <div class="field"><span class="field-label">Legal name</span><input class="input" value="Hello Foundry, Inc." /><span class="small">Shown on payroll filings, tax forms, and contracts.</span></div>
+              <div class="field"><span class="field-label">Trade name</span><input class="input" value="Hello Foundry" /><span class="small">Public-facing name used in the directory and emails.</span></div>
+            </div>
+            <div class="field" style="margin-top:10px;"><span class="field-label">Registered address</span>
+              <textarea class="input">2200 Mission Street, Suite 410
+San Francisco, CA 94110
+United States</textarea>
+              <span class="small">Used for state tax registration and notices.</span>
+            </div>
+            <div class="fields-2" style="margin-top:10px;">
+              <div class="field"><span class="field-label">Fiscal year</span><span class="chip">January 1 — December 31 <span class="caret"></span></span><span class="small">Drives the close calendar and accrual reports.</span></div>
+              <div class="field"><span class="field-label">Default currency</span><span class="chip">USD — United States dollar <span class="caret"></span></span><span class="small">New expenses and payroll runs use this currency.</span></div>
+            </div>
+            <div class="row between" style="margin-top:14px;">
+              <div class="small">Changes are applied immediately to all employees in this entity.</div>
+              <button class="btn btn-primary btn-sm">Save profile</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Observed holidays · 2025</div>
+            <div class="small">US · Hello Foundry</div>
+          </div>
+          <div class="toolbar" style="border:0;border-bottom:1px solid var(--line);border-radius:0;">
+            <span class="chip">Quarter 2 — Apr→Jun <span class="caret"></span></span>
+            <label class="row small" style="gap:4px;"><input type="checkbox" /> Carry to all US entities</label>
+            <div class="spacer"></div>
+            <button class="btn btn-sm">Today</button>
+            <button class="btn btn-sm">‹</button>
+            <button class="btn btn-sm">›</button>
+          </div>
+          <div class="card-body" style="padding-top:8px;">
+            <div class="bold" style="font-size:14px;margin-bottom:8px;">May 2025</div>
+            <div class="cal">
+              <div class="dow">Mon</div><div class="dow">Tue</div><div class="dow">Wed</div><div class="dow">Thu</div><div class="dow">Fri</div><div class="dow">Sat</div><div class="dow">Sun</div>
+
+              <div class="day mute"><span class="d">28</span></div>
+              <div class="day mute"><span class="d">29</span></div>
+              <div class="day mute"><span class="d">30</span></div>
+              <div class="day"><span class="d">1</span></div>
+              <div class="day"><span class="d">2</span></div>
+              <div class="day"><span class="d">3</span></div>
+              <div class="day"><span class="d">4</span></div>
+
+              <div class="day"><span class="d">5</span><span class="pill gray">Hello Pay</span></div>
+              <div class="day"><span class="d">6</span></div>
+              <div class="day"><span class="d">7</span></div>
+              <div class="day"><span class="d">8</span></div>
+              <div class="day"><span class="d">9</span></div>
+              <div class="day"><span class="d">10</span></div>
+              <div class="day"><span class="d">11</span></div>
+
+              <div class="day"><span class="d">12</span><span class="pill">Indigenous Peoples'</span></div>
+              <div class="day"><span class="d">13</span></div>
+              <div class="day"><span class="d">14</span></div>
+              <div class="day"><span class="d">15</span></div>
+              <div class="day"><span class="d">16</span><span class="pill amber">Policy review</span></div>
+              <div class="day"><span class="d">17</span></div>
+              <div class="day"><span class="d">18</span></div>
+
+              <div class="day"><span class="d">19</span></div>
+              <div class="day brand"><span class="d">20</span><span class="pill dark">Memorial Day</span></div>
+              <div class="day"><span class="d">21</span></div>
+              <div class="day"><span class="d">22</span></div>
+              <div class="day"><span class="d">23</span></div>
+              <div class="day"><span class="d">24</span></div>
+              <div class="day"><span class="d">25</span></div>
+
+              <div class="day"><span class="d">26</span></div>
+              <div class="day"><span class="d">27</span></div>
+              <div class="day"><span class="d">28</span></div>
+              <div class="day"><span class="d">29</span></div>
+              <div class="day"><span class="d">30</span></div>
+              <div class="day brand"><span class="d">31</span><span class="pill dark">Off-cycle</span></div>
+              <div class="day mute"><span class="d">1</span></div>
+            </div>
+            <div class="cal-legend">
+              <span class="key"><span class="sw"></span> Company holiday</span>
+              <span class="key"><span class="sw amber"></span> Payroll milestone</span>
+              <span class="key"><span class="sw gray"></span> Draft / pending</span>
+              <span class="key"><span class="sw pink"></span> Selected</span>
+            </div>
+
+            <div class="col" style="margin-top:14px;gap:4px;">
+              <div class="row between" style="padding:6px 0;border-top:1px solid var(--line-2);">
+                <div><div class="bold">Memorial Day</div><div class="small">Federal · paid · affects closed</div></div>
+                <div class="small">Mon · May 20</div>
+                <span class="badge green">SCHEDULED</span>
+              </div>
+              <div class="row between" style="padding:6px 0;border-top:1px solid var(--line-2);">
+                <div><div class="bold">Independence Day (observed)</div><div class="small">Federal · paid · early close 1:00 PM</div></div>
+                <div class="small">Fri · Jul 4</div>
+                <span class="badge green">SCHEDULED</span>
+              </div>
+              <div class="row between" style="padding:6px 0;border-top:1px solid var(--line-2);">
+                <div><div class="bold">Labor Day</div><div class="small">Federal · paid · affects closed</div></div>
+                <div class="small">Mon · Sep 1</div>
+                <span class="badge green">SCHEDULED</span>
+              </div>
+              <div class="row between" style="padding:6px 0;border-top:1px solid var(--line-2);">
+                <div><div class="bold">Day after Thanksgiving</div><div class="small">Company day · paid · added 2024</div></div>
+                <div class="small">Fri · Nov 28</div>
+                <span class="badge amber">EDITABLE</span>
+              </div>
+              <div class="row between" style="padding:6px 0;border-top:1px solid var(--line-2);">
+                <div><div class="bold">Winter close (run)</div><div class="small">Half day · paid · all US entities</div></div>
+                <div class="small">Wed · Dec 24</div>
+                <span class="badge amber">EDITABLE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Policies</div>
+            <a class="btn-link" href="#">View change history</a>
+          </div>
+          <table class="tbl">
+            <thead><tr><th>Policy</th><th>Applies to</th><th>Accrual</th><th>Status</th><th>Updated</th></tr></thead>
+            <tbody>
+              <tr><td><div class="bold">Paid time off — Standard</div><div class="small">25 days/yr, accrued monthly</div></td><td>Full-time, US</td><td>1.667 d/mo</td><td><span class="badge green">ACTIVE</span></td><td>Mar 14, 2025</td></tr>
+              <tr><td><div class="bold">Sick leave</div><div class="small">10 days/yr, no carryover</div></td><td>All employees</td><td>0.833 d/mo</td><td><span class="badge green">ACTIVE</span></td><td>Jan 02, 2025</td></tr>
+              <tr><td><div class="bold">Parental leave</div><div class="small">16 weeks, primary caregiver</div></td><td>Eligible after 12 mo</td><td>—</td><td><span class="badge green">ACTIVE</span></td><td>Nov 12, 2024</td></tr>
+              <tr><td><div class="bold">Remote work stipend</div><div class="small">$1,200/yr, receipts required</div></td><td>Remote, US + EU</td><td>—</td><td><span class="badge amber">DRAFT</span></td><td>Mar 01, 2025</td></tr>
+              <tr><td><div class="bold">Bereavement</div><div class="small">5 days, immediate family</div></td><td>All employees</td><td>—</td><td><span class="badge green">ACTIVE</span></td><td>Aug 21, 2024</td></tr>
+              <tr><td><div class="bold">Sabbatical</div><div class="small">4 weeks paid at 5+ yrs tenure</div></td><td>Tenured employees</td><td>—</td><td><span class="badge amber">EDITABLE</span></td><td>Feb 06, 2024</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Approval rules &amp; defaults</div>
+            <a class="btn-link" href="#">Expand to edit</a>
+          </div>
+          <div class="card-body">
+            <div class="col" style="gap:8px;">
+              <div class="card card-pad" style="border-color:var(--line);">
+                <div class="bold">Time off requests over 5 consecutive days</div>
+                <div class="small">Route to the direct manager; then the department lead. If escalated for 48 hours, the request escalates to People Operations. Requests inside two weeks of a payroll cutoff are flagged but not blocked.</div>
+              </div>
+              <div class="card card-pad" style="border-color:var(--line);"><div class="row between"><div class="bold">Expense reports above $750</div><span class="caret"></span></div></div>
+              <div class="card card-pad" style="border-color:var(--line);"><div class="row between"><div class="bold">New hire onboarding tasks</div><span class="caret"></span></div></div>
+              <div class="card card-pad" style="border-color:var(--line);"><div class="row between"><div class="bold">Off-cycle payroll runs</div><span class="caret"></span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="col-side">
+        <div class="card card-pad">
+          <div class="row between"><div class="bold" style="font-size:15px;">Add holiday</div><span class="caret"></span></div>
+          <div class="field" style="margin-top:10px;"><span class="field-label">Holiday name</span><input class="input" placeholder="e.g. Founders' Day" /></div>
+          <div class="field" style="margin-top:8px;"><span class="field-label">Date</span><input class="input" value="2025-07-03" /></div>
+          <div class="field" style="margin-top:8px;"><span class="field-label">Type</span><span class="chip">Company day — paid <span class="caret"></span></span></div>
+
+          <div class="tiny" style="margin-top:14px;">APPLIES TO</div>
+          <div class="col" style="margin-top:6px;gap:6px;">
+            <label class="row small" style="gap:6px;"><input type="checkbox" checked /> Hello Foundry, Inc. — US</label>
+            <label class="row small" style="gap:6px;"><input type="checkbox" /> Hello Foundry Ltd — UK</label>
+            <label class="row small" style="gap:6px;"><input type="checkbox" /> Hello Atelier GmbH — DE</label>
+            <label class="row small" style="gap:6px;"><input type="checkbox" /> Hello Pay Pty — AU</label>
+          </div>
+
+          <div class="tiny" style="margin-top:14px;">INTERNAL NOTES</div>
+          <textarea class="input" style="margin-top:6px;" placeholder="Add context for the next person editing this."></textarea>
+
+          <div class="col" style="margin-top:10px;gap:6px;">
+            <label class="row small" style="gap:6px;"><input type="checkbox" checked /> Block time-off requests on this day</label>
+            <label class="row small" style="gap:6px;"><input type="checkbox" /> Send an announcement two weeks prior</label>
+          </div>
+
+          <div class="row" style="gap:8px;margin-top:12px;">
+            <button class="btn btn-sm btn-block">Cancel</button>
+            <button class="btn btn-primary btn-sm btn-block">Add holiday</button>
+          </div>
+
+          <div class="tiny" style="margin-top:14px;">RECENTLY ADDED</div>
+          <div class="col" style="margin-top:6px;gap:6px;">
+            <span class="chip">Day after Thanksgiving · Nov 28</span>
+            <span class="chip">Winter close (eve) · Dec 24</span>
+            <span class="chip">All-hands offsite · May 31</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      <div>© 2025 Onyx Works Group. v4.18.2 · production-us-west</div>
+      <div class="links"><a>People</a><a>Org Chart</a><a>Time Off</a><a>Expenses</a><a>Settings</a></div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

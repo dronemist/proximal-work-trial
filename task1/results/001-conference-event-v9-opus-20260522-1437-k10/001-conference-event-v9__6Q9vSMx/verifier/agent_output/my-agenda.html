@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Agenda — Ember Vector Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="schedule.html"><span class="dot"></span> Ember Vector Works</a>
+    <nav class="nav">
+      <a href="schedule.html">Schedule</a>
+      <a href="speakers.html">Speakers</a>
+      <a href="my-agenda.html" class="active">My Agenda</a>
+      <a href="attendees.html">Attendees</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="livestream.html">Livestream</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="btn btn-primary btn-sm">Register</a>
+      <span class="avatar-chip">MK</span>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="hero">
+    <div>
+      <p class="eyebrow"><span class="shape" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px"></span> Your personalized program</p>
+      <h1 class="page-title">My Agenda</h1>
+      <p class="lede">Twelve saved sessions across three days. One scheduling collision flagged below — everything else is clear, calm, and ready to print.</p>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="v">12</div><div class="l">Saved sessions</div></div>
+    <div class="stat"><div class="v">9.5</div><div class="l">Total hours</div><div class="muted text-xs">incl. workshops</div></div>
+    <div class="stat"><div class="v">4</div><div class="l">Tracks followed</div><div class="muted text-xs">Design, Indie, Studio, Craft</div></div>
+    <div class="stat"><div class="v" style="color:var(--orange)">1</div><div class="l">Conflicts</div><div class="muted text-xs">Thursday, 14:30 WEST</div></div>
+  </div>
+
+  <div class="flex between center wrap gap-10 mb-14">
+    <div class="chips" style="margin:0">
+      <span class="chip active">Calendar view</span>
+      <span class="chip">List view</span>
+    </div>
+    <div class="flex gap-6">
+      <button class="btn btn-outline btn-sm">Save to calendar</button>
+      <button class="btn btn-outline btn-sm">Export .ics</button>
+      <button class="btn btn-primary btn-sm">Print agenda</button>
+    </div>
+  </div>
+
+  <div class="page-grid">
+    <div>
+      <div class="calendar mb-14">
+        <div class="calendar-grid">
+          <div class="cell head"></div>
+          <div class="cell head">WED 13<br><span class="text-xs text-muted">Sep</span></div>
+          <div class="cell head">THU 14<br><span class="text-xs text-muted">Oct</span></div>
+          <div class="cell head">FRI 15<br><span class="text-xs text-muted">Oct</span></div>
+          <div class="cell head">SAT 16<br><span class="text-xs text-muted">Oct</span></div>
+          <div class="cell head">SUN 17<br><span class="text-xs text-muted">Oct</span></div>
+
+          <div class="cell time">09:00</div>
+          <div class="cell event">Opening keynote</div>
+          <div class="cell"></div>
+          <div class="cell event-2">Workshop · Variable Type</div>
+          <div class="cell event-3">Morning Yoga</div>
+
+          <div class="cell time">10:30</div>
+          <div class="cell event">Design Tokens<br>at Scale</div>
+          <div class="cell event">Design Tokens<br>at Scale</div>
+          <div class="cell event-3">Edge Workers</div>
+          <div class="cell event-2">Indie Studio Panel</div>
+
+          <div class="cell time">11:00</div>
+          <div class="cell"></div>
+          <div class="cell event-3">Studio Hours · Figma</div>
+          <div class="cell event-3">Edge Workers</div>
+          <div class="cell"></div>
+
+          <div class="cell time">13:00</div>
+          <div class="cell event-2">Lunch &amp; Learn</div>
+          <div class="cell">Spritzer Lunch</div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+
+          <div class="cell time">14:30</div>
+          <div class="cell event">CSS Layout Now</div>
+          <div class="cell event">Edge Workers</div>
+          <div class="cell event-3">Closing Remarks</div>
+          <div class="cell event">Closing Remarks</div>
+
+          <div class="cell time">16:00</div>
+          <div class="cell"></div>
+          <div class="cell event-3">Office Hours · Figma</div>
+          <div class="cell event-2">Lightning Talks</div>
+          <div class="cell event-2">After-party @ Block 9</div>
+
+          <div class="cell time">18:30</div>
+          <div class="cell"></div>
+          <div class="cell">Speakers dinner</div>
+          <div class="cell"></div>
+          <div class="cell event">After-party @ Block 9</div>
+        </div>
+      </div>
+
+      <div class="alert">
+        <div>
+          <strong>Two sessions overlap on Thursday, 14:30–15:30</strong>
+          <div class="text-sm">You've saved "CSS Layout Now" in Hall A and "Accessible Motion" in Studio 2. Keep one, or drop both for a quieter afternoon.</div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary btn-sm">Keep "CSS Layout Now"</button>
+          <button class="btn btn-outline btn-sm">Keep "Accessible Motion"</button>
+          <button class="btn btn-ghost btn-sm">Drop both</button>
+        </div>
+      </div>
+
+      <h2 class="section-title">Thursday <span class="text-xs text-muted">SEP 12 · DAY 1</span></h2>
+
+      <div class="session-row">
+        <div class="time" style="border-left:3px solid var(--orange);padding-left:10px"><strong>09:00</strong><br><span class="room">90 min</span></div>
+        <div class="session-card">
+          <div class="lbl">Opening Keynote · Main Hall</div>
+          <div class="ttl">Opening Keynote: The Quiet Work of Systems</div>
+          <div class="text-xs text-muted">Hall A · Main Stage · Day Pass · Cancel</div>
+          <button class="btn btn-outline btn-sm mt-10">Saved · Remove</button>
+        </div>
+        <button class="btn btn-ghost btn-sm" style="grid-column:2;justify-self:end;color:var(--orange)">Remove</button>
+      </div>
+
+      <div class="session-row">
+        <div class="time"><strong>10:30</strong><br><span class="room">60 min</span></div>
+        <div class="session-card">
+          <div class="lbl"><span class="tag">Talk</span> <span class="tag tag-mint">Design Systems</span></div>
+          <div class="ttl">Design Tokens at Scale: From Sketch to Shipping</div>
+          <div class="text-xs text-muted">Hall B · Main Stage · Decoder Path, Avara Lin · Talk</div>
+          <button class="btn btn-outline btn-sm mt-10">Resolve conflict</button>
+        </div>
+      </div>
+
+      <div class="session-row">
+        <div class="time"><strong>14:30</strong><br><span class="room">45 min</span></div>
+        <div class="session-card" style="border-color:var(--orange)">
+          <div class="lbl"><span class="tag tag-orange">Conflict</span></div>
+          <div class="ttl">CSS Layout Now: Grid, Subgrid, and the Quiet Hero</div>
+          <div class="text-xs text-muted">Studio 4 · Marcel Field · Practice · Practice</div>
+          <button class="btn btn-outline btn-sm mt-10">Resolve conflict</button>
+        </div>
+      </div>
+
+      <div class="session-row">
+        <div class="time"><strong>14:30</strong><br><span class="room">45 min</span></div>
+        <div class="session-card" style="border-color:var(--orange)">
+          <div class="lbl"><span class="tag tag-orange">Conflict</span></div>
+          <div class="ttl">Accessible Motion: Designing for Restraint</div>
+          <div class="text-xs text-muted">Studio 2 · Marcel Field · Practice</div>
+          <button class="btn btn-outline btn-sm mt-10">Resolve conflict</button>
+        </div>
+      </div>
+
+      <div class="session-row">
+        <div class="time"><strong>16:00</strong><br><span class="room">60 min</span></div>
+        <div class="session-card">
+          <div class="lbl"><span class="tag">Office hours</span></div>
+          <div class="ttl">Office Hours with the Figma Variables Team</div>
+          <div class="text-xs text-muted">Lounge B · Drop-in · Practice</div>
+          <button class="btn btn-outline btn-sm mt-10">Resolve conflict</button>
+        </div>
+      </div>
+
+      <h2 class="section-title">Friday <span class="text-xs text-muted">SEP 13 · DAY 2</span></h2>
+
+      <div class="session-row">
+        <div class="time"><strong>09:00</strong><br><span class="room">120 min</span></div>
+        <div class="session-card">
+          <div class="lbl"><span class="tag">Workshop</span></div>
+          <div class="ttl">Workshop: Variable Type from Sketch to Spec</div>
+          <div class="text-xs text-muted">Studio 1 · Studio 1 · Yann Olafs · Type</div>
+          <button class="btn btn-outline btn-sm mt-10">Download materials</button>
+        </div>
+      </div>
+
+      <div class="session-row">
+        <div class="time"><strong>14:30</strong><br><span class="room">45 min</span></div>
+        <div class="session-card">
+          <div class="lbl"><span class="tag">Track</span></div>
+          <div class="ttl">Edge Workers, Plainly: When the Server Lives Nearby</div>
+          <div class="text-xs text-muted">Hall A · Devren Kaya · Talk</div>
+          <button class="btn btn-outline btn-sm mt-10">Resolve conflict</button>
+        </div>
+      </div>
+
+      <div class="session-row">
+        <div class="time"><strong>16:00</strong><br><span class="room">30 min</span></div>
+        <div class="session-card">
+          <div class="lbl"><span class="tag">Lightning</span></div>
+          <div class="ttl">Lightning Talks: Six Ideas, Six Minutes Each</div>
+          <div class="text-xs text-muted">Hall B · Six Speakers · Burst</div>
+          <button class="btn btn-outline btn-sm mt-10">See lineup</button>
+        </div>
+      </div>
+
+      <h2 class="section-title">Saturday <span class="text-xs text-muted">SEP 14 · DAY 3</span></h2>
+
+      <div class="session-row">
+        <div class="time"><strong>09:00</strong><br><span class="room">45 min</span></div>
+        <div class="session-card">
+          <div class="lbl"><span class="tag">Wellness</span></div>
+          <div class="ttl">Morning Yoga on the Rooftop Terrace</div>
+          <div class="text-xs text-muted">Rooftop · weather permitting · Casual</div>
+        </div>
+      </div>
+
+      <div class="session-row">
+        <div class="time"><strong>10:30</strong><br><span class="room">75 min</span></div>
+        <div class="session-card">
+          <div class="lbl"><span class="tag">Panel</span></div>
+          <div class="ttl">Indie Studio Panel: Pricing, Picking, Saying No</div>
+          <div class="text-xs text-muted">Hall A · Main Stage · Four-Person Panel · Practice</div>
+          <button class="btn btn-outline btn-sm mt-10">Submit a question</button>
+        </div>
+      </div>
+
+      <div class="session-row">
+        <div class="time"><strong>14:30</strong><br><span class="room">60 min</span></div>
+        <div class="session-card">
+          <div class="lbl"><span class="tag">Closing</span></div>
+          <div class="ttl">Closing Remarks &amp; What 2026 Looks Like</div>
+          <div class="text-xs text-muted">Hall A · 5 min walk · Practice</div>
+        </div>
+      </div>
+
+      <div class="session-row">
+        <div class="time"><strong>18:30</strong><br><span class="room">LATE</span></div>
+        <div class="session-card">
+          <div class="lbl"><span class="tag">Social</span></div>
+          <div class="ttl">After-party at Block 9 — Drinks &amp; Records</div>
+          <div class="text-xs text-muted">Block 9 · 5 min walk · Open to all attendees · Community</div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="aside">
+      <div class="widget">
+        <h4>Suggested for you</h4>
+        <div class="row">
+          <span class="tag tag-orange">Talk</span>
+          <div class="grow"><strong>Calm is Calm interfaces</strong><div class="muted">In a free trial</div></div>
+        </div>
+        <div class="row">
+          <span class="tag tag-mint">Talk</span>
+          <div class="grow"><strong>Writing for Empty Stadiums</strong><div class="muted">Add another event</div></div>
+        </div>
+        <div class="row">
+          <span class="tag tag-peach">Panel</span>
+          <div class="grow"><strong>Pricing for Solo Designers</strong><div class="muted">Sat · 11:30 · Lounge 1</div></div>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h4>Following</h4>
+        <div class="row">
+          <span class="avatar av-orange">JV</span>
+          <div class="grow"><strong>Jen Vidal</strong><div class="muted">Speaking 1x</div></div>
+          <button class="btn btn-outline btn-sm">View</button>
+        </div>
+        <div class="row">
+          <span class="avatar av-mint">TH</span>
+          <div class="grow"><strong>Tahi Hara</strong><div class="muted">Workshop · Fri</div></div>
+          <button class="btn btn-outline btn-sm">View</button>
+        </div>
+        <div class="row">
+          <span class="avatar av-peach">RK</span>
+          <div class="grow"><strong>Renu Kapoor</strong><div class="muted">CSS Layout Now</div></div>
+          <button class="btn btn-outline btn-sm">View</button>
+        </div>
+        <div class="row">
+          <span class="avatar av-blue">SM</span>
+          <div class="grow"><strong>Sasha Miers</strong><div class="muted">Edge Workers</div></div>
+          <button class="btn btn-outline btn-sm">View</button>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h4>Trending Topics</h4>
+        <div class="trend"><div class="t">#design-tokens</div><div class="m">22 attendees discussing</div></div>
+        <div class="trend"><div class="t">#variable-fonts</div><div class="m">19 attendees discussing</div></div>
+        <div class="trend"><div class="t">#micro-saas</div><div class="m">12 attendees discussing</div></div>
+        <div class="trend"><div class="t">#bigli</div><div class="m">9 attendees discussing</div></div>
+      </div>
+
+      <div class="widget">
+        <h4>Quick Share</h4>
+        <p class="text-sm text-muted">Send your agenda to a friend — they'll see your saved sessions but not your notes.</p>
+        <div class="field"><label>Email</label><input class="input" value="friend@studio.co"></div>
+        <button class="btn btn-primary btn-sm btn-block">Send agenda</button>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="brand"><span class="dot"></span> Ember Vector Works</div>
+      <p class="text-sm text-muted">An editorial conference for independent designers and developers. Three days, two stages, one quiet hallway track.</p>
+    </div>
+    <div>
+      <h5>Event</h5>
+      <ul><li><a>Schedule</a></li><li><a>Speakers</a></li><li><a>Sponsors</a></li><li><a>Livestream</a></li></ul>
+    </div>
+    <div>
+      <h5>Venue</h5>
+      <ul><li>The Glasshouse</li><li>14 Foundry Lane, Lisbon</li><li>Sep 12–14 2025</li><li>Code of conduct</li></ul>
+    </div>
+    <div>
+      <h5>Elsewhere</h5>
+      <ul><li><a>Mastodon</a></li><li><a>Are.na channel</a></li><li><a>RSS feed</a></li><li><a>Newsletter</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-meta">
+    <span>© 2026 Ember Vector Works. Made with care in Lisbon and Toronto.</span>
+    <span>Hosted by Aperture Foundation · Sponsored by Linotype &amp; Co.</span>
+  </div>
+</footer>
+
+</body>
+</html>

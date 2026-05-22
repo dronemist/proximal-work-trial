@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Statements — Drift Harbor Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .filters { display: grid; grid-template-columns: 1fr 1fr 2fr auto; gap: 10px; margin-bottom: 12px; align-items: end; }
+  .stmt-row {
+    display: grid;
+    grid-template-columns: 2.4fr 1.2fr 1.2fr 0.6fr 0.6fr;
+    gap: 10px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    font-size: 12.5px;
+  }
+  .stmt-row:last-child { border-bottom: none; }
+  .stmt-row .ttl { font-weight: 600; }
+  .stmt-row .sub { color: var(--muted); font-size: 11px; }
+  .stmt-row .lbl { color: var(--muted); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.6px; }
+  .delivery .d-row {
+    display: grid; grid-template-columns: 26px 1fr auto; gap: 12px; align-items: center;
+    padding: 10px 0; border-bottom: 1px solid var(--line);
+  }
+  .delivery .d-row:last-child { border-bottom: none; }
+  .d-row .sub { color: var(--muted); font-size: 11px; margin-top: 2px; }
+  .tax-row { display: grid; grid-template-columns: 1fr auto; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 12.5px;}
+  .tax-row:last-child { border-bottom: none; }
+  .year-row { display: grid; grid-template-columns: 1fr auto; padding: 10px 0; border-bottom: 1px solid var(--line); align-items: center; }
+  .year-row:last-child { border-bottom: none; }
+  .yr-chart { display: flex; align-items: flex-end; gap: 6px; height: 130px; margin-top: 10px; padding: 0 4px; border-bottom: 1px solid var(--line); }
+  .yr-chart .pair { flex: 1; display: flex; gap: 3px; align-items: flex-end; height: 100%; }
+  .yr-chart .pair span { flex: 1; border-radius: 2px 2px 0 0; }
+  .yr-chart .pair .a { background: var(--accent); opacity: 0.8; }
+  .yr-chart .pair .b { background: #4a4a35; opacity: 0.85; }
+  .yr-labels { display: flex; gap: 6px; padding: 4px 4px 0; color: var(--muted); font-size: 10.5px; }
+  .yr-labels .pair { flex: 1; text-align: center; }
+  @media (max-width: 980px) {
+    .filters { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 540px) {
+    .filters { grid-template-columns: 1fr; }
+    .stmt-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">Drift Harbor Studio</div>
+    <div class="brand-sub">Personal banking</div>
+    <div class="nav-group">
+      <div class="nav-label">Banking</div>
+      <div class="nav-list">
+        <a href="account-overview.html">Accounts</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="cards.html">Cards</a>
+        <a href="statements.html" class="active">Statements</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-label">Service</div>
+      <div class="nav-list">
+        <a href="support.html">Help &amp; Support</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-label">Account</div>
+      <div class="nav-list">
+        <a href="#">Preferences</a>
+        <a href="#">Sign out</a>
+      </div>
+    </div>
+  </aside>
+
+  <header class="mobile-head">
+    <div class="mh-top">
+      <div>
+        <div class="mh-brand">Drift Harbor Studio</div>
+        <div class="mh-brand-sub">Personal banking</div>
+      </div>
+      <div class="mh-account">
+        <div><span class="my-acc">My account</span></div>
+      </div>
+    </div>
+    <nav class="mh-nav">
+      <a href="account-overview.html">Accounts</a>
+      <a href="transactions.html">Transactions</a>
+      <a href="cards.html">Cards</a>
+      <a class="active">Statements</a>
+      <a href="support.html">Help &amp; Support</a>
+    </nav>
+    <div class="mh-section">Account</div>
+    <div class="mh-sub">
+      <a>Preferences</a><a>Sign out</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="topbar">
+      <h1>Statements</h1>
+      <div class="topbar-actions">
+        <a class="panel-link">Index</a>
+      </div>
+    </div>
+
+    <div class="lede">
+      <div class="eyebrow">Archive · 2011 — 2024</div>
+      <h2>Monthly statements</h2>
+      <p>A complete record of every closing period across your Drift Harbor accounts. Documents are generated on the second business day of each month and retained for seven years.</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><div class="lbl">Statements on file</div><div class="val">42</div><div class="sub">Since March 2021</div></div>
+      <div class="stat"><div class="lbl">Latest closing</div><div class="val">Oct 2024</div><div class="sub">Issued 04 Nov 2024</div></div>
+      <div class="stat"><div class="lbl">Year-to-date net</div><div class="val">+$8,412.30</div><div class="sub pos">+ 4.1% vs 2023</div></div>
+      <div class="stat"><div class="lbl">Avg monthly outflow</div><div class="val">$3,184.06</div><div class="sub">Trailing twelve months</div></div>
+    </div>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <div class="panel-title">Year ledger · 2024</div>
+          <div class="panel-sub">Inflow and outflow by closing month</div>
+        </div>
+        <div class="btn-row">
+          <button class="btn outline sm">2023</button>
+          <button class="btn primary sm">2024</button>
+        </div>
+      </div>
+      <div class="yr-chart">
+        <div class="pair"><span class="a" style="height:60%"></span><span class="b" style="height:48%"></span></div>
+        <div class="pair"><span class="a" style="height:72%"></span><span class="b" style="height:55%"></span></div>
+        <div class="pair"><span class="a" style="height:64%"></span><span class="b" style="height:60%"></span></div>
+        <div class="pair"><span class="a" style="height:78%"></span><span class="b" style="height:58%"></span></div>
+        <div class="pair"><span class="a" style="height:82%"></span><span class="b" style="height:62%"></span></div>
+        <div class="pair"><span class="a" style="height:70%"></span><span class="b" style="height:64%"></span></div>
+        <div class="pair"><span class="a" style="height:84%"></span><span class="b" style="height:68%"></span></div>
+        <div class="pair"><span class="a" style="height:88%"></span><span class="b" style="height:72%"></span></div>
+        <div class="pair"><span class="a" style="height:76%"></span><span class="b" style="height:70%"></span></div>
+        <div class="pair"><span class="a" style="height:90%"></span><span class="b" style="height:74%"></span></div>
+        <div class="pair"><span class="a" style="height:0%"></span><span class="b" style="height:0%"></span></div>
+        <div class="pair"><span class="a" style="height:0%"></span><span class="b" style="height:0%"></span></div>
+      </div>
+      <div class="yr-labels">
+        <div class="pair">Jan</div><div class="pair">Feb</div><div class="pair">Mar</div><div class="pair">Apr</div>
+        <div class="pair">May</div><div class="pair">Jun</div><div class="pair">Jul</div><div class="pair">Aug</div>
+        <div class="pair">Sep</div><div class="pair">Oct</div><div class="pair">Nov</div><div class="pair">Dec</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:10px;color:var(--muted);font-size:11.5px;">
+        <span><span style="display:inline-block;width:8px;height:8px;background:var(--accent);margin-right:6px;border-radius:2px;"></span>Inflow <span style="display:inline-block;width:8px;height:8px;background:#4a4a35;margin:0 6px 0 12px;border-radius:2px;"></span>Outflow <span style="display:inline-block;width:8px;height:8px;border:1px solid var(--line-2);margin:0 6px 0 12px;border-radius:2px;"></span>Current month</span>
+        <span>Closing balances reconcile to ledger totals on the second business day of each month. <a class="panel-link">Download year summary (PDF)</a></span>
+      </div>
+    </section>
+
+    <div class="tabs" style="margin-top:16px;">
+      <a class="tab active">All accounts</a>
+      <a class="tab">Everyday Checking</a>
+      <a class="tab">Tidewater Savings</a>
+      <a class="tab">Joint Reserve</a>
+    </div>
+
+    <div class="filters">
+      <div class="field"><label>Year</label><select class="input"><option>2024</option><option>2023</option></select></div>
+      <div class="field"><label>Format</label><select class="input"><option>PDF document</option><option>CSV</option></select></div>
+      <div class="field"><label>Find a statement</label><input class="input" placeholder="Search by period or reference"></div>
+      <button class="btn primary">Download selected</button>
+    </div>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <div class="panel-title">2024 statements</div>
+          <div class="panel-sub">Ten periods on file · earliest closed seven days</div>
+        </div>
+        <span class="muted">Showing 10</span>
+      </div>
+
+      <div class="stmt-row">
+        <div><div class="ttl">October 2024</div><div class="sub">01 Oct → 31 Oct · 04 Nov 2024</div></div>
+        <div><div class="lbl">Closing</div><div class="num">$14,208.42</div></div>
+        <div><div class="lbl">Net</div><div class="num pos-amt">+$868.20</div></div>
+        <a class="btn outline sm">View</a>
+        <span class="pill green">PDF</span>
+      </div>
+      <div class="stmt-row">
+        <div><div class="ttl">September 2024</div><div class="sub">01 Sep → 30 Sep · 03 Oct 2024</div></div>
+        <div><div class="lbl">Closing</div><div class="num">$13,340.22</div></div>
+        <div><div class="lbl">Net</div><div class="num neg-amt">–$1,162.00</div></div>
+        <a class="btn outline sm">View</a>
+        <span class="pill">PDF</span>
+      </div>
+      <div class="stmt-row">
+        <div><div class="ttl">August 2024</div><div class="sub">01 Aug → 31 Aug · 04 Sep 2024</div></div>
+        <div><div class="lbl">Closing</div><div class="num">$11,992.14</div></div>
+        <div><div class="lbl">Net</div><div class="num pos-amt">+$540.04</div></div>
+        <a class="btn outline sm">View</a>
+        <span class="pill">PDF</span>
+      </div>
+      <div class="stmt-row">
+        <div><div class="ttl">July 2024</div><div class="sub">01 Jul → 31 Jul · 06 Aug 2024</div></div>
+        <div><div class="lbl">Closing</div><div class="num">$11,309.06</div></div>
+        <div><div class="lbl">Net</div><div class="num pos-amt">+$268.43</div></div>
+        <a class="btn outline sm">View</a>
+        <span class="pill">PDF</span>
+      </div>
+      <div class="stmt-row">
+        <div><div class="ttl">June 2024</div><div class="sub">01 Jun → 30 Jun · 03 Jul 2024</div></div>
+        <div><div class="lbl">Closing</div><div class="num">$11,053.79</div></div>
+        <div><div class="lbl">Net</div><div class="num neg-amt">–$372.10</div></div>
+        <a class="btn outline sm">View</a>
+        <span class="pill">PDF</span>
+      </div>
+      <div class="stmt-row">
+        <div><div class="ttl">May 2024</div><div class="sub">01 May → 31 May · 04 Jun 2024</div></div>
+        <div><div class="lbl">Closing</div><div class="num">$10,701.40</div></div>
+        <div><div class="lbl">Net</div><div class="num pos-amt">+$444.32</div></div>
+        <a class="btn outline sm">View</a>
+        <span class="pill">PDF</span>
+      </div>
+      <div class="stmt-row">
+        <div><div class="ttl">April 2024</div><div class="sub">01 Apr → 30 Apr · 03 May 2024</div></div>
+        <div><div class="lbl">Closing</div><div class="num">$10,243.26</div></div>
+        <div><div class="lbl">Net</div><div class="num pos-amt">+$132.56</div></div>
+        <a class="btn outline sm">View</a>
+        <span class="pill">PDF</span>
+      </div>
+      <div class="stmt-row">
+        <div><div class="ttl">March 2024</div><div class="sub">01 Mar → 31 Mar · 04 Apr 2024</div></div>
+        <div><div class="lbl">Closing</div><div class="num">$10,103.41</div></div>
+        <div><div class="lbl">Net</div><div class="num neg-amt">–$208.40</div></div>
+        <a class="btn outline sm">View</a>
+        <span class="pill">PDF</span>
+      </div>
+      <div class="stmt-row">
+        <div><div class="ttl">February 2024</div><div class="sub">01 Feb → 29 Feb · 04 Mar 2024</div></div>
+        <div><div class="lbl">Closing</div><div class="num">$8,275.27</div></div>
+        <div><div class="lbl">Net</div><div class="num pos-amt">+$320.10</div></div>
+        <a class="btn outline sm">View</a>
+        <span class="pill">PDF</span>
+      </div>
+      <div class="stmt-row">
+        <div><div class="ttl">January 2024</div><div class="sub">01 Jan → 31 Jan · 06 Feb 2024</div></div>
+        <div><div class="lbl">Closing</div><div class="num">$8,043.29</div></div>
+        <div><div class="lbl">Net</div><div class="num neg-amt">–$93.07</div></div>
+        <a class="btn outline sm">View</a>
+        <span class="pill">PDF</span>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;margin-top:10px;color:var(--muted);font-size:11.5px;">
+        <span>Documents are signed and time-stamped on issue.</span>
+        <a class="panel-link">Request a paper copy</a>
+      </div>
+    </section>
+
+    <div class="split-2" style="margin-top:14px;">
+      <div class="col">
+        <section class="panel delivery">
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">Delivery</div>
+            </div>
+          </div>
+          <div class="d-row">
+            <span class="toggle on"></span>
+            <div>
+              <div class="ttl">Paperless statements</div>
+              <div class="sub">Default for all accounts</div>
+            </div>
+            <span></span>
+          </div>
+          <div class="d-row">
+            <span class="toggle on"></span>
+            <div>
+              <div class="ttl">Email notification</div>
+              <div class="sub">e.morgan@harborline.co</div>
+            </div>
+            <span></span>
+          </div>
+          <div class="d-row">
+            <span class="toggle"></span>
+            <div>
+              <div class="ttl">Mailed copy</div>
+              <div class="sub">$3 per statement</div>
+            </div>
+            <span></span>
+          </div>
+          <div class="muted" style="font-size:11.5px;margin-top:8px;">Changes apply to the next closing period.</div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">A note on reconciliation</div>
+            </div>
+          </div>
+          <p style="margin:0;font-size:12.5px;color:var(--ink-2);">If a figure on a statement differs from your own records, please give the closing period a few business days to settle before raising it with us. Pending authorisations, foreign exchange holds, and merchant adjustments are reflected in the final document but may move during the soft-close window. When you do reach to dispute a line, the reference at the top right of any statement is the fastest way for our team to find it.</p>
+          <div style="margin-top:10px"><a class="panel-link">Open a statement query</a></div>
+        </section>
+      </div>
+
+      <div class="col">
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">Tax documents</div>
+            </div>
+            <span class="pill green">2023 ready</span>
+          </div>
+          <div class="tax-row"><span>1099-INT · 2023</span><a class="panel-link">Download</a></div>
+          <div class="tax-row"><span>1099-INT · 2022</span><a class="panel-link">Download</a></div>
+          <div class="tax-row"><span>Year-end summary · 2023</span><a class="panel-link">Download</a></div>
+          <div class="tax-row"><span>Year-end summary · 2022</span><a class="panel-link">Download</a></div>
+          <div class="muted" style="font-size:11px;margin-top:8px;">2024 forms post in late January.</div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">Earlier years</div>
+            </div>
+          </div>
+          <div class="year-row"><span>2023 · twelve statements</span><span class="muted">+</span></div>
+          <div class="year-row"><span>2022 · twelve statements</span><span class="muted">+</span></div>
+          <div class="year-row"><span>2021 · ten statements</span><span class="muted">+</span></div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div>© 2026 Drift Harbor Studio · Member of the regulated deposit scheme. Drift Harbor is a trading name of Harborline Bank, registered no. 448412.</div>
+      <div class="footer-links">
+        <a>Support</a><a>Accounts</a><a>Transactions</a><a>Cards</a><a>Build 2025.11.04</a>
+      </div>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+[grade] VLM judge: 15 pairs in 13.7s
+{
+  "per_page_viewport": {
+    "alerts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6186070899557768,
+          "extra": {
+            "reference_size": [
+              1440,
+              2271
+            ],
+            "candidate_size": [
+              1440,
+              1588
+            ],
+            "compared_size": [
+              1440,
+              1588
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.3792572021484375,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 303,
+            "matched_pairs": 303,
+            "mean_matched_iou": 0.14383602142333984,
+            "raw_score_before_sqrt": 0.14383603632450104
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.5987502784882193,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 303,
+            "matched_pairs": 303,
+            "mean_normalized_centroid_distance": 0.40124972151178073,
+            "page_diagonal_px": 2689.336619208539
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7322043308445385,
+          "extra": {
+            "bg_score": 0.7460040696859359,
+            "fg_score": 0.7184045920031411,
+            "bg": {
+              "reference_palette_size": 9,
+              "candidate_palette_size": 15,
+              "weighted_mean_oklab_distance": 0.033699389547109604,
+              "base_score_before_penalty": 0.7753374030192692,
+              "over_color_penalty": 0.029333333333333336
+            },
+            "fg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 13,
+              "weighted_mean_oklab_distance": 0.035553596913814545,
+              "base_score_before_penalty": 0.7629760205745697,
+              "over_color_penalty": 0.044571428571428574
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.8436516715830874,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.9195023879758393,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.28217821782178215
+              ],
+              [
+                14.0,
+                0.45544554455445546
+              ],
+              [
+                16.0,
+                0.22772277227722773
+              ],
+              [
+                18.0,
+                0.022277227722772276
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.036303630363036306
+              ],
+              [
+                11.0,
+                0.2739273927392739
+              ],
+              [
+                12.0,
+                0.4389438943894389
+              ],
+              [
+                13.0,
+                0.22112211221122113
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5396600566572238,
+          "extra": {
+            "reference_tokens": 592,
+            "candidate_tokens": 495,
+            "matched_tokens": 381,
+            "union_tokens": 706,
+            "reference_unique": 313,
+            "candidate_unique": 279
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple major content differences: wrong theme (dark vs light), on-call rotation panel is missing secondary/off-rotation/media roles and shows wrong members, alert severity levels are wrong (SEV-2 cert expiry vs SEV-3, SEV-2 media queue vs SEV-2), triage runbook IDs are fabricated (RB-04/09/12/18/2",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 6.7
+          }
+        },
+        "_structured": 0.5972150851896978,
+        "_overflow_factor": 1.0,
+        "_composite": 0.3
+      },
+   

@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Discounts · Onyx Bridge Lab</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="dot"></span> Onyx Bridge Lab</div>
+    <nav class="nav">
+      <a href="orders.html">Orders</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="customers.html">Customers</a>
+      <a href="products.html">Products</a>
+      <a href="discounts.html" class="active">Discounts</a>
+    </nav>
+    <div class="topbar-meta">
+      <span class="pill mono">v 2.41.0</span>
+      <span>WED · MAR 12</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div style="padding-top: 26px; display:flex; align-items:flex-start; flex-wrap:wrap; gap:18px">
+    <div style="flex:1; min-width:280px">
+      <div class="crumbs">DISCOUNTS <span class="sep">/</span> Q3 2025 <span class="sep">/</span> <span class="here">STOREFRONT &ldquo;ALMOST &amp; LOOP&rdquo;</span></div>
+      <h1 class="page-title">Active promotions, codes &amp; performance</h1>
+      <p class="page-sub">Seventeen discount mechanisms are currently live across the storefront. Coral indicates codes starting above their baseline; review the queue before the weekend drop.</p>
+    </div>
+    <div class="flex gap" style="margin-top:6px">
+      <button class="btn">Export CSV</button>
+      <button class="btn">Schedule a code</button>
+      <button class="btn primary">+ New discount</button>
+    </div>
+  </div>
+
+  <section class="kpis">
+    <div class="kpi"><div class="label">Codes live</div><div class="val">17</div><div class="delta"><span class="up">▲ 3</span> vs last week</div></div>
+    <div class="kpi"><div class="label">Redemptions · 30d</div><div class="val">2,418</div><div class="delta"><span class="up">▲ 11.2%</span></div></div>
+    <div class="kpi"><div class="label">Revenue attributed</div><div class="val">$84.2k</div><div class="delta"><span class="up">▲ $9.1k</span></div></div>
+    <div class="kpi"><div class="label">Avg discount</div><div class="val">14.8%</div><div class="delta"><span class="down">▼ 0.4 pts</span></div></div>
+  </section>
+
+  <section class="layout">
+    <div class="col-stack">
+      <!-- Active codes -->
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Active codes <small>17 LIVE · 3 SCHEDULED</small></div>
+          <div class="right flex gap">
+            <span class="tag green dot">healthy</span>
+          </div>
+        </div>
+        <div class="toolbar">
+          <input class="input grow" type="text" placeholder="🔍  Search by code, name or tag" />
+          <select class="select"><option>All types</option></select>
+          <select class="select"><option>Status: All</option></select>
+          <button class="btn">More filters</button>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="checkbox"><input type="checkbox" /></th>
+              <th>Code</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th class="num">Uses</th>
+              <th class="num">Revenue</th>
+              <th class="num">AOV</th>
+              <th>Ends</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><input type="checkbox" /></td><td><span class="mono fw-7">FALL24</span><div class="fs-11 txt-muted">15% off — sitewide</div></td><td>15% off</td><td><span class="tag green dot">live</span></td><td class="num">488</td><td class="num">$28,401</td><td class="num">$58</td><td>—</td><td>›</td></tr>
+            <tr><td><input type="checkbox" /></td><td><span class="mono fw-7">LINEN-EARLY</span><div class="fs-11 txt-muted">$25 off &gt; $150 cart</div></td><td>$25 off</td><td><span class="tag green dot">live</span></td><td class="num">312</td><td class="num">$22,802</td><td class="num">$73</td><td>Apr 12</td><td>›</td></tr>
+            <tr><td><input type="checkbox" /></td><td><span class="mono fw-7">WELCOME15</span><div class="fs-11 txt-muted">First order</div></td><td>15% off</td><td><span class="tag green dot">live</span></td><td class="num">266</td><td class="num">$11,940</td><td class="num">$45</td><td>—</td><td>›</td></tr>
+            <tr><td><input type="checkbox" /></td><td><span class="mono fw-7">FREESHIP75</span><div class="fs-11 txt-muted">Free ship &gt; $75</div></td><td>shipping</td><td><span class="tag green dot">live</span></td><td class="num">241</td><td class="num">$9,612</td><td class="num">$92</td><td>Apr 30</td><td>›</td></tr>
+            <tr><td><input type="checkbox" /></td><td><span class="mono fw-7">TRADE-PRO</span><div class="fs-11 txt-muted">20% off — trade only</div></td><td>20% off</td><td><span class="tag orange dot">draft</span></td><td class="num">38</td><td class="num">$6,310</td><td class="num">$166</td><td>—</td><td>›</td></tr>
+            <tr><td><input type="checkbox" /></td><td><span class="mono fw-7">BUNDLE-2</span><div class="fs-11 txt-muted">Buy 2 · save 10%</div></td><td>BOGO</td><td><span class="tag green dot">live</span></td><td class="num">137</td><td class="num">$5,128</td><td class="num">$37</td><td>—</td><td>›</td></tr>
+            <tr><td><input type="checkbox" /></td><td><span class="mono fw-7">STUDIO-EU</span><div class="fs-11 txt-muted">10% off — EU</div></td><td>10% off</td><td><span class="tag yellow dot">scheduled</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td>Apr 19</td><td>›</td></tr>
+            <tr><td><input type="checkbox" /></td><td><span class="mono fw-7">RETURN-VIP</span><div class="fs-11 txt-muted">$40 off · win-back</div></td><td>$40 off</td><td><span class="tag green dot">live</span></td><td class="num">64</td><td class="num">$4,712</td><td class="num">$92</td><td>—</td><td>›</td></tr>
+            <tr><td><input type="checkbox" /></td><td><span class="mono fw-7">SUMMER25</span><div class="fs-11 txt-muted">25% off · clearance</div></td><td>25% off</td><td><span class="tag red dot">ended</span></td><td class="num">512</td><td class="num">$3,148</td><td class="num">$24</td><td>Sep 12</td><td>›</td></tr>
+          </tbody>
+        </table>
+        <div class="table-foot">
+          <span>Showing 9 of 17 · 3,402 redemptions total</span>
+          <span class="pager">
+            <span class="pg">‹</span><span class="pg active">1</span><span class="pg">2</span><span class="pg">3</span><span class="pg">›</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Redemption volume chart -->
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Redemption volume <small>LAST 14 DAYS · ALL CODES</small></div>
+          <div class="right flex gap">
+            <div class="segmented">
+              <button>7d</button><button class="active">14d</button><button>90d</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-pad">
+          <div class="cols">
+            <div class="col" style="height:60%"></div>
+            <div class="col" style="height:48%"></div>
+            <div class="col" style="height:72%"></div>
+            <div class="col" style="height:55%"></div>
+            <div class="col" style="height:80%"></div>
+            <div class="col" style="height:62%"></div>
+            <div class="col" style="height:88%"></div>
+            <div class="col" style="height:71%"></div>
+            <div class="col" style="height:84%"></div>
+            <div class="col" style="height:68%"></div>
+            <div class="col" style="height:92%"></div>
+            <div class="col alt" style="height:46%"></div>
+            <div class="col alt" style="height:54%"></div>
+            <div class="col" style="height:75%"></div>
+          </div>
+          <div class="axis"><span>Mar 1</span><span>Mar 4</span><span>Mar 7</span><span>Mar 10</span><span>Mar 13</span></div>
+          <div class="flex between mt-12">
+            <div class="fs-11 txt-muted">Sep 12 · 312 codes</div>
+            <div class="fs-11 txt-muted">$11.40 / order</div>
+            <div class="fs-11 txt-muted">8.2% combined w/ shipping</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Automatic discounts -->
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Automatic discounts <small>NO CODE REQUIRED · CART-APPLIED</small></div>
+          <div class="right">
+            <button class="btn xs">+ Add automatic</button>
+          </div>
+        </div>
+        <div class="card-pad">
+          <p class="fs-12 txt-soft mb-12">Auto-applies when cart contains three or more units across the Linen, Hemp, and Field Codes collections. Excludes clearance. Stacks with free shipping but not with code-based discounts. Triggers 1,294 times this month.</p>
+          <div class="grid-2">
+            <div>
+              <div class="fs-11 txt-muted">Volume tier · 3+ items</div>
+              <div class="flex gap center mt-8">
+                <span class="mono fs-12">8% off</span>
+                <span class="tag green dot">active</span>
+              </div>
+            </div>
+            <div>
+              <div class="fs-11 txt-muted">Subscriber-only · 5% off any cart</div>
+              <div class="flex gap center mt-8">
+                <span class="mono fs-12">5% off</span>
+                <span class="tag green dot">active</span>
+              </div>
+            </div>
+            <div>
+              <div class="fs-11 txt-muted">Gift with purchase · over $200</div>
+              <div class="flex gap center mt-8">
+                <span class="mono fs-12">free pin</span>
+                <span class="tag yellow dot">paused</span>
+              </div>
+            </div>
+            <div>
+              <div class="fs-11 txt-muted">Wholesale net-30 · automatic</div>
+              <div class="flex gap center mt-8">
+                <span class="mono fs-12">net-30</span>
+                <span class="tag green dot">active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- side rail -->
+    <aside class="col-stack side">
+      <!-- Draft editor -->
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Draft — WINTER-PRE <small>BY EVERYHOLD</small></div>
+          <div class="right"><span class="tag orange">draft</span></div>
+        </div>
+        <div class="card-pad">
+          <div class="field-block">
+            <label>Code</label>
+            <input type="text" value="WINTER-PRE" />
+          </div>
+          <div class="field-block">
+            <label>Type</label>
+            <select><option>Percentage</option></select>
+          </div>
+          <div class="field-block">
+            <label>Amount</label>
+            <input type="text" value="10%" />
+          </div>
+          <div class="callout">
+            <div class="flex gap center"><input type="checkbox" checked /> <span class="fw-6">Limit to one use per customer</span></div>
+            <div class="fs-11 txt-muted mt-8">Recommended for high-discount, low-volume codes.</div>
+          </div>
+          <div class="flex gap mt-12">
+            <button class="btn">Discard</button>
+            <button class="btn">Save draft</button>
+            <button class="btn primary">Activate</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top performers -->
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Op performers <small>ATTRIBUTED REVENUE · 30D</small></div>
+        </div>
+        <div class="card-pad">
+          <div class="bar-row"><span class="lbl mono">FALL24</span><div class="bar-track"><div class="bar-fill" style="width:96%"></div></div><span class="num">$28.4k</span></div>
+          <div class="bar-row"><span class="lbl mono">LINEN-EARLY</span><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div><span class="num">$22.8k</span></div>
+          <div class="bar-row"><span class="lbl mono">WELCOME15</span><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><span class="num">$11.9k</span></div>
+          <div class="bar-row"><span class="lbl mono">FREESHIP75</span><div class="bar-track"><div class="bar-fill" style="width:34%"></div></div><span class="num">$9.6k</span></div>
+          <div class="bar-row"><span class="lbl mono">TRADE-PRO</span><div class="bar-track"><div class="bar-fill muted" style="width:22%"></div></div><span class="num">$6.3k</span></div>
+        </div>
+      </div>
+
+      <!-- Program health -->
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Program health</div>
+          <div class="right"><span class="tag green dot">on-track</span></div>
+        </div>
+        <div class="card-pad">
+          <div class="flex between mb-8"><span class="txt-muted fs-11">Margin floor breach</span><span class="fw-6">0 codes</span></div>
+          <div class="flex between mb-8"><span class="txt-muted fs-11">Codes near burn rate</span><span class="fw-6">2 (in 7 days)</span></div>
+          <div class="flex between mb-8"><span class="txt-muted fs-11">Stacking risk</span><span class="fw-6">Medium</span></div>
+          <div class="flex between mb-8"><span class="txt-muted fs-11">Communication queue</span><span class="fw-6">3</span></div>
+          <div class="divider"></div>
+          <div class="flex between"><span class="txt-muted fs-11">Net contribution · 30d</span><span class="fw-7">+$52.1k</span></div>
+        </div>
+      </div>
+
+      <!-- Recent activity -->
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Recent activity <small>LAST 72H</small></div>
+        </div>
+        <div class="card-pad">
+          <div class="timeline">
+            <div class="tl"><div class="when">TODAY<br>09:14</div><div class="what"><div class="t">FALL24 limit raised to 1,500 uses</div><div class="d">Edited by Renan O. · previous cap 1,000</div></div></div>
+            <div class="tl"><div class="when">YESTERDAY<br>17:31</div><div class="what"><div class="t">STUDIO-EU scheduled for Sep 19</div><div class="d">Geo gate via Stripe regional zones</div></div></div>
+            <div class="tl"><div class="when">YESTERDAY<br>11:02</div><div class="what"><div class="t">LINEN-EARLY exceeded forecast by 22%</div><div class="d">Auto-flagged by perf alert</div></div></div>
+            <div class="tl"><div class="when">SAT<br>22:48</div><div class="what"><div class="t">SUMMER25 ended at threshold</div><div class="d">Sunset 14d window · archived</div></div></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="status-dot"></span>
+    <span>© 2024 Onyx Bridge Lab · Production · us-east-2</span>
+    <div class="right">
+      <a href="orders.html">Orders</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="customers.html">Customers</a>
+      <a href="products.html">Products</a>
+      <a href="discounts.html">Discounts</a>
+      <a href="#">Support</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

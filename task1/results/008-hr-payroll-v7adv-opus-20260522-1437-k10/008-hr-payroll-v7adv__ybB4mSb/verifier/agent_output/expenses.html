@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Expenses · Onyx Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+
+  <!-- Sidebar (desktop) -->
+  <aside class="sidebar">
+    <div class="brand"><span class="mark"></span> Onyx Works</div>
+
+    <div class="section-label">Workspace</div>
+    <nav>
+      <a class="nav-link" href="people-directory.html"><span class="ico"></span> People</a>
+      <a class="nav-link" href="org-chart.html"><span class="ico"></span> Org Chart</a>
+      <a class="nav-link" href="time-off.html"><span class="ico"></span> Time Off</a>
+    </nav>
+
+    <div class="section-label">Finance</div>
+    <nav>
+      <a class="nav-link active" href="expenses.html"><span class="ico"></span> Expenses</a>
+    </nav>
+
+    <div class="section-label">Admin</div>
+    <nav>
+      <a class="nav-link" href="settings.html"><span class="ico"></span> Company Settings</a>
+    </nav>
+
+    <div class="user-chip">
+      <span class="avatar pink">MR</span>
+      <div>
+        <div class="name">Margot Reyes</div>
+        <div class="role">Finance Operations</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mobile / tablet header -->
+  <header class="mobile-header">
+    <span class="brand"><span class="mark"></span> Onyx Works</span>
+  </header>
+  <nav class="mobile-nav">
+    <a class="nav-link" href="people-directory.html">People</a>
+    <a class="nav-link" href="org-chart.html">Org Chart</a>
+    <a class="nav-link" href="time-off.html">Time Off</a>
+    <a class="nav-link active" href="expenses.html">Expenses</a>
+    <a class="nav-link" href="settings.html">Company Settings</a>
+  </nav>
+  <div class="mobile-user-chip">
+    <span class="avatar pink">MR</span>
+    <div>
+      <div class="name">Margot Reyes</div>
+      <div class="role">Finance Operations</div>
+    </div>
+  </div>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="crumbs">
+        <span class="crumb-pill"><span class="dot"></span> Hailen Holdings · Berlin GmbH</span>
+        <span class="sep">/</span>
+        <strong>Expenses</strong>
+      </div>
+      <div class="search">Search reports, merchants, people</div>
+      <button class="btn">Export CSV</button>
+      <button class="btn primary">+ New report</button>
+    </div>
+
+    <div class="content">
+      <h1 class="page-title">Expenses</h1>
+      <div class="muted text-sm mb-16">6 of 14 €5,000 caps in use · 8 employees</div>
+
+      <!-- KPI cards -->
+      <div class="kpis">
+        <div class="kpi">
+          <div class="label">Awaiting your approval</div>
+          <div class="value">€ 42,118</div>
+          <div class="sub">14 reports · 8 employees</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Approved this month</div>
+          <div class="value">€ 42,118</div>
+          <div class="sub"><span class="delta-up">▲ 12% v. October</span></div>
+        </div>
+        <div class="kpi">
+          <div class="label">Reimbursed</div>
+          <div class="value">€ 31,902</div>
+          <div class="sub">Next run: Nov 28</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Rejected / on hold</div>
+          <div class="value">€ 1,260</div>
+          <div class="sub">3 reports need review</div>
+        </div>
+      </div>
+
+      <!-- Status tabs -->
+      <div class="tabs">
+        <div class="tab active">Approval queue <span class="badge-count">14</span></div>
+        <div class="tab">All reports</div>
+        <div class="tab">Paid</div>
+        <div class="tab">Rejected</div>
+        <div class="tab">Policy flags <span class="badge-count">3</span></div>
+      </div>
+
+      <!-- Two column area: calendar + offsite detail -->
+      <div class="grid-2" style="grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);">
+        <div>
+          <!-- Filters -->
+          <div class="filters">
+            <span class="label-strong">Filter</span>
+            <select class="input select"><option>Berlin GmbH</option></select>
+            <select class="input select"><option>All categories</option></select>
+            <select class="input select"><option>Any amount</option></select>
+            <select class="input select"><option>November 2024</option></select>
+            <span class="chip">Status: Pending</span>
+          </div>
+
+          <!-- Calendar -->
+          <div class="cal">
+            <div class="cal-head">
+              <div class="month">November 2024</div>
+              <div class="row">
+                <button class="btn sm">‹</button>
+                <button class="btn sm">Today</button>
+                <button class="btn sm">›</button>
+                <div class="pill-tabs" style="margin-left:8px;">
+                  <span class="pill active">Week</span>
+                  <span class="pill">Month</span>
+                </div>
+              </div>
+            </div>
+            <div class="cal-grid">
+              <div class="cal-dow">Mon</div><div class="cal-dow">Tue</div><div class="cal-dow">Wed</div>
+              <div class="cal-dow">Thu</div><div class="cal-dow">Fri</div><div class="cal-dow">Sat</div>
+              <div class="cal-dow">Sun</div>
+
+              <div class="cal-cell muted"><span class="dn">28</span></div>
+              <div class="cal-cell muted"><span class="dn">29</span></div>
+              <div class="cal-cell muted"><span class="dn">30</span></div>
+              <div class="cal-cell muted"><span class="dn">31</span></div>
+              <div class="cal-cell"><span class="dn">1</span><span class="cal-evt">€ 420 Cab</span></div>
+              <div class="cal-cell"><span class="dn">2</span></div>
+              <div class="cal-cell"><span class="dn">3</span></div>
+
+              <div class="cal-cell"><span class="dn">4</span><span class="cal-evt">€ 88 Meals</span></div>
+              <div class="cal-cell"><span class="dn">5</span><span class="cal-evt amber">€ 1,460 Hotel</span></div>
+              <div class="cal-cell"><span class="dn">6</span><span class="cal-evt">€ 312 Cab</span></div>
+              <div class="cal-cell"><span class="dn">7</span></div>
+              <div class="cal-cell"><span class="dn">8</span><span class="cal-evt">€ 90 SaaS</span></div>
+              <div class="cal-cell"><span class="dn">9</span></div>
+              <div class="cal-cell"><span class="dn">10</span></div>
+
+              <div class="cal-cell"><span class="dn">11</span><span class="cal-evt">€ 220 Flight</span></div>
+              <div class="cal-cell"><span class="dn">12</span><span class="cal-evt purple">€ 540 Event</span></div>
+              <div class="cal-cell selected"><span class="dn">13</span><span class="cal-evt dark">€ 2,180 Offsite</span></div>
+              <div class="cal-cell"><span class="dn">14</span><span class="cal-evt">€ 78 Cab</span></div>
+              <div class="cal-cell"><span class="dn">15</span><span class="cal-evt red">Flagged</span></div>
+              <div class="cal-cell"><span class="dn">16</span></div>
+              <div class="cal-cell"><span class="dn">17</span></div>
+
+              <div class="cal-cell"><span class="dn">18</span><span class="cal-evt">€ 65 Meals</span></div>
+              <div class="cal-cell"><span class="dn">19</span><span class="cal-evt">€ 250 Train</span></div>
+              <div class="cal-cell"><span class="dn">20</span><span class="cal-evt amber">€ 980 Hotel</span></div>
+              <div class="cal-cell today"><span class="dn">21</span><span class="cal-evt">€ 19 Coffee</span></div>
+              <div class="cal-cell"><span class="dn">22</span></div>
+              <div class="cal-cell"><span class="dn">23</span></div>
+              <div class="cal-cell"><span class="dn">24</span></div>
+
+              <div class="cal-cell"><span class="dn">25</span><span class="cal-evt">€ 49 SaaS</span></div>
+              <div class="cal-cell"><span class="dn">26</span></div>
+              <div class="cal-cell"><span class="dn">27</span></div>
+              <div class="cal-cell"><span class="dn">28</span><span class="cal-evt dark">Reimburse run</span></div>
+              <div class="cal-cell"><span class="dn">29</span></div>
+              <div class="cal-cell"><span class="dn">30</span></div>
+              <div class="cal-cell muted"><span class="dn">1</span></div>
+            </div>
+            <div class="legend">
+              <div class="item"><span class="sw green"></span> Pending</div>
+              <div class="item"><span class="sw"></span> Approved</div>
+              <div class="item"><span class="sw amber"></span> Reimbursed</div>
+              <div class="item"><span class="sw purple"></span> Rejected</div>
+              <div class="item"><span class="sw dark"></span> Selected day</div>
+            </div>
+          </div>
+
+          <!-- Reports table -->
+          <h2 class="section-title">Reports for November</h2>
+          <div class="card">
+            <div class="head">
+              <div class="row gap-lg">
+                <span class="checkbox"></span>
+                <button class="btn sm">Approve selected</button>
+                <button class="btn sm">Request changes</button>
+                <button class="btn sm" style="color:var(--primary);">Reject</button>
+              </div>
+              <div class="muted text-sm">Showing 1–8 of 47</div>
+            </div>
+            <div class="scroll-x">
+            <table class="table">
+              <thead><tr>
+                <th style="width:34px;"></th>
+                <th>Report</th><th>Submitter</th><th>Category</th><th>Submitted</th><th class="num">Amount</th><th>Status</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="checkbox checked"></span></td>
+                  <td><strong>EXP-2024-1148</strong><div class="muted text-xs">Berlin · Lisbon offsite</div></td>
+                  <td><span class="avatar gray">HV</span> Hannah Vogt</td>
+                  <td>Travel</td><td>Nov 21</td>
+                  <td class="num">€ 2,180.00</td>
+                  <td><span class="chip green"><span class="dot"></span>Pending</span></td>
+                </tr>
+                <tr>
+                  <td><span class="checkbox"></span></td>
+                  <td><strong>EXP-2024-1147</strong><div class="muted text-xs">Client dinner — Axel Springer</div></td>
+                  <td><span class="avatar blue">IA</span> Inko Aizpurua</td>
+                  <td>Meals</td><td>Nov 20</td>
+                  <td class="num">€ 215.40</td>
+                  <td><span class="chip green"><span class="dot"></span>Pending</span></td>
+                </tr>
+                <tr>
+                  <td><span class="checkbox"></span></td>
+                  <td><strong>EXP-2024-1146</strong><div class="muted text-xs">Trade show — Web Summit</div></td>
+                  <td><span class="avatar amber">PR</span> Priya Raman</td>
+                  <td>Conference</td><td>Nov 19</td>
+                  <td class="num">€ 1,449.50</td>
+                  <td><span class="chip amber"><span class="dot"></span>Review</span></td>
+                </tr>
+                <tr>
+                  <td><span class="checkbox"></span></td>
+                  <td><strong>EXP-2024-1145</strong><div class="muted text-xs">Notion 6-seat annual</div></td>
+                  <td><span class="avatar green">MR</span> Margot Reyes</td>
+                  <td>Software</td><td>Nov 18</td>
+                  <td class="num">€ 56.00</td>
+                  <td><span class="chip green"><span class="dot"></span>Pending</span></td>
+                </tr>
+                <tr>
+                  <td><span class="checkbox"></span></td>
+                  <td><strong>EXP-2024-1142</strong><div class="muted text-xs">AWS — production</div></td>
+                  <td><span class="avatar pink">SK</span> Soren Kalbo</td>
+                  <td>Infrastructure</td><td>Nov 13</td>
+                  <td class="num">€ 940.00</td>
+                  <td><span class="chip green"><span class="dot"></span>Pending</span></td>
+                </tr>
+                <tr>
+                  <td><span class="checkbox"></span></td>
+                  <td><strong>EXP-2024-1141</strong><div class="muted text-xs">Hotel Adlon — relooked</div></td>
+                  <td><span class="avatar gray">HV</span> Hannah Vogt</td>
+                  <td>Travel</td><td>Nov 06</td>
+                  <td class="num">€ 1,348.90</td>
+                  <td><span class="chip red"><span class="dot"></span>Flagged</span></td>
+                </tr>
+                <tr>
+                  <td><span class="checkbox"></span></td>
+                  <td><strong>EXP-2024-1138</strong><div class="muted text-xs">Client gift</div></td>
+                  <td><span class="avatar blue">LM</span> Luca Mann</td>
+                  <td>Client gift</td><td>Nov 18</td>
+                  <td class="num">€ 311.00</td>
+                  <td><span class="chip"><span class="dot"></span>Paid</span></td>
+                </tr>
+                <tr>
+                  <td><span class="checkbox"></span></td>
+                  <td><strong>EXP-2024-1131</strong><div class="muted text-xs">Eurostar · Paris workshop</div></td>
+                  <td><span class="avatar amber">TS</span> Tomasz Sowa</td>
+                  <td>Travel</td><td>Nov 12</td>
+                  <td class="num">€ 156.20</td>
+                  <td><span class="chip"><span class="dot"></span>Paid</span></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr><td></td><td colspan="4"><strong>Page subtotal</strong></td><td class="num"><strong>€ 7,108.10</strong></td><td></td></tr>
+              </tfoot>
+            </table>
+            </div>
+          </div>
+
+          <div class="row between mt-16">
+            <div class="muted text-sm">Page 1 of 6</div>
+            <div class="row">
+              <button class="btn sm">‹</button>
+              <button class="btn sm primary">1</button>
+              <button class="btn sm">2</button>
+              <button class="btn sm">3</button>
+              <button class="btn sm">4</button>
+              <button class="btn sm">…</button>
+              <button class="btn sm">6</button>
+              <button class="btn sm">Next ›</button>
+            </div>
+          </div>
+
+          <!-- Policy footer pair -->
+          <div class="grid-2 mt-24">
+            <div class="card pad">
+              <div class="row between mb-8">
+                <strong>Next reimbursement run</strong>
+                <span class="chip green">on track</span>
+              </div>
+              <div class="bold" style="font-size:18px;">Nov 28</div>
+              <div class="muted text-sm">Cut-off Nov 26 at 18:00 CET · Payment via SEPA, expected to clear Nov 29</div>
+              <div class="row between mt-16">
+                <span class="muted text-sm">42 reports queued</span>
+                <a style="color:var(--primary)" href="#">Open run →</a>
+              </div>
+            </div>
+            <div class="card pad">
+              <div class="row between mb-8">
+                <strong>Policy flags</strong>
+                <span class="chip red">3 issues</span>
+              </div>
+              <div class="row between text-sm" style="padding:6px 0;">
+                <span>Over per-diem (€90 cap)</span>
+                <span class="bold">1</span>
+              </div>
+              <div class="divider" style="margin:4px 0;"></div>
+              <div class="row between text-sm" style="padding:6px 0;">
+                <span>Missing receipt &gt; €25</span>
+                <span class="bold">1</span>
+              </div>
+              <div class="divider" style="margin:4px 0;"></div>
+              <div class="row between text-sm" style="padding:6px 0;">
+                <span>Duplicate merchant within 24h</span>
+                <span class="bold">1</span>
+              </div>
+              <div class="row between mt-16">
+                <span class="muted text-sm">Auto-checked: an hour ago</span>
+                <a style="color:var(--primary)" href="#">Edit rules →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column: detail panel -->
+        <div>
+          <div class="card">
+            <div class="head">
+              <div>
+                <div class="text-sm muted">EXP-2024-1148 · Selected Nov 13</div>
+                <div class="bold" style="font-size:16px; margin-top:2px;">Berlin → Lisbon offsite</div>
+              </div>
+              <button class="btn sm">···</button>
+            </div>
+            <div class="pad">
+              <div class="row mb-12">
+                <span class="avatar lg gray">HV</span>
+                <div>
+                  <div class="bold">Hannah Vogt</div>
+                  <div class="muted text-xs">Brand Studio · Berlin GmbH</div>
+                </div>
+              </div>
+              <div class="row between text-sm" style="padding:6px 0; border-top:1px solid var(--border);">
+                <span class="muted">Total</span><strong>€ 2,180.00</strong>
+              </div>
+              <div class="row between text-sm" style="padding:6px 0; border-top:1px solid var(--border);">
+                <span class="muted">Status</span><span class="chip amber"><span class="dot"></span>Pending – 2 of 3 approvals</span>
+              </div>
+
+              <div class="muted text-xs mt-16" style="text-transform:uppercase; letter-spacing:0.06em; font-weight:600;">Line items (4)</div>
+              <div class="list-row" style="padding:8px 0; border-bottom:1px solid var(--border);">
+                <div class="min-0 flex-1">
+                  <div class="bold">Lufthansa LH1180</div>
+                  <div class="muted text-xs">Nov 13 · Outbound</div>
+                </div>
+                <div class="num bold">€ 1,049.00</div>
+              </div>
+              <div class="list-row" style="padding:8px 0; border-bottom:1px solid var(--border);">
+                <div class="min-0 flex-1">
+                  <div class="bold">Hotel Convento — 3 nights</div>
+                  <div class="muted text-xs">Nov 13 · Lisbon</div>
+                </div>
+                <div class="num bold">€ 512.00</div>
+              </div>
+              <div class="list-row" style="padding:8px 0; border-bottom:1px solid var(--border);">
+                <div class="min-0 flex-1">
+                  <div class="bold">Uber → airport</div>
+                  <div class="muted text-xs">Nov 13 · Ground</div>
+                </div>
+                <div class="num bold">€ 29.80</div>
+              </div>
+
+              <div class="muted text-xs mt-16" style="text-transform:uppercase; letter-spacing:0.06em; font-weight:600;">Receipt</div>
+              <div style="height:90px; border:1px dashed var(--border-strong); border-radius:6px; background: var(--surface-2); margin-top:6px;"></div>
+
+              <div class="divider"></div>
+
+              <div class="row between">
+                <strong class="text-sm">Policy check</strong>
+                <span class="chip green"><span class="dot"></span>OK</span>
+              </div>
+              <ul class="muted text-xs" style="padding-left:16px; margin:6px 0 0;">
+                <li>Within €2,500 travel cap</li>
+                <li>Booked through preferred vendor</li>
+                <li>Receipt for Uber attached as PDF</li>
+              </ul>
+
+              <div class="divider"></div>
+
+              <div class="row between">
+                <strong class="text-sm">Approval trail</strong>
+                <button class="btn sm">▾</button>
+              </div>
+              <div class="row mt-8">
+                <span class="chip pink"><span class="dot"></span>Approve € 2,180</span>
+                <button class="btn sm">Request changes</button>
+              </div>
+              <div class="text-sm mt-8" style="color:var(--primary);">Reject report</div>
+            </div>
+          </div>
+
+          <div class="card mt-16">
+            <div class="head"><strong>Up next</strong><a href="#" class="text-sm" style="color:var(--primary);">View all (12)</a></div>
+            <div class="pad-sm">
+              <div class="row between" style="padding:6px 0;">
+                <div class="min-0 flex-1">
+                  <div class="text-sm bold">Client dinner — Axel Springer</div>
+                  <div class="muted text-xs">Inko Aizpurua · €215</div>
+                </div>
+                <div class="row">
+                  <button class="btn sm">Approve</button>
+                  <button class="btn sm">Reject</button>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="row between" style="padding:6px 0;">
+                <div class="min-0 flex-1">
+                  <div class="text-sm bold">Web Summit booth</div>
+                  <div class="muted text-xs">Priya Raman · €1,449</div>
+                </div>
+                <div class="row">
+                  <button class="btn sm">Approve</button>
+                  <button class="btn sm">Reject</button>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="row between" style="padding:6px 0;">
+                <div class="min-0 flex-1">
+                  <div class="text-sm bold">Taxi — late shift</div>
+                  <div class="muted text-xs">Hux Lim · EXP-1135 · €73</div>
+                </div>
+                <div class="row">
+                  <button class="btn sm">Approve</button>
+                  <button class="btn sm">Reject</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Policy & reimbursement summary -->
+      <h2 class="section-title">Policy &amp; reimbursement</h2>
+      <div class="muted text-sm mb-12">Last edited Nov 16 by Margot Reyes</div>
+      <div class="grid-3">
+        <div class="card pad">
+          <div class="row between mb-8"><strong>Next reimbursement run</strong><span class="chip green">on track</span></div>
+          <div class="bold" style="font-size:18px;">Nov 28</div>
+          <div class="muted text-sm">Cut-off Nov 26 at 18:00 CET. Payment via SEPA, expected to clear Nov 29.</div>
+          <div class="divider"></div>
+          <div class="row between"><span class="muted text-sm">42 reports queued</span><a style="color:var(--primary)" href="#">Open run →</a></div>
+        </div>
+        <div class="card pad">
+          <div class="row between mb-8"><strong>Policy flags</strong><span class="chip red">3 issues</span></div>
+          <div class="row between text-sm" style="padding:5px 0;"><span>Over per-diem (€90 cap)</span><span class="bold">1</span></div>
+          <div class="row between text-sm" style="padding:5px 0;"><span>Missing receipt &gt; €25</span><span class="bold">1</span></div>
+          <div class="row between text-sm" style="padding:5px 0;"><span>Duplicate merchant within 24h</span><span class="bold">1</span></div>
+          <div class="divider"></div>
+          <div class="row between"><span class="muted text-sm">Auto-checked just now</span><a style="color:var(--primary)" href="#">Edit rules →</a></div>
+        </div>
+        <div class="card pad">
+          <div class="row between mb-8"><strong>By category</strong><span class="muted text-sm">November</span></div>
+          <div class="row between text-sm" style="padding:5px 0;"><span>Travel</span><span class="bold">€ 18,420</span></div>
+          <div class="row between text-sm" style="padding:5px 0;"><span>Lodging</span><span class="bold">€ 9,120</span></div>
+          <div class="row between text-sm" style="padding:5px 0;"><span>Meals</span><span class="bold">€ 4,960</span></div>
+          <div class="row between text-sm" style="padding:5px 0;"><span>Software</span><span class="bold">€ 4,310</span></div>
+          <div class="row between text-sm" style="padding:5px 0;"><span>Office</span><span class="bold">€ 3,455</span></div>
+          <div class="divider"></div>
+          <div class="row between"><span class="muted text-sm">5 active categories</span><a style="color:var(--primary)" href="#">Manage →</a></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div>© 2024 Onyx Works Group, v4.18.2 · production-eu-west</div>
+      <div class="links">
+        <a href="people-directory.html">People</a>
+        <a href="org-chart.html">Org Chart</a>
+        <a href="time-off.html">Time Off</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="settings.html">Settings</a>
+        <a href="#">Support</a>
+      </div>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

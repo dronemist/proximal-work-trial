@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Active Listings · Ember Grove Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="logo-dot"></span>Ember Grove Works</div>
+  <nav class="topnav">
+    <a href="listings.html" class="active">Listings</a>
+    <a href="listing-detail.html">Listing Detail</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="reports.html">Market Reports</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+  <div class="topsearch"><input placeholder="Search listings, contacts, addresses..."></div>
+  <div class="top-right">
+    <span class="icon-btn notif-dot">◔</span>
+    <span class="avatar"></span>
+  </div>
+</header>
+
+<div class="app">
+  <aside class="sidebar">
+    <input class="filter-input" placeholder="Filter listings...">
+    <h6>Workspace</h6>
+    <ul>
+      <li>Dashboard</li>
+      <li class="active">Listings <span class="badge">142</span></li>
+      <li>Calendar</li>
+      <li>Market Reports</li>
+    </ul>
+    <h6>By Status</h6>
+    <ul>
+      <li>Active <span class="badge">47</span></li>
+      <li>Under Contract <span class="badge">12</span></li>
+      <li>Coming Soon <span class="badge">8</span></li>
+      <li>Pending <span class="badge">5</span></li>
+      <li>Withdrawn <span class="badge">3</span></li>
+      <li>Closed (YTD) <span class="badge">67</span></li>
+    </ul>
+    <h6>By Neighborhood</h6>
+    <ul>
+      <li>Linden Hill <span class="badge">14</span></li>
+      <li>Old Cottendell <span class="badge">11</span></li>
+      <li>Mill Creek <span class="badge">9</span></li>
+      <li>Riverside North <span class="badge">7</span></li>
+      <li>Eastgate <span class="badge">4</span></li>
+      <li>Cedar Hollow <span class="badge">2</span></li>
+    </ul>
+    <h6>Saved Views</h6>
+    <ul>
+      <li>Price drop this week <span class="badge">6</span></li>
+      <li>Over 30 DOM <span class="badge">11</span></li>
+      <li>My listings <span class="badge">22</span></li>
+      <li>This weekend <span class="badge">9</span></li>
+      <li>Open this weekend <span class="badge">4</span></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <div class="breadcrumb"><span>Workspace</span><span>Listings</span><span class="current">Active</span></div>
+
+    <div class="page-head">
+      <div>
+        <h1>Active Listings</h1>
+        <div class="sub">47 properties across 11 neighborhoods · Last synced 4 minutes ago</div>
+      </div>
+      <div class="head-actions">
+        <button class="btn ghost">Export CSV</button>
+        <button class="btn">Saved view</button>
+        <button class="btn primary">+ New listing</button>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <div class="label">Avg. List Price</div>
+        <div class="value">$684K</div>
+        <div class="delta up">▲ 2.4% vs. last quarter</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Median Days on Market</div>
+        <div class="value">17</div>
+        <div class="delta up">▼ 3 days faster MoM</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Sold-to-List Ratio</div>
+        <div class="value">98.6%</div>
+        <div class="delta up">▲ 0.8 pts</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Showings This Week</div>
+        <div class="value">41</div>
+        <div class="delta">12 scheduled, 29 completed</div>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <span class="chip active">All statuses</span>
+      <span class="chip">$300K – $1.2M</span>
+      <span class="chip">3+ beds</span>
+      <span class="chip">2+ baths</span>
+      <span class="chip">Linden Hill</span>
+      <span class="chip">Single-family</span>
+      <span class="chip">+ Add filter</span>
+      <span class="spacer"></span>
+      <span class="checkbox on"><span class="box"></span>Only my listings</span>
+      <span class="select-like">Sort: Newest first</span>
+    </div>
+
+    <div class="toolbar">
+      <div class="seg">
+        <span class="on">Grid</span>
+        <span>Table</span>
+        <span>Map</span>
+      </div>
+    </div>
+
+    <div class="listings-grid">
+      <!-- Card 1 -->
+      <div class="listing-card">
+        <div class="photo house-photo">
+          <span class="badge-tag">Open Sun 2-4</span>
+          <div class="h-house">
+            <div class="h-roof"></div>
+            <div class="h-body">
+              <div class="h-window h-w1"></div>
+              <div class="h-window h-w2"></div>
+              <div class="h-door"></div>
+            </div>
+          </div>
+          <div class="h-ground"></div>
+        </div>
+        <div class="info">
+          <div class="addr">412 Linden Hill Road</div>
+          <div class="neigh">Linden Hill · Cottendell, PA 19087</div>
+          <div class="meta"><span>4 br</span><span>2.5 ba</span><span>2,318 sf</span><span>0.34 ac</span></div>
+          <div class="price">$1,185,000 <span class="chip green tiny">Active</span></div>
+          <div class="foot"><span>9 days · MLS #45822</span><span>2 offers</span></div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="listing-card">
+        <div class="photo house-photo">
+          <span class="badge-tag new">New</span>
+          <div class="h-house">
+            <div class="h-roof"></div>
+            <div class="h-body">
+              <div class="h-window h-w1"></div>
+              <div class="h-window h-w2"></div>
+              <div class="h-door"></div>
+            </div>
+          </div>
+          <div class="h-ground"></div>
+        </div>
+        <div class="info">
+          <div class="addr">88 Mill Creek Lane, Unit 4B</div>
+          <div class="neigh">Mill Creek · Cottendell, PA 19086</div>
+          <div class="meta"><span>3 br</span><span>2 ba</span><span>1,460 sf</span><span>Condo</span></div>
+          <div class="price">$524,000 <span class="chip green tiny">Active</span></div>
+          <div class="foot"><span>Listed yesterday</span><span></span></div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="listing-card">
+        <div class="photo house-photo">
+          <span class="badge-tag">Price drop</span>
+          <div class="h-house">
+            <div class="h-roof"></div>
+            <div class="h-body">
+              <div class="h-window h-w1"></div>
+              <div class="h-window h-w2"></div>
+              <div class="h-door"></div>
+            </div>
+          </div>
+          <div class="h-ground"></div>
+        </div>
+        <div class="info">
+          <div class="addr">17 Old Quarry Way</div>
+          <div class="neigh">Old Cottendell · 19086</div>
+          <div class="meta"><span>5 br</span><span>4 ba</span><span>4,610 sf</span><span>1.10 ac</span></div>
+          <div class="price">$1,675,000 <span class="chip green tiny">Active</span></div>
+          <div class="foot"><span>21 days · WLK Tue</span><span>1 offer</span></div>
+        </div>
+      </div>
+
+      <!-- Card 4 - Under Contract Apartment -->
+      <div class="listing-card">
+        <div class="photo house-photo">
+          <span class="badge-tag muted">Under Contract</span>
+          <div class="h-house apartment">
+            <div class="h-roof"></div>
+            <div class="h-body">
+              <div class="row"><span></span><span></span><span></span></div>
+              <div class="row"><span></span><span></span><span></span></div>
+              <div class="row"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="h-ground"></div>
+        </div>
+        <div class="info">
+          <div class="addr">2200 Riverside Tower, PH-2</div>
+          <div class="neigh">Riverside North · 19089</div>
+          <div class="meta"><span>3 br</span><span>3.5 ba</span><span>2,890 sf</span><span>Penthouse</span></div>
+          <div class="price">$2,295,000 <span class="chip yellow tiny">Contract</span></div>
+          <div class="foot"><span>Contract pending</span><span>Closes est. Oct 22</span></div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="listing-card">
+        <div class="photo house-photo">
+          <span class="badge-tag muted">Coming Soon</span>
+          <div class="h-house">
+            <div class="h-roof"></div>
+            <div class="h-body">
+              <div class="h-window h-w1"></div>
+              <div class="h-window h-w2"></div>
+              <div class="h-door"></div>
+            </div>
+          </div>
+          <div class="h-ground"></div>
+        </div>
+        <div class="info">
+          <div class="addr">9 Cedar Hollow Court</div>
+          <div class="neigh">Cedar Hollow · 19090</div>
+          <div class="meta"><span>3 br</span><span>2 ba</span><span>1,890 sf</span><span>0.20 ac</span></div>
+          <div class="price">$795,000 <span class="chip blue tiny">Coming Soon</span></div>
+          <div class="foot"><span>Coming Soon</span><span>Photo shoot Fri</span></div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="listing-card">
+        <div class="photo house-photo">
+          <span class="badge-tag">Open Sat</span>
+          <div class="h-house">
+            <div class="h-roof"></div>
+            <div class="h-body">
+              <div class="h-window h-w1"></div>
+              <div class="h-window h-w2"></div>
+              <div class="h-door"></div>
+            </div>
+          </div>
+          <div class="h-ground"></div>
+        </div>
+        <div class="info">
+          <div class="addr">76 Eastgate Avenue</div>
+          <div class="neigh">Eastgate · 19090</div>
+          <div class="meta"><span>4 br</span><span>3 ba</span><span>2,640 sf</span><span>0.18 ac</span></div>
+          <div class="price">$612,500 <span class="chip green tiny">Active</span></div>
+          <div class="foot"><span>13 days on market</span><span>3 offers</span></div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="listing-card">
+        <div class="photo house-photo">
+          <div class="h-house">
+            <div class="h-roof"></div>
+            <div class="h-body">
+              <div class="h-window h-w1"></div>
+              <div class="h-window h-w2"></div>
+              <div class="h-door"></div>
+            </div>
+          </div>
+          <div class="h-ground"></div>
+        </div>
+        <div class="info">
+          <div class="addr">331 Birchwood Lane</div>
+          <div class="neigh">Linden Hill · 19087</div>
+          <div class="meta"><span>4 br</span><span>2.5 ba</span><span>2,140 sf</span><span>0.25 ac</span></div>
+          <div class="price">$895,000 <span class="chip green tiny">Active</span></div>
+          <div class="foot"><span>30 days · DOM</span><span>1 offer</span></div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="listing-card">
+        <div class="photo house-photo">
+          <span class="badge-tag muted">Stale · 42 days</span>
+          <div class="h-house">
+            <div class="h-roof"></div>
+            <div class="h-body">
+              <div class="h-window h-w1"></div>
+              <div class="h-window h-w2"></div>
+              <div class="h-door"></div>
+            </div>
+          </div>
+          <div class="h-ground"></div>
+        </div>
+        <div class="info">
+          <div class="addr">14 Sycamore Bend</div>
+          <div class="neigh">Mill Creek · 19086</div>
+          <div class="meta"><span>3 br</span><span>2 ba</span><span>2,148 sf</span><span>0.18 ac</span></div>
+          <div class="price">$649,000 <span class="chip red tiny">Needs price review</span></div>
+          <div class="foot"><span>42 days · 2 drops</span><span></span></div>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="listing-card">
+        <div class="photo house-photo">
+          <div class="h-house townhouse">
+            <div class="h-roof"></div>
+            <div class="h-body">
+              <div class="h-window h-w1"></div>
+              <div class="h-window h-w2"></div>
+              <div class="h-door"></div>
+            </div>
+          </div>
+          <div class="h-ground"></div>
+        </div>
+        <div class="info">
+          <div class="addr">505 Market Street, Loft 7</div>
+          <div class="neigh">Old Cottendell · 19086</div>
+          <div class="meta"><span>2 br</span><span>2 ba</span><span>1,290 sf</span><span>Loft</span></div>
+          <div class="price">$478,000 <span class="chip green tiny">Active</span></div>
+          <div class="foot"><span>4 days on market</span><span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toolbar mt-16">
+      <span class="muted small">Showing 1–9 of 47 active listings</span>
+      <span class="spacer"></span>
+      <div class="pager">
+        <span class="p">‹</span>
+        <span class="p active">1</span>
+        <span class="p">2</span>
+        <span class="p">3</span>
+        <span class="p">4</span>
+        <span class="p">5</span>
+        <span class="p">›</span>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <span>© 2025 Ember Grove Works · v4.12.3</span>
+  <div class="footer-links">
+    <a>Settings</a><a>Reports</a><a>Calendar</a><a>Help</a>
+  </div>
+  <span>Press <kbd>G</kbd> for go-to</span>
+</footer>
+
+</body>
+</html>

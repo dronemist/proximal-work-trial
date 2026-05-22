@@ -1,0 +1,180 @@
+[grade] VLM judge: 15 pairs in 15.7s
+{
+  "per_page_viewport": {
+    "expenses": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6319276797287254,
+          "extra": {
+            "reference_size": [
+              1440,
+              2539
+            ],
+            "candidate_size": [
+              1440,
+              1875
+            ],
+            "compared_size": [
+              1440,
+              1875
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4087957739830017,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.1671139895915985,
+            "raw_score_before_sqrt": 0.16711397469043732
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8254494120714827,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.1745505879285173,
+            "page_diagonal_px": 2919.8352911075763
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.4147581311203539,
+          "extra": {
+            "bg_score": 0.8295162622407078,
+            "fg_score": 0.0,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 13,
+              "weighted_mean_oklab_distance": 0.002172560663893819,
+              "base_score_before_penalty": 0.9855162622407079,
+              "over_color_penalty": 0.156
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 11,
+              "weighted_mean_oklab_distance": 0.2160058617591858,
+              "base_score_before_penalty": 0.0,
+              "over_color_penalty": 0.04266666666666666
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7215022566086395,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.745003223726628,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.012962962962962963
+              ],
+              [
+                11.0,
+                0.09814814814814815
+              ],
+              [
+                12.0,
+                0.1814814814814815
+              ],
+              [
+                13.0,
+                0.3814814814814815
+              ],
+              [
+                13.3,
+                0.016666666666666666
+              ],
+              [
+                16.0,
+                0.26851851851851855
+              ],
+              [
+                18.0,
+                0.016666666666666666
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.07743362831858407
+              ],
+              [
+                11.0,
+                0.31194690265486724
+              ],
+              [
+                12.0,
+                0.2610619469026549
+              ],
+              [
+                13.0,
+                0.3075221238938053
+              ],
+              [
+                13.3,
+                0.017699115044247787
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.654281098546042,
+          "extra": {
+            "reference_tokens": 545,
+            "candidate_tokens": 479,
+            "matched_tokens": 405,
+            "union_tokens": 619,
+            "reference_unique": 278,
+            "candidate_unique": 272
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant defects: the candidate halluccinates different data (Lufthansa LH1280 vs LH1180, different employee counts '8 employees' vs '6 emp

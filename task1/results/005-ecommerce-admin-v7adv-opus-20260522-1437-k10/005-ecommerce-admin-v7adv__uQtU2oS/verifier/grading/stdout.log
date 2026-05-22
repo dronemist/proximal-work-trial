@@ -1,0 +1,178 @@
+[grade] VLM judge: 15 pairs in 13.2s
+{
+  "per_page_viewport": {
+    "customers": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6734308568435122,
+          "extra": {
+            "reference_size": [
+              1440,
+              2179
+            ],
+            "candidate_size": [
+              1440,
+              1736
+            ],
+            "compared_size": [
+              1440,
+              1736
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.44239696860313416,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.19571514427661896,
+            "raw_score_before_sqrt": 0.195715069770813
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8445724847162911,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.15542751528370893,
+            "page_diagonal_px": 2635.6902711286593
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.3887685301389013,
+          "extra": {
+            "bg_score": 0.7775370602778026,
+            "fg_score": 0.0,
+            "bg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 18,
+              "weighted_mean_oklab_distance": 0.018112298101186752,
+              "base_score_before_penalty": 0.8792513459920883,
+              "over_color_penalty": 0.10171428571428573
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 17,
+              "weighted_mean_oklab_distance": 0.18243858218193054,
+              "base_score_before_penalty": 0.0,
+              "over_color_penalty": 0.12266666666666667
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.9924460877942181,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.9892086968488831,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.08143939393939394
+              ],
+              [
+                11.0,
+                0.13636363636363635
+              ],
+              [
+                12.0,
+                0.5492424242424242
+              ],
+              [
+                13.3,
+                0.020833333333333332
+              ],
+              [
+                15.0,
+                0.18181818181818182
+              ],
+              [
+                20.0,
+                0.011363636363636364
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.18695652173913044
+              ],
+              [
+                11.0,
+                0.25869565217391305
+              ],
+              [
+                12.0,
+                0.38913043478260867
+              ],
+              [
+                13.0,
+                0.13043478260869565
+              ],
+              [
+                14.0,
+                0.017391304347826087
+              ],
+              [
+                32.0,
+                0.010869565217391304
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "ui-monospace"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.45677233429394815,
+          "extra": {
+            "reference_tokens": 558,
+            "candidate_tokens": 453,
+            "matched_tokens": 317,
+            "union_tokens": 694,
+            "reference_unique": 331,
+            "candidate_unique": 306
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant differences: the candidate reorganizes the Segments panel (different segment names/counts - 'Browse only' and different percentages vs reference's 'One-time', 'New(30

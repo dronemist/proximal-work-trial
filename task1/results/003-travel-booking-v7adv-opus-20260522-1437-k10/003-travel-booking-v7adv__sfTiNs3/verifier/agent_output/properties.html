@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properties — Sable Echo Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.hero-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.hero-row .stats-mini { display: flex; gap: 32px; font-size: 12px; }
+.hero-row .stats-mini .label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.hero-row .stats-mini .v { font-family: Georgia, serif; font-size: 22px; color: var(--gold-3); margin-top: 4px; }
+
+.props-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) { .props-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .props-grid { grid-template-columns: 1fr; } }
+
+/* House illustration SVG-like */
+.house { width: 100%; height: 100%; display: block; }
+
+.spotlight {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.spotlight .img { aspect-ratio: 5 / 4; }
+.spotlight .body { padding: 28px 30px; }
+.spotlight h3 {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  margin: 0 0 16px;
+  line-height: 1.15;
+}
+.spotlight ul {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12.5px;
+}
+.spotlight ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.spotlight ul li:last-child { border-bottom: none; }
+@media (max-width: 800px) { .spotlight { grid-template-columns: 1fr; } }
+
+.tbl-card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 8px 18px; overflow-x: auto; }
+.toggle-set { display: inline-flex; border: 1px solid var(--border-2); border-radius: 999px; overflow: hidden; }
+.toggle-set span { padding: 5px 14px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+.toggle-set span.on { background: var(--ink); color: #fff; }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a class="brand">Sable Echo. <span>Studio</span></a>
+    <nav class="primary-nav">
+      <a class="active">Properties</a>
+      <a>Property</a>
+      <a>Guest Messages</a>
+      <a>Rates &amp; Availability</a>
+      <a>Reports</a>
+    </nav>
+    <a class="cta">Add property</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="eyebrow">THE PORTFOLIO <span class="sep">—</span> SPRING EDITION</div>
+    <div class="hero-row">
+      <div>
+        <h1 class="title">Eleven stays, quietly considered.</h1>
+        <p class="lede">A morning catalogue of the houses, lodges, and apartments under your stewardship — each one introduced with the same care a curator brings to a wall label. Sort by season, by silhouette, by the way the light moves through the rooms.</p>
+      </div>
+      <div class="stats-mini">
+        <div>
+          <div class="label">Properties under management</div>
+          <div class="v">11</div>
+        </div>
+        <div>
+          <div class="label">Currently published</div>
+          <div class="v">8</div>
+        </div>
+        <div>
+          <div class="label">Occupancy, rolling 90 days</div>
+          <div class="v">76.4%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="filter-row">
+      <input class="input" placeholder="Search by name, location, or reservation number">
+      <select class="select"><option>All regions</option></select>
+      <select class="select"><option>All silhouettes</option></select>
+      <select class="select"><option>All seasons</option></select>
+      <button class="btn ghost small">Reset</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">CHAPTER I</div>
+        <h2 class="section-title">Currently published</h2>
+      </div>
+      <div class="toggle-set">
+        <span class="on">Grid</span><span>List</span><span>Map</span>
+      </div>
+    </div>
+
+    <div class="props-grid">
+      <!-- card 1 -->
+      <article class="prop-card">
+        <div class="prop-img">
+          <svg class="house" viewBox="0 0 250 150" preserveAspectRatio="xMidYMid slice">
+            <rect width="250" height="150" fill="#c5b48f"/>
+            <polygon points="40,90 80,40 120,90" fill="#1c1c28"/>
+            <polygon points="120,90 160,40 200,90" fill="#1c1c28"/>
+            <polygon points="200,90 230,55 250,90" fill="#1c1c28"/>
+            <rect x="40" y="90" width="210" height="40" fill="#1c1c28"/>
+            <circle cx="195" cy="38" r="10" fill="#e9d176"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">COASTAL — JUTLAND, DK</div>
+          <h3>The Black Barn at Kerteminde</h3>
+          <p class="desc">A tar-blackened barn on the marsh, with a kitchen that opens onto a single oak table and views of the slow tide.</p>
+          <div class="foot">
+            <div class="price">€340 <small>/ night</small></div>
+            <div>★ 4.93 · 64 stays</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="prop-card">
+        <div class="prop-img">
+          <svg class="house" viewBox="0 0 250 150" preserveAspectRatio="xMidYMid slice">
+            <rect width="250" height="150" fill="#d5c79e"/>
+            <polygon points="60,100 125,30 190,100" fill="#1c1c28"/>
+            <rect x="60" y="100" width="130" height="35" fill="#1c1c28"/>
+            <rect x="100" y="70" width="14" height="18" fill="#e9d176"/>
+            <rect x="135" y="70" width="14" height="18" fill="#e9d176"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">FOREST — BLACK FOREST, DE</div>
+          <h3>Casa Encinal</h3>
+          <p class="desc">A quiet inland bungalow set into the hill, with lime-washed walls and four windows kept open in summer.</p>
+          <div class="foot">
+            <div class="price">€220 <small>/ night</small></div>
+            <div>★ 4.88 · 41 stays</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="prop-card">
+        <div class="prop-img">
+          <svg class="house" viewBox="0 0 250 150" preserveAspectRatio="xMidYMid slice">
+            <rect width="250" height="150" fill="#cfc096"/>
+            <rect x="60" y="40" width="130" height="100" fill="#f1e8cf"/>
+            <polygon points="50,50 125,15 200,50" fill="#1c1c28"/>
+            <rect x="80" y="60" width="20" height="28" fill="#1c1c28"/>
+            <rect x="115" y="60" width="20" height="28" fill="#1c1c28"/>
+            <rect x="150" y="60" width="20" height="28" fill="#1c1c28"/>
+            <rect x="115" y="100" width="20" height="40" fill="#1c1c28"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">VILLAGE — SAINTONGE, FR</div>
+          <h3>Atelier sur la Galange</h3>
+          <p class="desc">A two-room cottage above the river, painted in oat and clove. Best in autumn, when the windows hold the light.</p>
+          <div class="foot">
+            <div class="price">€185 <small>/ night</small></div>
+            <div>★ 4.96 · 88 stays</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="prop-card">
+        <div class="prop-img">
+          <svg class="house" viewBox="0 0 250 150" preserveAspectRatio="xMidYMid slice">
+            <rect width="250" height="150" fill="#c6b793"/>
+            <polygon points="40,95 125,30 210,95" fill="#1c1c28"/>
+            <rect x="40" y="95" width="170" height="50" fill="#1c1c28"/>
+            <rect x="110" y="105" width="28" height="40" fill="#e9d176"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">PROVINCIAL — UMBRIA, IT</div>
+          <h3>Cabaña Pintoresca</h3>
+          <p class="desc">A summer cabin on a slow river. Three rooms, a long table, and the kitchen of a serious cook.</p>
+          <div class="foot">
+            <div class="price">€275 <small>/ night</small></div>
+            <div>★ 4.91 · 32 stays</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="prop-card">
+        <div class="prop-img">
+          <svg class="house" viewBox="0 0 250 150" preserveAspectRatio="xMidYMid slice">
+            <rect width="250" height="150" fill="#cdbe95"/>
+            <rect x="40" y="50" width="170" height="95" fill="#1c1c28"/>
+            <polygon points="32,55 125,20 218,55" fill="#1c1c28"/>
+            <rect x="60" y="68" width="20" height="26" fill="#e9d176"/>
+            <rect x="100" y="68" width="20" height="26" fill="#e9d176"/>
+            <rect x="140" y="68" width="20" height="26" fill="#e9d176"/>
+            <rect x="180" y="68" width="20" height="26" fill="#e9d176"/>
+            <rect x="100" y="110" width="20" height="35" fill="#e9d176"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">URBAN — LISBON, PT</div>
+          <h3>Plaza Terraza, Carrer Aragó</h3>
+          <p class="desc">A second-floor apartment over an old market square. Two terraces and an old courtyard fig tree.</p>
+          <div class="foot">
+            <div class="price">€295 <small>/ night</small></div>
+            <div>★ 4.86 · 117 stays</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="prop-card">
+        <div class="prop-img">
+          <svg class="house" viewBox="0 0 250 150" preserveAspectRatio="xMidYMid slice">
+            <rect width="250" height="150" fill="#d4c69d"/>
+            <polygon points="40,90 125,30 210,90" fill="#1c1c28"/>
+            <rect x="40" y="90" width="170" height="50" fill="#1c1c28"/>
+            <rect x="60" y="100" width="22" height="30" fill="#e9d176"/>
+            <rect x="105" y="100" width="22" height="30" fill="#e9d176"/>
+            <rect x="148" y="100" width="22" height="30" fill="#e9d176"/>
+            <rect x="180" y="105" width="14" height="20" fill="#e9d176"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">VALLEY — MAINE, US</div>
+          <h3>Kuru Maka, Hakuba</h3>
+          <p class="desc">An alpine timber-frame with a cold pantry and an upper sleeping loft for those who prefer the snow.</p>
+          <div class="foot">
+            <div class="price">€275 <small>/ night</small></div>
+            <div>★ 4.89 · 26 stays</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="spotlight">
+      <div class="img" style="background:#cebd8e;position:relative;">
+        <svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+          <rect width="400" height="320" fill="#cebd8e"/>
+          <rect x="60" y="80" width="280" height="220" fill="#f4ecd2"/>
+          <polygon points="50,90 200,30 350,90" fill="#1c1c28"/>
+          <rect x="100" y="120" width="40" height="80" fill="#1c1c28"/>
+          <rect x="180" y="120" width="40" height="80" fill="#e9d176"/>
+          <rect x="260" y="120" width="40" height="80" fill="#e9d176"/>
+          <rect x="180" y="220" width="40" height="80" fill="#1c1c28"/>
+          <rect x="260" y="220" width="40" height="80" fill="#1c1c28"/>
+        </svg>
+      </div>
+      <div class="body">
+        <div class="section-eyebrow">FOLIO No. 06 <span class="sep">—</span> SPOTLIGHT</div>
+        <h3>The Black Barn returns to the spring calendar.</h3>
+        <p class="muted">After a quiet winter — new flooring, a re-painted kitchen, and a six-volume rotation in the library — the Black Barn at Kerteminde reopens its doors on the third of May. We have lifted a single weekend already for those wishing to be first.</p>
+        <ul>
+          <li><span class="muted">Re-opens</span><span>Wednesday, 1 May</span></li>
+          <li><span class="muted">First weekend</span><span>3 — 5 May</span></li>
+          <li><span class="muted">Reading list</span><span>Marsh &amp; Tide</span></li>
+          <li><span class="muted">Nightly rate</span><span class="gold">€340 — €420</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="spotlight" style="margin-top: 18px; grid-template-columns: 1fr 1.4fr;">
+      <div class="body">
+        <div class="section-eyebrow">FOLIO No. 07 <span class="sep">—</span> SPOTLIGHT</div>
+        <h3>Casa Encinal, between fog and fire.</h3>
+        <p class="muted">Of all the houses in the portfolio, Casa Encinal is the one we most often photograph at four in the afternoon — when the low sun pulls the lime-wash into a copper and the sea-fog gathers, almost evening, near the kitchen. A reading of the limestone, in two seasons.</p>
+        <ul>
+          <li><span class="muted">Architect</span><span>Anders Coelho</span></li>
+          <li><span class="muted">Year</span><span>1934, restored 2021</span></li>
+          <li><span class="muted">Reading list</span><span>Slow Coast</span></li>
+        </ul>
+      </div>
+      <div class="img" style="background:#cebd8e;position:relative;">
+        <svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+          <rect width="400" height="320" fill="#cebd8e"/>
+          <circle cx="320" cy="80" r="22" fill="#e9d176"/>
+          <polygon points="80,140 200,60 320,140" fill="#1c1c28"/>
+          <rect x="80" y="140" width="240" height="160" fill="#f4ecd2"/>
+          <rect x="120" y="170" width="32" height="50" fill="#1c1c28"/>
+          <rect x="180" y="170" width="32" height="50" fill="#1c1c28"/>
+          <rect x="240" y="170" width="32" height="50" fill="#1c1c28"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">CHAPTER II</div>
+    <h2 class="section-title">In preparation</h2>
+    <div class="props-grid">
+      <article class="prop-card">
+        <div class="prop-img">
+          <svg class="house" viewBox="0 0 250 150" preserveAspectRatio="xMidYMid slice">
+            <rect width="250" height="150" fill="#cdbf93"/>
+            <polygon points="40,95 125,40 210,95" fill="#1c1c28"/>
+            <rect x="40" y="95" width="170" height="50" fill="#1c1c28"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">PRE-LAUNCH — BERN, CH</div>
+          <h3>The Old Wood Store</h3>
+          <p class="desc">A converted timber depot on the river. Opening this June, once the floors have been laid.</p>
+          <div class="foot">
+            <div class="price">€295 <small>/ from</small></div>
+            <div class="pill">Draft</div>
+          </div>
+        </div>
+      </article>
+      <article class="prop-card">
+        <div class="prop-img">
+          <svg class="house" viewBox="0 0 250 150" preserveAspectRatio="xMidYMid slice">
+            <rect width="250" height="150" fill="#cdbe95"/>
+            <rect x="50" y="60" width="60" height="80" fill="#1c1c28"/>
+            <rect x="120" y="40" width="80" height="100" fill="#f0e7cf"/>
+            <polygon points="115,45 160,18 205,45" fill="#1c1c28"/>
+            <rect x="140" y="70" width="20" height="26" fill="#e9d176"/>
+            <rect x="170" y="70" width="20" height="26" fill="#e9d176"/>
+            <rect x="155" y="105" width="20" height="35" fill="#1c1c28"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">PRE-LAUNCH — ICELAND</div>
+          <h3>Trolla delle Marina</h3>
+          <p class="desc">A small fisher's cottage near the harbour, with a single bay window facing the volcanic shore.</p>
+          <div class="foot">
+            <div class="price">€185 <small>/ from</small></div>
+            <div class="pill">Draft</div>
+          </div>
+        </div>
+      </article>
+      <article class="prop-card">
+        <div class="prop-img">
+          <svg class="house" viewBox="0 0 250 150" preserveAspectRatio="xMidYMid slice">
+            <rect width="250" height="150" fill="#cdbe95"/>
+            <rect x="40" y="60" width="170" height="85" fill="#1c1c28"/>
+            <polygon points="32,65 125,28 218,65" fill="#1c1c28"/>
+            <rect x="60" y="80" width="22" height="28" fill="#e9d176"/>
+            <rect x="100" y="80" width="22" height="28" fill="#e9d176"/>
+            <rect x="140" y="80" width="22" height="28" fill="#e9d176"/>
+            <rect x="180" y="80" width="22" height="28" fill="#e9d176"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">PRE-LAUNCH — ASTURIAS, ES</div>
+          <h3>Riol Roh Hoshfink</h3>
+          <p class="desc">A timber-framed roadside auberge, currently being readied for a season of long-table dinners.</p>
+          <div class="foot">
+            <div class="price">€220 <small>/ from</small></div>
+            <div class="pill">Draft</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">All properties, at a glance</h2>
+    <div class="tbl-card">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Silhouette</th>
+            <th class="num-col">Nightly rate</th>
+            <th class="num-col">Occupancy</th>
+            <th class="num-col">Rating</th>
+            <th class="num-col">Stays</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>The Black Barn at Kerteminde</td><td>Funen, DK</td><td><span class="pill green">Published</span></td><td>Coastal</td><td class="num-col">€340</td><td class="num-col gold">78%</td><td class="num-col">★ 4.93</td><td class="num-col">64</td></tr>
+          <tr><td>Casa Encinal</td><td>Black Forest, DE</td><td><span class="pill green">Published</span></td><td>Forest</td><td class="num-col">€220</td><td class="num-col gold">71%</td><td class="num-col">★ 4.88</td><td class="num-col">41</td></tr>
+          <tr><td>Atelier sur la Galange</td><td>Saintonge, FR</td><td><span class="pill green">Published</span></td><td>Village</td><td class="num-col">€185</td><td class="num-col gold">82%</td><td class="num-col">★ 4.96</td><td class="num-col">88</td></tr>
+          <tr><td>Plaza Terraza, Carrer Aragó</td><td>Lisbon, PT</td><td><span class="pill green">Published</span></td><td>Urban</td><td class="num-col">€295</td><td class="num-col gold">76%</td><td class="num-col">★ 4.86</td><td class="num-col">117</td></tr>
+          <tr><td>Kuru Maka, Hakuba</td><td>Nagano, JP</td><td><span class="pill green">Published</span></td><td>Mountain</td><td class="num-col">€275</td><td class="num-col gold">64%</td><td class="num-col">★ 4.89</td><td class="num-col">26</td></tr>
+          <tr><td>Cabaña Pintoresca</td><td>Umbria, IT</td><td><span class="pill green">Published</span></td><td>River</td><td class="num-col">€275</td><td class="num-col gold">71%</td><td class="num-col">★ 4.91</td><td class="num-col">32</td></tr>
+          <tr><td>The Old Wood Store</td><td>Bern, CH</td><td><span class="pill">Draft</span></td><td>Convert</td><td class="num-col">€295</td><td class="num-col muted">—</td><td class="num-col muted">—</td><td class="num-col muted">—</td></tr>
+          <tr><td>Trolla delle Marina</td><td>Snæfellsnes, IS</td><td><span class="pill">Draft</span></td><td>Coastal</td><td class="num-col">€185</td><td class="num-col muted">—</td><td class="num-col muted">—</td><td class="num-col muted">—</td></tr>
+          <tr><td>Riol Roh Hoshfink</td><td>Asturias, ES</td><td><span class="pill">Draft</span></td><td>Inn</td><td class="num-col">€220</td><td class="num-col muted">—</td><td class="num-col muted">—</td><td class="num-col muted">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <h4>Sable Echo. Studio</h4>
+      <p>A small atelier representing a modest number of considered places to stay. Hosting, with editorial restraint.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Most resources</h5>
+      <a>Properties</a>
+      <a>Rates &amp; Availability</a>
+      <a>Guest Messages</a>
+      <a>Reports</a>
+    </div>
+    <div class="footer-col">
+      <h5>Studio</h5>
+      <a>Editorial</a>
+      <a>Contact</a>
+      <a>Terms &amp; Privacy</a>
+      <a>Instagram, but quiet</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">© 2025 Sable Echo Studio. Composed in ivory and linen. All correspondence is held in confidence between host and guest.</div>
+</footer>
+
+</body>
+</html>

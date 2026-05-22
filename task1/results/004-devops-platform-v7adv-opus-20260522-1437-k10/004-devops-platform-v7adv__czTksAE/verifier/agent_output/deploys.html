@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Deployments · Beacon Harbor Works</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="projects.html"><span class="brand-mark"></span>Beacon Harbor Works</a>
+    <nav class="main-nav">
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html" class="active">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+    <span class="header-spacer"></span>
+    <span class="user-pill"><span class="av av-b"></span>A. EKDEMIR</span>
+  </div>
+</header>
+
+<div class="breadcrumbs"><a href="#">Harbor</a><span class="sep">/</span>Deployments</div>
+
+<main class="page">
+<div class="layout">
+  <section>
+    <div class="eyebrow">Manifest · last 7 days</div>
+    <h1 class="page-title">Deployments</h1>
+    <p class="lede">A chronological record of every release shipped to a Beacon Harbor environment. Sorted by environment, newest first. All times in UTC.</p>
+
+    <div class="btn-row">
+      <button class="btn btn-primary">Deploy to environment</button>
+      <button class="btn">Export manifest</button>
+      <button class="btn">View dev log</button>
+    </div>
+
+    <div class="callout mb12"><strong>In progress:</strong> harbor-api rolling out to <strong>production</strong> · canary at 25% · started 00:04 ago</div>
+
+    <div class="stats">
+      <div class="stat"><div class="lbl">Deploys · 7d</div><div class="val">142</div><div class="sub">22 today so far</div></div>
+      <div class="stat"><div class="lbl">Success rate</div><div class="val">96.4%</div><div class="sub">2 rollbacks</div></div>
+      <div class="stat"><div class="lbl">Median duration</div><div class="val">4m 21s</div><div class="sub">P95 11m 12s</div></div>
+      <div class="stat"><div class="lbl">Lead time</div><div class="val">1h 47m</div><div class="sub">Commit → prod, P50</div></div>
+    </div>
+
+    <div class="filterbar">
+      <select class="select"><option>All environments</option></select>
+      <select class="select"><option>Production</option></select>
+      <select class="select"><option>Staging</option></select>
+      <select class="select"><option>Preview</option></select>
+      <span class="grow"></span>
+      <span class="xs muted">142 deploys</span>
+    </div>
+
+    <div class="filterbar">
+      <span class="label">Filter</span>
+      <select class="select"><option>All services</option></select>
+      <select class="select"><option>Any status</option></select>
+      <select class="select"><option>Any actor</option></select>
+    </div>
+
+    <div class="card mb12">
+      <div class="card-head"><h3>▼ Production</h3><span class="xs muted">68 deploys · 7d</span></div>
+
+      <div class="evt">
+        <div class="evt-head"><span class="muted">02:11 UTC</span><span class="pill pill-green">SUCCEEDED</span><span class="pill pill-ghost">CANARY · 25%</span><span class="repo">harbor-api · v2.18.1 → <strong>production</strong></span></div>
+        <div class="info">Triggered by <strong>e.lindqvist</strong> from main · merge of PR #2682</div>
+        <div class="grid"><div><div class="lbl">Commit</div><div class="val">a4e1c11</div></div><div><div class="lbl">Region</div><div class="val">eu-west-1</div></div><div><div class="lbl">Replicas</div><div class="val">14 / 14</div></div><div><div class="lbl">Duration</div><div class="val">04:32</div></div></div>
+      </div>
+
+      <div class="evt">
+        <div class="evt-head"><span class="muted">01:47 UTC</span><span class="pill pill-red">ROLLED BACK</span><span class="repo">harbor-web · v3.41.0 → manifest, moving filter v2</span></div>
+        <div class="info">Triggered by <strong>a.ekdemir</strong> · 6 min in, rolling away</div>
+        <div class="grid"><div><div class="lbl">Commit</div><div class="val">144c3e7</div></div><div><div class="lbl">Region</div><div class="val">eu-west-1, eu-west-2</div></div><div><div class="lbl">Replicas</div><div class="val">12 / 12</div></div><div><div class="lbl">Duration</div><div class="val">06:18</div></div></div>
+      </div>
+
+      <div class="evt">
+        <div class="evt-head"><span class="muted">01:12 UTC</span><span class="pill pill-amber">ROLLING BACK</span><span class="repo">signalboost-worker · v1.0.4 — Webhook retry backoff</span></div>
+        <div class="info">Auto-rollback after queue lag exceeded threshold at 00:51, threshold is 2m20s</div>
+        <div class="grid"><div><div class="lbl">Commit</div><div class="val">signalboost-worker</div></div><div><div class="lbl">Region</div><div class="val">eu-west-1, eu-west-2</div></div><div><div class="lbl">Replicas</div><div class="val">auto · alert-127</div></div><div><div class="lbl">Duration</div><div class="val">05:14</div></div></div>
+      </div>
+
+      <div class="evt">
+        <div class="evt-head"><span class="muted">00:42 UTC</span><span class="pill pill-green">SUCCEEDED</span><span class="repo">harbor-api · v1.18.1 — Config flag for skin-tide queue</span></div>
+        <div class="info">Triggered by <strong>m.takeda</strong> · 0/2 stage · scheduled window</div>
+      </div>
+
+      <div class="evt">
+        <div class="evt-head"><span class="muted">00:15 UTC</span><span class="pill pill-green">SUCCEEDED</span><span class="repo">lantern-cli · v4.17 — Telemetry opt-in flag</span></div>
+        <div class="info">Triggered by <strong>j.yarrgo</strong> · 2m 28s · tagged release</div>
+      </div>
+    </div>
+
+    <div class="card mb12">
+      <div class="card-head"><h3>▼ Staging</h3><span class="xs muted">38 deploys · 7d</span></div>
+      <div class="evt">
+        <div class="evt-head"><span class="muted">00:24 UTC</span><span class="pill pill-green">SUCCEEDED</span><span class="repo">harbor-api · v4.29.0-rc.2 — File listing pagination cursor</span></div>
+        <div class="info">Triggered by <strong>e.lindqvist</strong> · main · merge of PR #2691</div>
+      </div>
+      <div class="evt">
+        <div class="evt-head"><span class="muted">00:08 UTC</span><span class="pill pill-green">SUCCEEDED</span><span class="repo">harbor-web · v3.41.0-rc.4 — Compact deploy timeline</span></div>
+        <div class="info">Triggered by <strong>a.danforth</strong> · main · merge of PR #2685</div>
+      </div>
+      <div class="evt">
+        <div class="evt-head"><span class="muted">22:51 UTC</span><span class="pill pill-green">SUCCEEDED</span><span class="repo">signalboost-worker · v1.0.4-rc.1 — Migration step without ledger</span></div>
+        <div class="info">Migration step (skinslice, jacopa). Hotfix 5 min, web shaft</div>
+      </div>
+      <div class="evt">
+        <div class="evt-head"><span class="muted">21:14 UTC</span><span class="pill pill-green">SUCCEEDED</span><span class="repo">harbor-go · v4.39.0-rc.2 — Auth flag to flag</span></div>
+        <div class="info">Triggered by <strong>auto-but</strong> · nightly · 11h 21s</div>
+      </div>
+    </div>
+
+    <div class="card mb12">
+      <div class="card-head"><h3>▼ Preview</h3><span class="xs muted">36 deploys · 7d</span></div>
+      <div class="evt">
+        <div class="evt-head"><span class="muted">22:30 UTC</span><span class="pill pill-green">SUCCEEDED</span><span class="repo">harbor-web · pr-271 — Right rail access shortcuts</span></div>
+        <div class="info">Triggered by <strong>r.morena</strong> · preview slot · ephemeral</div>
+      </div>
+      <div class="evt">
+        <div class="evt-head"><span class="muted">21:48 UTC</span><span class="pill pill-green">SUCCEEDED</span><span class="repo">harbor-go · pr-265 — Drop log/x trace requests</span></div>
+        <div class="info">Triggered by <strong>e.lindqvist</strong> · preview slot</div>
+      </div>
+      <div class="evt">
+        <div class="evt-head"><span class="muted">19:12 UTC</span><span class="pill pill-green">SUCCEEDED</span><span class="repo">harbor-go · pr-270 — Add — cor color flag</span></div>
+        <div class="info">Waiting on build #4922 · queued · 17m ago</div>
+      </div>
+      <div class="evt">
+        <div class="evt-head"><span class="muted">17:31 UTC</span><span class="pill pill-green">SUCCEEDED</span><span class="repo">harbor-web · pr-266 — Add — cor color flag</span></div>
+        <div class="info">Triggered by <strong>e.kratis</strong> · preview slot</div>
+      </div>
+    </div>
+
+    <div class="pager"><button class="pg active">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">4</button><button class="pg">5</button><span class="gap"></span><span>showing 1 of 28</span></div>
+  </section>
+
+  <aside>
+    <div class="widget">
+      <div class="widget-head">Deploy frequency</div>
+      <div class="card card-pad">
+        <h3 class="block-title">Past 14 days</h3>
+        <div class="bars">
+          <span style="height:55%"></span><span style="height:80%"></span><span style="height:62%"></span><span style="height:90%"></span><span style="height:48%"></span><span style="height:75%"></span><span style="height:88%"></span><span style="height:60%"></span><span style="height:95%"></span><span style="height:72%"></span><span style="height:82%"></span><span style="height:55%"></span><span style="height:70%"></span><span style="height:92%"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="widget">
+      <div class="widget-head">On call</div>
+      <div class="card card-pad online-list">
+        <h3 class="block-title">Teammates online</h3>
+        <div class="person"><span class="avatar av-c"></span><div class="meta"><div class="name">Ana Glenberg</div><div class="role">Primary · platform · 14:32</div></div></div>
+        <div class="person"><span class="avatar av-d"></span><div class="meta"><div class="name">Piya Danforth</div><div class="role">Secondary · payments</div></div></div>
+        <div class="person"><span class="avatar av-e"></span><div class="meta"><div class="name">Jonas Verga</div><div class="role">Reviewing PR #2691</div></div></div>
+        <div class="person"><span class="avatar av-h"></span><div class="meta"><div class="name">Renata Ashcroft</div><div class="role">Backup · standby</div></div></div>
+      </div>
+    </div>
+
+    <div class="widget">
+      <div class="widget-head">Trending</div>
+      <div class="card card-pad">
+        <h3 class="block-title">Most deployed</h3>
+        <div class="kv"><span class="k">harbor-web</span><span class="v">28</span></div>
+        <div class="kv"><span class="k">harbor-api</span><span class="v">22</span></div>
+        <div class="kv"><span class="k">signalboost-worker</span><span class="v">14</span></div>
+        <div class="kv"><span class="k">lantern-cli</span><span class="v">11</span></div>
+        <div class="kv"><span class="k">tideline-docs</span><span class="v">7</span></div>
+      </div>
+    </div>
+
+    <div class="widget">
+      <div class="widget-head">Recent shortcuts</div>
+      <div class="card card-pad">
+        <h3 class="block-title">Quick actions</h3>
+        <ul class="list-bare">
+          <li><a href="#">Open access alerts (3)</a></li>
+          <li><a href="#">Lock production deploys</a></li>
+          <li><a href="#">Roll back last release</a></li>
+          <li><a href="#">Page primary on-call</a></li>
+          <li><a href="#">Declare an incident</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="widget">
+      <div class="widget-head">Deploy window</div>
+      <div class="card card-pad">
+        <p class="xs muted mb6">No production deploys after <strong>20:00 UTC Fridays</strong>. Overrides require live-engineer approval.</p>
+        <button class="btn">Read deploy rules</button>
+      </div>
+    </div>
+  </aside>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 Beacon Harbor Works · Iceland</div>
+    <nav><a href="#">v17 · access logs</a><a href="#">Quick deploy</a><a href="#">RFC</a><a href="#">Projects</a><a href="#">Deployments</a><a href="#">Builds</a><a href="#">Team</a><a href="#">Alerts</a></nav>
+  </div>
+</footer>
+</body>
+</html>

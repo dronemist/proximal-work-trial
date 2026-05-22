@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projects — Gable Ground Foundry</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 1024px) { .proj-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .proj-grid { grid-template-columns: 1fr; } }
+  .proj { background: var(--card); border: 1px solid var(--line); display: flex; flex-direction: column; }
+  .proj .img { aspect-ratio: 16/9; position: relative; overflow: hidden; }
+  .proj .img svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .proj .img .badge { position: absolute; top: 10px; left: 10px; padding: 3px 7px; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.15); color: var(--text); }
+  .proj .body { padding: 16px 18px; flex: 1; display: flex; flex-direction: column; }
+  .proj .meta { font-family: var(--mono); font-size: 10px; color: var(--muted-2); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+  .proj h3 { margin: 0 0 8px; font-size: 16px; color: var(--text-strong); font-weight: 600; line-height: 1.3; }
+  .proj p { margin: 0 0 12px; color: var(--muted); font-size: 12.5px; line-height: 1.55; flex: 1; }
+  .proj .stats3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+  .proj .stats3 div .k { font-family: var(--mono); font-size: 9px; color: var(--muted-2); letter-spacing: .1em; text-transform: uppercase; }
+  .proj .stats3 div .v { font-family: var(--mono); color: var(--text-strong); font-size: 13px; font-weight: 600; margin-top: 2px; }
+  .proj .progress { height: 6px; background: #1a1815; margin-bottom: 12px; position: relative; }
+  .proj .progress .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); }
+  .proj .actions { display: flex; justify-content: space-between; align-items: center; }
+  .proj .actions .ratio { font-family: var(--mono); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+  .filterbar2 { padding: 14px 16px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; background: var(--card); border: 1px solid var(--line); }
+  .filterbar2 .grow { flex: 1; min-width: 200px; }
+  .filterbar2 .search { background: #1a1815; border: 1px solid var(--line); padding: 8px 12px; color: var(--text); font-family: var(--mono); font-size: 11px; width: 100%; }
+  .alert {
+    background: rgba(224,122,62,0.1);
+    border: 1px solid var(--accent);
+    padding: 12px 16px;
+    color: var(--text-strong);
+    font-size: 13px;
+    margin: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .alert .alert-text { line-height: 1.5; }
+  .alert .alert-text strong { color: var(--accent); }
+  .closed-row { display: grid; grid-template-columns: 110px 1fr 110px 100px; gap: 16px; padding: 13px 0; border-bottom: 1px dashed var(--line); align-items: center; }
+  .closed-row .when { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .closed-row h4 { margin: 0 0 4px; font-size: 14px; color: var(--text-strong); font-weight: 600; }
+  .closed-row p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+  .pair-cta {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 28px;
+    text-align: center;
+  }
+  .pair-cta h3 { color: var(--text-strong); font-size: 18px; margin: 0 0 10px; font-weight: 600; }
+  .pair-cta p { color: var(--muted); margin: 0 0 16px; }
+  .pair-cta .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">GABLE GROUND FOUNDRY<span class="dot">·</span></span>
+    <nav>
+      <a href="cause-overview.html">Cause Overview</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="impact.html">Impact</a>
+      <a href="blog.html">Field Notes</a>
+      <a href="donor-dashboard.html">Donor Dashboard</a>
+    </nav>
+    <div class="right">
+      <a>Sign in</a>
+      <a>Give now</a>
+      <a>Contact</a>
+    </div>
+  </div>
+</header>
+
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="breadcrumb">Foundry / <span class="crumb-current">Projects</span></span>
+    <span class="sep">·</span><a>Active</a>
+    <span class="sep">·</span><a>Monitoring</a>
+    <span class="sep">·</span><a>Closed</a>
+    <span class="sep">·</span><a>Pipeline</a>
+  </div>
+</div>
+
+<main class="container">
+
+  <section class="hero" style="border-bottom: 1px solid var(--line);">
+    <h1>Active restoration projects under foundry stewardship.</h1>
+    <p>Forty-seven sites, in four biomes, across seven regions. Every project carries a six-year measurement axis, a public ledger, and a published wind-down condition. Browse below.</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">01</span>Portfolio at a glance</h2>
+      <div class="section-actions"><a>As-of 2026-05-18</a><a>Methodology</a></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="label">Active sites</div><div class="value">42</div><div class="sub">5 in monitoring · 0 in wind-down</div></div>
+      <div class="stat"><div class="label">Committed capital · 2026</div><div class="value">€8.4M</div><div class="sub"><span class="up">▲ 14%</span> on plan</div></div>
+      <div class="stat"><div class="label">On-cycle milestone rate</div><div class="value">67%</div><div class="sub">YTD · target 70%</div></div>
+      <div class="stat"><div class="label">Regions covered</div><div class="value">4</div><div class="sub">UK · Iberia · Nordics · Alps</div></div>
+    </div>
+    <div class="alert">
+      <span class="alert-text"><strong>BORDEN MIRES · MATCH ACTIVE</strong> — 1.4× match window open until 2026-06-30. €212,400 toward plug-install phase II remains open.</span>
+      <a class="btn btn-primary btn-sm">Contribute →</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">02</span>Browse the portfolio</h2>
+      <div class="section-actions"><a>Saved views</a><a>Reset filters</a></div>
+    </div>
+    <div class="filterbar2">
+      <input class="search grow" placeholder="SEARCH PROJECTS · NAME · ID · REGION">
+      <select class="input"><option>BIOME · ALL</option></select>
+      <select class="input"><option>REGION · ALL</option></select>
+      <select class="input"><option>STATUS · ALL</option></select>
+      <select class="input"><option>SORT · NEWEST ↓</option></select>
+    </div>
+
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; padding: 14px 0 18px;">
+      <a class="btn btn-sm" style="background:var(--accent); border-color:var(--accent); color:#1a1815;">All · 42</a>
+      <a class="btn btn-sm">Coastal · 11</a>
+      <a class="btn btn-sm">Peat · 9</a>
+      <a class="btn btn-sm">Forestry · 8</a>
+      <a class="btn btn-sm">Freshwater · 7</a>
+      <a class="btn btn-sm">Riparian · 4</a>
+      <a class="btn btn-sm">Urban edge · 3</a>
+    </div>
+
+    <div class="proj-grid">
+
+      <div class="proj">
+        <div class="img">
+          <span class="badge">GGF-271 · COASTAL</span>
+          <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="p1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#4a3a26"/><stop offset="1" stop-color="#1a0f08"/></linearGradient></defs>
+            <rect width="320" height="180" fill="url(#p1)"/>
+            <path d="M0,130 L60,110 L120,120 L180,100 L240,105 L320,90 L320,180 L0,180 Z" fill="#2a1a10"/>
+            <path d="M0,150 L80,140 L160,145 L240,135 L320,140 L320,180 L0,180 Z" fill="#0e0a06"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">CARDIGAN, UK · COMMENCED 2023</div>
+          <h3>Cardigan Bay Saltmarsh · Plot 3-12</h3>
+          <p>Year-three sediment work on the southern transect. Tidal accretion is running ahead of the 2021 baseline by 0.42m.</p>
+          <div class="stats3">
+            <div><div class="k">HECTARES</div><div class="v">428</div></div>
+            <div><div class="k">CAPITAL</div><div class="v">€2.14M</div></div>
+            <div><div class="k">CYCLE</div><div class="v">3/6</div></div>
+          </div>
+          <div class="progress"><span class="fill" style="width: 52%;"></span></div>
+          <div class="actions">
+            <span class="ratio">52% TO TARGET</span>
+            <a class="btn btn-sm btn-primary">View →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="img">
+          <span class="badge">GGF-244 · FRESHWATER</span>
+          <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="p2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4a32"/><stop offset="1" stop-color="#0f1411"/></linearGradient></defs>
+            <rect width="320" height="180" fill="url(#p2)"/>
+            <path d="M0,90 Q80,140 160,110 T320,120 L320,180 L0,180 Z" fill="#1c241a"/>
+            <circle cx="240" cy="100" r="4" fill="#6f8a55"/>
+            <circle cx="80" cy="130" r="3" fill="#6f8a55"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">STIRLING, UK · COMMENCED 2024</div>
+          <h3>Glen Lowan Beaver Reach</h3>
+          <p>BDA reach C: pool four now confirmed and lensing through the spring melt. Beaver introduction phase scheduled for late summer.</p>
+          <div class="stats3">
+            <div><div class="k">HECTARES</div><div class="v">112</div></div>
+            <div><div class="k">CAPITAL</div><div class="v">€612k</div></div>
+            <div><div class="k">CYCLE</div><div class="v">2/6</div></div>
+          </div>
+          <div class="progress"><span class="fill" style="width: 38%;"></span></div>
+          <div class="actions">
+            <span class="ratio">38% TO TARGET</span>
+            <a class="btn btn-sm btn-primary">View →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="img">
+          <span class="badge">GGF-238 · PEAT</span>
+          <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="p3" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5a3520"/><stop offset="1" stop-color="#1a0f08"/></linearGradient></defs>
+            <rect width="320" height="180" fill="url(#p3)"/>
+            <ellipse cx="160" cy="160" rx="200" ry="40" fill="#1a0f08"/>
+            <circle cx="60" cy="60" r="3" fill="#e07a3e" opacity=".5"/>
+            <circle cx="160" cy="40" r="3" fill="#e07a3e" opacity=".5"/>
+            <circle cx="240" cy="70" r="3" fill="#e07a3e" opacity=".4"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">NORTHUMBERLAND, UK · 2022</div>
+          <h3>Highley North Variant</h3>
+          <p>Re-wetting the Borden mires with shallow plug-and-block. Water table holding within 4cm of surface for 142 of 158 monitored days.</p>
+          <div class="stats3">
+            <div><div class="k">HECTARES</div><div class="v">844</div></div>
+            <div><div class="k">CAPITAL</div><div class="v">€3.21M</div></div>
+            <div><div class="k">CYCLE</div><div class="v">4/6</div></div>
+          </div>
+          <div class="progress"><span class="fill" style="width: 74%;"></span></div>
+          <div class="actions">
+            <span class="ratio">74% TO TARGET</span>
+            <a class="btn btn-sm btn-primary">View →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="img">
+          <span class="badge">GGF-219 · FORESTRY</span>
+          <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="p4" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#4a5a3a"/><stop offset="1" stop-color="#0f1612"/></linearGradient></defs>
+            <rect width="320" height="180" fill="url(#p4)"/>
+            <polygon points="40,150 60,110 80,150" fill="#2a3220"/>
+            <polygon points="100,150 130,90 160,150" fill="#1c241a"/>
+            <polygon points="180,150 210,100 240,150" fill="#2a3220"/>
+            <polygon points="260,150 290,120 320,150" fill="#1c241a"/>
+            <rect y="148" width="320" height="32" fill="#0f1612"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">ARGYLL, UK · PHASE II 2024</div>
+          <h3>Westmoss Estuary salt-pan rinse Recovery</h3>
+          <p>Year-1 audit of the Phase II planting. 78.4% three-year survival, modelled at 71%. Parcel C-9 is the surprise of the year.</p>
+          <div class="stats3">
+            <div><div class="k">HECTARES</div><div class="v">1,206</div></div>
+            <div><div class="k">CAPITAL</div><div class="v">€4.89M</div></div>
+            <div><div class="k">CYCLE</div><div class="v">5/6</div></div>
+          </div>
+          <div class="progress"><span class="fill" style="width: 84%;"></span></div>
+          <div class="actions">
+            <span class="ratio">84% TO TARGET</span>
+            <a class="btn btn-sm btn-primary">View →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="img">
+          <span class="badge">GGF-204 · FRESHWATER</span>
+          <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="p5" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a3530"/><stop offset="1" stop-color="#1a1815"/></linearGradient></defs>
+            <rect width="320" height="180" fill="url(#p5)"/>
+            <polyline points="0,80 30,75 60,85 90,70 120,75 150,68 180,72 210,60 240,65 270,58 300,55 320,60" fill="none" stroke="#e07a3e" stroke-width="2"/>
+            <polyline points="0,130 30,128 60,135 90,125 120,128 150,122 180,125 210,118 240,122 270,115 300,114 320,118" fill="none" stroke="#6f8a55" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">NORFOLK, UK · 2020</div>
+          <h3>Berridge Tongue Re-Seeding</h3>
+          <p>The Whitewater Cooperative scheme: a five-parish stewardship plan that's just hit the 1,000-hectare mark and is still adding parishes.</p>
+          <div class="stats3">
+            <div><div class="k">HECTARES</div><div class="v">288</div></div>
+            <div><div class="k">CAPITAL</div><div class="v">€981k</div></div>
+            <div><div class="k">CYCLE</div><div class="v">6/6</div></div>
+          </div>
+          <div class="progress"><span class="fill" style="width: 92%;"></span></div>
+          <div class="actions">
+            <span class="ratio">92% TO TARGET</span>
+            <a class="btn btn-sm btn-primary">View →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="img">
+          <span class="badge">GGF-188 · RIPARIAN</span>
+          <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="p6" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a2a1f"/><stop offset="1" stop-color="#0e0a07"/></linearGradient></defs>
+            <rect width="320" height="180" fill="url(#p6)"/>
+            <path d="M0,120 C80,100 160,140 240,110 S320,130 320,130 L320,180 L0,180 Z" fill="#2a1a10"/>
+            <circle cx="80" cy="60" r="4" fill="#e07a3e" opacity=".6"/>
+            <circle cx="200" cy="80" r="3" fill="#e07a3e" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">INVERNESS, UK · 2019</div>
+          <h3>Allt Mhór Riparian Buffer</h3>
+          <p>The last of the legacy projects. Year-six audit underway; we expect to formally close the project at the end of 2026.</p>
+          <div class="stats3">
+            <div><div class="k">HECTARES</div><div class="v">94</div></div>
+            <div><div class="k">CAPITAL</div><div class="v">€404k</div></div>
+            <div><div class="k">CYCLE</div><div class="v">6/6</div></div>
+          </div>
+          <div class="progress"><span class="fill" style="width: 100%;"></span></div>
+          <div class="actions">
+            <span class="ratio">CLOSING 2026-12</span>
+            <a class="btn btn-sm btn-primary">View →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pagination">
+      <a>‹</a>
+      <span class="current">1</span><a>2</a><a>3</a><a>4</a><a>5</a><a>…</a><a>9</a>
+      <a>›</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">03</span>Larger ledger · all projects</h2>
+      <div class="section-actions"><a>Compare</a><a>CSV</a></div>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>ID</th><th>NAME</th><th>BIOME</th><th>REGION</th><th>CYCLE</th><th>HECTARES</th><th>CAPITAL</th><th>RATING</th><th>STATUS</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">GGF-271</td><td class="strong">Cardigan Bay Saltmarsh</td><td>Coastal</td><td>Ceredigion, UK</td><td class="num">3/6</td><td class="num">428</td><td class="num">€2.14M</td><td class="num">A+</td><td><span class="tag green">Active</span></td></tr>
+          <tr><td class="mono">GGF-244</td><td class="strong">Glen Lowan Beaver Reach</td><td>Freshwater</td><td>Stirling, UK</td><td class="num">2/6</td><td class="num">112</td><td class="num">€612k</td><td class="num">A</td><td><span class="tag green">Active</span></td></tr>
+          <tr><td class="mono">GGF-238</td><td class="strong">Borden Mires Re-Wetting</td><td>Peat</td><td>Northumberland, UK</td><td class="num">4/6</td><td class="num">844</td><td class="num">€3.21M</td><td class="num">A</td><td><span class="tag green">Active</span></td></tr>
+          <tr><td class="mono">GGF-219</td><td class="strong">Loch Awe Phase II</td><td>Forestry</td><td>Argyll, UK</td><td class="num">5/6</td><td class="num">1,206</td><td class="num">€4.89M</td><td class="num">A+</td><td><span class="tag accent">Phase 2</span></td></tr>
+          <tr><td class="mono">GGF-204</td><td class="strong">Whitewater Cooperative</td><td>Freshwater</td><td>Norfolk, UK</td><td class="num">6/6</td><td class="num">288</td><td class="num">€981k</td><td class="num">A−</td><td><span class="tag green">Active</span></td></tr>
+          <tr><td class="mono">GGF-188</td><td class="strong">Allt Mhór Riparian Buffer</td><td>Riparian</td><td>Inverness, UK</td><td class="num">6/6</td><td class="num">94</td><td class="num">€404k</td><td class="num">B+</td><td><span class="tag">Monitoring</span></td></tr>
+          <tr><td class="mono">GGF-167</td><td class="strong">Pwllheli Saltmarsh</td><td>Coastal</td><td>Gwynedd, UK</td><td class="num">4/6</td><td class="num">312</td><td class="num">€1.40M</td><td class="num">A</td><td><span class="tag green">Active</span></td></tr>
+          <tr><td class="mono">GGF-152</td><td class="strong">Coquet Riparian</td><td>Riparian</td><td>Northumberland, UK</td><td class="num">5/6</td><td class="num">88</td><td class="num">€322k</td><td class="num">A−</td><td><span class="tag green">Active</span></td></tr>
+          <tr><td class="mono">GGF-138</td><td class="strong">Iberian Lynx Corridor</td><td>Forestry</td><td>Extremadura, ES</td><td class="num">3/6</td><td class="num">2,140</td><td class="num">€2.78M</td><td class="num">A</td><td><span class="tag green">Active</span></td></tr>
+          <tr><td class="mono">GGF-129</td><td class="strong">Värmland Mire Network</td><td>Peat</td><td>Värmland, SE</td><td class="num">2/6</td><td class="num">412</td><td class="num">€1.04M</td><td class="num">B+</td><td><span class="tag accent">Pending</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">04</span>Closed since 2024</h2>
+      <div class="section-actions"><a>Closure protocol →</a></div>
+    </div>
+    <div style="background: var(--card); border: 1px solid var(--line); padding: 4px 18px;">
+      <div class="closed-row">
+        <span class="when">2025-12-04</span>
+        <div>
+          <h4>Anvil Saltmarsh North · Coast cycle 6/6 closed.</h4>
+          <p>Closed against the six-year axis with all monitoring requirements met. Final report and the post-mortem are in the ledger.</p>
+        </div>
+        <span class="mono muted">€1.83M</span>
+        <span><span class="tag">Closed</span></span>
+      </div>
+      <div class="closed-row">
+        <span class="when">2025-09-18</span>
+        <div>
+          <h4>Berridge Forestry Spur · withdrawn at cycle 3/6.</h4>
+          <p>Withdrawal triggered after parcel B-2 failed two consecutive survival audits. The wind-down cost €144k; full reasoning published.</p>
+        </div>
+        <span class="mono muted">€612k</span>
+        <span><span class="tag red">Withdrawn</span></span>
+      </div>
+      <div class="closed-row">
+        <span class="when">2025-07-02</span>
+        <div>
+          <h4>Lake Pirsig Re-Naturing · cycle 6/6 closed.</h4>
+          <p>The original commissioning project from 2019. Six years of measurement; published in full as the methodology paper's case study.</p>
+        </div>
+        <span class="mono muted">€892k</span>
+        <span><span class="tag">Closed</span></span>
+      </div>
+      <div class="closed-row">
+        <span class="when">2024-12-22</span>
+        <div>
+          <h4>Lithoma Heath Mosaic · cycle 6/6 closed.</h4>
+          <p>Site handed to the regional trust for ongoing stewardship. Final audit was the cleanest of the year.</p>
+        </div>
+        <span class="mono muted">€478k</span>
+        <span><span class="tag">Closed</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="pair-cta">
+      <h3>Getting paired to your ambition.</h3>
+      <p>Tell us a little about your interest &mdash; biome, region, scale &mdash; and a donor liaison will match you with two or three projects that fit your shape. No follow-up unless you ask for it.</p>
+      <div class="actions">
+        <a class="btn btn-primary">Talk to a liaison</a>
+        <a class="btn">Browse pipeline</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="name">GABLE GROUND FOUNDRY ·</div>
+        <p>Capital for land returned to function. Established 2016, audited annually, published quarterly.</p>
+        <p style="font-family:var(--mono); font-size:11px; color:var(--muted-2); margin-top:14px;">
+          UNIT 4 / OLD FOUNDRY YARD<br>
+          ABERAERON, CEREDIGION<br>
+          SA46 0AH · UNITED KINGDOM
+        </p>
+      </div>
+      <div><h4>Foundry</h4><ul><li><a>About</a></li><li><a>Methodology</a></li><li><a>Governance</a></li><li><a>Annual ledger</a></li><li><a>Audit trail</a></li></ul></div>
+      <div><h4>Programs</h4><ul><li><a>Coastal</a></li><li><a>Forestry</a></li><li><a>Peat</a></li><li><a>Freshwater</a></li><li><a>Urban edge</a></li></ul></div>
+      <div><h4>Reading</h4><ul><li><a>Field notes</a></li><li><a>Quarterly</a></li><li><a>Dispatches</a></li><li><a>Research</a></li><li><a>Press</a></li></ul></div>
+      <div><h4>Give</h4><ul><li><a>One-time</a></li><li><a>Recurring</a></li><li><a>Cohort matching</a></li><li><a>Bequest</a></li><li><a>Donor portal</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 GABLE GROUND FOUNDRY · CHARITY NO. 1175521</span>
+      <div class="links"><a>PRIVACY</a><a>TERMS</a><a>COOKIES</a><a>RSS</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

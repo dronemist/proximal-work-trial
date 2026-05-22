@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Settings — Quartz Grove Lab</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .setting-row { display:flex; gap:12px; align-items:center; padding:10px 0; border-bottom:1px solid var(--border-2); }
+  .setting-row:last-child { border-bottom: none; }
+  .setting-row .icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: #e0e7ff; color: var(--primary);
+    display:inline-flex; align-items:center; justify-content:center;
+    font-weight:600; font-size:13px; flex-shrink:0;
+  }
+  .integration-tile {
+    border: 1px solid var(--border); border-radius:10px; padding:14px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .integration-tile .logo {
+    width:36px;height:36px;border-radius:8px;background:#eef2ff;color:var(--primary);
+    display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;
+    flex-shrink:0;
+  }
+  .hours-row { display:grid; grid-template-columns: 80px 1fr 1fr; gap:8px; padding:6px 0; align-items:center; }
+  .hours-row .day { font-weight:500; color:var(--text-2); font-size:12.5px; }
+  .hours-row .hours { font-size:12.5px; color:var(--muted); }
+  .archived {
+    background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:14px;
+    text-align:center; color:var(--muted); font-size:12.5px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="brand-mark">Q</span><span class="brand-text-hide">Quartz Grove Lab</span></div>
+    <nav class="nav-tabs">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html" class="active">Settings</a>
+    </nav>
+    <div class="nav-right">
+      <div class="search"><input placeholder="Search settings..." /></div>
+      <div class="avatar sm">RN</div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="container">
+
+    <!-- Header band -->
+    <div class="card" style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+      <div style="flex:1;min-width:240px;">
+        <div class="eyebrow">Practice settings · Quartz Grove</div>
+        <h1 class="h1" style="margin-bottom:6px;">Quartz Grove Family Clinic</h1>
+        <p class="lede">Quiet, lived-in settings. Updates save as you type and changes apply to everyone on the team within a few seconds.</p>
+        <div class="flex gap-8 mt-12" style="flex-wrap:wrap;">
+          <span class="badge green dot">Live · Verified Oct 18</span>
+          <span class="badge slate">Workspace ID · QGV-7711</span>
+          <span class="badge slate">Last edit · 3 minutes ago by Mira</span>
+        </div>
+      </div>
+      <div class="text-right">
+        <div class="muted text-xs fw-600">CONNECTED</div>
+        <div class="stat-value" style="font-size:28px;">9</div>
+        <div class="text-xs muted">62% of available integrations</div>
+        <div class="flex gap-8 mt-12">
+          <button class="btn sm">View activity</button>
+          <button class="btn primary sm">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs mt-16">
+      <a class="active" href="#">General</a>
+      <a href="#">Notifications</a>
+      <a href="#">Team &amp; roles</a>
+      <a href="#">Integrations</a>
+      <a href="#">Branding</a>
+      <a href="#">Security</a>
+      <a href="#">Plan &amp; billing</a>
+    </div>
+
+    <!-- Clinic profile + Operating hours -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-7">
+        <div class="card-head">
+          <h3 class="card-title">Clinic profile</h3>
+          <span class="text-xs muted">Visible to patients in the portal &amp; appointment confirmations.</span>
+        </div>
+        <div class="field-row">
+          <div class="field"><div class="label">Clinic name</div><input class="input" value="Quartz Grove Family Clinic" /></div>
+          <div class="field"><div class="label">Legal entity</div><input class="input" value="Quartz Grove Health PLLC" /></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><div class="label">NPI</div><input class="input" value="1487-2266-12" /></div>
+          <div class="field"><div class="label">EIN</div><input class="input" value="87-2241991" /></div>
+          <div class="field"><div class="label">Tax classification</div><input class="input" value="S-corp" /></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><div class="label">Primary address</div><input class="input" value="1480 Linden Crossing, Suite 200" /></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><div class="label">City</div><input class="input" value="Walnut Creek" /></div>
+          <div class="field"><div class="label">State</div><input class="input" value="California" /></div>
+          <div class="field"><div class="label">ZIP</div><input class="input" value="94596" /></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><div class="label">Primary phone</div><input class="input" value="(925) 555-0140" /></div>
+          <div class="field"><div class="label">Patient line</div><input class="input" value="(925) 555-0144" /></div>
+          <div class="field"><div class="label">Fax</div><input class="input" value="(925) 555-0148" /></div>
+        </div>
+        <div class="field">
+          <div class="label">Patient-facing tagline</div>
+          <input class="input" value="A calm, well-tended family clinic in the East Bay since 2009." />
+        </div>
+        <div class="field">
+          <div class="label">Mission statement</div>
+          <textarea class="textarea">We aim to be the kind of clinic people forget to dread — bright, unhurried, and curious about your whole life, not just the symptom.</textarea>
+        </div>
+        <div class="flex gap-8 justify-between mt-12">
+          <span class="text-xs muted">Saved 2 minutes ago</span>
+          <div class="flex gap-8"><button class="btn">Discard</button><button class="btn primary">Save changes</button></div>
+        </div>
+      </div>
+
+      <div class="card col-5">
+        <div class="card-head">
+          <h3 class="card-title">Operating hours</h3>
+          <a class="link sm" href="#">Bulk edit</a>
+        </div>
+        <div class="hours-row"><div class="day">Mon</div><div class="hours">8:00 AM — 5:30 PM</div><span class="switch on"></span></div>
+        <div class="hours-row"><div class="day">Tue</div><div class="hours">8:00 AM — 5:30 PM</div><span class="switch on"></span></div>
+        <div class="hours-row"><div class="day">Wed</div><div class="hours">8:00 AM — 5:30 PM</div><span class="switch on"></span></div>
+        <div class="hours-row"><div class="day">Thu</div><div class="hours">8:00 AM — 7:00 PM <span class="badge slate">Late</span></div><span class="switch on"></span></div>
+        <div class="hours-row"><div class="day">Fri</div><div class="hours">8:00 AM — 4:00 PM</div><span class="switch on"></span></div>
+        <div class="hours-row"><div class="day">Sat</div><div class="hours">9:00 AM — 1:00 PM <span class="badge slate">Half day</span></div><span class="switch on"></span></div>
+        <div class="hours-row"><div class="day muted">Sun</div><div class="hours">Closed</div><span class="switch"></span></div>
+        <div class="alert blue mt-12">
+          <div>
+            <div class="alert-title">Holiday closures</div>
+            <div class="text-xs">Nov 28 (Thanksgiving), Dec 24 half-day, Dec 25 &amp; Jan 1 closed.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifications + Team -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-7">
+        <div class="card-head">
+          <h3 class="card-title">Notification preferences</h3>
+          <div class="btn-group">
+            <button class="btn sm">All</button>
+            <button class="btn sm active">SMS</button>
+            <button class="btn sm">Email</button>
+            <button class="btn sm">Push</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div class="icon">A</div>
+          <div style="flex:1;"><div class="fw-500">Appointment reminders</div><div class="text-xs muted">48 hr and 2 hr before each visit</div></div>
+          <span class="switch on"></span>
+        </div>
+        <div class="setting-row">
+          <div class="icon">N</div>
+          <div style="flex:1;"><div class="fw-500">No-show follow-ups</div><div class="text-xs muted">Auto-send rebooking link the next morning</div></div>
+          <span class="switch on"></span>
+        </div>
+        <div class="setting-row">
+          <div class="icon">S</div>
+          <div style="flex:1;"><div class="fw-500">Statement &amp; balance alerts</div><div class="text-xs muted">When a balance crosses $250 or is more than 14 days late</div></div>
+          <span class="switch"></span>
+        </div>
+        <div class="setting-row">
+          <div class="icon">L</div>
+          <div style="flex:1;"><div class="fw-500">Lab result ready</div><div class="text-xs muted">Notify ordering provider within 15 minutes of receipt</div></div>
+          <span class="switch on"></span>
+        </div>
+        <div class="setting-row">
+          <div class="icon">M</div>
+          <div style="flex:1;"><div class="fw-500">Marketing &amp; wellness tips</div><div class="text-xs muted">Quarterly newsletter, seasonal recall reminders</div></div>
+          <span class="switch"></span>
+        </div>
+        <div class="setting-row">
+          <div class="icon">B</div>
+          <div style="flex:1;"><div class="fw-500">Birthday wishes</div><div class="text-xs muted">Send a small handwritten-style note on patient birthdays</div></div>
+          <span class="switch on"></span>
+        </div>
+        <div class="setting-row">
+          <div class="icon">D</div>
+          <div style="flex:1;"><div class="fw-500">Staff daily digest</div><div class="text-xs muted">7 AM email — yesterday's metrics, today's schedule, open follow-ups</div></div>
+          <span class="switch on"></span>
+        </div>
+      </div>
+
+      <div class="card col-5">
+        <div class="card-head">
+          <h3 class="card-title">Team &amp; roles</h3>
+          <a class="link sm" href="#">Invite member</a>
+        </div>
+        <ul>
+          <li class="list-item">
+            <div class="avatar">RM</div>
+            <div style="flex:1;"><div class="fw-500">Dr. Renata Mossberg</div><div class="text-xs muted">Owner · Admin · MD</div></div>
+            <span class="badge blue">Owner</span>
+          </li>
+          <li class="list-item">
+            <div class="avatar green">AB</div>
+            <div style="flex:1;"><div class="fw-500">Aaliyah Brooks</div><div class="text-xs muted">Care coordinator · RN</div></div>
+            <span class="badge slate">Admin</span>
+          </li>
+          <li class="list-item">
+            <div class="avatar amber">JT</div>
+            <div style="flex:1;"><div class="fw-500">Dr. Jon Taber</div><div class="text-xs muted">Endocrinology · referral</div></div>
+            <span class="badge slate">Clinician</span>
+          </li>
+          <li class="list-item">
+            <div class="avatar pink">ME</div>
+            <div style="flex:1;"><div class="fw-500">Mira Eliasaf</div><div class="text-xs muted">Operations · billing lead</div></div>
+            <span class="badge slate">Billing</span>
+          </li>
+          <li class="list-item">
+            <div class="avatar teal">HP</div>
+            <div style="flex:1;"><div class="fw-500">Hana Petrov, NP</div><div class="text-xs muted">Pediatrics · part-time</div></div>
+            <span class="badge slate">Clinician</span>
+          </li>
+          <li class="list-item">
+            <div class="avatar slate">JL</div>
+            <div style="flex:1;"><div class="fw-500">Jenna Lin</div><div class="text-xs muted">Front desk · M / W / F</div></div>
+            <span class="badge slate">Reception</span>
+          </li>
+          <li class="list-item">
+            <div class="avatar">SK</div>
+            <div style="flex:1;"><div class="fw-500">Sara Khoury</div><div class="text-xs muted">Outreach · half-time</div></div>
+            <span class="badge slate">Reception</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Integrations -->
+    <div class="card mt-16">
+      <div class="card-head">
+        <h3 class="card-title">Integrations</h3>
+        <div class="flex gap-8">
+          <button class="btn sm">All</button>
+          <button class="btn sm">Connected</button>
+          <button class="btn sm">Available</button>
+        </div>
+      </div>
+      <div class="grid grid-3">
+        <div class="integration-tile">
+          <div class="logo">EP</div>
+          <div style="flex:1;">
+            <div class="fw-500">Electronic Prescribing</div>
+            <div class="text-xs muted">Surescripts · DEA + EPCS verified</div>
+            <div class="mt-8"><span class="badge green">Connected</span></div>
+          </div>
+        </div>
+        <div class="integration-tile">
+          <div class="logo" style="background:#dcfce7;color:#15803d;">QD</div>
+          <div style="flex:1;">
+            <div class="fw-500">Quest Diagnostics</div>
+            <div class="text-xs muted">Lab orders + result delivery</div>
+            <div class="mt-8"><span class="badge green">Connected</span></div>
+          </div>
+        </div>
+        <div class="integration-tile">
+          <div class="logo" style="background:#fef3c7;color:#92400e;">SL</div>
+          <div style="flex:1;">
+            <div class="fw-500">Stripe Lite</div>
+            <div class="text-xs muted">Card processing, ACH on file</div>
+            <div class="mt-8"><span class="badge green">Connected</span></div>
+          </div>
+        </div>
+        <div class="integration-tile">
+          <div class="logo" style="background:#fce7f3;color:#9d174d;">FE</div>
+          <div style="flex:1;">
+            <div class="fw-500">Fern Eligibility</div>
+            <div class="text-xs muted">Realtime insurance check</div>
+            <div class="mt-8"><span class="badge green">Connected</span></div>
+          </div>
+        </div>
+        <div class="integration-tile">
+          <div class="logo" style="background:#e0e7ff;color:#3730a3;">TM</div>
+          <div style="flex:1;">
+            <div class="fw-500">Twilio messaging</div>
+            <div class="text-xs muted">SMS for confirmations &amp; reminders</div>
+            <div class="mt-8"><span class="badge green">Connected</span></div>
+          </div>
+        </div>
+        <div class="integration-tile">
+          <div class="logo" style="background:#ccfbf1;color:#0f766e;">PE</div>
+          <div style="flex:1;">
+            <div class="fw-500">Postmark email</div>
+            <div class="text-xs muted">Transactional email delivery</div>
+            <div class="mt-8"><span class="badge slate">Available</span></div>
+          </div>
+        </div>
+        <div class="integration-tile">
+          <div class="logo" style="background:#ffe4e6;color:#9f1239;">GA</div>
+          <div style="flex:1;">
+            <div class="fw-500">Google Ads</div>
+            <div class="text-xs muted">Track patient acquisition</div>
+            <div class="mt-8"><span class="badge slate">Available</span></div>
+          </div>
+        </div>
+        <div class="integration-tile">
+          <div class="logo" style="background:#fef9c3;color:#854d0e;">SP</div>
+          <div style="flex:1;">
+            <div class="fw-500">Stitch payroll</div>
+            <div class="text-xs muted">Hourly &amp; salary, plus 1099s</div>
+            <div class="mt-8"><span class="badge slate">Available</span></div>
+          </div>
+        </div>
+        <div class="integration-tile">
+          <div class="logo" style="background:#ede9fe;color:#5b21b6;">CG</div>
+          <div style="flex:1;">
+            <div class="fw-500">Concierge Goosechase</div>
+            <div class="text-xs muted">Wellness journeys</div>
+            <div class="mt-8"><span class="badge slate">Available</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Branding + Patient portal -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-6">
+        <div class="card-head">
+          <h3 class="card-title">Branding</h3>
+          <span class="text-xs muted">How patients see your clinic in emails, the portal, and statements.</span>
+        </div>
+        <div class="flex gap-16 items-center mb-12">
+          <div style="width:64px;height:64px;border-radius:14px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;">Q</div>
+          <div>
+            <div class="fw-500">Practice logo</div>
+            <div class="text-xs muted mb-8">PNG · transparent · 512×512</div>
+            <div class="flex gap-8"><button class="btn sm">Upload</button><button class="btn sm">Remove</button></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field"><div class="label">Brand color</div><input class="input" value="#1e40af" /></div>
+          <div class="field"><div class="label">Accent color</div><input class="input" value="#2563eb" /></div>
+          <div class="field"><div class="label">Email signature color</div><input class="input" value="#0f172a" /></div>
+        </div>
+        <div class="field"><div class="label">Display name</div><input class="input" value="Quartz Grove Health" /></div>
+        <div class="field"><div class="label">Reply-to email</div><input class="input" value="hello@quartzgrove.health" /></div>
+        <div class="alert blue mt-12">
+          <div>
+            <div class="alert-title">Preview your sender card</div>
+            <div class="text-xs">Patients see your initials, brand color and reply-to in every transactional email. Looks calm.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card col-6">
+        <div class="card-head">
+          <h3 class="card-title">Patient portal</h3>
+          <span class="badge green dot">Live</span>
+        </div>
+        <div class="setting-row"><div class="icon">SR</div><div style="flex:1;"><div class="fw-500">Online self-scheduling</div><div class="text-xs muted">Visible types: physical, follow-up, telehealth</div></div><span class="switch on"></span></div>
+        <div class="setting-row"><div class="icon">DI</div><div style="flex:1;"><div class="fw-500">Direct message inbox</div><div class="text-xs muted">Replies routed to care coordinator within 24 hr</div></div><span class="switch on"></span></div>
+        <div class="setting-row"><div class="icon">DR</div><div style="flex:1;"><div class="fw-500">Document requests</div><div class="text-xs muted">Patients can request records, immunization printouts</div></div><span class="switch on"></span></div>
+        <div class="setting-row"><div class="icon">VR</div><div style="flex:1;"><div class="fw-500">Visit recordings</div><div class="text-xs muted">Save anonymized recordings for chart audit</div></div><span class="switch"></span></div>
+        <div class="setting-row"><div class="icon">FH</div><div style="flex:1;"><div class="fw-500">Family household linking</div><div class="text-xs muted">Caregivers can manage minor profiles up to age 17</div></div><span class="switch on"></span></div>
+        <div class="setting-row"><div class="icon">PA</div><div style="flex:1;"><div class="fw-500">Public availability</div><div class="text-xs muted">Show next 5 open slots on the public website</div></div><span class="switch on"></span></div>
+      </div>
+    </div>
+
+    <!-- Security + API webhooks -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-6">
+        <div class="card-head">
+          <h3 class="card-title">Security &amp; compliance</h3>
+          <a class="link sm" href="#">Audit log</a>
+        </div>
+        <div class="setting-row">
+          <div class="icon">2FA</div>
+          <div style="flex:1;"><div class="fw-500">Require two-factor for staff</div><div class="text-xs muted">TOTP via authenticator app</div></div>
+          <span class="switch on"></span>
+        </div>
+        <div class="setting-row">
+          <div class="icon">SSO</div>
+          <div style="flex:1;"><div class="fw-500">Single sign-on (Google Workspace)</div><div class="text-xs muted">Members signed in with @quartzgrove.health</div></div>
+          <span class="switch on"></span>
+        </div>
+        <div class="setting-row">
+          <div class="icon">ST</div>
+          <div style="flex:1;"><div class="fw-500">Session timeout</div><div class="text-xs muted">Auto sign-out after</div></div>
+          <select class="select" style="width:120px;"><option>20 minutes</option></select>
+        </div>
+        <div class="setting-row">
+          <div class="icon">IP</div>
+          <div style="flex:1;"><div class="fw-500">IP allowlist</div><div class="text-xs muted">Limit admin actions to clinic Wi-Fi + 1 home network</div></div>
+          <span class="switch"></span>
+        </div>
+        <div class="setting-row">
+          <div class="icon">BR</div>
+          <div style="flex:1;"><div class="fw-500">Backups &amp; retention</div><div class="text-xs muted">Hourly snapshots · 7 years retention for clinical data</div></div>
+          <span class="badge green">Healthy</span>
+        </div>
+      </div>
+
+      <div class="card col-6">
+        <div class="card-head">
+          <h3 class="card-title">API &amp; webhooks</h3>
+          <a class="link sm" href="#">Create new key</a>
+        </div>
+        <div class="field"><div class="label">Public API base</div><input class="input" value="https://api.quartzgrove.health/v3" /></div>
+        <div class="field-row">
+          <div class="field"><div class="label">Webhook secret</div><input class="input" value="whk_3f-…wf2A" /></div>
+          <div class="field"><div class="label">Rotate</div><select class="select"><option>Every 90 days</option></select></div>
+        </div>
+        <div class="field"><div class="label">Outbound webhook URL</div><input class="input" value="https://hooks.quartzgrove.example/events" /></div>
+        <div class="text-xs muted mb-8">Subscribed events</div>
+        <div class="flex gap-8 mb-12" style="flex-wrap:wrap;">
+          <span class="badge blue">appointment.created</span>
+          <span class="badge blue">appointment.cancelled</span>
+          <span class="badge blue">invoice.paid</span>
+          <span class="badge slate">message.received</span>
+          <span class="badge slate">claim.rejected</span>
+        </div>
+        <div class="alert green">
+          <div>
+            <div class="alert-title">Last 24 hours · 412 events delivered, 0 failures.</div>
+            <div class="text-xs">Healthy. Average latency 184 ms.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent activity + Plan & billing -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-7">
+        <div class="card-head">
+          <h3 class="card-title">Recent activity</h3>
+          <span class="text-xs muted">Workspace audit log</span>
+        </div>
+        <ul class="timeline">
+          <li><div class="t-date">10 min ago · Mira E.</div><div class="t-title">Updated practice tagline</div><div class="text-xs muted">"A calm, well-tended family clinic in the East Bay since 2009." replaces prior copy.</div></li>
+          <li><div class="t-date">1 h ago · Aaliyah B.</div><div class="t-title">Turned on autopay for plan QGI-10412</div></li>
+          <li><div class="t-date">Yesterday · Renata M.</div><div class="t-title">Added staff member: Jenna Lin</div><div class="text-xs muted">Reception role · M/W/F</div></li>
+          <li><div class="t-date">2 d ago · System</div><div class="t-title">Backup completed</div><div class="text-xs muted">Snapshot · 412 MB · stored in us-west-2</div></li>
+          <li><div class="t-date">3 d ago · Renata M.</div><div class="t-title">Granted webhook scope: invoice.paid</div></li>
+        </ul>
+      </div>
+
+      <div class="card col-5">
+        <div class="card-head">
+          <h3 class="card-title">Plan &amp; billing</h3>
+          <a class="link sm" href="#">Manage</a>
+        </div>
+        <div class="text-xs muted">Quartz Grove Practice · Annual</div>
+        <div style="font-size:30px;font-weight:700;letter-spacing:-0.01em;">$486.<span style="font-size:18px;">00</span> <span class="text-xs muted fw-500">/ month</span></div>
+        <div class="dl-row"><span class="dt">Seats included</span><span class="dd">12 of 15</span></div>
+        <div class="dl-row"><span class="dt">Next invoice</span><span class="dd">Nov 1, 2024</span></div>
+        <div class="dl-row"><span class="dt">Annual support add-on</span><span class="dd">Included</span></div>
+        <div class="dl-row"><span class="dt fw-600">Estimated next charge</span><span class="dd fw-700">$486.00</span></div>
+        <div class="flex gap-8 mt-12">
+          <button class="btn">Download invoice</button>
+          <button class="btn primary">Update payment</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Helpful answers + Archived locations -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-7">
+        <div class="card-head">
+          <h3 class="card-title">Helpful answers</h3>
+          <a class="link sm" href="#">Contact support</a>
+        </div>
+        <div class="grid grid-2 gap-12">
+          <div>
+            <div class="fw-600 mb-4">How do I add a new provider to the schedule?</div>
+            <div class="text-xs muted">Team &amp; roles → Invite member. Once they accept, choose Clinician + assign rooms.</div>
+          </div>
+          <div>
+            <div class="fw-600 mb-4">Can I customize the look of statements?</div>
+            <div class="text-xs muted">Yes — Branding controls the logo, color, and tagline shown on every PDF and email.</div>
+          </div>
+          <div>
+            <div class="fw-600 mb-4">What happens when an integration disconnects?</div>
+            <div class="text-xs muted">We retry every 15 minutes for 24 hours, then notify the workspace owner.</div>
+          </div>
+          <div>
+            <div class="fw-600 mb-4">Is patient data ever stored offsite?</div>
+            <div class="text-xs muted">All clinical data lives in us-west-2 with hourly snapshots. Backups never leave AWS HIPAA-eligible regions.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card col-5">
+        <div class="card-head">
+          <h3 class="card-title">Archived locations</h3>
+          <a class="link sm" href="#">View archive</a>
+        </div>
+        <div class="archived">
+          <div style="font-size:22px;">📦</div>
+          <div class="fw-500 mt-8">Nothing in the archive</div>
+          <div class="mt-8">When you sunset a location it'll wait here, read-only, until you delete it.</div>
+        </div>
+        <div class="mt-12 text-xs muted">Quartz Grove archives any clinic 90 days after closure to comply with state records retention.</div>
+      </div>
+    </div>
+
+    <!-- Danger zone -->
+    <div class="card mt-16" style="border-color: #fecaca;">
+      <div class="card-head">
+        <h3 class="card-title" style="color:#991b1b;">Careful, slow steps</h3>
+        <span class="text-xs muted">Irreversible operations. Sign-out everyone else first.</span>
+      </div>
+      <div class="setting-row">
+        <div style="flex:1;"><div class="fw-500">Export the full workspace</div><div class="text-xs muted">A ZIP with patients, charts, billing — emailed to the workspace owner</div></div>
+        <button class="btn">Begin export</button>
+      </div>
+      <div class="setting-row">
+        <div style="flex:1;"><div class="fw-500">Transfer ownership</div><div class="text-xs muted">Move owner rights to another admin. Requires re-auth.</div></div>
+        <button class="btn">Transfer</button>
+      </div>
+      <div class="setting-row">
+        <div style="flex:1;"><div class="fw-500">Close this workspace</div><div class="text-xs muted">Patient access ends in 30 days, data archived for 7 years.</div></div>
+        <button class="btn danger">Close workspace</button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© 2024 Quartz Grove Lab · Walnut Creek, CA</div>
+    <div class="footer-links">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Plans</a>
+      <a href="settings.html">Settings</a>
+    </div>
+    <div class="footer-support">Support · care@quartzgrove.health · HIPAA-compliant</div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

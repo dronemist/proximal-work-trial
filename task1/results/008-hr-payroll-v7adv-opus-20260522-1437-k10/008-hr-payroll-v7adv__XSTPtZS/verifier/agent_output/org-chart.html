@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Org Chart · Onyx Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark"></span><span class="brand-text">Onyx Works</span></div>
+    <div class="nav-label">Workspace</div>
+    <div class="nav-group">
+      <a class="nav-item" href="people-directory.html"><span class="ico">◧</span>People</a>
+      <a class="nav-item active" href="org-chart.html"><span class="ico">◤</span>Org Chart</a>
+      <a class="nav-item" href="time-off.html"><span class="ico">◴</span>Time Off</a>
+    </div>
+    <div class="nav-label">Finance</div>
+    <div class="nav-group">
+      <a class="nav-item" href="expenses.html"><span class="ico">◈</span>Expenses</a>
+    </div>
+    <div class="nav-label">Workplace</div>
+    <div class="nav-group">
+      <a class="nav-item" href="settings.html"><span class="ico">◎</span>Company Settings</a>
+    </div>
+    <div class="spacer"></div>
+    <div class="profile-card">
+      <span class="avatar peach">MR</span>
+      <div>
+        <div class="name">Mira Rasheed</div>
+        <div class="role">Operations Lead</div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <span>Haben Holdings</span><span class="sep">›</span>
+        <span>Haben Studio EU</span><span class="sep">›</span>
+        <span class="here">Org Chart</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="search"><input placeholder="Find a person or team" /></div>
+    </div>
+
+    <div class="page">
+      <div class="page-head">
+        <h1 class="page-title">Org Chart</h1>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat"><span class="label">Headcount</span><span class="value">184</span><span class="meta delta-pos">+6 this quarter</span></div>
+        <div class="stat"><span class="label">Departments</span><span class="value">11</span><span class="meta">Across 3 entities</span></div>
+        <div class="stat"><span class="label">Open roles</span><span class="value">7</span><span class="meta">2 in approval</span></div>
+        <div class="stat"><span class="label">Avg. span of control</span><span class="value">5.4</span><span class="meta">Target range: 4–7</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-h">
+          <div>
+            <div class="card-title">Reporting structure</div>
+            <div class="muted xs">Snapshot · 14 March 2025 · effective today</div>
+          </div>
+        </div>
+
+        <div class="tabs" style="margin-top:8px;">
+          <a class="active">Tree</a>
+          <a>By department</a>
+          <a>List</a>
+          <a>Vacant seats</a>
+        </div>
+
+        <div class="filter-bar" style="margin-top:8px;">
+          <div class="field" style="margin:0;flex:1;min-width:160px;">
+            <label>Department</label>
+            <select class="select"><option>All departments</option></select>
+          </div>
+          <div class="field" style="margin:0;flex:1;min-width:160px;">
+            <label>Location</label>
+            <select class="select"><option>All locations</option></select>
+          </div>
+          <div class="field" style="margin:0;flex:1;min-width:160px;">
+            <label>Employment</label>
+            <select class="select"><option>All types</option></select>
+          </div>
+          <div style="align-self:flex-end;display:flex;gap:6px;">
+            <button class="btn">Export PDF</button>
+            <button class="btn">Print view</button>
+          </div>
+        </div>
+        <div class="filter-bar" style="margin-top:8px;">
+          <label class="checkbox"><input type="checkbox" checked /> Filled only</label>
+          <label class="checkbox"><input type="checkbox" /> Vacant</label>
+          <label class="checkbox"><input type="checkbox" /> Hiring</label>
+          <label class="checkbox"><input type="checkbox" /> Detached</label>
+        </div>
+
+        <div class="tree" style="margin-top:16px;">
+          <!-- Level 1 -->
+          <div class="lvl">
+            <div class="tree-node lead">
+              <span class="avatar pink sm">EB</span>
+              <div>
+                <div class="nm">Elin Hartmann</div>
+                <div class="ttl">Chief Executive Officer</div>
+              </div>
+              <span class="muted xs" style="margin-left:auto;color:rgba(255,255,255,0.85);">14 REPORTS</span>
+            </div>
+          </div>
+          <!-- Level 2 -->
+          <div class="lvl">
+            <div class="tree-node"><span class="avatar mint sm">JT</span><div><div class="nm">John Tinano</div><div class="ttl">Chief Technology Officer</div></div><span class="muted xs" style="margin-left:auto;">42 RPT</span></div>
+            <div class="tree-node lead" style="background:var(--pink);"><span class="avatar pink sm" style="background:#fff;color:var(--pink);">RB</span><div><div class="nm">Rohan Bhat</div><div class="ttl">Chief Operating Officer</div></div><span class="muted xs" style="margin-left:auto;color:rgba(255,255,255,0.85);">58 RPT</span></div>
+            <div class="tree-node"><span class="avatar amber sm">SK</span><div><div class="nm">Sofie Krüger</div><div class="ttl">Chief Financial Officer</div></div><span class="muted xs" style="margin-left:auto;">24 RPT</span></div>
+            <div class="tree-node"><span class="avatar peach sm">YS</span><div><div class="nm">Yusuf Çelik</div><div class="ttl">Chief Revenue Officer</div></div><span class="muted xs" style="margin-left:auto;">31 RPT</span></div>
+          </div>
+          <!-- Level 3 -->
+          <div class="lvl">
+            <div class="tree-node"><span class="avatar blue sm">AR</span><div><div class="nm">Ana Reyes</div><div class="ttl">VP Engineering</div></div><span class="muted xs" style="margin-left:auto;">21 RPT</span></div>
+            <div class="tree-node"><span class="avatar mint sm">PB</span><div><div class="nm">Priya Banda</div><div class="ttl">Director Operations</div></div><span class="muted xs" style="margin-left:auto;">17 RPT</span></div>
+            <div class="tree-node"><span class="avatar amber sm">MR</span><div><div class="nm">Mira Rasheed</div><div class="ttl">Operations Lead, EU</div></div><span class="muted xs" style="margin-left:auto;">9 RPT</span></div>
+            <div class="tree-node"><span class="avatar peach sm">DA</span><div><div class="nm">Diego Alves</div><div class="ttl">Director IT &amp; Security</div></div><span class="muted xs" style="margin-left:auto;">6 RPT</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <!-- Left: headcount by department + change history -->
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div class="card">
+            <div class="card-h">
+              <div class="card-title">Headcount by department</div>
+              <span class="muted xs">Hello, Studio EU</span>
+            </div>
+            <table class="tbl" style="margin-top:6px;">
+              <thead><tr><th>Department</th><th>Lead</th><th class="num">FTE/LOA</th><th class="num">Open</th><th class="num">Hires</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Engineering</td><td>Julia Tanaka</td><td class="num">52</td><td class="num">3</td><td class="num">4.1</td><td><span class="badge green dot">HEALTHY</span></td></tr>
+                <tr><td>Operations</td><td>Rohan Bhat</td><td class="num">38</td><td class="num">1</td><td class="num">4.9</td><td><span class="badge green dot">HEALTHY</span></td></tr>
+                <tr><td>Finance</td><td>Sofie Krüger</td><td class="num">19</td><td class="num">0</td><td class="num">4.8</td><td><span class="badge green dot">HEALTHY</span></td></tr>
+                <tr><td>Design</td><td>Yusef Çelik</td><td class="num">14</td><td class="num">2</td><td class="num">7.0</td><td><span class="badge amber dot">STRETCHED</span></td></tr>
+                <tr><td>People</td><td>Dara Achebe</td><td class="num">11</td><td class="num">0</td><td class="num">3.7</td><td><span class="badge green dot">HEALTHY</span></td></tr>
+                <tr><td>Revenue</td><td>Helena Brandt</td><td class="num">22</td><td class="num">1</td><td class="num">5.5</td><td><span class="badge green dot">HEALTHY</span></td></tr>
+                <tr><td style="font-weight:600;">Total</td><td>—</td><td class="num bold">156</td><td class="num bold">7</td><td class="num bold">5.0</td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card">
+            <div class="row between"><div class="card-title">Change history (last 30 days)</div><span class="muted">▾</span></div>
+            <ul class="muted small" style="margin:8px 0 0 16px;padding:0;font-size:12.5px;">
+              <li>14 Mar — Mira Rasheed moved from Workplace to report directly to COO</li>
+              <li>10 Mar — New seat opened: Director, IT &amp; Security (final-stage candidate)</li>
+              <li>05 Mar — Design promoted Yusef Çelik to Department Lead</li>
+              <li>27 Feb — Engineering split Platform pod into Infra and Data pods</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="row between"><div class="card-title">Pending approvals (2)</div><span class="muted">▾</span></div>
+          </div>
+
+          <div class="card">
+            <div class="row between"><div class="card-title">Effective-dated changes</div><span class="muted">▾</span></div>
+          </div>
+        </div>
+
+        <!-- Right: selected profile -->
+        <aside class="card" style="position:sticky;top:14px;">
+          <div class="muted xs">Selected seat</div>
+          <div class="bold" style="font-size:16px;margin:2px 0 8px;">Rohan Bhat</div>
+          <div class="row" style="gap:10px;">
+            <span class="avatar pink lg">RB</span>
+            <div>
+              <div class="bold small">Chief Operating Officer</div>
+              <div class="muted xs">Reports to Elin Hartmann</div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="kv">
+            <span class="k">Employee ID</span><span>HH–88142</span>
+            <span class="k">Entity</span><span>Haben Studio EU GmbH</span>
+            <span class="k">Location</span><span>Berlin, DE</span>
+            <span class="k">Joined</span><span>12 Aug 2021</span>
+            <span class="k">Cost center</span><span>OPS-EU-100</span>
+          </div>
+          <div class="divider"></div>
+          <div class="bold xs muted" style="text-transform:uppercase;letter-spacing:0.05em;">Direct reports — 4</div>
+          <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px;">
+            <div class="row between"><div class="row"><span class="avatar mint sm">LM</span><div><div class="bold small">Lukas Meier</div><div class="muted xs">Director, Workplace</div></div></div><span class="muted xs">›</span></div>
+            <div class="row between"><div class="row"><span class="avatar amber sm">PB</span><div><div class="bold small">Priya Banda</div><div class="muted xs">Director, Procurement</div></div></div><span class="muted xs">›</span></div>
+            <div class="row between"><div class="row"><span class="avatar peach sm">MR</span><div><div class="bold small">Mira Rasheed</div><div class="muted xs">Operations Lead</div></div></div><span class="muted xs">›</span></div>
+            <div class="row between"><div class="row"><span class="avatar blue sm">TO</span><div><div class="bold small">Tomas Ohonen</div><div class="muted xs">Director, Legal &amp; Risk</div></div></div><span class="muted xs">OPEN</span></div>
+          </div>
+          <div class="divider"></div>
+          <div class="row" style="gap:8px;">
+            <button class="btn" style="flex:1;">Open profile</button>
+            <button class="btn primary" style="flex:1;">Propose change</button>
+          </div>
+          <div class="muted xs" style="margin-top:8px;">Proposed changes route to the CEO and CPO for review. Approved seats publish to the chart at the next effective date.</div>
+        </aside>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div>© 2025 Onyx Works Group · v4.18.2 · production-eu-west</div>
+      <div class="links"><a>People</a><a>Org Chart</a><a>Time Off</a><a>Expenses</a><a>Settings</a></div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Builds · Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="brand-mark"></span> Beacon Harbor Works</div>
+    <nav>
+      <ul class="nav">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="deploys.html">Deployments</a></li>
+        <li><a class="is-active" href="builds.html">Builds</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="alerts.html">Alerts</a></li>
+      </ul>
+    </nav>
+    <span class="user-chip"><span class="avatar c3"></span> aspen-r</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="crumbs">Projects <span class="sep">/</span> harbor-api <span class="sep">/</span> <span class="here">Builds</span></div>
+
+  <div class="layout">
+    <div class="main">
+
+      <div class="eyebrow">Continuous integration</div>
+      <h1 class="page-title">Build history</h1>
+      <p class="lede">Every pipeline run across the fleet. Filter by branch, repository, or outcome. Logs retained for 90 days.</p>
+
+      <div class="btn-row">
+        <a class="btn primary" href="#">Run new build</a>
+        <a class="btn" href="#">Download manifest</a>
+        <a class="btn ghost" href="#">Pipeline settings</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="k">Success rate · 7d</div><div class="v">94.2%</div><div class="sub">+1.4 pts vs prior week</div></div>
+        <div class="stat"><div class="k">Avg duration</div><div class="v">4m 21s</div><div class="sub">all repos, all targets</div></div>
+        <div class="stat"><div class="k">Builds today</div><div class="v">38</div><div class="sub">12 still in-progress</div></div>
+        <div class="stat"><div class="k">Queue depth</div><div class="v">3</div><div class="sub">waiting on runners</div></div>
+      </div>
+
+      <div class="trend-wrap">
+        <div class="section-eyebrow">Last 30 days <span class="dim">·</span> main branch</div>
+        <h4>Trend</h4>
+        <div class="bars">
+          <i style="height:60%"></i><i style="height:80%"></i><i class="f" style="height:45%"></i><i style="height:78%"></i>
+          <i style="height:90%"></i><i style="height:55%"></i><i style="height:70%"></i><i style="height:62%"></i>
+          <i class="w" style="height:40%"></i><i style="height:88%"></i><i style="height:74%"></i><i style="height:82%"></i>
+          <i style="height:66%"></i><i class="f" style="height:30%"></i><i style="height:92%"></i><i style="height:76%"></i>
+          <i style="height:84%"></i><i style="height:58%"></i><i style="height:70%"></i><i class="w" style="height:48%"></i>
+          <i style="height:80%"></i><i style="height:96%"></i><i style="height:64%"></i><i style="height:72%"></i>
+          <i style="height:88%"></i><i style="height:54%"></i><i class="f" style="height:38%"></i><i style="height:78%"></i>
+          <i style="height:82%"></i><i style="height:90%"></i>
+        </div>
+        <div class="legend mt-1">
+          <span><i></i> Passed</span>
+          <span><i class="warn"></i> Flaked</span>
+          <span><i class="fail"></i> Failed</span>
+          <span><i class="muted"></i> Canceled</span>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <a class="on" href="#">All</a><a href="#">Passed</a><a href="#">Failed</a><a href="#">Running</a><a href="#">Queued</a><a href="#">Canceled</a>
+      </div>
+
+      <div class="filterbar">
+        <input class="field grow" type="search" placeholder="Search by commit, branch, or author...">
+        <select class="field"><option>All repositories</option></select>
+        <select class="field"><option>All branches</option></select>
+        <select class="field"><option>All triggers</option></select>
+      </div>
+
+      <div class="section-eyebrow">Pipeline runs</div>
+      <div class="muted" style="font-size:11.5px;margin-bottom:8px;">Showing 1 – 12 of 426. Times in your local zone (UTC−7).</div>
+
+      <div class="list mb-2">
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag green uppercase">passed</span>
+              <span style="font-weight:600;margin-left:6px;">Add idempotency keys to webhook dispatcher</span>
+            </div>
+            <span class="muted" style="font-size:11px;">2h 14m · 92%</span>
+          </div>
+          <div class="li-meta">
+            <span>harbor-api · main</span>
+            <span class="mono">5d8a911</span>
+            <span class="who-mini"><span class="avatar c1"></span>Elin Lindqvist</span>
+          </div>
+          <div class="bar"><i style="width:92%"></i></div>
+        </div>
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag green uppercase">passed</span>
+              <span style="font-weight:600;margin-left:6px;">Bump postgres client to 16.4, retire pgbouncer shim</span>
+            </div>
+            <span class="muted" style="font-size:11px;">3m 47s · 88%</span>
+          </div>
+          <div class="li-meta">
+            <span>harbor-api · pg-upgrade</span>
+            <span class="mono">b1c01a2</span>
+            <span class="who-mini"><span class="avatar c3"></span>Maren Rasmussen</span>
+          </div>
+          <div class="bar"><i style="width:88%"></i></div>
+        </div>
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag green uppercase">passed</span>
+              <span style="font-weight:600;margin-left:6px;">Refactor manifest parser to streaming reader</span>
+            </div>
+            <span class="muted" style="font-size:11px;">5m 02s · 81%</span>
+          </div>
+          <div class="li-meta">
+            <span>manifest-ingest · main</span>
+            <span class="mono">c8d0f9e</span>
+            <span class="who-mini"><span class="avatar c2"></span>Jobs Tavares</span>
+          </div>
+          <div class="bar"><i style="width:81%"></i></div>
+        </div>
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag fail uppercase">failed</span>
+              <span style="font-weight:600;margin-left:6px;">Nightly snapshot build · all targets</span>
+            </div>
+            <span class="muted" style="font-size:11px;">8m 30s · 22%</span>
+          </div>
+          <div class="li-meta">
+            <span>scheduler · main</span>
+            <span class="mono">7c1d4f2</span>
+            <span class="who-mini"><span class="avatar c8"></span>scheduler</span>
+          </div>
+          <div class="bar"><i class="fail" style="width:22%"></i></div>
+        </div>
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag green uppercase">passed</span>
+              <span style="font-weight:600;margin-left:6px;">Tighten CSP on dashboard routes, drop unsafe-inline</span>
+            </div>
+            <span class="muted" style="font-size:11px;">4m 06s · 85%</span>
+          </div>
+          <div class="li-meta">
+            <span>dockside-web · sec/csp</span>
+            <span class="mono">61f55ad</span>
+            <span class="who-mini"><span class="avatar c4"></span>Darrel Konic</span>
+          </div>
+          <div class="bar"><i style="width:85%"></i></div>
+        </div>
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag warn uppercase">flaked</span>
+              <span style="font-weight:600;margin-left:6px;">Experimental: switch CI runner to graviton</span>
+            </div>
+            <span class="muted" style="font-size:11px;">5m 13s · 64%</span>
+          </div>
+          <div class="li-meta">
+            <span>harbor-api · ci-graviton</span>
+            <span class="mono">37bb02a</span>
+            <span class="who-mini"><span class="avatar c5"></span>Priya Vinatuk</span>
+          </div>
+          <div class="bar"><i class="warn" style="width:64%"></i></div>
+        </div>
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag green uppercase">passed</span>
+              <span style="font-weight:600;margin-left:6px;">Add retry/back-off to S3 lifecycle uploader</span>
+            </div>
+            <span class="muted" style="font-size:11px;">3m 18s · 89%</span>
+          </div>
+          <div class="li-meta">
+            <span>harbor-billing · main</span>
+            <span class="mono">204a6e7</span>
+            <span class="who-mini"><span class="avatar c1"></span>Elin Lindqvist</span>
+          </div>
+          <div class="bar"><i style="width:89%"></i></div>
+        </div>
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag green uppercase">passed</span>
+              <span style="font-weight:600;margin-left:6px;">Migrate billing tables to partitioned schema</span>
+            </div>
+            <span class="muted" style="font-size:11px;">7m 56s · 80%</span>
+          </div>
+          <div class="li-meta">
+            <span>harbor-billing · db/partitioning</span>
+            <span class="mono">0c91a72</span>
+            <span class="who-mini"><span class="avatar c7"></span>Dorota Albrecht</span>
+          </div>
+          <div class="bar"><i style="width:80%"></i></div>
+        </div>
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag green uppercase">passed</span>
+              <span style="font-weight:600;margin-left:6px;">Document deploy contracts in /docs/runbook</span>
+            </div>
+            <span class="muted" style="font-size:11px;">1m 42s · 98%</span>
+          </div>
+          <div class="li-meta">
+            <span>harbor-docs · main</span>
+            <span class="mono">f0021ad</span>
+            <span class="who-mini"><span class="avatar c2"></span>Jobs Tavares</span>
+          </div>
+          <div class="bar"><i style="width:98%"></i></div>
+        </div>
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag green uppercase">passed</span>
+              <span style="font-weight:600;margin-left:6px;">Release candidate · v2.18.0-rc.2</span>
+            </div>
+            <span class="muted" style="font-size:11px;">11m 41s · 76%</span>
+          </div>
+          <div class="li-meta">
+            <span>harbor-api · release</span>
+            <span class="mono">9a2c01e</span>
+            <span class="who-mini"><span class="avatar c3"></span>Maren Rasmussen</span>
+          </div>
+          <div class="bar"><i style="width:76%"></i></div>
+        </div>
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag green uppercase">passed</span>
+              <span style="font-weight:600;margin-left:6px;">Trim docker image · drop dev dependencies</span>
+            </div>
+            <span class="muted" style="font-size:11px;">2m 28s · 93%</span>
+          </div>
+          <div class="li-meta">
+            <span>router-gw · main</span>
+            <span class="mono">14a1c9d</span>
+            <span class="who-mini"><span class="avatar c4"></span>Darrel Konic</span>
+          </div>
+          <div class="bar"><i style="width:93%"></i></div>
+        </div>
+
+        <div class="list-item">
+          <div class="li-head">
+            <div>
+              <span class="tag green uppercase">passed</span>
+              <span style="font-weight:600;margin-left:6px;">Add structured logging to scheduler worker</span>
+            </div>
+            <span class="muted" style="font-size:11px;">3m 02s · 90%</span>
+          </div>
+          <div class="li-meta">
+            <span>tideline-jobs · main</span>
+            <span class="mono">e0b22a4</span>
+            <span class="who-mini"><span class="avatar c5"></span>Priya Vinatuk</span>
+          </div>
+          <div class="bar"><i style="width:90%"></i></div>
+        </div>
+
+      </div>
+
+      <div class="pager">
+        <span class="p on">1</span><span class="p">2</span><span class="p">3</span><span class="p">…</span><span class="p">36</span>
+        <span class="grow"></span>
+        <span class="muted">426 builds · Page 1 of 36</span>
+      </div>
+
+      <div class="section-eyebrow mt-2">Slowest stages <span class="dim">·</span> last 7 days</div>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Repository</th>
+              <th class="num">P50</th>
+              <th class="num">P90</th>
+              <th>Trend</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Integration tests</td><td>harbor-api</td><td class="num">3m 56s</td><td class="num">5m 20s</td><td><span class="tag fail">↑ 14%</span></td></tr>
+            <tr><td>Docker package</td><td>harbor-web</td><td class="num">1m 47s</td><td class="num">2m 02s</td><td><span class="muted">flat</span></td></tr>
+            <tr><td>Lint &amp; typecheck</td><td>harbor-api</td><td class="num">38s</td><td class="num">54s</td><td><span class="muted">flat</span></td></tr>
+            <tr><td>Migration dry-run</td><td>harbor-api</td><td class="num">2m 11s</td><td class="num">3m 30s</td><td><span class="muted">flat</span></td></tr>
+            <tr><td>Publish artifact</td><td><span class="mono">manifest-cli</span></td><td class="num">1m 22s</td><td class="num">2m 05s</td><td><span class="muted">—</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <aside class="side">
+
+      <div class="card">
+        <h3>Awaiting runner</h3>
+        <ul class="sidelist">
+          <li><span><span class="tag muted">QUEUE</span> harbor-api · main</span><span class="meta">12s</span></li>
+          <li><span><span class="tag muted">QUEUE</span> harbor-billing · billing/edge</span><span class="meta">28s</span></li>
+          <li><span><span class="tag muted">QUEUE</span> signal-worker · main</span><span class="meta">41s</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Crew on deck</h3>
+        <div class="online-list">
+          <div class="row"><span class="avatar c1"></span><div class="grow"><div class="name">Elin Lindqvist</div><div class="meta">harbor-api</div></div><span class="dot"></span></div>
+          <div class="row"><span class="avatar c3"></span><div class="grow"><div class="name">Maren Rasmussen</div><div class="meta">Releases</div></div><span class="dot"></span></div>
+          <div class="row"><span class="avatar c2"></span><div class="grow"><div class="name">Jobs Tavares</div><div class="meta">Manifest</div></div><span class="dot"></span></div>
+          <div class="row"><span class="avatar c4"></span><div class="grow"><div class="name">Darrel Konic</div><div class="meta">Web · CSP</div></div><span class="dot"></span></div>
+          <div class="row"><span class="avatar c7"></span><div class="grow"><div class="name">Dorota Albrecht</div><div class="meta">Billing</div></div><span class="dot"></span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>This week</h3>
+        <ul class="sidelist">
+          <li><span class="mono">harbor-api</span><span class="meta">186 ↑</span></li>
+          <li><span class="mono">harbor-web</span><span class="meta">94 ↑</span></li>
+          <li><span class="mono">signal-worker</span><span class="meta">62 ↑</span></li>
+          <li><span class="mono">manifest-cli</span><span class="meta">48 ↑</span></li>
+          <li><span class="mono">lighthouse-cfg</span><span class="meta">21 ↑</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Recent shortcuts</h3>
+        <div class="muted" style="font-size:11.5px;margin-bottom:8px;">If a build fails</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a class="btn small" href="#">Open action logs</a>
+          <a class="btn small" href="#">Roll back last deploy</a>
+          <a class="btn small" href="#">Page the on-call engineer</a>
+          <a class="btn small" href="#">Runbook · CI failures</a>
+          <a class="btn small" href="#">Acquire a runner block</a>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© 2026 Beacon Harbor Works · All weatherproof imagery</div>
+    <div class="flinks">
+      <a href="#">Status</a><a href="#">API</a><a href="#">Changelog</a><a href="#">Docs</a>
+      <a href="#">Shipping</a><a href="#">Manifest</a><a href="#">Projects</a><a href="#">Deployments</a><a href="#">Builds</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

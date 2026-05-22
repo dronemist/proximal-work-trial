@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patient overview — Margaret Ellsworth · Quartz Grove Lab</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Page-specific tweaks */
+  .patient-strip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
+  }
+  .patient-strip .av-lg { background: #dbeafe; color: var(--primary-700); }
+  .patient-strip .field { display: flex; flex-direction: column; gap: 2px; min-width: 64px; }
+  .patient-strip .field .l { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); font-weight: 600; }
+  .patient-strip .field .v { font-size: 12px; color: var(--text); font-weight: 500; }
+  .patient-strip .actions { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .meta-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+  .vitals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .vital { padding: 14px 16px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .vitals .vital:nth-child(4n) { border-right: 0; }
+  .vitals .vital:nth-last-child(-n+4) { border-bottom: 0; }
+  .vital .l { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); font-weight: 600; }
+  .vital .v { font-size: 22px; font-weight: 700; margin-top: 4px; }
+  .vital .u { font-size: 11px; color: var(--text-3); }
+  .vital .spark { margin-top: 6px; height: 24px; }
+
+  .problem-count { display:flex; align-items:baseline; gap:8px; }
+  .problem-count .n { font-size: 36px; font-weight: 700; line-height: 1; }
+  .problems li { list-style: none; padding: 10px 16px; border-top: 1px solid var(--border); display:flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .problems { padding: 0; margin: 0; }
+
+  .timeline { padding: 0; margin: 0; list-style: none; }
+  .timeline li { padding: 12px 16px; border-top: 1px solid var(--border); }
+  .timeline .when { font-size: 12px; color: var(--text-3); font-weight: 500; }
+  .timeline .what { font-weight: 600; margin-top: 2px; }
+  .timeline .desc { color: var(--text-2); margin-top: 3px; }
+
+  .meds .row-item, .allergies .row-item, .labs .row-item, .careteam .row-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 16px;
+    border-top: 1px solid var(--border);
+  }
+  .meds .row-item .name { font-weight: 600; }
+  .meds .row-item .sub { font-size: 12px; color: var(--text-3); }
+  .meds .row-item .pill { margin-left: auto; }
+
+  @media (max-width: 900px) {
+    .vitals { grid-template-columns: repeat(2, 1fr); }
+    .vitals .vital { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .vitals .vital:nth-child(2n) { border-right: 0; }
+    .vitals .vital:nth-last-child(-n+2) { border-bottom: 0; }
+  }
+  @media (max-width: 560px) {
+    .vitals { grid-template-columns: repeat(2, 1fr); }
+    .patient-strip .actions { margin-left: 0; width: 100%; }
+  }
+
+  .sparkline {
+    width: 100%; height: 24px;
+    background:
+      linear-gradient(90deg, transparent 24%, rgba(37,99,235,.1) 24%, rgba(37,99,235,.1) 26%, transparent 26%),
+      linear-gradient(90deg, transparent 60%, rgba(37,99,235,.1) 60%, rgba(37,99,235,.1) 62%, transparent 62%);
+    border-radius: 4px;
+    position: relative;
+  }
+  .sparkline svg { display: block; width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <span class="brand"><span class="brand-mark"></span>Quartz Grove Lab</span>
+    <nav class="primary-nav">
+      <a href="patient-dashboard.html" class="active">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="search">Search patients, charts…</div>
+    <span class="avatar">RV</span>
+  </div>
+</header>
+
+<main class="container page">
+  <div class="breadcrumb">
+    <a href="#">Patients</a><span class="sep">/</span><span class="current">Margaret Ellsworth</span>
+  </div>
+
+  <div class="eyebrow">PATIENT OVERVIEW · MRN 240-A41</div>
+  <h1 class="page-title">Margaret Ellsworth</h1>
+  <p class="lede">Established patient since 2017. Generally well — managing Type 2 diabetes and mild hypertension. Last seen for a routine follow-up nine days ago; everything looked steady.</p>
+
+  <div class="patient-strip">
+    <span class="av-lg">ME</span>
+    <div class="field"><span class="l">Age</span><span class="v">58</span></div>
+    <div class="field"><span class="l">DOB</span><span class="v">May 5, 1967</span></div>
+    <div class="field"><span class="l">Sex</span><span class="v">F</span></div>
+    <div class="field"><span class="l">Pronouns</span><span class="v">she / her</span></div>
+    <div class="field"><span class="l">Primary</span><span class="v">Dr. Renata Voss</span></div>
+    <div class="field"><span class="l">Preferred contact</span><span class="v">SMS · (415) 555-0182</span></div>
+    <div class="actions">
+      <button class="btn">Start visit note</button>
+      <button class="btn">Message patient</button>
+      <button class="btn btn-primary">Schedule follow-up</button>
+    </div>
+  </div>
+  <div class="meta-tags">
+    <span class="badge badge-green badge-dot">Active</span>
+    <span class="badge badge-blue">Diabetes care plan</span>
+    <span class="badge badge-gray">Medicare · BCBS supplement</span>
+  </div>
+
+  <div class="grid cols-12 mt-16">
+    <!-- Banners row -->
+    <div class="col-span-6">
+      <div class="banner banner-red">
+        <div>
+          <strong>Drug interaction flagged</strong>
+          <div>Metformin + iodinated contrast — please note 48 hr before the imaging next month (Sep 21).</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-6">
+      <div class="banner banner-blue">
+        <div>
+          <strong>Preventive care reminder</strong>
+          <div>Mammogram & shingles booster recommended this fall. Eligible per schedule; outreach sent on Aug 30.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent vitals -->
+    <section class="card col-span-8">
+      <div class="card-header">
+        <div>
+          <h3>Recent vitals</h3>
+          <div class="text-xs muted mt-4">Captured Sep 4, 2025 · 10:42 AM by Nurse Aaliyah Brooks</div>
+        </div>
+        <div class="row gap-8">
+          <span class="badge badge-green badge-dot">Within range</span>
+          <button class="btn-link text-sm">View history</button>
+        </div>
+      </div>
+      <div class="vitals">
+        <div class="vital">
+          <div class="l">Blood pressure</div>
+          <div class="v">128/82 <span class="u">mmHg</span></div>
+          <div class="spark"><svg viewBox="0 0 80 24" preserveAspectRatio="none"><polyline fill="none" stroke="#2563eb" stroke-width="1.5" points="0,18 10,14 20,16 30,8 40,12 50,6 60,10 70,4 80,8"/></svg></div>
+        </div>
+        <div class="vital">
+          <div class="l">Heart rate</div>
+          <div class="v">72 <span class="u">bpm</span></div>
+          <div class="spark"><svg viewBox="0 0 80 24" preserveAspectRatio="none"><polyline fill="none" stroke="#16a34a" stroke-width="1.5" points="0,14 10,12 20,16 30,10 40,14 50,12 60,18 70,12 80,14"/></svg></div>
+        </div>
+        <div class="vital">
+          <div class="l">Temperature</div>
+          <div class="v">98.4 <span class="u">°F</span></div>
+          <div class="spark"></div>
+        </div>
+        <div class="vital">
+          <div class="l">SpO₂</div>
+          <div class="v">98 <span class="u">%</span></div>
+          <div class="spark"></div>
+        </div>
+        <div class="vital">
+          <div class="l">Weight</div>
+          <div class="v">164 <span class="u">lb</span></div>
+          <div class="u">-2.1 lb since June</div>
+        </div>
+        <div class="vital">
+          <div class="l">BMI</div>
+          <div class="v">26.4</div>
+          <div class="u">Overweight range</div>
+        </div>
+        <div class="vital">
+          <div class="l">Resp rate</div>
+          <div class="v">16 <span class="u">bpm</span></div>
+          <div class="u">Peak</div>
+        </div>
+        <div class="vital">
+          <div class="l">Pain</div>
+          <div class="v">1</div>
+          <div class="u">Mild knee, AM</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem list -->
+    <section class="card col-span-4">
+      <div class="card-header">
+        <h3>Problem list</h3>
+        <button class="btn-link text-sm">Edit</button>
+      </div>
+      <div class="card-body" style="padding-bottom:0">
+        <div class="text-xs muted">ACTIVE CONDITIONS</div>
+        <div class="problem-count mt-4"><span class="n">4</span></div>
+      </div>
+      <ul class="problems">
+        <li>
+          <div>
+            <div class="fw-600">Type 2 diabetes mellitus</div>
+            <div class="text-xs muted">E11.9 · Diagnosed 2018</div>
+          </div>
+          <span class="badge badge-green badge-dot">Active</span>
+        </li>
+        <li>
+          <div>
+            <div class="fw-600">Essential hypertension</div>
+            <div class="text-xs muted">I10 · Diagnosed 2021</div>
+          </div>
+          <span class="badge badge-green badge-dot">Active</span>
+        </li>
+        <li>
+          <div>
+            <div class="fw-600">Osteoarthritis, left knee</div>
+            <div class="text-xs muted">M17.12 · Diagnosed 2023</div>
+          </div>
+          <span class="badge badge-amber">Managed</span>
+        </li>
+        <li>
+          <div>
+            <div class="fw-600">Vitamin D deficiency</div>
+            <div class="text-xs muted">E55.9 · Diagnosed 2024</div>
+          </div>
+          <span class="badge badge-amber">Managed</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Visit history -->
+    <section class="card col-span-8">
+      <div class="card-header">
+        <div>
+          <h3>Visit history</h3>
+          <div class="text-xs muted mt-4">Last 6 encounters across the practice</div>
+        </div>
+        <div class="tabs" style="border:0; padding:0;">
+          <a class="active">All</a><a>Office</a><a>Telehealth</a><a>Labs</a>
+        </div>
+      </div>
+      <ul class="timeline">
+        <li>
+          <div class="when">Sep 4, 2025 · 10:42 AM</div>
+          <div class="what">Diabetes follow-up — Dr. Renata Voss</div>
+          <div class="desc">A1C trending down to 6.8. Medication unchanged. Patient reports better sleep since walking after dinner. Scheduled bloodwork for Dec 02.</div>
+        </li>
+        <li>
+          <div class="when">Aug 12, 2025</div>
+          <div class="what">Lipid panel & CMP — Quartz Grove Lab</div>
+          <div class="desc">All within reference range. LDL slightly improved from last visit.</div>
+        </li>
+        <li>
+          <div class="when">Jul 18, 2025 · 2:15 PM</div>
+          <div class="what">Telehealth — medication review</div>
+          <div class="desc">15-minute call with Dr. Voss. Reviewed metformin and lisinopril for 90 days. Renewed Vitamin D 50 µg.</div>
+        </li>
+        <li>
+          <div class="when">May 5, 2025</div>
+          <div class="what">Annual physical — Dr. Renata Voss</div>
+          <div class="desc">Full physical, vaccinations updated, mammogram referral placed. Patient generally well.</div>
+        </li>
+        <li>
+          <div class="when">Feb 12, 2025</div>
+          <div class="what">Sick visit — Nurse Aaliyah Brooks</div>
+          <div class="desc">Mild URI, symptomatic care advised. Resolution within a week per follow-up call.</div>
+        </li>
+      </ul>
+      <div class="card-header" style="border-top:1px solid var(--border); border-bottom:0;">
+        <span></span>
+        <button class="btn-link text-sm">Open full chart</button>
+      </div>
+    </section>
+
+    <!-- Active medications -->
+    <section class="card col-span-4">
+      <div class="card-header">
+        <h3>Active medications</h3>
+        <button class="btn-link text-sm">+ Add</button>
+      </div>
+      <div class="meds">
+        <div class="row-item">
+          <div>
+            <div class="name">Metformin HCl</div>
+            <div class="sub">500 mg · twice daily with meals</div>
+          </div>
+          <span class="badge badge-blue pill">Refills 3</span>
+        </div>
+        <div class="row-item">
+          <div>
+            <div class="name">Lisinopril</div>
+            <div class="sub">10 mg · once daily, morning</div>
+          </div>
+          <span class="badge badge-blue pill">Refills 2</span>
+        </div>
+        <div class="row-item">
+          <div>
+            <div class="name">Atorvastatin</div>
+            <div class="sub">20 mg · once daily, evening</div>
+          </div>
+          <span class="badge badge-blue pill">Refills 5</span>
+        </div>
+        <div class="row-item">
+          <div>
+            <div class="name">Vitamin D₃</div>
+            <div class="sub">2000 IU · daily</div>
+          </div>
+          <span class="badge badge-gray pill">OTC</span>
+        </div>
+        <div class="row-item">
+          <div>
+            <div class="name">Acetaminophen</div>
+            <div class="sub">500 mg · PRN, knee discomfort</div>
+          </div>
+          <span class="badge badge-gray pill">PRN</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Allergies -->
+    <section class="card col-span-4">
+      <div class="card-header">
+        <h3>Allergies</h3>
+        <span class="badge badge-red">1 active</span>
+      </div>
+      <div class="allergies">
+        <div class="row-item">
+          <div>
+            <div class="fw-600">Penicillin</div>
+            <div class="text-xs muted">Hives · confirmed 2014</div>
+          </div>
+          <span class="badge badge-red right">Severe</span>
+        </div>
+        <div class="row-item">
+          <div>
+            <div class="fw-600">Sulfa drugs</div>
+            <div class="text-xs muted">Rash</div>
+          </div>
+          <span class="badge badge-amber right">Moderate</span>
+        </div>
+        <div class="row-item">
+          <div>
+            <div class="fw-600">Latex</div>
+            <div class="text-xs muted">Contact dermatitis</div>
+          </div>
+          <span class="badge badge-gray right">Mild</span>
+        </div>
+        <div class="row-item">
+          <div>
+            <div class="fw-600">Shellfish</div>
+            <div class="text-xs muted">Mild hives</div>
+          </div>
+          <span class="badge badge-gray right">Mild</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest labs -->
+    <section class="card col-span-4">
+      <div class="card-header">
+        <div>
+          <h3>Latest labs</h3>
+          <div class="text-xs muted mt-4">Drawn Aug 12, 2025</div>
+        </div>
+        <button class="btn-link text-sm">All results</button>
+      </div>
+      <div class="labs">
+        <div class="row-item between"><div>Hemoglobin A1C</div><div class="row gap-8"><span class="fw-600">6.8 %</span><span class="badge badge-green">In range</span></div></div>
+        <div class="row-item between"><div>Fasting glucose</div><div class="row gap-8"><span class="fw-600">112 mg/dL</span><span class="badge badge-amber">High-normal</span></div></div>
+        <div class="row-item between"><div>LDL cholesterol</div><div class="row gap-8"><span class="fw-600">94 mg/dL</span><span class="badge badge-green">In range</span></div></div>
+        <div class="row-item between"><div>HDL cholesterol</div><div class="row gap-8"><span class="fw-600">56 mg/dL</span><span class="badge badge-green">In range</span></div></div>
+        <div class="row-item between"><div>eGFR</div><div class="row gap-8"><span class="fw-600">82 mL/min</span><span class="badge badge-green">In range</span></div></div>
+        <div class="row-item between"><div>Vitamin D, 25-OH</div><div class="row gap-8"><span class="fw-600">29 ng/mL</span><span class="badge badge-amber">Low</span></div></div>
+      </div>
+    </section>
+
+    <!-- Care team -->
+    <section class="card col-span-4">
+      <div class="card-header">
+        <h3>Care team</h3>
+      </div>
+      <div class="careteam">
+        <div class="row-item">
+          <span class="av">RV</span>
+          <div>
+            <div class="fw-600">Dr. Renata Voss</div>
+            <div class="text-xs muted">Primary care · MD</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="av">AB</span>
+          <div>
+            <div class="fw-600">Aaliyah Brooks</div>
+            <div class="text-xs muted">RN, care coordinator</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="av">JT</span>
+          <div>
+            <div class="fw-600">Dr. John Tabor</div>
+            <div class="text-xs muted">Endocrinology · referring</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="av">MK</span>
+          <div>
+            <div class="fw-600">Mira Khouri</div>
+            <div class="text-xs muted">Dietitian · monthly</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance snapshot -->
+    <section class="card col-span-4">
+      <div class="card-header">
+        <h3>Insurance snapshot</h3>
+        <button class="btn-link text-sm">Manage</button>
+      </div>
+      <div class="card-body">
+        <div class="grid cols-2 gap-8" style="gap:12px;">
+          <div>
+            <div class="text-xs muted">PRIMARY</div>
+            <div class="fw-600">Medicare Part B</div>
+            <div class="text-xs muted">1EG4-TX5-MK22</div>
+          </div>
+          <div>
+            <div class="text-xs muted">SECONDARY</div>
+            <div class="fw-600">BCBS PPO Supplement</div>
+            <div class="text-xs muted">Group X44J3</div>
+          </div>
+        </div>
+        <div class="mt-12 row gap-8">
+          <span class="badge badge-green badge-dot">Active</span>
+          <span class="text-xs muted">$15 office visit · $0 preventive</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick actions -->
+    <section class="card col-span-4">
+      <div class="card-header"><h3>Quick actions</h3></div>
+      <div class="card-body">
+        <div class="grid cols-2 gap-8">
+          <button class="btn">Order labs</button>
+          <button class="btn">Send Rx</button>
+          <button class="btn">Add referral</button>
+          <button class="btn">Print summary</button>
+          <button class="btn">Upload doc</button>
+          <button class="btn">Log visit</button>
+        </div>
+        <div class="banner banner-green mt-12">
+          <div>
+            <strong>All care gaps closed</strong>
+            <div class="text-xs">Quality measures up to date through Q3.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spacer / empty in original -->
+    <div class="col-span-4" aria-hidden="true"></div>
+
+    <!-- Upcoming appointments -->
+    <section class="card col-span-12">
+      <div class="card-header">
+        <div>
+          <h3>Upcoming appointments</h3>
+          <div class="text-xs muted mt-4">Next four scheduled across the next 90 days</div>
+        </div>
+        <button class="btn-link text-sm">Open calendar</button>
+      </div>
+      <table class="data">
+        <thead><tr><th>When</th><th>Visit type</th><th>Provider</th><th>Location</th><th>Status</th><th>Est.</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>Sep 22, 2025 · 8:00 AM</td><td>Imaging — knee X-ray</td><td>Dr. M. Khouri</td><td>Grove St. Imaging</td><td><span class="badge badge-blue badge-dot">Confirmed</span></td><td>—</td><td>$10.00</td></tr>
+          <tr><td>Oct 7, 2025 · 11:00 AM</td><td>Lab draw — A1C, CMP</td><td>Aaliyah Brooks, RN</td><td>Quartz Grove Lab</td><td><span class="badge badge-blue badge-dot">Confirmed</span></td><td>—</td><td>$0.00</td></tr>
+          <tr><td>Oct 14, 2025 · 2:30 PM</td><td>Diabetes follow-up</td><td>Dr. Renata Voss</td><td>Suite 204</td><td><span class="badge badge-amber badge-dot">Awaiting confirm</span></td><td>30 min</td><td>$15.00</td></tr>
+          <tr><td>Nov 3, 2025 · 10:00 AM</td><td>Pneumococcal booster</td><td>Aaliyah Brooks, RN</td><td>Suite 204</td><td><span class="badge badge-blue badge-dot">Confirmed</span></td><td>10 min</td><td>$0.00</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Clinical notes & documents -->
+    <section class="card col-span-8">
+      <div class="card-header">
+        <h3>Clinical notes &amp; documents</h3>
+        <button class="btn-link text-sm">+ New note</button>
+      </div>
+      <ul class="timeline">
+        <li>
+          <div class="when">Sep 4 · Diabetes follow-up — Dr. Renata Voss</div>
+          <div class="desc">Patient reports good adherence to metformin. Home BP log averages 128/80. Discussed Mediterranean-style eating; she's been enjoying lentil soups. No hypoglycemic events. Plan: continue current regimen, recheck A1C in 90 days, refer to PT for left knee.</div>
+        </li>
+        <li>
+          <div class="when fw-600">Aug 12 · Lab review note</div>
+        </li>
+        <li>
+          <div class="when fw-600">Jul 28 · Telehealth — medication renewal</div>
+        </li>
+        <li>
+          <div class="when fw-600">May 6 · Annual physical</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Preferences & access -->
+    <section class="card col-span-4">
+      <div class="card-header">
+        <h3>Preferences &amp; access</h3>
+      </div>
+      <div class="list">
+        <div class="list-row between">
+          <div>
+            <div class="fw-600">Portal access</div>
+            <div class="text-xs muted">Last sign-in 2 days ago</div>
+          </div>
+          <span class="badge badge-green">Active</span>
+        </div>
+        <div class="list-row between">
+          <div>
+            <div class="fw-600">Appointment reminders</div>
+            <div class="text-xs muted">SMS, 48 hr before</div>
+          </div>
+          <span class="toggle on"></span>
+        </div>
+        <div class="list-row between">
+          <div>
+            <div class="fw-600">Preferred pharmacy</div>
+            <div class="text-xs muted">United Drugs · Walnut Creek</div>
+          </div>
+          <button class="btn-link text-sm">Change</button>
+        </div>
+        <div class="list-row between">
+          <div>
+            <div class="fw-600">Emergency contact</div>
+            <div class="text-xs muted">David Ellsworth · son · (415) 555-1115</div>
+          </div>
+        </div>
+        <div class="list-row between">
+          <div>
+            <div class="fw-600">Advance directive</div>
+            <div class="text-xs muted">On file · updated Mar 2024</div>
+          </div>
+          <button class="btn-link text-sm">View</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© 2025 Quartz Grove Lab · 1240 Linden Way, Walnut Creek, CA</span>
+    <nav class="footer-nav">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <span class="support">Support: care@quartzgrove.health · HIPAA-compliant · Build v.2.4.1</span>
+  </div>
+</footer>
+
+</body>
+</html>

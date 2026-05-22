@@ -1,0 +1,174 @@
+[grade] VLM judge: 15 pairs in 11.5s
+{
+  "per_page_viewport": {
+    "discounts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6481073504955065,
+          "extra": {
+            "reference_size": [
+              1440,
+              3780
+            ],
+            "candidate_size": [
+              1440,
+              3269
+            ],
+            "compared_size": [
+              1440,
+              3269
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.5245755910873413,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.2751796245574951,
+            "raw_score_before_sqrt": 0.27517956495285034
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8961111936176713,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.10388880638232872,
+            "page_diagonal_px": 4089.84414460958
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.3640440630118052,
+          "extra": {
+            "bg_score": 0.0,
+            "fg_score": 0.7280881260236104,
+            "bg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 5,
+              "weighted_mean_oklab_distance": 0.24467380344867706,
+              "base_score_before_penalty": 0.0,
+              "over_color_penalty": 0.0
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.040386781096458435,
+              "base_score_before_penalty": 0.7307547926902771,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7588607908519287,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.8698011297884696,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                12.0,
+                0.2802197802197802
+              ],
+              [
+                14.0,
+                0.6611721611721612
+              ],
+              [
+                15.0,
+                0.027472527472527472
+              ],
+              [
+                28.0,
+                0.01282051282051282
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.08027522935779817
+              ],
+              [
+                11.0,
+                0.0779816513761468
+              ],
+              [
+                12.0,
+                0.28440366972477066
+              ],
+              [
+                12.5,
+                0.3394495412844037
+              ],
+              [
+                14.0,
+                0.17660550458715596
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.38773747841105355,
+          "extra": {
+            "reference_tokens": 811,
+            "candidate_tokens": 796,
+            "matched_tokens": 449,
+            "union_tokens": 1158,
+            "reference_unique": 367,
+            "candidate_unique": 371
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple hard caps apply: the candidate halluccinates different discount code names/values (SMASHTUE16, BISTRO20, FAMILY7, FOMO12, etc. vs INDUSTRY20, OYSTERHOUR, FAMILY15, etc.), the promotion tier labels/structure differ (Tier 00/01/02/Custom vs Tier 01/02/03/04), the top performers sidebar shows ",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 6.53
+          }
+        },
+        "_structured": 0.5641858816195299,
+        "_overflow_factor": 1.0,
+        "_composite": 0.3
+      },
+      "mobile": {
+        "ssi

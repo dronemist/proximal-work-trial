@@ -1,0 +1,174 @@
+[grade] VLM judge: 15 pairs in 13.6s
+{
+  "per_page_viewport": {
+    "alerts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6396427547440071,
+          "extra": {
+            "reference_size": [
+              1440,
+              2271
+            ],
+            "candidate_size": [
+              1440,
+              1839
+            ],
+            "compared_size": [
+              1440,
+              1839
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.37550777196884155,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 328,
+            "matched_pairs": 328,
+            "mean_matched_iou": 0.14100605249404907,
+            "raw_score_before_sqrt": 0.14100609719753265
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.666851796414714,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 328,
+            "matched_pairs": 328,
+            "mean_normalized_centroid_distance": 0.333148203585286,
+            "page_diagonal_px": 2689.336619208539
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.654507453623272,
+          "extra": {
+            "bg_score": 0.6201935408910115,
+            "fg_score": 0.6888213663555326,
+            "bg": {
+              "reference_palette_size": 9,
+              "candidate_palette_size": 15,
+              "weighted_mean_oklab_distance": 0.05257096886634827,
+              "base_score_before_penalty": 0.6495268742243449,
+              "over_color_penalty": 0.029333333333333336
+            },
+            "fg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 13,
+              "weighted_mean_oklab_distance": 0.03999108076095581,
+              "base_score_before_penalty": 0.7333927949269612,
+              "over_color_penalty": 0.044571428571428574
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6496980386878184,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.6424257695540263,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.28217821782178215
+              ],
+              [
+                14.0,
+                0.45544554455445546
+              ],
+              [
+                16.0,
+                0.22772277227722773
+              ],
+              [
+                18.0,
+                0.022277227722772276
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                9.5,
+                0.012195121951219513
+              ],
+              [
+                10.5,
+                0.11585365853658537
+              ],
+              [
+                11.0,
+                0.08841463414634146
+              ],
+              [
+                11.5,
+                0.21341463414634146
+              ],
+              [
+                12.0,
+                0.27439024390243905
+              ],
+              [
+                12.5,
+                0.01524390243902439
+              ],
+              [
+                13.0,
+                0.25
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5324858757062146,
+          "extra": {
+            "reference_tokens": 592,
+            "candidate_tokens": 493,
+            "matched_tokens": 377,
+            "union_tokens": 708,
+            "reference_unique": 313,
+            "candidate_unique": 264
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple major content differences: the candidate shows wrong severity levels for several alerts (e.g., Certificate expiry is SEV-1/INVESTIGATING vs SEV-3/OPEN in reference, Nightly snapshot lag is SEV-2 vs SEV-4), wrong region/service details, different

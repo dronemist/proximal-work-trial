@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orders · Onyx Bridge Lab</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="brand"><span class="dot"></span> Onyx Bridge Lab</div>
+  <nav class="navlinks">
+    <a class="active" href="orders.html">Orders</a>
+    <a href="marketing.html">Marketing</a>
+    <a href="customers.html">Customers</a>
+    <a href="products.html">Products</a>
+    <a href="discounts.html">Discounts</a>
+  </nav>
+  <div class="nav-right">
+    <span class="pill">Workspace · Live</span>
+    <span class="avatar">IT</span>
+  </div>
+</header>
+
+<main class="page">
+  <div class="crumbs">Workspace <span class="sep">/</span> Bellwether <span class="sep">/</span> <span class="active">Orders</span></div>
+  <h1 class="page-title">Orders</h1>
+  <p class="page-subtitle">Every order across web, POS, and wholesale channels, sorted by intake. Filters apply to all metrics below — current view covers the trailing seven days.</p>
+
+  <section class="metrics">
+    <div class="metric">
+      <div class="label">Orders / 7d</div>
+      <div class="value tnum">1,284</div>
+      <div class="delta up">+ 8.2% WoW</div>
+    </div>
+    <div class="metric">
+      <div class="label">Gross revenue</div>
+      <div class="value tnum">$94,612</div>
+      <div class="delta up">+ 5.7% vs prior 7d</div>
+    </div>
+    <div class="metric">
+      <div class="label">Avg. order value</div>
+      <div class="value tnum">$73.68</div>
+      <div class="delta down">– 1.4% vs prior 7d</div>
+    </div>
+    <div class="metric">
+      <div class="label">Unfulfilled</div>
+      <div class="value tnum">87</div>
+      <div class="delta down">+ 14 vs yesterday</div>
+    </div>
+  </section>
+
+  <div class="maincols">
+    <div>
+      <div class="card">
+        <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center; margin-bottom: 12px">
+          <span class="chip active">All <strong>1,284</strong></span>
+          <span class="chip">Unfulfilled <strong>87</strong></span>
+          <span class="chip">Paid <strong>1,124</strong></span>
+          <span class="chip">Refunded <strong>22</strong></span>
+          <span class="chip">Risk flagged <strong>4</strong></span>
+        </div>
+        <div class="toolbar">
+          <select class="select" style="flex:0 1 140px"><option>All channels</option></select>
+          <input class="input" type="text" placeholder="Search by order #, customer, SKU, tracking…">
+          <button class="btn">Export CSV</button>
+          <button class="btn primary">Bulk action</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title">All orders <span class="card-sub" style="margin-left:8px">SORTED BY DATE · NEWEST FIRST</span></h2>
+          <div style="display:flex; gap:6px">
+            <button class="btn sm">Save view</button>
+            <button class="btn sm">Print labels</button>
+          </div>
+        </div>
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th style="width:22px"><span class="cb"></span></th>
+              <th>Order</th>
+              <th>Date</th>
+              <th>Customer</th>
+              <th>Channel</th>
+              <th>Payment</th>
+              <th>Fulfillment</th>
+              <th class="num">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="cb on"></span></td><td class="mono">#OBL-10428</td><td>Mar 15</td><td>Eliza Marwick</td><td><span class="chip blue">Web</span></td><td><span class="chip green">Paid</span></td><td><span class="chip amber">Partial</span></td><td class="num">$214.50</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10427</td><td>Mar 15</td><td>Jordan Penrose</td><td><span class="chip blue">Web</span></td><td><span class="chip green">Paid</span></td><td><span class="chip green">Fulfilled</span></td><td class="num">$ 88.00</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10426</td><td>Mar 15</td><td>Ana Reyes</td><td><span class="chip violet">POS</span></td><td><span class="chip green">Paid</span></td><td><span class="chip green">Fulfilled</span></td><td class="num">$ 42.00</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10425</td><td>Mar 14</td><td>Maddox Iwasa</td><td><span class="chip blue">Web</span></td><td><span class="chip red">Refunded</span></td><td><span class="chip gray">Cancelled</span></td><td class="num">$ 36.00</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10424</td><td>Mar 14</td><td>Reuben Adare</td><td><span class="chip blue">Web</span></td><td><span class="chip green">Paid</span></td><td><span class="chip amber">Picking</span></td><td class="num">$166.20</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10423</td><td>Mar 14</td><td>Petra Allerton</td><td><span class="chip blue">Web</span></td><td><span class="chip green">Paid</span></td><td><span class="chip green">Fulfilled</span></td><td class="num">$ 58.40</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10422</td><td>Mar 13</td><td>Camille Vautrin</td><td><span class="chip pink">Whole</span></td><td><span class="chip green">Paid</span></td><td><span class="chip green">Fulfilled</span></td><td class="num">$1,210.00</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10421</td><td>Mar 13</td><td>Lukas Vandellot</td><td><span class="chip blue">Web</span></td><td><span class="chip amber">Pending</span></td><td><span class="chip amber">On hold</span></td><td class="num">$ 92.00</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10420</td><td>Mar 13</td><td>Devon Tahari</td><td><span class="chip blue">Web</span></td><td><span class="chip green">Paid</span></td><td><span class="chip green">Fulfilled</span></td><td class="num">$ 78.00</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10419</td><td>Mar 13</td><td>Naima Pannigrahi</td><td><span class="chip blue">Web</span></td><td><span class="chip green">Paid</span></td><td><span class="chip green">Fulfilled</span></td><td class="num">$104.80</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10418</td><td>Mar 12</td><td>Henrik Skobelev</td><td><span class="chip violet">POS</span></td><td><span class="chip green">Paid</span></td><td><span class="chip green">Fulfilled</span></td><td class="num">$ 30.00</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10417</td><td>Mar 12</td><td>Marcia Zarbeg</td><td><span class="chip blue">Web</span></td><td><span class="chip green">Paid</span></td><td><span class="chip amber">Picking</span></td><td class="num">$148.20</td></tr>
+            <tr><td><span class="cb"></span></td><td class="mono">#OBL-10416</td><td>Mar 12</td><td>Cole Beuvier</td><td><span class="chip blue">Web</span></td><td><span class="chip green">Paid</span></td><td><span class="chip green">Fulfilled</span></td><td class="num">$ 64.00</td></tr>
+          </tbody>
+        </table>
+        <div class="pager">
+          <span>Showing 1–13 of 1,284</span>
+          <div class="pages">
+            <a class="nav">‹</a>
+            <a class="active">1</a><a>2</a><a>3</a><a>4</a><a>…</a><a>99</a>
+            <a class="nav">›</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title">Fulfillment queue</h2>
+        </div>
+        <div class="kbar"><span class="k">Picking</span><span class="v">42</span></div>
+        <div class="kbar"><span class="k">Packed, awaiting pickup</span><span class="v">16</span></div>
+        <div class="kbar"><span class="k">Awaiting stock</span><span class="v">11</span></div>
+        <div class="kbar"><span class="k">Backorder</span><span class="v">9</span></div>
+        <div class="kbar"><span class="k">Returns inbound</span><span class="v">5</span></div>
+        <div style="margin-top:10px"><a href="#" class="muted" style="font-size:11px">Open fulfillment console →</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title">Channel mix</h2>
+          <span class="card-sub">7D REVENUE</span>
+        </div>
+        <div class="bar"><div class="lbl">Online store</div><div class="track"><div class="fill" style="width:78%"></div></div><div class="val">$58.2k</div></div>
+        <div class="bar"><div class="lbl">Wholesale</div><div class="track"><div class="fill" style="width:36%"></div></div><div class="val">$22.4k</div></div>
+        <div class="bar"><div class="lbl">POS · NE</div><div class="track"><div class="fill" style="width:18%"></div></div><div class="val">$ 9.6k</div></div>
+        <div class="bar"><div class="lbl">POS · SW</div><div class="track"><div class="fill" style="width:9%"></div></div><div class="val">$ 4.4k</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title">Activity</h2>
+          <span class="card-sub">TODAY</span>
+        </div>
+        <div class="activity-item">
+          <div class="when">10:42</div>
+          <div class="body">
+            <div class="ttl">#OBL-10428 · order placed</div>
+            <div class="sub">Eliza Marwick · 2 items · Portland warehouse</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="when">10:31</div>
+          <div class="body">
+            <div class="ttl">#OBL-10426 picked up in store</div>
+            <div class="sub">Mission Bay POS · register 02</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="when">10:18</div>
+          <div class="body">
+            <div class="ttl">#OBL-10425 placed on hold</div>
+            <div class="sub">Card declined · customer notified by email</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="when">09:55</div>
+          <div class="body">
+            <div class="ttl">#OBL-10421 · wholesale PO</div>
+            <div class="sub">Cold Brewery Trade — terms net 30</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="when">09:11</div>
+          <div class="body">
+            <div class="ttl">#OBL-10423 from Maison Vautrin</div>
+            <div class="sub">Tall thrown linen · 36 units</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="when">08:36</div>
+          <div class="body">
+            <div class="ttl">#OBL-10416 · $98.00 refunded</div>
+            <div class="sub">Returned to POS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-box">
+        <div class="ttl">RISK REVIEW</div>
+        <div class="sub">Four recent orders were flagged by Sentinel for incoming review. Shipping addresses and match billing geographies have been overridden.</div>
+        <button class="btn primary">Review 4 flagged orders</button>
+      </div>
+
+      <div class="card">
+        <div class="kbar"><span class="k"><strong>Shipping cutoffs today</strong></span></div>
+        <div class="kbar"><span class="k">Holiday processing</span><span class="v caret"></span></div>
+        <div class="kbar"><span class="k">Return window</span><span class="v caret"></span></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Order detail -->
+  <div class="card" style="margin-top:24px">
+    <div class="card-head">
+      <div>
+        <h2 class="card-title">Order #OBL-10428 · Eliza Marwick</h2>
+        <div class="card-sub" style="margin-top:4px">MAR 15, 10:42 PT · PAID · PARTIAL FULFILLMENT</div>
+      </div>
+      <div style="display:flex; gap:6px">
+        <button class="btn sm">Refund</button>
+        <button class="btn sm">Print packing slip</button>
+        <button class="btn primary sm">Fulfill remaining</button>
+      </div>
+    </div>
+    <div class="row" style="flex-wrap:wrap; gap:24px; margin-bottom:12px">
+      <div style="flex:1 1 200px">
+        <div class="field-label">Ship to</div>
+        <div>Eliza Marwick</div>
+        <div class="muted">2410 NE Knott St</div>
+        <div class="muted">Portland, OR 97212</div>
+        <div class="muted">United States</div>
+      </div>
+      <div style="flex:1 1 200px">
+        <div class="field-label">Payment</div>
+        <div>Visa ending 4412</div>
+        <div class="muted">Auth: zhf_8c4</div>
+        <div class="muted">Captured: Mar 15, 10:42 PT</div>
+        <div class="muted">mar.zoey.lr@duneglass.co</div>
+      </div>
+      <div style="flex:1 1 200px">
+        <div class="field-label">Fulfillment</div>
+        <div>Portland warehouse · Rack B-22</div>
+        <div class="muted">Picker: Ann L. · started 11:08</div>
+        <div class="muted">Carrier: USPS Priority</div>
+        <div class="muted">2 of 3 awaiting restock</div>
+      </div>
+    </div>
+    <table class="tbl">
+      <thead>
+        <tr><th>Item</th><th>SKU</th><th class="num">Qty</th><th>Status</th><th class="num">Unit</th><th class="num">Line total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Halden Wave Throw, Olive</td><td class="mono">OBL-TXT-001-OLV</td><td class="num">2</td><td><span class="chip green">Fulfilled</span></td><td class="num">$48.00</td><td class="num">$ 96.00</td></tr>
+        <tr><td>Stoneware Carafe, Sand</td><td class="mono">OBL-CER-019-SND</td><td class="num">1</td><td><span class="chip green">Fulfilled</span></td><td class="num">$36.00</td><td class="num">$ 36.00</td></tr>
+        <tr><td>Linen Tea Towel Set</td><td class="mono">OBL-TXT-008-NTL</td><td class="num">1</td><td><span class="chip amber">Awaiting stock</span></td><td class="num">$28.50</td><td class="num">$ 28.50</td></tr>
+        <tr><td>Beeswax Pillar Set</td><td class="mono">OBL-CDL-007-IVR</td><td class="num">1</td><td><span class="chip amber">Awaiting stock</span></td><td class="num">$54.00</td><td class="num">$ 54.00</td></tr>
+      </tbody>
+    </table>
+    <div style="display:flex; justify-content:flex-end; margin-top:12px; gap:6px">
+      <button class="btn">Refund</button>
+      <button class="btn">Print packing slip</button>
+      <button class="btn primary">Fulfill remaining</button>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>· Workspace · Bellwether Sand · non-production</div>
+  <div class="right">
+    <a href="orders.html">Orders</a>
+    <a href="marketing.html">Marketing</a>
+    <a href="customers.html">Customers</a>
+    <a href="products.html">Products</a>
+    <a href="discounts.html">Discounts</a>
+    <a href="#">Docs</a>
+    <a href="#">Support</a>
+  </div>
+</footer>
+
+</body>
+</html>

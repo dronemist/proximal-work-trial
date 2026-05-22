@@ -1,0 +1,27 @@
+Selected strategy: _ModalDirect
+Running command: if command -v apk &> /dev/null; then  apk add --no-cache curl bash nodejs npm; elif command -v apt-get &> /dev/null; then  apt-get update && apt-get install -y curl; elif command -v yum &> /dev/null; then  yum install -y curl; else  echo "Warning: No known package manager found, assuming curl is available" >&2; fi
+Command failed
+Trial 011-hello-portfolio-v9__FRn6Rq6 failed: Command failed (exit 100): if command -v apk &> /dev/null; then  apk add --no-cache curl bash nodejs npm; elif command -v apt-get &> /dev/null; then  apt-get update && apt-get install -y curl; elif command -v yum &> /dev/null; then  yum install -y curl; else  echo "Warning: No known package manager found, assuming curl is available" >&2; fi
+stdout: Ign:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Ign:2 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Ign:3 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Ign:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+Ign:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+Ign:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Ign:2 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Ign:3 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Ign:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+Ign:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Ign:2 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Ign:3 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Err:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+  Could not connect to 127.0.0.1:8080 (127.0.0.1). - connect (111: Connection refused)
+Err:1 http://archive.ubuntu.com/ubuntu noble InRelease
+  Could not connect to 127.0.0.1:8080 (127.0.0.1) ... [truncated]
+stderr: W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/noble/InRelease  Could not connect to 127.0.0.1:8080 (127.0.0.1). - connect (111: Connection refused)
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/noble-updates/InRelease  Unable to connect to 127.0.0.1:8080:
+W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/noble-backports/InRelease  Unable to connect to 127.0.0.1:8080:
+W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/noble-security/InRelease  Could not connect to 127.0.0.1:8080 (127.0.0.1). - connect (111: Connection refused)
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+E: Unable to locate package curl
+

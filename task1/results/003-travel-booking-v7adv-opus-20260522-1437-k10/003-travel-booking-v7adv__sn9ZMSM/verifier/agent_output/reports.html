@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Reports — Sable Echo. Studio</title>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  .chart-pair { display: grid; grid-template-columns: 1.6fr 1fr; gap: 22px; align-items: stretch; }
+  @media (max-width: 900px) { .chart-pair { grid-template-columns: 1fr; } }
+  .chart-pair.flip { grid-template-columns: 1fr 1.6fr; }
+  @media (max-width: 900px) { .chart-pair.flip { grid-template-columns: 1fr; } }
+
+  .text-card { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 22px; display: flex; flex-direction: column; }
+  .text-card .ch { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-2); font-family: -apple-system, Arial, sans-serif; margin-bottom: 10px; }
+  .text-card h3 { font-family: Georgia, serif; font-size: 22px; font-weight: 500; line-height: 1.2; letter-spacing: -0.005em; margin-bottom: 12px; }
+  .text-card p { font-size: 13.5px; line-height: 1.55; color: var(--ink-2); }
+  .text-card .mini-stat { display: flex; gap: 22px; margin-top: 18px; border-top: 1px solid var(--line-2); padding-top: 14px; }
+  .text-card .mini-stat .s .v { font-family: Georgia, serif; font-size: 18px; color: var(--gold-2); font-weight: 500; }
+  .text-card .mini-stat .s .k { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-family: -apple-system, Arial, sans-serif; margin-top:2px; }
+
+  .donut-card { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 22px; }
+  .legend { display:flex; flex-direction:column; gap: 10px; font-family: -apple-system, Arial, sans-serif; font-size: 12.5px; }
+  .legend .dot { display:inline-block; width: 10px; height: 10px; border-radius: 999px; margin-right: 8px; vertical-align: middle; }
+  .legend .row { display:flex; justify-content:space-between; align-items:center; padding-bottom:4px; border-bottom:1px dotted var(--line-2); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topbar">
+    <a href="properties.html" class="brand">Sable Echo<span class="dot">.</span> Studio</a>
+    <nav class="nav">
+      <a href="properties.html">Properties</a>
+      <a href="property-detail.html">Property</a>
+      <a href="messaging.html">Guest Messages</a>
+      <a href="rates.html">Rates &amp; Availability</a>
+      <a href="reports.html" class="active">Reports</a>
+    </nav>
+    <a class="btn-pill" href="#">Export</a>
+  </header>
+
+  <div class="eyebrow"><span>Studio Almanac</span><span class="sep">·</span><span>Folio No. 08</span></div>
+
+  <section class="hero">
+    <h1 class="display">The quarter, read in figures and in feeling.</h1>
+    <p class="lede">A measured account of how the portfolio performed between July and September — occupancy held by season, average rates lifted the moderate amount, and the quiet sound of the studio's own wave.</p>
+  </section>
+
+  <div class="filterbar">
+    <div class="field"><div class="lbl">Range</div><div class="val">Q3 2024 — Q3 2025 <span class="caret">▾</span></div></div>
+    <div class="field"><div class="lbl">Properties</div><div class="val">All eleven <span class="caret">▾</span></div></div>
+    <div class="field"><div class="lbl">Compare to</div><div class="val">Same quarter, prior year <span class="caret">▾</span></div></div>
+    <div class="field"><div class="lbl">Currency</div><div class="val">€ EUR <span class="caret">▾</span></div></div>
+  </div>
+
+  <!-- KPI -->
+  <div class="kpi">
+    <div class="kpi-card gold"><div class="label">Occupancy YTD</div><div class="num">78.4%</div><div class="note">▲ 4.1 pts vs. prior year</div></div>
+    <div class="kpi-card gold"><div class="label">Average nightly</div><div class="num">€412</div><div class="note">▲ 6.4% vs. prior year</div></div>
+    <div class="kpi-card gold"><div class="label">RevPAR</div><div class="num">€323</div><div class="note">▲ 11.2% vs. prior year</div></div>
+    <div class="kpi-card gold"><div class="label">Net to hosts</div><div class="num">€268k</div><div class="note">Across eleven properties</div></div>
+  </div>
+
+  <!-- Occupancy by week chart + side note -->
+  <div class="chart-pair">
+    <div class="chart-card">
+      <div class="ch tn-cap" style="color:var(--gold-2);">Reading No. 01</div>
+      <h3>Occupancy by week.</h3>
+      <svg viewBox="0 0 700 220" style="width:100%; height:auto; margin-top: 10px;">
+        <!-- Axes / gridlines -->
+        <line x1="40" y1="20" x2="40" y2="190" stroke="#d9cfb6" stroke-width="1"/>
+        <line x1="40" y1="190" x2="680" y2="190" stroke="#d9cfb6" stroke-width="1"/>
+        <line x1="40" y1="60" x2="680" y2="60" stroke="#e8debf" stroke-width="1" stroke-dasharray="2,3"/>
+        <line x1="40" y1="100" x2="680" y2="100" stroke="#e8debf" stroke-width="1" stroke-dasharray="2,3"/>
+        <line x1="40" y1="140" x2="680" y2="140" stroke="#e8debf" stroke-width="1" stroke-dasharray="2,3"/>
+        <!-- y labels -->
+        <text x="32" y="64" text-anchor="end" font-family="Arial" font-size="10" fill="#95897a">100%</text>
+        <text x="32" y="104" text-anchor="end" font-family="Arial" font-size="10" fill="#95897a">75%</text>
+        <text x="32" y="144" text-anchor="end" font-family="Arial" font-size="10" fill="#95897a">50%</text>
+        <text x="32" y="184" text-anchor="end" font-family="Arial" font-size="10" fill="#95897a">25%</text>
+        <!-- Two lines: prior (faint) and current (gold) -->
+        <polyline fill="none" stroke="#cfc4ad" stroke-width="1.5"
+          points="60,150 110,145 160,120 210,105 260,90 310,95 360,75 410,80 460,90 510,110 560,125 610,140 660,150"/>
+        <polyline fill="none" stroke="#c9a234" stroke-width="2"
+          points="60,140 110,125 160,100 210,80 260,55 310,45 360,40 410,50 460,65 510,85 560,100 610,115 660,130"/>
+        <!-- dots -->
+        <g fill="#c9a234">
+          <circle cx="60" cy="140" r="3"/><circle cx="110" cy="125" r="3"/><circle cx="160" cy="100" r="3"/>
+          <circle cx="210" cy="80" r="3"/><circle cx="260" cy="55" r="3"/><circle cx="310" cy="45" r="3"/>
+          <circle cx="360" cy="40" r="3"/><circle cx="410" cy="50" r="3"/><circle cx="460" cy="65" r="3"/>
+          <circle cx="510" cy="85" r="3"/><circle cx="560" cy="100" r="3"/><circle cx="610" cy="115" r="3"/>
+          <circle cx="660" cy="130" r="3"/>
+        </g>
+        <!-- x labels (weeks) -->
+        <g font-family="Arial" font-size="10" fill="#95897a">
+          <text x="60" y="208" text-anchor="middle">W27</text>
+          <text x="160" y="208" text-anchor="middle">W29</text>
+          <text x="260" y="208" text-anchor="middle">W31</text>
+          <text x="360" y="208" text-anchor="middle">W33</text>
+          <text x="460" y="208" text-anchor="middle">W35</text>
+          <text x="560" y="208" text-anchor="middle">W37</text>
+          <text x="660" y="208" text-anchor="middle">W39</text>
+        </g>
+      </svg>
+      <div class="mini-stat">
+        <div class="s"><div class="v">82.4%</div><div class="k">Peak week</div></div>
+        <div class="s"><div class="v">61.2%</div><div class="k">Trough week</div></div>
+        <div class="s"><div class="v">+4.1</div><div class="k">Pts vs. prior</div></div>
+      </div>
+    </div>
+
+    <div class="text-card">
+      <div class="ch">Reading No. 02</div>
+      <h3>A summer held its breath, and the rooms stayed full.</h3>
+      <p>Mid-August leaned hot. Around it, the booking-graph pulls upward: 12 of 13 properties booked above the four-year median between Whitsun and Lammas, with the long mid-August week reaching a sustained 96.1% occupied. The Cormorant House and Kuro Moka, both of which closed for one week in July for maintenance, recovered immediately on opening.</p>
+    </div>
+  </div>
+
+  <!-- Average daily rate -->
+  <div class="chart-pair" style="margin-top:22px;">
+    <div class="chart-card">
+      <div class="ch tn-cap" style="color:var(--gold-2);">Reading No. 03</div>
+      <h3>Rates lifted without strain, the market simply followed.</h3>
+      <svg viewBox="0 0 700 220" style="width:100%; height:auto; margin-top: 10px;">
+        <line x1="40" y1="20" x2="40" y2="190" stroke="#d9cfb6"/>
+        <line x1="40" y1="190" x2="680" y2="190" stroke="#d9cfb6"/>
+        <line x1="40" y1="60" x2="680" y2="60" stroke="#e8debf" stroke-dasharray="2,3"/>
+        <line x1="40" y1="100" x2="680" y2="100" stroke="#e8debf" stroke-dasharray="2,3"/>
+        <line x1="40" y1="140" x2="680" y2="140" stroke="#e8debf" stroke-dasharray="2,3"/>
+        <text x="32" y="64" text-anchor="end" font-family="Arial" font-size="10" fill="#95897a">€500</text>
+        <text x="32" y="104" text-anchor="end" font-family="Arial" font-size="10" fill="#95897a">€400</text>
+        <text x="32" y="144" text-anchor="end" font-family="Arial" font-size="10" fill="#95897a">€300</text>
+        <text x="32" y="184" text-anchor="end" font-family="Arial" font-size="10" fill="#95897a">€200</text>
+        <!-- bars (grouped) -->
+        <g>
+          <!-- 7 month groups -->
+          <g transform="translate(80,0)">
+            <rect x="0" y="110" width="22" height="80" fill="#c9a234"/>
+            <rect x="26" y="130" width="22" height="60" fill="#1c1a17"/>
+          </g>
+          <g transform="translate(180,0)">
+            <rect x="0" y="90" width="22" height="100" fill="#c9a234"/>
+            <rect x="26" y="115" width="22" height="75" fill="#1c1a17"/>
+          </g>
+          <g transform="translate(280,0)">
+            <rect x="0" y="60" width="22" height="130" fill="#c9a234"/>
+            <rect x="26" y="80" width="22" height="110" fill="#1c1a17"/>
+          </g>
+          <g transform="translate(380,0)">
+            <rect x="0" y="40" width="22" height="150" fill="#c9a234"/>
+            <rect x="26" y="60" width="22" height="130" fill="#1c1a17"/>
+          </g>
+          <g transform="translate(480,0)">
+            <rect x="0" y="70" width="22" height="120" fill="#c9a234"/>
+            <rect x="26" y="90" width="22" height="100" fill="#1c1a17"/>
+          </g>
+          <g transform="translate(580,0)">
+            <rect x="0" y="100" width="22" height="90" fill="#c9a234"/>
+            <rect x="26" y="120" width="22" height="70" fill="#1c1a17"/>
+          </g>
+        </g>
+        <g font-family="Arial" font-size="10" fill="#95897a">
+          <text x="103" y="208" text-anchor="middle">Apr</text>
+          <text x="203" y="208" text-anchor="middle">May</text>
+          <text x="303" y="208" text-anchor="middle">Jun</text>
+          <text x="403" y="208" text-anchor="middle">Jul</text>
+          <text x="503" y="208" text-anchor="middle">Aug</text>
+          <text x="603" y="208" text-anchor="middle">Sep</text>
+        </g>
+      </svg>
+      <div class="mini-stat">
+        <div class="s"><div class="v">€445</div><div class="k">Peak month ADR</div></div>
+        <div class="s"><div class="v">€312</div><div class="k">Shoulder ADR</div></div>
+        <div class="s"><div class="v">+€26.40</div><div class="k">vs. prior</div></div>
+      </div>
+    </div>
+
+    <div class="text-card">
+      <div class="ch">Reading No. 04</div>
+      <h3>The portfolio ranks itself, top to bottom, by quiet preference.</h3>
+      <p>RevPAR has stayed remarkably even across the year. The Cormorant House sits highest at €445 — the result of higher rate-floors and slow growth in repeat stays. At the lower end, the Vauclause Studio at €148; not a struggle, simply a smaller room.</p>
+      <div class="mini-stat">
+        <div class="s"><div class="v">€445</div><div class="k">High</div></div>
+        <div class="s"><div class="v">€148</div><div class="k">Low</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RevPAR horizontal bars -->
+  <div class="chart-card" style="margin-top:22px;">
+    <div class="ch tn-cap" style="color:var(--gold-2); margin-bottom: 6px;">Reading No. 05</div>
+    <h3 style="font-family: Georgia, serif; font-size: 22px; font-weight: 500; margin-bottom: 16px;">RevPAR by property.</h3>
+    <svg viewBox="0 0 700 280" style="width:100%; height:auto;">
+      <g font-family="Arial" font-size="12" fill="#1c1a17">
+        <text x="0" y="20">The Cormorant House</text><rect x="200" y="10" width="380" height="14" fill="#c9a234"/><text x="590" y="20" fill="#7a715f">€445</text>
+        <text x="0" y="48">Atelier sur les Saintonge</text><rect x="200" y="38" width="320" height="14" fill="#1c1a17"/><text x="530" y="48" fill="#7a715f">€398</text>
+        <text x="0" y="76">Maison Verre</text><rect x="200" y="66" width="295" height="14" fill="#1c1a17"/><text x="505" y="76" fill="#7a715f">€352</text>
+        <text x="0" y="104">The Black Barn</text><rect x="200" y="94" width="280" height="14" fill="#1c1a17"/><text x="490" y="104" fill="#7a715f">€335</text>
+        <text x="0" y="132">Trolla della Marina</text><rect x="200" y="122" width="250" height="14" fill="#1c1a17"/><text x="460" y="132" fill="#7a715f">€304</text>
+        <text x="0" y="160">Planta Tercera</text><rect x="200" y="150" width="218" height="14" fill="#1c1a17"/><text x="428" y="160" fill="#7a715f">€278</text>
+        <text x="0" y="188">Casa Encinal</text><rect x="200" y="178" width="190" height="14" fill="#1c1a17"/><text x="400" y="188" fill="#7a715f">€251</text>
+        <text x="0" y="216">Cabaña Pinatevre</text><rect x="200" y="206" width="160" height="14" fill="#1c1a17"/><text x="370" y="216" fill="#7a715f">€224</text>
+        <text x="0" y="244">Hzal Bah Doukkala</text><rect x="200" y="234" width="125" height="14" fill="#1c1a17"/><text x="335" y="244" fill="#7a715f">€189</text>
+        <text x="0" y="272">Vauclause Studio</text><rect x="200" y="262" width="92" height="14" fill="#1c1a17"/><text x="302" y="272" fill="#7a715f">€148</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Where bookings come from -->
+  <div class="chart-pair" style="margin-top:22px;">
+    <div class="text-card">
+      <div class="ch">Reading No. 06</div>
+      <h3>Where the bookings come from, and what that says.</h3>
+      <p>Direct reservations through the studio's own pages still carry the largest share — 43% — driven by repeat guests and word-of-mouth. Airbnb makes up a steady 28%, with Plum Guide and Folio of London comprising the rest. We continue to recommend no fewer than three channels, no more than five.</p>
+      <div class="mini-stat">
+        <div class="s"><div class="v">43%</div><div class="k">Direct share</div></div>
+        <div class="s"><div class="v">14 days</div><div class="k">Median lead time</div></div>
+      </div>
+    </div>
+
+    <div class="donut-card">
+      <div style="display:flex; gap:24px; align-items:center; flex-wrap:wrap;">
+        <svg viewBox="0 0 120 120" width="140" height="140" style="flex-shrink:0;">
+          <!-- donut segments (approx) -->
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#cfa830" stroke-width="20" stroke-dasharray="135 314" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#1c1a17" stroke-width="20" stroke-dasharray="88 314" stroke-dashoffset="-135" transform="rotate(-90 60 60)"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#7c612a" stroke-width="20" stroke-dasharray="50 314" stroke-dashoffset="-223" transform="rotate(-90 60 60)"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#cfc4ad" stroke-width="20" stroke-dasharray="41 314" stroke-dashoffset="-273" transform="rotate(-90 60 60)"/>
+          <text x="60" y="56" text-anchor="middle" font-family="Georgia" font-size="14" fill="#1c1a17">Booking</text>
+          <text x="60" y="72" text-anchor="middle" font-family="Georgia" font-size="14" fill="#c9a234">channels</text>
+        </svg>
+        <div class="legend" style="flex:1; min-width: 140px;">
+          <div class="row"><span><span class="dot" style="background:#cfa830;"></span>Direct</span><span>43%</span></div>
+          <div class="row"><span><span class="dot" style="background:#1c1a17;"></span>Airbnb</span><span>28%</span></div>
+          <div class="row"><span><span class="dot" style="background:#7c612a;"></span>Plum Guide</span><span>16%</span></div>
+          <div class="row"><span><span class="dot" style="background:#cfc4ad;"></span>Folio London</span><span>13%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- heatmap -->
+  <div class="sect-head">
+    <div class="chapter">Reading No. 07</div>
+    <div class="title">Occupancy heatmap, property by month.</div>
+  </div>
+
+  <div class="heat">
+    <div class="lbl"></div>
+    <div class="lbl" style="text-align:center;">J</div><div class="lbl" style="text-align:center;">F</div><div class="lbl" style="text-align:center;">M</div><div class="lbl" style="text-align:center;">A</div><div class="lbl" style="text-align:center;">M</div><div class="lbl" style="text-align:center;">J</div><div class="lbl" style="text-align:center;">J</div><div class="lbl" style="text-align:center;">A</div><div class="lbl" style="text-align:center;">S</div><div class="lbl" style="text-align:center;">O</div><div class="lbl" style="text-align:center;">N</div><div class="lbl" style="text-align:center;">D</div>
+
+    <div class="lbl">Cormorant</div>
+    <div class="cell" style="background:#ead17b"></div><div class="cell" style="background:#e7c45a"></div><div class="cell" style="background:#d3a838"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#5a4720"></div><div class="cell" style="background:#3e3217"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#e7c45a"></div>
+
+    <div class="lbl">Maison Verre</div>
+    <div class="cell" style="background:#ead17b"></div><div class="cell" style="background:#e7c45a"></div><div class="cell" style="background:#d3a838"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#5a4720"></div><div class="cell" style="background:#3e3217"></div><div class="cell" style="background:#3e3217"></div><div class="cell" style="background:#5a4720"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#ead17b"></div>
+
+    <div class="lbl">Black Barn</div>
+    <div class="cell" style="background:#efe2a8"></div><div class="cell" style="background:#ead17b"></div><div class="cell" style="background:#e7c45a"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#5a4720"></div><div class="cell" style="background:#3e3217"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#d3a838"></div><div class="cell" style="background:#ead17b"></div>
+
+    <div class="lbl">Casa Encinal</div>
+    <div class="cell" style="background:#efe7cf"></div><div class="cell" style="background:#efe2a8"></div><div class="cell" style="background:#ead17b"></div><div class="cell" style="background:#d3a838"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#5a4720"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#e7c45a"></div><div class="cell" style="background:#efe2a8"></div>
+
+    <div class="lbl">Atelier S/T</div>
+    <div class="cell" style="background:#ead17b"></div><div class="cell" style="background:#e7c45a"></div><div class="cell" style="background:#d3a838"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#5a4720"></div><div class="cell" style="background:#3e3217"></div><div class="cell" style="background:#3e3217"></div><div class="cell" style="background:#5a4720"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#e7c45a"></div>
+
+    <div class="lbl">Planta Tercera</div>
+    <div class="cell" style="background:#efe2a8"></div><div class="cell" style="background:#ead17b"></div><div class="cell" style="background:#e7c45a"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#5a4720"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#d3a838"></div><div class="cell" style="background:#e7c45a"></div><div class="cell" style="background:#ead17b"></div>
+
+    <div class="lbl">Cabaña</div>
+    <div class="cell" style="background:#efe7cf"></div><div class="cell" style="background:#efe2a8"></div><div class="cell" style="background:#ead17b"></div><div class="cell" style="background:#d3a838"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#5a4720"></div><div class="cell" style="background:#5a4720"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#e7c45a"></div><div class="cell" style="background:#efe2a8"></div>
+
+    <div class="lbl">Kuro Moka</div>
+    <div class="cell" style="background:#a38127"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#5a4720"></div><div class="cell" style="background:#a38127"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#d3a838"></div><div class="cell" style="background:#e7c45a"></div><div class="cell" style="background:#ead17b"></div><div class="cell" style="background:#efe2a8"></div><div class="cell" style="background:#c9a234"></div><div class="cell" style="background:#7c612a"></div><div class="cell" style="background:#3e3217"></div>
+  </div>
+
+  <!-- Property table -->
+  <div class="sect-head">
+    <div class="chapter">Reading No. 08</div>
+    <div class="title">Property-level statement, Q3 2024.</div>
+  </div>
+
+  <div class="card" style="padding: 0;">
+    <table class="tbl">
+      <thead>
+        <tr><th>Property</th><th>Nights sold</th><th>Occ.</th><th>ADR</th><th>RevPAR</th><th>Gross</th><th>Net to host</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>The Cormorant House</td><td>78</td><td>84.8%</td><td>€525</td><td class="gold">€445</td><td>€41,000</td><td>€33,200</td><td><span class="pill green">On track</span></td></tr>
+        <tr><td>Maison Verre, Antibes</td><td>74</td><td>80.4%</td><td>€438</td><td class="gold">€352</td><td>€32,400</td><td>€26,100</td><td><span class="pill green">On track</span></td></tr>
+        <tr><td>The Black Barn</td><td>71</td><td>77.2%</td><td>€434</td><td class="gold">€335</td><td>€30,800</td><td>€24,800</td><td><span class="pill green">On track</span></td></tr>
+        <tr><td>Atelier sur les Saintonge</td><td>69</td><td>75.0%</td><td>€530</td><td class="gold">€398</td><td>€36,500</td><td>€29,400</td><td><span class="pill green">On track</span></td></tr>
+        <tr><td>Planta Tercera</td><td>68</td><td>73.9%</td><td>€376</td><td class="gold">€278</td><td>€25,500</td><td>€20,500</td><td><span class="pill green">On track</span></td></tr>
+        <tr><td>Casa Encinal</td><td>62</td><td>67.4%</td><td>€372</td><td class="gold">€251</td><td>€23,100</td><td>€18,600</td><td><span class="pill">Behind</span></td></tr>
+        <tr><td>Trolla della Marina</td><td>61</td><td>66.3%</td><td>€458</td><td class="gold">€304</td><td>€27,900</td><td>€22,500</td><td><span class="pill green">On track</span></td></tr>
+        <tr><td>Cabaña Pinatevre</td><td>58</td><td>63.0%</td><td>€355</td><td class="gold">€224</td><td>€20,600</td><td>€16,600</td><td><span class="pill">Behind</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Final commentary -->
+  <div class="chart-pair flip" style="margin-top:22px;">
+    <div class="text-card">
+      <div class="ch">Folio Endnote</div>
+      <h3>What the figures are not saying.</h3>
+      <p>A reporting period is a narrow window. The studio's largest tact — the patience it asks of its hosts, and the slow construction of return — does not show up here in any direct way. The numbers above show the lift; the letters in our drawer, the readers behind it.</p>
+      <p style="margin-top: 14px;">Two new properties, December's Fjord-Side and the May reopening of the Old Wool Store, will reset the bottom rows here. Until then: rest, repair, write.</p>
+    </div>
+
+    <div class="text-card">
+      <div class="ch">Scheduled reports</div>
+      <ul style="list-style: none; padding: 0; margin-top: 8px;">
+        <li style="display:flex; justify-content:space-between; padding: 10px 0; border-bottom:1px solid var(--line-2); font-family: -apple-system, Arial, sans-serif; font-size: 13px;"><span>Monday digest</span><span class="muted">06:00 CET</span></li>
+        <li style="display:flex; justify-content:space-between; padding: 10px 0; border-bottom:1px solid var(--line-2); font-family: -apple-system, Arial, sans-serif; font-size: 13px;"><span>Host monthly</span><span class="muted">1st, 09:00</span></li>
+        <li style="display:flex; justify-content:space-between; padding: 10px 0; border-bottom:1px solid var(--line-2); font-family: -apple-system, Arial, sans-serif; font-size: 13px;"><span>Quarterly studio</span><span class="muted">15th</span></li>
+        <li style="display:flex; justify-content:space-between; padding: 10px 0; border-bottom:1px solid var(--line-2); font-family: -apple-system, Arial, sans-serif; font-size: 13px;"><span>Tax export</span><span class="muted">Yearly, Jan</span></li>
+        <li style="display:flex; justify-content:space-between; padding: 10px 0; font-family: -apple-system, Arial, sans-serif; font-size: 13px;"><span>Owner statement</span><span class="muted">Monthly</span></li>
+      </ul>
+      <button class="btn-pill" style="width:100%; margin-top:16px;">Manage delivery</button>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="row">
+      <div>
+        <a class="brand" href="#">Sable Echo<span class="dot">.</span> Studio</a>
+        <p>A small atelier representing a modest number of considered places to stay.</p>
+      </div>
+      <div>
+        <h5>Most Resources</h5>
+        <ul><li>Properties</li><li>Rates &amp; Availability</li><li>Guest Messages</li><li>Reports</li></ul>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <ul><li>Editorial</li><li>Contact</li><li>Terms &amp; Privacy</li><li>Instagram. Are.na</li></ul>
+      </div>
+    </div>
+    <div class="colophon"><div>© 2025 Sable Echo Studio. Composed in ivory and linen.</div></div>
+  </footer>
+
+</div>
+</body>
+</html>

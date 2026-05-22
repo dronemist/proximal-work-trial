@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orders — Onyx Bridge Lab</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Onyx Bridge Lab</div>
+      <div class="nav-links">
+        <a href="orders.html" class="active">Orders</a>
+        <a href="marketing.html">Marketing</a>
+        <a href="customers.html">Customers</a>
+        <a href="products.html">Products</a>
+        <a href="discounts.html">Discounts</a>
+      </div>
+      <div class="nav-right">
+        <span class="pill">Q2 close</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page" style="flex:1">
+
+    <div class="crumbs">Workspace <span class="sep">/</span> Bellwether Goods</div>
+    <h1 class="page-title">Orders</h1>
+    <p class="page-lede">Every order across web, POS, and wholesale channels, sorted by intake. Filters apply to all metrics below — current view covers the trailing seven days.</p>
+
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="label">Orders / 7d</div>
+        <div class="value">1,284</div>
+        <div class="delta up">+ 6.2% vs. prior 7</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Gross revenue</div>
+        <div class="value">$94,612</div>
+        <div class="delta up">+ 4.8% vs. prior 7</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Avg. order value</div>
+        <div class="value">$73.68</div>
+        <div class="delta down">- 1.7% vs. prior 7</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Unfulfilled</div>
+        <div class="value">87</div>
+        <div class="delta down">- 11 yesterday</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+
+      <div>
+
+        <!-- filter bar -->
+        <div class="card">
+          <div class="filter-bar">
+            <span class="pill pill-orange">All · 1,284</span>
+            <span class="pill pill-outline">Unfulfilled · 87</span>
+            <span class="pill pill-outline">Paid · 1,156</span>
+            <span class="pill pill-outline">Refunded · 12</span>
+            <span class="pill pill-outline">Risk flagged · 4</span>
+            <span style="flex:1"></span>
+            <button class="btn btn-sm">+ View</button>
+          </div>
+          <div class="filter-bar" style="border-bottom:none">
+            <input class="input" style="flex:1;min-width:200px" value="↳ Search by order # customer, SKU, tracking…">
+            <span class="pill pill-outline">All channels ▾</span>
+            <button class="btn btn-sm">Export CSV</button>
+            <button class="btn btn-sm btn-primary">New order</button>
+          </div>
+        </div>
+
+        <!-- orders table -->
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h2>All orders</h2>
+              <div class="meta">sorted by newest first</div>
+            </div>
+            <div class="row">
+              <span class="pill pill-outline">Bulk edit</span>
+              <span class="pill pill-outline">Print labels</span>
+            </div>
+          </div>
+          <table class="tbl tbl-compact">
+            <thead>
+              <tr>
+                <th><input type="checkbox"></th>
+                <th>Order</th>
+                <th>Date</th>
+                <th>Customer</th>
+                <th>Channel</th>
+                <th>Payment</th>
+                <th>Fulfillment</th>
+                <th class="num">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10428</b></td><td>May 18 23:41</td><td><div class="cell-user"><span class="avatar">EM</span>Eliza Marwick</div></td><td><span class="pill pill-blue">Web</span></td><td><span class="pill pill-green">Paid</span></td><td><span class="pill pill-yellow">Partial</span></td><td class="num">$164.20</td></tr>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10427</b></td><td>May 18 22:18</td><td><div class="cell-user"><span class="avatar blue">JR</span>Jordan Romano</div></td><td><span class="pill pill-blue">Web</span></td><td><span class="pill pill-green">Paid</span></td><td><span class="pill pill-green">Fulfilled</span></td><td class="num">$48.00</td></tr>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10426</b></td><td>May 18 21:02</td><td><div class="cell-user"><span class="avatar green">RM</span>Reuben Maro</div></td><td><span class="pill pill-purple">POS</span></td><td><span class="pill pill-green">Paid</span></td><td><span class="pill pill-green">Fulfilled</span></td><td class="num">$298.40</td></tr>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10425</b></td><td>May 18 19:54</td><td><div class="cell-user"><span class="avatar yellow">FT</span>Frieda Topper</div></td><td><span class="pill pill-blue">Web</span></td><td><span class="pill pill-yellow">Pending</span></td><td><span class="pill pill-outline">Unfulfilled</span></td><td class="num">$72.50</td></tr>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10424</b></td><td>May 18 17:30</td><td><div class="cell-user"><span class="avatar purple">MV</span>Marius Vela</div></td><td><span class="pill pill-blue">Web</span></td><td><span class="pill pill-red">Failed</span></td><td><span class="pill pill-outline">On hold</span></td><td class="num">$211.16</td></tr>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10423</b></td><td>May 18 16:18</td><td><div class="cell-user"><span class="avatar">CN</span>Camille Naveen</div></td><td><span class="pill pill-blue">Web</span></td><td><span class="pill pill-green">Paid</span></td><td><span class="pill pill-green">Fulfilled</span></td><td class="num">$58.20</td></tr>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10422</b></td><td>May 18 14:51</td><td><div class="cell-user"><span class="avatar blue">SN</span>Soren Nillsen</div></td><td><span class="pill pill-orange">Wholesale</span></td><td><span class="pill pill-green">Paid</span></td><td><span class="pill pill-yellow">Picking</span></td><td class="num">$1,082.00</td></tr>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10421</b></td><td>May 18 13:11</td><td><div class="cell-user"><span class="avatar green">SP</span>Saanvi Pemmaraju</div></td><td><span class="pill pill-blue">Web</span></td><td><span class="pill pill-green">Paid</span></td><td><span class="pill pill-green">Fulfilled</span></td><td class="num">$96.20</td></tr>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10420</b></td><td>May 18 11:32</td><td><div class="cell-user"><span class="avatar yellow">AS</span>Alfred Sweeney</div></td><td><span class="pill pill-purple">POS</span></td><td><span class="pill pill-green">Paid</span></td><td><span class="pill pill-green">Fulfilled</span></td><td class="num">$32.00</td></tr>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10419</b></td><td>May 18 09:48</td><td><div class="cell-user"><span class="avatar">DH</span>Drew Hwang</div></td><td><span class="pill pill-blue">Web</span></td><td><span class="pill pill-green">Paid</span></td><td><span class="pill pill-yellow">Picking</span></td><td class="num">$118.80</td></tr>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10418</b></td><td>May 18 08:01</td><td><div class="cell-user"><span class="avatar blue">MV</span>Maria Vasquez</div></td><td><span class="pill pill-orange">Wholesale</span></td><td><span class="pill pill-yellow">Pending</span></td><td><span class="pill pill-outline">Unfulfilled</span></td><td class="num">$640.00</td></tr>
+              <tr><td><input type="checkbox"></td><td><b>#OBL-10417</b></td><td>May 18 06:42</td><td><div class="cell-user"><span class="avatar purple">RB</span>Rena Berger</div></td><td><span class="pill pill-blue">Web</span></td><td><span class="pill pill-green">Paid</span></td><td><span class="pill pill-green">Fulfilled</span></td><td class="num">$54.40</td></tr>
+            </tbody>
+          </table>
+          <div class="pagination">
+            <span>Showing 1-12 of 1,284</span>
+            <div class="page-numbers">
+              <a>‹</a><a class="active">1</a><a>2</a><a>3</a><a>4</a><a>…</a><a>107</a><a>›</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- order detail -->
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h2>Order #OBL-10428 — Eliza Marwick</h2>
+              <div class="meta">May 18 23:41 PT · web · partial fulfillment</div>
+            </div>
+            <div class="row">
+              <span class="pill pill-yellow">Partial</span>
+              <span class="pill pill-green">Paid</span>
+            </div>
+          </div>
+
+          <div class="detail-cols">
+            <div>
+              <h4>Ship to</h4>
+              <p>Eliza Marwick<br>2418 SE Knott St<br>Portland, OR 97212<br>United States<br><span class="muted">e.marwick@offshelf.co</span></p>
+            </div>
+            <div>
+              <h4>Payment</h4>
+              <p>Visa ending 4412<br>Auth: ch_28xqj_lk1f<br>Charged $164.20<br><span class="muted">Captured May 18 23:42 PT</span></p>
+            </div>
+            <div>
+              <h4>Fulfillment</h4>
+              <p>Portland warehouse · Rack B-22<br>Picked May 19 06:22<br><span class="muted">USPS Priority · 9400 1100 2042</span><br><span class="muted">2 awaiting restock · 1 ready</span></p>
+            </div>
+          </div>
+
+          <table class="tbl tbl-compact" style="border-top:1px solid var(--border)">
+            <thead>
+              <tr><th>Item</th><th>SKU</th><th class="num">Qty</th><th>Status</th><th class="num">Unit</th><th class="num">Line total</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Halsen Hand-Throw, Stone</td><td class="mono">OBL-TXR-007</td><td class="num">1</td><td><span class="pill pill-green">Picked</span></td><td class="num">$80.00</td><td class="num">$80.00</td></tr>
+              <tr><td>Stoneware Carafe, Sand</td><td class="mono">OBL-CAR-002</td><td class="num">1</td><td><span class="pill pill-yellow">Backorder</span></td><td class="num">$38.00</td><td class="num">$38.00</td></tr>
+              <tr><td>Linen Tea Towel Set</td><td class="mono">OBL-LTW-014</td><td class="num">2</td><td><span class="pill pill-green">Picked</span></td><td class="num">$22.00</td><td class="num">$44.00</td></tr>
+              <tr><td>Beeswax Pillar Set</td><td class="mono">OBL-BWS-038</td><td class="num">1</td><td><span class="pill pill-yellow">Backorder</span></td><td class="num">$24.00</td><td class="num">$24.00</td></tr>
+            </tbody>
+          </table>
+
+          <div class="filter-bar" style="border-bottom:none;border-top:1px solid var(--border);justify-content:flex-end">
+            <button class="btn btn-sm">Refund</button>
+            <button class="btn btn-sm">Print packing slip</button>
+            <button class="btn btn-sm btn-primary">Fulfill remaining</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Fulfillment queue</h3>
+            <span class="meta">today</span>
+          </div>
+          <div class="card-body">
+            <div class="spread" style="margin-bottom:8px"><span>Picking</span><b>42</b></div>
+            <div class="spread" style="margin-bottom:8px"><span>Packing · awaiting pickup</span><b>16</b></div>
+            <div class="spread" style="margin-bottom:8px"><span>Awaiting stock</span><b>11</b></div>
+            <div class="spread" style="margin-bottom:8px"><span>On hold</span><b>3</b></div>
+            <div class="spread" style="margin-bottom:8px"><span>Returns inbound</span><b>5</b></div>
+            <div class="spread"><span>Returns inspected</span><b>2</b></div>
+            <hr>
+            <a class="tiny">Open fulfillment console ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Channel mix</h3>
+            <span class="meta">7d revenue</span>
+          </div>
+          <div class="card-body">
+            <div class="bar-list">
+              <div class="bar-row"><span class="label">Web</span><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div><span class="num">$54,201</span></div>
+              <div class="bar-row"><span class="label">Wholesale</span><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><span class="num">$26,180</span></div>
+              <div class="bar-row"><span class="label">POS · PDX</span><div class="bar-track"><div class="bar-fill" style="width:24%"></div></div><span class="num">$9,840</span></div>
+              <div class="bar-row"><span class="label">POS · BK</span><div class="bar-track"><div class="bar-fill" style="width:16%"></div></div><span class="num">$4,391</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Activity</h3>
+            <span class="meta">today</span>
+          </div>
+          <div class="card-body">
+            <div class="timeline">
+              <div class="tl-item"><span class="tl-date">22:41</span><span class="tl-body"><b>Order placed</b><br>#OBL-10428 · Eliza Marwick<br><span class="muted">Tendered via Onyx Pay</span></span></div>
+              <div class="tl-item"><span class="tl-date">19:30</span><span class="tl-body"><b>#OBL-10426 picked up in store</b><br><span class="muted">Reuben Maro · POS PDX</span></span></div>
+              <div class="tl-item"><span class="tl-date">17:18</span><span class="tl-body"><b>#OBL-10425 payment failed</b><br><span class="muted">Card declined · customer notified by email</span></span></div>
+              <div class="tl-item"><span class="tl-date">15:42</span><span class="tl-body"><b>#OBL-10424 placed on hold</b><br><span class="muted">Flagged for manual review</span></span></div>
+              <div class="tl-item"><span class="tl-date">11:11</span><span class="tl-body"><b>#OBL-10421 from Marcus Vasquez</b><br><span class="muted">Tendered via Onyx Pay</span></span></div>
+              <div class="tl-item"><span class="tl-date">08:11</span><span class="tl-body"><b>#OBL-10418 fulfilled</b><br><span class="muted">Tendered via POS</span></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="background:var(--accent-soft);border-color:#f3c4b1">
+          <div class="card-body">
+            <b style="font-size:12px">Risk review</b>
+            <p style="margin:6px 0 10px;font-size:11px;color:var(--ink-2)">Four recent orders were flagged by Onyx Trust Engine for manual review. Shipping addresses and match billing inconsistencies.</p>
+            <button class="btn btn-sm btn-primary">Review 4 flagged orders</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h3>Shipping cutoffs today</h3></div>
+          <div class="card-body">
+            <div class="spread" style="padding:6px 0;border-bottom:1px solid var(--border)"><span>Holiday processing</span><span class="muted">15:00 PT</span></div>
+            <div class="spread" style="padding:6px 0"><span>Return window</span><span class="muted">17:00 PT</span></div>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-left"><span>Workspace · Bellwether Goods</span><span class="dot">●</span><span>non-production</span></div>
+    <div class="footer-links"><a>Orders</a><a>Marketing</a><a>Customers</a><a>Products</a><a>Discounts</a><a>Docs</a><a>Support</a></div>
+  </footer>
+</div>
+</body>
+</html>

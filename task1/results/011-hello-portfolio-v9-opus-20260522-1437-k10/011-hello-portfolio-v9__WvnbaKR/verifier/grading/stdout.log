@@ -1,0 +1,182 @@
+[grade] VLM judge: 15 pairs in 8.3s
+{
+  "per_page_viewport": {
+    "about": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.947364289579502,
+          "extra": {
+            "reference_size": [
+              1440,
+              900
+            ],
+            "candidate_size": [
+              1440,
+              900
+            ],
+            "compared_size": [
+              1440,
+              900
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.5322840809822083,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 15,
+            "matched_pairs": 14,
+            "mean_matched_iou": 0.28332629799842834,
+            "raw_score_before_sqrt": 0.28332632780075073
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.9002775463303301,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 15,
+            "matched_pairs": 14,
+            "mean_normalized_centroid_distance": 0.09972245366966993,
+            "page_diagonal_px": 1156.5747982365929
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.9433777107993762,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.8867554215987523,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 5,
+              "weighted_mean_oklab_distance": 0.012586686760187149,
+              "base_score_before_penalty": 0.9160887549320856,
+              "over_color_penalty": 0.029333333333333336
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.9951666666666668,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.9930952380952381,
+            "reference_buckets": [
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.07142857142857142
+              ],
+              [
+                15.0,
+                0.35714285714285715
+              ],
+              [
+                16.0,
+                0.42857142857142855
+              ],
+              [
+                20.0,
+                0.07142857142857142
+              ],
+              [
+                28.0,
+                0.07142857142857142
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.4,
+                0.06666666666666667
+              ],
+              [
+                15.2,
+                0.3333333333333333
+              ],
+              [
+                16.0,
+                0.4666666666666667
+              ],
+              [
+                20.0,
+                0.06666666666666667
+              ],
+              [
+                28.0,
+                0.06666666666666667
+              ]
+            ],
+            "reference_fonts": [
+              "system-ui"
+            ],
+            "candidate_fonts": [
+              "-apple-system"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 40,
+            "candidate_tokens": 40,
+            "matched_tokens": 40,
+            "union_tokens": 40,
+            "reference_unique": 35,
+            "candidate_unique": 35
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.75,
+          "extra": {
+            "reason": "The candidate matches content and structure well, but the 'About' heading is bold/heavier font-weight in the candidate versus the lighter weight in the reference, and the body text wraps differently due to slightly different container width, causing minor layout deviation.",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.44
+          }
+        },
+        "_structured": 0.8837768319266845,
+        "_overflow_factor": 1.0,
+        "_composite": 0.75
+      },
+      "mobile": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.8204668178795913,
+          "extra": {
+            "reference_size": [
+              375,
+              812
+            ],
+            "candidate_size": [
+              375,
+              812
+            ],
+            "compared_

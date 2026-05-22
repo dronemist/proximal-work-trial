@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My account — Ember Field</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Ember Field<span class="dot">.</span></div>
+  <nav class="topnav">
+    <a href="service-catalog.html">Services</a>
+    <a class="active" href="account.html">My Account</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="appointments.html">Appointments</a>
+    <a href="application.html">Apply</a>
+  </nav>
+  <div class="search"><input placeholder="Search services, forms, agencies&hellip;"></div>
+  <div class="top-actions">
+    <span class="bell">&#9788;<span class="bell-dot">2</span></span>
+    <span class="avatar">MR</span>
+    <span style="font-size:12px;color:#c0c8cb">Marisol R.</span>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Services</h4>
+    <ul>
+      <li><a href="service-catalog.html">Service catalog</a></li>
+      <li><a href="application.html">Start an application</a></li>
+      <li><a href="appointments.html">Book an appointment</a></li>
+    </ul>
+    <h4>My account</h4>
+    <ul>
+      <li><a class="active" href="#overview">Overview</a></li>
+      <li><a href="#identity">Identity &amp; verification</a></li>
+      <li><a href="#personal">Personal info</a></li>
+      <li><a href="#address">Address &amp; contact</a></li>
+      <li><a href="#dependents">Dependents</a></li>
+      <li><a href="#preferences">Preferences</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="notifications.html">Notifications</a></li>
+      <li><a href="appointments.html">My appointments</a></li>
+      <li><a href="application.html">My applications</a></li>
+    </ul>
+    <h4>Help</h4>
+    <ul>
+      <li><a href="#">Contact a clerk</a></li>
+      <li><a href="#">Accessibility</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <div class="breadcrumb"><span>Home</span><span class="sep">›</span><span>My Account</span><span class="sep">›</span> Overview</div>
+    <h1 class="page-title" id="overview">My account, <span class="accent">yours</span> to manage.</h1>
+    <p class="page-sub">Update your details, add a dependent, or check what we've verified about you. We only show what we know — and we'll tell you where we got it.</p>
+
+    <div class="card">
+      <div class="spread" style="align-items:flex-start;flex-wrap:wrap;gap:14px">
+        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+          <div class="avatar" style="width:56px;height:56px;font-size:18px">MR</div>
+          <div>
+            <div style="font-size:18px;font-weight:600;color:#eef2f3">Marisol <span style="color:var(--accent)">Reyes-Okafor</span></div>
+            <div style="margin:4px 0"><span class="badge green dot">Verified resident</span></div>
+            <div class="muted tiny" style="margin-top:4px">Member since 2019</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
+          <div>
+            <div class="muted tiny">Account ID</div>
+            <div class="kbd">RID-04688-247-A</div>
+            <div class="muted tiny" style="margin-top:6px">District 04 — Northgate</div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn ghost sm">Edit profile</button>
+            <button class="btn primary sm">Start an application</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="identity">
+      <h2>Identity &amp; verification</h2>
+      <div class="lede">Three documents on file. You can bump your tier any time — more services don't need more than Tier 2.</div>
+      <div class="row cols-3" style="margin-bottom:14px">
+        <div class="card tight">
+          <div class="muted tiny">IDENTITY TIER</div>
+          <div style="font-size:22px;font-weight:700;color:#eef2f3;margin-top:4px">Tier 2 of 3</div>
+          <div class="muted tiny" style="margin-top:4px">Photo ID + address on file</div>
+        </div>
+        <div class="card tight">
+          <div class="muted tiny">LAST VERIFIED</div>
+          <div style="font-size:22px;font-weight:700;color:#eef2f3;margin-top:4px">Mar 14, 2025</div>
+          <div class="muted tiny" style="margin-top:4px">By clerk Patel · Window 7</div>
+        </div>
+        <div class="card tight">
+          <div class="muted tiny">TRUST SIGNALS</div>
+          <div style="font-size:22px;font-weight:700;color:#eef2f3;margin-top:4px">4 of 5</div>
+          <div class="muted tiny" style="margin-top:4px">Add a photo ID to top up</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="spread" style="margin-bottom:10px">
+          <strong>Documents on file</strong>
+          <button class="btn sm">Upload new</button>
+        </div>
+        <table class="table">
+          <thead><tr><th>Document</th><th>Reference</th><th>Status</th><th>Verified by</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>State driver's license<div class="muted tiny">Exp. 2028-04-10</div></td>
+              <td class="kbd">DL ••••• 3429</td>
+              <td><span class="badge green dot">Verified</span></td>
+              <td>DMV · Auto</td>
+            </tr>
+            <tr>
+              <td>Utility bill (Northgate Power)<div class="muted tiny">Issued Feb 2025</div></td>
+              <td class="kbd">NG-#4429-12</td>
+              <td><span class="badge green dot">Verified</span></td>
+              <td>Clerk K1206</td>
+            </tr>
+            <tr>
+              <td>Social security card</td>
+              <td class="kbd">SSN ••• ••• 6471</td>
+              <td><span class="badge green dot">Verified</span></td>
+              <td>SSA · Federal</td>
+            </tr>
+            <tr>
+              <td>Passport</td>
+              <td class="kbd">PS ••••• 0972</td>
+              <td><span class="badge amber dot">Pending review</span></td>
+              <td>Submitted Mar 12</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="personal">
+      <h2>Personal information</h2>
+      <div class="lede">If something looks off, edit it here. Changes to your legal name need a supporting document.</div>
+      <div class="card">
+        <div class="dl">
+          <dt>Legal name</dt><dd>Marisol Adaeze Reyes-Okafor</dd>
+          <dt>Preferred name</dt><dd>Marisol</dd>
+          <dt>Pronouns</dt><dd>she / her</dd>
+          <dt>Date of birth</dt><dd>July 22, 1990</dd>
+          <dt>Place of birth</dt><dd>Bridgeport, Connecticut</dd>
+          <dt>Preferred language</dt><dd>English — also reads Spanish, Igbo</dd>
+        </div>
+        <div class="spread" style="margin-top:14px">
+          <a class="muted tiny" href="#">Request legal name change</a>
+          <button class="btn sm">Edit</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="address">
+      <h2>Address &amp; contact</h2>
+      <div class="row cols-2">
+        <div class="card">
+          <div class="spread" style="margin-bottom:8px">
+            <strong>Mailing address</strong>
+            <span class="badge green dot">Verified</span>
+          </div>
+          <div style="color:#dde4e7">418 Linden Row, Apt 6B<br>Northgate, District 04<br>Cascadia 99221</div>
+          <div class="muted tiny" style="margin-top:8px">On file since Jan 12, 2023 · matches utility record</div>
+          <div class="divider"></div>
+          <div class="spread">
+            <a class="muted tiny" href="#">Use a different address</a>
+            <button class="btn sm">Edit</button>
+          </div>
+        </div>
+        <div class="card">
+          <div style="margin-bottom:8px"><strong>Contact methods</strong></div>
+          <div class="stack-sm">
+            <div class="spread"><div><div class="muted tiny">Email</div><div>marisol.r@ironbird.io</div></div><span class="badge green dot">Primary</span></div>
+            <div class="spread"><div><div class="muted tiny">Mobile</div><div>+1 (763) ••• 4419</div></div><span class="badge green dot">Verified</span></div>
+            <div class="spread"><div><div class="muted tiny">Backup email</div><div>m.okafor@familymail.net</div></div><span class="badge dot">Unverified</span></div>
+          </div>
+          <div class="divider"></div>
+          <div class="right"><button class="btn sm">Manage contacts</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dependents">
+      <h2>Dependents</h2>
+      <div class="lede">People you can apply on behalf of. Each dependent has their own verification.</div>
+      <div class="card">
+        <div class="spread" style="margin-bottom:10px">
+          <strong>3 dependents linked</strong>
+          <button class="btn primary sm">Add dependent</button>
+        </div>
+        <div class="stack">
+          <div class="spread" style="border-top:1px solid #1d2b31;padding-top:12px">
+            <div style="display:flex;gap:12px">
+              <div class="avatar">TR</div>
+              <div>
+                <div style="color:#eef2f3"><strong>Theo Reyes-Okafor</strong></div>
+                <div class="muted tiny">Son · age 9 · birth cert on file</div>
+                <div style="margin-top:6px"><span class="badge green dot">Verified</span> <span class="badge dot">Minor</span></div>
+              </div>
+            </div>
+            <button class="btn sm">Manage</button>
+          </div>
+          <div class="spread" style="border-top:1px solid #1d2b31;padding-top:12px">
+            <div style="display:flex;gap:12px">
+              <div class="avatar">IR</div>
+              <div>
+                <div style="color:#eef2f3"><strong>Ife Reyes-Okafor</strong></div>
+                <div class="muted tiny">Daughter · age 5 · RID-04691-103-C</div>
+                <div style="margin-top:6px"><span class="badge green dot">Verified</span> <span class="badge dot">Minor</span></div>
+              </div>
+            </div>
+            <button class="btn sm">Manage</button>
+          </div>
+          <div class="spread" style="border-top:1px solid #1d2b31;padding-top:12px">
+            <div style="display:flex;gap:12px">
+              <div class="avatar">EO</div>
+              <div>
+                <div style="color:#eef2f3"><strong>Ezinne Okafor</strong></div>
+                <div class="muted tiny">Mother · age 71 · power of attorney on file</div>
+                <div style="margin-top:6px"><span class="badge green dot">Document expiring</span> <span class="badge dot">POA: expires Jun 2026</span></div>
+              </div>
+            </div>
+            <button class="btn sm">Renew POA</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="preferences">
+      <h2>Preferences</h2>
+      <div class="lede">How we reach you, and how often. We default to "less, please."</div>
+      <div class="card">
+        <div class="stack">
+          <div class="spread"><div><div style="color:#eef2f3"><strong>Appointment reminders</strong></div><div class="muted tiny">SMS the day before, plus a quick email two hours ahead.</div></div><span class="toggle on"></span></div>
+          <div class="spread" style="border-top:1px solid #1d2b31;padding-top:12px"><div><div style="color:#eef2f3"><strong>Application status updates</strong></div><div class="muted tiny">Anything that moves: filed, in review, decision, payment due.</div></div><span class="toggle on"></span></div>
+          <div class="spread" style="border-top:1px solid #1d2b31;padding-top:12px"><div><div style="color:#eef2f3"><strong>Civic newsletter</strong></div><div class="muted tiny">Monthly. Honest. Mostly road closures and library hours.</div></div><span class="toggle"></span></div>
+          <div class="spread" style="border-top:1px solid #1d2b31;padding-top:12px"><div><div style="color:#eef2f3"><strong>Paper mail fallback</strong></div><div class="muted tiny">A digital-delivery hatch, won't print for fun.</div></div><span class="toggle on"></span></div>
+          <div class="spread" style="border-top:1px solid #1d2b31;padding-top:12px"><div><div style="color:#eef2f3"><strong>Interface language</strong></div><div class="muted tiny">Affects this portal, not the documents we issue.</div></div>
+            <select class="input" style="width:auto"><option>English</option><option>Español</option><option>Igbo</option></select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="security">
+      <h2>Security</h2>
+      <div class="lede">Who's signed in, and what to do if that list looks wrong.</div>
+      <div class="row cols-2">
+        <div class="card">
+          <strong>Sign-in &amp; recovery</strong>
+          <div class="stack" style="margin-top:10px">
+            <div class="spread"><div><div style="color:#eef2f3">Password</div><div class="muted tiny">Last changed Jan 8, 2026</div></div><button class="btn sm">Change</button></div>
+            <div class="spread" style="border-top:1px solid #1d2b31;padding-top:10px"><div><div style="color:#eef2f3">Two-factor authentication</div><div class="muted tiny">Authenticator app · 1 backup code remaining</div></div><button class="btn sm">Manage</button></div>
+            <div class="spread" style="border-top:1px solid #1d2b31;padding-top:10px"><div><div style="color:#eef2f3">Recovery email</div><div class="muted tiny">m••••@familymail.net</div></div><button class="btn sm">Update</button></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="spread"><strong>Active sessions</strong><a class="muted tiny" href="#">Sign out all</a></div>
+          <div class="stack" style="margin-top:10px">
+            <div class="spread"><div><div style="color:#eef2f3">MacBook · Firefox · Northgate</div><div class="muted tiny">Now · 192.168.1.21<br>06:39 PM PT</div></div><span class="badge green dot">Current</span></div>
+            <div class="spread" style="border-top:1px solid #1d2b31;padding-top:10px"><div><div style="color:#eef2f3">iPhone 14 · EmberField app</div><div class="muted tiny">Last active 4h ago · Northgate</div></div><a class="muted tiny" href="#">Sign out</a></div>
+            <div class="spread" style="border-top:1px solid #1d2b31;padding-top:10px"><div><div style="color:#eef2f3">Windows · Edge · Public library</div><div class="muted tiny">Last active Mar 10 · 4 days ago</div></div><a style="color:var(--red);font-size:12px" href="#">Revoke</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Close account</h2>
+      <div class="card">
+        <p class="muted" style="margin:0 0 12px">Closing your Ember Field account removes access to the portal but does not delete government records. Active applications must be withdrawn or transferred first.</p>
+        <div class="spread"><button class="btn sm">Download my data</button><a style="color:var(--red);font-size:13px" href="#">Begin closure</a></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Stuck on something?</h2>
+      <div class="card">
+        <p class="muted" style="margin:0 0 12px">A clerk can review your account with you over a 15-minute video call, or in person at any service center. Most things — really, most — can be fixed in under a quarter hour.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary sm">Book a clerk</button><button class="btn sm">Check notifications</button></div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="toc">
+    <h4>On this page</h4>
+    <ul>
+      <li><a class="active" href="#identity">Identity &amp; verification</a></li>
+      <li><a href="#personal">Personal info</a></li>
+      <li><a href="#address">Address &amp; contact</a></li>
+      <li><a href="#dependents">Dependents</a></li>
+      <li><a href="#preferences">Preferences</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#security">Sign-in &amp; recovery</a></li>
+      <li><a href="#security">Active sessions</a></li>
+      <li><a href="#">Close account</a></li>
+    </ul>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="inner">
+    <div><span class="brand-sm">Ember Field<span class="dot">.</span> Systems</span><span class="tag">An official service of the City &amp; County government</span></div>
+    <div class="footer-links">
+      <a href="service-catalog.html">Services</a>
+      <a href="account.html">My Account</a>
+      <a href="notifications.html">Notifications</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="application.html">Apply</a>
+      <a href="#">Accessibility statement</a>
+      <a href="#">Contact</a>
+    </div>
+    <div>Last updated 2026-04-14 · 11:51 PT</div>
+  </div>
+</footer>
+</body>
+</html>

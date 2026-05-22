@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Patient Dashboard — Quartz Grove Lab</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="page">
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="brand-mark">Q</span><span class="brand-text-hide">Quartz Grove Lab</span></div>
+    <nav class="nav-tabs">
+      <a href="patient-dashboard.html" class="active">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="nav-right">
+      <div class="search"><input placeholder="Search patients, charts..." /></div>
+      <div class="avatar sm">RN</div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="#">Patients</a><span class="sep">›</span><a href="#">Calendar</a><span class="sep">›</span><span>Margaret Ellsworth</span>
+    </div>
+
+    <div class="eyebrow">Patient overview · MRN 209-441</div>
+    <h1 class="h1">Margaret Ellsworth</h1>
+    <p class="lede">Established patient since 2017. Generally well — managing Type 2 diabetes and mild hypertension. Last seen for a routine follow-up nine days ago; everything looked steady.</p>
+
+    <div class="card mt-16" style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+      <div class="flex items-center gap-12">
+        <div class="avatar xl">ME</div>
+        <div>
+          <div class="muted text-xs fw-600" style="letter-spacing:0.05em;text-transform:uppercase;">Margaret Ellsworth</div>
+          <div class="text-sm muted">She / her · Established</div>
+        </div>
+      </div>
+      <div class="flex gap-16" style="flex:1;flex-wrap:wrap;">
+        <div><div class="muted text-xs fw-600">AGE</div><div class="fw-600">38</div></div>
+        <div><div class="muted text-xs fw-600">DOB</div><div class="fw-600">Mar 14, 1987</div></div>
+        <div><div class="muted text-xs fw-600">MRN</div><div class="fw-600">209-441</div></div>
+        <div><div class="muted text-xs fw-600">PRONOUNS</div><div class="fw-600">She / her</div></div>
+        <div><div class="muted text-xs fw-600">PRIMARY</div><div class="fw-600">Dr. Renata Voss</div></div>
+        <div><div class="muted text-xs fw-600">PREFERRED CONTACT</div><div class="fw-600">SMS · (415) 555-0182</div></div>
+      </div>
+      <div class="flex gap-8" style="flex-wrap:wrap;">
+        <button class="btn">Start visit note</button>
+        <button class="btn">Message patient</button>
+        <button class="btn primary">Schedule follow-up</button>
+      </div>
+    </div>
+
+    <div class="flex gap-8 mt-12" style="flex-wrap:wrap;">
+      <span class="badge green dot">Active</span>
+      <span class="badge slate">Diabetes care plan</span>
+      <span class="badge slate">Annual wellness due Aug 30</span>
+      <span class="badge slate">Medicare + BCBS supplemental</span>
+    </div>
+
+    <div class="grid grid-2 mt-16">
+      <div class="alert red">
+        <div>
+          <div class="alert-title">Drug interaction flagged</div>
+          <div>Metformin + iodinated contrast — please hold 48 hr before her imaging next Tuesday (Sep 9).</div>
+        </div>
+      </div>
+      <div class="alert blue">
+        <div>
+          <div class="alert-title">Preventive care reminder</div>
+          <div>Mammogram screening is overdue. Eligible per schedule, outreach call sent yesterday.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent vitals + Problem list -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-8">
+        <div class="card-head">
+          <div>
+            <h3 class="card-title">Recent vitals</h3>
+            <div class="text-xs muted">Captured Sep 4, 2025 · 10:42 AM by Nurse Adyah Brooks</div>
+          </div>
+          <div class="flex gap-8 items-center">
+            <span class="badge green dot">Within range</span>
+            <a class="link sm" href="#">View history</a>
+          </div>
+        </div>
+        <div class="grid grid-4">
+          <div>
+            <div class="muted text-xs fw-600">BLOOD PRESSURE</div>
+            <div class="stat-value" style="font-size:20px;">128/82 <span class="text-xs muted fw-500">mmHg</span></div>
+            <div class="spark mt-8"></div>
+          </div>
+          <div>
+            <div class="muted text-xs fw-600">HEART RATE</div>
+            <div class="stat-value" style="font-size:20px;">72 <span class="text-xs muted fw-500">bpm</span></div>
+            <div class="spark green mt-8"></div>
+          </div>
+          <div>
+            <div class="muted text-xs fw-600">TEMPERATURE</div>
+            <div class="stat-value" style="font-size:20px;">98.4 <span class="text-xs muted fw-500">°F</span></div>
+            <div class="text-xs muted mt-12">Normothermic</div>
+          </div>
+          <div>
+            <div class="muted text-xs fw-600">SPO₂</div>
+            <div class="stat-value" style="font-size:20px;">98 <span class="text-xs muted fw-500">%</span></div>
+            <div class="text-xs muted mt-12">Room air</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="grid grid-4">
+          <div>
+            <div class="muted text-xs fw-600">WEIGHT</div>
+            <div class="fw-600">164 <span class="text-xs muted fw-500">lb</span></div>
+            <div class="text-xs muted">−2.1 lb since June</div>
+          </div>
+          <div>
+            <div class="muted text-xs fw-600">BMI</div>
+            <div class="fw-600">26.4</div>
+            <div class="text-xs muted">Overweight range</div>
+          </div>
+          <div>
+            <div class="muted text-xs fw-600">RESP RATE</div>
+            <div class="fw-600">16 <span class="text-xs muted fw-500">/ min</span></div>
+            <div class="text-xs muted">Even</div>
+          </div>
+          <div>
+            <div class="muted text-xs fw-600">PAIN</div>
+            <div class="fw-600">1 <span class="text-xs muted fw-500">/ 10</span></div>
+            <div class="text-xs muted">Mild knee, AM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card col-4">
+        <div class="card-head">
+          <h3 class="card-title">Problem list</h3>
+          <a class="link sm" href="#">Edit</a>
+        </div>
+        <div class="muted text-xs fw-600 mb-4">ACTIVE CONDITIONS</div>
+        <div class="stat-value mb-12">4</div>
+        <ul>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Type 2 diabetes mellitus</div>
+              <div class="text-xs muted">E11.9 · Diagnosed 2019</div>
+            </div>
+            <span class="badge slate">Active</span>
+          </li>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Essential hypertension</div>
+              <div class="text-xs muted">I10 · Diagnosed 2021</div>
+            </div>
+            <span class="badge slate">Active</span>
+          </li>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Osteoarthritis, left knee</div>
+              <div class="text-xs muted">M17.12 · Diagnosed 2023</div>
+            </div>
+            <span class="badge amber">Managed</span>
+          </li>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Vitamin D deficiency</div>
+              <div class="text-xs muted">E55.9 · Diagnosed 2024</div>
+            </div>
+            <span class="badge slate">Resolved</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Visit history + Active medications -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-8">
+        <div class="card-head">
+          <div>
+            <h3 class="card-title">Visit history</h3>
+            <div class="text-xs muted">Last 6 encounters across the practice</div>
+          </div>
+          <div class="flex gap-8">
+            <span class="badge blue">All</span>
+            <span class="badge outline">Office</span>
+            <span class="badge outline">Telehealth</span>
+            <span class="badge outline">Labs</span>
+          </div>
+        </div>
+        <ul class="timeline">
+          <li>
+            <div class="t-date">Sep 4, 2025 · 10:30 AM</div>
+            <div class="t-title">Diabetes follow-up — Dr. Renata Voss</div>
+            <div class="text-xs muted">A1C trending down to 6.7. Medications unchanged. Patient reports better sleep since starting CPAP. Scheduled bloodwork for Oct 24.</div>
+          </li>
+          <li>
+            <div class="t-date">Aug 11, 2025</div>
+            <div class="t-title">Lipid panel &amp; CMP — Quartz Grove Lab</div>
+            <div class="text-xs muted">All within normal limits except LDL slightly elevated; medications continued.</div>
+          </li>
+          <li>
+            <div class="t-date">Jul 28, 2025 · 2:15 PM</div>
+            <div class="t-title">Telehealth — medication review</div>
+            <div class="text-xs muted">15-minute call with Dr. Voss. Refilled metformin and lisinopril for 90 days. Reviewed home BP log.</div>
+          </li>
+          <li>
+            <div class="t-date">May 6, 2025</div>
+            <div class="t-title">Annual physical — Dr. Renata Voss</div>
+            <div class="text-xs muted">Full physical, vaccinations updated, mammogram referral placed. Patient generally well.</div>
+          </li>
+          <li>
+            <div class="t-date">Feb 18, 2025</div>
+            <div class="t-title">Sick visit — Nurse Aaliyah Brooks</div>
+            <div class="text-xs muted">Mild URI, symptomatic care advised. Resolved within a week.</div>
+          </li>
+        </ul>
+        <div class="flex justify-between items-center mt-12">
+          <div class="text-xs muted">Showing 5 of 14 encounters</div>
+          <a class="link sm" href="#">Open full chart</a>
+        </div>
+      </div>
+
+      <div class="card col-4">
+        <div class="card-head">
+          <h3 class="card-title">Active medications</h3>
+          <a class="link sm" href="#">+ Add</a>
+        </div>
+        <ul>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Metformin HCl</div>
+              <div class="text-xs muted">500 mg · twice daily with meals</div>
+            </div>
+            <span class="badge blue">Refill ×2</span>
+          </li>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Lisinopril</div>
+              <div class="text-xs muted">10 mg · once daily, morning</div>
+            </div>
+            <span class="badge blue">Refill ×3</span>
+          </li>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Atorvastatin</div>
+              <div class="text-xs muted">20 mg · once daily, evening</div>
+            </div>
+            <span class="badge blue">Refill ×3</span>
+          </li>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Vitamin D₃</div>
+              <div class="text-xs muted">2000 IU · once daily</div>
+            </div>
+            <span class="badge slate">OTC</span>
+          </li>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Acetaminophen</div>
+              <div class="text-xs muted">500 mg PRN · knee discomfort</div>
+            </div>
+            <span class="badge slate">PRN</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Allergies, Latest labs, Care team -->
+    <div class="grid grid-3 mt-16">
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Allergies</h3>
+          <span class="badge red">3 active</span>
+        </div>
+        <ul>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Penicillin</div>
+              <div class="text-xs muted">Hives · confirmed 2009</div>
+            </div>
+            <span class="badge red">Severe</span>
+          </li>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Sulfa drugs</div>
+              <div class="text-xs muted">Rash · self-reported</div>
+            </div>
+            <span class="badge amber">Moderate</span>
+          </li>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Latex</div>
+              <div class="text-xs muted">Contact dermatitis</div>
+            </div>
+            <span class="badge slate">Mild</span>
+          </li>
+          <li class="list-item">
+            <div style="flex:1;">
+              <div class="fw-500">Shellfish</div>
+              <div class="text-xs muted">Patient-reported</div>
+            </div>
+            <span class="badge slate">Mild</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Latest labs</h3>
+          <span class="text-xs muted">Drawn Aug 11, 2025</span>
+        </div>
+        <table class="table">
+          <tbody>
+            <tr><td class="strong">Hemoglobin A1C</td><td class="text-right">6.7 %</td><td class="text-right"><span class="badge green">In range</span></td></tr>
+            <tr><td class="strong">Fasting glucose</td><td class="text-right">112 mg/dL</td><td class="text-right"><span class="badge amber">High normal</span></td></tr>
+            <tr><td class="strong">LDL cholesterol</td><td class="text-right">94 mg/dL</td><td class="text-right"><span class="badge green">In range</span></td></tr>
+            <tr><td class="strong">HDL cholesterol</td><td class="text-right">58 mg/dL</td><td class="text-right"><span class="badge green">In range</span></td></tr>
+            <tr><td class="strong">eGFR</td><td class="text-right">82 mL/min</td><td class="text-right"><span class="badge green">In range</span></td></tr>
+            <tr><td class="strong">Vitamin D, 25-OH</td><td class="text-right">29 ng/mL</td><td class="text-right"><span class="badge amber">Low</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Care team</h3>
+          <a class="link sm" href="#">Manage</a>
+        </div>
+        <ul>
+          <li class="list-item">
+            <div class="avatar">RV</div>
+            <div style="flex:1;">
+              <div class="fw-500">Dr. Renata Voss</div>
+              <div class="text-xs muted">Primary care · MD</div>
+            </div>
+          </li>
+          <li class="list-item">
+            <div class="avatar green">AB</div>
+            <div style="flex:1;">
+              <div class="fw-500">Aaliyah Brooks</div>
+              <div class="text-xs muted">Care coordinator · RN</div>
+            </div>
+          </li>
+          <li class="list-item">
+            <div class="avatar amber">JT</div>
+            <div style="flex:1;">
+              <div class="fw-500">Dr. Jon Taber</div>
+              <div class="text-xs muted">Endocrinology · referral</div>
+            </div>
+          </li>
+          <li class="list-item">
+            <div class="avatar pink">ME</div>
+            <div style="flex:1;">
+              <div class="fw-500">Mira Eliasaf</div>
+              <div class="text-xs muted">Nutrition · co-managing</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Insurance + Quick actions -->
+    <div class="grid grid-2 mt-16">
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Insurance snapshot</h3>
+          <a class="link sm" href="#">Manage</a>
+        </div>
+        <div class="grid grid-2">
+          <div>
+            <div class="muted text-xs fw-600">PRIMARY</div>
+            <div class="fw-600 mt-4">Medicare Part B</div>
+            <div class="text-xs muted">Member · 1EG4-TX5-MK21</div>
+            <div class="mt-8"><span class="badge green dot">Active</span></div>
+          </div>
+          <div>
+            <div class="muted text-xs fw-600">SECONDARY</div>
+            <div class="fw-600 mt-4">BCBS PPO Supplement</div>
+            <div class="text-xs muted">Group · QGFC-44872</div>
+            <div class="mt-8 text-xs muted">$25 office visit<br/>$5 generic Rx</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Quick actions</h3>
+        </div>
+        <div class="grid grid-3 gap-8">
+          <button class="btn">Order labs</button>
+          <button class="btn">Send Rx</button>
+          <button class="btn">Add referral</button>
+          <button class="btn">Print summary</button>
+          <button class="btn">Upload doc</button>
+          <button class="btn">Log visit</button>
+        </div>
+        <div class="alert green mt-12">
+          <div>
+            <div class="alert-title">All care gaps closed</div>
+            <div>Quality measures up to date through Q4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upcoming appointments -->
+    <div class="card mt-16">
+      <div class="card-head">
+        <div>
+          <h3 class="card-title">Upcoming appointments</h3>
+          <div class="text-xs muted">Next four scheduled across the next 90 days</div>
+        </div>
+        <a class="link sm" href="#">Open calendar</a>
+      </div>
+      <table class="table">
+        <thead>
+          <tr><th>Date</th><th>Visit type</th><th>Provider</th><th>Location</th><th>Status</th><th>Est.</th><th></th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="strong">Sep 22, 2025 · 9:00 AM</td><td>Imaging — knee X-ray</td><td>Dr. Mira Hu</td><td>Quartz Grove Imaging</td><td><span class="badge green dot">Confirmed</span></td><td>$40</td><td><a class="link sm" href="#">View</a></td></tr>
+          <tr><td class="strong">Oct 7, 2025 · 11:15 AM</td><td>Lab draw — A1C, CMP</td><td>Aaliyah Brooks, RN</td><td>Quartz Grove Lab</td><td><span class="badge amber dot">Pending</span></td><td>$0</td><td><a class="link sm" href="#">View</a></td></tr>
+          <tr><td class="strong">Oct 14, 2025 · 2:30 PM</td><td>Diabetes follow-up</td><td>Dr. Renata Voss</td><td>Suite 204</td><td><span class="badge green dot">Confirmed</span></td><td>$25</td><td><a class="link sm" href="#">View</a></td></tr>
+          <tr><td class="strong">Nov 3, 2025 · 10:00 AM</td><td>Pneumococcal booster</td><td>Aaliyah Brooks, RN</td><td>Suite 204</td><td><span class="badge slate dot">Tentative</span></td><td>$0</td><td><a class="link sm" href="#">View</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Clinical notes + Preferences -->
+    <div class="grid grid-2 mt-16">
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Clinical notes &amp; documents</h3>
+          <a class="link sm" href="#">+ New note</a>
+        </div>
+        <ul class="timeline">
+          <li>
+            <div class="t-date">Sep 4 · Diabetes follow-up</div>
+            <div class="t-title">Dr. Renata Voss</div>
+            <div class="text-xs muted">Patient reports good adherence to metformin. Home BP log averages 128/80. Discussed Mediterranean-style eating, she's been enjoying lentil soups. No hypoglycemic events. Plan: continue current regimen, recheck A1C in 90 days, refer to PT for left knee.</div>
+          </li>
+          <li>
+            <div class="t-date">Aug 12 · Lab review note</div>
+            <div class="t-title">Quartz Grove Lab</div>
+          </li>
+          <li>
+            <div class="t-date">Jul 28 · Telehealth — medication renewal</div>
+            <div class="t-title">Dr. Renata Voss</div>
+          </li>
+          <li>
+            <div class="t-date">May 6 · Annual physical</div>
+            <div class="t-title">Dr. Renata Voss</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Preferences &amp; access</h3>
+          <a class="link sm" href="#">All changes</a>
+        </div>
+        <div class="list-item">
+          <div style="flex:1;">
+            <div class="fw-500">Portal access</div>
+            <div class="text-xs muted">Last sign-in 3 days ago</div>
+          </div>
+          <span class="badge green dot">Active</span>
+        </div>
+        <div class="list-item">
+          <div style="flex:1;">
+            <div class="fw-500">Appointment reminders</div>
+            <div class="text-xs muted">SMS, 48 hr before</div>
+          </div>
+          <span class="switch on"></span>
+        </div>
+        <div class="list-item">
+          <div style="flex:1;">
+            <div class="fw-500">Preferred pharmacy</div>
+            <div class="text-xs muted">Linden &amp; 4th · Walnut Creek</div>
+          </div>
+          <a class="link sm" href="#">Change</a>
+        </div>
+        <div class="list-item">
+          <div style="flex:1;">
+            <div class="fw-500">Emergency contact</div>
+            <div class="text-xs muted">Henry Ellsworth · spouse · (415) 555-0184</div>
+          </div>
+          <a class="link sm" href="#">Edit</a>
+        </div>
+        <div class="list-item">
+          <div style="flex:1;">
+            <div class="fw-500">Advance directive</div>
+            <div class="text-xs muted">On file · updated May 2024</div>
+          </div>
+          <a class="link sm" href="#">View</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© 2025 Quartz Grove Lab · 1880 Linden Way, Walnut Creek, CA</div>
+    <div class="footer-links">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Plans</a>
+      <a href="settings.html">Settings</a>
+    </div>
+    <div class="footer-support">Support · care@quartzgrove.health · HIPAA-compliant · Build v2.3</div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

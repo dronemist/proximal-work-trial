@@ -1,0 +1,176 @@
+[grade] VLM judge: 15 pairs in 17.7s
+{
+  "per_page_viewport": {
+    "account-overview": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6934306257840022,
+          "extra": {
+            "reference_size": [
+              1440,
+              1684
+            ],
+            "candidate_size": [
+              1440,
+              1554
+            ],
+            "compared_size": [
+              1440,
+              1554
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.41564318537712097,
+          "extra": {
+            "reference_blocks": 284,
+            "candidate_blocks": 274,
+            "matched_pairs": 274,
+            "mean_matched_iou": 0.1727592498064041,
+            "raw_score_before_sqrt": 0.1727592647075653
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8074693681367482,
+          "extra": {
+            "reference_blocks": 284,
+            "candidate_blocks": 274,
+            "matched_pairs": 274,
+            "mean_normalized_centroid_distance": 0.1925306318632518,
+            "page_diagonal_px": 2215.9548648685886
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8060058205872774,
+          "extra": {
+            "bg_score": 0.6804975468317668,
+            "fg_score": 0.9315140943427881,
+            "bg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 10,
+              "weighted_mean_oklab_distance": 0.043525367975234985,
+              "base_score_before_penalty": 0.7098308801651001,
+              "over_color_penalty": 0.029333333333333336
+            },
+            "fg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.009072885848581791,
+              "base_score_before_penalty": 0.9395140943427881,
+              "over_color_penalty": 0.00799999999999999
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7496559950308131,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.642365707186876,
+            "reference_buckets": [
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.3380281690140845
+              ],
+              [
+                15.0,
+                0.6126760563380281
+              ],
+              [
+                22.0,
+                0.02464788732394366
+              ],
+              [
+                32.0,
+                0.017605633802816902
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.040145985401459854
+              ],
+              [
+                11.0,
+                0.06934306569343066
+              ],
+              [
+                11.5,
+                0.09124087591240876
+              ],
+              [
+                12.0,
+                0.04744525547445255
+              ],
+              [
+                12.5,
+                0.13503649635036497
+              ],
+              [
+                13.0,
+                0.22992700729927007
+              ],
+              [
+                13.5,
+                0.0364963503649635
+              ],
+              [
+                14.0,
+                0.3248175182481752
+              ],
+              [
+                22.0,
+                0.01824817518248175
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system"
+            ],
+            "candidate_fonts": [
+              "ui-sans-serif"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.7590361445783133,
+          "extra": {
+            "reference_tokens": 368,
+            "candidate_tokens": 362,
+            "matched_tokens": 315,
+            "union_tokens": 415,
+            "reference_unique": 218,
+            "candidate_unique": 217
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content discrepancies: wrong account numbers throughout (e.g., Joint Checking shows 0188 vs 0218, Long Tide shows 9302 vs 9920, Pacific Federal shows 7700 vs 1182), wrong Reserve target ($6,500 v

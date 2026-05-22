@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speakers — Ember Vector Works</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .speaker-tile {
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius);
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .speaker-tile .av { margin: 0 auto 10px; }
+  .speaker-tile .name { font-weight: 600; font-size: 14px; }
+  .speaker-tile .role { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .speaker-tile .chip { margin-top: 8px; font-size: 10px; }
+
+  .keynote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .keynote-card {
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    border-left: 3px solid var(--coral);
+    border-radius: var(--radius);
+    padding: 16px;
+    display: flex;
+    gap: 14px;
+  }
+  .keynote-card .meta { color: var(--muted); font-size: 12px; }
+  .alpha-rail { display: flex; gap: 4px; flex-wrap: wrap; margin: 12px 0; }
+  .alpha-rail span { padding: 3px 7px; font-size: 11px; color: var(--ink-2); border-radius: 4px; }
+  .alpha-rail span.has { font-weight: 700; }
+
+  @media (max-width: 980px) {
+    .speakers-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .speakers-grid { grid-template-columns: repeat(2, 1fr); }
+    .keynote-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 460px) {
+    .speakers-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="schedule.html" class="brand"><span class="dot"></span> Ember Vector Works</a>
+    <nav class="nav">
+      <a href="schedule.html">Schedule</a>
+      <a href="speakers.html" class="active">Speakers</a>
+      <a href="my-agenda.html">My Agenda</a>
+      <a href="attendees.html">Attendees</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="livestream.html">Livestream</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="btn btn-primary" href="registration.html">Register</a>
+      <span class="avatar-sm">MK</span>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <div class="page-header">
+      <div>
+        <div class="eyebrow">The 2025 program</div>
+        <h1>Voices on the program this year</h1>
+        <p>Sixty-eight speakers across four days — engineers, type designers, system thinkers, and the occasional gardener. Browse by name, track, or what they're talking about.</p>
+      </div>
+      <div class="shapes">
+        <span class="shape shape-pill bg-sage-2"></span>
+        <span class="shape shape-circle outline-coral"></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <div class="filter-row">
+          <input type="search" placeholder="Search by name, company…">
+          <span class="chip"><span class="tag-dot" style="background:var(--sage)"></span> Design Systems</span>
+          <span class="chip"><span class="tag-dot" style="background:#c98c52"></span> Indie Code</span>
+          <span class="chip"><span class="tag-dot" style="background:var(--olive)"></span> Type &amp; identity</span>
+          <span class="chip">Hosting</span>
+          <span class="chip">Indie Practice</span>
+        </div>
+
+        <div class="alpha-rail">
+          <span class="has">A</span><span class="has">B</span><span>C</span><span class="has">D</span><span class="has">E</span>
+          <span class="has">F</span><span class="has">G</span><span class="has">H</span><span class="has">I</span><span class="has">J</span>
+          <span class="has">K</span><span class="has">L</span><span class="has">M</span><span class="has">N</span><span class="has">O</span>
+          <span class="has">P</span><span>Q</span><span class="has">R</span><span class="has">S</span><span class="has">T</span>
+          <span class="has">U</span><span class="has">V</span><span class="has">W</span><span>X</span><span>Y</span><span>Z</span>
+        </div>
+
+        <div class="flex between ai-center mb-12">
+          <h2 style="font-family:var(--serif);margin:0;">Keynote speakers</h2>
+          <span class="muted small">4 of 68 featured</span>
+        </div>
+
+        <div class="keynote-grid mb-24">
+          <div class="keynote-card">
+            <span class="av av-lg av-coral">AO</span>
+            <div>
+              <div class="person-name">Amara Okafor</div>
+              <div class="meta">Principal Designer · Lumens &amp; Loom · Lagos</div>
+              <p style="font-size:12.5px; margin:8px 0 6px;">Amara has spent a decade pulling identity systems apart and reassembling them with three moving parts. She's been a quiet champion for design systems that age well — not the ones that get fancier.</p>
+              <div class="meta"><em>The Patient Vector: Designing So Your First, Ten Years Out</em></div>
+              <div style="margin-top:6px;"><span class="chip chip-coral">Keynote</span><span class="chip">Design Systems</span></div>
+            </div>
+          </div>
+
+          <div class="keynote-card">
+            <span class="av av-lg av-sage">RT</span>
+            <div>
+              <div class="person-name">Rin Takahashi</div>
+              <div class="meta">Type designer · Plain &amp; Pine</div>
+              <p style="font-size:12.5px; margin:8px 0 6px;">Type designer behind Kahar and Plain Mono. She still does dry-graph testing for a single 0-to-O legibility loop weekly, brings the family copy-fitting trends, and a working pet.</p>
+              <div class="meta"><em>A Quiet Argument for Slower Type</em></div>
+              <div style="margin-top:6px;"><span class="chip chip-coral">Keynote</span><span class="chip">Type</span></div>
+            </div>
+          </div>
+
+          <div class="keynote-card">
+            <span class="av av-lg av-olive">DM</span>
+            <div>
+              <div class="person-name">Diego Marin</div>
+              <div class="meta">Staff Engineer · HearthLight · Mexico City</div>
+              <p style="font-size:12.5px; margin:8px 0 6px;">Diego writes about being trapped in infrastructure with surprising affection. Expects a talk about caching, observability, and the joy of deleting code you wrote two years ago.</p>
+              <div class="meta"><em>Boring on Purpose: A Featureful Survival Guide</em></div>
+              <div style="margin-top:6px;"><span class="chip chip-coral">Keynote</span><span class="chip">Indie Code</span></div>
+            </div>
+          </div>
+
+          <div class="keynote-card">
+            <span class="av av-lg av-coral">SL</span>
+            <div>
+              <div class="person-name">Saoirse Lynch</div>
+              <div class="meta">Founder · Field Notes Co. · Dublin</div>
+              <p style="font-size:12.5px; margin:8px 0 6px;">Saoirse runs a two-person studio with a stubborn focus on three projects per year. She'll bring a small reading list, three pricing scripts that didn't work, and the tale of the project that nearly broke her.</p>
+              <div class="meta"><em>The Small Studio Math Nobody Teaches</em></div>
+              <div style="margin-top:6px;"><span class="chip chip-coral">Keynote</span><span class="chip">Studio Craft</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex between ai-center mb-12">
+          <h2 style="font-family:var(--serif);margin:0;">All speakers, A–Z</h2>
+          <span class="muted small">68 in the program</span>
+        </div>
+
+        <div class="speakers-grid">
+          <div class="speaker-tile"><span class="av av-xl av-coral">AO</span><div class="name">Amara Okafor</div><div class="role">Lumens &amp; Loom</div><span class="chip chip-coral">Keynote</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-sage">AK</span><div class="name">Anders Kjellsen</div><div class="role">Drift &amp; Bridges Oslo</div><span class="chip">Design</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-coral">BS</span><div class="name">Beatriz Salgado</div><div class="role">Independent · Porto</div><span class="chip">Studio</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-olive">CO</span><div class="name">Chiamaka Obi</div><div class="role">Slate Engineering, Berlin</div><span class="chip">Indie Code</span></div>
+
+          <div class="speaker-tile"><span class="av av-xl av-coral">DM</span><div class="name">Diego Marin</div><div class="role">HearthLight</div><span class="chip chip-coral">Keynote</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-sage">EW</span><div class="name">Eleanor Whitby</div><div class="role">Cartograph Co · London</div><span class="chip">Design</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-coral">FA</span><div class="name">Farouk Aziz</div><div class="role">Mosaic Labs · Cairo</div><span class="chip">Indie</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-olive">GR</span><div class="name">Greta Bystrom</div><div class="role">Northbound Studio</div><span class="chip">Design</span></div>
+
+          <div class="speaker-tile"><span class="av av-xl av-sage">HM</span><div class="name">Hugo Mertens</div><div class="role">Indie Crew · Paris</div><span class="chip">Studio</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-coral">IY</span><div class="name">Iniu Yiika</div><div class="role">Independent · Istanbul</div><span class="chip">Type</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-olive">JK</span><div class="name">Jonas Klein</div><div class="role">Drift Vector Foundry</div><span class="chip">Design</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-sage">KP</span><div class="name">Keera Pillai</div><div class="role">Lantern Bengaluru</div><span class="chip">Design</span></div>
+
+          <div class="speaker-tile"><span class="av av-xl av-coral">LY</span><div class="name">Liang Ye</div><div class="role">Threadlines Studio</div><span class="chip">Studio</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-olive">MR</span><div class="name">Mira Rojas</div><div class="role">Foster &amp; Forge</div><span class="chip">Design</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-sage">NB</span><div class="name">Noor Bashir</div><div class="role">Lantern Carolina</div><span class="chip">Indie</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-coral">OE</span><div class="name">Otto Eklund</div><div class="role">Slag &amp; Sons Stockholm</div><span class="chip">Type</span></div>
+
+          <div class="speaker-tile"><span class="av av-xl av-coral">PD</span><div class="name">Priya Domingues</div><div class="role">Northsoft Lisbon</div><span class="chip">Design</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-olive">QH</span><div class="name">Quinn Hartley</div><div class="role">Hadley &amp; Co. · Manchester</div><span class="chip">Studio</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-sage">RT</span><div class="name">Rin Takahashi</div><div class="role">Plain &amp; Pine</div><span class="chip chip-coral">Keynote</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-coral">SL</span><div class="name">Saoirse Lynch</div><div class="role">Field Notes Co. · Dublin</div><span class="chip chip-coral">Keynote</span></div>
+
+          <div class="speaker-tile"><span class="av av-xl av-olive">TA</span><div class="name">Tomás Albuquerque</div><div class="role">Praça Studio · São Paulo</div><span class="chip">Studio</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-coral">UN</span><div class="name">Una Nilsson</div><div class="role">Bridges Oslo</div><span class="chip">Design</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-sage">VC</span><div class="name">Viola Castellano</div><div class="role">Polo Studio Milan</div><span class="chip">Type</span></div>
+          <div class="speaker-tile"><span class="av av-xl av-ink">WO</span><div class="name">Wren Owusu</div><div class="role">HearthLight Engineering</div><span class="chip">Indie</span></div>
+        </div>
+
+        <div class="text-center" style="margin-top:18px;">
+          <button class="btn btn-ghost">Load 16 more speakers</button>
+        </div>
+      </div>
+
+      <aside class="aside">
+        <div class="widget">
+          <h4>By the numbers</h4>
+          <div class="flex between" style="margin-bottom:8px;">
+            <div><strong style="font-size:24px;">68</strong><div class="meta">Speakers</div></div>
+            <div><strong style="font-size:24px;">42</strong><div class="meta">Sessions</div></div>
+            <div><strong style="font-size:24px;">21</strong><div class="meta">Countries</div></div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h4>People to follow</h4>
+          <div class="person mb-12"><span class="av av-sage">CO</span><div><div class="person-name">Chiamaka Obi</div><div class="meta">Slate Engineering</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Follow</button></div>
+          <div class="person mb-12"><span class="av av-coral">KP</span><div><div class="person-name">Keera Pillai</div><div class="meta">Lantern Bengaluru</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Follow</button></div>
+          <div class="person mb-12"><span class="av av-olive">JK</span><div><div class="person-name">Jonas Klein</div><div class="meta">Drift Vector</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Follow</button></div>
+          <div class="person"><span class="av av-sage">WO</span><div><div class="person-name">Wren Owusu</div><div class="meta">HearthLight</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Follow</button></div>
+        </div>
+
+        <div class="widget">
+          <h4>Trending topics</h4>
+          <ul class="widget-list">
+            <li><strong>#design-tokens-at-scale</strong><div class="meta">12 speakers</div></li>
+            <li><strong>#small-studio-math</strong><div class="meta">9 speakers</div></li>
+            <li><strong>#type-prove-readable</strong><div class="meta">6 speakers</div></li>
+            <li><strong>#caching-honestly</strong><div class="meta">5 speakers</div></li>
+          </ul>
+        </div>
+
+        <div class="widget" style="background:var(--coral-3); border-color:transparent;">
+          <h4>Become next year's speaker</h4>
+          <p style="font-size:12.5px; margin:0 0 10px;">The 2026 call for proposals opens September 4. We typically curate from a long writing, recording, and the early draftiness of our community.</p>
+          <button class="btn btn-primary btn-sm">See the CFP list</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="#"><span class="dot"></span> Ember Vector Works</a>
+      <p>A four-day conference for independent designers, developers, and the studios they build.</p>
+    </div>
+    <div>
+      <h5>Program</h5>
+      <ul>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+        <li><a href="livestream.html">Livestream</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Attend</h5>
+      <ul>
+        <li><a href="registration.html">Register</a></li>
+        <li><a href="my-agenda.html">My agenda</a></li>
+        <li><a href="attendees.html">Attendees</a></li>
+        <li><a href="#">Code of conduct</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Info</h5>
+      <ul>
+        <li><a href="#">Newsletter</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Ember Vector Works. Held at the LX/dotty Hall, Copenhagen.</span>
+    <span>v3.0 · Roster last updated Sep 28</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+[grade] VLM judge: 24 pairs in 19.5s
+{
+  "per_page_viewport": {
+    "attendees": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6963759044676184,
+          "extra": {
+            "reference_size": [
+              1440,
+              2115
+            ],
+            "candidate_size": [
+              1440,
+              1726
+            ],
+            "compared_size": [
+              1440,
+              1726
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4119088053703308,
+          "extra": {
+            "reference_blocks": 358,
+            "candidate_blocks": 332,
+            "matched_pairs": 332,
+            "mean_matched_iou": 0.16966885328292847,
+            "raw_score_before_sqrt": 0.16966886818408966
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7804159064254829,
+          "extra": {
+            "reference_blocks": 358,
+            "candidate_blocks": 332,
+            "matched_pairs": 332,
+            "mean_normalized_centroid_distance": 0.21958409357451714,
+            "page_diagonal_px": 2558.379364539276
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.6119117645869652,
+          "extra": {
+            "bg_score": 0.8305722313026587,
+            "fg_score": 0.3932512978712717,
+            "bg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 9,
+              "weighted_mean_oklab_distance": 0.0050141653046011925,
+              "base_score_before_penalty": 0.9665722313026587,
+              "over_color_penalty": 0.136
+            },
+            "fg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 16,
+              "weighted_mean_oklab_distance": 0.061012305319309235,
+              "base_score_before_penalty": 0.5932512978712717,
+              "over_color_penalty": 0.2
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6663064568668828,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.6661520812384041,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.03910614525139665
+              ],
+              [
+                12.0,
+                0.0670391061452514
+              ],
+              [
+                13.0,
+                0.2569832402234637
+              ],
+              [
+                14.0,
+                0.23184357541899442
+              ],
+              [
+                15.0,
+                0.03910614525139665
+              ],
+              [
+                16.0,
+                0.29329608938547486
+              ],
+              [
+                18.0,
+                0.0446927374301676
+              ],
+              [
+                28.0,
+                0.019553072625698324
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                11.0,
+                0.32831325301204817
+              ],
+              [
+                12.0,
+                0.20783132530120482
+              ],
+              [
+                13.0,
+                0.14759036144578314
+              ],
+              [
+                14.0,
+                0.3042168674698795
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6275992438563327,
+          "extra": {
+            "reference_tokens": 451,
+            "candidate_tokens": 410,
+            "matched_tokens": 332,
+            "union_tokens": 529,
+            "reference_unique": 284,
+            "candidate_unique": 269
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple major content differences: wrong theme (dark background vs light), hallucinated/wrong attendee details (different companies, cities, roles for same 

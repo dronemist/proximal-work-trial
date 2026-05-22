@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customers · Onyx Bridge Lab</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="brand"><span class="dot"></span> Onyx Bridge Lab</div>
+  <nav class="navlinks">
+    <a href="orders.html">Orders</a>
+    <a href="marketing.html">Marketing</a>
+    <a class="active" href="customers.html">Customers</a>
+    <a href="products.html">Products</a>
+    <a href="discounts.html">Discounts</a>
+  </nav>
+  <div class="nav-right">
+    <span class="pill">Workspace · Live</span>
+    <span class="avatar">IT</span>
+  </div>
+</header>
+
+<main class="page">
+  <div class="crumbs">Customers <span class="sep">/</span> <span class="active">Directory</span></div>
+  <h1 class="page-title">A field guide to the people who keep buying.</h1>
+  <p class="page-subtitle">4,812 active accounts across two regions, segmented by recency, frequency and lifetime spend. Filter below, drill into any account for full order history, or open the segment workbench in the right column.</p>
+
+  <section class="metrics">
+    <div class="metric">
+      <div class="label">Total customers</div>
+      <div class="value tnum">4,812</div>
+      <div class="delta up">+ 6.1% MoM</div>
+    </div>
+    <div class="metric">
+      <div class="label">Repeat rate</div>
+      <div class="value tnum">38.4%</div>
+      <div class="delta up">+ 2.1 pts</div>
+    </div>
+    <div class="metric">
+      <div class="label">Avg. LTV</div>
+      <div class="value tnum">$284</div>
+      <div class="delta up">+ $11 vs Q3</div>
+    </div>
+    <div class="metric">
+      <div class="label">At-risk accounts</div>
+      <div class="value tnum">127</div>
+      <div class="delta down">+ 14 this week</div>
+    </div>
+  </section>
+
+  <div class="maincols">
+    <!-- LEFT MAIN -->
+    <div>
+      <div class="card">
+        <div class="toolbar">
+          <div style="flex:1 1 220px">
+            <div class="field-label">Search</div>
+            <input class="input" type="text" placeholder="Name, email, order #, tag…">
+          </div>
+          <div style="flex:0 1 180px">
+            <div class="field-label">Segment</div>
+            <select class="select"><option>VIP (top 5%)</option></select>
+          </div>
+          <div style="flex:0 1 180px">
+            <div class="field-label">Region</div>
+            <select class="select"><option>All regions</option></select>
+          </div>
+          <div style="display:flex; gap:6px; padding-top:14px">
+            <button class="btn">Export CSV</button>
+            <button class="btn primary">Apply</button>
+          </div>
+        </div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center; padding-top:4px">
+          <span class="chip active">Segment: VIP <span class="x">×</span></span>
+          <span class="chip">Spent > $500 <span class="x">×</span></span>
+          <span class="chip">Subscribed to email <span class="x">×</span></span>
+          <span class="chip">Created after Jan 2025 <span class="x">×</span></span>
+          <a class="btn ghost sm" href="#">Reset</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title">Directory <span class="card-sub" style="margin-left:6px">412 matching · sorted by LTV</span></h2>
+          <div style="display:flex; gap:6px">
+            <button class="btn sm">Columns</button>
+            <button class="btn sm">Density</button>
+            <button class="btn sm caret">Export</button>
+          </div>
+        </div>
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th style="width:24px"><span class="cb"></span></th>
+              <th>Customer</th>
+              <th class="num">Segment</th>
+              <th class="num">Orders</th>
+              <th class="num">LTV</th>
+              <th>Status</th>
+              <th>Last seen</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="cb on"></span></td>
+              <td><span class="avatar-sm">IT</span><strong>Inez Tamura</strong><div class="muted" style="font-size:11px">inez@duneglass.co</div></td>
+              <td class="num"><span class="chip">VIP</span></td>
+              <td class="num">24</td>
+              <td class="num">$3,182</td>
+              <td><span class="chip green"><span class="dot-icon"></span>Active</span></td>
+              <td>3d ago</td>
+              <td class="muted">›</td>
+            </tr>
+            <tr>
+              <td><span class="cb"></span></td>
+              <td><span class="avatar-sm">MR</span><strong>Marcus Rincoll</strong><div class="muted" style="font-size:11px">m.rincoll@northgrade.com</div></td>
+              <td class="num"><span class="chip">VIP</span></td>
+              <td class="num">21</td>
+              <td class="num">$2,975</td>
+              <td><span class="chip green"><span class="dot-icon"></span>Active</span></td>
+              <td>1d ago</td>
+              <td class="muted">›</td>
+            </tr>
+            <tr>
+              <td><span class="cb"></span></td>
+              <td><span class="avatar-sm">SB</span><strong>Sirena Bezuyen</strong><div class="muted" style="font-size:11px">sirena.b@quietharbor.io</div></td>
+              <td class="num"><span class="chip">VIP</span></td>
+              <td class="num">19</td>
+              <td class="num">$2,510</td>
+              <td><span class="chip amber"><span class="dot-icon amber"></span>At risk</span></td>
+              <td>26d ago</td>
+              <td class="muted">›</td>
+            </tr>
+            <tr>
+              <td><span class="cb"></span></td>
+              <td><span class="avatar-sm">DC</span><strong>Daiyu Chen</strong><div class="muted" style="font-size:11px">daiyu.chen@hilltrade.co</div></td>
+              <td class="num"><span class="chip">VIP</span></td>
+              <td class="num">17</td>
+              <td class="num">$2,410</td>
+              <td><span class="chip green"><span class="dot-icon"></span>Active</span></td>
+              <td>5d ago</td>
+              <td class="muted">›</td>
+            </tr>
+            <tr>
+              <td><span class="cb"></span></td>
+              <td><span class="avatar-sm">RD</span><strong>Renato de Vries</strong><div class="muted" style="font-size:11px">renato@vrieshouse.com</div></td>
+              <td class="num"><span class="chip">VIP</span></td>
+              <td class="num">16</td>
+              <td class="num">$2,310</td>
+              <td><span class="chip green"><span class="dot-icon"></span>Active</span></td>
+              <td>2d ago</td>
+              <td class="muted">›</td>
+            </tr>
+            <tr>
+              <td><span class="cb"></span></td>
+              <td><span class="avatar-sm">TS</span><strong>Theo Sztejnberg</strong><div class="muted" style="font-size:11px">theo.s@cliffside.studio</div></td>
+              <td class="num"><span class="chip">VIP</span></td>
+              <td class="num">15</td>
+              <td class="num">$2,190</td>
+              <td><span class="chip green"><span class="dot-icon"></span>Active</span></td>
+              <td>4d ago</td>
+              <td class="muted">›</td>
+            </tr>
+            <tr>
+              <td><span class="cb"></span></td>
+              <td><span class="avatar-sm">PK</span><strong>Priya Kothari</strong><div class="muted" style="font-size:11px">pk@studiokothari.co</div></td>
+              <td class="num"><span class="chip">VIP</span></td>
+              <td class="num">14</td>
+              <td class="num">$2,055</td>
+              <td><span class="chip green"><span class="dot-icon"></span>Active</span></td>
+              <td>1d ago</td>
+              <td class="muted">›</td>
+            </tr>
+            <tr>
+              <td><span class="cb"></span></td>
+              <td><span class="avatar-sm">AS</span><strong>Aurelia Berestova</strong><div class="muted" style="font-size:11px">aurelia.b@brasspine.com</div></td>
+              <td class="num"><span class="chip">VIP</span></td>
+              <td class="num">13</td>
+              <td class="num">$1,985</td>
+              <td><span class="chip amber"><span class="dot-icon amber"></span>At risk</span></td>
+              <td>34d ago</td>
+              <td class="muted">›</td>
+            </tr>
+            <tr>
+              <td><span class="cb"></span></td>
+              <td><span class="avatar-sm">NS</span><strong>Naila Selvarg</strong><div class="muted" style="font-size:11px">naila.s@quietharbor.io</div></td>
+              <td class="num"><span class="chip">VIP</span></td>
+              <td class="num">12</td>
+              <td class="num">$1,940</td>
+              <td><span class="chip green"><span class="dot-icon"></span>Active</span></td>
+              <td>7d ago</td>
+              <td class="muted">›</td>
+            </tr>
+            <tr>
+              <td><span class="cb"></span></td>
+              <td><span class="avatar-sm">MP</span><strong>Marshell Park</strong><div class="muted" style="font-size:11px">m.park@oakspire.com</div></td>
+              <td class="num"><span class="chip">VIP</span></td>
+              <td class="num">12</td>
+              <td class="num">$1,820</td>
+              <td><span class="chip green"><span class="dot-icon"></span>Active</span></td>
+              <td>9d ago</td>
+              <td class="muted">›</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pager">
+          <span>Showing 1–10 of 412</span>
+          <div class="pages">
+            <a class="nav">‹</a>
+            <a class="active">1</a>
+            <a>2</a>
+            <a>3</a>
+            <a>4</a>
+            <a>…</a>
+            <a>42</a>
+            <a class="nav">›</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer detail -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h2 class="card-title">IT · Inez Tamura</h2>
+            <div class="card-sub" style="margin-top:4px">Customer ID 80424 · Member May 22, 2023</div>
+          </div>
+          <div style="display:flex; gap:6px">
+            <button class="btn sm">Message</button>
+            <button class="btn sm primary">New order</button>
+          </div>
+        </div>
+        <div class="row" style="gap:24px; flex-wrap:wrap; margin-bottom:12px">
+          <div>
+            <div class="field-label">Lifetime value</div>
+            <div style="font-size:22px; font-weight:800" class="tnum">$3,182.40</div>
+          </div>
+          <div>
+            <div class="field-label">Orders</div>
+            <div style="font-size:22px; font-weight:800" class="tnum">24</div>
+          </div>
+          <div>
+            <div class="field-label">Last seen</div>
+            <div style="font-size:22px; font-weight:800" class="tnum">3d ago</div>
+          </div>
+        </div>
+        <h3 style="font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:#8a8276; margin: 14px 0 6px">Recent activity</h3>
+        <div class="activity-item">
+          <div class="when">OCT 12<br>2024</div>
+          <div class="body">
+            <div class="ttl">Order #4801 delivered</div>
+            <div class="sub">2 items · Brass Lapel Pin / Linen Throw v3 · $148.20 paid via Shop Pay</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="when">OCT 04<br>2024</div>
+          <div class="body">
+            <div class="ttl">Opened campaign "Autumn Index Vol. 3"</div>
+            <div class="sub">Clicked through to the Edisone collection; viewed 4m 12s</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="when">SEP 28<br>2024</div>
+          <div class="body">
+            <div class="ttl">Order #4773 — $214.50</div>
+            <div class="sub">Coupon: VIP-15 applied · Shipped to Portland OR via USPS Priority</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="when">SEP 12<br>2024</div>
+          <div class="body">
+            <div class="ttl">Left review on Cedar Notebook</div>
+            <div class="sub">5 stars — "The paper feels considered. Coming back for the linen edition."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside>
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title">Segments</h2>
+          <span class="card-sub">PCT · OF 4,812</span>
+        </div>
+        <div class="bar"><div class="lbl">VIP</div><div class="track"><div class="fill" style="width:24%"></div></div><div class="val">241</div><div class="pct">5%</div></div>
+        <div class="bar"><div class="lbl">Loyal</div><div class="track"><div class="fill" style="width:62%"></div></div><div class="val">964</div><div class="pct">20%</div></div>
+        <div class="bar"><div class="lbl">New</div><div class="track"><div class="fill" style="width:48%"></div></div><div class="val">813</div><div class="pct">17%</div></div>
+        <div class="bar"><div class="lbl">Dormant</div><div class="track"><div class="fill" style="width:35%"></div></div><div class="val">612</div><div class="pct">13%</div></div>
+        <div class="bar"><div class="lbl">Browse only</div><div class="track"><div class="fill" style="width:84%"></div></div><div class="val">2,055</div><div class="pct">42%</div></div>
+        <div class="bar"><div class="lbl">At risk</div><div class="track"><div class="fill" style="width:12%"></div></div><div class="val">127</div><div class="pct">3%</div></div>
+        <hr class="hr">
+        <div style="display:flex; justify-content:space-between; align-items:center">
+          <span class="muted">Updated 2h ago</span>
+          <button class="btn primary sm">Build campaign</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title">Cohort retention</h2>
+          <span class="card-sub">% RETAINED BY MONTH</span>
+        </div>
+        <div class="heatmap">
+          <div class="cell h5">M0</div><div class="cell h5">100</div><div class="cell h4">62</div><div class="cell h3">44</div><div class="cell h2">32</div><div class="cell h2">28</div><div class="cell h1">24</div>
+          <div class="cell h5">JUN</div><div class="cell h5">100</div><div class="cell h4">58</div><div class="cell h3">41</div><div class="cell h2">29</div><div class="cell h2">26</div><div class="cell h1">22</div>
+          <div class="cell h5">JUL</div><div class="cell h5">100</div><div class="cell h4">61</div><div class="cell h3">43</div><div class="cell h2">31</div><div class="cell h1">24</div><div class="cell empty">·</div>
+          <div class="cell h5">AUG</div><div class="cell h5">100</div><div class="cell h4">64</div><div class="cell h3">46</div><div class="cell h2">34</div><div class="cell empty">·</div><div class="cell empty">·</div>
+          <div class="cell h5">SEP</div><div class="cell h5">100</div><div class="cell h4">60</div><div class="cell h3">42</div><div class="cell empty">·</div><div class="cell empty">·</div><div class="cell empty">·</div>
+          <div class="cell h5">OCT</div><div class="cell h5">100</div><div class="cell h4">59</div><div class="cell empty">·</div><div class="cell empty">·</div><div class="cell empty">·</div><div class="cell empty">·</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title">Top locations</h2>
+          <span class="card-sub">BY LTV</span>
+        </div>
+        <div class="bar"><div class="lbl">Portland</div><div class="track"><div class="fill" style="width:90%"></div></div><div class="val">$440k</div></div>
+        <div class="bar"><div class="lbl">Brooklyn</div><div class="track"><div class="fill" style="width:80%"></div></div><div class="val">$386k</div></div>
+        <div class="bar"><div class="lbl">Toronto</div><div class="track"><div class="fill" style="width:64%"></div></div><div class="val">$312k</div></div>
+        <div class="bar"><div class="lbl">Oakland</div><div class="track"><div class="fill" style="width:52%"></div></div><div class="val">$251k</div></div>
+        <div class="bar"><div class="lbl">Austin</div><div class="track"><div class="fill" style="width:42%"></div></div><div class="val">$197k</div></div>
+        <div class="bar"><div class="lbl">Seattle</div><div class="track"><div class="fill" style="width:34%"></div></div><div class="val">$162k</div></div>
+        <div class="bar"><div class="lbl">Chicago</div><div class="track"><div class="fill" style="width:24%"></div></div><div class="val">$118k</div></div>
+        <div class="bar"><div class="lbl">Other</div><div class="track"><div class="fill" style="width:18%"></div></div><div class="val">$87k</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2 class="card-title">Saved views</h2>
+          <span class="card-sub">7 PINNED</span>
+        </div>
+        <div class="kbar"><span class="k"><strong>VIP — North America</strong></span><span class="muted">241</span></div>
+        <div class="kbar"><span class="k"><strong>At risk — winback eligible</strong></span><span class="muted">127</span></div>
+        <div class="kbar"><span class="k"><strong>First order under $40</strong></span><span class="muted">412</span></div>
+        <div class="kbar"><span class="k"><strong>EU subscribers, no recent purchase</strong></span><span class="muted">84</span></div>
+        <div style="margin-top:10px">
+          <button class="btn sm">+ New saved view</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>· Production · ix-west-2 · © 2025 Onyx Bridge Lab</div>
+  <div class="right">
+    <a href="orders.html">Orders</a>
+    <a href="marketing.html">Marketing</a>
+    <a href="customers.html">Customers</a>
+    <a href="products.html">Products</a>
+    <a href="discounts.html">Discounts</a>
+    <a href="#">Docs</a>
+    <a href="#">Support</a>
+  </div>
+</footer>
+
+</body>
+</html>

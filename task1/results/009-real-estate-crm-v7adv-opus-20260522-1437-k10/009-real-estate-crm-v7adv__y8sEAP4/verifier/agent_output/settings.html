@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brokerage &amp; MLS Settings — Ember Grove Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="mark"></span> Ember Grove Works</div>
+  <nav class="topnav">
+    <a href="listings.html">Listings</a>
+    <a href="listing-detail.html">Listing Detail</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="reports.html">Reports</a>
+    <a href="settings.html" class="active">Settings</a>
+  </nav>
+  <div class="search"><input placeholder="Search settings, integrations…"></div>
+  <div class="icons">
+    <span class="icon-btn">?</span>
+    <span class="icon-btn">!</span>
+    <span class="avatar">MH</span>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="search" style="margin-bottom:14px">
+      <input placeholder="Filter settings…" style="background:var(--card);border:1px solid var(--border);color:var(--text);height:28px;padding:0 10px;border-radius:6px;width:100%;font:inherit">
+    </div>
+    <div class="group">
+      <h6>Workspace</h6>
+      <div class="nav-item">Brokerage profile</div>
+      <div class="nav-item">Branding &amp; templates</div>
+      <div class="nav-item">Team &amp; permissions</div>
+      <div class="nav-item">Billing</div>
+    </div>
+    <div class="group">
+      <h6>Connections</h6>
+      <div class="nav-item active">MLS connections</div>
+      <div class="nav-item">Stratus MLS — Northeast</div>
+      <div class="nav-item">Bright MLS — Mid-Atlantic</div>
+      <div class="nav-item">Integrations</div>
+      <div class="nav-item">Calendars &amp; mail</div>
+      <div class="nav-item">API &amp; webhooks</div>
+    </div>
+    <div class="group">
+      <h6>Personal</h6>
+      <div class="nav-item">Your profile</div>
+      <div class="nav-item">Notifications</div>
+      <div class="nav-item">Keyboard shortcuts</div>
+      <div class="nav-item">Security &amp; sessions</div>
+    </div>
+    <div class="group">
+      <h6>Advanced</h6>
+      <div class="nav-item">Import &amp; export</div>
+      <div class="nav-item">Audit log</div>
+      <div class="nav-item">Danger zone</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="breadcrumbs"><a>Settings</a><span>›</span><a>Connections</a><span>›</span><a>MLS connections</a></div>
+    <div class="page-head">
+      <div>
+        <h1>Brokerage &amp; MLS Settings</h1>
+        <div class="sub">Workspace owned by Devolan Halls · 4 seats · Last synced 32 minutes ago</div>
+      </div>
+      <div class="head-actions">
+        <span class="avatar" style="background:linear-gradient(135deg,#e89571,#a14528)">DH</span>
+      </div>
+    </div>
+
+    <div class="tab-bar">
+      <a class="active">Brokerage</a>
+      <a>MLS connections</a>
+      <a>Branding</a>
+      <a>Billing</a>
+    </div>
+
+    <!-- Brokerage profile -->
+    <div class="settings-card">
+      <div class="flex between">
+        <div>
+          <h3>Brokerage profile</h3>
+          <div class="desc">Public details used on listing flyers, buyer reports, and outbound mail.</div>
+        </div>
+        <div class="flex gap-2">
+          <button class="btn">Cancel</button>
+          <button class="btn primary">Save changes</button>
+        </div>
+      </div>
+
+      <div style="font-weight:600;margin:8px 0">Identity</div>
+      <div class="desc">Shown on signature blocks and document outputs.</div>
+
+      <div class="form-grid">
+        <div class="form-row"><label>Brokerage name</label><input value="Ember Grove Works, LLC"></div>
+        <div class="form-row"><label>Doing business as</label><input value="Ember Grove Realty"></div>
+        <div class="form-row"><label>EIN</label><input value="61-EG-104020 35"></div>
+        <div class="form-row"><label>Principal license #</label><input value="NY-RE-3-998104"></div>
+        <div class="form-row"><label>Year-of-entity rights</label><input value="2014 / Inc. NY"></div>
+        <div class="form-row"><label>License state</label><input value="New York — Hudson Valley region"></div>
+        <div class="form-row" style="grid-column:1/-1"><label>Office address</label><input value="148 Warren Street, Suite 4, Hudson, NY 12534"></div>
+        <div class="form-row"><label>Main line</label><input value="(518) 555-0140"></div>
+        <div class="form-row"><label>Reply-to address</label><input value="hello@embergrove.work"></div>
+      </div>
+    </div>
+
+    <!-- MLS connections -->
+    <div class="settings-card">
+      <div class="flex between">
+        <div>
+          <h3>MLS connections</h3>
+          <div class="desc">Active feeds pulling listings, photos, and history data into your workspace.</div>
+        </div>
+        <button class="btn primary">+ Add connection</button>
+      </div>
+
+      <div class="row-line">
+        <div class="flex gap-3" style="align-items:center">
+          <div style="width:36px;height:36px;border-radius:6px;background:var(--card-3);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:600">S</div>
+          <div>
+            <div style="font-weight:600">Stratus MLS — Northeast <span class="pill-active" style="margin-left:6px">Connected</span></div>
+            <div class="muted" style="font-size:11.5px">RETS feed · Updates every 15 minutes · 1,288 active records</div>
+            <div class="muted" style="font-size:11.5px">Region: Columbia · Greene · Dutchess</div>
+          </div>
+        </div>
+        <div class="flex gap-2"><button class="btn sm">Sync now</button><button class="btn sm">Configure</button></div>
+      </div>
+
+      <div class="row-line">
+        <div class="flex gap-3" style="align-items:center">
+          <div style="width:36px;height:36px;border-radius:6px;background:var(--card-3);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:600">P</div>
+          <div>
+            <div style="font-weight:600">Paragon — Hudson Valley <span class="pill-active" style="margin-left:6px">Connected</span></div>
+            <div class="muted" style="font-size:11.5px">Web API · Updates hourly · 412 active records</div>
+            <div class="muted" style="font-size:11.5px">Region: Columbia · Greene · Ulster</div>
+          </div>
+        </div>
+        <div class="flex gap-2"><button class="btn sm">Sync now</button><button class="btn sm">Configure</button></div>
+      </div>
+
+      <div class="row-line">
+        <div class="flex gap-3" style="align-items:center">
+          <div style="width:36px;height:36px;border-radius:6px;background:var(--card-3);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:600">B</div>
+          <div>
+            <div style="font-weight:600">Bright MLS — Mid-Atlantic <span class="pill-pending" style="margin-left:6px">Reauthorise</span></div>
+            <div class="muted" style="font-size:11.5px">Token expired Mar 24. Listings remain readable but no new data is being added.</div>
+            <div class="muted" style="font-size:11.5px">Region: 19 zip codes</div>
+          </div>
+        </div>
+        <div class="flex gap-2"><button class="btn primary sm">Reauthorise</button><button class="btn sm">Remove</button></div>
+      </div>
+    </div>
+
+    <div class="flex gap-3 mb-3" style="flex-wrap:wrap">
+      <div class="settings-card" style="flex:1;min-width:280px;margin-bottom:0">
+        <h3>Sync schedule</h3>
+        <div class="desc">Off-hour batch jobs run between 1:30 and 4:00 AM ET; tunable below.</div>
+        <div class="form-grid">
+          <div class="form-row"><label>Photo pull</label><input value="Nightly, 02:15 ET"></div>
+          <div class="form-row"><label>Price change pull</label><input value="Every 15 min"></div>
+          <div class="form-row"><label>Open-house roster</label><input value="Every 1 hour"></div>
+          <div class="form-row"><label>Withdrawn / expired</label><input value="Hourly"></div>
+          <div class="form-row"><label>Public records</label><input value="Weekly, Sundays"></div>
+        </div>
+      </div>
+      <div class="settings-card" style="flex:1;min-width:280px;margin-bottom:0">
+        <h3>Field mapping</h3>
+        <div class="desc">How MLS columns are normalized into Ember Grove fields.</div>
+        <div class="form-row mb-2"><label>List price</label><div class="flex gap-2"><input value="lst_price" style="flex:1"><button class="btn sm">Remap</button></div></div>
+        <div class="form-row mb-2"><label>Bedrooms</label><div class="flex gap-2"><input value="beds_total" style="flex:1"><button class="btn sm">Remap</button></div></div>
+        <div class="form-row mb-2"><label>Bathrooms (full)</label><div class="flex gap-2"><input value="bath_full" style="flex:1"><button class="btn sm">Remap</button></div></div>
+        <div class="form-row mb-2"><label>Lot size</label><div class="flex gap-2"><input value="land_acreage" style="flex:1"><button class="btn sm">Remap</button></div></div>
+      </div>
+    </div>
+
+    <!-- Integrations -->
+    <div class="settings-card">
+      <div class="flex between">
+        <div>
+          <h3>Integrations</h3>
+          <div class="desc">Third-party services that read or write Ember Grove data.</div>
+        </div>
+        <a class="text-accent" style="font-size:12px">Browse directory →</a>
+      </div>
+      <div class="row-line">
+        <div class="flex gap-3" style="align-items:center">
+          <div style="width:34px;height:34px;border-radius:6px;background:#3a2a1a;display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700">D</div>
+          <div><div style="font-weight:600">DocuSign for Real Estate</div><div class="muted" style="font-size:11.5px">Sync signed offers and addenda to listing files.</div></div>
+        </div>
+        <div class="flex gap-2"><span class="pill-active">Connected</span><span class="toggle on"></span></div>
+      </div>
+      <div class="row-line">
+        <div class="flex gap-3" style="align-items:center">
+          <div style="width:34px;height:34px;border-radius:6px;background:#1a2e3a;display:flex;align-items:center;justify-content:center;color:#7aa6c0;font-weight:700">M</div>
+          <div><div style="font-weight:600">Mailchimp — Buyer touchpoints</div><div class="muted" style="font-size:11.5px">Push leads to Mailchimp · auto-tag by neighborhood.</div></div>
+        </div>
+        <div class="flex gap-2"><span class="pill-active">Connected</span><span class="toggle on"></span></div>
+      </div>
+      <div class="row-line">
+        <div class="flex gap-3" style="align-items:center">
+          <div style="width:34px;height:34px;border-radius:6px;background:#2a3a1a;display:flex;align-items:center;justify-content:center;color:#a7c376;font-weight:700">G</div>
+          <div><div style="font-weight:600">Google Workspace</div><div class="muted" style="font-size:11.5px">Calendar &amp; contact sync for team agents.</div></div>
+        </div>
+        <div class="flex gap-2"><span class="pill-active">Connected</span><span class="toggle on"></span></div>
+      </div>
+      <div class="row-line">
+        <div class="flex gap-3" style="align-items:center">
+          <div style="width:34px;height:34px;border-radius:6px;background:#3a1a2e;display:flex;align-items:center;justify-content:center;color:#c889a5;font-weight:700">M</div>
+          <div><div style="font-weight:600">Matterport</div><div class="muted" style="font-size:11.5px">Auto-attach 3D tours to listings.</div></div>
+        </div>
+        <div class="flex gap-2"><span class="pill-soft">Available</span><span class="toggle"></span></div>
+      </div>
+      <div class="row-line">
+        <div class="flex gap-3" style="align-items:center">
+          <div style="width:34px;height:34px;border-radius:6px;background:#3a2a1a;display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700">S</div>
+          <div><div style="font-weight:600">Stripe — Earnest deposits</div><div class="muted" style="font-size:11.5px">Receive earnest money against an escrow account.</div></div>
+        </div>
+        <div class="flex gap-2"><span class="pill-soft">Setup pending</span><span class="toggle"></span></div>
+      </div>
+      <div class="row-line">
+        <div class="flex gap-3" style="align-items:center">
+          <div style="width:34px;height:34px;border-radius:6px;background:#1a3a2a;display:flex;align-items:center;justify-content:center;color:var(--green);font-weight:700">Q</div>
+          <div><div style="font-weight:600">QuickBooks Online</div><div class="muted" style="font-size:11.5px">Reflect commissions splits into book entries.</div></div>
+        </div>
+        <div class="flex gap-2"><span class="pill-active">Connected</span><span class="toggle on"></span></div>
+      </div>
+    </div>
+
+    <!-- Team & Permissions -->
+    <div class="settings-card">
+      <div class="flex between">
+        <div>
+          <h3>Team &amp; permissions</h3>
+          <div class="desc">Six seats in use of eight on the Brokerage plan.</div>
+        </div>
+        <button class="btn primary">+ Invite member</button>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>Member</th><th>Role</th><th>MLS access</th><th>Last active</th><th></th></tr></thead>
+        <tbody>
+          <tr><td><div style="font-weight:600">Marian Halsey</div><div class="muted" style="font-size:11px">marian@embergrove.work</div></td><td>Owner · Principal Broker</td><td>All feeds</td><td>2 min ago</td><td>···</td></tr>
+          <tr><td><div style="font-weight:600">Renata Volin</div><div class="muted" style="font-size:11px">renata@embergrove.work</div></td><td>Senior agent</td><td>All feeds</td><td>27 min ago</td><td>···</td></tr>
+          <tr><td><div style="font-weight:600">Daniela Marsh</div><div class="muted" style="font-size:11px">daniela@embergrove.work</div></td><td>Senior agent</td><td>Stratus, Paragon</td><td>Today 8:14</td><td>···</td></tr>
+          <tr><td><div style="font-weight:600">Kennet Ojeda</div><div class="muted" style="font-size:11px">kennet@embergrove.work</div></td><td>Agent</td><td>Stratus only</td><td>Today 9:02</td><td>···</td></tr>
+          <tr><td><div style="font-weight:600">Priya Tan</div><div class="muted" style="font-size:11px">priya@embergrove.work</div></td><td>Transaction coordinator</td><td>Read only</td><td>Yesterday</td><td>···</td></tr>
+          <tr><td><div style="font-weight:600">Jonas Werner</div><div class="muted" style="font-size:11px">jonas@embergrove.work</div></td><td>Agent</td><td>Bright MLS</td><td>3 days ago</td><td>···</td></tr>
+          <tr><td><div style="font-weight:600">Selma Cordova</div><div class="muted" style="font-size:11px">selma@embergrove.work</div></td><td>Marketing</td><td>Read only</td><td>1 week ago</td><td>···</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Notifications -->
+    <div class="settings-card">
+      <h3>Notifications</h3>
+      <div class="desc">Where Ember Grove reaches you when something interesting happens.</div>
+      <div class="flex gap-3" style="flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <div style="font-weight:600;margin:8px 0">Listings</div>
+          <div class="desc" style="margin-bottom:8px">Activity on properties you have a stake in.</div>
+          <div class="row-line"><span>Price change on a watched listing</span><span class="toggle on"></span></div>
+          <div class="row-line"><span>New offer received</span><span class="toggle on"></span></div>
+          <div class="row-line"><span>Status moved to Pending or Closed</span><span class="toggle on"></span></div>
+          <div class="row-line"><span>Comparable listing within 0.5 mi</span><span class="toggle"></span></div>
+        </div>
+        <div style="flex:1;min-width:260px">
+          <div style="font-weight:600;margin:8px 0">Clients</div>
+          <div class="desc" style="margin-bottom:8px">Buyers and sellers in your pipeline.</div>
+          <div class="row-line"><span>Saved-search match (digest, daily 7AM)</span><span class="toggle on"></span></div>
+          <div class="row-line"><span>Buyer opened a listing email</span><span class="toggle on"></span></div>
+          <div class="row-line"><span>30-day quiet on an active client</span><span class="toggle on"></span></div>
+          <div class="row-line"><span>Anniversary &amp; closing-date reminders</span><span class="toggle"></span></div>
+        </div>
+      </div>
+      <div class="flex gap-3 mt-3" style="flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <div style="font-weight:600;margin:8px 0">Workspace</div>
+          <div class="desc" style="margin-bottom:8px">Administrative and account events.</div>
+          <div class="row-line"><span>MLS feed errors or stalled syncs</span><span class="toggle on"></span></div>
+          <div class="row-line"><span>New sign-in from an unknown device</span><span class="toggle on"></span></div>
+          <div class="row-line"><span>Monthly performance digest (Mondays)</span><span class="toggle on"></span></div>
+        </div>
+        <div style="flex:1;min-width:260px">
+          <div style="font-weight:600;margin:8px 0">Delivery</div>
+          <div class="desc" style="margin-bottom:8px">Channels and quiet hours.</div>
+          <div class="form-row mb-2"><label>Email</label><input value="marian@embergrove.work"></div>
+          <div class="form-row mb-2"><label>SMS</label><input value="(518) 555-0140"></div>
+          <div class="form-row mb-2"><label>Quiet hours</label><input value="9:30 PM — 7:00 AM (ET)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Danger zone -->
+    <div class="settings-card danger">
+      <h3>Danger zone</h3>
+      <div class="desc">These actions are permanent. Pause and read carefully.</div>
+      <div class="row-line">
+        <div>
+          <div style="font-weight:600">Export all workspace data</div>
+          <div class="muted" style="font-size:11.5px">A signed download link will be emailed within 24 hours. Includes contacts, listings, notes, and documents.</div>
+        </div>
+        <button class="btn">Request export</button>
+      </div>
+      <div class="row-line">
+        <div>
+          <div style="font-weight:600">Transfer workspace ownership</div>
+          <div class="muted" style="font-size:11.5px">Hand off principal-broker controls to another team member. Requires a written email accept.</div>
+        </div>
+        <button class="btn">Begin transfer</button>
+      </div>
+      <div class="row-line">
+        <div>
+          <div style="font-weight:600">Close workspace</div>
+          <div class="muted" style="font-size:11.5px">Cancels billing and detaches all data after a 30-day grace window. Records can be downloaded during this period.</div>
+        </div>
+        <button class="btn" style="background:var(--red-bg);color:var(--red);border-color:transparent">Close workspace</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="foot">
+  <div>© 2025 Ember Grove Works · v4.12</div>
+  <div class="links"><a>Status</a><a>Help</a><a>Changelog</a></div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+[grade] VLM judge: 15 pairs in 15.1s
+{
+  "per_page_viewport": {
+    "appointment-calendar": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.7295301525542697,
+          "extra": {
+            "reference_size": [
+              1440,
+              3443
+            ],
+            "candidate_size": [
+              1440,
+              2582
+            ],
+            "compared_size": [
+              1440,
+              2582
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.39254117012023926,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.1540885865688324,
+            "raw_score_before_sqrt": 0.1540885716676712
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8121269553399185,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.1878730446600815,
+            "page_diagonal_px": 3732.190745394689
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.799435158099447,
+          "extra": {
+            "bg_score": 0.8026322152330762,
+            "fg_score": 0.7962381009658177,
+            "bg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 12,
+              "weighted_mean_oklab_distance": 0.02463373914361,
+              "base_score_before_penalty": 0.8357750723759333,
+              "over_color_penalty": 0.033142857142857134
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 13,
+              "weighted_mean_oklab_distance": 0.020164284855127335,
+              "base_score_before_penalty": 0.8655714342991511,
+              "over_color_penalty": 0.06933333333333332
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.5432738851816544,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.561819835973792,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.14308426073131955
+              ],
+              [
+                12.0,
+                0.383147853736089
+              ],
+              [
+                14.0,
+                0.43402225755166934
+              ],
+              [
+                20.0,
+                0.02702702702702703
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.05366726296958855
+              ],
+              [
+                11.0,
+                0.044722719141323794
+              ],
+              [
+                11.5,
+                0.24150268336314848
+              ],
+              [
+                12.0,
+                0.12880143112701253
+              ],
+              [
+                12.5,
+                0.028622540250447227
+              ],
+              [
+                13.0,
+                0.2039355992844365
+              ],
+              [
+                14.0,
+                0.23792486583184258
+              ],
+              [
+                14.5,
+                0.01967799642218247
+              ],
+              [
+                18.0,
+                0.012522361359570662
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6118047673098751,
+          "extra": {
+            "reference_tokens": 755,
+            "candidate_tokens": 665,
+            "matched_tokens": 539,
+            "union_tokens": 881,
+            "reference_unique": 325,
+            "candidate_unique": 312
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content differences including wrong clinician names/details in Today's schedule (e.g., Jordan Reyes shows 'Annual physical Room 1' vs 'Telehea

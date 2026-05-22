@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.dir-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media (max-width: 540px){ .dir-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a href="projects.html" class="brand"><span class="dot"></span> Beacon Harbor Works</a>
+    <nav class="nav">
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html" class="active">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+    <span class="user-pill"><span class="avatar"></span> Mira R.</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="projects.html">Harbor</a><span class="sep">/</span>Team</div>
+
+  <div class="page-hero">
+    <div class="eyebrow">Crew manifest · pier 4</div>
+    <h1>Team &amp; On-Call</h1>
+    <p>Eleven engineers across three time zones. Rotations run Monday 09:00 UTC to the following Monday. Secondary covers when primary is heads-down or sleeping.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary">Invite engineer</a>
+      <a class="btn btn-secondary">Edit rotation</a>
+      <a class="btn btn-ghost">Export manifest</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="main">
+      <div class="stats">
+        <div class="stat"><div class="l">Members</div><div class="v">11</div><div class="s">+1 this quarter</div></div>
+        <div class="stat"><div class="l">On call · active</div><div class="v">2</div><div class="s">primary + secondary</div></div>
+        <div class="stat"><div class="l">Time zones</div><div class="v">3</div><div class="s">UTC, CET, JST</div></div>
+        <div class="stat"><div class="l">MTTA · 30d</div><div class="v">6m</div><div class="s">+30s vs prior</div></div>
+      </div>
+
+      <div class="tabs">
+        <a class="active">Directory</a><a>On-call rotation</a><a>Groups</a><a>Permissions</a><a>Audit log</a>
+      </div>
+
+      <div class="toolbar">
+        <span class="grow" style="flex:3 1 240px;"><input type="text" placeholder="Search by name, handle, repo..."></span>
+        <span class="grow"><select><option>All roles</option></select></span>
+        <span class="grow"><select><option>Any status</option></select></span>
+        <a class="btn btn-secondary">Filters</a>
+      </div>
+
+      <div class="dir-grid">
+        <div class="person">
+          <div class="top"><span class="avatar a2" style="width:34px;height:34px;"></span><div><h4>Elin Halvorsen</h4><div class="role">Platform Lead · Oslo</div></div></div>
+          <div class="grid">
+            <div><div class="k">Handle</div><div class="v mono">@elin</div></div>
+            <div><div class="k">Time zone</div><div class="v">UTC+01</div></div>
+            <div><div class="k">Owns</div><div class="v">harbor-api</div></div>
+            <div><div class="k">Pages</div><div class="v">8 this month</div></div>
+          </div>
+          <div class="badges"><span class="tag tag-green">ON CALL</span><span class="tag tag-default">PLATFORM</span></div>
+        </div>
+        <div class="person">
+          <div class="top"><span class="avatar a3" style="width:34px;height:34px;"></span><div><h4>Devin Park</h4><div class="role">Senior SRE · Brooklyn</div></div></div>
+          <div class="grid">
+            <div><div class="k">Handle</div><div class="v mono">@devin</div></div>
+            <div><div class="k">Time zone</div><div class="v">UTC-05</div></div>
+            <div><div class="k">Owns</div><div class="v">harbor-web</div></div>
+            <div><div class="k">Pages</div><div class="v">3 this month</div></div>
+          </div>
+          <div class="badges"><span class="tag tag-default">RELEASE APPROVER</span></div>
+        </div>
+        <div class="person">
+          <div class="top"><span class="avatar a4" style="width:34px;height:34px;"></span><div><h4>Mara Reyes</h4><div class="role">Engineering Manager · Lisbon</div></div></div>
+          <div class="grid">
+            <div><div class="k">Handle</div><div class="v mono">@mara</div></div>
+            <div><div class="k">Time zone</div><div class="v">UTC+00</div></div>
+            <div><div class="k">Owns</div><div class="v">people</div></div>
+            <div><div class="k">Pages</div><div class="v">0 this month</div></div>
+          </div>
+          <div class="badges"><span class="tag tag-default">MANAGER</span></div>
+        </div>
+        <div class="person">
+          <div class="top"><span class="avatar a5" style="width:34px;height:34px;"></span><div><h4>Jonas Kemper</h4><div class="role">Staff Engineer · Berlin</div></div></div>
+          <div class="grid">
+            <div><div class="k">Handle</div><div class="v mono">@jonas</div></div>
+            <div><div class="k">Time zone</div><div class="v">UTC+01</div></div>
+            <div><div class="k">Owns</div><div class="v">ledger-svc</div></div>
+            <div><div class="k">Pages</div><div class="v">5 this month</div></div>
+          </div>
+          <div class="badges"><span class="tag tag-default">STAFF</span></div>
+        </div>
+        <div class="person">
+          <div class="top"><span class="avatar a6" style="width:34px;height:34px;"></span><div><h4>Saoirse O'Brien</h4><div class="role">Backend Engineer · Dublin</div></div></div>
+          <div class="grid">
+            <div><div class="k">Handle</div><div class="v mono">@saoirse</div></div>
+            <div><div class="k">Time zone</div><div class="v">UTC+00</div></div>
+            <div><div class="k">Owns</div><div class="v">router-go</div></div>
+            <div><div class="k">Pages</div><div class="v">2 this month</div></div>
+          </div>
+          <div class="badges"><span class="tag tag-green">ON CALL</span><span class="tag tag-default">RELEASE APPROVER</span></div>
+        </div>
+        <div class="person">
+          <div class="top"><span class="avatar a7" style="width:34px;height:34px;"></span><div><h4>Tomas Aalto</h4><div class="role">Frontend Engineer · Helsinki</div></div></div>
+          <div class="grid">
+            <div><div class="k">Handle</div><div class="v mono">@tomas</div></div>
+            <div><div class="k">Time zone</div><div class="v">UTC+02</div></div>
+            <div><div class="k">Owns</div><div class="v">dockside-web</div></div>
+            <div><div class="k">Pages</div><div class="v">1 this month</div></div>
+          </div>
+          <div class="badges"><span class="tag tag-default">FRONTEND</span><span class="tag tag-default">DESIGN-SYS</span></div>
+        </div>
+        <div class="person">
+          <div class="top"><span class="avatar a8" style="width:34px;height:34px;"></span><div><h4>Renata Novak</h4><div class="role">Infrastructure · Ljubljana</div></div></div>
+          <div class="grid">
+            <div><div class="k">Handle</div><div class="v mono">@renata</div></div>
+            <div><div class="k">Time zone</div><div class="v">UTC+01</div></div>
+            <div><div class="k">Owns</div><div class="v">infra</div></div>
+            <div><div class="k">Pages</div><div class="v">4 this month</div></div>
+          </div>
+          <div class="badges"><span class="tag tag-default">INFRA</span><span class="tag tag-default">RELEASE APPROVER</span></div>
+        </div>
+        <div class="person">
+          <div class="top"><span class="avatar a9" style="width:34px;height:34px;"></span><div><h4>Cyrus Yates</h4><div class="role">Designer · Toronto</div></div></div>
+          <div class="grid">
+            <div><div class="k">Handle</div><div class="v mono">@cyrus</div></div>
+            <div><div class="k">Time zone</div><div class="v">UTC-05</div></div>
+            <div><div class="k">Owns</div><div class="v">design</div></div>
+            <div><div class="k">Pages</div><div class="v">0 this month</div></div>
+          </div>
+          <div class="badges"><span class="tag tag-default">DESIGN</span></div>
+        </div>
+      </div>
+
+      <div class="pagi mt12"><a class="active">1</a><a>2</a><span class="space"></span><span class="muted">Showing 8 of 11 · page 1 of 2</span></div>
+
+      <div class="card mt16">
+        <div class="ch"><div><div class="eyebrow">WEEK 18 / 26</div><h3>On-call rotation</h3></div><span class="muted">Primary takes page. Secondary takes over after 15 minutes of no acknowledgement or on explicit handoff. Tertiary is engaged only for SEV-1 escalations.</span></div>
+        <div class="cb">
+          <div class="flex"><div class="b">November 04 — 10</div><span class="muted">Eight-hour shifts. Hand-offs at 00:00, 08:00, 16:00.</span></div>
+          <div class="cal mt8">
+            <table>
+              <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="on">04</td><td class="on">05</td><td class="on">06</td><td class="on">07</td><td>08</td><td>09</td><td>10</td>
+                </tr>
+                <tr>
+                  <td class="cur">11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="flex mt8"><a class="btn btn-secondary">Previous</a><a class="btn btn-secondary">Next</a><span class="space"></span><span class="muted">Hand offs auto-paged at 15 minutes prior</span></div>
+        </div>
+        <table>
+          <thead><tr><th>Shift</th><th>Primary</th><th>Secondary</th><th>Role</th><th>Starts</th><th>Ends</th><th>Pages 24h</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Now</td><td>Elin Halvorsen</td><td>Devin Park</td><td>Primary</td><td>Mon · 00:00</td><td>Mon · 08:00</td><td>1</td><td><span class="tag tag-green">ACTIVE</span></td></tr>
+            <tr><td>Next</td><td>Devin Park</td><td>Saoirse O'Brien</td><td>Secondary</td><td>Mon · 08:00</td><td>Mon · 16:00</td><td>0</td><td><span class="tag tag-default">QUEUED</span></td></tr>
+            <tr><td>Next</td><td>Saoirse O'Brien</td><td>Renata Novak</td><td>Primary</td><td>Mon · 16:00</td><td>Tue · 00:00</td><td>0</td><td><span class="tag tag-default">QUEUED</span></td></tr>
+            <tr><td>Next</td><td>Jonas Kemper</td><td>Mara Reyes</td><td>Secondary</td><td>Tue · 00:00</td><td>Tue · 08:00</td><td>0</td><td><span class="tag tag-default">QUEUED</span></td></tr>
+            <tr><td>Next</td><td>Renata Novak</td><td>Tomas Aalto</td><td>Primary (overnight)</td><td>Tue · 08:00</td><td>Tue · 16:00</td><td>0</td><td><span class="tag tag-default">QUEUED</span></td></tr>
+            <tr><td>—</td><td>Tomas Aalto</td><td colspan="2">Off rotation</td><td colspan="3" class="muted">Approved · paternity · 2 weeks</td><td><span class="tag tag-red">OUT</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="side-card">
+        <div class="ch">Crew on watch<br><span class="muted" style="font-weight:400;font-size:11px;">Pager holders</span></div>
+        <div class="cb">
+          <div class="row-i"><span class="avatar a2"></span><div><div class="name">Elin Halvorsen</div><div class="sub">Primary · 12h left</div></div></div>
+          <div class="row-i"><span class="avatar a3"></span><div><div class="name">Devin Park</div><div class="sub">Secondary</div></div></div>
+          <div class="row-i"><span class="avatar a4"></span><div><div class="name">Mara Reyes</div><div class="sub">Manager</div></div></div>
+          <div class="more"><a>Page all responders →</a></div>
+        </div>
+      </div>
+      <div class="side-card">
+        <div class="ch">Currently building<br><span class="muted" style="font-weight:400;font-size:11px;">Active now</span></div>
+        <div class="cb">
+          <div class="row-i"><span class="avatar a6"></span><div><div class="name">Saoirse O'Brien</div><div class="sub">router-go · #2031</div></div></div>
+          <div class="row-i"><span class="avatar a8"></span><div><div class="name">Renata Novak</div><div class="sub">infra · #1130</div></div></div>
+          <div class="row-i"><span class="avatar a9"></span><div><div class="name">Cyrus Yates</div><div class="sub">design · ds-301</div></div></div>
+          <div class="row-i"><span class="avatar a5"></span><div><div class="name">Jonas Kemper</div><div class="sub">ledger · #4128</div></div></div>
+        </div>
+      </div>
+      <div class="side-card">
+        <div class="ch">Trending repos<br><span class="muted" style="font-weight:400;font-size:11px;">This week</span></div>
+        <div class="cb">
+          <ul>
+            <li><span class="mono">harbor-api</span><span class="muted">+82</span></li>
+            <li><span class="mono">harbor-web</span><span class="muted">+61</span></li>
+            <li><span class="mono">pier-infra</span><span class="muted">+33</span></li>
+            <li><span class="mono">cargo-worker</span><span class="muted">+22</span></li>
+            <li><span class="mono">manifest-cli</span><span class="muted">+14</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="side-card">
+        <div class="ch">Recent shortcuts<br><span class="muted" style="font-weight:400;font-size:11px;">Quick rooms</span></div>
+        <div class="cb">
+          <ul>
+            <li><a>Open active alerts (3)</a></li>
+            <li><a>Lock production deploys</a></li>
+            <li><a>Add deployment</a></li>
+            <li><a>Runbook · API signing</a></li>
+            <li><a>Status page editor</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="side-card">
+        <div class="ch">Crew gigs</div>
+        <div class="cb">
+          <p class="muted" style="font-size:12px;">No mishaps covers Saturday 06:00 to 14:00 UTC. Consider rotating Saoirse forward, or paging Mara on escalation.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="legal">© 2026 Beacon Harbor Works · 11 engineers</div>
+    <div class="links">
+      <a>Status</a><a>Docs</a><a>API</a><a>Changelog</a><a>Privacy</a><a>Terms</a><a>Projects</a><a>Deployments</a><a>Builds</a><a>Team</a><a>Alerts</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cards — Drift Harbor Studio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">Drift Harbor Studio</div>
+    <div class="brand-sub">Personal banking</div>
+    <div class="nav-group">
+      <div class="nav-group-title">Banking</div>
+      <ul>
+        <li><a href="account-overview.html">Accounts</a></li>
+        <li><a href="transactions.html">Transactions</a></li>
+        <li><a href="cards.html" class="active">Cards</a></li>
+        <li><a href="statements.html">Statements</a></li>
+        <li><a href="support.html">Help &amp; Support</a></li>
+      </ul>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-title">Service</div>
+      <ul>
+        <li><a href="support.html">Help &amp; Support</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <nav class="topnav">
+    <div class="topnav-bar">
+      <div>
+        <div class="brand">Drift Harbor Studio</div>
+        <div class="brand-sub">Personal banking</div>
+      </div>
+      <div class="smaller">Member MH</div>
+    </div>
+    <div class="topnav-links">
+      <a href="account-overview.html">Accounts</a>
+      <a href="transactions.html">Transactions</a>
+      <a href="cards.html" class="active">Cards</a>
+      <a href="statements.html">Statements</a>
+      <a href="support.html">Help &amp; Support</a>
+    </div>
+    <div class="topnav-second">
+      <a href="#">Service</a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="page-title serif">Cards</div>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-ghost btn-sm">Report lost</button>
+        <button class="btn btn-primary btn-sm">Add card</button>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="crumbs">Wallet · last sync 2 minutes ago</div>
+      <h1 class="hero-title">Three physical cards, two virtual.</h1>
+      <p class="hero-sub">Freeze, set limits, and issue single-merchant virtual cards. Changes take effect immediately across all devices linked to your profile.</p>
+      <div class="kpis">
+        <div class="kpi"><div class="label">Active cards</div><div class="value">4</div><div class="delta">3 frozen, 0 expired</div></div>
+        <div class="kpi"><div class="label">Month-to-date spend</div><div class="value">$2,418.60</div><div class="delta">42.4% of spend cap</div></div>
+        <div class="kpi"><div class="label">Pending authorizations</div><div class="value">$184.22</div><div class="delta">Three pending · 7 cleared</div></div>
+        <div class="kpi"><div class="label">Rewards expected</div><div class="value">$36.27</div><div class="delta">Cycle ends Mar 31</div></div>
+      </div>
+    </section>
+
+    <div class="mt-16 row-flex" style="border-bottom:1px solid #d9d0b5;">
+      <div class="tag-bar" style="border-bottom:0;">
+        <span class="chip active">Physical (3)</span>
+        <span class="chip">Virtual (2)</span>
+        <span class="chip">Archived (1)</span>
+      </div>
+    </div>
+
+    <div class="grid-3 mt-16">
+      <div>
+        <div class="cardviz">
+          <div class="label-row"><span>Harbor Debit · Primary</span></div>
+          <div>
+            <div class="num">•••• •••• •••• 4218</div>
+            <div class="mt-8 row-flex" style="align-items:flex-end;">
+              <div>
+                <div class="status">Elena Voss</div>
+                <div class="exp">Exp 06/27</div>
+              </div>
+              <span class="pill pill-green">Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="cardviz green">
+          <div class="label-row"><span>Harbor Credit · Walnut</span></div>
+          <div>
+            <div class="num">•••• •••• •••• 0934</div>
+            <div class="mt-8 row-flex" style="align-items:flex-end;">
+              <div>
+                <div class="status">Elena Voss</div>
+                <div class="exp">Exp 11/28</div>
+              </div>
+              <span class="pill pill-green">Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="cardviz dark">
+          <div class="label-row"><span>Harbor Debit · Travel</span><span style="font-style:italic;opacity:0.6;">Frozen</span></div>
+          <div>
+            <div class="num">•••• •••• •••• 1162</div>
+            <div class="mt-8 row-flex" style="align-items:flex-end;">
+              <div>
+                <div class="status">Elena Voss</div>
+                <div class="exp">Exp 02/26</div>
+              </div>
+              <span class="pill pill-grey">Paused</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cols-2 mt-20">
+      <div class="col-main">
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Harbor Debit · Primary</h2>
+              <div class="small">Ending in 4218 · issued March 2023</div>
+            </div>
+            <button class="btn btn-ghost btn-sm">Manage</button>
+          </div>
+          <div class="opt-row">
+            <div class="ico">❄</div>
+            <div>
+              <div class="ttl">Freeze card</div>
+              <div class="sub">Blocks new purchases. Recurring charges continue.</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+          <div class="opt-row">
+            <div class="ico">✓</div>
+            <div>
+              <div class="ttl">Contactless payments</div>
+              <div class="sub">Tap to pay at terminals.</div>
+            </div>
+            <div class="toggle on"></div>
+          </div>
+          <div class="opt-row">
+            <div class="ico">⇄</div>
+            <div>
+              <div class="ttl">Online &amp; in-app</div>
+              <div class="sub">E-commerce and recurring billing.</div>
+            </div>
+            <div class="toggle on"></div>
+          </div>
+          <div class="opt-row">
+            <div class="ico">✈</div>
+            <div>
+              <div class="ttl">International use</div>
+              <div class="sub">Non-US merchants and ATMs.</div>
+            </div>
+            <div class="toggle on"></div>
+          </div>
+          <div class="opt-row">
+            <div class="ico">$</div>
+            <div>
+              <div class="ttl">ATM withdrawals</div>
+              <div class="sub">Cash at ATMs and tellers.</div>
+            </div>
+            <div class="toggle on"></div>
+          </div>
+          <div class="opt-row">
+            <div class="ico">≣</div>
+            <div>
+              <div class="ttl">Magnetic stripe</div>
+              <div class="sub">Legacy swipe terminals.</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+          <div class="row-flex mt-12">
+            <div class="smaller">Last edited Dec 14 · 8:32</div>
+            <a href="#" class="small">View activity →</a>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Virtual cards</h2>
+            <button class="btn btn-primary btn-sm">Generate new</button>
+          </div>
+          <div class="small mb-12">Single-merchant tokens for online use</div>
+          <div class="opt-row">
+            <div class="ico" style="font-size:18px;">▢</div>
+            <div>
+              <div class="ttl">Studio Hosting · Recurring</div>
+              <div class="sub">•••• 8830 · created Apr 2024</div>
+            </div>
+            <div>
+              <div class="amt mono">$12.00/mo</div>
+              <div class="smaller right">Active</div>
+            </div>
+          </div>
+          <div class="opt-row">
+            <div class="ico" style="font-size:18px;">▢</div>
+            <div>
+              <div class="ttl">Tilden Books</div>
+              <div class="sub">•••• 7322 · single use, expires Nov 26</div>
+            </div>
+            <div>
+              <div class="amt mono">$60.00 cap</div>
+              <div class="smaller right">Pending</div>
+            </div>
+          </div>
+          <div class="opt-row">
+            <div class="ico" style="font-size:18px;">▢</div>
+            <div>
+              <div class="ttl">Newsstand subscription</div>
+              <div class="sub">•••• 4501 · created Sep 2024</div>
+            </div>
+            <div>
+              <div class="amt mono">$5.99/mo</div>
+              <div class="smaller right">Paused</div>
+            </div>
+          </div>
+          <div class="opt-row">
+            <div class="ico" style="font-size:18px;">▢</div>
+            <div>
+              <div class="ttl">Field Research Co.</div>
+              <div class="sub">•••• 6212 · single use, expired</div>
+            </div>
+            <div>
+              <div class="amt mono">$18.00</div>
+              <div class="smaller right">Expired</div>
+            </div>
+          </div>
+          <div class="row-flex mt-12">
+            <div class="smaller">2 active · 2 paused · 1 expired</div>
+            <a href="#" class="small">See all charges →</a>
+          </div>
+        </section>
+
+      </div>
+      <aside class="col-side">
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Spending limits</h2>
+            <a href="#" class="small">Adjust</a>
+          </div>
+          <div class="small mb-12">Per card daily and monthly caps</div>
+          <div class="flow"><div class="lab">Daily purchases</div><div class="bar"><i style="width:32%"></i></div><div class="num">$1,200 / $3,800</div></div>
+          <div class="flow"><div class="lab">Monthly purchases</div><div class="bar"><i style="width:48%"></i></div><div class="num">$2,418 / $5,000</div></div>
+          <div class="flow"><div class="lab">ATM withdrawals · daily</div><div class="bar"><i style="width:22%"></i></div><div class="num">$200 / $900</div></div>
+          <div class="flow"><div class="lab">Online single transaction</div><div class="bar"><i style="width:62%"></i></div><div class="num">$620 / $1,000</div></div>
+          <div class="flow"><div class="lab">International daily</div><div class="bar"><i style="width:0%"></i></div><div class="num">Disabled</div></div>
+          <div class="divider"></div>
+          <div class="smaller">Changes apply within 90 seconds. Cycle resets Mar 31.</div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Recent card activity</h2>
+            <a href="#" class="small">See all</a>
+          </div>
+          <div class="small mb-12">Authorizations and charges</div>
+          <table class="tbl">
+            <thead><tr><th>Date</th><th>Merchant</th><th>Card</th><th class="num">Amount</th></tr></thead>
+            <tbody>
+              <tr><td>Dec 14</td><td>Marin Coffee Roasters</td><td>•••• 4218</td><td class="num neg">−$6.20</td></tr>
+              <tr><td>Dec 13</td><td>Studio Hosting</td><td>•••• 8830</td><td class="num neg">−$12.00</td></tr>
+              <tr><td>Dec 12</td><td>Pacific Grocers</td><td>•••• 0934</td><td class="num neg">−$48.10</td></tr>
+              <tr><td>Dec 11</td><td>Refund · Tilden Books</td><td>•••• 7322</td><td class="num pos">+$28.00</td></tr>
+              <tr><td>Dec 10</td><td>SFMTA Parking</td><td>•••• 4218</td><td class="num neg">−$4.00</td></tr>
+              <tr><td>Dec 09</td><td>Foglight Cinema</td><td>•••• 0934</td><td class="num neg">−$32.50</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+      </aside>
+    </div>
+
+    <section class="panel mt-20">
+      <div class="panel-head">
+        <div>
+          <h2>Card support</h2>
+          <div class="small">Common requests</div>
+        </div>
+      </div>
+      <div class="faq-item"><div class="q">How do I temporarily freeze my card?</div><div class="chev">−</div></div>
+      <div class="faq-open">
+        <p>Use the freeze toggle on any card. New purchases will be declined within sixty seconds, while recurring charges and refunds continue. Unfreezing restores the card immediately; no replacement is needed.</p>
+      </div>
+      <div class="faq-item"><div class="q">What happens to recurring charges on a frozen card?</div><div class="chev">+</div></div>
+      <div class="faq-item"><div class="q">Can I share a virtual card with a household member?</div><div class="chev">+</div></div>
+      <div class="faq-item"><div class="q">My card was lost or stolen — what now?</div><div class="chev">+</div></div>
+    </section>
+
+    <footer class="footer">
+      <div>© 2025 Drift Harbor Studio, a division of Harbor Trust, N.A. Member FDIC.</div>
+      <div class="footer-links">
+        <a href="support.html">Support</a>
+        <a href="statements.html">Statements</a>
+        <a href="#">Legal</a>
+        <a href="#">Build 2025.11.42</a>
+      </div>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

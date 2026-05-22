@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales Reports — Forge Foundry</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand"><span class="brand-mark"></span> Forge Foundry</div>
+  <nav class="nav-links">
+    <a href="live-orders.html">Live Orders</a>
+    <a href="sales-reports.html" class="active">Sales Reports</a>
+    <a href="discounts.html">Promotions</a>
+    <a href="staff-schedule.html">Staff Schedule</a>
+    <a href="reservations.html">Reservations</a>
+  </nav>
+  <div class="nav-right">
+    <span class="net">period 41</span>
+    <span class="dot"></span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="crumbs">Sales Reports <span class="sep">/</span> <strong>Period 41</strong></div>
+    <h1 class="title">Service-level revenue, exactly where you left it.</h1>
+    <p class="subtitle">A reconciled view of covers, ticket averages, and category mix across the trading week. Numbers settle nightly at close-of-day; comp and void adjustments propagate within twelve minutes of approval.</p>
+    <div class="hero-meta">
+      <span class="chip">WK 41 · Oct 06 – Oct 12</span><span class="sep">·</span>
+      <span class="chip">Last reconciled · 23 Oct 04:12 PT</span><span class="sep">·</span>
+      <span class="chip">Location · 124 Sutter St · Live only</span><span class="sep">·</span>
+      <span class="chip">Currency · USD</span>
+    </div>
+  </section>
+
+  <!-- Filter bar -->
+  <section class="section">
+    <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+      <div class="tab-row">
+        <div class="tab">Day</div>
+        <div class="tab">Wk</div>
+        <div class="tab active">P41</div>
+        <div class="tab">QTD</div>
+        <div class="tab">YTD</div>
+        <div class="tab">Last reconciled</div>
+        <div class="tab">Live store live</div>
+      </div>
+      <select class="input" style="max-width:160px"><option>All venues</option></select>
+      <select class="input" style="max-width:160px"><option>vs. WK 40</option></select>
+      <div style="flex:1"></div>
+      <button class="btn ghost sm">↧ Export CSV</button>
+      <button class="btn primary sm">Schedule email</button>
+    </div>
+  </section>
+
+  <!-- Top stats -->
+  <section class="section stats">
+    <div class="stat">
+      <div class="label">Net Revenue</div>
+      <div class="value tn">$184,267</div>
+      <div class="delta up">+5.8% vs. WK 40</div>
+    </div>
+    <div class="stat">
+      <div class="label">Covers</div>
+      <div class="value tn">2,418</div>
+      <div class="delta up">+3.1% vs. WK 40</div>
+    </div>
+    <div class="stat">
+      <div class="label">Avg Ticket</div>
+      <div class="value tn">$76.21</div>
+      <div class="delta up">+2.6% vs. WK 40</div>
+    </div>
+    <div class="stat">
+      <div class="label">Labor %</div>
+      <div class="value tn">28.4%</div>
+      <div class="delta down">−0.4pp vs. plan</div>
+    </div>
+  </section>
+
+  <!-- Revenue by service -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Revenue by service</h2>
+      <div class="meta">grouped per daily snapshot</div>
+    </div>
+    <div class="grid-4">
+      <div class="card tight">
+        <div class="flex between center-y" style="margin-bottom:6px;">
+          <div style="font-weight:600;">Brunch</div>
+          <span class="muted" style="font-size:11px;">Sat – Sun · 09 – 14</span>
+        </div>
+        <div style="font-size:22px; font-weight:600;">$38,148</div>
+        <div class="muted" style="font-size:11px; margin-top:8px;">462 covers</div>
+        <div class="bar" style="margin-top:6px"><span style="width:55%"></span></div>
+        <div class="muted" style="font-size:11px; margin-top:8px;">Avg ticket <span class="text-pink">$82.58</span></div>
+        <div class="muted" style="font-size:11px;">Comp rate · 1.4%</div>
+        <div class="muted" style="font-size:11px;">Promo penetration · 4.2%</div>
+      </div>
+      <div class="card tight">
+        <div class="flex between center-y" style="margin-bottom:6px;">
+          <div style="font-weight:600;">Lunch</div>
+          <span class="muted" style="font-size:11px;">Mon – Fri · 11 – 14</span>
+        </div>
+        <div style="font-size:22px; font-weight:600;">$29,815</div>
+        <div class="muted" style="font-size:11px; margin-top:8px;">622 covers</div>
+        <div class="bar" style="margin-top:6px"><span style="width:42%"></span></div>
+        <div class="muted" style="font-size:11px; margin-top:8px;">Avg ticket <span class="text-pink">$48.10</span></div>
+        <div class="muted" style="font-size:11px;">Comp rate · 0.9%</div>
+        <div class="muted" style="font-size:11px;">Promo penetration · 6.7%</div>
+      </div>
+      <div class="card accent tight">
+        <div class="flex between center-y" style="margin-bottom:6px;">
+          <div style="font-weight:600;">Dinner <span class="pill pink">Top</span></div>
+          <span class="muted" style="font-size:11px;">Daily · 17 – 22</span>
+        </div>
+        <div style="font-size:22px; font-weight:600;">$108,492</div>
+        <div class="muted" style="font-size:11px; margin-top:8px;">1,072 covers</div>
+        <div class="bar" style="margin-top:6px"><span style="width:88%"></span></div>
+        <div class="muted" style="font-size:11px; margin-top:8px;">Avg ticket <span class="text-pink">$101.18</span></div>
+        <div class="muted" style="font-size:11px;">Comp rate · 1.1%</div>
+        <div class="muted" style="font-size:11px;">Promo penetration · 3.4%</div>
+      </div>
+      <div class="card tight">
+        <div class="flex between center-y" style="margin-bottom:6px;">
+          <div style="font-weight:600;">Late Bar</div>
+          <span class="muted" style="font-size:11px;">Thu – Sat · 22 – 01:30</span>
+        </div>
+        <div style="font-size:22px; font-weight:600;">$7,820</div>
+        <div class="muted" style="font-size:11px; margin-top:8px;">262 covers</div>
+        <div class="bar amber" style="margin-top:6px"><span style="width:18%"></span></div>
+        <div class="muted" style="font-size:11px; margin-top:8px;">Avg ticket <span class="text-pink">$29.84</span></div>
+        <div class="muted" style="font-size:11px;">Comp rate · 0.4%</div>
+        <div class="muted" style="font-size:11px;">Promo penetration · 1.2%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Charts row -->
+  <section class="section grid-2">
+    <div class="chart">
+      <div class="chart-title"><span>Daily revenue · WK 47</span><span class="muted" style="font-size:11px;">This week / Prior week</span></div>
+      <div class="bars">
+        <div class="b" style="height:38%"></div>
+        <div class="b solid" style="height:56%"></div>
+        <div class="b" style="height:42%"></div>
+        <div class="b solid" style="height:71%"></div>
+        <div class="b" style="height:64%"></div>
+        <div class="b solid" style="height:88%"></div>
+        <div class="b solid" style="height:96%"></div>
+      </div>
+      <div class="bars-labels"><span class="l">Mon</span><span class="l">Tue</span><span class="l">Wed</span><span class="l">Thu</span><span class="l">Fri</span><span class="l">Sat</span><span class="l">Sun</span></div>
+      <div class="chart-title" style="margin-top:18px"><span>Hourly distribution · trading week</span></div>
+      <div class="bars" style="height:90px">
+        <div class="b" style="height:15%"></div>
+        <div class="b" style="height:22%"></div>
+        <div class="b" style="height:31%"></div>
+        <div class="b" style="height:42%"></div>
+        <div class="b" style="height:38%"></div>
+        <div class="b" style="height:55%"></div>
+        <div class="b solid" style="height:78%"></div>
+        <div class="b solid" style="height:92%"></div>
+        <div class="b solid" style="height:88%"></div>
+        <div class="b" style="height:62%"></div>
+        <div class="b" style="height:34%"></div>
+        <div class="b" style="height:22%"></div>
+      </div>
+      <div class="bars-labels"><span class="l">11</span><span class="l">12</span><span class="l">13</span><span class="l">14</span><span class="l">15</span><span class="l">17</span><span class="l">18</span><span class="l">19</span><span class="l">20</span><span class="l">21</span><span class="l">22</span><span class="l">23</span></div>
+      <div class="muted" style="font-size:11px; margin-top:10px;">Peak hour 19:00 — 23.5% of receipts</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div class="chart">
+        <div class="chart-title"><span>Category mix</span><span class="muted" style="font-size:11px;">% net revenue</span></div>
+        <div style="display:flex; align-items:center; gap:16px;">
+          <div class="donut"><span class="label">$184k</span></div>
+          <div class="legend" style="flex:1">
+            <div class="l"><span><span class="sw"></span>Mains</span><span class="tn">42.1%</span></div>
+            <div class="l"><span><span class="sw" style="background:#c14ec3"></span>Beverage</span><span class="tn">23.6%</span></div>
+            <div class="l"><span><span class="sw" style="background:#7a4ec3"></span>Starters</span><span class="tn">18.3%</span></div>
+            <div class="l"><span><span class="sw" style="background:#4e7ac3"></span>Dessert</span><span class="tn">11.4%</span></div>
+            <div class="l"><span><span class="sw" style="background:#5b526b"></span>Other</span><span class="tn">4.6%</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="chart">
+        <div class="chart-title"><span>Payment mix</span><span class="muted" style="font-size:11px;">net of refunds</span></div>
+        <div class="bullet"><div class="lbl">Card · cont…</div><div class="b"><div class="bar"><span style="width:72%"></span></div></div><div class="val">$132,108</div></div>
+        <div class="bullet"><div class="lbl">Card · chip + PIN</div><div class="b"><div class="bar"><span style="width:18%"></span></div></div><div class="val">$33,180</div></div>
+        <div class="bullet"><div class="lbl">Cash</div><div class="b"><div class="bar green"><span style="width:6%"></span></div></div><div class="val">$11,408</div></div>
+        <div class="bullet"><div class="lbl">Gift Vouch.</div><div class="b"><div class="bar amber"><span style="width:3%"></span></div></div><div class="val">$4,206</div></div>
+        <div class="bullet"><div class="lbl">Third-party</div><div class="b"><div class="bar"><span style="width:2%"></span></div></div><div class="val">$3,365</div></div>
+        <div class="muted" style="font-size:11px; margin-top:10px;">Avg auth lag · 1.4s <span style="float:right">↘ tokenization rate · 99.6%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top items by contribution -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Top items by contribution</h2>
+      <div class="meta">Reviewing net contribution margin · listed and net comps, weighted by mix</div>
+    </div>
+    <div class="card flush">
+      <table class="t">
+        <thead>
+          <tr>
+            <th>Item</th><th>Category</th><th class="r">Sold</th><th class="r">Net</th><th class="r">GP</th><th class="r">Margin</th><th class="r">Contribution</th><th class="r">Cmp · 86</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="id">Dry-aged ribeye, 14oz</span><span class="sub">Grill · prime cut</span></td><td>Mains</td><td class="r tn">192</td><td class="r tn">$11,432</td><td class="r tn">$5,468</td><td class="r tn">47.8%</td><td class="r tn">$3,722</td><td class="r tn">2 · 0</td></tr>
+          <tr><td><span class="id">Burrata &amp; Stone Fruit</span><span class="sub">Garde · summer carryover</span></td><td>Starters</td><td class="r tn">312</td><td class="r tn">$4,386</td><td class="r tn">$2,506</td><td class="r tn">57.1%</td><td class="r tn">$2,506</td><td class="r tn">4 · 0</td></tr>
+          <tr><td><span class="id">Negroni, House</span><span class="sub">Bar · 200 pre-batch</span></td><td>Beverage</td><td class="r tn">412</td><td class="r tn">$5,099</td><td class="r tn">$4,210</td><td class="r tn">82.6%</td><td class="r tn">$4,210</td><td class="r tn">1 · 0</td></tr>
+          <tr><td><span class="id">Hand-cut Tagliatelle, Lamb Ragù</span><span class="sub">Pasta · two-day</span></td><td>Mains</td><td class="r tn">128</td><td class="r tn">$3,968</td><td class="r tn">$2,124</td><td class="r tn">53.5%</td><td class="r tn">$2,124</td><td class="r tn">2 · 1</td></tr>
+          <tr><td><span class="id">Whole Branzino, Salt-baked</span><span class="sub">Grill · feature</span></td><td>Mains</td><td class="r tn">94</td><td class="r tn">$5,358</td><td class="r tn">$2,402</td><td class="r tn">44.8%</td><td class="r tn">$2,402</td><td class="r tn">1 · 0</td></tr>
+          <tr><td><span class="id">Bone Marrow, Toast</span><span class="sub">Starters · daily limit</span></td><td>Starters</td><td class="r tn">144</td><td class="r tn">$2,194</td><td class="r tn">$1,442</td><td class="r tn">65.7%</td><td class="r tn">$1,442</td><td class="r tn">0 · 1</td></tr>
+          <tr><td><span class="id">Wine, Etna Rosso (glass)</span><span class="sub">Bar · BTG pour</span></td><td>Beverage</td><td class="r tn">218</td><td class="r tn">$3,022</td><td class="r tn">$1,716</td><td class="r tn">56.8%</td><td class="r tn">$1,716</td><td class="r tn">0 · 0</td></tr>
+          <tr><td><span class="id">Olive Oil Cake, Citrus</span><span class="sub">Dessert · house</span></td><td>Dessert</td><td class="r tn">141</td><td class="r tn">$1,508</td><td class="r tn">$1,036</td><td class="r tn">68.7%</td><td class="r tn">$1,036</td><td class="r tn">0 · 0</td></tr>
+          <tr><td><span class="id">Chicken Liver Mousse</span><span class="sub">Starters · two preps</span></td><td>Starters</td><td class="r tn">122</td><td class="r tn">$1,464</td><td class="r tn">$1,012</td><td class="r tn">69.1%</td><td class="r tn">$1,012</td><td class="r tn">1 · 0</td></tr>
+          <tr><td><span class="id">Espresso Martini</span><span class="sub">Bar · top-2 cocktail</span></td><td>Beverage</td><td class="r tn">208</td><td class="r tn">$1,718</td><td class="r tn">$1,384</td><td class="r tn">80.6%</td><td class="r tn">$1,384</td><td class="r tn">0 · 0</td></tr>
+        </tbody>
+      </table>
+      <div class="paging" style="padding:12px 14px;">
+        <span>Showing 1 – 10 of 38 items</span>
+        <div class="pager">
+          <span class="p">‹</span><span class="p active">1</span><span class="p">2</span><span class="p">3</span><span class="p">4</span><span class="p">›</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Adjustments -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Adjustments &amp; reconciliation</h2>
+      <div class="meta">Voids and 86s only; comp pools listed at top of every report.</div>
+    </div>
+    <div class="grid-3" style="margin-bottom:14px;">
+      <div class="stat">
+        <div class="label">Voids</div>
+        <div class="value tn">$1,264</div>
+        <div class="delta">62 events · 0.69% of net</div>
+      </div>
+      <div class="stat">
+        <div class="label">Comps</div>
+        <div class="value tn">$2,940</div>
+        <div class="delta">112 events · 1.16% of net</div>
+      </div>
+      <div class="stat">
+        <div class="label">Refunds</div>
+        <div class="value tn">$418</div>
+        <div class="delta">4 events · &lt;0.1% of net</div>
+      </div>
+    </div>
+    <div class="card flush">
+      <table class="t">
+        <thead><tr>
+          <th>Ticket</th><th>Type</th><th>Manager</th><th>Reason</th><th class="r">Amount</th><th>Date</th><th>Status</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="id">#9043 · 02H</td><td>Comp</td><td>R. Okafor</td><td>Sent in error · entrée</td><td class="r tn">$54.00</td><td>Sat 10-12</td><td><span class="pill green">Approved</span></td></tr>
+          <tr><td class="id">#8964 · 12H</td><td>Comp</td><td>M. Delacroix</td><td>Service quality &amp; recovery</td><td class="r tn">$88.20</td><td>Sat 10-12</td><td><span class="pill green">Approved</span></td></tr>
+          <tr><td class="id">#8846 · 03H</td><td>Refund</td><td>R. Okafor</td><td>Cancelled · 24h prior</td><td class="r tn">$112.00</td><td>Fri 10-11</td><td><span class="pill green">Approved</span></td></tr>
+          <tr><td class="id">#8801 · 09H</td><td>Comp</td><td>M. Delacroix</td><td>Allergy substitution · understood</td><td class="r tn">$28.00</td><td>Thu 10-10</td><td><span class="pill green">Approved</span></td></tr>
+          <tr><td class="id">#8762 · 01H</td><td>Void</td><td>S. Mejia</td><td>Modifier error · re-fired</td><td class="r tn">$24.00</td><td>Wed 10-09</td><td><span class="pill amber">Approved</span></td></tr>
+          <tr><td class="id">#8720 · 11H</td><td>Comp</td><td>G. Hayes</td><td>Awaiting mason code</td><td class="r tn">$62.50</td><td>Wed 10-09</td><td><span class="pill amber">Pending</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="footer wrap">
+    <div class="row">
+      <span>© 2024 Forge Foundry Systems</span>
+      <span class="links">
+        <a href="live-orders.html">Live Orders</a>
+        <a href="sales-reports.html">Sales Reports</a>
+        <a href="discounts.html">Promotions</a>
+        <a href="staff-schedule.html">Staff Schedule</a>
+        <a href="reservations.html">Reservations</a>
+      </span>
+      <span>WK 41 · 2024-10-21</span>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>

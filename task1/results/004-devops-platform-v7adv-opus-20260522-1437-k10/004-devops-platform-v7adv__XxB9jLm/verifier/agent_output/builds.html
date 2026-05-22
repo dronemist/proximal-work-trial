@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Builds — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="brand"><span class="brand-mark"></span>Beacon Harbor Works</div>
+    <nav class="primary-nav">
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="builds.html" class="active">Builds</a>
+      <a href="team.html">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+    <div class="user-chip"><span class="avatar avatar-color-5"></span> E. Lindqvist</div>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <div class="breadcrumb"><a href="#">Projects</a><span class="sep">/</span><a href="#">harbor-api</a><span class="sep">/</span><span class="crumb-active">Builds</span></div>
+
+  <div class="layout">
+    <div class="main-col">
+
+      <section>
+        <div class="eyebrow">Continuous integration</div>
+        <h1>Build history</h1>
+        <div class="page-intro">
+          <p>Every pipeline run across the fleet. Filter by branch, repository, or outcome. Logs retained for 90 days.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn primary">Run new build</button>
+          <button class="btn">Download manifest</button>
+          <button class="btn">Pipeline settings</button>
+        </div>
+      </section>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-label">Success Rate · 7d</div>
+          <div class="stat-value">94.2%</div>
+          <div class="stat-sub">+1.8 pts vs prior week</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Avg Duration</div>
+          <div class="stat-value">4m 21s</div>
+          <div class="stat-sub">p95 6m 50s</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Builds Today</div>
+          <div class="stat-value">38</div>
+          <div class="stat-sub">22 merged · 16 PR</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Queue Depth</div>
+          <div class="stat-value">3</div>
+          <div class="stat-sub">est. wait 1m 12s</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Last 30 days · main branch</div>
+        <h3 style="margin:4px 0 10px; font-family:Georgia,serif; font-size:18px;">Trend</h3>
+        <div class="trend-bars">
+          <div class="tb" style="height:55%"></div>
+          <div class="tb" style="height:70%"></div>
+          <div class="tb" style="height:65%"></div>
+          <div class="tb fail" style="height:48%"></div>
+          <div class="tb" style="height:75%"></div>
+          <div class="tb" style="height:80%"></div>
+          <div class="tb" style="height:60%"></div>
+          <div class="tb" style="height:90%"></div>
+          <div class="tb cancel" style="height:55%"></div>
+          <div class="tb" style="height:78%"></div>
+          <div class="tb" style="height:62%"></div>
+          <div class="tb" style="height:88%"></div>
+          <div class="tb" style="height:74%"></div>
+          <div class="tb fail" style="height:50%"></div>
+          <div class="tb" style="height:80%"></div>
+          <div class="tb" style="height:68%"></div>
+          <div class="tb" style="height:82%"></div>
+          <div class="tb" style="height:75%"></div>
+          <div class="tb" style="height:60%"></div>
+          <div class="tb fail" style="height:42%"></div>
+          <div class="tb" style="height:92%"></div>
+          <div class="tb" style="height:65%"></div>
+          <div class="tb" style="height:80%"></div>
+          <div class="tb cancel" style="height:55%"></div>
+          <div class="tb" style="height:84%"></div>
+          <div class="tb" style="height:70%"></div>
+          <div class="tb" style="height:88%"></div>
+          <div class="tb" style="height:76%"></div>
+          <div class="tb" style="height:90%"></div>
+          <div class="tb" style="height:82%"></div>
+        </div>
+        <div class="legend">
+          <span class="li"><span class="sw" style="background:#3f7a4c"></span>Passed</span>
+          <span class="li"><span class="sw" style="background:#c43d3d"></span>Failed</span>
+          <span class="li"><span class="sw" style="background:#a89c80"></span>Canceled</span>
+          <span class="li"><span class="sw" style="background:#4a6d8a"></span>Running</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="flex between center mb-12">
+          <div class="btn-group">
+            <button class="btn small active">All</button>
+            <button class="btn small">Passed</button>
+            <button class="btn small">Failed</button>
+            <button class="btn small">Running</button>
+            <button class="btn small">Queued</button>
+            <button class="btn small">Canceled</button>
+          </div>
+        </div>
+        <div class="search-row">
+          <input class="input flex-1" type="text" placeholder="Search by commit, branch, or author…">
+          <select class="select"><option>All repositories</option></select>
+          <select class="select"><option>All branches</option></select>
+          <select class="select"><option>All triggers</option></select>
+        </div>
+
+        <div class="eyebrow">Pipeline runs</div>
+        <h3 style="font-family:Georgia,serif; font-size:18px; margin:4px 0 8px;">Runs</h3>
+        <div class="small muted mb-8">Showing 1–12 of 426 · Times in your local zone (UTC−5)</div>
+
+        <div class="row-list small">
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot ok"></span>
+              <div class="flex-1">
+                <div class="bold">Add idempotency keys to webhook dispatcher</div>
+                <div class="muted small">harbor-api · feat/idem-keys · 9a23c1f</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-5"></span>
+              <span class="small muted nowrap">Elin Lindqvist</span>
+              <span class="small nowrap">2m 34s</span>
+              <span class="badge ok">#1,302</span>
+            </div>
+          </div>
+
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot ok"></span>
+              <div class="flex-1">
+                <div class="bold">Bump postgres client to 16.4, rotate pgbouncer dsns</div>
+                <div class="muted small">harbor-db · chore/db-bump · 2c0a18b</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-4"></span>
+              <span class="small muted nowrap">João Tavares</span>
+              <span class="small nowrap">3m 47s</span>
+              <span class="badge ok">#1,301</span>
+            </div>
+          </div>
+
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot err"></span>
+              <div class="flex-1">
+                <div class="bold">Refactor manifest parser to streaming reader</div>
+                <div class="muted small">harbor-web · feat/manifest-stream · 7d40bc2</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-2"></span>
+              <span class="small muted nowrap">Maren Rasmussen</span>
+              <span class="small nowrap">5m 02s</span>
+              <span class="badge critical">#1,300</span>
+            </div>
+          </div>
+
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot ok"></span>
+              <div class="flex-1">
+                <div class="bold">Nightly snapshot build · all targets</div>
+                <div class="muted small">harbor-fleet · main · scheduled</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-3"></span>
+              <span class="small muted nowrap">scheduler</span>
+              <span class="small nowrap">14m 21s</span>
+              <span class="badge ok">#1,299</span>
+            </div>
+          </div>
+
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot ok"></span>
+              <div class="flex-1">
+                <div class="bold">Tighten CSP on dashboard routes, drop unsafe-inline</div>
+                <div class="muted small">harbor-web · sec/csp · b821ee3</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-6"></span>
+              <span class="small muted nowrap">Sander Kuru</span>
+              <span class="small nowrap">3m 11s</span>
+              <span class="badge ok">#1,298</span>
+            </div>
+          </div>
+
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot warn"></span>
+              <div class="flex-1">
+                <div class="bold">Experimental: switch CI runner to graviton</div>
+                <div class="muted small">infra-tf · exp/graviton · cb3198a</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-7"></span>
+              <span class="small muted nowrap">Priya Iyer</span>
+              <span class="small nowrap">7m 49s</span>
+              <span class="badge warn">#1,297</span>
+            </div>
+          </div>
+
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot ok"></span>
+              <div class="flex-1">
+                <div class="bold">Add retry/backoff to S3 lifecycle uploader</div>
+                <div class="muted small">harbor-fleet · fix/retry-s3 · 51fa9d0</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-5"></span>
+              <span class="small muted nowrap">Elin Lindqvist</span>
+              <span class="small nowrap">4m 02s</span>
+              <span class="badge ok">#1,296</span>
+            </div>
+          </div>
+
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot ok"></span>
+              <div class="flex-1">
+                <div class="bold">Migrate billing tables to partitioned schema</div>
+                <div class="muted small">harbor-db · feat/partition · 1a92baa</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-4"></span>
+              <span class="small muted nowrap">João Tavares</span>
+              <span class="small nowrap">8m 17s</span>
+              <span class="badge ok">#1,295</span>
+            </div>
+          </div>
+
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot ok"></span>
+              <div class="flex-1">
+                <div class="bold">Document deploy contracts in lifecycle hook</div>
+                <div class="muted small">handbook · docs/deploys · 4ee0411</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-1"></span>
+              <span class="small muted nowrap">Dovota Albrecht</span>
+              <span class="small nowrap">1m 38s</span>
+              <span class="badge ok">#1,294</span>
+            </div>
+          </div>
+
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot ok"></span>
+              <div class="flex-1">
+                <div class="bold">Release candidate · v0.18.0-rc.2</div>
+                <div class="muted small">harbor-web · release/0.18 · 88be1f7</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-2"></span>
+              <span class="small muted nowrap">Maren Rasmussen</span>
+              <span class="small nowrap">6m 04s</span>
+              <span class="badge ok">#1,293</span>
+            </div>
+          </div>
+
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot ok"></span>
+              <div class="flex-1">
+                <div class="bold">Trim docker image · drop dev dependencies</div>
+                <div class="muted small">harbor-api · fix/docker-slim · 0ab7782</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-6"></span>
+              <span class="small muted nowrap">Sander Kuru</span>
+              <span class="small nowrap">2m 51s</span>
+              <span class="badge ok">#1,292</span>
+            </div>
+          </div>
+
+          <div class="flex between center" style="gap:10px;">
+            <div class="flex center gap-8 flex-1">
+              <span class="dot ok"></span>
+              <div class="flex-1">
+                <div class="bold">Add structured logging to scheduler worker</div>
+                <div class="muted small">harbor-fleet · obs/logs · ef017c0</div>
+              </div>
+            </div>
+            <div class="flex center gap-8">
+              <span class="avatar xs avatar-color-7"></span>
+              <span class="small muted nowrap">Priya Iyer</span>
+              <span class="small nowrap">3m 25s</span>
+              <span class="badge ok">#1,291</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pagination">
+          <div class="pages">
+            <span class="current">1</span>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">…</a>
+            <a href="#">36</a>
+          </div>
+          <span class="muted">Page 1 of 36 · 426 runs</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Slowest stages · last 7 days</div>
+        <h3 style="font-family:Georgia,serif; font-size:18px; margin:4px 0 10px;">Where time is spent</h3>
+        <table class="data-table">
+          <thead><tr><th>Stage</th><th>Repository</th><th>P50</th><th>P95</th><th>Trend</th></tr></thead>
+          <tbody>
+            <tr><td>Integration tests</td><td class="mono">harbor-api</td><td>1m 36s</td><td>3m 58s</td><td><span class="badge critical">+18%</span></td></tr>
+            <tr><td>Docker package</td><td class="mono">harbor-web</td><td>52s</td><td>1m 41s</td><td><span class="muted">−2%</span></td></tr>
+            <tr><td>Lint &amp; typecheck</td><td class="mono">harbor-api</td><td>34s</td><td>54s</td><td><span class="muted">−4%</span></td></tr>
+            <tr><td>Migration dry-run</td><td class="mono">harbor-db</td><td>1m 11s</td><td>2m 22s</td><td><span class="muted">flat</span></td></tr>
+            <tr><td>Publish artifact</td><td class="mono">manifest-cfg</td><td>17s</td><td>29s</td><td><span class="muted">flat</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <aside class="side-col">
+
+      <div class="side-card">
+        <h3>Awaiting runner</h3>
+        <div class="row-list small">
+          <div>
+            <div class="flex between center"><span><span class="dot warn"></span> harbor-api</span><span class="muted">12s</span></div>
+            <div class="muted xsmall mono">pr/2284 · main</div>
+          </div>
+          <div>
+            <div class="flex between center"><span><span class="dot warn"></span> harbor-web</span><span class="muted">04s</span></div>
+            <div class="muted xsmall mono">pr/871 · feat/csp-nonce</div>
+          </div>
+          <div>
+            <div class="flex between center"><span><span class="dot warn"></span> signal-worker</span><span class="muted">22s</span></div>
+            <div class="muted xsmall mono">push · main · 18a02c5</div>
+          </div>
+          <a href="#" class="small">View queue (3) →</a>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Crew on duty</h3>
+        <div class="small muted mb-8">Online now</div>
+        <div class="people-list">
+          <div class="person"><span class="avatar avatar-color-5"></span><div><div class="person-name">Elin Lindqvist</div><div class="person-sub">Triage rotation</div></div></div>
+          <div class="person"><span class="avatar avatar-color-2"></span><div><div class="person-name">Maren Rasmussen</div><div class="person-sub">Release lead</div></div></div>
+          <div class="person"><span class="avatar avatar-color-4"></span><div><div class="person-name">João Tavares</div><div class="person-sub">DB review</div></div></div>
+          <div class="person"><span class="avatar avatar-color-6"></span><div><div class="person-name">Sander Kuru</div><div class="person-sub">Security</div></div></div>
+          <div class="person"><span class="avatar avatar-color-1"></span><div><div class="person-name">Dovota Albrecht</div><div class="person-sub">Docs / DevX</div></div></div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Trending repos</h3>
+        <div class="small muted mb-8">This week</div>
+        <div class="row-list">
+          <div class="flex between"><span class="mono small">harbor-api</span><span class="small muted">82 runs</span></div>
+          <div class="flex between"><span class="mono small">harbor-web</span><span class="small muted">71 runs</span></div>
+          <div class="flex between"><span class="mono small">signal-worker</span><span class="small muted">44 runs</span></div>
+          <div class="flex between"><span class="mono small">manifest-cfg</span><span class="small muted">31 runs</span></div>
+          <div class="flex between"><span class="mono small">lighthouse-nfg</span><span class="small muted">18 runs</span></div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Recent shortcuts</h3>
+        <div class="small muted mb-8">If a build fails</div>
+        <div class="shortcut-list">
+          <a href="#">Open active jobs</a>
+          <a href="#">Roll back last deploy</a>
+          <a href="#">Page the on-call engineer</a>
+          <a href="#">Runbook · CI fixtures</a>
+          <a href="#">Acquire a runner lock</a>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span>© 2026 Beacon Harbor Works · All weatheries logged.</span>
+    <nav class="footer-nav">
+      <a href="#">Status</a>
+      <a href="#">Docs</a>
+      <a href="#">API</a>
+      <a href="#">Changelog</a>
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="team.html">Team</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

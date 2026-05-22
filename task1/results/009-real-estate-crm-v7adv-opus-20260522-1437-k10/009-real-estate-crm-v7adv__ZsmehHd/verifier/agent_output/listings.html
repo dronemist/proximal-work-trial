@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Active Listings — Ember Grove Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topnav">
+  <div class="brand">Ember Grove Works</div>
+  <nav class="topnav-links">
+    <a href="listings.html" class="active">Listings</a>
+    <a href="listing-detail.html">Listing Detail</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="reports.html">Reports</a>
+    <a href="reports.html">Market Reports</a>
+  </nav>
+  <div class="topnav-search"><input placeholder="Search listings, contacts, addresses…" /></div>
+  <div class="topnav-right">
+    <button class="icon-btn bell" title="Notifications">◌</button>
+    <span class="avatar">MH</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Workspace</div>
+      <div class="sidebar-item"><span>Dashboard</span></div>
+      <div class="sidebar-item active"><span>Listings</span><span class="count">142</span></div>
+      <div class="sidebar-item"><span>Calendar</span></div>
+      <div class="sidebar-item"><span>Market Reports</span></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">By Status</div>
+      <div class="sidebar-item"><span>Active</span><span class="count">47</span></div>
+      <div class="sidebar-item"><span>Under Contract</span><span class="count">12</span></div>
+      <div class="sidebar-item"><span>Coming Soon</span><span class="count">6</span></div>
+      <div class="sidebar-item"><span>Pending</span><span class="count">9</span></div>
+      <div class="sidebar-item"><span>Withdrawn</span><span class="count">3</span></div>
+      <div class="sidebar-item"><span>Closed (YTD)</span><span class="count">65</span></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">By neighborhood</div>
+      <div class="sidebar-item"><span>Linden Hill</span><span class="count">11</span></div>
+      <div class="sidebar-item"><span>Old Cabinsfield</span><span class="count">9</span></div>
+      <div class="sidebar-item"><span>Mill Creek</span><span class="count">7</span></div>
+      <div class="sidebar-item"><span>Riverside North</span><span class="count">6</span></div>
+      <div class="sidebar-item"><span>Eastgate</span><span class="count">8</span></div>
+      <div class="sidebar-item"><span>Cedar Hollow</span><span class="count">6</span></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Saved views</div>
+      <div class="sidebar-item"><span>Price drop this week</span></div>
+      <div class="sidebar-item"><span>Over 30 DOM</span></div>
+      <div class="sidebar-item"><span>My listings</span></div>
+      <div class="sidebar-item"><span>Open this weekend</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="breadcrumbs">Workspace <span class="sep">›</span> Listings <span class="sep">›</span> <span>Active</span></div>
+
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Active Listings</h1>
+        <div class="page-subtitle">47 properties across 11 neighborhoods · Last synced from BrightMLS 4 minutes ago</div>
+      </div>
+      <div class="page-actions">
+        <button class="btn">Export CSV</button>
+        <button class="btn">Saved view</button>
+        <button class="btn btn-primary">+ New listing</button>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi card">
+        <div class="kpi-label">Avg. list price</div>
+        <div class="kpi-value">$684K</div>
+        <div class="kpi-delta delta-up">▲ 2.4% vs last quarter</div>
+      </div>
+      <div class="kpi card">
+        <div class="kpi-label">Median days on market</div>
+        <div class="kpi-value">17</div>
+        <div class="kpi-delta delta-down">▼ 3 days since June</div>
+      </div>
+      <div class="kpi card">
+        <div class="kpi-label">Sold-to-list ratio</div>
+        <div class="kpi-value">98.6%</div>
+        <div class="kpi-delta delta-up">▲ 0.6 pts</div>
+      </div>
+      <div class="kpi card">
+        <div class="kpi-label">Showings this week</div>
+        <div class="kpi-value">41</div>
+        <div class="kpi-delta">12 scheduled, 29 completed</div>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="btn btn-sm chip-accent">All statuses</button>
+      <button class="btn btn-sm">$500K – $1.5M</button>
+      <button class="btn btn-sm">3+ beds</button>
+      <button class="btn btn-sm">2+ baths</button>
+      <button class="btn btn-sm">Linden Hill</button>
+      <button class="btn btn-sm">Single family</button>
+      <button class="btn btn-sm btn-ghost">+ Add filter</button>
+      <div class="right">
+        <label class="checkbox checked">Only my listings</label>
+        <button class="btn btn-sm">Sort: Newest first ▾</button>
+      </div>
+    </div>
+
+    <div class="toggle-group mb-3">
+      <button class="active">Cards</button>
+      <button>Table</button>
+      <button>Map</button>
+    </div>
+
+    <div class="listings-grid">
+      <!-- Card 1 -->
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <div class="badge-row"><span class="chip chip-accent">Open Sun 2–4</span></div>
+          <span class="like">♡</span>
+          <div class="house"></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">412 Linden Hill Road</div>
+          <div class="listing-meta">Linden Hill · Cabinsfield, PA 19087</div>
+          <div class="listing-meta-row">
+            <span>4 bd</span><span>·</span><span>2.5 ba</span><span>·</span><span>2,448 sqft</span><span>·</span><span>0.42 ac</span>
+          </div>
+          <div class="listing-price-row">
+            <div>
+              <span class="chip">Active</span>
+            </div>
+            <div class="text-right">
+              <div class="listing-price">$1,185,000</div>
+              <div class="listing-status">9 d · 41 showings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <div class="badge-row"><span class="chip">New</span></div>
+          <span class="like">♡</span>
+          <div class="house"></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">88 Mill Creek Lane, Unit 4B</div>
+          <div class="listing-meta">Mill Creek · Cabinsfield, PA 19086</div>
+          <div class="listing-meta-row">
+            <span>2 bd</span><span>·</span><span>2 ba</span><span>·</span><span>1,460 sqft</span>
+          </div>
+          <div class="listing-price-row">
+            <div><span class="chip">Active</span></div>
+            <div class="text-right">
+              <div class="listing-price">$524,000</div>
+              <div class="listing-status">Listed yesterday</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <div class="badge-row"><span class="chip chip-accent">Price drop</span></div>
+          <span class="like">♡</span>
+          <div class="house"></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">17 Old Quarry Way</div>
+          <div class="listing-meta">Old Cabinsfield · 19086</div>
+          <div class="listing-meta-row">
+            <span>3 bd</span><span>·</span><span>2 ba</span><span>·</span><span>1,820 sqft</span><span>·</span><span>0.31 ac</span>
+          </div>
+          <div class="listing-price-row">
+            <div><span class="chip">Active</span></div>
+            <div class="text-right">
+              <div class="listing-price">$1,075,000</div>
+              <div class="listing-status">31 days · $40K from list</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <div class="badge-row"><span class="chip chip-warn">Under Contract</span></div>
+          <span class="like">♡</span>
+          <div class="house"></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">2208 Riverside Tower, PH-2</div>
+          <div class="listing-meta">Riverside North · 19092 · Penthouse</div>
+          <div class="listing-meta-row">
+            <span>3 bd</span><span>·</span><span>3.5 ba</span><span>·</span><span>2,940 sqft</span>
+          </div>
+          <div class="listing-price-row">
+            <div><span class="chip chip-warn">Under Contract</span></div>
+            <div class="text-right">
+              <div class="listing-price">$2,295,000</div>
+              <div class="listing-status">Contract pending · Oct 12</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <div class="badge-row"><span class="chip">Coming Soon</span></div>
+          <span class="like">♡</span>
+          <div class="house"></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">9 Cedar Hollow Court</div>
+          <div class="listing-meta">Cedar Hollow · 19085</div>
+          <div class="listing-meta-row">
+            <span>4 bd</span><span>·</span><span>3 ba</span><span>·</span><span>2,890 sqft</span><span>·</span><span>0.48 ac</span>
+          </div>
+          <div class="listing-price-row">
+            <div><span class="chip">Coming Soon</span></div>
+            <div class="text-right">
+              <div class="listing-price">$795,000</div>
+              <div class="listing-status">Photo shoot Fri</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <div class="badge-row"><span class="chip chip-accent">Open Sat</span></div>
+          <span class="like">♡</span>
+          <div class="house"></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">76 Eastgate Avenue</div>
+          <div class="listing-meta">Eastgate · 19090</div>
+          <div class="listing-meta-row">
+            <span>3 bd</span><span>·</span><span>2 ba</span><span>·</span><span>1,985 sqft</span>
+          </div>
+          <div class="listing-price-row">
+            <div><span class="chip">Active</span></div>
+            <div class="text-right">
+              <div class="listing-price">$612,500</div>
+              <div class="listing-status">12 days on market</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <span class="like">♡</span>
+          <div class="house"></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">331 Birchwood Lane</div>
+          <div class="listing-meta">Linden Hill · 19087</div>
+          <div class="listing-meta-row">
+            <span>4 bd</span><span>·</span><span>2.5 ba</span><span>·</span><span>2,180 sqft</span>
+          </div>
+          <div class="listing-price-row">
+            <div><span class="chip">Active</span></div>
+            <div class="text-right">
+              <div class="listing-price">$895,000</div>
+              <div class="listing-status">5 d · 18 showings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <div class="badge-row"><span class="chip">Stale · 62 days</span></div>
+          <span class="like">♡</span>
+          <div class="house"></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">14 Sycamore Bend</div>
+          <div class="listing-meta">Mill Creek · 19086</div>
+          <div class="listing-meta-row">
+            <span>3 bd</span><span>·</span><span>2 ba</span><span>·</span><span>1,640 sqft</span>
+          </div>
+          <div class="listing-price-row">
+            <div><span class="chip">Active</span></div>
+            <div class="text-right">
+              <div class="listing-price">$649,000</div>
+              <div class="listing-status text-red">Needs price review</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <span class="like">♡</span>
+          <div class="house"></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">505 Market Street, Loft 7</div>
+          <div class="listing-meta">Old Cabinsfield · 19086</div>
+          <div class="listing-meta-row">
+            <span>2 bd</span><span>·</span><span>2 ba</span><span>·</span><span>1,310 sqft</span>
+          </div>
+          <div class="listing-price-row">
+            <div><span class="chip">Active</span></div>
+            <div class="text-right">
+              <div class="listing-price">$478,000</div>
+              <div class="listing-status">22 d · 19 showings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center mt-2" style="margin-top:18px; flex-wrap:wrap; gap:8px;">
+      <div class="text-muted text-small">Showing 1–9 of 47 active listings</div>
+      <div class="pagination">
+        <span class="pg">‹</span>
+        <span class="pg active">1</span>
+        <span class="pg">2</span>
+        <span class="pg">3</span>
+        <span class="pg">4</span>
+        <span class="pg">5</span>
+        <span class="pg">›</span>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div>© 2025 Ember Grove Works · v4.12.3</div>
+  <div class="footer-links">
+    <a href="settings.html">Settings</a>
+    <a href="reports.html">Reports</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="#">Help</a>
+  </div>
+  <div>Press <kbd>?</kbd> for shortcuts</div>
+</footer>
+
+</body>
+</html>

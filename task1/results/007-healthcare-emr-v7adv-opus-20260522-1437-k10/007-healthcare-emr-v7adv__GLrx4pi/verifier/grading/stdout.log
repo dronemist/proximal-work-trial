@@ -1,0 +1,174 @@
+[grade] VLM judge: 15 pairs in 15.3s
+{
+  "per_page_viewport": {
+    "appointment-calendar": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.7255466892631346,
+          "extra": {
+            "reference_size": [
+              1440,
+              3443
+            ],
+            "candidate_size": [
+              1440,
+              2603
+            ],
+            "compared_size": [
+              1440,
+              2603
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.40292835235595703,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.1623513102531433,
+            "raw_score_before_sqrt": 0.16235126554965973
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8247195919673581,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.1752804080326419,
+            "page_diagonal_px": 3732.190745394689
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7019116911405608,
+          "extra": {
+            "bg_score": 0.7199428570100239,
+            "fg_score": 0.6838805252710978,
+            "bg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 17,
+              "weighted_mean_oklab_distance": 0.028465714305639267,
+              "base_score_before_penalty": 0.8102285712957382,
+              "over_color_penalty": 0.09028571428571427
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 18,
+              "weighted_mean_oklab_distance": 0.027017921209335327,
+              "base_score_before_penalty": 0.8198805252710978,
+              "over_color_penalty": 0.136
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6516012534517066,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.7165732192167238,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.14308426073131955
+              ],
+              [
+                12.0,
+                0.383147853736089
+              ],
+              [
+                14.0,
+                0.43402225755166934
+              ],
+              [
+                20.0,
+                0.02702702702702703
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.030612244897959183
+              ],
+              [
+                11.0,
+                0.1360544217687075
+              ],
+              [
+                11.5,
+                0.11564625850340136
+              ],
+              [
+                12.0,
+                0.10714285714285714
+              ],
+              [
+                12.5,
+                0.08333333333333333
+              ],
+              [
+                13.0,
+                0.09523809523809523
+              ],
+              [
+                14.0,
+                0.41156462585034015
+              ],
+              [
+                22.0,
+                0.011904761904761904
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5977272727272728,
+          "extra": {
+            "reference_tokens": 755,
+            "candidate_tokens": 651,
+            "matched_tokens": 526,
+            "union_tokens": 880,
+            "reference_unique": 325,
+            "candidate_unique": 320
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.5,
+          "extra": {
+            "reason": "The overall layout and structure are similar, but the candidate fabricates multiple content details including different patient names/clinicians in the week view grid (e.g., 'M. Olson', 'R. Abbe', 'J. Reyes' vs reference's 'Chu B', 'Marta L', 'J. Reyes'), differe

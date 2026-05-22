@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports · Ember Grove Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Ember Grove Works</div>
+  <nav class="topnav">
+    <a href="listings.html">Listings</a>
+    <a href="listing-detail.html">Listing Detail</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="reports.html" class="active">Reports</a>
+    <a href="reports.html">Market Reports</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+  <div class="topbar-search"><input type="text" placeholder="Search reports, neighborhoods, agents…"></div>
+  <div class="topbar-icons">
+    <span class="icon-btn">?</span>
+    <span class="avatar">MH</span>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <span class="filter-pill">⏷ Filter reports</span>
+
+    <div class="sb-section">
+      <h4>Workspace</h4>
+      <ul>
+        <li>Listings <span class="count">67</span></li>
+        <li>Calendar <span class="count">31</span></li>
+        <li>Market Reports <span class="count">8</span></li>
+      </ul>
+    </div>
+
+    <div class="sb-section">
+      <h4>Market Trends</h4>
+      <ul>
+        <li class="active">Quarterly Overview</li>
+        <li>Price per Sq. Ft</li>
+        <li>Days on Market</li>
+        <li>Inventory Levels</li>
+        <li>Sale-to-List Ratio</li>
+      </ul>
+    </div>
+
+    <div class="sb-section">
+      <h4>Neighborhoods</h4>
+      <ul>
+        <li>Cedar Heights</li>
+        <li>Hollis Park</li>
+        <li>Westmore</li>
+        <li>Ashfield Bend</li>
+        <li>Old Mill Downs</li>
+        <li>Lakeside Commons</li>
+      </ul>
+    </div>
+
+    <div class="sb-section">
+      <h4>Teams</h4>
+      <ul>
+        <li>Agent Leaderboard</li>
+        <li>Pipeline Velocity</li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="crumbs">Reports <span>›</span> Market Trends <span>›</span> Quarterly Overview</div>
+
+    <div class="page-head">
+      <div>
+        <h1>Quarterly Market Overview</h1>
+        <p class="subtitle">Jul 1 – Sep 30, 2024 · Compiled Oct 2 by Marisol Vega · 6 markets · 1,294 transactions reviewed</p>
+      </div>
+      <div class="actions">
+        <button class="btn">Export CSV</button>
+        <button class="btn">Print</button>
+        <button class="btn btn-primary">Share report</button>
+      </div>
+    </div>
+
+    <div class="flex gap-8 mb-12" style="flex-wrap:wrap;">
+      <span class="chip active">Q3 2024</span>
+      <span class="chip">Q2 2024</span>
+      <span class="chip">Compare last 2 by Quarter</span>
+      <span class="chip">All neighborhoods</span>
+      <span class="chip">Single family</span>
+    </div>
+
+    <div class="tabs">
+      <span class="tab active">Overview</span>
+      <span class="tab">Neighborhoods</span>
+      <span class="tab">Agents</span>
+      <span class="tab">Buyers</span>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="label">Median Sale Price</div><div class="value">$612,400</div><div class="delta">↑ 3.9% vs Q2</div></div>
+      <div class="kpi"><div class="label">Avg. Days On Market</div><div class="value">27</div><div class="delta down">↑ 5 days in Q3</div></div>
+      <div class="kpi"><div class="label">Sale-to-List Ratio</div><div class="value">98.4%</div><div class="delta">↑ 0.3 pts YoY</div></div>
+      <div class="kpi"><div class="label">Active Inventory</div><div class="value">214</div><div class="delta down">↓ 11.2% YoY</div></div>
+    </div>
+
+    <div class="chart">
+      <div class="flex-between mb-12">
+        <div>
+          <h3 style="font-family:Georgia,serif; font-size:17px;">Median sale price · trailing 12 months</h3>
+          <p class="muted tiny">All neighborhoods · single-family detached</p>
+        </div>
+        <div class="chart-legend">
+          <span><span class="legend-dot" style="background: var(--text);"></span>Median sale price</span>
+          <span><span class="legend-dot" style="background: var(--accent);"></span>Prior 12 months</span>
+        </div>
+      </div>
+      <svg viewBox="0 0 600 180" width="100%" height="180" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#e58a64" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#e58a64" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g stroke="#1f3a32" stroke-width="0.5">
+          <line x1="0" y1="40" x2="600" y2="40"/>
+          <line x1="0" y1="80" x2="600" y2="80"/>
+          <line x1="0" y1="120" x2="600" y2="120"/>
+          <line x1="0" y1="160" x2="600" y2="160"/>
+        </g>
+        <path d="M0,140 L50,135 L100,130 L150,125 L200,115 L250,108 L300,100 L350,92 L400,80 L450,70 L500,58 L550,52 L600,42 L600,180 L0,180 Z" fill="url(#g1)"/>
+        <path d="M0,140 L50,135 L100,130 L150,125 L200,115 L250,108 L300,100 L350,92 L400,80 L450,70 L500,58 L550,52 L600,42" stroke="#e58a64" stroke-width="2" fill="none"/>
+        <path d="M0,150 L50,148 L100,145 L150,140 L200,138 L250,132 L300,128 L350,122 L400,118 L450,110 L500,108 L550,100 L600,98" stroke="#e6e1d0" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
+      </svg>
+      <div class="flex-between small muted mt-8">
+        <span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart">
+        <div class="flex-between mb-12">
+          <div>
+            <h3 style="font-family:Georgia,serif; font-size:15px;">Closed transactions</h3>
+            <p class="muted tiny">by month · current quarter shaded</p>
+          </div>
+        </div>
+        <svg viewBox="0 0 320 140" width="100%" height="140">
+          <g fill="#284e44">
+            <rect x="10" y="80" width="22" height="50"/>
+            <rect x="42" y="70" width="22" height="60"/>
+            <rect x="74" y="60" width="22" height="70"/>
+            <rect x="106" y="64" width="22" height="66"/>
+            <rect x="138" y="50" width="22" height="80"/>
+            <rect x="170" y="44" width="22" height="86"/>
+            <rect x="202" y="32" width="22" height="98"/>
+          </g>
+          <g fill="#e58a64">
+            <rect x="234" y="20" width="22" height="110"/>
+            <rect x="266" y="14" width="22" height="116"/>
+            <rect x="298" y="40" width="22" height="90"/>
+          </g>
+        </svg>
+        <div class="flex-between small muted mt-8">
+          <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span>
+        </div>
+        <div class="mt-8 small">
+          <span><span class="legend-dot" style="background:#284e44;"></span>Prior months</span>
+          <span style="margin-left:16px;"><span class="legend-dot" style="background:#e58a64;"></span>Q3 2024</span>
+        </div>
+      </div>
+
+      <div class="chart">
+        <h3 style="font-family:Georgia,serif; font-size:15px;">Days on market</h3>
+        <p class="muted tiny mb-12">Median, by price band</p>
+        <div style="font-size: 12px;">
+          <div class="flex-between" style="padding: 4px 0;"><span>Under $400K</span><span class="mono">21 days</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span>$400K – $600K</span><span class="mono">24 days</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span>$600K – $800K</span><span class="mono">27 days</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span>$800K – $1.2M</span><span class="mono">31 days</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span>$1.2M – $2M</span><span class="mono">42 days</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span>Over $2M</span><span class="mono">68 days</span></div>
+        </div>
+        <p class="muted tiny mt-8">Inventory in the upper tightening by 6 days versus Q2; the upper band loosened by 9 days.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="flex-between mb-12">
+        <h3 style="font-family:Georgia,serif; font-size:17px;">Neighborhood activity</h3>
+        <span class="muted small">Closings per month · darker = higher volume</span>
+      </div>
+      <table class="heatmap">
+        <thead><tr><th class="lbl">Neighborhood</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th></tr></thead>
+        <tbody>
+          <tr><td class="lbl">Cedar Heights</td><td class="h2c">8</td><td class="h3c">12</td><td class="h2c">9</td><td class="h3c">14</td><td class="h4c">18</td><td class="h3c">11</td><td class="h4c">16</td><td class="h5c">21</td><td class="h3c">13</td></tr>
+          <tr><td class="lbl">Hollis Park</td><td class="h1c">5</td><td class="h2c">7</td><td class="h2c">8</td><td class="h3c">10</td><td class="h3c">12</td><td class="h2c">9</td><td class="h4c">15</td><td class="h4c">17</td><td class="h3c">11</td></tr>
+          <tr><td class="lbl">Westmore</td><td class="h2c">6</td><td class="h2c">8</td><td class="h3c">11</td><td class="h2c">9</td><td class="h3c">13</td><td class="h4c">15</td><td class="h3c">12</td><td class="h4c">16</td><td class="h2c">9</td></tr>
+          <tr><td class="lbl">Ashfield Bend</td><td class="h1c">3</td><td class="h2c">6</td><td class="h2c">7</td><td class="h3c">10</td><td class="h2c">8</td><td class="h3c">11</td><td class="h3c">13</td><td class="h4c">15</td><td class="h3c">12</td></tr>
+          <tr><td class="lbl">Old Mill Downs</td><td class="h2c">7</td><td class="h2c">9</td><td class="h3c">12</td><td class="h3c">13</td><td class="h4c">16</td><td class="h3c">11</td><td class="h2c">9</td><td class="h3c">12</td><td class="h2c">10</td></tr>
+          <tr><td class="lbl">Lakeside Commons</td><td class="h1c">4</td><td class="h2c">6</td><td class="h2c">8</td><td class="h2c">7</td><td class="h3c">11</td><td class="h2c">9</td><td class="h3c">12</td><td class="h3c">14</td><td class="h2c">10</td></tr>
+        </tbody>
+      </table>
+      <p class="muted tiny mt-8">Hollis Park and Lakeside Commons trend ahead of last summer. Westmore remains the quietest market in the set.</p>
+    </div>
+
+    <div class="card">
+      <h3 style="font-family:Georgia,serif; font-size:17px; margin-bottom: 12px;">Neighborhood medians, Q3 2024</h3>
+      <table>
+        <thead><tr><th>Neighborhood</th><th>Median Price</th><th>$/Sq Ft</th><th>DOM</th><th>Sale-to-List</th><th>YoY</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>Cedar Heights</td><td>$748,000</td><td>$352</td><td>23</td><td>99.2%</td><td><span class="chip green">↑ 5.1%</span></td><td><span class="chip orange">Hot</span></td></tr>
+          <tr><td>Hollis Park</td><td>$634,500</td><td>$311</td><td>26</td><td>98.6%</td><td><span class="chip green">↑ 3.8%</span></td><td><span class="chip orange">Hot</span></td></tr>
+          <tr><td>Westmore</td><td>$498,000</td><td>$258</td><td>34</td><td>97.4%</td><td><span class="chip red">↓ 1.2%</span></td><td><span class="chip">Steady</span></td></tr>
+          <tr><td>Ashfield Bend</td><td>$582,000</td><td>$291</td><td>28</td><td>98.0%</td><td><span class="chip green">↑ 2.4%</span></td><td><span class="chip">Steady</span></td></tr>
+          <tr><td>Old Mill Downs</td><td>$619,400</td><td>$305</td><td>25</td><td>98.8%</td><td><span class="chip green">↑ 3.1%</span></td><td><span class="chip orange">Hot</span></td></tr>
+          <tr><td>Lakeside Commons</td><td>$512,400</td><td>$248</td><td>31</td><td>97.9%</td><td><span class="chip red">↓ 0.6%</span></td><td><span class="chip">Steady</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="flex-between mb-12">
+        <h3 style="font-family:Georgia,serif; font-size:17px;">Agent performance</h3>
+        <span class="muted small">Ranked by closed gross commission · Q3 2024</span>
+      </div>
+      <table>
+        <thead><tr><th>Rank</th><th>Agent</th><th>Closings</th><th>Volume</th><th>Avg. Price</th><th>Sale-to-List</th><th>GCI</th></tr></thead>
+        <tbody>
+          <tr><td><span style="color:var(--accent); font-weight:600;">①</span></td><td><div class="flex gap-8"><div class="avatar" style="width:24px; height:24px; font-size:10px;">EC</div><div><div><strong>Elena Cortez</strong></div><div class="muted tiny">Cedar Heights</div></div></div></td><td>14</td><td>$9,940,000</td><td>$710,000</td><td>100.4%</td><td>$248,000</td></tr>
+          <tr><td><span style="color:var(--accent); font-weight:600;">②</span></td><td><div class="flex gap-8"><div class="avatar" style="width:24px; height:24px; font-size:10px;">JR</div><div><div><strong>Jonas Reinhardt</strong></div><div class="muted tiny">Cedar Heights</div></div></div></td><td>12</td><td>$8,124,000</td><td>$677,000</td><td>99.7%</td><td>$203,000</td></tr>
+          <tr><td><span style="color:var(--accent); font-weight:600;">③</span></td><td><div class="flex gap-8"><div class="avatar" style="width:24px; height:24px; font-size:10px;">MV</div><div><div><strong>Marisol Vega</strong></div><div class="muted tiny">Old Mill Downs</div></div></div></td><td>11</td><td>$6,890,000</td><td>$626,000</td><td>99.4%</td><td>$172,000</td></tr>
+          <tr><td>4</td><td><div class="flex gap-8"><div class="avatar" style="width:24px; height:24px; font-size:10px;">DA</div><div><div><strong>Devon Ashworth</strong></div><div class="muted tiny">Hollis Park</div></div></div></td><td>10</td><td>$5,330,000</td><td>$533,000</td><td>98.1%</td><td>$134,000</td></tr>
+          <tr><td>5</td><td><div class="flex gap-8"><div class="avatar" style="width:24px; height:24px; font-size:10px;">PN</div><div><div><strong>Priya Nair</strong></div><div class="muted tiny">Ashfield Bend</div></div></div></td><td>9</td><td>$4,890,000</td><td>$543,000</td><td>97.2%</td><td>$122,000</td></tr>
+          <tr><td>6</td><td><div class="flex gap-8"><div class="avatar" style="width:24px; height:24px; font-size:10px;">TO</div><div><div><strong>Theo Olufemi</strong></div><div class="muted tiny">Westmore</div></div></div></td><td>8</td><td>$3,560,000</td><td>$445,000</td><td>97.4%</td><td>$88,500</td></tr>
+          <tr><td>7</td><td><div class="flex gap-8"><div class="avatar" style="width:24px; height:24px; font-size:10px;">HB</div><div><div><strong>Hana Brock</strong></div><div class="muted tiny">Lakeside Commons</div></div></div></td><td>7</td><td>$3,140,000</td><td>$449,000</td><td>97.8%</td><td>$74,200</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="font-family:Georgia,serif; font-size:15px;">Where new buyers came from</h3>
+        <p class="muted tiny mb-12">Q3 2024 · 322 qualified leads</p>
+        <div class="small">
+          <div class="flex-between" style="padding: 4px 0;"><span><span class="legend-dot" style="background: var(--accent);"></span>Referral, past client</span><span class="mono">38%</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span><span class="legend-dot" style="background: var(--green);"></span>MLS sign call</span><span class="mono">19%</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span><span class="legend-dot" style="background: var(--yellow);"></span>Open house</span><span class="mono">14%</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span><span class="legend-dot" style="background: #6f9fb0;"></span>Website inquiry</span><span class="mono">12%</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span><span class="legend-dot" style="background: #a07ab0;"></span>Broker referral</span><span class="mono">9%</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span><span class="legend-dot" style="background: var(--muted-2);"></span>Other</span><span class="mono">8%</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="font-family:Georgia,serif; font-size:15px;">Pipeline velocity</h3>
+        <p class="muted tiny mb-12">Median time at each stage · in days</p>
+        <div class="small">
+          <div class="flex-between" style="padding: 4px 0;"><span>Lead → 1st contact</span><span class="mono">1.4</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span>Contact → showing</span><span class="mono">4.2</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span>Showing → offer</span><span class="mono">12.6</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span>Offer → accepted</span><span class="mono">3.1</span></div>
+          <div class="flex-between" style="padding: 4px 0;"><span>Accepted → close</span><span class="mono">31.4</span></div>
+        </div>
+        <p class="muted tiny mt-8">The showing-to-offer stage stretched 1.8 days; consider targeted outreach in Westmore and Lakeside Commons.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="font-family:Georgia,serif; font-size:17px; margin-bottom: 12px;">Analyst notes</h3>
+      <div class="grid-2">
+        <div>
+          <p class="muted small"><strong style="color:var(--text);">HEADLINE</strong></p>
+          <p class="muted small">The quarter closed firmer than the spring tape suggested. Median pricing moved up, days on market compressed across the mid band, and Lakeside Commons returns to its own ceiling levels.</p>
+        </div>
+        <div>
+          <p class="muted small"><strong style="color:var(--text);">WATCHLIST</strong></p>
+          <p class="muted small">Active count remains 12% below the year ago figure. We expect a modest October bump — eleven sellers we've worked with are listing fall for the first two weeks of the month.</p>
+        </div>
+        <div>
+          <p class="muted small"><strong style="color:var(--text);">RISKS</strong></p>
+          <p class="muted small">Westmore softening; the only neighborhood with negative YoY price movement and a sale-to-list ratio drift below 97%. Worth a targeted CMA outreach to owners over 18 months tenure.</p>
+        </div>
+        <div>
+          <p class="muted small"><strong style="color:var(--text);">CMA</strong></p>
+          <p class="muted small">Re-price the three Q2 carry-overs (Birch Lane, Aspen Court, 148 &amp; Surrey) before Oct 18, staging refresh on the two listings staling above 45 days.</p>
+        </div>
+      </div>
+      <div class="flex gap-8 mt-8" style="margin-top:14px;">
+        <button class="btn">Save as snapshot</button>
+        <button class="btn">Schedule monthly</button>
+        <button class="btn btn-primary" style="margin-left:auto;">Send to clients</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div>© 2024 Ember Grove Works · v3.14.0</div>
+  <div class="footer-links"><a>Listings</a><a>Calendar</a><a>Reports</a><a>Settings</a></div>
+  <div class="muted-2">$ in account 12¢</div>
+</footer>
+
+</body>
+</html>

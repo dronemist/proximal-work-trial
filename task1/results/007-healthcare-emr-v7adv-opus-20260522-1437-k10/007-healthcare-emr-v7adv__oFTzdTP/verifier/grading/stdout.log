@@ -1,0 +1,174 @@
+[grade] VLM judge: 15 pairs in 16.6s
+{
+  "per_page_viewport": {
+    "appointment-calendar": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.7251555055821809,
+          "extra": {
+            "reference_size": [
+              1440,
+              3443
+            ],
+            "candidate_size": [
+              1440,
+              2313
+            ],
+            "compared_size": [
+              1440,
+              2313
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.3399600684642792,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.11557283997535706,
+            "raw_score_before_sqrt": 0.11557283997535706
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.792674511946452,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.20732548805354806,
+            "page_diagonal_px": 3732.190745394689
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.6198667455485889,
+          "extra": {
+            "bg_score": 0.6583836185478028,
+            "fg_score": 0.5813498725493749,
+            "bg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 22,
+              "weighted_mean_oklab_distance": 0.029128171503543854,
+              "base_score_before_penalty": 0.8058121899763743,
+              "over_color_penalty": 0.14742857142857144
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 23,
+              "weighted_mean_oklab_distance": 0.032797519117593765,
+              "base_score_before_penalty": 0.7813498725493748,
+              "over_color_penalty": 0.2
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6666986868053494,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.7381409811504992,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.14308426073131955
+              ],
+              [
+                12.0,
+                0.383147853736089
+              ],
+              [
+                14.0,
+                0.43402225755166934
+              ],
+              [
+                20.0,
+                0.02702702702702703
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.03595890410958904
+              ],
+              [
+                10.5,
+                0.07705479452054795
+              ],
+              [
+                11.0,
+                0.1917808219178082
+              ],
+              [
+                12.0,
+                0.1095890410958904
+              ],
+              [
+                13.0,
+                0.1678082191780822
+              ],
+              [
+                14.0,
+                0.3818493150684932
+              ],
+              [
+                15.0,
+                0.015410958904109588
+              ],
+              [
+                18.0,
+                0.011986301369863013
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6125290023201856,
+          "extra": {
+            "reference_tokens": 755,
+            "candidate_tokens": 635,
+            "matched_tokens": 528,
+            "union_tokens": 862,
+            "reference_unique": 325,
+            "candidate_unique": 321
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content differences: the candidate hallucinated different clinician names (Dr. Voss instead of Dr. Calloway/Mossberg), wrong room assignments, different status tags (14 telehealth/2 holds/1 conflict vs 38 confirmed/2 cancellations/6 wait-list), di

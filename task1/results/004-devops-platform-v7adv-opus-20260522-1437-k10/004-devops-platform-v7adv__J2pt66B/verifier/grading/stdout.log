@@ -1,0 +1,171 @@
+[grade] VLM judge: 15 pairs in 16.6s
+{
+  "per_page_viewport": {
+    "alerts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6383734671709386,
+          "extra": {
+            "reference_size": [
+              1440,
+              2271
+            ],
+            "candidate_size": [
+              1440,
+              1701
+            ],
+            "compared_size": [
+              1440,
+              1701
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.43210873007774353,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 312,
+            "matched_pairs": 312,
+            "mean_matched_iou": 0.18671788275241852,
+            "raw_score_before_sqrt": 0.1867179423570633
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6393402882592334,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 312,
+            "matched_pairs": 312,
+            "mean_normalized_centroid_distance": 0.36065971174076666,
+            "page_diagonal_px": 2689.336619208539
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7589750315305732,
+          "extra": {
+            "bg_score": 0.8543548708160718,
+            "fg_score": 0.6635951922450747,
+            "bg": {
+              "reference_palette_size": 9,
+              "candidate_palette_size": 10,
+              "weighted_mean_oklab_distance": 0.021846769377589226,
+              "base_score_before_penalty": 0.8543548708160718,
+              "over_color_penalty": 0.0
+            },
+            "fg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 12,
+              "weighted_mean_oklab_distance": 0.045489292591810226,
+              "base_score_before_penalty": 0.6967380493879318,
+              "over_color_penalty": 0.033142857142857134
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6046383789296855,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.578054827042408,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.28217821782178215
+              ],
+              [
+                14.0,
+                0.45544554455445546
+              ],
+              [
+                16.0,
+                0.22772277227722773
+              ],
+              [
+                18.0,
+                0.022277227722772276
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.0641025641025641
+              ],
+              [
+                11.0,
+                0.20833333333333334
+              ],
+              [
+                12.0,
+                0.4230769230769231
+              ],
+              [
+                13.0,
+                0.26282051282051283
+              ],
+              [
+                14.0,
+                0.022435897435897436
+              ],
+              [
+                22.0,
+                0.01282051282051282
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5350756533700137,
+          "extra": {
+            "reference_tokens": 592,
+            "candidate_tokens": 524,
+            "matched_tokens": 389,
+            "union_tokens": 727,
+            "reference_unique": 313,
+            "candidate_unique": 299
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content differences: the candidate changes severity levels (SEV-3 instead of SEV-2 for cert expiry and media-worker alerts), alters alert IDs in the closed manifest (ALT-4803\u2192ALT-4683, etc.), changes the on-call rotation panel (missing L. Bergstr\u00f6m and J. Marchetti's roles diffe",
+            "model": "claude-so

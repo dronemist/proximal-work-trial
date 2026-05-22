@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Products — Onyx Bridge Lab</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .pgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  @media (max-width:1100px) { .pgrid { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:580px) { .pgrid { grid-template-columns:1fr; } }
+  .pcard { background:var(--card); border:1px solid var(--border); padding:14px; display:flex; flex-direction:column; gap:8px; }
+  .pcard .img { height:140px; background:var(--card-2); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin:-14px -14px 6px; border-left:0; border-right:0; border-top:0; }
+  .pcard .img svg { width:80px; height:80px; opacity:.5; }
+  .pcard .top { display:flex; justify-content:space-between; align-items:center; }
+  .pcard h4 { margin:0; font-family:var(--serif); font-size:14px; }
+  .pcard .swatches { display:flex; gap:4px; }
+  .pcard .sw { width:10px; height:10px; border-radius:50%; border:1px solid var(--border-2); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Onyx Bridge Lab</div>
+    <nav class="nav-links">
+      <a href="orders.html">Orders</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="customers.html">Customers</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="discounts.html">Discounts</a>
+    </nav>
+    <div class="nav-meta">Holiday week · live</div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="page-head">
+    <div class="breadcrumb">Catalog <span class="sep">/</span> <span class="cur">Q3 inventory cycle</span></div>
+    <h1 class="page-title">Products</h1>
+    <p class="page-sub">412 SKUs across six collections. Drafts and archived variants are listed into the course below; reorder thresholds are set per-SKU and surface in the sidebar.</p>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-label">Active SKUs</div><div class="kpi-value">412</div><div class="kpi-delta up">▲ 14 this month</div></div>
+    <div class="kpi"><div class="kpi-label">Inventory value</div><div class="kpi-value">$284k</div><div class="kpi-delta up">▲ 6.1%</div></div>
+    <div class="kpi"><div class="kpi-label">Low stock</div><div class="kpi-value">23</div><div class="kpi-delta warn">▼ flag 7 critical</div></div>
+    <div class="kpi"><div class="kpi-label">Out of stock</div><div class="kpi-value">08</div><div class="kpi-delta warn">▲ 3 awaiting POs</div></div>
+  </div>
+
+  <div class="row" style="gap:8px;flex-wrap:wrap;margin-bottom:10px">
+    <input class="input" placeholder="Search SKU, title, vendor or tag" style="flex:1;min-width:240px">
+    <select class="select" style="width:170px"><option>All collections</option></select>
+    <select class="select" style="width:160px"><option>Any status</option></select>
+    <button class="btn primary">+ New product</button>
+  </div>
+
+  <div class="chiprow" style="margin-bottom:14px">
+    <span class="chip on">All · 412</span>
+    <span class="chip">Active · 384</span>
+    <span class="chip">Draft · 23</span>
+    <span class="chip">Archived · 8</span>
+    <span class="chip">Low stock · 23</span>
+    <span class="chip">Out of stock · 8</span>
+    <span class="chip">Backordered · 4</span>
+    <span class="spacer"></span>
+    <span class="label">Sorted by recently updated</span>
+  </div>
+
+  <div class="layout">
+    <div class="col">
+      <div class="pgrid">
+
+        <div class="pcard">
+          <div class="img"><svg viewBox="0 0 100 100"><ellipse cx="50" cy="58" rx="28" ry="8" fill="none" stroke="#1a1612" stroke-width="2"/><path d="M22 58 Q22 30 50 30 Q78 30 78 58" fill="none" stroke="#1a1612" stroke-width="2"/><line x1="22" y1="58" x2="22" y2="72" stroke="#1a1612" stroke-width="2"/><line x1="78" y1="58" x2="78" y2="72" stroke="#1a1612" stroke-width="2"/><ellipse cx="50" cy="72" rx="28" ry="8" fill="none" stroke="#1a1612" stroke-width="2"/></svg></div>
+          <div class="top"><span class="pill green">Active</span><span class="label mono">SKU · CER-114</span></div>
+          <h4>Slipware Tumbler, Persimmon</h4>
+          <div class="row" style="gap:6px"><div class="swatches"><span class="sw" style="background:#c95b2c"></span><span class="sw" style="background:#1a1612"></span><span class="sw" style="background:#dfd2bf"></span></div><span class="text-3 small">3 variants</span></div>
+          <div class="row between"><span class="mono">$48.00</span><span class="text-3 small">Ceramics</span></div>
+          <div class="row between"><span class="text-3 small">Updated 2h ago</span><span class="accent small">Edit ›</span></div>
+        </div>
+
+        <div class="pcard">
+          <div class="img"><svg viewBox="0 0 100 100"><rect x="22" y="20" width="56" height="60" fill="none" stroke="#1a1612" stroke-width="2"/><line x1="22" y1="34" x2="78" y2="34" stroke="#c95b2c" stroke-width="2"/><circle cx="58" cy="56" r="4" fill="#c95b2c"/><line x1="30" y1="68" x2="70" y2="68" stroke="#1a1612" stroke-width="1"/></svg></div>
+          <div class="top"><span class="pill amber">Low stock</span><span class="label mono">SKU · TEX-088</span></div>
+          <h4>Linen Throw, Hatched Indigo</h4>
+          <div class="row" style="gap:6px"><div class="swatches"><span class="sw" style="background:#3a4f6e"></span><span class="sw" style="background:#1a1612"></span></div><span class="text-3 small">2 variants</span></div>
+          <div class="row between"><span class="mono">$184.00</span><span class="text-3 small">Textiles</span></div>
+          <div class="prog"><span style="width:18%"></span></div>
+          <div class="row between"><span class="text-3 small">Stock 7 / 32</span><span class="text-3 small">Updated yesterday</span></div>
+        </div>
+
+        <div class="pcard">
+          <div class="img"><svg viewBox="0 0 100 100"><rect x="28" y="22" width="44" height="60" fill="none" stroke="#1a1612" stroke-width="2"/><line x1="28" y1="32" x2="72" y2="32" stroke="#1a1612" stroke-width="1"/><line x1="28" y1="42" x2="72" y2="42" stroke="#1a1612" stroke-width="1"/><line x1="28" y1="52" x2="60" y2="52" stroke="#1a1612" stroke-width="1"/><circle cx="50" cy="68" r="4" fill="#c95b2c"/></svg></div>
+          <div class="top"><span class="pill green">Active</span><span class="label mono">SKU · STA-022</span></div>
+          <h4>Field Notebook, Long-Stitch</h4>
+          <div class="row" style="gap:6px"><div class="swatches"><span class="sw" style="background:#c95b2c"></span><span class="sw" style="background:#3a4f6e"></span><span class="sw" style="background:#dfd2bf"></span></div><span class="text-3 small">3 variants</span></div>
+          <div class="row between"><span class="mono">$22.00</span><span class="text-3 small">Stationery</span></div>
+          <div class="row between"><span class="text-3 small">Stock 312 / 412</span><span class="text-3 small">Updated 4d ago</span></div>
+        </div>
+
+        <div class="pcard">
+          <div class="img"><svg viewBox="0 0 100 100"><path d="M40 30 L40 22 L60 22 L60 30 Q70 38 70 60 Q70 78 50 78 Q30 78 30 60 Q30 38 40 30 Z" fill="none" stroke="#1a1612" stroke-width="2"/><ellipse cx="50" cy="30" rx="10" ry="2" fill="none" stroke="#1a1612"/></svg></div>
+          <div class="top"><span class="pill red">Out of stock</span><span class="label mono">SKU · GLA-203</span></div>
+          <h4>Hand-Blown Carafe, 1L</h4>
+          <div class="row" style="gap:6px"><div class="swatches"><span class="sw" style="background:#dfd2bf"></span><span class="sw" style="background:#3a4f6e"></span></div><span class="text-3 small">2 variants</span></div>
+          <div class="row between"><span class="mono">$96.00</span><span class="text-3 small">Glassware</span></div>
+          <div class="row between"><span class="text-3 small">Stock 0 · PO #4416</span><span class="text-3 small">ETA Oct 18</span></div>
+        </div>
+
+        <div class="pcard">
+          <div class="img"><svg viewBox="0 0 100 100"><circle cx="50" cy="52" r="30" fill="none" stroke="#1a1612" stroke-width="2"/><circle cx="50" cy="52" r="22" fill="none" stroke="#1a1612" stroke-width="1"/><circle cx="50" cy="52" r="5" fill="#c95b2c"/></svg></div>
+          <div class="top"><span class="pill green">Active</span><span class="label mono">SKU · CER-081</span></div>
+          <h4>Stoneware Coupe Plate</h4>
+          <div class="row" style="gap:6px"><div class="swatches"><span class="sw" style="background:#dfd2bf"></span><span class="sw" style="background:#1a1612"></span></div><span class="text-3 small">2 variants · 2 sizes</span></div>
+          <div class="row between"><span class="mono">$34.00</span><span class="text-3 small">Ceramics</span></div>
+          <div class="prog gr"><span style="width:62%"></span></div>
+          <div class="row between"><span class="text-3 small">Stock 88 / 120</span><span class="text-3 small">Updated 1d ago</span></div>
+        </div>
+
+        <div class="pcard">
+          <div class="img"><svg viewBox="0 0 100 100"><rect x="20" y="28" width="60" height="44" fill="none" stroke="#1a1612" stroke-width="2"/><path d="M20 28 L50 56 L80 28" fill="none" stroke="#1a1612" stroke-width="2"/><circle cx="32" cy="62" r="3" fill="#c95b2c"/></svg></div>
+          <div class="top"><span class="pill gray">Draft</span><span class="label mono">SKU · STA-121</span></div>
+          <h4>Letterpress Card Set, Autumn</h4>
+          <div class="row" style="gap:6px"><span class="text-3 small">Not yet published</span></div>
+          <div class="row between"><span class="mono">$28.00</span><span class="text-3 small">Stationery</span></div>
+          <div class="row between"><span class="text-3 small">Created Sep 24</span><span class="text-3 small">Edit ›</span></div>
+        </div>
+
+      </div>
+
+      <div class="card flush">
+        <div class="card-head" style="padding:14px 16px 4px">
+          <h3 class="card-title">Inventory ledger <span class="card-meta">showing 6 of 412</span></h3>
+        </div>
+        <table class="dat">
+          <thead><tr><th>Product</th><th>SKU</th><th>Vendor</th><th>Price</th><th>On hand</th><th>Committed</th><th>Available</th></tr></thead>
+          <tbody>
+            <tr><td>Slipware Tumbler, Persimmon</td><td class="mono muted">CER-114</td><td>Helder Press Goods</td><td class="num">$48.00</td><td class="num">412</td><td class="num">102</td><td class="num up">310</td></tr>
+            <tr><td>Linen Throw, Hatched Indigo</td><td class="mono muted">TEX-088</td><td>Brontiille &amp; Linen</td><td class="num">$184.00</td><td class="num">7</td><td class="num">3</td><td class="num down">4</td></tr>
+            <tr><td>Field Notebook, Long-Stitch</td><td class="mono muted">STA-022</td><td>Helder Press Goods</td><td class="num">$22.00</td><td class="num">312</td><td class="num">88</td><td class="num up">224</td></tr>
+            <tr><td>Hand-Blown Carafe, 1L</td><td class="mono muted">GLA-203</td><td>NorthBend Glassworks</td><td class="num">$96.00</td><td class="num">0</td><td class="num">6</td><td class="num down">-6</td></tr>
+            <tr><td>Stoneware Coupe Plate</td><td class="mono muted">CER-081</td><td>Helder Press Goods</td><td class="num">$34.00</td><td class="num">88</td><td class="num">21</td><td class="num up">67</td></tr>
+            <tr><td>Letterpress Card Set, Autumn</td><td class="mono muted">STA-121</td><td>Marginalia Press</td><td class="num">$28.00</td><td class="num">120</td><td class="num">12</td><td class="num up">108</td></tr>
+          </tbody>
+        </table>
+        <div class="row between" style="padding:11px 14px;border-top:1px solid var(--border)">
+          <div class="label">Page 1 of 69</div>
+          <div class="row" style="gap:4px">
+            <button class="btn ghost">‹</button>
+            <button class="btn primary" style="padding:5px 10px">1</button>
+            <button class="btn ghost" style="padding:5px 10px">2</button>
+            <button class="btn ghost" style="padding:5px 10px">3</button>
+            <button class="btn ghost" style="padding:5px 10px">…</button>
+            <button class="btn ghost" style="padding:5px 10px">69</button>
+            <button class="btn ghost">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="col sidebar">
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Reorder watch</h3>
+          <span class="pill red">7 critical</span>
+        </div>
+        <div class="stack" style="gap:9px;font-size:11.5px">
+          <div class="row between"><b>Linen Throw, Hatched Indigo</b><span class="accent mono">7 left</span></div>
+          <div class="hr"></div>
+          <div class="row between"><b>Beeswax Taper, Pair</b><span class="accent mono">12 left</span></div>
+          <div class="hr"></div>
+          <div class="row between"><b>Brass Letter Opener</b><span class="accent mono">4 left</span></div>
+          <div class="hr"></div>
+          <div class="row between"><b>Hand-Blown Carafe, 1L</b><span class="down mono">0 left</span></div>
+          <button class="btn primary" style="margin-top:6px">Draft POs</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Channel mix</h3>
+          <span class="card-meta">SKU activity</span>
+        </div>
+        <div class="bar-list">
+          <div class="bar-row"><span class="lab">Online store</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><span class="val">$48.2k</span></div>
+          <div class="bar-row"><span class="lab">Wholesale</span><div class="bar-track"><div class="bar-fill" style="width:48%"></div></div><span class="val">$22.4k</span></div>
+          <div class="bar-row"><span class="lab">Pop-up · Hayes Valley</span><div class="bar-track"><div class="bar-fill" style="width:24%"></div></div><span class="val">$5.2k</span></div>
+          <div class="bar-row"><span class="lab">Marketplace</span><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><span class="val">$4.9k</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Catalog status</h3>
+          <span class="card-meta">412 SKUs</span>
+        </div>
+        <div class="row" style="gap:4px;font-size:11.5px;flex-wrap:wrap">
+          <span class="mono"><span style="color:var(--green)">●</span> Active 384</span>
+          <span class="mono"><span style="color:var(--text-3)">●</span> Draft 23</span>
+          <span class="mono"><span style="color:var(--accent)">●</span> Low 23</span>
+          <span class="mono"><span style="color:var(--red)">●</span> Out 8</span>
+        </div>
+        <div class="prog gr" style="margin-top:10px;height:6px"><span style="width:62%"></span></div>
+        <div class="text-3 small" style="margin-top:6px">Inventory turn rate is 4.2x — slightly ahead of the 4.0x target for Q3.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Quick actions</h3>
+        </div>
+        <div class="stack" style="gap:8px;font-size:12px">
+          <a class="row between"><span>› Import CSV</span></a>
+          <a class="row between"><span>› Bulk edit pricing</span></a>
+          <a class="row between"><span>› Adjust stock counts</span></a>
+          <a class="row between"><span>› Generate barcodes</span></a>
+          <a class="row between"><span>› Vendor purchase orders</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Holiday cutoffs</h3>
+        </div>
+        <p class="text-3 small">Wholesale orders close Nov 14, retail cutoff Dec 18 for standard shipping. Hold QA launches until after the 5 catalog freeze.</p>
+        <div class="hr"></div>
+        <div class="row between"><b>Vendor lead times</b><span class="accent small">View ›</span></div>
+        <div class="text-3 small">Median 18d · slowest from Brontiille.</div>
+        <div class="hr"></div>
+        <div class="row between"><b>Naming conventions</b><span class="accent small">View ›</span></div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© 2025 Onyx Bridge Lab · A protocol of Lacewing &amp; Co.</div>
+    <div class="footer-links">
+      <a>Orders</a><a>Marketing</a><a>Customers</a><a>Products</a><a>Discounts</a><a>Support</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

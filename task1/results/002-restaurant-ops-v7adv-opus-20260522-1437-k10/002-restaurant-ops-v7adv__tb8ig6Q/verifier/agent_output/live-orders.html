@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Live Orders · Forge Foundry</title>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand"><span class="brand-mark"></span>Forge Foundry</div>
+  <div class="nav-links">
+    <a href="live-orders.html" class="active">Live Orders</a>
+    <a href="sales-reports.html">Sales Reports</a>
+    <a href="discounts.html">Promotions</a>
+    <a href="staff-schedule.html">Staff Schedule</a>
+    <a href="reservations.html">Reservations</a>
+  </div>
+  <div class="nav-right">
+    <span class="pill">▲ #109</span>
+    <span>Friday 19:42</span>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="crumbs"><span>Service</span><span>Friday 19:42</span></div>
+  <h1 class="page-title">Live orders, grouped by<br/>station load.</h1>
+  <p class="page-lede">Twelve active tickets across the line. Garde manager is clear, grill is your bottleneck — three tickets sitting past target. Recall, void, and fire next controls remain available on every ticket until bumped.</p>
+  <div class="subnav">
+    <span class="chip on">Open</span>
+    <span class="chip">Hold</span>
+    <span class="chip">Bumped</span>
+    <span class="chip">Voided</span>
+    <span class="sep">/</span>
+    <span class="chip">Dine-in</span>
+    <span class="chip">Pickup</span>
+    <span class="chip">Delivery</span>
+    <span class="chip">Last 30 min</span>
+  </div>
+
+  <!-- KPI -->
+  <div class="kpis">
+    <div class="kpi"><div class="lbl">Open Tickets <span>↑ 12</span></div><div class="v">12</div><div class="sub">vs 9 at 19:00</div></div>
+    <div class="kpi"><div class="lbl">Avg ticket time</div><div class="v">12:14</div><div class="sub">target ≤ 11:30</div></div>
+    <div class="kpi"><div class="lbl">Past target</div><div class="v">3</div><div class="sub">grill backing up</div></div>
+    <div class="kpi"><div class="lbl">Ready to run</div><div class="v">2</div><div class="sub">expo / garde clear</div></div>
+  </div>
+
+  <!-- Kanban -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">Active service board</h2>
+      <div class="btn-row">
+        <span class="btn">Auto-sort ▾</span>
+        <span class="btn">Recall</span>
+        <span class="btn">Pickup</span>
+        <span class="btn">Delivery</span>
+        <span class="btn primary">Send fire</span>
+      </div>
+    </div>
+
+    <div class="kanban">
+      <div class="lane">
+        <div class="lane-head"><span><span class="dot"></span>New / Fired <span class="muted">(4)</span></span><span class="count">avg 02:40 in line</span></div>
+
+        <div class="ticket">
+          <div class="id"><span>#H224</span><span><span class="tag pink">Fired now</span></span></div>
+          <div class="items"><b>Burrata, stone fruit, basil oil</b><br/>1 · table 14</div>
+          <div class="items">Charred octopus, romesco<br/>House sourdough, cultured butter</div>
+          <div class="ticket-foot"><span>Server: T. Park</span><span>02:14</span></div>
+        </div>
+
+        <div class="ticket flag">
+          <div class="id"><span>#H226</span><span><span class="tag amber">Hold · expo</span></span></div>
+          <div class="items"><b>Negroni, Campari swap</b><br/>Anchovy toast<br/>+ 2 of greens</div>
+          <div class="ticket-foot"><span>Bar · T. Park</span><span>03:01</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="id"><span>#H229</span><span></span></div>
+          <div class="items"><b>Bucatini cacio e pepe</b><br/>Roasted half chicken<br/>+ 2 of greens<br/>Tiramisu</div>
+          <div class="ticket-foot"><span>Server: L. Park</span><span>04:50</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="id"><span>#H230</span><span></span></div>
+          <div class="items"><b>Beet tartare</b><br/>Endive, anchovy, stewed egg<br/>Five wineries</div>
+          <div class="ticket-foot"><span>Server: J. Cole</span><span>00:54</span></div>
+        </div>
+      </div>
+
+      <div class="lane">
+        <div class="lane-head"><span><span class="dot"></span>Cooking <span class="muted">(5)</span></span><span class="count">3 past target</span></div>
+
+        <div class="ticket flag">
+          <div class="id"><span>#H222</span><span><span class="tag red">Past target</span></span></div>
+          <div class="items"><b>Dry-aged ribeye, MR</b><br/>Bone marrow, mushrooms<br/>+ 1 of greens</div>
+          <div class="ticket-foot"><span>Grill · J. Mehta</span><span>14:22</span></div>
+        </div>
+
+        <div class="ticket flag">
+          <div class="id"><span>#H218</span><span><span class="tag red">Past target</span></span></div>
+          <div class="items">Dover sole meunière<br/>Spring vegetables, jus</div>
+          <div class="ticket-foot"><span>Plancha · K. Park</span><span>16:48</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="id"><span>#H221</span><span></span></div>
+          <div class="items"><b>Lamb shoulder, two day</b><br/>Black cod, miso glaze<br/>Roast brassicas, brown butter</div>
+          <div class="ticket-foot"><span>Hot · L. Garcia</span><span>09:11</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="id"><span>#H225</span><span></span></div>
+          <div class="items">Tasting menu · 5 course<br/>course 3 of 5 · lamb</div>
+          <div class="ticket-foot"><span>Tasting bar · K. Park</span><span>22:01</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="id"><span>#H231</span><span></span></div>
+          <div class="items">Mushroom risotto<br/>+ 1 of greens<br/>Hand-cut tagliatelle, bolognese</div>
+          <div class="ticket-foot"><span>Pasta · L. Garcia</span><span>05:08</span></div>
+        </div>
+      </div>
+
+      <div class="lane">
+        <div class="lane-head"><span><span class="dot"></span>Ready · Expo <span class="muted">(3)</span></span><span class="count">2 plate-runs ready</span></div>
+
+        <div class="ticket">
+          <div class="id"><span>#H219</span><span><span class="tag green">Plated</span></span></div>
+          <div class="items">Heritage pork chop, MR<br/>Trout amandine<br/>Glazed carrots, dukkah</div>
+          <div class="ticket-foot"><span>Pickup · L. Park</span><span>00:48</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="id"><span>#H223</span><span><span class="tag green">Plated</span></span></div>
+          <div class="items">Family pasta box (4)<br/>Caesar, white anchovy<br/>Olive oil cake</div>
+          <div class="ticket-foot"><span>Pickup · J. Cole</span><span>02:14</span></div>
+        </div>
+
+        <div class="ticket flag">
+          <div class="id"><span>#H225</span><span><span class="tag pink">Run now</span></span></div>
+          <div class="items"><i>Expo window clear after these two.</i></div>
+          <div class="ticket-foot"><span>Next fire from queue: 19:48</span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Station load -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">Station load</h2>
+      <div class="section-meta">Target: load remains under 75% sustained</div>
+    </div>
+    <div class="cols-4">
+      <div class="card">
+        <div class="lbl">Grill <span style="float:right;color:var(--red)">Backed up</span></div>
+        <div class="big">92%</div>
+        <div class="bar" style="margin-top:8px"><i style="width:92%"></i></div>
+        <div class="small">3 covers · 4m past target</div>
+      </div>
+      <div class="card">
+        <div class="lbl">Pasta <span style="float:right;color:var(--amber)">Steady</span></div>
+        <div class="big">64%</div>
+        <div class="bar" style="margin-top:8px"><i style="width:64%"></i></div>
+        <div class="small">5 covers · on target</div>
+      </div>
+      <div class="card">
+        <div class="lbl">Wood Oven <span style="float:right;color:var(--green)">Ready</span></div>
+        <div class="big">48%</div>
+        <div class="bar" style="margin-top:8px"><i style="width:48%"></i></div>
+        <div class="small">2 covers active</div>
+      </div>
+      <div class="card">
+        <div class="lbl">Garde Manger <span style="float:right;color:var(--green)">Open</span></div>
+        <div class="big">22%</div>
+        <div class="bar" style="margin-top:8px"><i style="width:22%"></i></div>
+        <div class="small">1 ticket · stage clear</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full ticket log -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">All tickets · service log</h2>
+      <div class="btn-row"><span class="section-meta">Sorted by fire time · descending</span> <span class="btn">All tables ▾</span> <span class="btn">All servers ▾</span> <span class="btn">Export CSV</span></div>
+    </div>
+    <div class="table-wrap"><div class="table-scroll">
+      <table class="tbl">
+        <thead><tr><th>Ticket</th><th>Channel</th><th>Table / Drop</th><th>Server</th><th>Station</th><th>Fired</th><th>Elapsed</th><th class="right">Total</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">H231</td><td>Dine-in</td><td>T. 4</td><td>R. Adesanya</td><td>Garde manger</td><td>19:39</td><td>03:14</td><td class="num">$94.20</td><td><span class="tag pink">Firing</span></td></tr>
+          <tr><td class="strong">H230</td><td>Pickup</td><td>—</td><td>—</td><td>StoneFork</td><td>19:38</td><td>04:11</td><td class="num">$48.00</td><td><span class="tag green">Plated</span></td></tr>
+          <tr><td class="strong">H229</td><td>Dine-in</td><td>Bar 6</td><td>L. Park</td><td>Hot</td><td>19:36</td><td>05:08</td><td class="num">$172.10</td><td><span class="tag amber">Cook</span></td></tr>
+          <tr><td class="strong">H228</td><td>Dine-in</td><td>T. 14</td><td>J. Cole</td><td>Grill</td><td>19:34</td><td>06:48</td><td class="num">$208.00</td><td><span class="tag amber">Cook</span></td></tr>
+          <tr><td class="strong">H227</td><td>Delivery</td><td>Curbie 03</td><td>—</td><td>Hot</td><td>19:32</td><td>09:11</td><td class="num">$71.40</td><td><span class="tag amber">Cook</span></td></tr>
+          <tr><td class="strong">H226</td><td>Dine-in</td><td>T. 9</td><td>T. Park</td><td>Bar / Expo</td><td>19:30</td><td>11:20</td><td class="num">$132.00</td><td><span class="tag pink">Hold</span></td></tr>
+          <tr><td class="strong">H225</td><td>Dine-in</td><td>T. 1</td><td>R. Adesanya</td><td>Tasting</td><td>19:28</td><td>14:01</td><td class="num">$298.00</td><td><span class="tag amber">Cook</span></td></tr>
+          <tr><td class="strong">H224</td><td>Dine-in</td><td>T. 14</td><td>J. Cole</td><td>Garde</td><td>19:26</td><td>15:50</td><td class="num">$148.00</td><td><span class="tag amber">Cook</span></td></tr>
+          <tr><td class="strong">H223</td><td>Pickup</td><td>—</td><td>—</td><td>Pasta · Bar</td><td>19:22</td><td>18:18</td><td class="num">$72.00</td><td><span class="tag green">Plated</span></td></tr>
+          <tr><td class="strong">H222</td><td>Dine-in</td><td>T. 8</td><td>J. Cole</td><td>Grill</td><td>19:20</td><td>20:01</td><td class="num">$224.00</td><td><span class="tag red">Late</span></td></tr>
+          <tr><td class="strong">H221</td><td>Dine-in</td><td>T. 11</td><td>R. Adesanya</td><td>Hot</td><td>19:18</td><td>22:12</td><td class="num">$166.00</td><td><span class="tag amber">Cook</span></td></tr>
+          <tr><td class="strong">H220</td><td>Pickup</td><td>—</td><td>—</td><td>Cold</td><td>19:14</td><td>26:48</td><td class="num">$28.00</td><td><span class="tag green">Closed</span></td></tr>
+          <tr><td class="strong">H219</td><td>Dine-in</td><td>T. 7</td><td>L. Park</td><td>Expo</td><td>19:10</td><td>30:08</td><td class="num">$162.00</td><td><span class="tag green">Plated</span></td></tr>
+          <tr><td class="strong">H218</td><td>Dine-in</td><td>T. 3</td><td>J. Cole</td><td>Plancha</td><td>19:06</td><td>34:00</td><td class="num">$256.00</td><td><span class="tag red">Late</span></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+    <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:11.5px;color:var(--muted)">
+      <span>Showing 14 of 28 tickets in service log</span>
+      <div class="pager"><span class="pg">‹</span><span class="pg on">1</span><span class="pg">2</span><span class="pg">3</span><span class="pg">4</span><span class="pg">5</span><span class="pg">›</span></div>
+    </div>
+  </section>
+
+  <!-- 86 list & notes -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">86 list &amp; service notes</h2>
+      <div class="section-meta">Synced to fire line · descending</div>
+    </div>
+    <div class="cols-2">
+      <div class="card">
+        <div class="lbl">Out for service</div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:12px;color:var(--text-2)">
+          <li style="padding:6px 0;border-bottom:1px solid var(--line)"><span class="tag red">86</span> Foie gras torchon <span class="muted" style="float:right">19:08</span></li>
+          <li style="padding:6px 0;border-bottom:1px solid var(--line)"><span class="tag red">86</span> Burrata — 4 portions remaining <span class="muted" style="float:right">19:14</span></li>
+          <li style="padding:6px 0"><span class="tag red">86</span> Heritage pork chop — 6 remaining <span class="muted" style="float:right">19:22</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="lbl">Allergy &amp; service flags</div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:12px;color:var(--text-2)">
+          <li style="padding:6px 0;border-bottom:1px solid var(--line)"><span class="tag amber">T. 6</span> nut + soy · heavy shellfish allergy on seat 2 <span class="muted" style="float:right">Aug 22</span></li>
+          <li style="padding:6px 0;border-bottom:1px solid var(--line)"><span class="tag amber">T. 12</span> birthday at dessert — candle &amp; flute <span class="muted" style="float:right">Aug 22</span></li>
+          <li style="padding:6px 0"><span class="tag amber">T. 18</span> regular, manager comp dessert <span class="muted" style="float:right">Aug 22</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div>© 2025 Forge Foundry Systems · All systems operational</div>
+  <div class="footer-links">
+    <a href="live-orders.html">Live Orders</a>
+    <a href="sales-reports.html">Sales Reports</a>
+    <a href="discounts.html">Promotions</a>
+    <a href="staff-schedule.html">Staff Schedule</a>
+    <a href="reservations.html">Reservations</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Reservations · Forge Foundry</title>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand"><span class="brand-mark"></span>Forge Foundry</div>
+  <div class="nav-links">
+    <a href="live-orders.html">Live Orders</a>
+    <a href="sales-reports.html">Sales Reports</a>
+    <a href="discounts.html">Promotions</a>
+    <a href="staff-schedule.html">Staff Schedule</a>
+    <a href="reservations.html" class="active">Reservations</a>
+  </div>
+  <div class="nav-right">
+    <span class="pill">▲ Wed</span>
+    <span>Floor mgr</span>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="crumbs"><span>Reservations</span><span>Tonight · 19:00</span></div>
+  <h1 class="page-title">Tonight's book, sorted by<br/>who walks in next.</h1>
+  <p class="page-lede">Floor managers see covers due, party sizes, dietary notes, and table holds in one screen. Confirmations and no-show flags update live from the guest channel in real-time — no separate tab, no second screen.</p>
+  <div class="subnav">
+    <span class="chip on">Tonight</span>
+    <span class="chip">Tomorrow</span>
+    <span class="chip">This week</span>
+    <span class="chip">Next week</span>
+    <span class="sep">/</span>
+    <span class="chip">All services</span>
+    <span class="chip">Dinner only</span>
+    <span class="chip">Holds &amp; private</span>
+  </div>
+
+  <!-- KPI row -->
+  <div class="kpis">
+    <div class="kpi"><div class="lbl">Covers booked</div><div class="v">142</div><div class="sub">▲ +6 vs last Fri</div></div>
+    <div class="kpi"><div class="lbl">Seated</div><div class="v">36</div><div class="sub">25% of book</div></div>
+    <div class="kpi"><div class="lbl">No-show ledger</div><div class="v">14</div><div class="sub">2 confirmed late</div></div>
+    <div class="kpi"><div class="lbl">No-show rate</div><div class="v pink">4.2%</div><div class="sub">avg this quarter</div></div>
+  </div>
+
+  <div class="kpis" style="margin-top:12px">
+    <div class="kpi"><div class="lbl">Tier 1 · Counter</div><div class="v">38</div><div class="sub">61 covers</div></div>
+    <div class="kpi"><div class="lbl">Tier 2 · Standard</div><div class="v">94</div><div class="sub">142 covers</div></div>
+    <div class="kpi"><div class="lbl">Tier 3 · Prime</div><div class="v">196</div><div class="sub">214 covers (waitlist 12)</div></div>
+    <div class="kpi"><div class="lbl">Hold / Private</div><div class="v">8</div><div class="sub">88 covers across 4 holds</div></div>
+  </div>
+
+  <!-- Booking tiers in effect tonight -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">Booking tiers in effect tonight</h2>
+      <div class="section-meta">Test tier preview · tap a section name to swap to a guest-side preview</div>
+    </div>
+    <div class="cols-4">
+      <div class="tier">
+        <div class="name">Counter</div>
+        <div class="blurb">The walk-up tier. No deposit, holds 12 seats at the bar.</div>
+        <div class="metric-row"><span>Min party</span><span class="v">1</span></div>
+        <div class="metric-row"><span>Hold</span><span class="v">15 min</span></div>
+        <div class="metric-row"><span>Deposit</span><span class="v">—</span></div>
+        <div class="metric-row"><span>Tonight</span><span class="v">12 covers</span></div>
+        <div class="metric-row"><span>Avg ticket spend</span><span class="v">$58</span></div>
+      </div>
+      <div class="tier">
+        <div class="name">Standard</div>
+        <div class="blurb">Default for dining-room bookings. 30-minute confirmation window before release.</div>
+        <div class="metric-row"><span>Min party</span><span class="v">2</span></div>
+        <div class="metric-row"><span>Hold</span><span class="v">30 min</span></div>
+        <div class="metric-row"><span>Deposit</span><span class="v">$0</span></div>
+        <div class="metric-row"><span>Tonight</span><span class="v">94 covers</span></div>
+        <div class="metric-row"><span>Avg ticket spend</span><span class="v">$132</span></div>
+      </div>
+      <div class="tier featured">
+        <span class="tier-flag">Prime</span>
+        <div class="name">Prime</div>
+        <div class="blurb">Held-back tables for the chef's tasting bar. Booking holds with a $40-per-cover deposit.</div>
+        <div class="metric-row"><span>Min party</span><span class="v">2</span></div>
+        <div class="metric-row"><span>Hold</span><span class="v">60 min</span></div>
+        <div class="metric-row"><span>Deposit</span><span class="v">$40 / cover</span></div>
+        <div class="metric-row"><span>Tonight</span><span class="v">12 covers</span></div>
+        <div class="metric-row"><span>Avg ticket spend</span><span class="v">$298</span></div>
+      </div>
+      <div class="tier">
+        <div class="name">Private</div>
+        <div class="blurb">The wood-room private dining. Tasting menu requires 14-day notice.</div>
+        <div class="metric-row"><span>Min party</span><span class="v">8</span></div>
+        <div class="metric-row"><span>Hold</span><span class="v">24h</span></div>
+        <div class="metric-row"><span>Deposit</span><span class="v">$80 / cover</span></div>
+        <div class="metric-row"><span>Tonight</span><span class="v">4 covers · 1 hold</span></div>
+        <div class="metric-row"><span>Avg ticket spend</span><span class="v">$420+</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming reservations table -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">Upcoming reservations</h2>
+      <div class="btn-row"><span class="section-meta">Next 8 sittings · 19:00–21:30</span> <span class="btn">Print run</span> <span class="btn">Export</span></div>
+    </div>
+    <div class="btn-row" style="margin-bottom:10px">
+      <span class="tag pink">All services</span>
+      <span class="tag">Dinner</span>
+      <span class="tag">Tasting</span>
+      <span class="tag">Private</span>
+      <span style="flex:1"></span>
+      <span class="btn">Search guest, party, or note</span>
+      <span class="btn">Tonight ▾</span>
+    </div>
+    <div class="btn-row" style="margin-bottom:10px;font-size:11px">
+      <span class="tag green">Confirmed</span>
+      <span class="tag amber">Holding</span>
+      <span class="tag blue">Pending</span>
+      <span class="tag red">No-show</span>
+      <span class="tag">Cancelled</span>
+      <span class="tag pink">Repeat guest</span>
+    </div>
+
+    <div class="table-wrap">
+      <table class="tbl">
+        <thead><tr><th style="width:80px">Time</th><th>Guest</th><th>Party</th><th>Notes</th><th>Tier</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+          <tr><td><b class="strong">18:30</b><br/><span class="muted">held 18:00</span></td><td><b class="strong">Alina Marchetti</b><br/><span class="muted">(+1 555-241) · regular</span></td><td>4 guests</td><td>Repeat · birthday seating · candle &amp; flute</td><td><span class="tag">Tier 2</span></td><td><span class="tag green">Confirmed</span></td><td><span class="btn sm">View</span></td></tr>
+          <tr><td><b class="strong">19:00</b></td><td><b class="strong">Devon Yi</b><br/><span class="muted">(+1 555-209) · 2nd visit</span></td><td>2 guests</td><td>Window seat preferred · gluten-free pref</td><td><span class="tag">Tier 2</span></td><td><span class="tag green">Confirmed</span></td><td><span class="btn sm">View</span></td></tr>
+          <tr><td><b class="strong">19:00</b></td><td><b class="strong">Devon Park</b><br/><span class="muted">(+1 555-217)</span></td><td>2 guests</td><td>First visit · "anniversary"</td><td><span class="tag">Tier 2</span></td><td><span class="tag green">Confirmed</span></td><td><span class="btn sm">View</span></td></tr>
+          <tr><td><b class="strong">19:15</b></td><td><b class="strong">Hollander, party of 6</b><br/><span class="muted">(+1 555-388)</span></td><td>6 guests</td><td>Tasting menu confirmed · two pescatarian</td><td><span class="tag pink">Prime</span></td><td><span class="tag pink">Repeat guest</span></td><td><span class="btn sm">View</span></td></tr>
+          <tr><td><b class="strong">19:30</b></td><td><b class="strong">Felo Tomales</b><br/><span class="muted">(+1 555-194)</span></td><td>3 guests</td><td>Walk-up callback · holding 30 min</td><td><span class="tag">Tier 1</span></td><td><span class="tag amber">Holding</span></td><td><span class="btn sm">View</span></td></tr>
+          <tr><td><b class="strong">19:30</b></td><td><b class="strong">Ramos / Yan</b><br/><span class="muted">(+1 555-082)</span></td><td>2 guests</td><td>Bottle 2014 reserve · wine pairing pre-set</td><td><span class="tag">Tier 2</span></td><td><span class="tag green">Confirmed</span></td><td><span class="btn sm">View</span></td></tr>
+          <tr><td><b class="strong">19:45</b></td><td><b class="strong">Sacha Kowalski</b><br/><span class="muted">(+1 555-330) · regular</span></td><td>4 guests</td><td>Booked + a friend &amp; daughter. Notes: vegan tasting</td><td><span class="tag">Tier 2</span></td><td><span class="tag green">Confirmed</span></td><td><span class="btn sm">View</span></td></tr>
+          <tr><td><b class="strong">20:00</b></td><td><b class="strong">Brennan Holt</b><br/><span class="muted">(+1 555-419)</span></td><td>2 guests</td><td>Bar seats · 90 min cap · likely 2-top swap</td><td><span class="tag">Counter</span></td><td><span class="tag amber">Holding</span></td><td><span class="btn sm">View</span></td></tr>
+          <tr><td><b class="strong">20:15</b></td><td><b class="strong">Chloé Franklin</b><br/><span class="muted">(+1 555-217)</span></td><td>5 guests</td><td>Regular · table 14 always · daughter pasta</td><td><span class="tag pink">Prime</span></td><td><span class="tag pink">Repeat guest</span></td><td><span class="btn sm">View</span></td></tr>
+          <tr><td><b class="strong">20:30</b></td><td><b class="strong">Okafor, party of 8</b><br/><span class="muted">(+1 555-554)</span></td><td>8 guests</td><td>Private wood room · tasting menu locked</td><td><span class="tag pink">Private</span></td><td><span class="tag pink">Locked</span></td><td><span class="btn sm">View</span></td></tr>
+          <tr><td><b class="strong">21:00</b></td><td><b class="strong">Devon Yi</b><br/><span class="muted">(+1 555-077)</span></td><td>2 guests</td><td>Late seating, dessert + amaro pairing</td><td><span class="tag">Tier 2</span></td><td><span class="tag green">Confirmed</span></td><td><span class="btn sm">View</span></td></tr>
+          <tr><td><b class="strong">21:15</b></td><td><b class="strong">Lorena Sjöberg</b><br/><span class="muted">(+1 555-118)</span></td><td>3 guests</td><td>Late seating, sharing menu · house red set</td><td><span class="tag">Tier 2</span></td><td><span class="tag green">Confirmed</span></td><td><span class="btn sm">View</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:11.5px;color:var(--muted)">
+      <span>Showing 1–12 of 18 tonight</span>
+      <div class="pager"><span class="pg">‹</span><span class="pg on">1</span><span class="pg">2</span><span class="pg">›</span></div>
+    </div>
+  </section>
+
+  <!-- Tier behaviour comparison -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">Tier behaviour, side by side</h2>
+      <div class="section-meta">Behaviour layers, configured at engagement &amp; coverable separately within the floor.</div>
+    </div>
+    <div class="table-wrap">
+      <table class="tbl">
+        <thead><tr><th>Behaviour</th><th>Counter</th><th>Standard</th><th>Prime</th><th>Private</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">Hold window after booking time</td><td>15 min</td><td>30 min</td><td>60 min</td><td>24 hours</td></tr>
+          <tr><td class="strong">Maximum party size</td><td>4</td><td>6</td><td>8</td><td>24</td></tr>
+          <tr><td class="strong">Deposit / card auth</td><td>None</td><td>Card auth</td><td>$40 / cover</td><td>$80 / cover</td></tr>
+          <tr><td class="strong">No-show charge</td><td>—</td><td>$25</td><td>$50</td><td>Coverage forfeit</td></tr>
+          <tr><td class="strong">SMS confirmation thread</td><td>Opt-in</td><td>Auto</td><td>Auto</td><td>Auto</td></tr>
+          <tr><td class="strong">Cancel cutoff</td><td>Any time</td><td>4 hrs prior</td><td>24 hrs prior</td><td>72 hrs prior</td></tr>
+          <tr><td class="strong">VIP auto-flag</td><td>—</td><td>—</td><td>3-visit threshold</td><td>—</td></tr>
+          <tr><td class="strong">Kitchen brief generated</td><td>—</td><td>—</td><td>—</td><td>14 days prior</td></tr>
+          <tr><td class="strong">Allowed booking channels</td><td>Walk-in</td><td>Web / Phone</td><td>Phone / Concierge</td><td>Direct</td></tr>
+          <tr><td class="strong">Floor zone</td><td>Bar 1–6</td><td>Floor</td><td>Tasting bar</td><td>Wood room</td></tr>
+          <tr><td class="strong">Tonight's utilization</td><td>12 of 24</td><td>61 of 96</td><td>10 of 14</td><td>1 of 1 hold</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Floor and tonight notes -->
+  <section class="section">
+    <div class="split">
+      <div class="card">
+        <div class="section-head" style="margin-bottom:6px">
+          <h2 class="section-title" style="font-size:14px">Floor — 19:42</h2>
+          <div class="btn-row"><span class="btn sm">Tonight</span><span class="btn sm">Seating</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;font-size:11px;color:var(--text-2)">
+          <div class="card flat" style="padding:8px"><b class="strong">T1</b><br/><span class="muted">2-top</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T2</b><br/><span class="muted">2-top</span></div>
+          <div class="card flat" style="padding:8px;outline:1px solid var(--pink-3)"><b class="strong">T3</b><br/><span class="pink" style="color:var(--pink)">Holt</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T4</b><br/><span class="muted">open</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T5</b><br/><span class="muted">open</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T6</b><br/><span class="muted">open</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T7</b><br/><span class="muted">open</span></div>
+          <div class="card flat" style="padding:8px;outline:1px solid var(--pink-3)"><b class="strong">T8</b><br/><span style="color:var(--pink)">Yi</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T9</b><br/><span class="muted">Park</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T10</b><br/><span class="muted">open</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T11</b><br/><span class="muted">Ramos</span></div>
+          <div class="card flat" style="padding:8px;outline:1px solid var(--pink-3)"><b class="strong">T12</b><br/><span style="color:var(--pink)">Kowal.</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T13</b><br/><span class="muted">open</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T14</b><br/><span class="muted">Franklin</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T15</b><br/><span class="muted">open</span></div>
+          <div class="card flat" style="padding:8px;outline:1px solid var(--pink-3)"><b class="strong">T16</b><br/><span style="color:var(--pink)">Okafor</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T17</b><br/><span class="muted">open</span></div>
+          <div class="card flat" style="padding:8px"><b class="strong">T18</b><br/><span class="muted">open</span></div>
+        </div>
+        <div class="section-meta" style="margin-top:10px">Tap any table to view holds, notes, &amp; pending. 18 of 24 tables in service tonight.</div>
+      </div>
+
+      <aside style="display:flex;flex-direction:column;gap:12px">
+        <div class="card">
+          <div class="lbl">Tonight's notes</div>
+          <div style="font-size:12px;color:var(--text-2);line-height:1.55;margin-top:4px">
+            <p style="margin:4px 0"><b class="strong">18:30 — Marchetti</b><br/>Bring candle &amp; flute to T9. Same as last year.</p>
+            <p style="margin:8px 0"><b class="strong">20:00 — Holt</b><br/>Cap to 90 min if a 2-top callback drops first.</p>
+            <p style="margin:8px 0"><b class="strong">20:30 — Okafor</b><br/>Private room locked. Tasting menu printed for 8.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="lbl">Waitlist</div>
+          <div class="metric-row"><span>Mira Choi</span><span class="v">14:38</span></div>
+          <div class="metric-row"><span>Adler + 2</span><span class="v">15:01</span></div>
+          <div class="metric-row"><span>Olsen / Lambic</span><span class="v">15:14</span></div>
+          <div class="section-meta">Auto-released as confirmation expires.</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- New booking form -->
+  <section class="section">
+    <div class="card" style="max-width:520px;margin:0 auto">
+      <div class="section-head" style="margin-bottom:8px">
+        <h2 class="section-title" style="font-size:15px">New booking</h2>
+        <span class="tag pink">Floor only</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:11.5px;color:var(--text-2)">
+        <div>
+          <div class="lbl" style="margin-bottom:4px">Guest name</div>
+          <div class="card flat" style="padding:8px">Hatori, Geoffrey</div>
+        </div>
+        <div>
+          <div class="lbl" style="margin-bottom:4px">Phone</div>
+          <div class="card flat" style="padding:8px">+1 (415) 555-0143</div>
+        </div>
+        <div>
+          <div class="lbl" style="margin-bottom:4px">Date</div>
+          <div class="card flat" style="padding:8px">Sat 26 Oct 2024</div>
+        </div>
+        <div>
+          <div class="lbl" style="margin-bottom:4px">Time</div>
+          <div class="card flat" style="padding:8px">20:00</div>
+        </div>
+        <div>
+          <div class="lbl" style="margin-bottom:4px">Party</div>
+          <div class="card flat" style="padding:8px">4 guests</div>
+        </div>
+        <div>
+          <div class="lbl" style="margin-bottom:4px">Tier</div>
+          <div class="card flat" style="padding:8px">Standard ▾</div>
+        </div>
+        <div style="grid-column:1/-1">
+          <div class="lbl" style="margin-bottom:4px">Notes</div>
+          <div class="card flat" style="padding:10px;min-height:60px">Returning guest — wood room first hold for tasting bar, allergies: gluten, sister and son share calendar. Special bookend: candle and amaro after dessert.</div>
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:14px;justify-content:flex-end">
+        <span class="btn">Discard</span>
+        <span class="btn">Save as Hold</span>
+        <span class="btn primary">Confirm &amp; send SMS</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div>© 2025 Forge Foundry Systems · All systems operational</div>
+  <div class="footer-links">
+    <a href="live-orders.html">Live Orders</a>
+    <a href="sales-reports.html">Sales Reports</a>
+    <a href="discounts.html">Promotions</a>
+    <a href="staff-schedule.html">Staff Schedule</a>
+    <a href="reservations.html">Reservations</a>
+  </div>
+</footer>
+
+</body>
+</html>

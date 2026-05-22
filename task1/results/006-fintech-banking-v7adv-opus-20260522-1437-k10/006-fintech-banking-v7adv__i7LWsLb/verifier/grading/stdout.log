@@ -1,0 +1,179 @@
+[grade] VLM judge: 15 pairs in 14.6s
+{
+  "per_page_viewport": {
+    "account-overview": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6895875692180429,
+          "extra": {
+            "reference_size": [
+              1440,
+              1684
+            ],
+            "candidate_size": [
+              1440,
+              1541
+            ],
+            "compared_size": [
+              1440,
+              1541
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4352981150150299,
+          "extra": {
+            "reference_blocks": 284,
+            "candidate_blocks": 253,
+            "matched_pairs": 253,
+            "mean_matched_iou": 0.1894844025373459,
+            "raw_score_before_sqrt": 0.18948444724082947
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7442533080726919,
+          "extra": {
+            "reference_blocks": 284,
+            "candidate_blocks": 253,
+            "matched_pairs": 253,
+            "mean_normalized_centroid_distance": 0.2557466919273082,
+            "page_diagonal_px": 2215.9548648685886
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7320857489804427,
+          "extra": {
+            "bg_score": 0.7939640157818794,
+            "fg_score": 0.6702074821790058,
+            "bg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 10,
+              "weighted_mean_oklab_distance": 0.026505397632718086,
+              "base_score_before_penalty": 0.8232973491152127,
+              "over_color_penalty": 0.029333333333333336
+            },
+            "fg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 9,
+              "weighted_mean_oklab_distance": 0.04346887767314911,
+              "base_score_before_penalty": 0.7102074821790059,
+              "over_color_penalty": 0.04
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.5185028097015068,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.5264325852878668,
+            "reference_buckets": [
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.3380281690140845
+              ],
+              [
+                15.0,
+                0.6126760563380281
+              ],
+              [
+                22.0,
+                0.02464788732394366
+              ],
+              [
+                32.0,
+                0.017605633802816902
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.011857707509881422
+              ],
+              [
+                10.5,
+                0.05138339920948617
+              ],
+              [
+                11.0,
+                0.16996047430830039
+              ],
+              [
+                11.5,
+                0.06324110671936758
+              ],
+              [
+                12.0,
+                0.1541501976284585
+              ],
+              [
+                12.5,
+                0.25296442687747034
+              ],
+              [
+                13.0,
+                0.22924901185770752
+              ],
+              [
+                14.0,
+                0.039525691699604744
+              ],
+              [
+                20.0,
+                0.015810276679841896
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.7529976019184652,
+          "extra": {
+            "reference_tokens": 368,
+            "candidate_tokens": 363,
+            "matched_tokens": 314,
+            "union_tokens": 417,
+            "reference_unique": 218,
+            "candidate_unique": 219
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple content fabrications and data errors: wrong account numbers (8471/3322/1182 vs 4471/0218/7732), wrong net worth chart colors (green bars vs muted gr

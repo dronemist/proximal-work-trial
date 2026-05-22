@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>People · Onyx Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark"></span> Onyx Works</div>
+    <div class="side-section">
+      <div class="side-label">Workspace</div>
+      <a class="side-link active" href="people-directory.html">People</a>
+      <a class="side-link" href="org-chart.html">Org Chart</a>
+      <a class="side-link" href="time-off.html">Time Off</a>
+    </div>
+    <div class="side-section">
+      <div class="side-label">Finance</div>
+      <a class="side-link" href="expenses.html">Expenses</a>
+    </div>
+    <div class="side-section">
+      <div class="side-label">Workspace</div>
+      <a class="side-link" href="settings.html">Company Settings</a>
+    </div>
+    <div class="side-foot">
+      <span class="avatar pink">MR</span>
+      <div class="who"><strong>Maren Rusk</strong><small>People Ops · Admin</small></div>
+    </div>
+  </aside>
+
+  <nav class="topnav">
+    <div class="brand"><span class="brand-mark"></span> Onyx Works</div>
+    <div class="side-section">
+      <a class="side-link active" href="people-directory.html">People</a>
+      <a class="side-link" href="org-chart.html">Org Chart</a>
+      <a class="side-link" href="time-off.html">Time Off</a>
+      <a class="side-link" href="expenses.html">Expenses</a>
+      <a class="side-link" href="settings.html">Company Settings</a>
+    </div>
+    <div class="side-foot">
+      <span class="avatar pink">MR</span>
+      <div class="who"><strong>Maren Rusk</strong><small>People Ops · Admin</small></div>
+    </div>
+  </nav>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="crumbs">
+        <span>Haldon Holdings NL</span><span class="sep">›</span>
+        <span>Workforce</span><span class="sep">›</span>
+        <span class="now">People</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="search"><span class="mag"></span><input placeholder="Search name, role, email…"></div>
+      <button class="btn">Export CSV</button>
+      <button class="btn pink">+ New person</button>
+    </div>
+
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">People</h1>
+          <div class="page-sub">Workforce overview · As of 14 March 2025, 09:06 CET</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="lbl">Active employees</div><div class="val">214</div><div class="delta up">↑ 4 vs quarter</div></div>
+        <div class="stat"><div class="lbl">Open requisitions</div><div class="val">11</div><div class="delta">3 in offer stage</div></div>
+        <div class="stat"><div class="lbl">Headcount cost m/m</div><div class="val">€1.84M</div><div class="delta">Forecast €1.91M</div></div>
+        <div class="stat"><div class="lbl">Pending reviews</div><div class="val">17</div><div class="delta warn">Due 26 March</div></div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab on">All people · 214</div>
+        <div class="tab">Employees · 198</div>
+        <div class="tab">Contractors · 11</div>
+        <div class="tab">Onboarding · 8</div>
+      </div>
+
+      <div class="two-col">
+        <div class="col">
+          <div class="filters">
+            <span class="select plain">Filter overview</span>
+            <span class="select">All departments</span>
+            <span class="select">All locations</span>
+            <span class="select">Active only</span>
+          </div>
+
+          <!-- Grid of people cards -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+
+            <div class="card card-pad">
+              <div class="row items-center gap-8 mb-8">
+                <span class="avatar pink">AV</span>
+                <div class="grow"><strong>Anouk de Vries</strong><div class="muted xsmall">Head of Engineering</div></div>
+                <span class="tag green">ACTIVE</span>
+              </div>
+              <div class="kv small">
+                <dt>Department</dt><dd>Engineering</dd>
+                <dt>Location</dt><dd>Amsterdam HQ</dd>
+              </div>
+              <div class="divider"></div>
+              <div class="muted xsmall">anouk.d@hyrec.nl · Joined 04 Apr 2021</div>
+            </div>
+
+            <div class="card card-pad">
+              <div class="row items-center gap-8 mb-8">
+                <span class="avatar blue">IO</span>
+                <div class="grow"><strong>Idris Olufer</strong><div class="muted xsmall">Senior Product Designer</div></div>
+                <span class="tag green">ACTIVE</span>
+              </div>
+              <div class="kv small">
+                <dt>Department</dt><dd>Design</dd>
+                <dt>Location</dt><dd>Rotterdam</dd>
+              </div>
+              <div class="divider"></div>
+              <div class="muted xsmall">idris.o@hyrec.nl · Joined 22 Jun 2023</div>
+            </div>
+
+            <div class="card card-pad">
+              <div class="row items-center gap-8 mb-8">
+                <span class="avatar amber">SW</span>
+                <div class="grow"><strong>Saoirse Whelan</strong><div class="muted xsmall">Payroll Specialist</div></div>
+                <span class="tag amber">ON LEAVE</span>
+              </div>
+              <div class="kv small">
+                <dt>Department</dt><dd>Finance</dd>
+                <dt>Location</dt><dd>Cork</dd>
+              </div>
+              <div class="divider"></div>
+              <div class="muted xsmall">saoirse.w@hyrec.nl · Joined 12 Sep 2019</div>
+            </div>
+
+            <div class="card card-pad">
+              <div class="row items-center gap-8 mb-8">
+                <span class="avatar green">ML</span>
+                <div class="grow"><strong>Marcus Lindqvist</strong><div class="muted xsmall">Staff Engineer, Platform</div></div>
+                <span class="tag green">ACTIVE</span>
+              </div>
+              <div class="kv small">
+                <dt>Department</dt><dd>Engineering</dd>
+                <dt>Location</dt><dd>Stockholm</dd>
+              </div>
+              <div class="divider"></div>
+              <div class="muted xsmall">marcus.l@hyrec.nl · Joined 06 Sep 2018</div>
+            </div>
+
+            <div class="card card-pad">
+              <div class="row items-center gap-8 mb-8">
+                <span class="avatar pink">PR</span>
+                <div class="grow"><strong>Priya Raghavan</strong><div class="muted xsmall">People Partner, EMEA</div></div>
+                <span class="tag pink">MGR</span>
+              </div>
+              <div class="kv small">
+                <dt>Department</dt><dd>People Ops</dd>
+                <dt>Location</dt><dd>Amsterdam HQ</dd>
+              </div>
+              <div class="divider"></div>
+              <div class="muted xsmall">priya.r@hyrec.nl · Joined 03 Feb 2020</div>
+            </div>
+
+            <div class="card card-pad">
+              <div class="row items-center gap-8 mb-8">
+                <span class="avatar gray">TB</span>
+                <div class="grow"><strong>Tomás Beltrán</strong><div class="muted xsmall">Finance Controller</div></div>
+                <span class="tag green">ACTIVE</span>
+              </div>
+              <div class="kv small">
+                <dt>Department</dt><dd>Finance</dd>
+                <dt>Location</dt><dd>Madrid</dd>
+              </div>
+              <div class="divider"></div>
+              <div class="muted xsmall">tomas.b@hyrec.nl · Joined 21 Jan 2022</div>
+            </div>
+
+            <div class="card card-pad">
+              <div class="row items-center gap-8 mb-8">
+                <span class="avatar blue">HC</span>
+                <div class="grow"><strong>Hua Chen</strong><div class="muted xsmall">Data Engineer II</div></div>
+                <span class="tag blue">CONTRACT</span>
+              </div>
+              <div class="kv small">
+                <dt>Department</dt><dd>Data Platform</dd>
+                <dt>Location</dt><dd>Lisbon · remote</dd>
+              </div>
+              <div class="divider"></div>
+              <div class="muted xsmall">hua.c@hyrec.nl · Contract ends 30 Jun</div>
+            </div>
+
+            <div class="card card-pad">
+              <div class="row items-center gap-8 mb-8">
+                <span class="avatar amber">EM</span>
+                <div class="grow"><strong>Eveline Maes</strong><div class="muted xsmall">Brand &amp; Content Lead</div></div>
+                <span class="tag blue">CONTRACT</span>
+              </div>
+              <div class="kv small">
+                <dt>Department</dt><dd>Marketing</dd>
+                <dt>Location</dt><dd>Antwerp</dd>
+              </div>
+              <div class="divider"></div>
+              <div class="muted xsmall">eveline.m@hyrec.nl · Contract ends 20 Jun</div>
+            </div>
+
+            <div class="card card-pad">
+              <div class="row items-center gap-8 mb-8">
+                <span class="avatar pink">OK</span>
+                <div class="grow"><strong>Olu Karlsen</strong><div class="muted xsmall">Operations Manager</div></div>
+                <span class="tag green">ACTIVE</span>
+              </div>
+              <div class="kv small">
+                <dt>Department</dt><dd>Operations</dd>
+                <dt>Location</dt><dd>Oslo</dd>
+              </div>
+              <div class="divider"></div>
+              <div class="muted xsmall">olu.k@hyrec.nl · Joined 18 May 2020</div>
+            </div>
+
+          </div>
+
+          <div class="row items-center justify-between mt-12">
+            <div class="muted small">Showing 1–9 of 214</div>
+            <div class="pager">
+              <span class="pg">‹</span>
+              <span class="pg on">1</span><span class="pg">2</span><span class="pg">3</span><span class="pg">…</span><span class="pg">24</span>
+              <span class="pg">›</span>
+            </div>
+          </div>
+
+          <!-- Recent lifecycle events -->
+          <div class="card mt-20">
+            <div class="card-head">
+              <h3>Recent lifecycle events</h3>
+              <a class="muted small">Full audit log →</a>
+            </div>
+            <div class="row gap-6 items-center" style="padding:10px 16px">
+              <span class="tag">LAST 14 DAYS</span>
+              <span class="tag">All entities</span>
+              <span class="grow"></span>
+              <button class="btn xs">Filter</button>
+            </div>
+            <table class="tbl">
+              <thead><tr><th>Date</th><th>Person</th><th>Event</th><th>Entity</th><th>Processed by</th></tr></thead>
+              <tbody>
+                <tr><td>03 Mar</td><td>Priya Raghavan</td><td>Hired · People Partner, EMEA</td><td>Haldon Holdings NL</td><td>M. Rusk</td></tr>
+                <tr><td>05 Feb</td><td>Saoirse Whelan</td><td>Parental leave start</td><td>Haldon Holdings IE</td><td>System</td></tr>
+                <tr><td>02 Feb</td><td>Marcus Lindqvist</td><td>Promotion to Staff Engineer</td><td>Haldon Holdings SE</td><td>M. Rusk</td></tr>
+                <tr><td>27 Jan</td><td>Hua Chen</td><td>Contract renewed · 6 months</td><td>Haldon Holdings PT</td><td>T. Beltran</td></tr>
+                <tr><td>22 Jan</td><td>Linnea Forsberg</td><td>Resignation noted</td><td>Haldon Tech SE</td><td>M. Rusk</td></tr>
+                <tr><td>15 Jan</td><td>Eveline Maes</td><td>Contract renewed · 4 months</td><td>Haldon Studio</td><td>T. Beltran</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right column: add person panel -->
+        <div class="col">
+          <div class="card">
+            <div class="card-head">
+              <h3>Add a person</h3>
+              <span class="muted small">×</span>
+            </div>
+            <div class="card-pad">
+              <div class="muted small mb-12">Create a record. Payroll begins on the effective date you choose.</div>
+              <div class="label">Identity</div>
+              <div class="muted xsmall mb-8">Legal name as it appears on the employment contract.</div>
+              <div class="row-fld">
+                <div class="fld"><label class="label">First name</label><input class="input" value="Nadia"></div>
+                <div class="fld"><label class="label">Last name</label><input class="input" value="Hofgang"></div>
+              </div>
+              <div class="fld"><label class="label">Work email</label><input class="input" value="first.last@hyrec.nl"></div>
+              <div class="muted xsmall mb-12">A mailbox will be provisioned once approved.</div>
+
+              <div class="label">Assignment</div>
+              <div class="row-fld">
+                <div class="fld"><label class="label">Department</label><span class="select" style="width:100%">Engineering</span></div>
+                <div class="fld"><label class="label">Location</label><span class="select" style="width:100%">Amsterdam HQ</span></div>
+              </div>
+              <div class="fld"><label class="label">Role title</label><input class="input" value="Senior Engineer"></div>
+              <div class="row-fld">
+                <div class="fld"><label class="label">Effective date</label><input class="input" value="01 Apr 2025"></div>
+                <div class="fld"><label class="label">Employment type</label><span class="select" style="width:100%">Full time</span></div>
+              </div>
+
+              <div class="label">Onboarding</div>
+              <label class="toggle mb-8"><span class="switch on"></span> Send welcome packet</label><br>
+              <label class="toggle mb-8"><span class="switch on"></span> Assign default equipment kit</label><br>
+              <label class="toggle mb-12"><span class="switch"></span> Notify direct manager only</label>
+
+              <div class="row gap-6">
+                <button class="btn grow">Cancel</button>
+                <button class="btn grow">Save draft</button>
+                <button class="btn pink grow">Create person</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Headcount by department</h3></div>
+            <div class="list-row"><span class="grow">Engineering</span><span class="bold">76</span></div>
+            <div class="list-row"><span class="grow">Operations</span><span class="bold">42</span></div>
+            <div class="list-row"><span class="grow">Design</span><span class="bold">28</span></div>
+            <div class="list-row"><span class="grow">Finance</span><span class="bold">23</span></div>
+            <div class="list-row"><span class="grow">People Ops</span><span class="bold">24</span></div>
+            <div class="list-row"><span class="grow">Sales</span><span class="bold">21</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <div>© 2025 Onyx Works Group. v4.12.0 · production · Workspace settings</div>
+      <nav><a>People</a><a>Org Chart</a><a>Time Off</a><a>Expenses</a><a>Settings</a></nav>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

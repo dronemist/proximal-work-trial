@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Org Chart · Onyx Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="logo"></span> Onyx Works</div>
+    <div class="nav-section nav">
+      <div class="nav-label">Workspace</div>
+      <a href="people-directory.html"><span class="ico">◎</span> People</a>
+      <a href="org-chart.html" class="active"><span class="ico">⌗</span> Org Chart</a>
+      <a href="time-off.html"><span class="ico">◷</span> Time Off</a>
+      <a href="expenses.html"><span class="ico">€</span> Expenses</a>
+      <a href="settings.html"><span class="ico">⚙</span> Company Settings</a>
+    </div>
+    <div class="sidebar-bottom">
+      <span class="avatar dark">MR</span>
+      <span class="who"><span class="name">Mira Reinhard</span><br/><span class="role">Operations Lead</span></span>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div class="crumbs">
+        <span>Hallam Holdings</span>
+        <span class="sep">›</span>
+        <span>Hallam Studio EU ▾</span>
+        <span class="sep">›</span>
+        <span class="current">Org Chart</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="search"><input type="text" placeholder="Find a person or team" /></div>
+    </div>
+
+    <div class="content">
+
+      <h1 class="page-title">Org Chart</h1>
+
+      <div class="kpis">
+        <div class="kpi"><div class="label">Headcount</div><div class="val">184</div><div class="delta">+6 this quarter</div></div>
+        <div class="kpi"><div class="label">Departments</div><div class="val">11</div><div class="delta">Across 5 entities</div></div>
+        <div class="kpi"><div class="label">Open roles</div><div class="val">7</div><div class="delta">2 in approval</div></div>
+        <div class="kpi"><div class="label">Avg. span of control</div><div class="val">5.4</div><div class="delta">Target range: 4–7</div></div>
+      </div>
+
+      <div class="row between">
+        <h2 class="serif" style="font-size: 22px; margin:0; font-weight: 500;">Reporting structure</h2>
+        <span class="muted" style="font-size: 11px;">Snapshot · 14 March 2025 · effective today</span>
+      </div>
+
+      <div class="tabs">
+        <a class="active">Tree</a>
+        <a>By department</a>
+        <a>List</a>
+        <a>Vacant seats</a>
+      </div>
+
+      <div class="filterbar">
+        <span class="chip">Department: All departments ▾</span>
+        <span class="chip">Location: All locations ▾</span>
+        <span class="chip">Employment: All types ▾</span>
+        <span class="muted" style="font-size: 11px;">Filters set: <span class="bold">3</span></span>
+        <span class="muted" style="font-size: 11px;">·</span>
+        <span class="muted" style="font-size: 11px;">Vacant ☐</span>
+        <span class="muted" style="font-size: 11px;">Sublease ☑</span>
+        <span class="right"></span>
+        <button class="btn">Export PDF</button>
+        <button class="btn primary">Print view</button>
+      </div>
+
+      <div class="grid-2-wide">
+
+        <div class="stack">
+          <!-- Org tree -->
+          <div class="card" style="padding: 14px;">
+            <div class="org-tree">
+              <div class="lvl">
+                <div class="org-node center" style="min-width: 220px;">
+                  <span class="avatar pink">EH</span>
+                  <div class="meta"><span class="name">Elin Hartmann</span><br/><span class="role">Chief Executive Officer</span></div>
+                </div>
+              </div>
+              <div class="lvl">
+                <div class="org-node"><span class="avatar olive">JT</span><div class="meta"><span class="name">John Tervino</span><br/><span class="role">Chief Operating</span></div></div>
+                <div class="org-node"><span class="avatar gray">RB</span><div class="meta"><span class="name">Rohan Bhat</span><br/><span class="role">Chief Operating Officer</span></div></div>
+                <div class="org-node"><span class="avatar tan">SK</span><div class="meta"><span class="name">Sofia Krüger</span><br/><span class="role">Chief Finance Officer</span></div></div>
+                <div class="org-node"><span class="avatar green">Da</span><div class="meta"><span class="name">Dara Achebe</span><br/><span class="role">Chief People Officer</span></div></div>
+              </div>
+              <div class="lvl">
+                <div class="org-node"><span class="avatar tan">LM</span><div class="meta"><span class="name">Lukas Meier</span><br/><span class="role">Director Workplace</span></div></div>
+                <div class="org-node"><span class="avatar olive">PN</span><div class="meta"><span class="name">Priya Nanba</span><br/><span class="role">Director Procurement</span></div></div>
+                <div class="org-node"><span class="avatar gray">MR</span><div class="meta"><span class="name">Mira Reshmid</span><br/><span class="role">Operations Lead</span></div></div>
+                <div class="org-node"><span class="avatar dark">TO</span><div class="meta"><span class="name">Tomas Olverson</span><br/><span class="role">Director, Security</span></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Headcount by department -->
+          <div class="card">
+            <div class="card-h">
+              <h3>Headcount by department</h3>
+              <span class="meta">Hallam Studio EU</span>
+            </div>
+            <table class="tbl">
+              <thead><tr><th>Department</th><th>Lead</th><th>Filled</th><th>Open</th><th>Span</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Engineering</td><td>John Tervino</td><td>52</td><td>3</td><td>6.1</td><td><span class="badge active">HEALTHY</span></td></tr>
+                <tr><td>Operations</td><td>Rohan Bhat</td><td>38</td><td>1</td><td>5.4</td><td><span class="badge active">HEALTHY</span></td></tr>
+                <tr><td>Finance</td><td>Sofia Krüger</td><td>19</td><td>0</td><td>4.8</td><td><span class="badge active">HEALTHY</span></td></tr>
+                <tr><td>Design</td><td>Yusef Çelik</td><td>14</td><td>2</td><td>4.0</td><td><span class="badge pink">STRETCHED</span></td></tr>
+                <tr><td>People</td><td>Dara Achebe</td><td>11</td><td>0</td><td>3.7</td><td><span class="badge active">HEALTHY</span></td></tr>
+                <tr><td>Revenue</td><td>Helena Brandt</td><td>22</td><td>1</td><td>5.6</td><td><span class="badge active">HEALTHY</span></td></tr>
+                <tr><td><strong>Total</strong></td><td>—</td><td><strong>156</strong></td><td><strong>7</strong></td><td><strong>5.4</strong></td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card pad">
+            <div class="row between"><div class="bold">Change history (last 30 days)</div><button class="btn xs">▾</button></div>
+            <ul class="muted" style="font-size: 11.5px; padding-left: 18px; margin: 8px 0; line-height: 1.6;">
+              <li>Mar 11 — Mira Reshmid moved from Workspace to report directly to COO</li>
+              <li>Mar 04 — New seat opened: Director, IT &amp; Security (final stage candidate)</li>
+              <li>Mar 03 — Department restructure: Trust &amp; Safety folded into Operations</li>
+              <li>Feb 24 — Design promoted Yusuf Çelik to Director and added one new seat</li>
+              <li>Feb 18 — Workspace contractor (S. Levy) converted to permanent staff</li>
+            </ul>
+          </div>
+
+          <div class="card pad">
+            <div class="row between"><div class="bold">Pending approvals (2)</div><button class="btn xs">▾</button></div>
+          </div>
+
+          <div class="card pad">
+            <div class="row between"><div class="bold">Effective-dated changes</div><button class="btn xs">▾</button></div>
+          </div>
+        </div>
+
+        <!-- Right side person detail -->
+        <aside class="side-card">
+          <div class="card pad">
+            <div class="row between" style="margin-bottom: 6px;">
+              <span class="muted" style="font-size:11px;">Selected role</span>
+              <button class="btn xs">⋯</button>
+            </div>
+            <div class="serif" style="font-size: 22px; line-height: 1.15;">Rohan Bhat</div>
+            <div class="row" style="margin-top: 10px; gap: 10px;">
+              <span class="avatar pink xl">RB</span>
+              <div>
+                <div class="bold">Chief Operating Officer</div>
+                <div class="muted" style="font-size: 11px;">Reports to Elin Hartmann</div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="stack-sm" style="font-size: 11.5px;">
+              <div class="row between"><span class="muted">Employee ID</span><span>HH–RB142</span></div>
+              <div class="row between"><span class="muted">Entity</span><span>Hallam Studio EU GmbH</span></div>
+              <div class="row between"><span class="muted">Location</span><span>Berlin, DE</span></div>
+              <div class="row between"><span class="muted">Joined</span><span>12 Aug 2021</span></div>
+              <div class="row between"><span class="muted">Cost center</span><span>OPS–EU–248</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="muted" style="font-size: 10px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px;">Direct reports · 4</div>
+            <div class="stack-sm">
+              <div class="person-row"><span class="avatar tan">LM</span><div class="meta"><span class="name">Lukas Meier</span><br/><span class="muted" style="font-size: 11px;">Director Workplace</span></div><span class="right muted">↗</span></div>
+              <div class="person-row"><span class="avatar olive">PN</span><div class="meta"><span class="name">Priya Nanba</span><br/><span class="muted" style="font-size: 11px;">Director Procurement</span></div><span class="right muted">↗</span></div>
+              <div class="person-row"><span class="avatar gray">MR</span><div class="meta"><span class="name">Mira Reshmid</span><br/><span class="muted" style="font-size: 11px;">Operations Lead</span></div><span class="right muted"><span class="badge pink">OPEN</span></span></div>
+              <div class="person-row"><span class="avatar dark">TO</span><div class="meta"><span class="name">Tomas Olverson</span><br/><span class="muted" style="font-size: 11px;">Director, Legal &amp; Risk</span></div><span class="right muted">↗</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="actions-row">
+              <button class="btn" style="flex:1">Open profile</button>
+              <button class="btn primary">Propose change</button>
+            </div>
+            <div class="muted" style="font-size: 11px; margin-top: 10px;">Proposed changes route to the CEO and CPO for review. Approved seats publish to the chart at the next effective date.</div>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <span>© 2025 Onyx Works Group · v4.18.2 · production-eu-west</span>
+      <span class="links"><a>People</a><a>Org Chart</a><a>Time Off</a><a>Expenses</a><a>Settings</a></span>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Marketing · Onyx Bridge Lab</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark">
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="dot"></span> Onyx Bridge Lab</div>
+    <nav class="nav">
+      <a href="orders.html">Orders</a>
+      <a href="marketing.html" class="active">Marketing</a>
+      <a href="customers.html">Customers</a>
+      <a href="products.html">Products</a>
+      <a href="discounts.html">Discounts</a>
+    </nav>
+    <div class="topbar-meta">
+      <span class="pill mono">v 2.41.0</span>
+      <span>STUDIO · LIVE</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div style="padding-top: 26px">
+    <div class="crumbs">MARKETING <span class="sep">/</span> <span class="here">Q3 INSIGHTS</span></div>
+    <h1 class="page-title">Campaigns, lists, and the machines that run them.</h1>
+    <p class="page-sub">A consolidated read on outbound performance across email, SMS, and lifecycle automations. Numbers refresh every fifteen minutes; engagement windows trail the last 30 days unless otherwise noted.</p>
+  </div>
+
+  <section class="kpis cols-5" style="grid-template-columns: repeat(4, 1fr)">
+    <div class="kpi"><div class="label">Revenue Attributed</div><div class="val">$184,920</div><div class="delta"><span class="up">▲ 12.3%</span> vs prior 30d</div></div>
+    <div class="kpi"><div class="label">Subscribers</div><div class="val">412,608</div><div class="delta"><span class="up">▲ 4,128</span> net adds</div></div>
+    <div class="kpi"><div class="label">Avg Open Rate</div><div class="val">38.6%</div><div class="delta"><span class="up">▲ 1.4 pts</span> last quarter</div></div>
+    <div class="kpi"><div class="label">Unsubscribes</div><div class="val">26,140</div><div class="delta"><span class="down">▲ 312</span> yesterday</div></div>
+  </section>
+
+  <section class="layout">
+    <div class="col-stack">
+      <!-- Sends + revenue chart -->
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Sends &amp; attributed revenue <small>LAST 14 DAYS · DAILY</small></div>
+          <div class="right flex gap">
+            <div class="segmented">
+              <button class="active">All currents</button><button>Email</button><button>SMS</button><button>Automations</button>
+            </div>
+            <span class="tag gray">14 days</span>
+          </div>
+        </div>
+        <div class="card-pad">
+          <div class="cols">
+            <div class="col" style="height:52%"></div>
+            <div class="col alt" style="height:38%"></div>
+            <div class="col" style="height:68%"></div>
+            <div class="col" style="height:75%"></div>
+            <div class="col alt" style="height:30%"></div>
+            <div class="col" style="height:84%"></div>
+            <div class="col" style="height:92%"></div>
+            <div class="col alt" style="height:42%"></div>
+            <div class="col" style="height:64%"></div>
+            <div class="col" style="height:72%"></div>
+            <div class="col" style="height:88%"></div>
+            <div class="col alt" style="height:36%"></div>
+            <div class="col" style="height:80%"></div>
+            <div class="col" style="height:66%"></div>
+          </div>
+          <div class="axis"><span>Mar 1</span><span>Mar 4</span><span>Mar 7</span><span>Mar 10</span><span>Mar 13</span></div>
+          <div class="flex between mt-12">
+            <span class="fs-11 txt-muted">Mar 12 · 218k sends</span>
+            <span class="fs-11 txt-muted">$36.9k attributed</span>
+            <span class="fs-11 txt-muted" style="color:var(--orange)">Open in reports →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active campaigns -->
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Active campaigns <small>5 SCHEDULED · 4 SENDING</small></div>
+          <div class="right">
+            <input class="input" type="text" placeholder="🔍  Search campaigns" />
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr><th>Campaign</th><th class="num">Open</th><th class="num">Click</th><th class="num">Revenue</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="fw-6">Indigo Collection — Drop No. 04</div><div class="fs-11 txt-muted">Email · Mar 12 · 92,108 sent · 4 variants</div></td>
+              <td class="num">42.8% <div class="fs-11 txt-muted">▲ 1.4</div></td>
+              <td class="num">7.9% <div class="fs-11 txt-muted">▲ 0.6</div></td>
+              <td class="num">$29,140</td>
+              <td>›</td>
+            </tr>
+            <tr>
+              <td><div class="fw-6">Fall Field Notes — Editorial Issue 09</div><div class="fs-11 txt-muted">Email · Mar 11 · 88,210 sent · 2 segments</div></td>
+              <td class="num">39.6%</td>
+              <td class="num">6.4%</td>
+              <td class="num">$23,612</td>
+              <td>›</td>
+            </tr>
+            <tr>
+              <td><div class="fw-6">VIP Early Access — Coral Capsule</div><div class="fs-11 txt-muted">Email · Mar 10 · 12,400 sent · 1 segment</div></td>
+              <td class="num">58.4% <div class="fs-11 txt-muted" style="color:var(--orange)">▲ 8.1</div></td>
+              <td class="num">15.2%</td>
+              <td class="num">$21,408</td>
+              <td>›</td>
+            </tr>
+            <tr>
+              <td><div class="fw-6">Restock — Linen Carryall (Demo)</div><div class="fs-11 txt-muted">SMS · Mar 09 · 18,940 sent · 1 segment</div></td>
+              <td class="num">—</td>
+              <td class="num">18.6%</td>
+              <td class="num">$9,612</td>
+              <td>›</td>
+            </tr>
+            <tr>
+              <td><div class="fw-6">Cold Re-engagement — 180d Lapsed</div><div class="fs-11 txt-muted">Email · Mar 08 · 22,180 sent · 3 variants</div></td>
+              <td class="num">11.3%</td>
+              <td class="num">2.1%</td>
+              <td class="num"><span class="tag green">WELCOMEBACK</span> Needs review</td>
+              <td>›</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-foot">
+          <span>Showing 5 of 24</span>
+          <span class="pager">
+            <span class="pg">‹</span><span class="pg active">1</span><span class="pg">2</span><span class="pg">3</span><span class="pg">›</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Lifecycle automations -->
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Lifecycle automations <small>9 ACTIVE · 3 PAUSED</small></div>
+          <div class="right"><button class="btn xs">Manage flows</button></div>
+        </div>
+        <div class="card-pad">
+          <div class="grid-2">
+            <div>
+              <div class="flex between center">
+                <div class="fw-6">Welcome series — New subscribers</div>
+                <span class="toggle on"></span>
+              </div>
+              <div class="fs-11 txt-muted mb-8">Trigger · list join · 4 messages over 14 days</div>
+              <div class="flex gap"><span class="tag orange">Email</span><span class="tag gray">Wait 1d</span><span class="tag gray">Email</span><span class="tag gray">Wait 3d</span></div>
+              <div class="flex between mt-12 fs-11 txt-muted">
+                <span>Entries · 12,108</span><span>Open 46.2%</span><span class="fw-6" style="color:var(--text)">$22,840</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex between center">
+                <div class="fw-6">Abandoned checkout — &gt; $50</div>
+                <span class="toggle on"></span>
+              </div>
+              <div class="fs-11 txt-muted mb-8">Trigger · checkout abandon · 3 messages</div>
+              <div class="flex gap"><span class="tag orange">Email</span><span class="tag gray">Wait 1h</span><span class="tag gray">SMS</span><span class="tag gray">Email</span></div>
+              <div class="flex between mt-12 fs-11 txt-muted">
+                <span>Entries · 21,408</span><span>Open 38.4%</span><span class="fw-6" style="color:var(--text)">$41,420</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex between center">
+                <div class="fw-6">Post-purchase — Care &amp; review</div>
+                <span class="toggle on"></span>
+              </div>
+              <div class="fs-11 txt-muted mb-8">Trigger · order fulfilled · 3 messages</div>
+              <div class="flex gap"><span class="tag yellow">Care guide</span><span class="tag gray">Wait 14d</span><span class="tag gray">Review request</span><span class="tag gray">Postage</span></div>
+              <div class="flex between mt-12 fs-11 txt-muted">
+                <span>Entries · 1,400</span><span>Open 49.5%</span><span class="fw-6" style="color:var(--text)">$8,218</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex between center">
+                <div class="fw-6">Birthday — Annual gift</div>
+                <span class="toggle"></span>
+              </div>
+              <div class="fs-11 txt-muted mb-8">Trigger · profile birthday · 1 message</div>
+              <div class="flex gap"><span class="tag gray">Email</span><span class="tag gray">Code</span></div>
+              <div class="flex between mt-12 fs-11 txt-muted">
+                <span>Entries · 612</span><span>Open 51.2%</span><span class="fw-6" style="color:var(--text)">$2,180</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Draft preview -->
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Draft — Coral Capsule preview <small>SCHEDULED SEP 23 · 14:30</small></div>
+          <div class="right flex gap">
+            <span class="tag orange">draft</span>
+            <button class="btn xs">Schedule</button>
+          </div>
+        </div>
+        <div class="card-pad grid-2">
+          <div>
+            <div class="fs-11 txt-muted">SUBJECT LINE</div>
+            <div class="fw-7 mb-8">A capsule of warm things, before they sell out.</div>
+            <div class="fs-11 txt-muted">PREHEADER</div>
+            <div class="mb-12">41 SKUs · 4 wk drop window · Editorial</div>
+            <div class="fs-11 txt-muted">SENDING TO</div>
+            <select class="input" style="width:100%; margin-top:6px"><option>VIP · purchased in last 365d (1,540)</option></select>
+            <div class="fs-11 txt-muted mt-12">CHANNEL</div>
+            <div class="flex gap mt-8">
+              <span class="chip active">Email</span>
+              <span class="chip">SMS</span>
+              <span class="chip">Both</span>
+            </div>
+            <button class="btn primary mt-16">Drop the capsule →</button>
+          </div>
+          <div class="card" style="background:#0d0d14;border-color:#2a2a36;padding:18px;color:#ddd2c1;text-align:center">
+            <div class="serif" style="font-size:22px;font-weight:700;margin-top:32px">A capsule of warm things.</div>
+            <p class="fs-11 txt-muted" style="margin-top:24px">Six pieces in coral, wool, and bedded linen — at the top of 41 SKUs, Subscribers get the link 48 hours ahead of restock. After that they're gone for the season.</p>
+            <div class="flex gap" style="justify-content:center;margin-top:48px">
+              <span class="kbd mono">[ subscribe ]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- side rail -->
+    <aside class="col-stack side">
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Channel mix <small>REVENUE</small></div>
+          <div class="right fs-11">30 DAYS</div>
+        </div>
+        <div class="card-pad">
+          <div class="bar-row"><span class="lbl">Email</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><span class="num">$112,440</span></div>
+          <div class="bar-row"><span class="lbl">SMS</span><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><span class="num">$36,210</span></div>
+          <div class="bar-row"><span class="lbl">Automations</span><div class="bar-track"><div class="bar-fill" style="width:36%"></div></div><span class="num">$22,180</span></div>
+          <div class="bar-row"><span class="lbl">Push</span><div class="bar-track"><div class="bar-fill muted" style="width:18%"></div></div><span class="num">$8,820</span></div>
+          <div class="bar-row"><span class="lbl">Direct</span><div class="bar-track"><div class="bar-fill muted" style="width:12%"></div></div><span class="num">$5,270</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Audiences</div>
+          <div class="right fs-11" style="color:var(--orange)">New segment →</div>
+        </div>
+        <div class="card-pad">
+          <div class="list">
+            <div class="row"><span class="dot orange"></span><div><div class="fw-6">All subscribers</div><div class="meta">Active · master list</div></div><span class="fw-6">26,140</span></div>
+            <div class="row"><span class="dot green"></span><div><div class="fw-6">VIP · 365d</div><div class="meta">1 segment · last sync 14m ago</div></div><span class="fw-6">1,840</span></div>
+            <div class="row"><span class="dot blue"></span><div><div class="fw-6">Engaged · 30d</div><div class="meta">Opened or clicked recently</div></div><span class="fw-6">12,410</span></div>
+            <div class="row"><span class="dot"></span><div><div class="fw-6">Lapsed · 180d</div><div class="meta">Not purchased &gt; 6 months</div></div><span class="fw-6">3,180</span></div>
+            <div class="row"><span class="dot red"></span><div><div class="fw-6">Editorial readers</div><div class="meta">Opens essays often</div></div><span class="fw-6">8,412</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Recent activity</div>
+        </div>
+        <div class="card-pad">
+          <div class="timeline">
+            <div class="tl"><div class="when">11:42</div><div class="what"><div class="t">Fall Field Notes started sending</div><div class="d">22 of 88k sent · open rate 39.6%</div></div></div>
+            <div class="tl"><div class="when">09:11</div><div class="what"><div class="t">Nina K. edited "Cold Re-engagement"</div><div class="d">Subject line changed before send</div></div></div>
+            <div class="tl"><div class="when">07:48</div><div class="what"><div class="t">SMS quota raised to 50k / month</div><div class="d">Auto-applied on Twilio invoice</div></div></div>
+            <div class="tl"><div class="when">YESTERDAY</div><div class="what"><div class="t">Indigo Drop No. 04 finished sending</div><div class="d">92,108 received · revenue +$29,140</div></div></div>
+            <div class="tl"><div class="when">FRI 17:32</div><div class="what"><div class="t">312 net new subscribers overnight</div><div class="d">Mostly from Coral Capsule landing</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">Top subject lines <small>LAST 14d</small></div>
+        </div>
+        <div class="card-pad">
+          <div class="bar-row"><span class="lbl">Back in stock</span><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div><span class="num">58.4%</span></div>
+          <div class="bar-row"><span class="lbl">Soup, slowly</span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div><span class="num">52.1%</span></div>
+          <div class="bar-row"><span class="lbl">Indigo Drop No.04 — open</span><div class="bar-track"><div class="bar-fill" style="width:62%"></div></div><span class="num">49.2%</span></div>
+          <div class="bar-row"><span class="lbl">A capsule, before it tilts</span><div class="bar-track"><div class="bar-fill" style="width:54%"></div></div><span class="num">46.8%</span></div>
+          <div class="bar-row"><span class="lbl">States from the deck · Issue 08</span><div class="bar-track"><div class="bar-fill muted" style="width:40%"></div></div><span class="num">38.4%</span></div>
+        </div>
+        <div class="card-foot">
+          <span class="fw-6 txt-soft">Subject line guide</span>
+          <span class="grow"></span>
+          <span style="color:var(--orange)">Read →</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="section-title">List hygiene cadence</div>
+        </div>
+        <div class="card-pad">
+          <p class="fs-12 txt-soft">Suppressed addresses are scrubbed every 14 days. Last sweep removed 312 hard bounces; the next runs Mar 16.</p>
+        </div>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="status-dot"></span>
+    <span>Onyx Bridge Lab · sandbox · us-east-2</span>
+    <div class="right">
+      <a href="orders.html">Orders</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="customers.html">Customers</a>
+      <a href="products.html">Products</a>
+      <a href="discounts.html">Discounts</a>
+      <a href="#">Support</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

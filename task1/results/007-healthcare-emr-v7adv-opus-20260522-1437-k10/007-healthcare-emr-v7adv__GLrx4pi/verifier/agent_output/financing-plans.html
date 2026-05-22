@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Payment Plans — Quartz Grove Lab</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .hero { margin-bottom: 16px; }
+  .hero h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; margin: 6px 0 8px; }
+  .hero p { color: var(--text-2); max-width: 760px; margin: 0 0 14px; }
+  .hero .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .layout-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+
+  .balance-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 22px; }
+  .balance-card .l { font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--text-3); font-weight: 600; }
+  .balance-card .v { font-size: 44px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; margin: 6px 0 6px; }
+  .balance-card .s { color: var(--text-2); font-size: 13px; margin-bottom: 14px; }
+  .balance-card .row-b { display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap; }
+  .balance-card .col-l { flex: 1; min-width: 240px; }
+  .balance-card .col-r { padding: 14px; background: #f8fafc; border-radius: 10px; min-width: 240px; flex: 1; }
+  .balance-card .col-r .head { font-size: 12.5px; font-weight: 600; margin-bottom: 8px; }
+  .balance-card .line { display: flex; justify-content: space-between; font-size: 12.5px; padding: 6px 0; border-top: 1px solid var(--border); }
+  .balance-card .line:first-of-type { border-top: 0; }
+  .balance-card .line.total { font-weight: 700; font-size: 14px; border-top-width: 2px; }
+
+  .progress-card .progress-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; margin-bottom: 8px; font-size: 12.5px; }
+  .progress-card .progress-row .bar { height: 8px; }
+  .progress-card .note { background: var(--primary-50); border-left: 3px solid var(--primary); padding: 10px 12px; border-radius: 8px; font-size: 12.5px; color: var(--text-2); margin-top: 12px; }
+
+  .options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .opt { padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: #fff; position: relative; }
+  .opt.active { border-color: var(--primary); box-shadow: 0 0 0 2px #dbe5ff; }
+  .opt .tag { position: absolute; top: 14px; right: 14px; }
+  .opt h4 { margin: 0 0 4px; font-size: 14px; font-weight: 600; }
+  .opt .pp { font-size: 11.5px; color: var(--text-3); margin-bottom: 8px; }
+  .opt .price { font-size: 26px; font-weight: 700; letter-spacing: -0.01em; }
+  .opt .price small { font-size: 12px; color: var(--text-3); font-weight: 500; }
+  .opt ul { list-style: none; padding: 0; margin: 12px 0 12px; }
+  .opt ul li { font-size: 12.5px; padding: 4px 0; color: var(--text-2); }
+  .opt ul li::before { content: "✓"; color: var(--green); margin-right: 6px; font-weight: 700; }
+
+  .sched-tbl td, .sched-tbl th { font-size: 13px; }
+
+  .pm { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; }
+  .pm.default { border-color: #c8d8ff; background: var(--primary-50); }
+  .pm .cardthumb { width: 32px; height: 22px; border-radius: 4px; background: linear-gradient(135deg,#2256e9,#6d49c8); }
+  .pm.mc .cardthumb { background: linear-gradient(135deg, #d6443c, #e3a934); }
+  .pm.ach .cardthumb { background: #2e9c5b; }
+  .pm .nm { font-weight: 600; font-size: 13px; }
+  .pm .meta { font-size: 11.5px; color: var(--text-3); }
+
+  .history-tbl td, .history-tbl th { font-size: 12.5px; }
+
+  .plan-act .ev { display: flex; gap: 10px; padding: 9px 0; border-top: 1px solid var(--border); }
+  .plan-act .ev:first-of-type { border-top: 0; }
+  .plan-act .dt { font-size: 11.5px; color: var(--text-3); width: 56px; flex-shrink: 0; }
+  .plan-act .nm { font-weight: 600; font-size: 13px; }
+  .plan-act .d { font-size: 11.5px; color: var(--text-2); }
+
+  .qf { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .qf .full { grid-column: 1 / -1; }
+
+  .qa-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .qa-cards .q { padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; }
+  .qa-cards .q h5 { margin: 0 0 4px; font-size: 13px; font-weight: 600; }
+  .qa-cards .q p { margin: 0; font-size: 12px; color: var(--text-3); }
+
+  .talk { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 18px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .talk .t { flex: 1; min-width: 240px; }
+  .talk h3 { margin: 0 0 4px; font-size: 16px; font-weight: 700; }
+  .talk p { margin: 0; font-size: 13px; color: var(--text-2); }
+
+  @media (max-width: 1024px) {
+    .layout-2 { grid-template-columns: 1fr; }
+    .options { grid-template-columns: 1fr; }
+    .balance-card .row-b { flex-direction: column; }
+  }
+  @media (max-width: 720px) {
+    .qa-cards { grid-template-columns: 1fr; }
+    .qf { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#"><span class="logo"></span>Quartz Grove Lab</a>
+    <ul class="nav-links">
+      <li><a href="patient-dashboard.html">Patient Dashboard</a></li>
+      <li><a href="appointment-calendar.html">Appointments</a></li>
+      <li><a href="billing-insurance.html">Billing &amp; Insurance</a></li>
+      <li><a href="financing-plans.html" class="active">Payment Plans</a></li>
+      <li><a href="settings.html">Practice Settings</a></li>
+    </ul>
+    <div class="nav-search"><input placeholder="Search patients, invoices…" /></div>
+    <span class="nav-avatar">HK</span>
+  </div>
+</header>
+
+<main class="page">
+  <div class="crumbs"><span>Billing</span><span>Hana Kobayashi</span><span class="current">Payment plan</span></div>
+
+  <section class="hero">
+    <div class="eyebrow">Payment Plan · QPP-10472</div>
+    <h1>A friendlier way to settle your balance.</h1>
+    <p>We've worked out a few interest-free options for Ari's outstanding visits. Pick a cadence that fits the month — you can pause or adjust any time by giving the front desk a call.</p>
+    <div class="chips">
+      <span class="pill green"><span class="dot"></span>Active plan</span>
+      <span class="pill blue">Patient: Ari Cassady</span>
+      <span class="pill outline">Started Aug 14, 2024</span>
+      <span class="pill outline">No interest · 0% APR</span>
+    </div>
+  </section>
+
+  <section class="layout-2 mb-16">
+    <div class="balance-card">
+      <div class="row-b">
+        <div class="col-l">
+          <div class="l">Remaining balance</div>
+          <div class="v">$1,284.50</div>
+          <div class="s">of $2,140.00 originally financed across 6 monthly payments.</div>
+          <div class="row gap-8 mb-8">
+            <button class="btn primary">Pay $213.75 now</button>
+            <button class="btn">View schedule</button>
+            <button class="btn ghost">Adjust plan</button>
+          </div>
+        </div>
+        <div class="col-r">
+          <div class="head row between"><span>Next payment</span><span class="pill amber">In 8 days</span></div>
+          <div class="line"><span>Tue, Oct 22</span><span></span></div>
+          <div class="line"><span>Auto-charged to Visa •• 4129</span><span class="fw-600">$213.75</span></div>
+          <div class="line"><span>Fees</span><span>$0.00</span></div>
+          <div class="line total"><span>Total due</span><span>$213.75</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card progress-card">
+      <div class="card-h">
+        <h3>Progress</h3>
+        <span class="pill green">On track</span>
+      </div>
+      <div class="text-muted fs-12 mb-8">$855.50 of $2,140.00 paid</div>
+      <div class="bar mb-8"><i style="width:40%"></i></div>
+      <div class="progress-row"><span>4% complete · 4 of 6 remaining</span><span></span></div>
+      <div class="progress-row"><span class="row gap-6"><span class="dot" style="background:var(--primary)"></span> 1st charge (8/14)</span><span class="fw-600">$213.75</span></div>
+      <div class="progress-row"><span class="row gap-6"><span class="dot" style="background:var(--primary)"></span> Lab fee 9/19</span><span class="fw-600">$213.75</span></div>
+      <div class="progress-row"><span class="row gap-6"><span class="dot" style="background:#cfd6e3"></span> Balance $1,284</span><span class="fw-600">$1,284.50</span></div>
+      <div class="note"><strong>Autopay is on.</strong> Each instalment is charged automatically the night before its due date.</div>
+    </div>
+  </section>
+
+  <section class="card mb-16">
+    <div class="card-h">
+      <div>
+        <h3>Installment options</h3>
+        <div class="sub">Switch any time — your remaining balance stays the same.</div>
+      </div>
+      <span class="text-muted fs-12">Quartz Grove never charges interest on in-house plans.</span>
+    </div>
+    <div class="options">
+      <div class="opt">
+        <span class="tag pill gray">Wrap up sooner</span>
+        <h4>3-month sprint</h4>
+        <div class="pp">3 monthly payments</div>
+        <div class="price">$428.17<small>/month</small></div>
+        <ul>
+          <li>Paid off by January 2025</li>
+          <li>No interest, no setup fee</li>
+          <li>Autopay or manual</li>
+        </ul>
+        <button class="btn small">Choose 3 months</button>
+      </div>
+      <div class="opt active">
+        <span class="tag pill blue">Your current plan</span>
+        <h4>6-month standard</h4>
+        <div class="pp">6 monthly payments</div>
+        <div class="price">$213.75<small>/month</small></div>
+        <ul>
+          <li>Paid off by April 2025</li>
+          <li>No interest, no setup fee</li>
+          <li>Skip one month, no fee</li>
+          <li>Email + SMS reminders</li>
+        </ul>
+        <button class="btn primary small" style="width:100%">Keep this plan</button>
+      </div>
+      <div class="opt">
+        <span class="tag pill gray">Stretch out</span>
+        <h4>12-month easy</h4>
+        <div class="pp">12 monthly payments</div>
+        <div class="price">$107.04<small>/month</small></div>
+        <ul>
+          <li>Paid off by October 2025</li>
+          <li>No interest, no setup fee</li>
+          <li>Pause up to two months</li>
+        </ul>
+        <button class="btn small">Switch to 12 months</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="layout-2 mb-16">
+    <div class="card">
+      <div class="card-h">
+        <h3>Upcoming schedule</h3>
+        <button class="btn-link">Download .ics</button>
+      </div>
+      <table class="tbl sched-tbl">
+        <tbody>
+          <tr><td><div class="fw-600">Tue, Oct 22, 2024</div><div class="text-muted fs-12">Installment 3 of 6 · Autopay · Visa •• 4129</div></td><td class="text-r fw-600">$213.75</td></tr>
+          <tr><td><div class="fw-600">Fri, Nov 22, 2024</div><div class="text-muted fs-12">Installment 4 of 6 · Autopay scheduled</div></td><td class="text-r fw-600">$213.75</td></tr>
+          <tr><td><div class="fw-600">Sun, Dec 22, 2024</div><div class="text-muted fs-12">Installment 5 of 6</div></td><td class="text-r fw-600">$213.75</td></tr>
+          <tr><td><div class="fw-600">Wed, Jan 22, 2025</div><div class="text-muted fs-12">Installment 6 of 6 · Final payment</div></td><td class="text-r fw-600">$213.25</td></tr>
+        </tbody>
+      </table>
+      <div class="row between mt-12">
+        <span class="text-muted fs-12">Total remaining: $1,284.50</span>
+        <button class="btn-link">Reschedule a payment</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Payment method</h3>
+        <button class="btn-link">Add new</button>
+      </div>
+      <div class="pm default">
+        <span class="cardthumb"></span>
+        <div class="flex-1">
+          <div class="nm">Visa •• 4129</div>
+          <div class="meta">Ari Cassady · expires 09/27</div>
+        </div>
+        <span class="pill blue">Default</span>
+      </div>
+      <div class="pm mc">
+        <span class="cardthumb"></span>
+        <div class="flex-1">
+          <div class="nm">Mastercard •• 8030</div>
+          <div class="meta">Backup · expires 03/26</div>
+        </div>
+      </div>
+      <div class="pm ach">
+        <span class="cardthumb"></span>
+        <div class="flex-1">
+          <div class="nm">Firstbrook Credit Union</div>
+          <div class="meta">ACH · routing **0218</div>
+        </div>
+      </div>
+      <div class="row gap-8 mb-8 mt-12">
+        <span class="switch on"></span>
+        <div>
+          <div class="fw-600 fs-12">Autopay</div>
+          <div class="text-muted fs-12">Charge default card the day before each due date.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="layout-2 mb-16">
+    <div class="card">
+      <div class="card-h">
+        <h3>Payment history</h3>
+        <div class="row gap-8">
+          <button class="btn-link">Export CSV</button>
+          <button class="btn-link">Print history</button>
+        </div>
+      </div>
+      <table class="tbl history-tbl">
+        <thead><tr><th>Date</th><th>Installment</th><th>Method</th><th>Status</th><th>Amount</th><th>Receipt</th></tr></thead>
+        <tbody>
+          <tr><td>Sep 22, 2024</td><td>2 of 6</td><td>Visa •• 4129</td><td><span class="pill green">Paid</span></td><td>$213.75</td><td><a href="#">QG-10472</a></td></tr>
+          <tr><td>Aug 22, 2024</td><td>1 of 6</td><td>Visa •• 4129</td><td><span class="pill green">Paid</span></td><td>$213.75</td><td><a href="#">QG-10471</a></td></tr>
+          <tr><td>Jul 22, 2024</td><td>2 of 4</td><td>Visa •• 4129</td><td><span class="pill green">Paid</span></td><td>$214.50</td><td><a href="#">QG-10403</a></td></tr>
+          <tr><td>Jun 22, 2024</td><td>1 of 4</td><td>ACH · Firstbrook CU</td><td><span class="pill green">Paid</span></td><td>$214.50</td><td><a href="#">QG-10398</a></td></tr>
+          <tr><td>Jan 14, 2024</td><td>—</td><td>—</td><td><span class="pill outline">Plan started</span></td><td>$2,140.00</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <div class="row between mt-12">
+        <span class="text-muted fs-12">Showing 5 of 9 entries</span>
+        <div class="pager"><span class="pg active">1</span><span class="pg">2</span><span class="pg">›</span></div>
+      </div>
+    </div>
+
+    <div class="card plan-act">
+      <div class="card-h"><h3>Plan activity</h3><div class="sub">14 changes</div></div>
+      <div class="ev">
+        <div class="dt">Sep 22<br>7:02 PM</div>
+        <div class="flex-1"><div class="nm">Installment 2 paid</div><div class="d">Auto-charged to Visa •• 4129. Receipt sent to ari@cottonwoods.co.</div></div>
+      </div>
+      <div class="ev">
+        <div class="dt">Sep 14</div>
+        <div class="flex-1"><div class="nm">Reminder sent</div><div class="d">SMS · "Your payment of $213.75 will be charged on Sep 22."</div></div>
+      </div>
+      <div class="ev">
+        <div class="dt">Aug 22</div>
+        <div class="flex-1"><div class="nm">Installment 1 paid</div><div class="d">Auto-charged to Visa •• 4129. Card had 60 days left on warranty.</div></div>
+      </div>
+      <div class="ev">
+        <div class="dt">Aug 19</div>
+        <div class="flex-1"><div class="nm">Card updated</div><div class="d">Default method changed from ACH to Visa •• 4129 by patient.</div></div>
+      </div>
+      <div class="ev">
+        <div class="dt">Aug 14</div>
+        <div class="flex-1"><div class="nm">Plan started</div><div class="d">6-month plan accepted. Setup fee waived, autopay on.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="layout-2 mb-16">
+    <div class="card">
+      <div class="card-h"><h3>Make a one-time payment</h3><div class="sub">Pay ahead to settle in full</div></div>
+      <div class="qf">
+        <div><label class="label">Amount</label><input class="input" value="$213.75" /></div>
+        <div><label class="label">Pay with</label><select class="select"><option>Visa •• 4129 (default)</option></select></div>
+        <div class="full">
+          <div class="row gap-12 fs-12">
+            <label class="row gap-6"><input type="radio" checked /> Minimum $0.00</label>
+            <label class="row gap-6"><input type="radio" /> Pay full $1,284.50</label>
+            <label class="row gap-6"><input type="radio" /> Anything else</label>
+          </div>
+        </div>
+        <div class="full row gap-8 between">
+          <label class="row gap-6 fs-12"><input type="checkbox" /> Email me a receipt</label>
+          <button class="btn primary">Charge $213.75</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h"><h3>Common questions</h3></div>
+      <div class="qa-cards">
+        <div class="q"><h5>Will this affect my credit?</h5><p>No. Our in-house plans aren't reported to credit bureaus, and there's no hard inquiry to enroll.</p></div>
+        <div class="q"><h5>Can I pay off early?</h5><p>Anytime, with no penalty. Pick any amount above the next instalment.</p></div>
+        <div class="q"><h5>What if a month is tight?</h5><p>Email or call us — we'll offer a one-month skip without changing the total.</p></div>
+        <div class="q"><h5>Do you offer external financing?</h5><p>For balances over $3,500 we can pre-qualify you with CareCredit. Ask the front desk.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="talk">
+    <div class="t">
+      <h3>Need to talk it through?</h3>
+      <p>Renee at the front desk handles every plan personally. Most questions take less than five minutes.</p>
+    </div>
+    <div class="row gap-8">
+      <span class="fw-600">(503) 555-0140</span>
+      <button class="btn primary">Message billing</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <span>© 2024 Quartz Grove Lab · 412 Linden Way, Portland OR</span>
+    <nav>
+      <a href="patient-dashboard.html">Patient</a>
+      <a href="appointment-calendar.html">Appointments</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <span>Support: billing@quartzgrove.health · Build 2024.10.3</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Donor Dashboard — Margaret Holloway</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .profile-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; padding: 36px 0 22px; border-bottom: 1px solid var(--line); }
+  .profile-head h1 { margin: 0 0 8px; font-size: 38px; color: var(--text-strong); font-weight: 700; letter-spacing: -.01em; }
+  .profile-head .meta { display: flex; gap: 18px; font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+  .profile-head .meta .tag { margin-right: 2px; }
+  .profile-head .right { text-align: right; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .profile-head .right .id { color: var(--text-strong); letter-spacing: .14em; }
+  .actions-row { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+  .chart-side { display: grid; grid-template-columns: 1.6fr 1fr; gap: 18px; }
+  @media (max-width: 1024px) { .chart-side { grid-template-columns: 1fr; } }
+  .donut-card { background: var(--card); border: 1px solid var(--line); padding: 16px 18px; }
+  .donut-card h4 { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  .legend-list { list-style: none; padding: 0; margin: 8px 0 0; font-size: 12px; }
+  .legend-list li { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px dashed var(--line); font-family: var(--mono); }
+  .legend-list li:last-child { border-bottom: none; }
+  .legend-list .sw { display: inline-block; width: 10px; height: 10px; margin-right: 8px; vertical-align: middle; }
+  .ack-card { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 1024px) { .ack-card { grid-template-columns: 1fr; } }
+  .mini { background: var(--card); border: 1px solid var(--line); padding: 16px 18px; }
+  .mini h4 { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0 0 10px; }
+  .mini .row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 12.5px; border-bottom: 1px dashed var(--line); }
+  .mini .row:last-child { border-bottom: none; }
+  .mini .row .k { color: var(--muted); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+  .mini .row .v { color: var(--text-strong); font-family: var(--mono); }
+  .contrib-row { display: grid; grid-template-columns: 110px 1fr 100px 110px 90px 110px; gap: 14px; padding: 11px 16px; border-bottom: 1px solid var(--line); align-items: center; }
+  .contrib-row .when { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .contrib-row .strong { color: var(--text-strong); }
+  .contrib-row .amt { font-family: var(--mono); color: var(--text-strong); text-align: right; }
+  .activity-card { background: var(--card); border: 1px solid var(--line); padding: 18px 20px; }
+  .activity-list .item { display: grid; grid-template-columns: 100px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--line); }
+  .activity-list .item:last-child { border-bottom: none; }
+  .activity-list .when { font-family: var(--mono); font-size: 10px; color: var(--muted-2); letter-spacing: .08em; text-transform: uppercase; }
+  .activity-list h4 { margin: 0 0 4px; font-size: 13.5px; color: var(--text-strong); font-weight: 600; }
+  .activity-list p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.55; }
+  .three-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 1024px) { .three-cards { grid-template-columns: 1fr; } }
+  .three-cards .card h4 { color: var(--accent); font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 10px; }
+  .three-cards .card h3 { margin: 0 0 6px; color: var(--text-strong); font-size: 15px; }
+  .three-cards .card p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.55; }
+  .activity-grid { display: grid; grid-template-columns: 1fr 320px; gap: 22px; }
+  @media (max-width: 1024px) { .activity-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">GABLE GROUND FOUNDRY<span class="dot">·</span></span>
+    <nav>
+      <a href="cause-overview.html">Cause Overview</a>
+      <a href="projects.html">Projects</a>
+      <a href="impact.html">Impact</a>
+      <a href="blog.html">Field Notes</a>
+      <a href="donor-dashboard.html" class="active">Donor Dashboard</a>
+    </nav>
+    <div class="right">
+      <a>Sign out</a>
+      <a>Give now</a>
+      <a>Contact</a>
+    </div>
+  </div>
+</header>
+
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="breadcrumb">Donor portal / <span class="crumb-current">Margaret Holloway · Dashboard</span></span>
+    <span class="sep">·</span><a>Contributions</a>
+    <span class="sep">·</span><a>Allocations</a>
+    <span class="sep">·</span><a>Statements</a>
+    <span class="sep">·</span><a>Settings</a>
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- PROFILE HEADER -->
+  <div class="profile-head">
+    <div>
+      <div class="meta" style="margin-bottom: 10px;">
+        <span><span class="tag accent">SUSTAINING</span></span>
+        <span>· DONOR SINCE 2018</span>
+        <span>· COHORT 2025-Q2</span>
+        <span>· ABERAERON, UK</span>
+      </div>
+      <h1>Margaret Holloway</h1>
+      <div class="actions-row">
+        <a class="btn btn-primary">Give now</a>
+        <a class="btn">Download tax summary</a>
+        <a class="btn">Edit profile</a>
+        <a class="btn btn-ghost">Statements</a>
+      </div>
+    </div>
+    <div class="right">
+      <div class="id">ID · GGF-D-04812</div>
+      <div style="margin-top: 6px;">SUSTAINING SINCE 2021</div>
+      <div>NEXT STATEMENT · 2026-06-30</div>
+      <div>RECEIPT EMAIL · m.holloway@…</div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <section style="padding-top: 22px;">
+    <div class="stats">
+      <div class="stat">
+        <div class="label">Lifetime contributions</div>
+        <div class="value">$24,815</div>
+        <div class="sub"><span class="up">▲ $2,400</span> trailing 12mo</div>
+      </div>
+      <div class="stat">
+        <div class="label">Contributions logged</div>
+        <div class="value">63</div>
+        <div class="sub">14 one-time · 49 recurring</div>
+      </div>
+      <div class="stat">
+        <div class="label">Projects supported</div>
+        <div class="value">11</div>
+        <div class="sub">4 active · 7 retired</div>
+      </div>
+      <div class="stat">
+        <div class="label">Active matching cohorts</div>
+        <div class="value">3</div>
+        <div class="sub">2025-Q2 · 2025-Q4 · 2026-Q1</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARTS -->
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">01</span>Annual giving · last 24 months</h2>
+      <div class="section-actions"><a>By project</a><a>By cohort</a><a>CSV</a></div>
+    </div>
+    <div class="chart-side">
+      <div class="chart" style="padding: 16px 18px;">
+        <svg viewBox="0 0 700 230" preserveAspectRatio="none" style="width:100%; height: 220px;">
+          <line x1="0" y1="190" x2="700" y2="190" stroke="#3a3530"/>
+          <g fill="#e07a3e">
+            <rect x="10"  y="140" width="22" height="50"/>
+            <rect x="42"  y="120" width="22" height="70"/>
+            <rect x="74"  y="100" width="22" height="90"/>
+            <rect x="106" y="130" width="22" height="60"/>
+            <rect x="138" y="90"  width="22" height="100"/>
+            <rect x="170" y="110" width="22" height="80"/>
+            <rect x="202" y="80"  width="22" height="110"/>
+            <rect x="234" y="60"  width="22" height="130"/>
+            <rect x="266" y="100" width="22" height="90"/>
+            <rect x="298" y="80"  width="22" height="110"/>
+            <rect x="330" y="120" width="22" height="70"/>
+            <rect x="362" y="100" width="22" height="90"/>
+            <rect x="394" y="70"  width="22" height="120"/>
+            <rect x="426" y="50"  width="22" height="140"/>
+            <rect x="458" y="80"  width="22" height="110"/>
+            <rect x="490" y="100" width="22" height="90"/>
+            <rect x="522" y="60"  width="22" height="130"/>
+            <rect x="554" y="40"  width="22" height="150"/>
+            <rect x="586" y="70"  width="22" height="120"/>
+            <rect x="618" y="50"  width="22" height="140"/>
+            <rect x="650" y="30"  width="22" height="160"/>
+          </g>
+          <g fill="#8a8275" font-family="ui-monospace,monospace" font-size="9">
+            <text x="10" y="210">JUN'24</text>
+            <text x="170" y="210">OCT'24</text>
+            <text x="330" y="210">FEB'25</text>
+            <text x="490" y="210">JUN'25</text>
+            <text x="618" y="210">MAY'26</text>
+          </g>
+        </svg>
+        <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; color:var(--muted); padding-top:10px; border-top:1px solid var(--line); margin-top: 6px;">
+          <span>MONTHLY MEAN · $1,034</span>
+          <span>BEST MONTH · MAY '26</span>
+          <span>RUN RATE · $12,400 / YR</span>
+        </div>
+      </div>
+      <div class="donut-card">
+        <h4>SPREAD BY CAUSE</h4>
+        <svg viewBox="0 0 200 200" style="width: 100%; height: 160px;">
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#38332c" stroke-width="28"/>
+          <!-- pie slices using stroke-dasharray on a circle -->
+          <!-- circumference = 2 * PI * 70 ≈ 439.82 -->
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#e07a3e" stroke-width="28"
+            stroke-dasharray="176 264" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#6f8a55" stroke-width="28"
+            stroke-dasharray="110 330" stroke-dashoffset="-176" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#c25a52" stroke-width="28"
+            stroke-dasharray="88 352" stroke-dashoffset="-286" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#8a8275" stroke-width="28"
+            stroke-dasharray="66 374" stroke-dashoffset="-374" transform="rotate(-90 100 100)"/>
+        </svg>
+        <ul class="legend-list">
+          <li><span><span class="sw" style="background:#e07a3e;"></span>Coastal</span><span>40%</span></li>
+          <li><span><span class="sw" style="background:#6f8a55;"></span>Freshwater</span><span>25%</span></li>
+          <li><span><span class="sw" style="background:#c25a52;"></span>Peat</span><span>20%</span></li>
+          <li><span><span class="sw" style="background:#8a8275;"></span>Forestry</span><span>15%</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACKNOWLEDGEMENTS -->
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">02</span>Acknowledgements &amp; assignments</h2>
+      <div class="section-actions"><a>Edit defaults</a><a>Help</a></div>
+    </div>
+    <div class="ack-card">
+      <div class="mini">
+        <h4>RECURRING GIFT — SUSTAINING TIER</h4>
+        <div class="row"><span class="k">Amount</span><span class="v">$120.00 / MO</span></div>
+        <div class="row"><span class="k">Cohort</span><span class="v">2025-Q2</span></div>
+        <div class="row"><span class="k">Next charge</span><span class="v">2026-06-01</span></div>
+        <div class="row"><span class="k">Payment method</span><span class="v">VISA ···· 0418</span></div>
+        <div class="row"><span class="k">Allocation</span><span class="v">DONOR-CHOICE</span></div>
+        <div class="row"><span class="k">Status</span><span class="v"><span class="tag green">Active</span></span></div>
+      </div>
+      <div class="mini">
+        <h4>MATCH POOL — 2026-Q2 INITIATIVE</h4>
+        <div class="row"><span class="k">Pool</span><span class="v">BORDEN MIRES Q2</span></div>
+        <div class="row"><span class="k">Your commit</span><span class="v">$1,200.00</span></div>
+        <div class="row"><span class="k">Matched at</span><span class="v">1.4×</span></div>
+        <div class="row"><span class="k">Pool close</span><span class="v">2026-06-30</span></div>
+        <div class="row"><span class="k">Status</span><span class="v"><span class="tag accent">Pending</span></span></div>
+        <div class="row"><span class="k">Action</span><span class="v"><a class="btn btn-sm btn-primary">Top up</a></span></div>
+      </div>
+      <div class="mini">
+        <h4>STANDING ALLOCATION ORDERS</h4>
+        <div class="row"><span class="k">Coastal</span><span class="v">40%</span></div>
+        <div class="row"><span class="k">Freshwater</span><span class="v">25%</span></div>
+        <div class="row"><span class="k">Peat</span><span class="v">20%</span></div>
+        <div class="row"><span class="k">Forestry</span><span class="v">15%</span></div>
+        <div class="row"><span class="k">Discretionary</span><span class="v">0%</span></div>
+        <div class="row"><span class="k">Last reviewed</span><span class="v">2026-04-08</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTRIBUTIONS -->
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">03</span>Contribution history</h2>
+      <div class="section-actions"><a>Filter</a><a>Date range</a><a>Export CSV</a></div>
+    </div>
+    <div style="border: 1px solid var(--line); background: var(--card);">
+      <div class="contrib-row" style="background:#211e1a;">
+        <span class="upper mono" style="color:var(--muted); font-size:10px;">DATE</span>
+        <span class="upper mono" style="color:var(--muted); font-size:10px;">DESCRIPTION</span>
+        <span class="upper mono" style="color:var(--muted); font-size:10px;">PROJECT</span>
+        <span class="upper mono" style="color:var(--muted); font-size:10px;">METHOD</span>
+        <span class="upper mono" style="color:var(--muted); font-size:10px;">STATUS</span>
+        <span class="upper mono" style="color:var(--muted); font-size:10px; text-align:right;">AMOUNT</span>
+      </div>
+      <div class="contrib-row"><span class="when">2026-05-21</span><span class="strong">Monthly sustaining — May</span><span class="mono muted">Donor-choice</span><span class="mono muted">VISA ··0418</span><span><span class="tag green">Cleared</span></span><span class="amt">$120.00</span></div>
+      <div class="contrib-row"><span class="when">2026-05-18</span><span class="strong">Match commit — Borden Mires Q2</span><span class="mono muted">GGF-238</span><span class="mono muted">ACH</span><span><span class="tag accent">Pending</span></span><span class="amt">$1,200.00</span></div>
+      <div class="contrib-row"><span class="when">2026-04-21</span><span class="strong">Monthly sustaining — April</span><span class="mono muted">Donor-choice</span><span class="mono muted">VISA ··0418</span><span><span class="tag green">Cleared</span></span><span class="amt">$120.00</span></div>
+      <div class="contrib-row"><span class="when">2026-04-04</span><span class="strong">Cardigan plot 3-12 — directed gift</span><span class="mono muted">GGF-271</span><span class="mono muted">Wire</span><span><span class="tag green">Cleared</span></span><span class="amt">$500.00</span></div>
+      <div class="contrib-row"><span class="when">2026-03-21</span><span class="strong">Monthly sustaining — March</span><span class="mono muted">Donor-choice</span><span class="mono muted">VISA ··0418</span><span><span class="tag green">Cleared</span></span><span class="amt">$120.00</span></div>
+      <div class="contrib-row"><span class="when">2026-02-21</span><span class="strong">Monthly sustaining — February</span><span class="mono muted">Donor-choice</span><span class="mono muted">VISA ··0418</span><span><span class="tag green">Cleared</span></span><span class="amt">$120.00</span></div>
+      <div class="contrib-row"><span class="when">2026-02-10</span><span class="strong">Anniversary one-off, project 219</span><span class="mono muted">GGF-219</span><span class="mono muted">Bank xfr</span><span><span class="tag green">Cleared</span></span><span class="amt">$1,000.00</span></div>
+      <div class="contrib-row"><span class="when">2026-01-21</span><span class="strong">Monthly sustaining — January</span><span class="mono muted">Donor-choice</span><span class="mono muted">VISA ··0418</span><span><span class="tag green">Cleared</span></span><span class="amt">$120.00</span></div>
+    </div>
+
+    <div class="pagination">
+      <a>‹</a>
+      <span class="current">1</span><a>2</a><a>3</a><a>4</a><a>5</a><a>…</a><a>8</a>
+      <a>›</a>
+    </div>
+  </section>
+
+  <!-- ACTIVITY + SIDEBAR -->
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">04</span>Recent activity · from the field</h2>
+      <div class="section-actions"><a>Subscribe</a><a>All entries →</a></div>
+    </div>
+    <div class="activity-grid">
+      <div class="activity-card">
+        <div class="activity-list">
+          <div class="item">
+            <div class="when">2026-05-21 · 09:14</div>
+            <div>
+              <h4>Borden Mires — Year-3 disbursement.</h4>
+              <p>Your match commit is now flowing into the plug-install line. Plot 3-A is the first to draw against the fund; the contractor invoice clears next Tuesday. Field notes from the install will be posted by Friday.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="when">2026-05-12 · 17:55</div>
+            <div>
+              <h4>Cardigan plot 3-12 — fencing complete, monitoring started.</h4>
+              <p>Your March directed gift covered the perimeter material order. Photos and the new survey transect will be in the next Cardigan-cluster dispatch.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="when">2026-04-22 · 11:09</div>
+            <div>
+              <h4>Loch Awe Phase II — year-1 audit posted.</h4>
+              <p>78.4% three-year survival rate against the modeled 71%. The audit narrative explains the variance by parcel; your discretionary line is allocated against parcel C-9.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="when">2026-04-08 · 08:30</div>
+            <div>
+              <h4>Allocation order reviewed.</h4>
+              <p>You moved peat allocation from 15% to 20%, against a corresponding move out of forestry. Effective from the May draw; first impact visible on the June statement.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="when">2026-03-12 · 10:01</div>
+            <div>
+              <h4>Glen Lowan — BDA pool 4 confirmed, photos in field notes.</h4>
+              <p>Your 2024 directed gift to Glen Lowan funded BDA-4. The pool held through the spring melt and now shows measurable lensing — pictures attached.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside>
+        <div class="mini" style="margin-bottom: 16px;">
+          <h4>YOUR NEXT STATEMENT</h4>
+          <div class="row"><span class="k">Due</span><span class="v">2026-06-30</span></div>
+          <div class="row"><span class="k">Format</span><span class="v">PDF + CSV</span></div>
+          <div class="row"><span class="k">Tax-deductible</span><span class="v">$23,640.00</span></div>
+          <div class="row"><span class="k">Acknowledgement</span><span class="v">By email</span></div>
+        </div>
+        <div class="mini" style="margin-bottom: 16px;">
+          <h4>QUICK ACTIONS</h4>
+          <div class="row"><span class="k">Adjust monthly</span><span class="v"><a class="btn btn-sm">Edit →</a></span></div>
+          <div class="row"><span class="k">One-off gift</span><span class="v"><a class="btn btn-sm">Give →</a></span></div>
+          <div class="row"><span class="k">Match a project</span><span class="v"><a class="btn btn-sm">Browse →</a></span></div>
+          <div class="row"><span class="k">Add bequest</span><span class="v"><a class="btn btn-sm">Start →</a></span></div>
+        </div>
+        <div class="mini">
+          <h4>ASSIGNED LIAISON</h4>
+          <div class="row"><span class="k">Name</span><span class="v">J. Ashworth</span></div>
+          <div class="row"><span class="k">Role</span><span class="v">Donor relations</span></div>
+          <div class="row"><span class="k">Direct</span><span class="v">+44 1545 — —</span></div>
+          <div class="row"><span class="k">Office</span><span class="v">Aberaeron</span></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- THREE CARDS -->
+  <section style="border-bottom: none;">
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">05</span>For you</h2>
+      <div class="section-actions"><a>All →</a></div>
+    </div>
+    <div class="three-cards">
+      <div class="card">
+        <h4>QUARTERLY DIGEST</h4>
+        <h3>Quarterly digest, issue 14 — preview ready.</h3>
+        <p>Print copies post on 2026-06-04. A PDF preview is available in your portal; we'll add your name to the print run automatically.</p>
+      </div>
+      <div class="card">
+        <h4>LISTED AS</h4>
+        <h3>Listed as M. Holloway · Aberaeron</h3>
+        <p>You appear in the published donor list with first initial and surname. To change your listing preference, edit your profile or contact your liaison.</p>
+      </div>
+      <div class="card">
+        <h4>SUGGESTED</h4>
+        <h3>Suggested — Borden Mires Q2 match</h3>
+        <p>A 1.4× match window closes on June 30. Your current standing order favours peat; this is a good fit if you'd like to make the most of that allocation.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="name">GABLE GROUND FOUNDRY ·</div>
+        <p>Capital for land returned to function. Established 2016, audited annually, published quarterly.</p>
+        <p style="font-family:var(--mono); font-size:11px; color:var(--muted-2); margin-top:14px;">
+          UNIT 4 / OLD FOUNDRY YARD<br>
+          ABERAERON, CEREDIGION<br>
+          SA46 0AH · UNITED KINGDOM
+        </p>
+      </div>
+      <div><h4>Foundry</h4><ul><li><a>About</a></li><li><a>Methodology</a></li><li><a>Governance</a></li><li><a>Annual ledger</a></li><li><a>Audit trail</a></li></ul></div>
+      <div><h4>Programs</h4><ul><li><a>Coastal</a></li><li><a>Forestry</a></li><li><a>Peat</a></li><li><a>Freshwater</a></li><li><a>Urban edge</a></li></ul></div>
+      <div><h4>Reading</h4><ul><li><a>Field notes</a></li><li><a>Quarterly</a></li><li><a>Dispatches</a></li><li><a>Research</a></li><li><a>Press</a></li></ul></div>
+      <div><h4>Give</h4><ul><li><a>One-time</a></li><li><a>Recurring</a></li><li><a>Cohort matching</a></li><li><a>Bequest</a></li><li><a>Donor portal</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 GABLE GROUND FOUNDRY · CHARITY NO. 1175521</span>
+      <div class="links"><a>PRIVACY</a><a>TERMS</a><a>COOKIES</a><a>RSS</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

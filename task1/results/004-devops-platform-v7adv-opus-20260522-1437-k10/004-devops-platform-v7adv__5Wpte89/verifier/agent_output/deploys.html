@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deployments — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <div class="brand-row" style="display:flex;align-items:center;justify-content:space-between;width:100%;max-width:340px;">
+      <a href="#" class="brand"><span class="dot"></span>Beacon Harbor Works</a>
+    </div>
+    <nav>
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html" class="active">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+    <button class="userchip"><span class="avatar mint">AB</span>a.brandt</button>
+  </div>
+</header>
+
+<div class="shell">
+<div class="page">
+
+  <div class="crumbs"><a href="#">Harbor</a><span class="sep">/</span><span class="current">Deployments</span></div>
+  <div class="eyebrow">Manifest · last 7 days</div>
+  <h1 class="page-title">Deployments</h1>
+  <p class="lede">A chronological record of every release shipped to a Beacon Harbor environment. Sorted by environment, newest first. All times in UTC.</p>
+
+  <div class="actions">
+    <button class="btn btn-primary">Deploy to environment</button>
+    <button class="btn">Export manifest</button>
+    <button class="btn btn-ghost">View dev log</button>
+  </div>
+
+  <div class="grid">
+    <div class="col-main">
+
+      <!-- callout banner -->
+      <div class="callout">
+        <span class="tag tag-blue" style="margin-right:8px;">IN PROGRESS</span>
+        <strong>harbor-api</strong> rolling out to <strong>production</strong> · canary at 25% · started 00:04 ago
+      </div>
+
+      <div class="metrics">
+        <div class="metric"><div class="label">Deploys 7d</div><div class="value">142</div><div class="sub">24 prod · 88 staging · 30 preview</div></div>
+        <div class="metric"><div class="label">Success rate</div><div class="value">96.4%</div><div class="sub">5 rollbacks</div></div>
+        <div class="metric"><div class="label">Median duration</div><div class="value">4m 21s</div><div class="sub">p95 9m 04s</div></div>
+        <div class="metric"><div class="label">Lead time</div><div class="value">1h 47m</div><div class="sub">commit → prod</div></div>
+      </div>
+
+      <div class="filterbar">
+        <select class="input"><option>All environments</option></select>
+        <select class="input"><option>Production</option></select>
+        <select class="input"><option>Staging</option></select>
+        <select class="input"><option>Preview</option></select>
+        <span style="flex:1;"></span>
+        <select class="input"><option>Any status</option></select>
+        <select class="input"><option>Any actor</option></select>
+      </div>
+
+      <!-- Production section -->
+      <div class="section-h">▾ Production <span class="meta">26 deploys · last 7 days</span></div>
+      <div class="section">
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">14:24</span>
+            <span class="tag tag-blue">IN PROGRESS</span>
+            <span class="tag tag-amber">CANARY 25%</span>
+            <strong class="mono">harbor-api · v4.18.2 — Rotate KV to per-tenant lookup</strong>
+          </div>
+          <div class="who">Triggered by <strong>k.osterborg</strong> · from main · merge of PR #2392</div>
+          <div class="extras"><strong>SERVICE</strong> harbor-api &nbsp; <strong>COMMIT</strong> 3a7f2e21 &nbsp; <strong>REGION</strong> us-west-2 &nbsp; <strong>DURATION</strong> 04:24</div>
+        </div>
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">11:08</span>
+            <span class="tag tag-green">SUCCEEDED</span>
+            <strong class="mono">harbor-api · v4.18.1 — Mailtrac regex, missing filter c2</strong>
+          </div>
+          <div class="who">Triggered by <strong>e.lindberg</strong> · pin to main · 4m 38s</div>
+          <div class="extras"><strong>SERVICE</strong> harbor-api &nbsp; <strong>COMMIT</strong> 41c2bdf0 &nbsp; <strong>REGION</strong> us-east-1, eu-west-1 &nbsp; <strong>DURATION</strong> 03:38</div>
+        </div>
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">09:42</span>
+            <span class="tag tag-red">ROLLED BACK</span>
+            <strong class="mono">signal-worker · v3.14 — Webhook retry backoff</strong>
+          </div>
+          <div class="who">Auto-rollback after queue lag exceeded threshold at 09:51. Reverted to v3.13.</div>
+          <div class="extras"><strong>SERVICE</strong> signal-worker &nbsp; <strong>COMMIT</strong> bb0e2814 &nbsp; <strong>REGION</strong> all &nbsp; <strong>DURATION</strong> 06:14</div>
+        </div>
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">07:33</span>
+            <span class="tag tag-green">SUCCEEDED</span>
+            <strong class="mono">harbor-cli · v3.20.3.1 — Config flag for size-limit space</strong>
+          </div>
+          <div class="who">Triggered by <strong>m.codenko</strong> · cli release ladder</div>
+        </div>
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">06:11</span>
+            <span class="tag tag-green">SUCCEEDED</span>
+            <strong class="mono">lantern-ui · v1.4.7 — Tweaks: tighten on-call alert log</strong>
+          </div>
+          <div class="who">Triggered by <strong>y.zarga</strong> · 2m 03s · tagged release</div>
+        </div>
+      </div>
+
+      <!-- Staging -->
+      <div class="section-h">▾ Staging <span class="meta">38 deploys · last 7 days</span></div>
+      <div class="section">
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">15:12</span>
+            <span class="tag tag-green">SUCCEEDED</span>
+            <strong class="mono">harbor-api · v4.18.4-rc1 — PR linting pagination cursor</strong>
+          </div>
+          <div class="who">Triggered by <strong>k.osterborg</strong> · PR #2401 · 3m 11s</div>
+        </div>
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">14:01</span>
+            <span class="tag tag-green">SUCCEEDED</span>
+            <strong class="mono">harbor-web · v2.9.2 — Compact deploy timeline</strong>
+          </div>
+          <div class="who">Triggered by <strong>p.danfo th</strong> · 1m 49s</div>
+        </div>
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">12:46</span>
+            <span class="tag tag-red">FAILED</span>
+            <strong class="mono">signal-worker · v3.14.2 — Migration delays webhook ledger</strong>
+          </div>
+          <div class="who">Migration step crandico_purges retried 3 ·, fail with shutdown</div>
+        </div>
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">09:18</span>
+            <span class="tag tag-green">SUCCEEDED</span>
+            <strong class="mono">harbor-api · v4.18.3 — pgbouncer client buffer</strong>
+          </div>
+          <div class="who">Triggered by <strong>auto-bot</strong> · nightly · 1m 17s</div>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="section-h">▾ Preview <span class="meta">30 deploys · last 7 days</span></div>
+      <div class="section">
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">17:24</span>
+            <span class="tag tag-green">SUCCEEDED</span>
+            <strong class="mono">harbor-web · pr-371 — Right rail section shortcuts</strong>
+          </div>
+          <div class="who">Triggered by <strong>p.danfo th</strong> · preview at p-371.harbor.works · 0m 58s</div>
+        </div>
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">16:38</span>
+            <span class="tag tag-green">SUCCEEDED</span>
+            <strong class="mono">harbor-docs · pr-289 — Drop legacy keys snippets</strong>
+          </div>
+          <div class="who">Triggered by <strong>k.osterborg</strong> · pin docs · 0m 41s</div>
+        </div>
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">15:14</span>
+            <span class="tag tag-green">SUCCEEDED</span>
+            <strong class="mono">lantern-ui · pr-470 — feel · on-rotor flag</strong>
+          </div>
+          <div class="who">Hosting on build #4031 · pushed 13m</div>
+        </div>
+        <div class="entry">
+          <div class="head">
+            <span class="muted xs mono">13:12</span>
+            <span class="tag tag-green">SUCCEEDED</span>
+            <strong class="mono">harbor-cli · k.bofiño — drop config files</strong>
+          </div>
+          <div class="who">Triggered by <strong>k.bofiño</strong></div>
+        </div>
+      </div>
+
+      <div class="pager" style="margin-top:8px;">
+        <a href="#" class="active">1</a><a href="#">2</a><a href="#">3</a>
+        <a href="#">4</a><a href="#">5</a><span class="ellipsis">…</span><a href="#">12</a>
+        <span class="info">Showing 1 of 25</span>
+      </div>
+    </div>
+
+    <!-- sidebar -->
+    <aside class="col-side">
+      <div class="card">
+        <div class="card-title">Deploy frequency</div>
+        <div style="font-weight:600;font-size:13.5px;color:#1f2c34;margin-bottom:6px;">Past 14 days</div>
+        <div class="trendchart" style="height:50px;">
+          <div class="bar" style="height:30%;"></div>
+          <div class="bar" style="height:60%;"></div>
+          <div class="bar" style="height:35%;"></div>
+          <div class="bar" style="height:70%;"></div>
+          <div class="bar" style="height:50%;"></div>
+          <div class="bar" style="height:85%;"></div>
+          <div class="bar" style="height:55%;"></div>
+          <div class="bar" style="height:90%;"></div>
+          <div class="bar" style="height:48%;"></div>
+          <div class="bar" style="height:70%;"></div>
+          <div class="bar" style="height:65%;"></div>
+          <div class="bar" style="height:78%;"></div>
+          <div class="bar" style="height:60%;"></div>
+          <div class="bar" style="height:88%;"></div>
+        </div>
+        <div class="muted xs" style="display:flex;justify-content:space-between;">
+          <span>04 May</span><span>10</span><span>14</span><span>18</span><span>Today</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">On call</div>
+        <div style="font-weight:600;font-size:13.5px;color:#1f2c34;margin-bottom:6px;">Teamsters online</div>
+        <div class="person"><span class="avatar rose">KO</span><div><div style="font-weight:600;">Kira Österborg</div><div class="muted xs">Primary · platform · UTC+1</div></div></div>
+        <div class="person"><span class="avatar olive">PD</span><div><div style="font-weight:600;">Priya Danforth</div><div class="muted xs">Secondary · backend</div></div></div>
+        <div class="person"><span class="avatar slate">JV</span><div><div style="font-weight:600;">Jonas Vinga</div><div class="muted xs">Manager-on-call</div></div></div>
+        <div class="person"><span class="avatar dust">RA</span><div><div style="font-weight:600;">Renata Ashcroft</div><div class="muted xs">Backup</div></div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Most deployed</div>
+        <ul class="linklist">
+          <li><span class="mono">harbor-api</span><span class="meta">26 ✓</span></li>
+          <li><span class="mono">harbor-web</span><span class="meta">22</span></li>
+          <li><span class="mono">signalboat-worker</span><span class="meta">14</span></li>
+          <li><span class="mono">lantern-ui</span><span class="meta">11</span></li>
+          <li><span class="mono">tideline-docs</span><span class="meta">06</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Recent shortcuts</div>
+        <div style="font-weight:600;font-size:13.5px;color:#1f2c34;margin-bottom:6px;">Quick actions</div>
+        <ul class="linklist">
+          <li><a href="#">› Open active alerts (3)</a></li>
+          <li><a href="#">› Lock production deploys</a></li>
+          <li><a href="#">› Roll back last release</a></li>
+          <li><a href="#">› Page primary on-call</a></li>
+          <li><a href="#">› Diagnose runner</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Deploy window</div>
+        <p class="muted small" style="margin-bottom:8px;">No production deploys after 20:00 UTC Fridays. Override requires two-engineer approval.</p>
+        <button class="btn btn-sm">Read rules</button>
+      </div>
+    </aside>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© 2026 Beacon Harbor Works · QUIET 09:00 → 18:00 Fridays</div>
+    <nav>
+      <a href="projects.html">Projects</a><a href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a><a href="team.html">Team</a><a href="alerts.html">Alerts</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

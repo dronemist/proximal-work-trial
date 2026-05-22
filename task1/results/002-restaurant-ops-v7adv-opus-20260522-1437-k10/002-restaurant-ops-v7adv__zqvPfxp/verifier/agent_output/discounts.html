@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Promotions — Forge Foundry</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand"><span class="brand-mark"></span> Forge Foundry</div>
+  <nav class="nav-links">
+    <a href="live-orders.html">Live Orders</a>
+    <a href="sales-reports.html">Sales Reports</a>
+    <a href="discounts.html" class="active">Promotions</a>
+    <a href="staff-schedule.html">Staff Schedule</a>
+    <a href="reservations.html">Reservations</a>
+  </nav>
+  <div class="nav-right">
+    <span class="net">prod · main</span>
+    <span class="dot"></span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="crumbs">Promotions <span class="sep">/</span> <strong>Discount engine</strong></div>
+    <h1 class="title">Run promos without burning margin or your closing crew.</h1>
+    <p class="subtitle">Schedule codes, cap redemption windows, and watch return rates against contribution margin in the same view. Stack rules are enforced at the terminal — no manager override required mid-rush, no surprise voids the next morning.</p>
+    <div class="hero-meta">
+      <span class="chip">As of 12:04 · GMT-5</span><span class="sep">·</span>
+      <span class="chip">9 active codes</span><span class="sep">·</span>
+      <span class="chip">3 queued · 1 paused</span><span class="sep">·</span>
+      <span class="chip">Avg. margin impact 1.4 pp</span>
+    </div>
+  </section>
+
+  <!-- Promotion Tiers -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Promotion Tiers</h2>
+      <div class="meta">Engine capability by tier · effective 2024-10-01</div>
+    </div>
+    <div class="grid-4">
+      <div class="tier">
+        <div class="tier-head"><span>Tier 01</span><span>Starter</span></div>
+        <div class="tier-title">Counter</div>
+        <div class="tier-price">$0<span class="per">/mo</span></div>
+        <div class="tier-sub">For sole operators running flat percentage off receipts to clear inventory at the bell. No stacking.</div>
+        <ul class="tier-list">
+          <li>Up to 2 active codes</li>
+          <li>Flat % or $ off ordered</li>
+          <li>Manager PIN to apply</li>
+          <li>Daily redemption log</li>
+        </ul>
+        <button class="btn ghost block">Compare →</button>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head"><span>Tier 02</span><span>Operator</span></div>
+        <div class="tier-title">Service</div>
+        <div class="tier-price">$48<span class="per">/mo</span></div>
+        <div class="tier-sub">Schedule windows by daypart, cap totals, and report on return rate per code. Six redemption types built in.</div>
+        <ul class="tier-list">
+          <li>Unlimited active codes</li>
+          <li>Daypart &amp; weekday windows</li>
+          <li>Per-code redemption caps</li>
+          <li>Category exclusion rules</li>
+          <li>Margin impact reporting</li>
+        </ul>
+        <button class="btn ghost block">Compare →</button>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-head"><span class="text-pink">Tier 03 · RECOMMENDED</span><span class="pill pink">Most picked</span></div>
+        <div class="tier-title">Concept</div>
+        <div class="tier-price">$94<span class="per">/mo</span></div>
+        <div class="tier-sub">Multi-venue. BOGO and bundle logic, geographic gating, programmable POS prompt for crew at $-threshold redemptions.</div>
+        <ul class="tier-list">
+          <li>Everything in Service, plus</li>
+          <li>BOGO, bundle &amp; combo rules</li>
+          <li>Guest cohort targeting</li>
+          <li>Stacking precedence engine</li>
+          <li>Promo A/B fieldtests</li>
+        </ul>
+        <button class="btn primary block">Pick Concept</button>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head"><span>Tier 04</span><span>Group</span></div>
+        <div class="tier-title">Custom</div>
+        <div class="tier-sub">Unwieldy group / franchise operators, with corporate-level controls and regional approval flow.</div>
+        <ul class="tier-list">
+          <li>Everything in Concept, plus</li>
+          <li>Brand-level approval gates</li>
+          <li>Regional override permissions</li>
+          <li>Webhooks &amp; ledger export</li>
+          <li>Named operations contact</li>
+        </ul>
+        <button class="btn ghost block">Contact sales →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capability matrix -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Engine capability matrix</h2>
+      <div class="meta">Updated 2024-10-01 · v8.6</div>
+    </div>
+    <div class="table-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th style="width:38%">Capability</th>
+            <th class="c">Counter</th>
+            <th class="c">Service</th>
+            <th class="c">Concept</th>
+            <th class="c">Custom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="row-l">Active codes per venue</td><td class="c">2</td><td class="c">Unlimited</td><td class="c">Unlimited</td><td class="c">Unlimited</td></tr>
+          <tr><td class="row-l">Daypart &amp; weekday scheduling</td><td class="c muted">—</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td></tr>
+          <tr><td class="row-l">Redemption caps (total &amp; per guest)</td><td class="c muted">—</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td></tr>
+          <tr><td class="row-l">Category &amp; modifier exclusions</td><td class="c muted">—</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td></tr>
+          <tr><td class="row-l">BOGO / bundle / combo logic</td><td class="c muted">—</td><td class="c muted">—</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td></tr>
+          <tr><td class="row-l">Guest cohort targeting</td><td class="c muted">—</td><td class="c muted">—</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td></tr>
+          <tr><td class="row-l">Stacking precedence resolver</td><td class="c muted">—</td><td class="c muted">—</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td></tr>
+          <tr><td class="row-l">A/B fieldtest tooling</td><td class="c muted">—</td><td class="c muted">—</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td></tr>
+          <tr><td class="row-l">Multi-venue rollout</td><td class="c muted">—</td><td class="c muted">—</td><td class="c">Up to 4</td><td class="c text-pink">Unlimited</td></tr>
+          <tr><td class="row-l">Brand approval workflow</td><td class="c muted">—</td><td class="c muted">—</td><td class="c muted">—</td><td class="c text-pink">✓</td></tr>
+          <tr><td class="row-l">Webhooks &amp; reconciliation reporting</td><td class="c muted">—</td><td class="c muted">—</td><td class="c">Limited</td><td class="c text-pink">Full</td></tr>
+          <tr><td class="row-l">Margin impact ledger export</td><td class="c muted">CSV only</td><td class="c">CSV</td><td class="c">CSV &amp; webhook</td><td class="c">CSV, webhook, S3</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Active discount codes -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Active discount codes</h2>
+      <div class="meta">12 codes <span class="sep">·</span> live in production</div>
+    </div>
+    <div class="card flush">
+      <div style="padding:14px 14px 0; display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+        <div class="tab-row">
+          <div class="tab active">All</div>
+          <div class="tab">Scheduled</div>
+          <div class="tab">Bundle</div>
+          <div class="tab">BOGO</div>
+          <div class="tab">Loyalty</div>
+        </div>
+        <input class="input" placeholder="Search by code or campaign" style="max-width:260px">
+        <select class="input" style="max-width:140px"><option>All venues</option></select>
+        <div style="flex:1"></div>
+        <button class="btn ghost sm">Export CSV</button>
+        <button class="btn primary sm">+ New code</button>
+      </div>
+      <table class="t" style="margin-top:10px">
+        <thead>
+          <tr>
+            <th>Code</th><th>Campaign</th><th>Discount</th><th>Window</th><th class="r">Redeemed</th><th class="r">Cap</th><th class="r">Margin Δ</th><th>Status</th><th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="id">DRGSTR10</span><span class="sub">Service · staff weekday lunch</span></td><td>2pm off weekday lunch</td><td>10% off subtotal</td><td>Mon · 11am – 02:00pm</td><td class="r tn">214 / 500</td><td class="r tn">500</td><td class="r tn text-amber">−$1.10</td><td><span class="pill green">Live</span></td><td><button class="btn sm">Edit</button></td></tr>
+          <tr><td><span class="id">FRIES15</span><span class="sub">Service · sides bundle</span></td><td>$1 sides (limit 2)</td><td>Item discount</td><td>Daily · 02:00pm – close</td><td class="r tn">1,294 / 2,000</td><td class="r tn">2,000</td><td class="r tn text-red">−$0.42</td><td><span class="pill green">Live</span></td><td><button class="btn sm">Edit</button></td></tr>
+          <tr><td><span class="id">FAMILY40</span><span class="sub">Concept · Sunday family combo</span></td><td>Family-4 bundle</td><td>$8 off bundle</td><td>Sun · 12pm – 4pm</td><td class="r tn">98 / 200</td><td class="r tn">200</td><td class="r tn text-amber">−$1.84</td><td><span class="pill green">Live</span></td><td><button class="btn sm">Edit</button></td></tr>
+          <tr><td><span class="id">RESTOSHIFT_AM</span><span class="sub">Concept · loyalty AM punch</span></td><td>Loyalty AM punch</td><td>Buy 5, 1 free</td><td>Daily · 6am – 11am</td><td class="r tn">552 / 1,200</td><td class="r tn">1,200</td><td class="r tn text-green">+$0.18</td><td><span class="pill green">Live</span></td><td><button class="btn sm">Edit</button></td></tr>
+          <tr><td><span class="id">FORGE15</span><span class="sub">Service · marketing email</span></td><td>15% off first-time</td><td>15% subtotal</td><td>Aug 12 – Oct 31</td><td class="r tn">2,108 / 5,000</td><td class="r tn">5,000</td><td class="r tn text-red">−$2.62</td><td><span class="pill amber">Watch</span></td><td><button class="btn sm">Edit</button></td></tr>
+          <tr><td><span class="id">BIRTHDAY</span><span class="sub">Concept · loyalty CRM</span></td><td>Birthday of cohort</td><td>Free dessert</td><td>Birthday of guest</td><td class="r tn">109 / —</td><td class="r tn">∞</td><td class="r tn text-amber">−$0.92</td><td><span class="pill green">Live</span></td><td><button class="btn sm">Edit</button></td></tr>
+          <tr><td><span class="id">STANDARD</span><span class="sub">Service · house comp pool</span></td><td>House comp</td><td>Variable $ off voided</td><td>—</td><td class="r tn">36 / 200</td><td class="r tn">200</td><td class="r tn text-amber">−$0.94</td><td><span class="pill blue">Paused</span></td><td><button class="btn sm">Edit</button></td></tr>
+          <tr><td><span class="id">EXPORT</span><span class="sub">Service · catering line</span></td><td>$5 off catering</td><td>Daypart</td><td>Mon – Fri</td><td class="r tn">21 / 150</td><td class="r tn">150</td><td class="r tn text-amber">−$0.71</td><td><span class="pill amber">Watch</span></td><td><button class="btn sm">Edit</button></td></tr>
+          <tr><td><span class="id">HARVEST</span><span class="sub">Concept · seasonal launch</span></td><td>Bundle &amp; bake</td><td>Bundle $</td><td>Sep 24 – Nov 21</td><td class="r tn">0 / 600</td><td class="r tn">600</td><td class="r tn muted">—</td><td><span class="pill ghost">Scheduled</span></td><td><button class="btn sm">Edit</button></td></tr>
+          <tr><td><span class="id">LUNCHRUN</span><span class="sub">Service · decision review</span></td><td>10% all weekday lunch</td><td>10% subtotal</td><td>Pending</td><td class="r tn">— / 500</td><td class="r tn">500</td><td class="r tn muted">—</td><td><span class="pill red">Review</span></td><td><button class="btn sm">Edit</button></td></tr>
+        </tbody>
+      </table>
+      <div class="paging" style="padding:12px 14px;">
+        <span>Showing 10 of 12 codes</span>
+        <div class="pager">
+          <span class="p">‹</span><span class="p active">1</span><span class="p">2</span><span class="p">›</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendar + side stats -->
+  <section class="section split">
+    <div>
+      <div class="section-head">
+        <h2>Scheduled promo calendar</h2>
+        <div class="meta">Week 41 · Oct 7 – 13</div>
+      </div>
+      <div class="cal">
+        <div class="cal-day">
+          <div class="h"><span>Mon · 07</span><span>3 active</span></div>
+          <div class="name">RESTAURANT-AM closing night</div>
+          <div class="note">Late dinner % off plus crew + family</div>
+          <div class="note muted">Forge AM · 17:00 – 22:30</div>
+        </div>
+        <div class="cal-day">
+          <div class="h"><span>Tue · 08</span><span>4 active</span></div>
+          <div class="name">RECIPES — Half-Shell Anniv</div>
+          <div class="note">Bundle: oysters + reserve</div>
+          <div class="note muted">Coast · 16:00 – 23:30</div>
+        </div>
+        <div class="cal-day">
+          <div class="h"><span>Wed · 09</span><span>2 active</span></div>
+          <div class="name">INDUSTRYDAY budget revolt</div>
+          <div class="note">Crew-of-restaurant comp · Day off · Hall</div>
+          <div class="note muted">All sites · 22:00 – 03:00</div>
+        </div>
+        <div class="cal-day">
+          <div class="h"><span>Thu · 10</span><span>1 active</span></div>
+          <div class="name">HARVEST bundle bundle</div>
+          <div class="note">Bundle + dessert combo</div>
+          <div class="note muted">North · 15:00 – 22:30</div>
+        </div>
+        <div class="cal-day">
+          <div class="h"><span>Fri · 11</span><span>4 active</span></div>
+          <div class="name">HARVEST burning bundle</div>
+          <div class="note">Multi-bundle for parties of 5+</div>
+          <div class="note muted">All sites · 17:00 – 23:30</div>
+        </div>
+        <div class="cal-day">
+          <div class="h"><span>Sat · 12</span><span>3 active</span></div>
+          <div class="name">SAVORIZE — double-bill night</div>
+          <div class="note">Stacked 15% + dessert bundle</div>
+          <div class="note muted">Coast · 18:00 – 23:30</div>
+        </div>
+        <div class="cal-day">
+          <div class="h"><span>Sun · 13</span><span>2 active</span></div>
+          <div class="name">LUNCHRUN — decision review</div>
+          <div class="note">Pending — pricing committee</div>
+          <div class="note muted">All sites · 11:30 – 16:00</div>
+        </div>
+        <div class="cal-day" style="opacity:0.65">
+          <div class="h"><span>Next ▸</span><span>Week 42</span></div>
+          <div class="name">Loyalty AM punch reset</div>
+          <div class="note">Bulk reset of loyalty cohort caps</div>
+        </div>
+      </div>
+      <div class="paging">
+        <span>Showing 8 of 24 windows</span>
+      </div>
+    </div>
+
+    <aside style="display:flex; flex-direction:column; gap:14px;">
+      <div class="card tight">
+        <div class="muted" style="font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase;">Week-to-date</div>
+        <div style="font-size:32px; font-weight:600; letter-spacing:-0.02em;">$4,218</div>
+        <div class="text-red" style="font-size:12px;">−11.4%</div>
+        <div class="muted" style="font-size:11px;">vs. last 4-wk avg margin Δ</div>
+        <div style="margin-top:14px; font-size:11px;" class="muted">Redemptions</div>
+        <div style="font-size:24px; font-weight:600;">38.6%</div>
+        <div class="bar" style="margin-top:6px"><span style="width:38.6%"></span></div>
+      </div>
+      <div class="card tight">
+        <div class="muted" style="font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:8px;">Top performers</div>
+        <div class="kv"><span class="k">FITTERSDOWN</span><span class="v">−$1,210</span></div>
+        <div class="kv"><span class="k">FORGE15</span><span class="v">−$1,138</span></div>
+        <div class="kv"><span class="k">COMBO5</span><span class="v">−$886</span></div>
+        <div class="kv"><span class="k">FAMILY40</span><span class="v">−$854</span></div>
+        <div class="kv"><span class="k">BIRTHDAY</span><span class="v">−$629</span></div>
+        <div class="kv"><span class="k">LUNCHRUN</span><span class="v muted">queued</span></div>
+      </div>
+      <div class="card tight">
+        <div class="muted" style="font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:8px;">Stacking rules</div>
+        <div class="notes">
+          <div class="n"><span class="t">Top</span><span>Highest-priority code applies first, customary defaults reject items already discounted.</span></div>
+          <div class="n"><span class="t">Mid</span><span>Loyalty stack: Loyalty AM may stack with FRIES15 only.</span></div>
+          <div class="n"><span class="t">Low</span><span>Comp pool requires manager PIN. Schedule lockout after 22:00.</span></div>
+          <div class="n"><span class="t">—</span><span>Channel-tail apps: 1 promo per ticket; webhook fires on apply.</span></div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <footer class="footer wrap">
+    <div class="row">
+      <span>© 2024 Forge Foundry Systems</span>
+      <span class="links">
+        <a href="live-orders.html">Live Orders</a>
+        <a href="sales-reports.html">Sales Reports</a>
+        <a href="discounts.html">Promotions</a>
+        <a href="staff-schedule.html">Staff Schedule</a>
+        <a href="reservations.html">Reservations</a>
+      </span>
+      <span>build 8.6.21 · all systems nominal</span>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>

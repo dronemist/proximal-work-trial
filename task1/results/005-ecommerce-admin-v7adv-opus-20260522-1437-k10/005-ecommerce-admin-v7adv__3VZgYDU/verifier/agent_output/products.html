@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Products — Onyx Bridge Lab</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+.prod-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.prod-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.prod-img {
+  background: var(--bg-card);
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.prod-img svg { width: 96px; height: 96px; color: #b8a991; }
+.prod-img .sku { position: absolute; top: 10px; right: 12px; font-size: 9.5px; color: var(--mute); letter-spacing: 0.8px; }
+.prod-img .badge { position: absolute; top: 10px; left: 12px; }
+.prod-meta { padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.prod-meta b { font-family: var(--serif); font-size: 13px; }
+.prod-meta .row { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-soft); }
+.prod-meta .row.foot { border-top: 1px solid var(--line-soft); padding-top: 8px; margin-top: auto; color: var(--mute); font-size: 10.5px; }
+
+@media (max-width: 1100px) { .prod-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .prod-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Onyx Bridge Lab<span class="dot">.</span></div>
+  <nav class="topnav">
+    <a href="orders.html">Orders</a>
+    <a href="marketing.html">Marketing</a>
+    <a href="customers.html">Customers</a>
+    <a href="products.html" class="active">Products</a>
+    <a href="discounts.html">Discounts</a>
+  </nav>
+  <div class="topbar-right">
+    <span>HOLIDAY WAVE 04 / LIVE</span>
+    <span>EM</span>
+  </div>
+</header>
+
+<main class="shell">
+  <div class="crumbs"><span>Catalog</span><span class="here">Q3 inventory cycle</span></div>
+  <h1 class="title">Products</h1>
+  <p class="subtitle">412 SKUs across six collections. Drafts and archived variants are listed into the course below; reorder thresholds are set per-SKU and surface in the sidebar.</p>
+
+  <section class="kpis">
+    <div class="kpi"><div class="kpi-label">Active SKUs</div><div class="kpi-value">412</div><div class="kpi-delta"><span class="up">▲ 18</span> this month</div></div>
+    <div class="kpi"><div class="kpi-label">Inventory value</div><div class="kpi-value">$284k</div><div class="kpi-delta"><span class="up">▲ 5.2%</span></div></div>
+    <div class="kpi"><div class="kpi-label">Low stock</div><div class="kpi-value">23</div><div class="kpi-delta"><span class="down">⚐ 7 critical</span></div></div>
+    <div class="kpi"><div class="kpi-label">Out of stock</div><div class="kpi-value">08</div><div class="kpi-delta">▶ 3 awaiting POs</div></div>
+  </section>
+
+  <div class="cols two-third">
+    <div>
+      <section class="panel" style="background:transparent; border:none">
+        <div class="toolbar" style="background:var(--bg-surface); border:1px solid var(--line); border-radius:4px">
+          <div class="field" style="flex:2; min-width:200px"><input class="input" placeholder="Search SKU, title, vendor, or tag" /></div>
+          <select class="input"><option>All collections</option></select>
+          <select class="input"><option>Any status</option></select>
+          <span class="grow"></span>
+          <button class="btn primary">+ New product</button>
+        </div>
+        <div class="toolbar" style="background:transparent; border:none">
+          <span class="chip active">All · 412</span>
+          <span class="chip">Active · 381</span>
+          <span class="chip">Draft · 23</span>
+          <span class="chip">Archived · 8</span>
+          <span class="chip">Low stock · 23</span>
+          <span class="chip">Out of stock · 6</span>
+          <span class="chip">Backordered · 4</span>
+          <span class="grow"></span>
+          <span class="meta-line">Sorted by recently updated</span>
+        </div>
+      </section>
+
+      <section>
+        <div class="prod-grid">
+          <div class="prod-card">
+            <div class="prod-img">
+              <span class="badge"><span class="tag tag-green">Active</span></span>
+              <span class="sku">SKU CER-014</span>
+              <svg viewBox="0 0 100 100"><ellipse cx="50" cy="68" rx="32" ry="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M18 68 L24 36 L76 36 L82 68" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="50" cy="36" rx="26" ry="6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="prod-meta">
+              <b>Slipware Tumbler, Persimmon</b>
+              <div class="meta-line">● ● ●  3 variants</div>
+              <div class="row"><span>$48.00</span><span>Ceramics</span></div>
+              <div class="row foot"><span>Updated 2h ago</span><span style="color:var(--accent)">Edit</span></div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div class="prod-img">
+              <span class="badge"><span class="tag tag-amber">Low stock</span></span>
+              <span class="sku">SKU TEX-068</span>
+              <svg viewBox="0 0 100 100"><rect x="18" y="18" width="64" height="64" fill="none" stroke="currentColor" stroke-width="2"/><line x1="32" y1="18" x2="32" y2="82" stroke="currentColor" stroke-width="2"/><line x1="50" y1="34" x2="76" y2="34" stroke="currentColor" stroke-width="2"/><line x1="50" y1="46" x2="76" y2="46" stroke="currentColor" stroke-width="2"/><circle cx="40" cy="34" r="2" fill="currentColor"/></svg>
+            </div>
+            <div class="prod-meta">
+              <b>Linen Throw, Notched Indigo</b>
+              <div class="meta-line">● ●  2 variants</div>
+              <div class="row"><span>$184.00</span><span>Textiles</span></div>
+              <div class="row foot"><span>Updated yesterday</span><span style="color:var(--accent)">Edit</span></div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div class="prod-img">
+              <span class="badge"><span class="tag tag-green">Active</span></span>
+              <span class="sku">SKU STA-212</span>
+              <svg viewBox="0 0 100 100"><rect x="26" y="14" width="48" height="72" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="36" y1="30" x2="64" y2="30" stroke="currentColor" stroke-width="2"/><line x1="36" y1="42" x2="64" y2="42" stroke="currentColor" stroke-width="2"/><circle cx="50" cy="60" r="6" fill="currentColor"/></svg>
+            </div>
+            <div class="prod-meta">
+              <b>Field Notebook, Long-Stitch</b>
+              <div class="meta-line">● ● ● ●  4 variants</div>
+              <div class="row"><span>$22.00</span><span>Stationery</span></div>
+              <div class="row foot"><span>Updated 4d ago</span><span style="color:var(--accent)">Edit</span></div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div class="prod-img">
+              <span class="badge"><span class="tag tag-red">Out of stock</span></span>
+              <span class="sku">SKU GLA-201</span>
+              <svg viewBox="0 0 100 100"><path d="M40 14 L60 14 L60 28 L72 50 L72 82 L28 82 L28 50 L40 28 Z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="40" y1="28" x2="60" y2="28" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="prod-meta">
+              <b>Hand-Blown Carafe, 1L</b>
+              <div class="meta-line">● ●  2 variants</div>
+              <div class="row"><span>$96.00</span><span>Glassware</span></div>
+              <div class="row foot"><span>PO #4419 · ETA Oct 18</span><span style="color:var(--accent)">Edit</span></div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div class="prod-img">
+              <span class="badge"><span class="tag tag-green">Active</span></span>
+              <span class="sku">SKU CER-305</span>
+              <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="50" cy="50" r="3" fill="currentColor"/></svg>
+            </div>
+            <div class="prod-meta">
+              <b>Stoneware Coupe Plate</b>
+              <div class="meta-line">● ● ●  3 variants · 2 sizes</div>
+              <div class="row"><span>$34.00</span><span>Ceramics</span></div>
+              <div class="row foot"><span>Updated 1d ago</span><span style="color:var(--accent)">Edit</span></div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div class="prod-img">
+              <span class="badge"><span class="tag tag-mute">Draft</span></span>
+              <span class="sku">SKU STA-112</span>
+              <svg viewBox="0 0 100 100"><rect x="14" y="24" width="72" height="50" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="14,24 50,54 86,24" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="76" cy="60" r="6" fill="currentColor"/></svg>
+            </div>
+            <div class="prod-meta">
+              <b>Letterpress Card Set, Autumn</b>
+              <div class="meta-line">Not yet published</div>
+              <div class="row"><span>$28.00</span><span>Stationery</span></div>
+              <div class="row foot"><span>Created Sep 24</span><span style="color:var(--accent)">Edit</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top:18px">
+        <div class="panel-head"><h2 class="panel-title">Inventory ledger</h2><span class="panel-sub">Showing 6 of 412</span></div>
+        <div class="panel-body no-pad" style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr><th>Product</th><th>SKU</th><th>Vendor</th><th class="num">Price</th><th class="num">On hand</th><th class="num">Committed</th></tr></thead>
+          <tbody>
+            <tr><td>Slipware Tumbler, Persimmon</td><td>CER-014</td><td>Hodos Press Studio</td><td class="num">$48.00</td><td class="num">62</td><td class="num">14</td></tr>
+            <tr><td>Linen Throw, Hatched Indigo</td><td>TEX-068</td><td>Branelte &amp; Loom</td><td class="num">$184.00</td><td class="num">7</td><td class="num">2</td></tr>
+            <tr><td>Field Notebook, Long-Stitch</td><td>STA-212</td><td>Marginalia Press</td><td class="num">$22.00</td><td class="num">312</td><td class="num">48</td></tr>
+            <tr><td>Hand-Blown Carafe, 1L</td><td>GLA-201</td><td>Northland Glassworks</td><td class="num">$96.00</td><td class="num">0</td><td class="num">9</td></tr>
+            <tr><td>Stoneware Coupe Plate</td><td>CER-305</td><td>Hodos Press Studio</td><td class="num">$34.00</td><td class="num">88</td><td class="num">22</td></tr>
+            <tr><td>Letterpress Card Set, Autumn</td><td>STA-112</td><td>Marginalia Press</td><td class="num">$28.00</td><td class="num">128</td><td class="num">9</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="tbl-foot">
+          <span>Page 1 of 69</span>
+          <div class="pager"><a>‹</a><a class="active">1</a><a>2</a><a>3</a><a>…</a><a>69</a><a>›</a></div>
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <section class="panel">
+        <div class="panel-head"><h2 class="panel-title">Reorder watch</h2><span class="panel-sub">7 critical</span></div>
+        <div class="panel-body" style="display:flex; flex-direction:column; gap:10px">
+          <div style="display:flex; justify-content:space-between"><span>Linen Throw, Hatched Indigo</span><b style="color:var(--red)">7 left</b></div>
+          <div style="display:flex; justify-content:space-between"><span>Beeswax Taper, Pair</span><b style="color:var(--red)">9 left</b></div>
+          <div style="display:flex; justify-content:space-between"><span>Brass Letter Opener</span><b style="color:var(--amber)">14 left</b></div>
+          <div style="display:flex; justify-content:space-between"><span>Hand-Blown Carafe, 1L</span><b style="color:var(--red)">0 left</b></div>
+          <div style="display:flex; align-items:center; gap:10px; border-top:1px solid var(--line-soft); padding-top:10px">
+            <span>View all 23</span>
+            <span class="grow"></span>
+            <button class="btn primary sm">Draft POs</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2 class="panel-title">Channel mix</h2><span class="panel-sub">30d</span></div>
+        <div class="panel-body">
+          <div class="bar-row"><span class="lbl">Online store</span><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="val">$46.2k · 6.1%</span></div>
+          <div class="bar-row"><span class="lbl">Wholesale</span><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><span class="val">$22.6k · 5%</span></div>
+          <div class="bar-row"><span class="lbl">Pop-up, Hayes Valley</span><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><span class="val">$9.1k · 1%</span></div>
+          <div class="bar-row"><span class="lbl">Marketplace</span><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><span class="val">$4.9k · 0.5%</span></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2 class="panel-title">Catalog status</h2><span class="panel-sub">412</span></div>
+        <div class="panel-body">
+          <div class="bar-row"><span class="lbl"><span class="tag tag-green">Active</span></span><div class="bar-track"><div class="bar-fill" style="width:84%; background:var(--green)"></div></div><span class="val">381</span></div>
+          <div class="bar-row"><span class="lbl"><span class="tag tag-mute">Draft</span></span><div class="bar-track"><div class="bar-fill" style="width:14%; background:var(--mute)"></div></div><span class="val">23</span></div>
+          <div class="bar-row"><span class="lbl"><span class="tag tag-amber">Low</span></span><div class="bar-track"><div class="bar-fill" style="width:8%; background:var(--amber)"></div></div><span class="val">23</span></div>
+          <div class="bar-row"><span class="lbl"><span class="tag tag-red">Out</span></span><div class="bar-track"><div class="bar-fill" style="width:4%; background:var(--red)"></div></div><span class="val">8</span></div>
+          <p class="meta-line" style="text-transform:none; margin-top:8px">Inventory cycle on its third day in a row — slightly ahead of the 4.2× target for Q3.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2 class="panel-title">Quick actions</h2></div>
+        <div class="panel-body" style="display:flex; flex-direction:column; gap:8px">
+          <a>Import CSV</a>
+          <a>Bulk edit pricing</a>
+          <a>Adjust stock counts</a>
+          <a>Generate barcodes</a>
+          <a>Vendor purchase orders</a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2 class="panel-title">Holiday cutoff</h2></div>
+        <div class="panel-body" style="display:flex; flex-direction:column; gap:9px">
+          <div style="display:flex; justify-content:space-between"><span>Vendor lead times</span></div>
+          <div style="display:flex; justify-content:space-between"><span>Naming conventions</span></div>
+          <p class="meta-line" style="text-transform:none">Wholesale orders close Nov 14; retail cutoff Dec 10 for standard shipping. Hold QA launches with the LM-3 catalog mirror.</p>
+        </div>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>© 2025 Onyx Bridge Lab</span>
+  <span class="prod"><span class="pill">● live</span>Production · v1.04</span>
+  <div class="links">
+    <a href="orders.html">Orders</a>
+    <a href="marketing.html">Marketing</a>
+    <a href="customers.html">Customers</a>
+    <a href="products.html">Products</a>
+    <a href="discounts.html">Discounts</a>
+    <a>Docs</a>
+    <a>Support</a>
+  </div>
+</footer>
+</body>
+</html>

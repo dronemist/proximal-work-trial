@@ -1,0 +1,173 @@
+[grade] VLM judge: 15 pairs in 13.3s
+{
+  "per_page_viewport": {
+    "alerts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.5964824506331303,
+          "extra": {
+            "reference_size": [
+              1440,
+              2271
+            ],
+            "candidate_size": [
+              1440,
+              1777
+            ],
+            "compared_size": [
+              1440,
+              1777
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.3713912069797516,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.13793142139911652,
+            "raw_score_before_sqrt": 0.1379314363002777
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7911165987872231,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.20888340121277693,
+            "page_diagonal_px": 2689.336619208539
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.4344670995804998,
+          "extra": {
+            "bg_score": 0.7795465893612967,
+            "fg_score": 0.0893876097997029,
+            "bg": {
+              "reference_palette_size": 9,
+              "candidate_palette_size": 19,
+              "weighted_mean_oklab_distance": 0.023334678262472153,
+              "base_score_before_penalty": 0.8444354782501856,
+              "over_color_penalty": 0.06488888888888888
+            },
+            "fg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 14,
+              "weighted_mean_oklab_distance": 0.12819185853004456,
+              "base_score_before_penalty": 0.1453876097997029,
+              "over_color_penalty": 0.055999999999999994
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7158341217342092,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.5940487453345846,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.28217821782178215
+              ],
+              [
+                14.0,
+                0.45544554455445546
+              ],
+              [
+                16.0,
+                0.22772277227722773
+              ],
+              [
+                18.0,
+                0.022277227722772276
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.09476309226932668
+              ],
+              [
+                11.0,
+                0.3092269326683292
+              ],
+              [
+                12.0,
+                0.36159600997506236
+              ],
+              [
+                13.0,
+                0.16957605985037408
+              ],
+              [
+                13.3,
+                0.014962593516209476
+              ],
+              [
+                14.0,
+                0.0199501246882793
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "iowan old style",
+              "sf mono"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5415512465373962,
+          "extra": {
+            "reference_tokens": 592,
+            "candidate_tokens": 521,
+            "matched_tokens": 391,
+            "union_tokens": 722,
+            "reference_unique": 313,
+            "candidate_unique": 284
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant differences: wrong alert IDs throughout (ALT-4421 vs ALT-4821, ALT-4419 vs ALT-4819, etc.), the on-call rotation sidebar shows different role labels and end times, the severity legend and routing rules panel from the reference is replaced with a 'Re

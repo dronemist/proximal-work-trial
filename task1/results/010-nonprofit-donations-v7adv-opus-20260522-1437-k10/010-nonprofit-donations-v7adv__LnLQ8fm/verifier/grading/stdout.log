@@ -1,0 +1,173 @@
+[grade] VLM judge: 15 pairs in 14.1s
+{
+  "per_page_viewport": {
+    "blog": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6230578035692239,
+          "extra": {
+            "reference_size": [
+              1440,
+              3320
+            ],
+            "candidate_size": [
+              1440,
+              2841
+            ],
+            "compared_size": [
+              1440,
+              2841
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.3423563241958618,
+          "extra": {
+            "reference_blocks": 386,
+            "candidate_blocks": 372,
+            "matched_pairs": 372,
+            "mean_matched_iou": 0.1172078475356102,
+            "raw_score_before_sqrt": 0.1172078549861908
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7553743293219173,
+          "extra": {
+            "reference_blocks": 386,
+            "candidate_blocks": 372,
+            "matched_pairs": 372,
+            "mean_normalized_centroid_distance": 0.24462567067808275,
+            "page_diagonal_px": 3690.255617926049
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.755674653549989,
+          "extra": {
+            "bg_score": 0.860375424226125,
+            "fg_score": 0.6509738828738529,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 5,
+              "weighted_mean_oklab_distance": 0.020943686366081238,
+              "base_score_before_penalty": 0.860375424226125,
+              "over_color_penalty": 0.0
+            },
+            "fg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 9,
+              "weighted_mean_oklab_distance": 0.04635391756892204,
+              "base_score_before_penalty": 0.690973882873853,
+              "over_color_penalty": 0.04
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.9459189047318439,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.9227412924740627,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                6.0,
+                0.010362694300518135
+              ],
+              [
+                11.0,
+                0.031088082901554404
+              ],
+              [
+                12.0,
+                0.5233160621761658
+              ],
+              [
+                15.0,
+                0.3963730569948187
+              ],
+              [
+                20.0,
+                0.031088082901554404
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.20698924731182797
+              ],
+              [
+                11.0,
+                0.24193548387096775
+              ],
+              [
+                12.0,
+                0.23387096774193547
+              ],
+              [
+                13.0,
+                0.043010752688172046
+              ],
+              [
+                14.0,
+                0.2553763440860215
+              ],
+              [
+                16.0,
+                0.013440860215053764
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.2855181880576527,
+          "extra": {
+            "reference_tokens": 1003,
+            "candidate_tokens": 870,
+            "matched_tokens": 416,
+            "union_tokens": 1457,
+            "reference_unique": 537,
+            "candidate_unique": 453
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.2,
+          "extra": {
+            "reason": "Multiple hard caps apply: wrong brand name ('Gable Ground Foundry' vs 'Sable Anchor Foundry'), major content hallucination throughout (fabricated contributor counts, dates, project names, entry titles differ), wrong dominant color theme (candidate uses near-black with different hue), missing widgets",
+            "model": "claude-sonnet-

@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Billing &amp; insurance · Quartz Grove Lab</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .stack-bar {
+    display: flex; height: 8px; border-radius: 999px; overflow: hidden; background: #f3f4f6;
+  }
+  .stack-bar > span { display: block; }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--text-2); margin-top: 8px; }
+  .legend .sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 6px; vertical-align: middle; }
+
+  .ar-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 14px 16px; }
+  .ar-card { padding: 12px; border-radius: 8px; background: #f9fafb; border: 1px solid var(--border); }
+  .ar-card .l { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+  .ar-card .v { font-size: 18px; font-weight: 700; margin-top: 4px; }
+  .ar-card .x { font-size: 11px; color: var(--text-3); margin-top: 2px; }
+  .ar-card.danger { background: #fef2f2; border-color: #fecaca; }
+  .ar-card.warn { background: #fff7ed; border-color: #fed7aa; }
+
+  .pay-row { display: flex; gap: 10px; padding: 10px 16px; border-top: 1px solid var(--border); align-items: center; font-size: 13px; }
+  .pay-row .av { background: #dbeafe; color: var(--primary-700); }
+
+  @media (max-width: 900px) { .ar-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 500px) { .ar-grid { grid-template-columns: 1fr; } }
+
+  .pager { display: flex; gap: 4px; align-items: center; padding: 10px 16px; font-size: 12px; color: var(--text-3); }
+  .pager .num { padding: 4px 8px; border: 1px solid var(--border); border-radius: 6px; }
+  .pager .num.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+  .bench-bar { display: grid; grid-template-columns: 70px 1fr 30px; gap: 8px; align-items: center; font-size: 12px; padding: 4px 0; }
+  .bench-bar .bar { height: 8px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <span class="brand"><span class="brand-mark"></span>Quartz Grove Lab</span>
+    <nav class="primary-nav">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html" class="active">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="search">Search invoices, claims…</div>
+    <span class="avatar">RV</span>
+  </div>
+</header>
+
+<main class="container page">
+  <div class="breadcrumb"><a href="#">Home</a><span class="sep">/</span><span class="current">Billing &amp; insurance</span></div>
+  <div class="eyebrow">BILLING &amp; INSURANCE · OCTOBER 2024</div>
+  <h1 class="page-title">A quiet week for collections.</h1>
+  <p class="lede">Twelve claims went paid in full since Monday; two need a quick correction, and one payer is asking for an extra note. Nothing urgent — but the small pile of follow-ups is right here when you have a moment.</p>
+
+  <div class="row gap-8 mb-16">
+    <span class="badge badge-blue badge-dot">12 paid invoices</span>
+    <span class="badge badge-amber badge-dot">$18,420 collected this week</span>
+    <span class="badge badge-red badge-dot">2 claims need attention</span>
+    <span class="badge badge-gray">As of 9 :32 AM</span>
+  </div>
+
+  <div class="grid cols-4 mb-16">
+    <div class="stat">
+      <div class="stat-label">Outstanding AR</div>
+      <div class="stat-value">$42,318</div>
+      <div class="stat-sub">12 invoices · 4 over 60 days</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Claims in flight</div>
+      <div class="stat-value">37</div>
+      <div class="stat-sub">3 pending payer response</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Collected MTD</div>
+      <div class="stat-value">$76,240</div>
+      <div class="stat-sub">+ 9.2 % vs. September</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Avg. days to pay</div>
+      <div class="stat-value">21 <span class="text-sm" style="font-weight:500;">days</span></div>
+      <div class="stat-sub">– 4 days, improving</div>
+    </div>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-8">
+      <div class="card-header">
+        <div>
+          <h3>Open invoices</h3>
+          <div class="text-xs muted mt-4">10 invoices · sorted by oldest first</div>
+        </div>
+        <div class="row gap-8">
+          <input class="input" placeholder="Patient or invoice #" style="width:200px">
+          <select class="input" style="width:auto"><option>All statuses</option></select>
+        </div>
+      </div>
+      <div class="card-body" style="padding-bottom: 0; padding-top: 0;">
+        <button class="btn btn-primary" style="margin-top:12px;">New invoice</button>
+      </div>
+      <div class="tabs">
+        <a class="active">Open (12)</a>
+        <a>Drafts (3)</a>
+        <a>Paid (118)</a>
+        <a>Voided (2)</a>
+      </div>
+      <table class="data">
+        <thead><tr><th>Invoice</th><th>Patient</th><th>Issued</th><th>Due</th><th>Amount</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>QG-10472</td><td><span class="row gap-8"><span class="av">HK</span>Hana Kobayashi</span></td><td>Aug 29</td><td>Sep 22</td><td>$1,249.99</td><td><span class="badge badge-red badge-dot">15 days overdue</span></td></tr>
+          <tr><td>QG-10465</td><td><span class="row gap-8"><span class="av">DR</span>Devon Rabineau</span></td><td>Sep 03</td><td>Oct 03</td><td>$612.10</td><td><span class="badge badge-amber badge-dot">Past due 4 d</span></td></tr>
+          <tr><td>QG-10492</td><td><span class="row gap-8"><span class="av">PA</span>Priya Acharya</span></td><td>Sep 12</td><td>Oct 12</td><td>$1,415.75</td><td><span class="badge badge-blue">Partial paid</span></td></tr>
+          <tr><td>QG-10503</td><td><span class="row gap-8"><span class="av">MO</span>Marcus Odoyo</span></td><td>Sep 18</td><td>Oct 18</td><td>$224.40</td><td><span class="badge badge-blue">Sent</span></td></tr>
+          <tr><td>QG-10510</td><td><span class="row gap-8"><span class="av">EV</span>Eleanor Vance</span></td><td>Sep 20</td><td>Oct 20</td><td>$1,895.00</td><td><span class="badge badge-blue">Sent</span></td></tr>
+          <tr><td>QG-10518</td><td><span class="row gap-8"><span class="av">TG</span>Thiago Guimarães</span></td><td>Sep 24</td><td>Oct 24</td><td>$542.20</td><td><span class="badge badge-amber">Awaiting payer</span></td></tr>
+          <tr><td>QG-10524</td><td><span class="row gap-8"><span class="av">LF</span>Lia Field</span></td><td>Sep 28</td><td>Oct 28</td><td>$195.00</td><td><span class="badge badge-blue">Sent</span></td></tr>
+        </tbody>
+      </table>
+      <div class="pager">
+        <span>Showing 7 of 12 open invoices</span>
+        <div class="right row gap-4">
+          <span class="num active">1</span><span class="num">2</span><span class="num">›</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-span-4" style="display:flex; flex-direction: column; gap: 12px;">
+      <div class="text-2 fw-600">Needs your attention</div>
+      <div class="banner banner-red">
+        <div>
+          <strong>Claim QG-C-2148 rejected</strong>
+          <div class="text-xs">Aetna · diagnosis code mismatch on CPT 99213.<br>Hana Kobayashi. Resolve to add a note.</div>
+          <button class="btn btn-sm mt-8">Review claim</button>
+        </div>
+      </div>
+      <div class="banner banner-blue">
+        <div>
+          <strong>BCBS asking for clinical note</strong>
+          <div class="text-xs">Visit QG-C-2141. Dr. Voss please attach last visit's summary from Aug 12. Due Oct 11.</div>
+          <button class="btn btn-sm mt-8">Attach note</button>
+        </div>
+      </div>
+      <div class="banner banner-gray">
+        <div>
+          <strong>Eligibility check needed</strong>
+          <div class="text-xs">3 patients have appointments next week without a verified policy on file. Run check.</div>
+          <button class="btn btn-sm mt-8">Run check</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-6">
+      <div class="card-header">
+        <h3>Claims this month</h3>
+        <span class="badge badge-gray">142 submitted</span>
+      </div>
+      <div class="card-body" style="font-size:12px;">
+        <div class="bench-bar"><span>Aetna</span><div class="bar"><span style="width:88%;background:#2563eb"></span></div><span class="right fw-600">141</span></div>
+        <div class="bench-bar"><span>BCBS</span><div class="bar"><span style="width:74%;background:#22c55e"></span></div><span class="right fw-600">112</span></div>
+        <div class="bench-bar"><span>UnitedHealth</span><div class="bar"><span style="width:60%;background:#f59e0b"></span></div><span class="right fw-600">88</span></div>
+        <div class="bench-bar"><span>Medicare</span><div class="bar"><span style="width:52%;background:#a855f7"></span></div><span class="right fw-600">71</span></div>
+        <div class="bench-bar"><span>Cigna</span><div class="bar"><span style="width:38%;background:#06b6d4"></span></div><span class="right fw-600">42</span></div>
+        <div class="bench-bar"><span>Self-pay</span><div class="bar"><span style="width:22%;background:#9ca3af"></span></div><span class="right fw-600">31</span></div>
+        <div class="bench-bar"><span>Pending</span><div class="bar"><span style="width:12%;background:#e5e7eb"></span></div><span class="right fw-600">11</span></div>
+        <div class="legend">
+          <span><span class="sw" style="background:#22c55e"></span>Paid</span>
+          <span><span class="sw" style="background:#2563eb"></span>Sent</span>
+          <span><span class="sw" style="background:#f59e0b"></span>Denied</span>
+          <span><span class="sw" style="background:#9ca3af"></span>Pending</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card col-span-6">
+      <div class="card-header">
+        <div>
+          <h3>Accounts receivable aging</h3>
+          <div class="text-xs muted mt-4">by days outstanding</div>
+        </div>
+        <button class="btn-link text-sm">Export CSV</button>
+      </div>
+      <div class="ar-grid">
+        <div class="ar-card"><div class="l">Current</div><div class="v">$24,180</div><div class="x">61 invoices</div></div>
+        <div class="ar-card"><div class="l">1–30 days</div><div class="v">$5,420</div><div class="x">22 invoices</div></div>
+        <div class="ar-card warn"><div class="l">31–60 days</div><div class="v">$4,890</div><div class="x">9 invoices</div></div>
+        <div class="ar-card warn"><div class="l">61–90 days</div><div class="v">$2,340</div><div class="x">4 invoices</div></div>
+        <div class="ar-card danger"><div class="l">90+ days</div><div class="v">$1,488</div><div class="x">3 invoices</div></div>
+      </div>
+      <div class="card-body text-xs muted">95 % of balances are under 60 days. The two oldest invoices belong to Hana Kobayashi (rejected claim, since fixed) and Priya Acharya (newly remarried) and a will-pay balance for Otis Pavlachy.</div>
+    </section>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-7">
+      <div class="card-header">
+        <div>
+          <h3>Coverage on file · Hana Kobayashi</h3>
+          <div class="text-xs muted mt-4">Policy verified Oct 14, 2024</div>
+        </div>
+        <span class="badge badge-green badge-dot">Active</span>
+      </div>
+      <div class="card-body">
+        <div class="grid cols-2 gap-16">
+          <div>
+            <div class="text-xs muted">Primary policy</div>
+            <div class="fw-600 text-lg">Aetna PPO</div>
+            <div class="text-xs muted mt-4">PAYER<br>Aetna</div>
+            <div class="text-xs muted mt-8">PLAN<br>Open Access Select</div>
+            <div class="text-xs muted mt-8">MEMBER ID<br>W612 4490 11</div>
+            <div class="text-xs muted mt-8">SUBSCRIBER<br>Self</div>
+            <div class="text-xs muted mt-8">EFFECTIVE<br>Jan 1, 2024</div>
+          </div>
+          <div>
+            <div class="text-xs muted">Benefits used (year-to-date)</div>
+            <div class="mt-8">
+              <div class="row between text-sm"><span>Deductible</span><span class="fw-600">$1,100 of $1,500</span></div>
+              <div class="bar mt-4"><span style="width:73%"></span></div>
+            </div>
+            <div class="mt-12">
+              <div class="row between text-sm"><span>Out-of-pocket max</span><span class="fw-600">$2,940 of $5,000</span></div>
+              <div class="bar mt-4"><span style="width:59%;background:#22c55e"></span></div>
+            </div>
+            <div class="mt-12">
+              <div class="row between text-sm"><span>Office visit copay</span><span class="fw-600">$20 per visit</span></div>
+            </div>
+            <div class="mt-12 text-xs muted">View insurance card</div>
+          </div>
+        </div>
+        <div class="row mt-16 gap-8">
+          <button class="btn btn-primary">Re-verify eligibility</button>
+          <button class="btn">Add secondary policy</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card col-span-5">
+      <div class="card-header">
+        <h3>Recent payments</h3>
+        <span class="text-xs muted">Last 7 days</span>
+      </div>
+      <div>
+        <div class="pay-row"><span class="av">CO</span><div><div class="fw-600">$420.00 from Cigna</div><div class="text-xs muted">ERA Card · Devon Rabineau · Inv QG-10465</div></div><span class="right text-xs muted">Today</span></div>
+        <div class="pay-row"><span class="av">AE</span><div><div class="fw-600">$180.00 from patient</div><div class="text-xs muted">Card on file · Marcus Odoyo · Inv QG-10503</div></div><span class="right text-xs muted">Yesterday</span></div>
+        <div class="pay-row"><span class="av">BC</span><div><div class="fw-600">$2,144.50 from BCBS</div><div class="text-xs muted">ERA · five invoices · batch </div></div><span class="right text-xs muted">Oct 09</span></div>
+        <div class="pay-row"><span class="av">PA</span><div><div class="fw-600">$75.00 from patient</div><div class="text-xs muted">Cash · Priya Acharya · Inv QG-10492</div></div><span class="right text-xs muted">Oct 08</span></div>
+        <div class="pay-row"><span class="av">UN</span><div><div class="fw-600">$1,295.00 from UnitedHealth</div><div class="text-xs muted">EFT batch UHC-29812 · 7 claims at once</div></div><span class="right text-xs muted">Oct 07</span></div>
+        <div class="pay-row"><span></span><div class="right"><button class="btn-link text-sm">View all payments →</button></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-4">
+      <div class="card-header"><h3>Payer mix</h3></div>
+      <div class="card-body" style="font-size:12px;">
+        <div class="bench-bar"><span>BCBS</span><div class="bar"><span style="width:30%"></span></div><span class="right">30 %</span></div>
+        <div class="bench-bar"><span>Aetna</span><div class="bar"><span style="width:24%;background:#22c55e"></span></div><span class="right">24 %</span></div>
+        <div class="bench-bar"><span>Cigna</span><div class="bar"><span style="width:18%;background:#a855f7"></span></div><span class="right">18 %</span></div>
+        <div class="bench-bar"><span>Medicare</span><div class="bar"><span style="width:14%;background:#f59e0b"></span></div><span class="right">14 %</span></div>
+        <div class="bench-bar"><span>Self-pay</span><div class="bar"><span style="width:8%;background:#06b6d4"></span></div><span class="right">8 %</span></div>
+        <div class="bench-bar"><span>Other</span><div class="bar"><span style="width:6%;background:#9ca3af"></span></div><span class="right">6 %</span></div>
+      </div>
+    </section>
+
+    <section class="card col-span-8">
+      <div class="card-header">
+        <div>
+          <h3>Invoice QG-10472 · Hana Kobayashi</h3>
+          <div class="text-xs muted mt-4">Issued Aug 29, 2024 · Due Sep 22, 2024</div>
+        </div>
+        <div class="row gap-8">
+          <span class="badge badge-red">15 days overdue</span>
+          <button class="btn">Resend</button>
+          <button class="btn btn-primary">Collect now</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="grid cols-2 gap-16">
+          <table class="data" style="font-size:12px;">
+            <thead><tr><th>Service</th><th>CPT</th></tr></thead>
+            <tbody>
+              <tr><td>Established patient visit, level 3</td><td>99213</td></tr>
+              <tr><td>Comprehensive metabolic panel</td><td>80053</td></tr>
+              <tr><td>Lipid panel</td><td>80061</td></tr>
+              <tr><td>Venipuncture</td><td>36415</td></tr>
+              <tr><td>Spirometry</td><td>94010</td></tr>
+            </tbody>
+          </table>
+          <div>
+            <div class="fw-600 mb-8">Summary</div>
+            <div class="row between text-sm"><span>Subtotal</span><span>$1,540.00</span></div>
+            <div class="row between text-sm"><span>Insurance adjustment</span><span>– $80.20</span></div>
+            <div class="row between text-sm"><span>Insurance paid</span><span>$1,140.30</span></div>
+            <div class="row between text-sm"><span>Patient copay</span><span>$25.00</span></div>
+            <div class="row between text-sm"><span>Paid to date</span><span>– $66.30</span></div>
+            <div class="row between fw-600 mt-8" style="padding-top:8px;border-top:1px solid var(--border)"><span>Balance due</span><span>$1,249.99</span></div>
+            <div class="banner banner-red mt-12 text-xs">
+              <div><strong>Claim rejected by Aetna</strong>
+                <div>ICD-10 J45.30 not covered with CPT 94010 modifier. Resubmit draft is ready for review.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-12 between">
+          <span class="text-xs muted">Last touched by Mara Ellsworth · Oct 10, 5:46 PM</span>
+          <button class="btn-link text-sm">Print · Activity log</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-4">
+      <div class="card-header">
+        <h3>Verification queue</h3>
+        <span class="text-xs muted">Upcoming visits</span>
+      </div>
+      <div>
+        <div class="pay-row between"><div><div class="fw-600">Otis Pavlachy</div><div class="text-xs muted">Visit Oct 21 · 11:30 AM with Dr. Voss. Patient phoned twice last week — please follow up.</div></div><span class="badge badge-amber">Pending</span></div>
+        <div class="pay-row between"><div class="fw-600">Saoirse Whelan</div><span class="badge badge-amber">Pending</span></div>
+        <div class="pay-row between"><div class="fw-600">Jamel Esposito</div><span class="badge badge-green">Verified</span></div>
+        <div class="pay-row between"><div class="fw-600">Yuki Tanaka</div><span class="badge badge-green">Verified</span></div>
+        <div class="pay-row between"><div class="fw-600">Renata Solberg</div><span class="badge badge-amber">Pending</span></div>
+      </div>
+    </section>
+
+    <section class="card col-span-8">
+      <div class="card-header"><h3>Quick actions</h3><span class="text-xs muted">Common billing tasks</span></div>
+      <div class="card-body">
+        <div class="grid cols-4 gap-12">
+          <div>
+            <div class="fw-600">Run end-of-day batch</div>
+            <div class="text-xs muted mt-4">Send today's claims to clearinghouse</div>
+          </div>
+          <div>
+            <div class="fw-600">Set up a payment plan</div>
+            <div class="text-xs muted mt-4">Offer monthly schedules to patients with balances over $500.</div>
+          </div>
+          <div>
+            <div class="fw-600">Send statement run</div>
+            <div class="text-xs muted mt-4">12 statements ready · paper, eStatement</div>
+          </div>
+          <div>
+            <div class="fw-600">Reconcile ERA</div>
+            <div class="text-xs muted mt-4">2 unmatched remittance from BCBS · easy review.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© 2024 Quartz Grove Lab · A quiet way to run a clinic.</span>
+    <nav class="footer-nav">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <span class="support">Support: care@quartzgrove.health · HIPAA-compliant · Build v.0.4.5-2.1</span>
+  </div>
+</footer>
+
+</body>
+</html>

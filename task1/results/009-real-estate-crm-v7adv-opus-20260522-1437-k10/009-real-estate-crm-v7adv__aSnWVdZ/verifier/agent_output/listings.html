@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Active Listings — Ember Grove Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+
+<header class="topbar">
+  <div class="logo"><span class="logo-mark"></span><span>Ember Grove Works</span></div>
+  <nav class="top-tabs">
+    <a href="listings.html" class="is-active">Listings</a>
+    <a href="listing-detail.html">Listing Detail</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="reports.html">Market Reports</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+  <div class="spacer"></div>
+  <div class="search"><input type="text" placeholder="Search listings, contacts, addresses…" /></div>
+  <span class="icon-btn">⌘K</span>
+  <span class="avatar">MH</span>
+</header>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="side-search"><input type="text" placeholder="Filter listings…" /></div>
+
+    <div class="side-section">
+      <h5>Workspace</h5>
+      <a class="side-link" href="#">Dashboard</a>
+      <a class="side-link is-active" href="listings.html">Listings <span class="count">142</span></a>
+      <a class="side-link" href="calendar.html">Calendar</a>
+      <a class="side-link" href="reports.html">Market Reports</a>
+    </div>
+
+    <div class="side-section">
+      <h5>By Status</h5>
+      <a class="side-link" href="#">Active <span class="count">41</span></a>
+      <a class="side-link" href="#">Under Contract <span class="count">12</span></a>
+      <a class="side-link" href="#">Coming Soon <span class="count">7</span></a>
+      <a class="side-link" href="#">Pending <span class="count">9</span></a>
+      <a class="side-link" href="#">Withdrawn <span class="count">3</span></a>
+      <a class="side-link" href="#">Closed (YTD) <span class="count">70</span></a>
+    </div>
+
+    <div class="side-section">
+      <h5>By Neighborhood</h5>
+      <a class="side-link" href="#">Linden Hill <span class="count">9</span></a>
+      <a class="side-link" href="#">Old Caldersfield <span class="count">14</span></a>
+      <a class="side-link" href="#">Mill Creek <span class="count">6</span></a>
+      <a class="side-link" href="#">Riverside North <span class="count">5</span></a>
+      <a class="side-link" href="#">Eastgate <span class="count">4</span></a>
+      <a class="side-link" href="#">Cedar Hollow <span class="count">3</span></a>
+    </div>
+
+    <div class="side-section">
+      <h5>Saved Views</h5>
+      <a class="side-link" href="#">Price drop this week</a>
+      <a class="side-link" href="#">Over 30 DOM</a>
+      <a class="side-link" href="#">My listings</a>
+      <a class="side-link" href="#">Open this weekend</a>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <div class="breadcrumb">
+      <a href="#">Workspace</a><span class="sep">›</span>
+      <a href="#">Listings</a><span class="sep">›</span>
+      <span class="current">Active</span>
+    </div>
+
+    <div class="page-header">
+      <div class="title">
+        <h1>Active Listings</h1>
+        <div class="sub">41 properties across 11 neighborhoods · Live from BrightMLS · 4 minutes ago</div>
+      </div>
+      <div class="actions">
+        <button class="btn">Export CSV</button>
+        <button class="btn">Saved view</button>
+        <button class="btn btn-primary">+ New listing</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="label">Avg list price</div>
+        <div class="value">$684K</div>
+        <div class="delta up">▲ 2.4% vs. last quarter</div>
+      </div>
+      <div class="stat">
+        <div class="label">Median days on market</div>
+        <div class="value">17</div>
+        <div class="delta accent">▼ 3 days since June</div>
+      </div>
+      <div class="stat">
+        <div class="label">Sold-to-list ratio</div>
+        <div class="value">98.6%</div>
+        <div class="delta up">▲ 0.8 pts</div>
+      </div>
+      <div class="stat">
+        <div class="label">Showings this week</div>
+        <div class="value">41</div>
+        <div class="delta">12 scheduled · 29 completed</div>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <span class="chip is-active">All listings</span>
+      <span class="chip">$500K – $1.2M</span>
+      <span class="chip">3+ beds</span>
+      <span class="chip">2+ baths</span>
+      <span class="chip">Linden Hill</span>
+      <span class="chip">Single family</span>
+      <span class="chip">+ Add filter</span>
+      <div class="spacer"></div>
+      <label class="check is-checked"><span class="box"></span>Only my listings</label>
+      <span class="btn btn-sm">Sort: Newest first ▾</span>
+    </div>
+
+    <div class="filter-bar" style="padding:4px 8px;">
+      <div class="btn-group">
+        <span class="is-active">Grid</span>
+        <span>Table</span>
+        <span>Map</span>
+      </div>
+    </div>
+
+    <div class="listing-grid">
+
+      <div class="listing-card">
+        <div class="media">
+          <div class="badges"><span class="tag tag-accent">Open Sat 2–4</span></div>
+          <div class="house"><div class="roof"></div><div class="wall"></div><div class="win1"></div><div class="win2"></div><div class="door"></div></div>
+        </div>
+        <div class="body">
+          <div class="name">412 Linden Hill Road</div>
+          <div class="addr">Linden Hill · Caldersfield, PA 19087</div>
+          <div class="specs"><span><b>4</b> bd</span><span><b>2.5</b> ba</span><span><b>2,318</b> sqft</span><span><b>0.34</b> ac</span></div>
+          <div class="price">$1,185,000</div>
+          <div class="meta"><span class="tag tag-success">Active</span><span>41 showings</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="media">
+          <div class="badges"><span class="tag">New</span></div>
+          <div class="house"><div class="roof"></div><div class="wall"></div><div class="win1"></div><div class="win2"></div><div class="door"></div></div>
+        </div>
+        <div class="body">
+          <div class="name">88 Mill Creek Lane, Unit 4B</div>
+          <div class="addr">Mill Creek · Caldersfield, PA 19086</div>
+          <div class="specs"><span><b>2</b> bd</span><span><b>2</b> ba</span><span><b>1,460</b> sqft</span></div>
+          <div class="price">$524,000</div>
+          <div class="meta"><span class="tag tag-success">Active</span><span>Listed yesterday</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="media">
+          <div class="badges"><span class="tag tag-accent">Price drop</span></div>
+          <div class="house"><div class="roof"></div><div class="wall"></div><div class="win1"></div><div class="win2"></div><div class="door"></div></div>
+        </div>
+        <div class="body">
+          <div class="name">17 Old Quarry Way</div>
+          <div class="addr">Old Caldersfield · 19084</div>
+          <div class="specs"><span><b>4</b> bd</span><span><b>3</b> ba</span><span><b>2,610</b> sqft</span><span><b>0.41</b> ac</span></div>
+          <div class="price">$1,675,000</div>
+          <div class="meta"><span class="tag tag-success">Active</span><span>31 days · $40K ↓</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="media">
+          <div class="badges"><span class="tag tag-warn">Under Contract</span></div>
+          <div class="building"><div class="windows"><span></span><span class="off"></span><span></span><span></span><span></span><span></span><span class="off"></span><span></span><span></span><span></span><span class="off"></span><span></span></div></div>
+        </div>
+        <div class="body">
+          <div class="name">2200 Riverside Tower, PH-2</div>
+          <div class="addr">Riverside North · 19085</div>
+          <div class="specs"><span><b>3</b> bd</span><span><b>3.5</b> ba</span><span><b>3,090</b> sqft</span><span>Penthouse</span></div>
+          <div class="price">$2,295,000</div>
+          <div class="meta"><span class="tag tag-warn">Contract pending</span><span>Closes est. Oct 12</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="media">
+          <div class="badges"><span class="tag">Coming Soon</span></div>
+          <div class="house"><div class="roof"></div><div class="wall"></div><div class="win1"></div><div class="win2"></div><div class="door"></div></div>
+        </div>
+        <div class="body">
+          <div class="name">9 Cedar Hollow Court</div>
+          <div class="addr">Cedar Hollow · 19083</div>
+          <div class="specs"><span><b>5</b> bd</span><span><b>4</b> ba</span><span><b>3,840</b> sqft</span><span><b>0.62</b> ac</span></div>
+          <div class="price">$795,000</div>
+          <div class="meta"><span class="tag tag-mute">Coming Soon</span><span>Photo shoot Fri</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="media">
+          <div class="badges"><span class="tag tag-accent">Open Sun</span></div>
+          <div class="house"><div class="roof"></div><div class="wall"></div><div class="win1"></div><div class="win2"></div><div class="door"></div></div>
+        </div>
+        <div class="body">
+          <div class="name">76 Eastgate Avenue</div>
+          <div class="addr">Eastgate · 19090</div>
+          <div class="specs"><span><b>3</b> bd</span><span><b>2</b> ba</span><span><b>1,980</b> sqft</span><span><b>0.21</b> ac</span></div>
+          <div class="price">$612,500</div>
+          <div class="meta"><span class="tag tag-success">Active</span><span>12 days on market</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="media">
+          <div class="house"><div class="roof"></div><div class="wall"></div><div class="win1"></div><div class="win2"></div><div class="door"></div></div>
+        </div>
+        <div class="body">
+          <div class="name">331 Birchwood Lane</div>
+          <div class="addr">Linden Hill · 19087</div>
+          <div class="specs"><span><b>4</b> bd</span><span><b>2.5</b> ba</span><span><b>2,540</b> sqft</span><span><b>0.21</b> ac</span></div>
+          <div class="price">$895,000</div>
+          <div class="meta"><span class="tag tag-success">Active</span><span>8 showings</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="media">
+          <div class="badges"><span class="tag">Stale · 62 days</span></div>
+          <div class="house"><div class="roof"></div><div class="wall"></div><div class="win1"></div><div class="win2"></div><div class="door"></div></div>
+        </div>
+        <div class="body">
+          <div class="name">14 Sycamore Bend</div>
+          <div class="addr">Mill Creek · 19086</div>
+          <div class="specs"><span><b>3</b> bd</span><span><b>2</b> ba</span><span><b>2,140</b> sqft</span><span><b>0.18</b> ac</span></div>
+          <div class="price">$649,000</div>
+          <div class="meta"><span class="tag tag-success">Active</span><span class="text-danger">Needs price review</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="media">
+          <div class="building"><div class="windows"><span></span><span></span><span class="off"></span><span></span><span class="off"></span><span></span><span></span><span></span><span></span><span class="off"></span><span></span><span></span></div></div>
+        </div>
+        <div class="body">
+          <div class="name">505 Market Street, Loft 7</div>
+          <div class="addr">Old Caldersfield · 19084</div>
+          <div class="specs"><span><b>1</b> bd</span><span><b>1</b> ba</span><span><b>1,180</b> sqft</span><span>Loft</span></div>
+          <div class="price">$478,000</div>
+          <div class="meta"><span class="tag tag-success">Active</span><span>3 weeks live</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex-between mt-3">
+      <div class="text-mute" style="font-size:12px;">Showing 1–9 of 41 active listings</div>
+      <div class="pager">
+        <a>‹</a>
+        <span class="is-active">1</span>
+        <a>2</a>
+        <a>3</a>
+        <a>4</a>
+        <a>5</a>
+        <a>›</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div>© 2026 Ember Grove Works · v4.12</div>
+  <div class="links">
+    <a href="settings.html">Settings</a>
+    <a href="reports.html">Reports</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="#">Help</a>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

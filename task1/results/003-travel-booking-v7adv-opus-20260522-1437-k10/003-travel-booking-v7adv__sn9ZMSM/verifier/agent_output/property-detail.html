@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Cormorant House — Sable Echo. Studio</title>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  .gallery {
+    display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr;
+    gap: 8px; margin: 26px 0 32px;
+  }
+  .gallery .ph { background: #2a1f14; border-radius: 4px; overflow:hidden; min-height: 130px; }
+  .gallery .big { grid-row: span 2; min-height: 280px; }
+  @media (max-width: 600px) {
+    .gallery { grid-template-columns: 1fr 1fr; }
+    .gallery .big { grid-row: auto; grid-column: span 2; min-height: 220px; }
+  }
+  .amen { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .amen .row {
+    display: flex; justify-content: space-between; padding: 12px 0;
+    border-bottom: 1px solid var(--line-2);
+    font-family: -apple-system, Arial, sans-serif; font-size: 13px;
+  }
+  .amen .row .k { color: var(--muted); }
+  .amen .row .v { color: var(--ink); }
+  @media (max-width:600px) { .amen { grid-template-columns: 1fr; } }
+  .amen .col { padding: 0 18px; }
+  .amen .col:first-child { padding-left: 0; }
+  .amen .col:last-child { padding-right: 0; border-left: 1px solid var(--line-2); }
+  @media (max-width:600px) { .amen .col:last-child { border-left: 0; } }
+
+  .review { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 22px; }
+  .review .quote { font-family: Georgia, serif; font-size: 16px; line-height: 1.5; }
+  .review .by { margin-top: 14px; font-size: 12px; color: var(--muted); font-family: -apple-system, Arial, sans-serif; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 14px 0 28px; }
+  @media (max-width:900px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+  .booking {
+    background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 22px;
+  }
+  .booking .price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 14px; }
+  .booking .price .n { font-family: Georgia, serif; font-size: 32px; font-weight: 500; }
+  .booking .price .u { color: var(--muted); font-size: 13px; }
+  .booking .form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .booking .form .fld { border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; }
+  .booking .form .fld .l { font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-family: -apple-system, Arial, sans-serif; }
+  .booking .form .fld .v { font-family: Georgia, serif; font-size: 14px; margin-top: 2px; }
+  .booking .form .full { grid-column: span 2; }
+  .booking .breakdown { font-family: -apple-system, Arial, sans-serif; font-size: 13px; }
+  .booking .breakdown .r { display:flex; justify-content: space-between; padding: 6px 0; }
+  .booking .breakdown .r.tot { border-top:1px solid var(--line-2); padding-top:10px; font-weight:600; font-family: Georgia, serif; font-size: 15px; }
+  .booking button { width: 100%; margin-top: 14px; }
+
+  .places {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px;
+  }
+  .places .row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 14px 0; border-bottom: 1px solid var(--line-2);
+    font-family: -apple-system, Arial, sans-serif; font-size: 13px;
+  }
+  .places .row .n { color: var(--ink); }
+  .places .row .meta { color: var(--muted); }
+  @media (max-width:600px) { .places { grid-template-columns: 1fr; } }
+
+  .policy { display: flex; padding: 16px 0; border-bottom: 1px solid var(--line-2); gap: 24px; }
+  .policy .lbl { width: 220px; flex-shrink:0; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-family: -apple-system, Arial, sans-serif; }
+  .policy .v { font-size: 13.5px; color: var(--ink-2); line-height: 1.5; }
+  @media (max-width: 600px) { .policy { flex-direction: column; gap: 6px; } .policy .lbl { width: auto; } }
+
+  .host-card { display: flex; gap: 16px; align-items: flex-start; background: var(--card); padding: 18px; border: 1px solid var(--line); border-radius: 4px; }
+  .host-card .av { width: 68px; height: 68px; border-radius: 999px; background: var(--gold-soft); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family: Georgia, serif; font-size: 22px; color: var(--gold-2); font-weight: 600; }
+
+  .res-cta {
+    text-align: center; padding: 36px 24px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+    margin: 30px 0 10px;
+  }
+  .res-cta h2 { font-family: Georgia, serif; font-size: 30px; font-weight: 400; margin-bottom: 14px; letter-spacing:-0.01em; }
+  .res-cta p { color: var(--muted); margin-bottom: 22px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topbar">
+    <a href="properties.html" class="brand">Sable Echo<span class="dot">.</span> Studio</a>
+    <nav class="nav">
+      <a href="properties.html">Properties</a>
+      <a href="property-detail.html" class="active">Property</a>
+      <a href="messaging.html">Guest Messages</a>
+      <a href="rates.html">Rates &amp; Availability</a>
+      <a href="reports.html">Reports</a>
+    </nav>
+    <a class="btn-pill" href="#">Reserve</a>
+  </header>
+
+  <div class="eyebrow"><span>Folio No. 07</span><span class="sep">·</span><span class="accent">Coastal</span><span class="sep">·</span><span>Island Wall</span></div>
+
+  <section class="hero">
+    <div class="two-col">
+      <div>
+        <h1 class="display">The Cormorant House, a tide-watcher's retreat on Island Wall.</h1>
+      </div>
+      <div>
+        <p class="lede">A three-bedroom stone cottage on the western reach of Island Wall, where the sea fog drifts in low and the harbour bell rings on the half-hour. Renovated in 2022 with a careful hand for original timber, original tile, and a kitchen that knows what to do with mackerel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- gallery -->
+  <div class="gallery">
+    <div class="ph big">
+      <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" class="illust">
+        <rect width="600" height="400" fill="#3b3327"/>
+        <rect x="0" y="280" width="600" height="120" fill="#1a140d"/>
+        <polygon points="120,280 300,140 480,280" fill="#0a0604"/>
+        <rect x="200" y="220" width="200" height="60" fill="#efe2b8"/>
+        <rect x="220" y="232" width="22" height="44" fill="#e9b733"/>
+        <rect x="255" y="232" width="22" height="44" fill="#e9b733"/>
+        <rect x="290" y="232" width="22" height="44" fill="#e9b733"/>
+        <rect x="335" y="232" width="22" height="44" fill="#1a140d"/>
+        <circle cx="500" cy="100" r="22" fill="#e6d99a"/>
+      </svg>
+    </div>
+    <div class="ph">
+      <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" class="illust">
+        <rect width="300" height="200" fill="#3a3225"/>
+        <rect y="120" width="300" height="80" fill="#1a140d"/>
+      </svg>
+    </div>
+    <div class="ph">
+      <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" class="illust">
+        <rect width="300" height="200" fill="#2c2519"/>
+        <rect y="140" width="300" height="60" fill="#100a05"/>
+      </svg>
+    </div>
+    <div class="ph">
+      <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" class="illust">
+        <rect width="300" height="200" fill="#403628"/>
+        <circle cx="220" cy="60" r="20" fill="#e6d99a"/>
+      </svg>
+    </div>
+    <div class="ph">
+      <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" class="illust">
+        <rect width="300" height="200" fill="#332a1e"/>
+        <polygon points="60,160 150,80 240,160" fill="#0d0805"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- description + booking -->
+  <div class="two-col">
+    <div>
+      <div class="chapter">Chapter 1 — The room</div>
+      <h2 class="h2">A measured restoration, three stones from the harbour wall.</h2>
+      <p class="lede" style="margin-top:12px;">Built in 1873 for a Norwegian quarry foreman, restored in 2022 by the studio at Olm Lethier. The kitchen window watches the boats unload, the bedroom windows watch the rooks settle, and the back garden ends a stone's throw from the breakwater. The terms are simple: linen on the bed, almonds on the table, and salt in the wind.</p>
+      <p class="lede" style="margin-top:14px;">A library of two hundred books, mostly fiction and field guides, lines the entrance hall. The wood stove draws best in the small hours; we leave a basket of split alder at the door.</p>
+
+      <h3 class="h3" style="margin-top: 30px; margin-bottom: 14px;">What you'll find inside.</h3>
+      <div class="amen">
+        <div class="col">
+          <div class="row"><span class="k">Bedrooms</span><span class="v">Three, low-beamed</span></div>
+          <div class="row"><span class="k">Sleeps</span><span class="v">Up to five</span></div>
+          <div class="row"><span class="k">Bathrooms</span><span class="v">Two, original tile</span></div>
+          <div class="row"><span class="k">Hearth</span><span class="v">Wood stove, alder</span></div>
+          <div class="row"><span class="k">Kitchen</span><span class="v">Restored 2022</span></div>
+          <div class="row"><span class="k">Linens</span><span class="v">Flax, fresh weekly</span></div>
+          <div class="row"><span class="k">Heating</span><span class="v">Hydronic, throughout</span></div>
+        </div>
+        <div class="col">
+          <div class="row"><span class="k">Outdoor</span><span class="v">Walled garden</span></div>
+          <div class="row"><span class="k">Parking</span><span class="v">Two cars, courtyard</span></div>
+          <div class="row"><span class="k">Beach</span><span class="v">120 m, pebble</span></div>
+          <div class="row"><span class="k">Quiet hours</span><span class="v">22:00 — 07:00</span></div>
+          <div class="row"><span class="k">Wi-Fi</span><span class="v">Yes, in the parlour</span></div>
+          <div class="row"><span class="k">Pets</span><span class="v">Two dogs welcome</span></div>
+          <div class="row"><span class="k">Children</span><span class="v">From age five</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- booking widget -->
+    <aside class="booking">
+      <div class="price"><span class="n gold">€385</span><span class="u">/ night</span></div>
+      <div class="form">
+        <div class="fld"><div class="l">Check in</div><div class="v">12 Oct 2024</div></div>
+        <div class="fld"><div class="l">Check out</div><div class="v">17 Oct 2024</div></div>
+        <div class="fld full"><div class="l">Guests</div><div class="v">2 adults · 0 children</div></div>
+      </div>
+      <div class="breakdown">
+        <div class="r"><span>€385 × 5 nights</span><span>€1,925</span></div>
+        <div class="r"><span>Cleaning</span><span>€140</span></div>
+        <div class="r"><span>Studio service</span><span>€85</span></div>
+        <div class="r tot"><span>Total</span><span class="gold">€2,150</span></div>
+      </div>
+      <button class="btn-pill">Reserve these dates</button>
+      <div class="tn-cap" style="text-align:center; margin-top:14px;">No charge until host confirms</div>
+    </aside>
+  </div>
+
+  <!-- two image blocks with text -->
+  <div class="feature" style="margin-top: 38px;">
+    <div class="img">
+      <svg viewBox="0 0 480 280" preserveAspectRatio="xMidYMid slice" class="illust">
+        <rect width="480" height="280" fill="#2c2519"/>
+        <rect y="200" width="480" height="80" fill="#100a05"/>
+        <polygon points="100,200 220,80 340,200" fill="#0d0805"/>
+        <circle cx="380" cy="60" r="14" fill="#e6d99a"/>
+      </svg>
+    </div>
+    <div class="body">
+      <div class="chapter">Chapter 2</div>
+      <h3>A room that reads the weather.</h3>
+      <p>The parlour faces the western horizon. In late summer, the room is washed gold by six; in November the same light arrives by three. We leave a notebook on the table; guests note the colour of the harbour and the names of their visiting birds.</p>
+    </div>
+  </div>
+
+  <div class="feature" style="grid-template-columns: 1fr 1.4fr; margin-bottom: 38px;">
+    <div class="body">
+      <div class="chapter">Chapter 3</div>
+      <h3>The library belongs to whoever wakes first.</h3>
+      <p>Two hundred volumes — a small but specific collection. Field guides, Scandinavian fiction, and a complete set of Olfgang Powis. Generally we ask that books go back on the shelves where they came from, but no-one will check.</p>
+    </div>
+    <div class="img">
+      <svg viewBox="0 0 480 280" preserveAspectRatio="xMidYMid slice" class="illust">
+        <rect width="480" height="280" fill="#352d20"/>
+        <rect x="60" y="80" width="20" height="140" fill="#e6d99a"/>
+        <rect x="90" y="80" width="20" height="140" fill="#cfa83a"/>
+        <rect x="120" y="80" width="20" height="140" fill="#e6d99a"/>
+        <rect x="150" y="80" width="20" height="140" fill="#9b7d2d"/>
+        <rect x="180" y="80" width="20" height="140" fill="#e6d99a"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Calendar -->
+  <div class="sect-head">
+    <div class="chapter">Availability</div>
+    <div class="title">October 2024</div>
+  </div>
+
+  <div class="cal">
+    <div class="dow">Mon</div><div class="dow">Tue</div><div class="dow">Wed</div><div class="dow">Thu</div><div class="dow">Fri</div><div class="dow">Sat</div><div class="dow">Sun</div>
+
+    <div class="day mute">30</div>
+    <div class="day">1<div class="px">€385</div></div>
+    <div class="day">2<div class="px">€385</div></div>
+    <div class="day">3<div class="px">€385</div></div>
+    <div class="day book">4<div class="px">€420</div></div>
+    <div class="day book">5<div class="px">€420</div></div>
+    <div class="day book">6<div class="px">€420</div></div>
+
+    <div class="day">7<div class="px">€385</div></div>
+    <div class="day">8<div class="px">€385</div></div>
+    <div class="day">9<div class="px">€385</div></div>
+    <div class="day">10<div class="px">€385</div></div>
+    <div class="day">11<div class="px">€420</div></div>
+    <div class="day dark">12<div class="px">€420</div></div>
+    <div class="day dark">13<div class="px">€420</div></div>
+
+    <div class="day dark">14<div class="px">€385</div></div>
+    <div class="day dark">15<div class="px">€385</div></div>
+    <div class="day dark">16<div class="px">€385</div></div>
+    <div class="day dark">17<div class="px">€385</div></div>
+    <div class="day">18<div class="px">€420</div></div>
+    <div class="day">19<div class="px">€420</div></div>
+    <div class="day">20<div class="px">€420</div></div>
+
+    <div class="day">21<div class="px">€385</div></div>
+    <div class="day">22<div class="px">€385</div></div>
+    <div class="day book2">23<div class="px">€395</div></div>
+    <div class="day book2">24<div class="px">€395</div></div>
+    <div class="day book2">25<div class="px">€395</div></div>
+    <div class="day book2">26<div class="px">€420</div></div>
+    <div class="day book2">27<div class="px">€420</div></div>
+
+    <div class="day">28<div class="px">€385</div></div>
+    <div class="day">29<div class="px">€385</div></div>
+    <div class="day">30<div class="px">€385</div></div>
+    <div class="day">31<div class="px">€385</div></div>
+    <div class="day mute">1</div>
+    <div class="day mute">2</div>
+    <div class="day mute">3</div>
+  </div>
+
+  <!-- Host card -->
+  <div class="sect-head">
+    <div class="chapter">Your hosts</div>
+    <div class="title">Hosted by Eleanor Whitfield since 2019.</div>
+  </div>
+
+  <div class="host-card">
+    <div class="av">EW</div>
+    <div>
+      <h3 class="h3">Eleanor Whitfield</h3>
+      <p class="muted" style="margin: 6px 0 10px;">Island Wall, with a small office in Reykjavik</p>
+      <p style="font-size:14px; line-height:1.55; color: var(--ink-2);">A former librarian, an unhurried correspondent, and a quiet patron of every coastal weather report. Eleanor took on the Cormorant in 2019, slowly, and has been adding books and bedside lamps ever since.</p>
+      <div class="bul-row" style="margin-top: 18px; padding: 12px 0; gap: 28px;">
+        <span>5.0 ★ · 78 reviews</span>
+        <span>Replies in 2 hours</span>
+        <span>Speaks English, Norwegian, Italian</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <div class="sect-head">
+    <div class="chapter">Notes from prior guests</div>
+    <div class="title">What guests have said.</div>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review">
+      <div class="quote">"Eleanor's kit was met. The sourdough on the local. Three days we already knew the lighthouse keeper by his Christian name."</div>
+      <div class="by">— Birna, Reykjavík · stayed in March</div>
+    </div>
+    <div class="review">
+      <div class="quote">"The garden, even in late winter, smelled of wild thyme. The Cormorant is for a slow week. Bring a book you keep meaning to read."</div>
+      <div class="by">— Tomás L., Madrid · stayed in February</div>
+    </div>
+    <div class="review">
+      <div class="quote">"The quiet here is the loudest thing about it. We arrived rattled and left soft. The wood stove did most of the work."</div>
+      <div class="by">— Rui &amp; Sam, Berlin · stayed in November</div>
+    </div>
+  </div>
+
+  <!-- Within a short walk -->
+  <div class="sect-head">
+    <div class="chapter">The neighbourhood</div>
+    <div class="title">Within a short walk.</div>
+  </div>
+
+  <div class="places">
+    <div>
+      <div class="row"><span class="n">The Stormcrow, harbourside</span><span class="meta">3 min · ales, mackerel</span></div>
+      <div class="row"><span class="n">Vihastola Bakery</span><span class="meta">4 min · daily before nine</span></div>
+      <div class="row"><span class="n">Tide-Watcher's Library</span><span class="meta">6 min · Tues/Thurs</span></div>
+      <div class="row"><span class="n">The Council Pool</span><span class="meta">8 min · early morning</span></div>
+    </div>
+    <div>
+      <div class="row"><span class="n">St. Brielle Chapel</span><span class="meta">9 min · evensong at six</span></div>
+      <div class="row"><span class="n">Volvanda Sauna</span><span class="meta">12 min · book ahead</span></div>
+      <div class="row"><span class="n">The Wandle Cove path</span><span class="meta">15 min · low tide only</span></div>
+      <div class="row"><span class="n">Old Lighthouse, Wem</span><span class="meta">35 min · cliff walk</span></div>
+    </div>
+  </div>
+
+  <!-- Policies -->
+  <div class="sect-head">
+    <div class="chapter">The conditions of the visit</div>
+    <div class="title">A few quiet expectations.</div>
+  </div>
+
+  <div style="border-top: 1px solid var(--line);">
+    <div class="policy"><div class="lbl">Check-in</div><div class="v">From 4:00 p.m. Eleanor meets new guests at the door, or, if our schedules dictate otherwise, the key is left in a tin box in the alder bin.</div></div>
+    <div class="policy"><div class="lbl">Check-out</div><div class="v">By 11:00 a.m. Strip the beds if you like, but no need. Lock the front; leave the courtyard door ajar for the cat.</div></div>
+    <div class="policy"><div class="lbl">Quiet hours</div><div class="v">10 p.m. to 7 a.m. We share the wall with two neighbours, both of whom rise early to fish.</div></div>
+    <div class="policy"><div class="lbl">Cancellation</div><div class="v">Full refund up to 30 days before arrival. After that, the first three nights remain billed; the rest is returned with grace.</div></div>
+    <div class="policy"><div class="lbl">Children</div><div class="v">Welcome from age five. The stairs are old and steep; the wood stove warm. The garden wall does not need vigilance, but children do.</div></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="res-cta">
+    <h2>Reserve The Cormorant House.</h2>
+    <p>Most days are confirmed within an hour; some, when Eleanor is on the boat, the next.</p>
+    <a class="btn-pill" href="#">Check availability</a>
+    <a class="btn-pill ghost" href="#" style="margin-left:8px; background:transparent; color:var(--ink); border:1px solid var(--line);">Message the host</a>
+  </div>
+
+  <footer class="foot">
+    <div class="row">
+      <div>
+        <a class="brand" href="#">Sable Echo<span class="dot">.</span> Studio</a>
+        <p>A small atelier representing a modest number of considered places to stay. Working with discreet owners since 2009.</p>
+      </div>
+      <div>
+        <h5>Most Resources</h5>
+        <ul>
+          <li>Properties</li>
+          <li>Guest Messages</li>
+          <li>Rates &amp; Availability</li>
+          <li>Reports</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <ul>
+          <li>Editorial</li>
+          <li>Contact</li>
+          <li>Terms &amp; Privacy</li>
+          <li>Instagram. Are.na</li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <div>© 2025 Sable Echo Studio. Composed in ivory and linen.</div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

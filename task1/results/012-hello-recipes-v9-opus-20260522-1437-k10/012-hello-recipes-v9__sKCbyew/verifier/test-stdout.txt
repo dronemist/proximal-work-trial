@@ -1,0 +1,2471 @@
+--- reward ---
+0.8509331246597718
+
+--- grading/subscores.json ---
+{
+  "per_page_viewport": {
+    "about": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.953796710695837,
+          "extra": {
+            "reference_size": [
+              1440,
+              900
+            ],
+            "candidate_size": [
+              1440,
+              900
+            ],
+            "compared_size": [
+              1440,
+              900
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.6008809804916382,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_matched_iou": 0.36105796694755554,
+            "raw_score_before_sqrt": 0.36105796694755554
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6832322773283714,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_normalized_centroid_distance": 0.3167677226716285,
+            "page_diagonal_px": 1145.406478067939
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8717765239079793,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7435530478159585,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.0380670428276062,
+              "base_score_before_penalty": 0.7462197144826253,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7803661616161616,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.6862373737373737,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.07142857142857142
+              ],
+              [
+                15.0,
+                0.35714285714285715
+              ],
+              [
+                16.0,
+                0.42857142857142855
+              ],
+              [
+                22.0,
+                0.07142857142857142
+              ],
+              [
+                28.0,
+                0.07142857142857142
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.05
+              ],
+              [
+                16.0,
+                0.85
+              ],
+              [
+                24.0,
+                0.05
+              ],
+              [
+                30.0,
+                0.05
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 41,
+            "candidate_tokens": 41,
+            "matched_tokens": 41,
+            "union_tokens": 41,
+            "reference_unique": 32,
+            "candidate_unique": 32
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.85,
+          "extra": {
+            "reason": "The candidate is a very close match but has minor differences: the first paragraph wraps differently (breaking mid-sentence across two lines instead of fitting on one line), and there is slightly more vertical spacing between sections, likely due to a small difference in max-width or padding setting",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.02
+          }
+        },
+        "_structured": 0.8343593663921124,
+        "_overflow_factor": 1.0,
+        "_composite": 0.8343593663921124
+      },
+      "mobile": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.8361221702679443,
+          "extra": {
+            "reference_size": [
+              375,
+              812
+            ],
+            "candidate_size": [
+              375,
+              812
+            ],
+            "compared_size": [
+              375,
+              812
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.7257959842681885,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_matched_iou": 0.52677983045578,
+            "raw_score_before_sqrt": 0.52677983045578
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6817812169760507,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_normalized_centroid_distance": 0.3182187830239494,
+            "page_diagonal_px": 569.7946998700497
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8718879225055376,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7437758450110753,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.0380336232483387,
+              "base_score_before_penalty": 0.746442511677742,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.9483045977011493,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.9261494252873563,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.07142857142857142
+              ],
+              [
+                14.0,
+                0.35714285714285715
+              ],
+              [
+                16.0,
+                0.42857142857142855
+              ],
+              [
+                22.0,
+                0.07142857142857142
+              ],
+              [
+                24.0,
+                0.07142857142857142
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.05
+              ],
+              [
+                16.0,
+                0.85
+              ],
+              [
+                22.0,
+                0.05
+              ],
+              [
+                26.0,
+                0.05
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 41,
+            "candidate_tokens": 41,
+            "matched_tokens": 41,
+            "union_tokens": 41,
+            "reference_unique": 32,
+            "candidate_unique": 32
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 375,
+            "reference_scroll_width": 375,
+            "candidate_png_width": 375,
+            "reference_png_width": 375,
+            "effective_candidate_width": 375,
+            "effective_reference_width": 375,
+            "viewport_width": 375,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.9,
+          "extra": {
+            "reason": "The pages are nearly identical in content and structure, with only minor spacing differences (slightly more vertical padding between sections in the candidate) and negligible typographic/color drift.",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 2.66
+          }
+        },
+        "_structured": 0.8560034821326882,
+        "_overflow_factor": 1.0,
+        "_composite": 0.8560034821326882
+      },
+      "tablet": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.9184466685719485,
+          "extra": {
+            "reference_size": [
+              768,
+              1024
+            ],
+            "candidate_size": [
+              768,
+              1024
+            ],
+            "compared_size": [
+              768,
+              1024
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.6453123092651367,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_matched_iou": 0.41642799973487854,
+            "raw_score_before_sqrt": 0.41642799973487854
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6802083586387347,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_normalized_centroid_distance": 0.31979164136126526,
+            "page_diagonal_px": 867.7787736514416
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8713833195169767,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7427666390339532,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.038185004144907,
+              "base_score_before_penalty": 0.7454333057006199,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7803661616161616,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.6862373737373737,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.07142857142857142
+              ],
+              [
+                15.0,
+                0.35714285714285715
+              ],
+              [
+                16.0,
+                0.42857142857142855
+              ],
+              [
+                22.0,
+                0.07142857142857142
+              ],
+              [
+                28.0,
+                0.07142857142857142
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.05
+              ],
+              [
+                16.0,
+                0.85
+              ],
+              [
+                24.0,
+                0.05
+              ],
+              [
+                30.0,
+                0.05
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 41,
+            "candidate_tokens": 41,
+            "matched_tokens": 41,
+            "union_tokens": 41,
+            "reference_unique": 32,
+            "candidate_unique": 32
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 768,
+            "reference_scroll_width": 768,
+            "candidate_png_width": 768,
+            "reference_png_width": 768,
+            "effective_candidate_width": 768,
+            "effective_reference_width": 768,
+            "viewport_width": 768,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.85,
+          "extra": {
+            "reason": "The candidate closely matches the reference in layout, content, and typography, but has a slightly lighter/more yellow-tinted background color compared to the reference's warmer beige tone, and the heading and body text appear slightly bolder/larger in the candidate.",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 2.52
+          }
+        },
+        "_structured": 0.8355942646866945,
+        "_overflow_factor": 1.0,
+        "_composite": 0.8355942646866945
+      }
+    },
+    "breakfast": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.9636965568307684,
+          "extra": {
+            "reference_size": [
+              1440,
+              900
+            ],
+            "candidate_size": [
+              1440,
+              900
+            ],
+            "compared_size": [
+              1440,
+              900
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.6422774791717529,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_matched_iou": 0.4125203490257263,
+            "raw_score_before_sqrt": 0.4125203490257263
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7112247703112141,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_normalized_centroid_distance": 0.2887752296887859,
+            "page_diagonal_px": 1149.2327875587262
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8734654091000557,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7469308182001113,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.03756037726998329,
+              "base_score_before_penalty": 0.749597484866778,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.8040028665028665,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.7200040950040949,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.0625
+              ],
+              [
+                15.0,
+                0.3125
+              ],
+              [
+                16.0,
+                0.5
+              ],
+              [
+                22.0,
+                0.0625
+              ],
+              [
+                28.0,
+                0.0625
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.045454545454545456
+              ],
+              [
+                16.0,
+                0.8636363636363636
+              ],
+              [
+                24.0,
+                0.045454545454545456
+              ],
+              [
+                30.0,
+                0.045454545454545456
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 24,
+            "candidate_tokens": 24,
+            "matched_tokens": 24,
+            "union_tokens": 24,
+            "reference_unique": 20,
+            "candidate_unique": 20
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.85,
+          "extra": {
+            "reason": "The candidate closely replicates the reference but has minor differences: the site title 'Daily Recipes' appears slightly bolder/larger, the 'Breakfast' heading is slightly larger, and there is marginally more vertical spacing between elements, but all content, colors, navigation items, and list ite",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.43
+          }
+        },
+        "_structured": 0.8502862416753572,
+        "_overflow_factor": 1.0,
+        "_composite": 0.85
+      },
+      "mobile": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.8803060814599499,
+          "extra": {
+            "reference_size": [
+              375,
+              812
+            ],
+            "candidate_size": [
+              375,
+              812
+            ],
+            "compared_size": [
+              375,
+              812
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.7326696515083313,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_matched_iou": 0.5368047952651978,
+            "raw_score_before_sqrt": 0.5368047952651978
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7009113570499781,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_normalized_centroid_distance": 0.29908864295002185,
+            "page_diagonal_px": 559.3299562869845
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.872211389462153,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7444227789243062,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.037936583161354065,
+              "base_score_before_penalty": 0.7470894455909729,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.9545224977043159,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.9350321395775941,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.0625
+              ],
+              [
+                14.0,
+                0.3125
+              ],
+              [
+                16.0,
+                0.5
+              ],
+              [
+                22.0,
+                0.0625
+              ],
+              [
+                24.0,
+                0.0625
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.045454545454545456
+              ],
+              [
+                16.0,
+                0.8636363636363636
+              ],
+              [
+                22.0,
+                0.045454545454545456
+              ],
+              [
+                26.0,
+                0.045454545454545456
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 24,
+            "candidate_tokens": 24,
+            "matched_tokens": 24,
+            "union_tokens": 24,
+            "reference_unique": 20,
+            "candidate_unique": 20
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 375,
+            "reference_scroll_width": 375,
+            "candidate_png_width": 375,
+            "reference_png_width": 375,
+            "effective_candidate_width": 375,
+            "effective_reference_width": 375,
+            "viewport_width": 375,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.9,
+          "extra": {
+            "reason": "The candidate is nearly identical to the reference, with only minor spacing differences \u2014 the section heading 'Breakfast' has slightly more top padding in the candidate, and the list items appear slightly more spaced out, but all content, colors, typography, and layout elements match faithfully.",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.3
+          }
+        },
+        "_structured": 0.8684818440928413,
+        "_overflow_factor": 1.0,
+        "_composite": 0.8684818440928413
+      },
+      "tablet": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.9414708265653097,
+          "extra": {
+            "reference_size": [
+              768,
+              1024
+            ],
+            "candidate_size": [
+              768,
+              1024
+            ],
+            "compared_size": [
+              768,
+              1024
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.6666463017463684,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_matched_iou": 0.444417268037796,
+            "raw_score_before_sqrt": 0.4444172978401184
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7075590254338842,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_normalized_centroid_distance": 0.2924409745661158,
+            "page_diagonal_px": 884.1199013708491
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8735210649371147,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7470421298742294,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.037543680518865585,
+              "base_score_before_penalty": 0.7497087965408961,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.8040028665028665,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.7200040950040949,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.0625
+              ],
+              [
+                15.0,
+                0.3125
+              ],
+              [
+                16.0,
+                0.5
+              ],
+              [
+                22.0,
+                0.0625
+              ],
+              [
+                28.0,
+                0.0625
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.045454545454545456
+              ],
+              [
+                16.0,
+                0.8636363636363636
+              ],
+              [
+                24.0,
+                0.045454545454545456
+              ],
+              [
+                30.0,
+                0.045454545454545456
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 24,
+            "candidate_tokens": 24,
+            "matched_tokens": 24,
+            "union_tokens": 24,
+            "reference_unique": 20,
+            "candidate_unique": 20
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 768,
+            "reference_scroll_width": 768,
+            "candidate_png_width": 768,
+            "reference_png_width": 768,
+            "effective_candidate_width": 768,
+            "effective_reference_width": 768,
+            "viewport_width": 768,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.85,
+          "extra": {
+            "reason": "The candidate closely matches the reference but has minor differences: the 'Daily Recipes' header font weight appears slightly bolder, the 'Breakfast' heading is slightly larger/bolder, list item spacing is slightly increased, and the overall background tone is marginally lighter/warmer, but all con",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 4.74
+          }
+        },
+        "_structured": 0.8502393734547323,
+        "_overflow_factor": 1.0,
+        "_composite": 0.85
+      }
+    },
+    "dinner": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.964639767685466,
+          "extra": {
+            "reference_size": [
+              1440,
+              900
+            ],
+            "candidate_size": [
+              1440,
+              900
+            ],
+            "compared_size": [
+              1440,
+              900
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.6422774791717529,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_matched_iou": 0.4125203490257263,
+            "raw_score_before_sqrt": 0.4125203490257263
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7112247703112141,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_normalized_centroid_distance": 0.2887752296887859,
+            "page_diagonal_px": 1149.2327875587262
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8734654091000557,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7469308182001113,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.03756037726998329,
+              "base_score_before_penalty": 0.749597484866778,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.8040028665028665,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.7200040950040949,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.0625
+              ],
+              [
+                15.0,
+                0.3125
+              ],
+              [
+                16.0,
+                0.5
+              ],
+              [
+                22.0,
+                0.0625
+              ],
+              [
+                28.0,
+                0.0625
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.045454545454545456
+              ],
+              [
+                16.0,
+                0.8636363636363636
+              ],
+              [
+                24.0,
+                0.045454545454545456
+              ],
+              [
+                30.0,
+                0.045454545454545456
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 26,
+            "candidate_tokens": 26,
+            "matched_tokens": 26,
+            "union_tokens": 26,
+            "reference_unique": 21,
+            "candidate_unique": 21
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.85,
+          "extra": {
+            "reason": "The candidate is nearly identical in structure and content, but has minor differences: the site title 'Daily Recipes' appears slightly bolder/larger in the candidate, the list item text color appears darker (less olive/muted) compared to the reference which shows colored text for food items like 'to",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.75
+          }
+        },
+        "_structured": 0.8504587802463385,
+        "_overflow_factor": 1.0,
+        "_composite": 0.85
+      },
+      "mobile": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.8836877560569897,
+          "extra": {
+            "reference_size": [
+              375,
+              812
+            ],
+            "candidate_size": [
+              375,
+              812
+            ],
+            "compared_size": [
+              375,
+              812
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.7326696515083313,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_matched_iou": 0.5368047952651978,
+            "raw_score_before_sqrt": 0.5368047952651978
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7009113570499781,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_normalized_centroid_distance": 0.29908864295002185,
+            "page_diagonal_px": 559.3299562869845
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.872211389462153,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7444227789243062,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.037936583161354065,
+              "base_score_before_penalty": 0.7470894455909729,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.9545224977043159,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.9350321395775941,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.0625
+              ],
+              [
+                14.0,
+                0.3125
+              ],
+              [
+                16.0,
+                0.5
+              ],
+              [
+                22.0,
+                0.0625
+              ],
+              [
+                24.0,
+                0.0625
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.045454545454545456
+              ],
+              [
+                16.0,
+                0.8636363636363636
+              ],
+              [
+                22.0,
+                0.045454545454545456
+              ],
+              [
+                26.0,
+                0.045454545454545456
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 26,
+            "candidate_tokens": 26,
+            "matched_tokens": 26,
+            "union_tokens": 26,
+            "reference_unique": 21,
+            "candidate_unique": 21
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 375,
+            "reference_scroll_width": 375,
+            "candidate_png_width": 375,
+            "reference_png_width": 375,
+            "effective_candidate_width": 375,
+            "effective_reference_width": 375,
+            "viewport_width": 375,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.9,
+          "extra": {
+            "reason": "The candidate faithfully reproduces all content and structure, with only minor spacing differences (slightly more vertical space between the header/nav and the Dinner heading in the candidate) that don't affect content fidelity.",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 2.6
+          }
+        },
+        "_structured": 0.869100443104495,
+        "_overflow_factor": 1.0,
+        "_composite": 0.869100443104495
+      },
+      "tablet": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.9436849506364284,
+          "extra": {
+            "reference_size": [
+              768,
+              1024
+            ],
+            "candidate_size": [
+              768,
+              1024
+            ],
+            "compared_size": [
+              768,
+              1024
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.6666463017463684,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_matched_iou": 0.444417268037796,
+            "raw_score_before_sqrt": 0.4444172978401184
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7075590254338842,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_normalized_centroid_distance": 0.2924409745661158,
+            "page_diagonal_px": 884.1199013708491
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8735210649371147,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7470421298742294,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.037543680518865585,
+              "base_score_before_penalty": 0.7497087965408961,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.8040028665028665,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.7200040950040949,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.0625
+              ],
+              [
+                15.0,
+                0.3125
+              ],
+              [
+                16.0,
+                0.5
+              ],
+              [
+                22.0,
+                0.0625
+              ],
+              [
+                28.0,
+                0.0625
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.045454545454545456
+              ],
+              [
+                16.0,
+                0.8636363636363636
+              ],
+              [
+                24.0,
+                0.045454545454545456
+              ],
+              [
+                30.0,
+                0.045454545454545456
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 26,
+            "candidate_tokens": 26,
+            "matched_tokens": 26,
+            "union_tokens": 26,
+            "reference_unique": 21,
+            "candidate_unique": 21
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 768,
+            "reference_scroll_width": 768,
+            "candidate_png_width": 768,
+            "reference_png_width": 768,
+            "effective_candidate_width": 768,
+            "effective_reference_width": 768,
+            "viewport_width": 768,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.85,
+          "extra": {
+            "reason": "The candidate closely matches the reference but the 'Daily Recipes' heading appears bold/heavier in the candidate while the reference uses a lighter weight, and there are minor spacing differences (extra vertical space before 'Dinner' heading and between list items), though all content, colors, and ",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.55
+          }
+        },
+        "_structured": 0.8506443961506687,
+        "_overflow_factor": 1.0,
+        "_composite": 0.85
+      }
+    },
+    "home": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.9581777047324289,
+          "extra": {
+            "reference_size": [
+              1440,
+              900
+            ],
+            "candidate_size": [
+              1440,
+              900
+            ],
+            "compared_size": [
+              1440,
+              900
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.6220938563346863,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_matched_iou": 0.38700076937675476,
+            "raw_score_before_sqrt": 0.38700076937675476
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6843063271848571,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_normalized_centroid_distance": 0.3156936728151429,
+            "page_diagonal_px": 1136.5298060323803
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8713356358011564,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7426712716023126,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.03819930925965309,
+              "base_score_before_penalty": 0.7453379382689793,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7803661616161616,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.6862373737373737,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.07142857142857142
+              ],
+              [
+                15.0,
+                0.35714285714285715
+              ],
+              [
+                16.0,
+                0.42857142857142855
+              ],
+              [
+                22.0,
+                0.07142857142857142
+              ],
+              [
+                28.0,
+                0.07142857142857142
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.05
+              ],
+              [
+                16.0,
+                0.85
+              ],
+              [
+                24.0,
+                0.05
+              ],
+              [
+                30.0,
+                0.05
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 32,
+            "candidate_tokens": 32,
+            "matched_tokens": 32,
+            "union_tokens": 32,
+            "reference_unique": 28,
+            "candidate_unique": 28
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.85,
+          "extra": {
+            "reason": "The candidate closely matches the reference but has minor differences: the header title 'Daily Recipes' appears slightly larger/bolder in the candidate, the nav links have slightly more spacing between them, and the overall vertical spacing is slightly increased, but all content, colors, and structu",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.41
+          }
+        },
+        "_structured": 0.8391076333369608,
+        "_overflow_factor": 1.0,
+        "_composite": 0.8391076333369608
+      },
+      "mobile": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.855134558931108,
+          "extra": {
+            "reference_size": [
+              375,
+              812
+            ],
+            "candidate_size": [
+              375,
+              812
+            ],
+            "compared_size": [
+              375,
+              812
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.7079153060913086,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_matched_iou": 0.5011441111564636,
+            "raw_score_before_sqrt": 0.5011441111564636
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.676672756680883,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_normalized_centroid_distance": 0.32332724331911705,
+            "page_diagonal_px": 551.9510847892229
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8709124800761541,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.741824960152308,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.03832625597715378,
+              "base_score_before_penalty": 0.7444916268189747,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.9483045977011493,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.9261494252873563,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.07142857142857142
+              ],
+              [
+                14.0,
+                0.35714285714285715
+              ],
+              [
+                16.0,
+                0.42857142857142855
+              ],
+              [
+                22.0,
+                0.07142857142857142
+              ],
+              [
+                24.0,
+                0.07142857142857142
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.05
+              ],
+              [
+                16.0,
+                0.85
+              ],
+              [
+                22.0,
+                0.05
+              ],
+              [
+                26.0,
+                0.05
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 32,
+            "candidate_tokens": 32,
+            "matched_tokens": 32,
+            "union_tokens": 32,
+            "reference_unique": 28,
+            "candidate_unique": 28
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 375,
+            "reference_scroll_width": 375,
+            "candidate_png_width": 375,
+            "reference_png_width": 375,
+            "effective_candidate_width": 375,
+            "effective_reference_width": 375,
+            "viewport_width": 375,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.9,
+          "extra": {
+            "reason": "The pages are nearly identical in content and layout, with only minor differences: the candidate's heading 'Daily Recipes' appears slightly bolder/larger in the main content area, and there are very subtle spacing differences, but all text content, navigation items, colors, and structure match faith",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.49
+          }
+        },
+        "_structured": 0.8554447717081758,
+        "_overflow_factor": 1.0,
+        "_composite": 0.8554447717081758
+      },
+      "tablet": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.9309828317362113,
+          "extra": {
+            "reference_size": [
+              768,
+              1024
+            ],
+            "candidate_size": [
+              768,
+              1024
+            ],
+            "compared_size": [
+              768,
+              1024
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.6453123092651367,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_matched_iou": 0.41642799973487854,
+            "raw_score_before_sqrt": 0.41642799973487854
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6802083586387347,
+          "extra": {
+            "reference_blocks": 14,
+            "candidate_blocks": 20,
+            "matched_pairs": 14,
+            "mean_normalized_centroid_distance": 0.31979164136126526,
+            "page_diagonal_px": 867.7787736514416
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8713833195169767,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7427666390339532,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.038185004144907,
+              "base_score_before_penalty": 0.7454333057006199,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7803661616161616,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.6862373737373737,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.07142857142857142
+              ],
+              [
+                15.0,
+                0.35714285714285715
+              ],
+              [
+                16.0,
+                0.42857142857142855
+              ],
+              [
+                22.0,
+                0.07142857142857142
+              ],
+              [
+                28.0,
+                0.07142857142857142
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.05
+              ],
+              [
+                16.0,
+                0.85
+              ],
+              [
+                24.0,
+                0.05
+              ],
+              [
+                30.0,
+                0.05
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 32,
+            "candidate_tokens": 32,
+            "matched_tokens": 32,
+            "union_tokens": 32,
+            "reference_unique": 28,
+            "candidate_unique": 28
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 768,
+            "reference_scroll_width": 768,
+            "candidate_png_width": 768,
+            "reference_png_width": 768,
+            "effective_candidate_width": 768,
+            "effective_reference_width": 768,
+            "viewport_width": 768,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.85,
+          "extra": {
+            "reason": "The candidate closely replicates the reference but shows minor differences: the heading 'Daily Recipes' appears slightly bolder/larger in the candidate, the nav links appear slightly darker (more brown vs the reference's golden-amber color), and the overall background has a very subtle hue differenc",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.02
+          }
+        },
+        "_structured": 0.837887465265523,
+        "_overflow_factor": 1.0,
+        "_composite": 0.837887465265523
+      }
+    },
+    "lunch": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.9650426246967881,
+          "extra": {
+            "reference_size": [
+              1440,
+              900
+            ],
+            "candidate_size": [
+              1440,
+              900
+            ],
+            "compared_size": [
+              1440,
+              900
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.6422774791717529,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_matched_iou": 0.4125203490257263,
+            "raw_score_before_sqrt": 0.4125203490257263
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7112247703112141,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_normalized_centroid_distance": 0.2887752296887859,
+            "page_diagonal_px": 1149.2327875587262
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8734654091000557,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7469308182001113,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.03756037726998329,
+              "base_score_before_penalty": 0.749597484866778,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.8040028665028665,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.7200040950040949,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.0625
+              ],
+              [
+                15.0,
+                0.3125
+              ],
+              [
+                16.0,
+                0.5
+              ],
+              [
+                22.0,
+                0.0625
+              ],
+              [
+                28.0,
+                0.0625
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.045454545454545456
+              ],
+              [
+                16.0,
+                0.8636363636363636
+              ],
+              [
+                24.0,
+                0.045454545454545456
+              ],
+              [
+                30.0,
+                0.045454545454545456
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 23,
+            "candidate_tokens": 23,
+            "matched_tokens": 23,
+            "union_tokens": 23,
+            "reference_unique": 19,
+            "candidate_unique": 19
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.85,
+          "extra": {
+            "reason": "The candidate faithfully reproduces all content and structure, but has minor differences: the title font weight appears slightly bolder/different in the candidate ('Daily Recipes' looks heavier), and there are small spacing/padding differences throughout (nav bar position, content margins), though n",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.56
+          }
+        },
+        "_structured": 0.8505324736020681,
+        "_overflow_factor": 1.0,
+        "_composite": 0.85
+      },
+      "mobile": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.8856041987586009,
+          "extra": {
+            "reference_size": [
+              375,
+              812
+            ],
+            "candidate_size": [
+              375,
+              812
+            ],
+            "compared_size": [
+              375,
+              812
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.7326696515083313,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_matched_iou": 0.5368047952651978,
+            "raw_score_before_sqrt": 0.5368047952651978
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7009113570499781,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_normalized_centroid_distance": 0.29908864295002185,
+            "page_diagonal_px": 559.3299562869845
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.872211389462153,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7444227789243062,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.037936583161354065,
+              "base_score_before_penalty": 0.7470894455909729,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.9545224977043159,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.9350321395775941,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.0625
+              ],
+              [
+                14.0,
+                0.3125
+              ],
+              [
+                16.0,
+                0.5
+              ],
+              [
+                22.0,
+                0.0625
+              ],
+              [
+                24.0,
+                0.0625
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.045454545454545456
+              ],
+              [
+                16.0,
+                0.8636363636363636
+              ],
+              [
+                22.0,
+                0.045454545454545456
+              ],
+              [
+                26.0,
+                0.045454545454545456
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 23,
+            "candidate_tokens": 23,
+            "matched_tokens": 23,
+            "union_tokens": 23,
+            "reference_unique": 19,
+            "candidate_unique": 19
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 375,
+            "reference_scroll_width": 375,
+            "candidate_png_width": 375,
+            "reference_png_width": 375,
+            "effective_candidate_width": 375,
+            "effective_reference_width": 375,
+            "viewport_width": 375,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.9,
+          "extra": {
+            "reason": "The candidate is nearly identical but the list items in the reference appear slightly smaller/more compact with less spacing between bullet points compared to the candidate, which shows slightly larger text and more spacing \u2014 a minor typography/spacing difference with no content errors.",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 7.88
+          }
+        },
+        "_structured": 0.8694510118913751,
+        "_overflow_factor": 1.0,
+        "_composite": 0.8694510118913751
+      },
+      "tablet": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.9441797422946584,
+          "extra": {
+            "reference_size": [
+              768,
+              1024
+            ],
+            "candidate_size": [
+              768,
+              1024
+            ],
+            "compared_size": [
+              768,
+              1024
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.6666463017463684,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_matched_iou": 0.444417268037796,
+            "raw_score_before_sqrt": 0.4444172978401184
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7075590254338842,
+          "extra": {
+            "reference_blocks": 16,
+            "candidate_blocks": 22,
+            "matched_pairs": 16,
+            "mean_normalized_centroid_distance": 0.2924409745661158,
+            "page_diagonal_px": 884.1199013708491
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8735210649371147,
+          "extra": {
+            "bg_score": 1.0,
+            "fg_score": 0.7470421298742294,
+            "bg": {
+              "empty": true
+            },
+            "fg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.037543680518865585,
+              "base_score_before_penalty": 0.7497087965408961,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.8040028665028665,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.7200040950040949,
+            "reference_buckets": [
+              "serif"
+            ],
+            "candidate_buckets": [
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.0625
+              ],
+              [
+                15.0,
+                0.3125
+              ],
+              [
+                16.0,
+                0.5
+              ],
+              [
+                22.0,
+                0.0625
+              ],
+              [
+                28.0,
+                0.0625
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                14.0,
+                0.045454545454545456
+              ],
+              [
+                16.0,
+                0.8636363636363636
+              ],
+              [
+                24.0,
+                0.045454545454545456
+              ],
+              [
+                30.0,
+                0.045454545454545456
+              ]
+            ],
+            "reference_fonts": [
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 1.0,
+          "extra": {
+            "reference_tokens": 23,
+            "candidate_tokens": 23,
+            "matched_tokens": 23,
+            "union_tokens": 23,
+            "reference_unique": 19,
+            "candidate_unique": 19
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 768,
+            "reference_scroll_width": 768,
+            "candidate_png_width": 768,
+            "reference_png_width": 768,
+            "effective_candidate_width": 768,
+            "effective_reference_width": 768,
+            "viewport_width": 768,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.9,
+          "extra": {
+            "reason": "The candidate is nearly identical but has slightly larger font sizes and increased spacing between list items compared to the reference, with minor alignment differences in the navigation and title positioning.",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 2.41
+          }
+        },
+        "_structured": 0.8507349068198571,
+        "_overflow_factor": 1.0,
+        "_composite": 0.8507349068198571
+      }
+    }
+  },
+  "per_page_harmonic": {
+    "about": 0.8418696709675345,
+    "breakfast": 0.8560725890937931,
+    "dinner": 0.8562728425468554,
+    "home": 0.8440712183596183,
+    "lunch": 0.8566347651098549
+  },
+  "metric_weights": {
+    "text": 0.2,
+    "ssim": 0.15,
+    "block_match": 0.15,
+    "palette": 0.12,
+    "typography": 0.1,
+    "position": 0.1,
+    "overflow": 0.0,
+    "vlm_judge": 0.0
+  },
+  "anticheat_multiplier": 1.0,
+  "anticheat_violations": 0,
+  "anticheat_counts": {},
+  "missing": [],
+  "reference_warnings": [],
+  "reward": 0.8509331246597718,
+  "viewport_widths": {
+    "desktop": 1440,
+    "tablet": 768,
+    "mobile": 375
+  },
+  "wall_clock_seconds": 44.439496755599976
+}
+--- grading/anticheat.json ---
+{
+  "penalty_multiplier": 1.0,
+  "violation_counts": {},
+  "violations": []
+}
+--- agent output files ---
+total 7
+drwxr-xr-x 1 root root  160 May 22 09:11 .
+drwxrwxrwx 1 root root  180 May 22 09:13 ..
+-rw-r--r-- 1 root root  996 May 22 09:11 about.html
+-rw-r--r-- 1 root root  957 May 22 09:11 breakfast.html
+-rw-r--r-- 1 root root  957 May 22 09:11 dinner.html
+-rw-r--r-- 1 root root  917 May 22 09:11 home.html
+-rw-r--r-- 1 root root  948 May 22 09:11 lunch.html
+-rw-r--r-- 1 root root 1603 May 22 09:11 styles.css
+
+--- egress summary (proxy log) ---
+      7  downloads.claude.ai:443
+      3  api.anthropic.com:443
+      2  archive.ubuntu.com:80
+      1  STARTUP
+      1  security.ubuntu.com:80
+      1  claude.ai:443

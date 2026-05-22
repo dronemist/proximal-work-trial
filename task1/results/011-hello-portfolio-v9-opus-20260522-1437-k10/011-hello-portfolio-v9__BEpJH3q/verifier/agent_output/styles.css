@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: #2b2b2b;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 30px 67px 0;
+}
+
+.site-header {
+  padding-top: 10px;
+}
+
+.site-title {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 24px;
+  color: #2b2b2b;
+  letter-spacing: 0.1px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.nav-list a {
+  color: #2b2b2b;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #e3e0d8;
+  margin: 0;
+  height: 0;
+}
+
+main {
+  padding: 38px 0 30px;
+}
+
+h1.page-title {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0 0 26px;
+  letter-spacing: 0.1px;
+  color: #2b2b2b;
+}
+
+main p {
+  margin: 0 0 14px;
+  font-size: 17px;
+  color: #2b2b2b;
+}
+
+main p:last-child {
+  margin-bottom: 0;
+}
+
+.item-list {
+  list-style: disc;
+  padding-left: 22px;
+  margin: 0;
+}
+
+.item-list li {
+  margin-bottom: 10px;
+  font-size: 17px;
+  color: #2b2b2b;
+  padding-left: 4px;
+}
+
+.item-list li:last-child {
+  margin-bottom: 0;
+}
+
+.site-footer {
+  padding: 22px 0 30px;
+  font-size: 14px;
+  color: #a8a39a;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 16px 0;
+  }
+  .site-header {
+    padding-top: 0;
+  }
+  .site-title {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+  .nav-list {
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .nav-list a {
+    font-size: 15px;
+  }
+  main {
+    padding: 28px 0 24px;
+  }
+  h1.page-title {
+    font-size: 26px;
+    margin-bottom: 22px;
+  }
+  main p,
+  .item-list li {
+    font-size: 16px;
+  }
+  .site-footer {
+    padding: 18px 0 30px;
+    font-size: 13px;
+  }
+}

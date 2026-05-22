@@ -1,0 +1,172 @@
+[grade] VLM judge: 15 pairs in 15.0s
+{
+  "per_page_viewport": {
+    "appointment-calendar": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.7326871447348822,
+          "extra": {
+            "reference_size": [
+              1440,
+              3443
+            ],
+            "candidate_size": [
+              1440,
+              2524
+            ],
+            "compared_size": [
+              1440,
+              2524
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.3764239251613617,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.14169497787952423,
+            "raw_score_before_sqrt": 0.14169496297836304
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8072524492549394,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.19274755074506053,
+            "page_diagonal_px": 3732.190745394689
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.6908841851183346,
+          "extra": {
+            "bg_score": 0.8401560444888614,
+            "fg_score": 0.5416123257478078,
+            "bg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 13,
+              "weighted_mean_oklab_distance": 0.017290879040956497,
+              "base_score_before_penalty": 0.88472747306029,
+              "over_color_penalty": 0.044571428571428574
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 14,
+              "weighted_mean_oklab_distance": 0.05635815113782883,
+              "base_score_before_penalty": 0.6242789924144745,
+              "over_color_penalty": 0.08266666666666668
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6641700312933656,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.7345286161333795,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.14308426073131955
+              ],
+              [
+                12.0,
+                0.383147853736089
+              ],
+              [
+                14.0,
+                0.43402225755166934
+              ],
+              [
+                20.0,
+                0.02702702702702703
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.09541984732824428
+              ],
+              [
+                11.0,
+                0.2900763358778626
+              ],
+              [
+                12.0,
+                0.20419847328244276
+              ],
+              [
+                13.0,
+                0.18893129770992367
+              ],
+              [
+                14.0,
+                0.1736641221374046
+              ],
+              [
+                15.0,
+                0.01717557251908397
+              ],
+              [
+                20.0,
+                0.013358778625954198
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6098964326812428,
+          "extra": {
+            "reference_tokens": 755,
+            "candidate_tokens": 644,
+            "matched_tokens": 530,
+            "union_tokens": 869,
+            "reference_unique": 325,
+            "candidate_unique": 320
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content differences: the candidate halluccinates different patient names/data throughout (e.g., Jordan Reyes shown as 'Annual physical Room 1' vs reference 'Telehealth Med refill Dr. Mossberg', Naomi Fontaine as 'Diabetes review Room 2 Waiting' vs 'Annual physical Room 2 NP Petr",
+            "mode

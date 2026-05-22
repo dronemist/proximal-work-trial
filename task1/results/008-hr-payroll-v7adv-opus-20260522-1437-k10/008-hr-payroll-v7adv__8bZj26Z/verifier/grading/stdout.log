@@ -1,0 +1,181 @@
+[grade] VLM judge: 15 pairs in 13.9s
+{
+  "per_page_viewport": {
+    "expenses": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6391735474081203,
+          "extra": {
+            "reference_size": [
+              1440,
+              2539
+            ],
+            "candidate_size": [
+              1440,
+              1860
+            ],
+            "compared_size": [
+              1440,
+              1860
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.40843719244003296,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.16682091355323792,
+            "raw_score_before_sqrt": 0.1668209284543991
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8243678237735355,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.1756321762264645,
+            "page_diagonal_px": 2919.8352911075763
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.40182744058594105,
+          "extra": {
+            "bg_score": 0.8036548811718821,
+            "fg_score": 0.0,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 14,
+              "weighted_mean_oklab_distance": 0.003051767824217677,
+              "base_score_before_penalty": 0.9796548811718822,
+              "over_color_penalty": 0.17600000000000002
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 10,
+              "weighted_mean_oklab_distance": 0.17742080986499786,
+              "base_score_before_penalty": 0.0,
+              "over_color_penalty": 0.029333333333333336
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7609549406160051,
+          "extra": {
+            "bucket_score": 0.3333333333333333,
+            "size_score": 0.9442213437371502,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.012962962962962963
+              ],
+              [
+                11.0,
+                0.09814814814814815
+              ],
+              [
+                12.0,
+                0.1814814814814815
+              ],
+              [
+                13.0,
+                0.3814814814814815
+              ],
+              [
+                13.3,
+                0.016666666666666666
+              ],
+              [
+                16.0,
+                0.26851851851851855
+              ],
+              [
+                18.0,
+                0.016666666666666666
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.04708520179372197
+              ],
+              [
+                10.5,
+                0.03139013452914798
+              ],
+              [
+                11.0,
+                0.3094170403587444
+              ],
+              [
+                12.0,
+                0.1591928251121076
+              ],
+              [
+                12.5,
+                0.21076233183856502
+              ],
+              [
+                13.0,
+                0.21524663677130046
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6986754966887417,
+          "extra": {
+            "reference_tokens": 545,
+            "candidate_tokens": 481,
+            "matched_tokens": 422,
+            "union_tokens": 604,
+            "reference_unique": 278,
+            "candidate_unique": 267
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content differences: the candidate shows different expense line item amounts (e.g., Lufthan

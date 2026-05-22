@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Live Orders — Forge Foundry</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topnav">
+  <div class="shell topnav-inner">
+    <div class="brand"><span class="brand-mark"></span><span>Forge Foundry</span></div>
+    <nav class="nav-links">
+      <a href="live-orders.html" class="active">Live Orders</a>
+      <a href="sales-reports.html">Sales Reports</a>
+      <a href="discounts.html">Promotions</a>
+      <a href="staff-schedule.html">Staff Schedule</a>
+      <a href="reservations.html">Reservations</a>
+    </nav>
+    <div class="nav-utility"><span class="dot"></span>FY26 · OPEN</div>
+  </div>
+</header>
+
+<main class="shell">
+
+  <section class="page-head">
+    <div class="crumbs">Service <span class="sep">/</span> Friday 19:42 <span class="sep">/</span> <span class="here">Live Orders</span></div>
+    <h1 class="hero-title">Live orders, grouped by station load.</h1>
+    <p class="hero-sub">Twelve active tickets across the line. Garde manager is clear, grill is your bottleneck — three tickets sitting past target. Recall, void, and fire next controls remain available on every ticket until bumped.</p>
+    <div class="hero-meta">
+      <span>Shift <b>1 of 1</b></span>
+      <span>Expo <b>K. Aldonza</b></span>
+      <span>Avg. ticket <b>12:14</b></span>
+      <span>Past target <b>3</b></span>
+      <span>Last fire <b>19:38</b></span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid cols-4">
+      <div class="kpi"><div class="label">Open Tickets</div><div class="value">12</div><div class="meta">+2 vs. 30 min ago</div></div>
+      <div class="kpi"><div class="label">Avg. Ticket Time</div><div class="value">12:14</div><div class="delta">target 12:00</div></div>
+      <div class="kpi"><div class="label">Past Target</div><div class="value">3</div><div class="delta down">grill backing up</div></div>
+      <div class="kpi"><div class="label">Ready to Run</div><div class="value">2</div><div class="meta">expo holding</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">Active service board</h2>
+      <span class="section-meta">12 tickets · auto-refresh every 4s</span>
+    </div>
+
+    <div class="toolbar">
+      <div class="group">
+        <button class="active">All</button>
+        <button>Dine-in</button>
+        <button>Pickup</button>
+        <button>Delivery</button>
+      </div>
+      <div class="group">
+        <button class="active">Stations</button>
+        <button>Servers</button>
+      </div>
+      <div class="spacer"></div>
+      <button class="btn ghost">Fire next</button>
+      <button class="btn primary">Recall</button>
+    </div>
+
+    <div class="board">
+
+      <div class="board-col">
+        <div class="board-head"><b>▶ New / Fired</b><span class="muted">5 active</span></div>
+
+        <div class="ticket">
+          <div class="t-head"><span><b>#024</b> · Dine-in T6</span><span class="tag pink">Just fired</span></div>
+          <div class="t-title">Burrata, stone fruit, basil oil</div>
+          <ul class="t-items">
+            <li><span>Charred octopus</span><span>×1</span></li>
+            <li><span>House sourdough, cultured butter</span><span>×2</span></li>
+          </ul>
+          <div class="t-foot"><span>Fire 19:36</span><span>3:14</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="t-head"><span><b>#025</b> · Dine-in T2</span><span class="tag">In fire</span></div>
+          <div class="t-title">Negroni, Campari swap</div>
+          <ul class="t-items">
+            <li><span>Anchovy toast</span><span>×1</span></li>
+            <li><span>Olives, fennel salt</span><span>×1</span></li>
+          </ul>
+          <div class="t-foot"><span>Fire 19:34</span><span>5:21</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="t-head"><span><b>#026</b> · Pickup</span><span class="tag">Pickup</span></div>
+          <div class="t-title">Bucatini cacio e pepe</div>
+          <ul class="t-items">
+            <li><span>Roasted half chicken</span><span>×1</span></li>
+            <li><span>Tiramisu</span><span>×1</span></li>
+          </ul>
+          <div class="t-foot"><span>Fire 19:31</span><span>8:11</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="t-head"><span><b>#023</b> · Dine-in T11</span><span class="tag amber">Past target</span></div>
+          <div class="t-title">Endive, anchovy, sieved egg</div>
+          <ul class="t-items">
+            <li><span>Foie morsels</span><span>×1</span></li>
+            <li><span>Roasted half chicken</span><span>×1</span></li>
+          </ul>
+          <div class="t-foot"><span>Fire 19:24</span><span>15:01</span></div>
+        </div>
+
+      </div>
+
+      <div class="board-col">
+        <div class="board-head"><b>▶ Cooking</b><span class="muted">5 on station</span></div>
+
+        <div class="ticket">
+          <div class="t-head"><span><b>#022</b> · Dine-in T9</span><span class="tag pink">Past target</span></div>
+          <div class="t-title">Dry-aged ribeye, 48h</div>
+          <ul class="t-items">
+            <li><span>Bone marrow, sourdough crisps</span><span>×1</span></li>
+            <li><span>Duvet-side mesclum</span><span>×1</span></li>
+          </ul>
+          <div class="t-foot"><span>Fire 19:18</span><span>12:54</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="t-head"><span><b>#021</b> · Dine-in T7</span><span class="tag">Cooking</span></div>
+          <div class="t-title">Lamb shoulder, two day</div>
+          <ul class="t-items">
+            <li><span>Black cod, miso glaze</span><span>×1</span></li>
+            <li><span>Roast brassicas, brown butter</span><span>×1</span></li>
+          </ul>
+          <div class="t-foot"><span>Fire 19:14</span><span>11:16</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="t-head"><span><b>#020</b> · Dine-in T4</span><span class="tag">Cooking</span></div>
+          <div class="t-title">Tasting menu · 5 course</div>
+          <ul class="t-items">
+            <li><span>Course 3 of 5 · plate, 8 min</span><span>×2</span></li>
+            <li><span>Wine pour at the pass</span><span>×2</span></li>
+          </ul>
+          <div class="t-foot"><span>Fire 19:02</span><span>22:48</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="t-head"><span><b>#027</b> · Dine-in T1</span><span class="tag">Cooking</span></div>
+          <div class="t-title">Mushroom risotto</div>
+          <ul class="t-items">
+            <li><span>Margherita verde</span><span>×1</span></li>
+            <li><span>Mortadella, pistachio pizza</span><span>×1</span></li>
+            <li><span>Arancini, three</span><span>×1</span></li>
+          </ul>
+          <div class="t-foot"><span>Fire 19:08</span><span>8:42</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="t-head"><span><b>#028</b> · Delivery</span><span class="tag">Delivery</span></div>
+          <div class="t-title">Hand-cut taglierini, bolognese</div>
+          <ul class="t-items">
+            <li><span>Bouillabaisse for two</span><span>×1</span></li>
+            <li><span>Frites, aioli</span><span>×1</span></li>
+          </ul>
+          <div class="t-foot"><span>Fire 18:58</span><span>Squarx · delayed</span></div>
+        </div>
+
+      </div>
+
+      <div class="board-col">
+        <div class="board-head"><b>▶ Ready / Expo</b><span class="muted">2 ready</span></div>
+
+        <div class="ticket">
+          <div class="t-head"><span><b>#018</b> · Pickup</span><span class="tag green">Ready</span></div>
+          <div class="t-title">Heritage pork chop, 16oz</div>
+          <ul class="t-items">
+            <li><span>Trout amandine</span><span>×1</span></li>
+            <li><span>Glazed carrots, dukkah</span><span>×1</span></li>
+          </ul>
+          <div class="t-foot"><span>Plated 19:39</span><span>Hold 1:32</span></div>
+        </div>
+
+        <div class="ticket">
+          <div class="t-head"><span><b>#019</b> · Dine-in T8</span><span class="tag green">Ready</span></div>
+          <div class="t-title">Family pasta box (4)</div>
+          <ul class="t-items">
+            <li><span>Caesar, white anchovy</span><span>×1</span></li>
+            <li><span>Olive oil cake</span><span>×1</span></li>
+          </ul>
+          <div class="t-foot"><span>Plated 19:38</span><span>Runner assigned</span></div>
+        </div>
+
+        <div class="ticket" style="background:transparent; border:1px dashed var(--border);">
+          <div class="t-head"><span class="muted">Expo window clear after these two.</span></div>
+          <div class="muted" style="font-size:11px; margin-top:8px;">Next plate fires from #022. Garde holding cold pass.</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">Station load</h2>
+      <span class="section-meta">Target: keep stations under 75% sustained</span>
+    </div>
+    <div class="grid cols-4">
+      <div class="kpi">
+        <div class="flex between"><div class="label">Grill</div><span class="tag pink">Backed up</span></div>
+        <div class="value">92%</div>
+        <div class="bar mt-12"><span style="width:92%;"></span></div>
+        <div class="muted mt-8" style="font-size:11px;">5 active · M. Castro</div>
+      </div>
+      <div class="kpi">
+        <div class="flex between"><div class="label">Pasta</div><span class="tag">Steady</span></div>
+        <div class="value">64%</div>
+        <div class="bar mt-12"><span style="width:64%;"></span></div>
+        <div class="muted mt-8" style="font-size:11px;">4 active · J. Bell</div>
+      </div>
+      <div class="kpi">
+        <div class="flex between"><div class="label">Wood Oven</div><span class="tag">Steady</span></div>
+        <div class="value">48%</div>
+        <div class="bar mt-12"><span style="width:48%;"></span></div>
+        <div class="muted mt-8" style="font-size:11px;">2 active · R. Vance</div>
+      </div>
+      <div class="kpi">
+        <div class="flex between"><div class="label">Garde Manger</div><span class="tag green">Clear</span></div>
+        <div class="value">22%</div>
+        <div class="bar mt-12"><span style="width:22%;"></span></div>
+        <div class="muted mt-8" style="font-size:11px;">1 active · E. Roux</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">All tickets · service log</h2>
+      <span class="section-meta">Sorted by fire time · descending</span>
+    </div>
+
+    <div class="toolbar">
+      <select><option>All tickets</option></select>
+      <select><option>All servers</option></select>
+      <div class="spacer"></div>
+      <button class="btn ghost">Export CSV</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr>
+          <th>Ticket</th><th>Channel</th><th>Table / Dest</th><th>Server</th><th>Station</th><th>Fired</th><th>Elapsed</th><th class="num">Total</th><th>Status</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>#028</td><td>Dine-in</td><td>—</td><td>K. Aldonza</td><td>Garde manger</td><td>19:36</td><td>4:18</td><td class="num">$118.40</td><td><span class="tag pink">Live</span></td></tr>
+          <tr><td>#027</td><td>Pickup</td><td>—</td><td>Stations</td><td>Pasta</td><td>19:34</td><td>6:11</td><td class="num">$84.20</td><td><span class="tag pink">Live</span></td></tr>
+          <tr><td>#026</td><td>Dine-in</td><td>Bar 6</td><td>J. Park</td><td>Pasta</td><td>19:31</td><td>8:24</td><td class="num">$62.10</td><td><span class="tag pink">Live</span></td></tr>
+          <tr><td>#025</td><td>Dine-in</td><td>T2</td><td>K. Aldonza</td><td>Garde manger</td><td>19:30</td><td>10:02</td><td class="num">$44.00</td><td><span class="tag pink">Live</span></td></tr>
+          <tr><td>#024</td><td>Dine-in</td><td>T6</td><td>K. Aldonza</td><td>Wood oven</td><td>19:24</td><td>14:46</td><td class="num">$208.50</td><td><span class="tag amber">Past target</span></td></tr>
+          <tr><td>#023</td><td>Dine-in</td><td>T11</td><td>M. Suter</td><td>Grill</td><td>19:22</td><td>15:01</td><td class="num">$192.00</td><td><span class="tag amber">Past target</span></td></tr>
+          <tr><td>#022</td><td>Dine-in</td><td>T9</td><td>L. Tribi</td><td>Grill</td><td>19:18</td><td>16:48</td><td class="num">$268.20</td><td><span class="tag pink">Past target</span></td></tr>
+          <tr><td>#021</td><td>Dine-in</td><td>T7</td><td>M. Suter</td><td>Grill</td><td>19:14</td><td>12:16</td><td class="num">$144.40</td><td><span class="tag">Cooking</span></td></tr>
+          <tr><td>#020</td><td>Dine-in</td><td>T4</td><td>K. Aldonza</td><td>Tasting</td><td>19:02</td><td>23:48</td><td class="num">$610.00</td><td><span class="tag">Tasting</span></td></tr>
+          <tr><td>#019</td><td>Dine-in</td><td>T8</td><td>J. Park</td><td>Pasta</td><td>18:58</td><td>22:32</td><td class="num">$132.40</td><td><span class="tag green">Ready</span></td></tr>
+          <tr><td>#018</td><td>Pickup</td><td>—</td><td>Stations</td><td>Grill</td><td>18:54</td><td>26:11</td><td class="num">$98.50</td><td><span class="tag green">Ready</span></td></tr>
+          <tr><td>#017</td><td>Delivery</td><td>—</td><td>—</td><td>Pasta</td><td>18:46</td><td>34:12</td><td class="num">$72.00</td><td><span class="tag">Out</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flex between mt-16 wrap gap-12">
+      <span class="muted" style="font-size:12px;">Showing 12 of 38 tickets · today</span>
+      <div class="pagination"><span>‹</span><span class="current">1</span><span>2</span><span>3</span><span>4</span><span>›</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="eyebrow">86-list &amp; service notes</div>
+        <h3 class="card-title mt-8">Out for service</h3>
+        <ul class="card-list">
+          <li>Foie gras torchon</li>
+          <li>Burrata — 4 portions remaining</li>
+          <li>Heritage pork chop — 6 remaining</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Allergy &amp; service flags</div>
+        <h3 class="card-title mt-8">Active flags</h3>
+        <ul class="card-list">
+          <li><b>T07</b> · Severe shellfish allergy on seat 2</li>
+          <li><b>T11</b> · Birthday at dessert · candle in tiramisu, no song</li>
+          <li><b>T04</b> · Tasting menu allergen check at course 4</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2026 Forge Foundry Systems</span>
+      <div class="footer-links">
+        <a>Live Orders</a><a>Sales Reports</a><a>Promotions</a><a>Staff Schedule</a><a>Reservations</a>
+      </div>
+      <span>v3.4 · Build 9281</span>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>

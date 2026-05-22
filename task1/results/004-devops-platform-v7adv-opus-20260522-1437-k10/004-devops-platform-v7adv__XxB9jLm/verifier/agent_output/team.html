@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="brand"><span class="brand-mark"></span>Beacon Harbor Works</div>
+    <nav class="primary-nav">
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html" class="active">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+    <div class="user-chip"><span class="avatar avatar-color-1"></span> Mara R.</div>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <div class="breadcrumb"><a href="#">Home</a><span class="sep">/</span><span class="crumb-active">Team</span></div>
+
+  <div class="layout">
+    <div class="main-col">
+
+      <section>
+        <div class="eyebrow">Crew manifest · pier 4</div>
+        <h1>Team &amp; On-Call</h1>
+        <div class="page-intro">
+          <p>Eleven engineers across three time zones. Rotations run Monday 09:00 UTC to the following Monday. Secondary covers when primary is heads-down or sleeping.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn primary">Invite engineer</button>
+          <button class="btn">Edit rotation</button>
+          <button class="btn">Export manifest</button>
+        </div>
+      </section>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-label">Members</div>
+          <div class="stat-value">11</div>
+          <div class="stat-sub">8 senior · 3 staff</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">On-Call · Now</div>
+          <div class="stat-value">2</div>
+          <div class="stat-sub">primary + secondary</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Time Zones</div>
+          <div class="stat-value">3</div>
+          <div class="stat-sub">UTC, BST, JST</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">MTTA · 24h</div>
+          <div class="stat-value">04m</div>
+          <div class="stat-sub">+8s vs prior week</div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active">Directory</div>
+        <div class="tab">On-call rotation</div>
+        <div class="tab">Groups</div>
+        <div class="tab">Permissions</div>
+        <div class="tab">Audit log</div>
+      </div>
+
+      <div class="card">
+        <div class="section-head">
+          <h3 style="font-family:Georgia,serif; font-size:18px;">Directory</h3>
+          <span class="small muted">Showing 8/11</span>
+        </div>
+        <div class="search-row">
+          <input class="input flex-1" type="text" placeholder="Search by name, handle, repo…">
+          <select class="select"><option>All roles</option></select>
+          <select class="select"><option>Any status</option></select>
+          <button class="btn">Filters</button>
+        </div>
+
+        <div class="team-grid">
+
+          <div class="team-card">
+            <div class="tc-head">
+              <span class="avatar lg avatar-color-1"></span>
+              <div>
+                <div class="tc-name">Elin Halvorsen</div>
+                <div class="tc-role">Platform Lead · Oslo</div>
+                <div class="tc-badges mt-4"><span class="badge production">ON-CALL · PRIMARY</span></div>
+              </div>
+            </div>
+            <div class="tc-meta">
+              <span class="lbl">Handle</span><span class="mono">@elin</span>
+              <span class="lbl">Repos</span><span>harbor-api, signal-worker</span>
+              <span class="lbl">Tz</span><span>UTC+01</span>
+              <span class="lbl">Last seen</span><span class="muted">2m ago</span>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <div class="tc-head">
+              <span class="avatar lg avatar-color-2"></span>
+              <div>
+                <div class="tc-name">Devin Park</div>
+                <div class="tc-role">Senior SRE · Brooklyn</div>
+                <div class="tc-badges mt-4"><span class="badge ack">ON-CALL · SECONDARY</span></div>
+              </div>
+            </div>
+            <div class="tc-meta">
+              <span class="lbl">Handle</span><span class="mono">@dpark</span>
+              <span class="lbl">Repos</span><span>infra-tf, runbook-os</span>
+              <span class="lbl">Tz</span><span>UTC−05</span>
+              <span class="lbl">Last seen</span><span class="muted">14m ago</span>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <div class="tc-head">
+              <span class="avatar lg avatar-color-3"></span>
+              <div>
+                <div class="tc-name">Mara Reyes</div>
+                <div class="tc-role">Engineering Manager · Lisbon</div>
+                <div class="tc-badges mt-4"><span class="badge muted">RUNBOOK STEWARD</span></div>
+              </div>
+            </div>
+            <div class="tc-meta">
+              <span class="lbl">Handle</span><span class="mono">@mara</span>
+              <span class="lbl">Groups</span><span>platform, ops</span>
+              <span class="lbl">Tz</span><span>UTC+00</span>
+              <span class="lbl">Last seen</span><span class="muted">1h ago</span>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <div class="tc-head">
+              <span class="avatar lg avatar-color-4"></span>
+              <div>
+                <div class="tc-name">Jonas Kemper</div>
+                <div class="tc-role">Staff Engineer · Berlin</div>
+                <div class="tc-badges mt-4"><span class="badge muted">RELEASE LEAD</span></div>
+              </div>
+            </div>
+            <div class="tc-meta">
+              <span class="lbl">Handle</span><span class="mono">@jonas</span>
+              <span class="lbl">Repos</span><span>harbor-web, drydock-docs</span>
+              <span class="lbl">Tz</span><span>UTC+01</span>
+              <span class="lbl">Last seen</span><span class="muted">5m ago</span>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <div class="tc-head">
+              <span class="avatar lg avatar-color-5"></span>
+              <div>
+                <div class="tc-name">Saoirse O'Brien</div>
+                <div class="tc-role">Backend Engineer · Dublin</div>
+                <div class="tc-badges mt-4"><span class="badge ok">DEPLOY APPROVER</span></div>
+              </div>
+            </div>
+            <div class="tc-meta">
+              <span class="lbl">Handle</span><span class="mono">@saoirse</span>
+              <span class="lbl">Repos</span><span>ledger-svc</span>
+              <span class="lbl">Tz</span><span>UTC+00</span>
+              <span class="lbl">Last seen</span><span class="muted">8m ago</span>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <div class="tc-head">
+              <span class="avatar lg avatar-color-6"></span>
+              <div>
+                <div class="tc-name">Tomas Aalto</div>
+                <div class="tc-role">Frontend Engineer · Helsinki</div>
+                <div class="tc-badges mt-4"><span class="badge muted">DESIGN OPS REVIEW</span></div>
+              </div>
+            </div>
+            <div class="tc-meta">
+              <span class="lbl">Handle</span><span class="mono">@tomas</span>
+              <span class="lbl">Repos</span><span>harbor-web, dockside-web</span>
+              <span class="lbl">Tz</span><span>UTC+02</span>
+              <span class="lbl">Last seen</span><span class="muted">30m ago</span>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <div class="tc-head">
+              <span class="avatar lg avatar-color-7"></span>
+              <div>
+                <div class="tc-name">Renata Novak</div>
+                <div class="tc-role">Infrastructure · Ljubljana</div>
+                <div class="tc-badges mt-4"><span class="badge muted">SECRETS ADMIN</span> <span class="badge muted">DB OWNER</span></div>
+              </div>
+            </div>
+            <div class="tc-meta">
+              <span class="lbl">Handle</span><span class="mono">@renata</span>
+              <span class="lbl">Repos</span><span>infra-tf, vault-config</span>
+              <span class="lbl">Tz</span><span>UTC+01</span>
+              <span class="lbl">Last seen</span><span class="muted">12m ago</span>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <div class="tc-head">
+              <span class="avatar lg avatar-color-1"></span>
+              <div>
+                <div class="tc-name">Cyrus Yates</div>
+                <div class="tc-role">Designer · Toronto</div>
+                <div class="tc-badges mt-4"><span class="badge muted">DESIGN SYSTEM</span></div>
+              </div>
+            </div>
+            <div class="tc-meta">
+              <span class="lbl">Handle</span><span class="mono">@cyrus</span>
+              <span class="lbl">Repos</span><span>harbor-web, design-cfg</span>
+              <span class="lbl">Tz</span><span>UTC−04</span>
+              <span class="lbl">Last seen</span><span class="muted">22m ago</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pagination">
+          <div class="pages">
+            <span class="current">1</span>
+            <a href="#">2</a>
+          </div>
+          <span class="muted">Showing 8 of 11 members</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Schedule · weeks 13–14</div>
+            <h3 style="font-family:Georgia,serif; font-size:18px;">On-call rotation</h3>
+          </div>
+        </div>
+        <p class="small muted">Primary takes page. Secondary takes over on ack or expired handoff. Tertiary is engaged only for SEV-1 outages.</p>
+
+        <div class="oncall-cal mt-12">
+          <div class="cal-head">
+            <div>
+              <div class="eyebrow">Week 13/14 · view 23–29</div>
+              <div class="bold">November 04 – 10</div>
+            </div>
+            <div class="small muted">Eight-hour shifts. Hand-offs at 00:00, 08:00, 16:00.</div>
+          </div>
+          <div class="calendar">
+            <div class="cell head">M</div><div class="cell head">T</div><div class="cell head">W</div><div class="cell head">T</div><div class="cell head">F</div><div class="cell head">S</div><div class="cell head">S</div>
+            <div class="cell s3 today">4</div>
+            <div class="cell s2">5</div>
+            <div class="cell s4">6</div>
+            <div class="cell s2">7</div>
+            <div class="cell s3">8</div>
+            <div class="cell s1">9</div>
+            <div class="cell s1">10</div>
+          </div>
+          <div class="legend mt-8">
+            <span class="li"><span class="sw" style="background:#3f7a4c"></span>Primary</span>
+            <span class="li"><span class="sw" style="background:#95b599"></span>Secondary</span>
+            <span class="li"><span class="sw" style="background:#c8d4c8"></span>Off-rotation</span>
+            <span class="muted">Hand-offs auto-logged at 15 minutes prior</span>
+          </div>
+        </div>
+
+        <table class="data-table mt-12">
+          <thead>
+            <tr><th>Shift</th><th>Engineer</th><th>Role</th><th>Starts</th><th>Ends</th><th>Pages · 24h</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Now</td><td><span class="avatar xs avatar-color-1"></span> Elin Halvorsen</td><td>Primary</td><td>Mon 00:00</td><td>Mon 16:00</td><td>3</td><td><span class="badge ok">Active</span></td></tr>
+            <tr><td>Now</td><td><span class="avatar xs avatar-color-2"></span> Devin Park</td><td>Secondary</td><td>Mon 00:00</td><td>Mon 16:00</td><td>1</td><td><span class="badge ack">Standby</span></td></tr>
+            <tr><td>Next</td><td><span class="avatar xs avatar-color-5"></span> Saoirse O'Brien</td><td>Primary</td><td>Mon 16:00</td><td>Tue 00:00</td><td>0</td><td><span class="badge muted">Queued</span></td></tr>
+            <tr><td>Next</td><td><span class="avatar xs avatar-color-4"></span> Jonas Kemper</td><td>Secondary</td><td>Mon 16:00</td><td>Tue 00:00</td><td>—</td><td><span class="badge muted">Queued</span></td></tr>
+            <tr><td>Next</td><td><span class="avatar xs avatar-color-7"></span> Renata Novak</td><td>Primary (overnight)</td><td>Tue 00:00</td><td>Tue 08:00</td><td>—</td><td><span class="badge muted">Queued</span></td></tr>
+            <tr><td>—</td><td><span class="avatar xs avatar-color-6"></span> Tomas Aalto</td><td>Off-rotation</td><td>—</td><td>—</td><td>—</td><td><span class="badge critical">PTO</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <aside class="side-col">
+
+      <div class="side-card">
+        <h3>On watch</h3>
+        <div class="small muted mb-8">Pager holders</div>
+        <div class="people-list">
+          <div class="person"><span class="avatar avatar-color-1"></span><div><div class="person-name">Elin Halvorsen</div><div class="person-sub">Primary · until 16:00 UTC</div></div></div>
+          <div class="person"><span class="avatar avatar-color-2"></span><div><div class="person-name">Devin Park</div><div class="person-sub">Secondary</div></div></div>
+          <div class="person"><span class="avatar avatar-color-3"></span><div><div class="person-name">Mara Reyes</div><div class="person-sub">Escalation</div></div></div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Teammates online</h3>
+        <div class="small muted mb-8">Active now</div>
+        <div class="people-list">
+          <div class="person"><span class="avatar avatar-color-5"></span><div><div class="person-name">Saoirse O'Brien</div><div class="person-sub">Reviewing PR #2,284</div></div></div>
+          <div class="person"><span class="avatar avatar-color-7"></span><div><div class="person-name">Renata Novak</div><div class="person-sub">Cleaning up vault-config</div></div></div>
+          <div class="person"><span class="avatar avatar-color-1"></span><div><div class="person-name">Cyrus Yates</div><div class="person-sub">Pairing with Tomas</div></div></div>
+          <div class="person"><span class="avatar avatar-color-4"></span><div><div class="person-name">Jonas Kemper</div><div class="person-sub">Release prep</div></div></div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Trending repos</h3>
+        <div class="small muted mb-8">This week</div>
+        <div class="row-list">
+          <div class="flex between"><span class="mono small">harbor-api</span><span class="small muted">82×</span></div>
+          <div class="flex between"><span class="mono small">harbor-web</span><span class="small muted">71×</span></div>
+          <div class="flex between"><span class="mono small">signal-worker</span><span class="small muted">44×</span></div>
+          <div class="flex between"><span class="mono small">cargo-worker</span><span class="small muted">31×</span></div>
+          <div class="flex between"><span class="mono small">manifest-cfg</span><span class="small muted">18×</span></div>
+          <div class="flex between"><span class="mono small">lighthouse-nfg</span><span class="small muted">11×</span></div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Quick rooms</h3>
+        <div class="shortcut-list">
+          <a href="#">Open active alerts (3)</a>
+          <a href="#">Lock production deploys</a>
+          <a href="#">Add deployment</a>
+          <a href="#">Runbook · API rotating</a>
+          <a href="#">Status page editor</a>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Crew gigs</h3>
+        <p class="small muted">No setups covers Saturday 03:00 in week 49. Consider rotating Saoirse forward, or paging Mara on escalation.</p>
+      </div>
+
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span>© 2026 Beacon Harbor Works · 11 hands aboard.</span>
+    <nav class="footer-nav">
+      <a href="#">Status</a>
+      <a href="#">Handbook</a>
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

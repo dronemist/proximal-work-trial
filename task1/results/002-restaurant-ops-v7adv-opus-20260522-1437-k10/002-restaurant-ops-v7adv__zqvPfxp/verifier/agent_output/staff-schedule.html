@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Staff Schedule — Forge Foundry</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand"><span class="brand-mark"></span> Forge Foundry</div>
+  <nav class="nav-links">
+    <a href="live-orders.html">Live Orders</a>
+    <a href="sales-reports.html">Sales Reports</a>
+    <a href="discounts.html">Promotions</a>
+    <a href="staff-schedule.html" class="active">Staff Schedule</a>
+    <a href="reservations.html">Reservations</a>
+  </nav>
+  <div class="nav-right">
+    <span class="net">WK 41 · draft</span>
+    <span class="dot"></span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="crumbs">Staff schedule <span class="sep">/</span> <strong>Week 41</strong></div>
+    <h1 class="title">Schedule the floor without leaving the line.</h1>
+    <p class="subtitle">Draft, publish, and reconcile weekly shifts against forecast covers and labor targets. Conflicts, overtime exposure, and minor-hour violations surface inline before the schedule reaches a single phone.</p>
+    <div class="hero-meta">
+      <span class="chip">PUBLISHED · MON 09:00 PT</span><span class="sep">·</span>
+      <span class="chip">OCT 07 – OCT 13</span><span class="sep">·</span>
+      <span class="chip">NEXT AUTO-PUBLISH · SUN 21:00 PT</span><span class="sep">·</span>
+      <span class="chip">VERSION 8.3.41</span>
+    </div>
+    <div class="flex gap-8 mt-16" style="flex-wrap:wrap;">
+      <button class="btn primary">Open week to grid</button>
+      <button class="btn">Compare staffing plans</button>
+      <button class="btn ghost">Export to payroll</button>
+    </div>
+  </section>
+
+  <!-- KPI bar -->
+  <section class="section stats">
+    <div class="stat">
+      <div class="label">Scheduled hours</div>
+      <div class="value tn">412.5</div>
+      <div class="delta">−16.4 hr vs. WK target</div>
+    </div>
+    <div class="stat">
+      <div class="label">Labor % of revenue</div>
+      <div class="value tn">27.8%</div>
+      <div class="delta up">−0.4pp vs. plan</div>
+    </div>
+    <div class="stat">
+      <div class="label">Open shifts</div>
+      <div class="value tn">3</div>
+      <div class="delta">1 sauté · 1 host</div>
+    </div>
+    <div class="stat">
+      <div class="label">OT exposure</div>
+      <div class="value tn">6.25h</div>
+      <div class="delta down">2 employees</div>
+    </div>
+  </section>
+
+  <!-- Staffing plans -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Staffing plans for week 41</h2>
+      <div class="meta chip-bar">
+        <span class="tab-row"><span class="tab active">Draft</span><span class="tab">Active</span><span class="tab">Archive</span></span>
+      </div>
+    </div>
+    <div class="grid-4">
+      <div class="tier">
+        <div class="tier-head"><span>OPTION A</span><span>v3.0 · single shift</span></div>
+        <div class="tier-title">Skeleton</div>
+        <div class="tier-price">348h<span class="per">/week</span></div>
+        <div class="tier-sub">For days where a guide is open, single market coverage, one stop on dinner. Service degraded above an 80% peak.</div>
+        <div class="kv"><span class="k">FOH hours</span><span class="v">132h</span></div>
+        <div class="kv"><span class="k">BOH hours</span><span class="v">216h</span></div>
+        <div class="kv"><span class="k">Labor %</span><span class="v">22.6%</span></div>
+        <div class="kv"><span class="k">OT exposure</span><span class="v">0h</span></div>
+        <div class="kv"><span class="k">Holds</span><span class="v muted">2 stations</span></div>
+        <button class="btn ghost block">Preview shifts</button>
+      </div>
+      <div class="tier featured">
+        <div class="tier-head"><span class="text-pink">OPTION B · RECOMMENDED</span><span class="pill pink">Active</span></div>
+        <div class="tier-title">Standard</div>
+        <div class="tier-price">412.5h<span class="per">/week</span></div>
+        <div class="tier-sub">Today's published plan. Comfortable up to 1.4 average peaks, one back-up bartender Thu – Sat. Margin guard ok.</div>
+        <div class="kv"><span class="k">FOH hours</span><span class="v">158h</span></div>
+        <div class="kv"><span class="k">BOH hours</span><span class="v">254.5h</span></div>
+        <div class="kv"><span class="k">Labor %</span><span class="v">27.8%</span></div>
+        <div class="kv"><span class="k">OT exposure</span><span class="v">6.25h</span></div>
+        <div class="kv"><span class="k">Holds</span><span class="v">none</span></div>
+        <button class="btn primary block">View shifts</button>
+      </div>
+      <div class="tier">
+        <div class="tier-head"><span>OPTION C</span><span>EVENT &amp; PRIVATE BOOKING</span></div>
+        <div class="tier-title">Padded</div>
+        <div class="tier-price">468h<span class="per">/week</span></div>
+        <div class="tier-sub">Adds a second host, dedicated runner, and pastry backup for Thu–Sat. Required when private contract over $11k that week.</div>
+        <div class="kv"><span class="k">FOH hours</span><span class="v">182h</span></div>
+        <div class="kv"><span class="k">BOH hours</span><span class="v">286h</span></div>
+        <div class="kv"><span class="k">Labor %</span><span class="v">31.6%</span></div>
+        <div class="kv"><span class="k">OT exposure</span><span class="v">3h</span></div>
+        <div class="kv"><span class="k">Holds</span><span class="v muted">Optional</span></div>
+        <button class="btn ghost block">Switch plan</button>
+      </div>
+      <div class="tier">
+        <div class="tier-head"><span>OPTION D</span><span>HOLIDAY · SURGE</span></div>
+        <div class="tier-title">Holiday</div>
+        <div class="tier-price">522h<span class="per">/week</span></div>
+        <div class="tier-sub">Lock-up holiday template for the busiest revenue weeks of the year. Triple stop on the bar, two extra pastry, FOH manager-on-floor.</div>
+        <div class="kv"><span class="k">FOH hours</span><span class="v">211h</span></div>
+        <div class="kv"><span class="k">BOH hours</span><span class="v">311h</span></div>
+        <div class="kv"><span class="k">Labor %</span><span class="v">34.2%</span></div>
+        <div class="kv"><span class="k">OT exposure</span><span class="v">12 / Triplets</span></div>
+        <div class="kv"><span class="k">Holds</span><span class="v muted">Auto-clear</span></div>
+        <button class="btn ghost block">Compare</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weekly grid -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Weekly grid — week 41</h2>
+      <div class="meta chip-bar">
+        <span class="tab-row"><span class="tab">All</span><span class="tab active">WK 41</span><span class="tab">All</span></span>
+        <span class="pill pink">Print</span>
+      </div>
+    </div>
+    <div class="chip-bar mb-12">
+      <select class="input" style="max-width:130px"><option>All roles</option></select>
+      <select class="input" style="max-width:130px"><option>All sections</option></select>
+      <span class="pill ghost">view all days</span>
+      <span class="pill ghost">highlight overtime</span>
+      <div style="flex:1"></div>
+      <span class="pill ghost">Draft</span>
+      <span class="pill green">Published</span>
+      <span class="pill amber">Open</span>
+      <span class="pill red">Conflict</span>
+    </div>
+
+    <div class="sched">
+      <table>
+        <thead>
+          <tr>
+            <th style="min-width:160px">Staff</th>
+            <th>Mon · 07</th>
+            <th>Tue · 08</th>
+            <th>Wed · 09</th>
+            <th>Thu · 10</th>
+            <th>Fri · 11</th>
+            <th>Sat · 12</th>
+            <th>Sun · 13</th>
+            <th class="r">WK</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="who">M. Arellano</span><span class="role">Sauté · chef</span></td>
+            <td><div class="shift">08 – 16</div></td>
+            <td><div class="shift">08 – 16</div></td>
+            <td class="shift off">off</td>
+            <td><div class="shift pink">14 – 23</div></td>
+            <td><div class="shift pink">14 – 23</div></td>
+            <td><div class="shift pink">14 – 23</div></td>
+            <td class="shift off">off</td>
+            <td class="r tn">42h</td></tr>
+          <tr><td><span class="who">J. Okafor</span><span class="role">Grill · cook 1</span></td>
+            <td><div class="shift">10 – 18</div></td>
+            <td class="shift off">off</td>
+            <td><div class="shift">10 – 18</div></td>
+            <td><div class="shift pink">16 – 24</div></td>
+            <td><div class="shift pink">16 – 24</div></td>
+            <td><div class="shift pink">16 – 24</div></td>
+            <td><div class="shift">11 – 16</div></td>
+            <td class="r tn">37h</td></tr>
+          <tr><td><span class="who">P. Sandoval</span><span class="role">Wood-oven · chef</span></td>
+            <td><div class="shift off">off</div></td>
+            <td><div class="shift">14 – 22</div></td>
+            <td><div class="shift">14 – 22</div></td>
+            <td><div class="shift">14 – 22</div></td>
+            <td><div class="shift pink">17 – 01</div></td>
+            <td><div class="shift pink">17 – 01</div></td>
+            <td class="shift off">off</td>
+            <td class="r tn">40h</td></tr>
+          <tr><td><span class="who">R. Chen</span><span class="role">Garde · cook 2</span></td>
+            <td><div class="shift">10 – 18</div></td>
+            <td><div class="shift">10 – 18</div></td>
+            <td><div class="shift">10 – 18</div></td>
+            <td class="shift off">off</td>
+            <td><div class="shift">14 – 22</div></td>
+            <td><div class="shift">14 – 22</div></td>
+            <td><div class="shift">10 – 17</div></td>
+            <td class="r tn">39h</td></tr>
+          <tr><td><span class="who">T. Whitlock</span><span class="role">Pastry · chef</span></td>
+            <td class="shift off">off</td>
+            <td class="shift off">off</td>
+            <td><div class="shift">06 – 14</div></td>
+            <td><div class="shift">06 – 14</div></td>
+            <td><div class="shift">06 – 14</div></td>
+            <td><div class="shift">06 – 14</div></td>
+            <td><div class="shift">06 – 14</div></td>
+            <td class="r tn">40h</td></tr>
+          <tr><td><span class="who">L. Beaumont</span><span class="role">Bar · lead</span></td>
+            <td><div class="shift">15 – 23</div></td>
+            <td><div class="shift">15 – 23</div></td>
+            <td class="shift off">off</td>
+            <td><div class="shift pink">15 – 01</div></td>
+            <td><div class="shift pink">15 – 01</div></td>
+            <td><div class="shift pink">15 – 01</div></td>
+            <td class="shift off">off</td>
+            <td class="r tn">44h</td></tr>
+          <tr><td><span class="who">D. Halvorsen</span><span class="role">Server · A side</span></td>
+            <td><div class="shift">16 – 23</div></td>
+            <td><div class="shift">16 – 23</div></td>
+            <td><div class="shift">16 – 23</div></td>
+            <td><div class="shift">16 – 23</div></td>
+            <td><div class="shift pink">16 – 24</div></td>
+            <td><div class="shift pink">16 – 24</div></td>
+            <td class="shift off">off</td>
+            <td class="r tn">42h</td></tr>
+          <tr><td><span class="who">S. Markovic</span><span class="role">Server · B side</span></td>
+            <td class="shift off">off</td>
+            <td><div class="shift">11 – 16</div></td>
+            <td><div class="shift">11 – 16</div></td>
+            <td><div class="shift">11 – 16</div></td>
+            <td><div class="shift">17 – 23</div></td>
+            <td><div class="shift">17 – 23</div></td>
+            <td><div class="shift">10 – 16</div></td>
+            <td class="r tn">33h</td></tr>
+          <tr><td><span class="who">N. Petrosian</span><span class="role">Host</span></td>
+            <td><div class="shift">16 – 22</div></td>
+            <td><div class="shift">16 – 22</div></td>
+            <td class="shift off">off</td>
+            <td><div class="shift">16 – 22</div></td>
+            <td><div class="shift">16 – 23</div></td>
+            <td><div class="shift">16 – 23</div></td>
+            <td><div class="shift">11 – 16</div></td>
+            <td class="r tn">31h</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="paging">
+      <span>Showing 9 of 24 active staff</span>
+      <div class="pager">
+        <span class="p">‹</span><span class="p active">1</span><span class="p">2</span><span class="p">3</span><span class="p">›</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coverage forecast -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Coverage vs. forecast</h2>
+      <div class="meta chip-bar">
+        <span class="pill ghost">Actual covers/hr</span>
+        <span class="pill pink">Scheduled labor</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="cov-row"><div class="lbl">Mon · 07</div><div><div class="bar"><span style="width:34%"></span></div></div><div class="v">198</div></div>
+      <div class="cov-row"><div class="lbl">Tue · 08</div><div><div class="bar"><span style="width:42%"></span></div></div><div class="v">241</div></div>
+      <div class="cov-row"><div class="lbl">Wed · 09</div><div><div class="bar"><span style="width:48%"></span></div></div><div class="v">278</div></div>
+      <div class="cov-row"><div class="lbl">Thu · 10</div><div><div class="bar"><span style="width:62%"></span></div></div><div class="v">352</div></div>
+      <div class="cov-row"><div class="lbl">Fri · 11</div><div><div class="bar"><span style="width:84%"></span></div></div><div class="v">482</div></div>
+      <div class="cov-row"><div class="lbl">Sat · 12</div><div><div class="bar"><span style="width:96%"></span></div></div><div class="v">546</div></div>
+      <div class="cov-row"><div class="lbl">Sun · 13</div><div><div class="bar"><span style="width:58%"></span></div></div><div class="v">321</div></div>
+      <div class="muted" style="font-size:11px; margin-top:10px;">Forecast model vS3.2 trained against last 26 weeks · MAPE 3.8%</div>
+    </div>
+  </section>
+
+  <!-- Comparison capabilities -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Comparison — plan capabilities</h2>
+      <div class="meta">Sourced from the plan you have published</div>
+    </div>
+    <div class="table-wrap">
+      <table class="matrix">
+        <thead><tr><th style="width:38%">Capability</th><th class="c">Skeleton</th><th class="c">Standard</th><th class="c">Padded</th><th class="c">Holiday</th></tr></thead>
+        <tbody>
+          <tr><td class="row-l">Live coverage</td><td class="c">2.4</td><td class="c">3.1</td><td class="c text-pink">4.0</td><td class="c text-pink">5.2</td></tr>
+          <tr><td class="row-l">Dedicated expo</td><td class="c muted">—</td><td class="c muted">All service</td><td class="c">All service</td><td class="c">All service</td></tr>
+          <tr><td class="row-l">Floater / break coverage</td><td class="c muted">—</td><td class="c">Manual swap</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td></tr>
+          <tr><td class="row-l">Host coverage</td><td class="c">peak only</td><td class="c">all dinner</td><td class="c">all dinner</td><td class="c">all dinner</td></tr>
+          <tr><td class="row-l">Pre-bar support</td><td class="c muted">—</td><td class="c">Thu–Sat</td><td class="c">Thu–Sat</td><td class="c text-pink">All week</td></tr>
+          <tr><td class="row-l">Bar back support</td><td class="c muted">—</td><td class="c muted">—</td><td class="c text-pink">✓</td><td class="c text-pink">✓</td></tr>
+          <tr><td class="row-l">Avg. hours / week</td><td class="c">348.0</td><td class="c">412.5</td><td class="c">468.0</td><td class="c">522.0</td></tr>
+          <tr><td class="row-l">Labor % of revenue</td><td class="c">22.6%</td><td class="c">27.8%</td><td class="c">31.6%</td><td class="c">34.2%</td></tr>
+          <tr><td class="row-l">OT exposure</td><td class="c">0h</td><td class="c">6.25h</td><td class="c">3h</td><td class="c">12h</td></tr>
+          <tr><td class="row-l">Cost delta vs. budget</td><td class="c text-green">−$2,400</td><td class="c text-green">−$640</td><td class="c text-amber">+$1,820</td><td class="c text-red">+$4,180</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Bottom strip -->
+  <section class="section grid-3">
+    <div class="card">
+      <div class="muted" style="font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase;">Open shifts</div>
+      <div style="font-weight:600; font-size:14px; margin-top:8px;">3 · WK 41</div>
+      <div class="kv"><span class="k"><span class="pill amber">Sauté · Thu Oct 10</span></span><span class="v">15:00 – 23:00</span></div>
+      <div class="kv"><span class="k"><span class="pill amber">Sauté · Sat Oct 12</span></span><span class="v">15:00 – 23:00</span></div>
+      <div class="kv"><span class="k"><span class="pill amber">Host · Sun Oct 13</span></span><span class="v">10:00 – 16:00</span></div>
+    </div>
+    <div class="card">
+      <div class="muted" style="font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase;">Time-off requests</div>
+      <div style="font-weight:600; font-size:14px; margin-top:8px;">4 · pending</div>
+      <div class="notes">
+        <div class="n"><span class="t">10/14</span><span>M. Petrosian · personal · Mon</span></div>
+        <div class="n"><span class="t">10/17</span><span>R. Chen — wedding (Sat – Sun)</span></div>
+        <div class="n"><span class="t">10/19</span><span>P. Sandoval · medical (Tue)</span></div>
+        <div class="n"><span class="t">10/21</span><span>L. Beaumont — partner travel</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="muted" style="font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase;">Audit log</div>
+      <div style="font-weight:600; font-size:14px; margin-top:8px;">Last 24h</div>
+      <div class="notes">
+        <div class="n"><span class="t">22:14</span><span>R. Hernandez — Published week 41 schedule (v8.3)</span></div>
+        <div class="n"><span class="t">18:32</span><span>Auto-approved P. Sandoval on the OT-14</span></div>
+        <div class="n"><span class="t">12:10</span><span>Flagged J. Okafor — projected OT 142m</span></div>
+        <div class="n"><span class="t">11:08</span><span>R. Hernandez — Adjusted Fri Oct 11 cover forecast to 162</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer wrap">
+    <div class="row">
+      <span>© 2024 Forge Foundry Systems</span>
+      <span class="links">
+        <a href="live-orders.html">Live Orders</a>
+        <a href="sales-reports.html">Sales Reports</a>
+        <a href="discounts.html">Promotions</a>
+        <a href="staff-schedule.html">Staff Schedule</a>
+        <a href="reservations.html">Reservations</a>
+      </span>
+      <span>WK 41 · v8.3</span>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>

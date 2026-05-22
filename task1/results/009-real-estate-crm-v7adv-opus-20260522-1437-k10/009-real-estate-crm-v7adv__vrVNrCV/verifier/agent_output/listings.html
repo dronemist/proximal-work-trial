@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Active Listings — Ember Grove Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+<!-- TOP NAV -->
+<header class="topnav">
+  <a href="listings.html" class="brand">Ember Grove Works</a>
+  <nav class="topnav-tabs">
+    <a href="listings.html" class="active">Listings</a>
+    <a href="listing-detail.html">Listing Detail</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="reports.html">Market Reports</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+  <div class="topnav-search">
+    <span>&#128269;</span>
+    <input type="text" placeholder="Search listings, contacts, addresses…">
+  </div>
+  <div class="topnav-actions">
+    <button class="iconbtn" title="Notifications">&#128276;</button>
+    <button class="btn btn-primary">+ New listing</button>
+    <span class="avatar">MH</span>
+  </div>
+</header>
+
+<div class="shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-search">
+      <span>&#128269;</span>
+      <input type="text" placeholder="Filter listings…">
+    </div>
+    <div class="side-title">Workspace</div>
+    <div class="side-list">
+      <a href="#"><span>Dashboard</span></a>
+      <a href="listings.html" class="active"><span>Listings</span><span class="count">142</span></a>
+      <a href="calendar.html"><span>Calendar</span></a>
+      <a href="reports.html"><span>Market Reports</span></a>
+    </div>
+    <div class="side-title">By status</div>
+    <div class="side-list">
+      <a href="#" class="active"><span>Active</span><span class="count">87</span></a>
+      <a href="#"><span>Under Contract</span><span class="count">14</span></a>
+      <a href="#"><span>Coming Soon</span><span class="count">9</span></a>
+      <a href="#"><span>Pending</span><span class="count">6</span></a>
+      <a href="#"><span>Withdrawn</span><span class="count">3</span></a>
+      <a href="#"><span>Closed (YTD)</span><span class="count">23</span></a>
+    </div>
+    <div class="side-title">By neighborhood</div>
+    <div class="side-list">
+      <a href="#"><span>Linden Hill</span><span class="count">21</span></a>
+      <a href="#"><span>Old Cottonfield</span><span class="count">18</span></a>
+      <a href="#"><span>Mill Creek</span><span class="count">14</span></a>
+      <a href="#"><span>Riverside North</span><span class="count">12</span></a>
+      <a href="#"><span>Eastgate</span><span class="count">10</span></a>
+      <a href="#"><span>Cedar Hollow</span><span class="count">8</span></a>
+    </div>
+    <div class="side-title">Saved views</div>
+    <div class="side-list">
+      <a href="#"><span>Price drop this week</span></a>
+      <a href="#"><span>Over 60 DOM</span></a>
+      <a href="#"><span>My listings</span></a>
+      <a href="#"><span>Showings this weekend</span></a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="crumbs">
+      <span>Workspace</span><span class="sep"></span><span>Listings</span><span class="sep"></span><span class="current">Active</span>
+    </div>
+
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Active Listings</h1>
+        <p class="page-sub">87 properties across 11 neighborhoods · Last synced 3 minutes ago</p>
+      </div>
+      <div class="page-actions">
+        <button class="btn btn-ghost">Export CSV</button>
+        <button class="btn btn-ghost">Saved view</button>
+        <button class="btn btn-primary">+ New listing</button>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="label">Avg list price</div>
+        <div class="value">$684K</div>
+        <div class="delta up">▲ 2.4% vs. last quarter</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Median days on market</div>
+        <div class="value">17</div>
+        <div class="delta down">▼ 3 days since Mon</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Sold-to-list ratio</div>
+        <div class="value">98.6%</div>
+        <div class="delta accent">▲ 0.8 pts</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Showings this week</div>
+        <div class="value">41</div>
+        <div class="delta">12 scheduled · 29 completed</div>
+      </div>
+    </div>
+
+    <div class="filterbar">
+      <div class="filter-group">
+        <button class="filter-pill active">All listings</button>
+        <button class="filter-pill">$300K – $1M</button>
+        <button class="filter-pill">$1M – $3M</button>
+        <button class="filter-pill">$3M+</button>
+        <button class="filter-pill">Single-family</button>
+        <button class="filter-pill">+ Add filter</button>
+      </div>
+      <div class="filter-spacer"></div>
+      <label class="filter-check"><input type="checkbox"> Only my listings</label>
+      <select class="btn btn-ghost" style="background: var(--panel); padding: 4px 8px; font-size:11.5px;">
+        <option>Sort: Newest first</option>
+        <option>Price low–high</option>
+        <option>Days on market</option>
+      </select>
+    </div>
+
+    <div class="filterbar" style="padding:6px 10px; margin-top:-4px;">
+      <div class="filter-group">
+        <button class="filter-pill active">Grid</button>
+        <button class="filter-pill">Table</button>
+        <button class="filter-pill">Map</button>
+      </div>
+    </div>
+
+    <div class="listings-grid">
+
+      <!-- Card 1 -->
+      <article class="listing">
+        <div class="listing-img">
+          <span class="chip solid badge">Open Sun 2-4</span>
+          <div class="house-art">
+            <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="100,18 30,68 170,68" fill="#7a4538"/>
+              <rect x="40" y="68" width="120" height="44" fill="#c69988"/>
+              <rect x="60" y="84" width="18" height="22" fill="#3a2520"/>
+              <rect x="92" y="84" width="16" height="16" fill="#2a3e3a"/>
+              <rect x="122" y="84" width="16" height="16" fill="#2a3e3a"/>
+              <rect x="116" y="42" width="14" height="16" fill="#7a4538"/>
+            </svg>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">412 Linden Hill Road</div>
+          <div class="listing-sub">Linden Hill · Cottonfield, PA 19087</div>
+          <div class="listing-specs">
+            <span>4 bd</span><span>·</span><span>2.5 ba</span><span>·</span><span>3,482 sf</span><span>·</span><span>0.42 ac</span>
+          </div>
+          <div class="listing-price">$1,185,000</div>
+        </div>
+        <div class="listing-foot">
+          <span class="chip green">Active</span>
+          <span>8 days · MLS #214612</span>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="listing">
+        <div class="listing-img">
+          <span class="chip dark badge">New</span>
+          <div class="house-art alt1">
+            <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="100,22 38,66 162,66" fill="#5a3530"/>
+              <rect x="44" y="66" width="112" height="46" fill="#b88573"/>
+              <rect x="56" y="80" width="18" height="22" fill="#2c1d1a"/>
+              <rect x="86" y="80" width="14" height="14" fill="#2a3e3a"/>
+              <rect x="112" y="80" width="14" height="14" fill="#2a3e3a"/>
+              <rect x="134" y="80" width="14" height="14" fill="#2a3e3a"/>
+            </svg>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">88 Mill Creek Lane, Unit 4B</div>
+          <div class="listing-sub">Mill Creek · Cottonfield, PA 19086</div>
+          <div class="listing-specs">
+            <span>2 bd</span><span>·</span><span>2 ba</span><span>·</span><span>1,480 sf</span>
+          </div>
+          <div class="listing-price">$524,000</div>
+        </div>
+        <div class="listing-foot">
+          <span class="chip green">Active</span>
+          <span>Listed yesterday</span>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="listing">
+        <div class="listing-img">
+          <span class="chip accent badge">Price drop</span>
+          <div class="house-art">
+            <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="100,18 28,72 172,72" fill="#7c4838"/>
+              <rect x="36" y="72" width="128" height="40" fill="#c89a85"/>
+              <rect x="58" y="86" width="18" height="22" fill="#3a2520"/>
+              <rect x="88" y="86" width="14" height="14" fill="#2a3e3a"/>
+              <rect x="116" y="86" width="14" height="14" fill="#2a3e3a"/>
+              <rect x="142" y="86" width="14" height="14" fill="#2a3e3a"/>
+            </svg>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">17 Old Quarry Way</div>
+          <div class="listing-sub">Old Cottonfield · 19086</div>
+          <div class="listing-specs">
+            <span>5 bd</span><span>·</span><span>4 ba</span><span>·</span><span>4,610 sf</span><span>·</span><span>1.05 ac</span>
+          </div>
+          <div class="listing-price">$1,675,000</div>
+        </div>
+        <div class="listing-foot">
+          <span class="chip green">Active</span>
+          <span>21 days · -$40K Tue</span>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="listing">
+        <div class="listing-img">
+          <span class="chip dark badge">Under Contract</span>
+          <div class="house-art">
+            <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+              <rect x="40" y="32" width="120" height="80" fill="#7a8c6e"/>
+              <rect x="56" y="50" width="14" height="14" fill="#e0b35a"/>
+              <rect x="80" y="50" width="14" height="14" fill="#2c3a35"/>
+              <rect x="104" y="50" width="14" height="14" fill="#e0b35a"/>
+              <rect x="128" y="50" width="14" height="14" fill="#2c3a35"/>
+              <rect x="56" y="74" width="14" height="14" fill="#2c3a35"/>
+              <rect x="80" y="74" width="14" height="14" fill="#e0b35a"/>
+              <rect x="104" y="74" width="14" height="14" fill="#2c3a35"/>
+              <rect x="128" y="74" width="14" height="14" fill="#2c3a35"/>
+              <rect x="92" y="92" width="16" height="20" fill="#3a2520"/>
+            </svg>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">2200 Riverside Tower, PH-2</div>
+          <div class="listing-sub">Riverside North · 19085</div>
+          <div class="listing-specs">
+            <span>3 bd</span><span>·</span><span>3 ba</span><span>·</span><span>2,890 sf</span><span>·</span><span>Penthouse</span>
+          </div>
+          <div class="listing-price">$2,295,000</div>
+        </div>
+        <div class="listing-foot">
+          <span class="chip">Under Contract</span>
+          <span>Contract pending</span>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="listing">
+        <div class="listing-img">
+          <span class="chip dark badge">Coming Soon</span>
+          <div class="house-art alt1">
+            <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="100,24 32,68 168,68" fill="#7a4538"/>
+              <rect x="40" y="68" width="120" height="44" fill="#b88573"/>
+              <rect x="56" y="82" width="18" height="24" fill="#3a2520"/>
+              <rect x="96" y="82" width="14" height="14" fill="#2a3e3a"/>
+              <rect x="124" y="82" width="14" height="14" fill="#2a3e3a"/>
+            </svg>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">9 Cedar Hollow Court</div>
+          <div class="listing-sub">Cedar Hollow · 19086</div>
+          <div class="listing-specs">
+            <span>4 bd</span><span>·</span><span>3 ba</span><span>·</span><span>2,940 sf</span>
+          </div>
+          <div class="listing-price">$795,000</div>
+        </div>
+        <div class="listing-foot">
+          <span class="chip muted">Coming Soon</span>
+          <span>Photo shoot Fri</span>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="listing">
+        <div class="listing-img">
+          <span class="chip solid badge">Open Sat</span>
+          <div class="house-art">
+            <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="100,20 28,70 172,70" fill="#7c4838"/>
+              <rect x="36" y="70" width="128" height="42" fill="#c89a85"/>
+              <rect x="60" y="84" width="18" height="22" fill="#3a2520"/>
+              <rect x="90" y="84" width="14" height="14" fill="#2a3e3a"/>
+              <rect x="118" y="84" width="14" height="14" fill="#2a3e3a"/>
+              <rect x="142" y="84" width="14" height="14" fill="#2a3e3a"/>
+            </svg>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">76 Eastgate Avenue</div>
+          <div class="listing-sub">Eastgate · 19085</div>
+          <div class="listing-specs">
+            <span>3 bd</span><span>·</span><span>2 ba</span><span>·</span><span>2,116 sf</span>
+          </div>
+          <div class="listing-price">$612,500</div>
+        </div>
+        <div class="listing-foot">
+          <span class="chip green">Active</span>
+          <span>12 days on market</span>
+        </div>
+      </article>
+
+      <!-- Card 7 -->
+      <article class="listing">
+        <div class="listing-img">
+          <div class="house-art alt1">
+            <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="100,20 30,70 170,70" fill="#7c4838"/>
+              <rect x="38" y="70" width="124" height="42" fill="#c89a85"/>
+              <rect x="58" y="84" width="18" height="22" fill="#3a2520"/>
+              <rect x="92" y="84" width="14" height="14" fill="#2a3e3a"/>
+              <rect x="124" y="84" width="14" height="14" fill="#2a3e3a"/>
+            </svg>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">331 Birchwood Lane</div>
+          <div class="listing-sub">Linden Hill · 19087</div>
+          <div class="listing-specs">
+            <span>4 bd</span><span>·</span><span>2.5 ba</span><span>·</span><span>2,650 sf</span><span>·</span><span>0.31 ac</span>
+          </div>
+          <div class="listing-price">$895,000</div>
+        </div>
+        <div class="listing-foot">
+          <span class="chip green">Active</span>
+          <span>4 days · MLS #214989</span>
+        </div>
+      </article>
+
+      <!-- Card 8 -->
+      <article class="listing">
+        <div class="listing-img">
+          <span class="chip solid badge">Stale · 62 days</span>
+          <div class="house-art">
+            <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="100,22 32,70 168,70" fill="#7a4538"/>
+              <rect x="40" y="70" width="120" height="42" fill="#b88573"/>
+              <rect x="58" y="84" width="18" height="22" fill="#3a2520"/>
+              <rect x="90" y="84" width="14" height="14" fill="#2a3e3a"/>
+              <rect x="118" y="84" width="14" height="14" fill="#2a3e3a"/>
+            </svg>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">14 Sycamore Bend</div>
+          <div class="listing-sub">Mill Creek · 19086</div>
+          <div class="listing-specs">
+            <span>3 bd</span><span>·</span><span>2 ba</span><span>·</span><span>2,140 sf</span><span>·</span><span>0.28 ac</span>
+          </div>
+          <div class="listing-price">$649,000</div>
+        </div>
+        <div class="listing-foot">
+          <span class="chip green">Active</span>
+          <span class="text-red">Needs price review</span>
+        </div>
+      </article>
+
+      <!-- Card 9 -->
+      <article class="listing">
+        <div class="listing-img">
+          <div class="house-art alt1">
+            <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+              <rect x="30" y="32" width="140" height="80" fill="#9a7c66"/>
+              <rect x="48" y="50" width="14" height="14" fill="#3a2520"/>
+              <rect x="74" y="50" width="14" height="14" fill="#3a2520"/>
+              <rect x="100" y="50" width="14" height="14" fill="#3a2520"/>
+              <rect x="126" y="50" width="14" height="14" fill="#3a2520"/>
+              <rect x="48" y="74" width="14" height="14" fill="#3a2520"/>
+              <rect x="74" y="74" width="14" height="14" fill="#3a2520"/>
+              <rect x="100" y="74" width="14" height="14" fill="#3a2520"/>
+              <rect x="126" y="74" width="14" height="14" fill="#3a2520"/>
+              <rect x="148" y="50" width="14" height="14" fill="#3a2520"/>
+              <rect x="148" y="74" width="14" height="14" fill="#3a2520"/>
+              <rect x="92" y="92" width="18" height="20" fill="#2c1d1a"/>
+            </svg>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-addr">505 Market Street, Loft 7</div>
+          <div class="listing-sub">Old Cottonfield · 19086</div>
+          <div class="listing-specs">
+            <span>2 bd</span><span>·</span><span>2 ba</span><span>·</span><span>1,820 sf</span>
+          </div>
+          <div class="listing-price">$478,000</div>
+        </div>
+        <div class="listing-foot">
+          <span class="chip green">Active</span>
+          <span>9 days · MLS #214877</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="flex-between mt-20" style="padding: 6px 2px;">
+      <div class="text-mute2 fs-12">Showing 1–9 of 87 active listings</div>
+      <div class="pagination">
+        <button>‹</button>
+        <button class="current">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>…</button>
+        <button>10</button>
+        <button>›</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div>© 2024 Ember Grove Works · v3.12</div>
+  <div class="footer-links">
+    <a href="settings.html">Settings</a>
+    <a href="reports.html">Reports</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="#">Help</a>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

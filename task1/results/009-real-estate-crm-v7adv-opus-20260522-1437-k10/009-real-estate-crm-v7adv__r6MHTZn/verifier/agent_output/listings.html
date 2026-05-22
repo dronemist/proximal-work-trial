@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Active Listings — Ember Grove Works</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* page-specific tweaks */
+.house {
+  position: relative; width: 75%; height: 88%;
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.house .body-h {
+  width: 100%; height: 60%; background: #b87b5e;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+}
+.house .roof {
+  position: absolute; bottom: 60%; left: -8%; right: -8%; height: 36%;
+  background: #7a4938;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+.house .door {
+  position: absolute; bottom: 0; left: 42%; width: 16%; height: 50%;
+  background: #5a3324;
+}
+.house .win {
+  position: absolute; width: 18%; height: 22%; background: #f0c98a;
+  border: 2px solid #5a3324;
+}
+.house .w1 { left: 12%; bottom: 22%; }
+.house .w2 { right: 12%; bottom: 22%; }
+.house.condo .body-h { height: 92%; background: #8a6a52; }
+.house.condo .roof { display: none; }
+.house.condo .win {
+  width: 14%; height: 14%; background: #f0c98a; border-color: #4a3020;
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">Ember Grove Works<span class="dot">.</span></div>
+    <nav class="topnav">
+      <a href="listings.html" class="active">Listings</a>
+      <a href="listing-detail.html">Listing Detail</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="reports.html">Market Reports</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="search">
+      <span>⌕</span>
+      <input placeholder="Search listings, contacts, addresses…" />
+    </div>
+    <button class="icon-btn" title="Notifications">●</button>
+    <span class="avatar">MH</span>
+  </header>
+
+  <div class="shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="search" style="margin-bottom:14px;background:var(--panel);">
+        <span>⌕</span>
+        <input placeholder="Filter listings…" />
+      </div>
+      <div class="side-section">
+        <h4>Workspace</h4>
+        <ul class="side-nav">
+          <li>Dashboard</li>
+          <li class="active">Listings <span class="badge">141</span></li>
+          <li>Calendar</li>
+          <li>Market Reports</li>
+        </ul>
+      </div>
+      <div class="side-section">
+        <h4>By Status</h4>
+        <ul class="side-nav">
+          <li>Active <span class="badge">41</span></li>
+          <li>Under Contract <span class="badge">8</span></li>
+          <li>Coming Soon <span class="badge">4</span></li>
+          <li>Pending <span class="badge">6</span></li>
+          <li>Withdrawn <span class="badge">2</span></li>
+          <li>Closed (YTD) <span class="badge">73</span></li>
+        </ul>
+      </div>
+      <div class="side-section">
+        <h4>By Neighborhood</h4>
+        <ul class="side-nav">
+          <li>Linden Hill <span class="badge">9</span></li>
+          <li>Old Cottersfield <span class="badge">8</span></li>
+          <li>Mill Creek <span class="badge">7</span></li>
+          <li>Riverside North <span class="badge">5</span></li>
+          <li>Eastgate <span class="badge">4</span></li>
+          <li>Cedar Hollow <span class="badge">3</span></li>
+        </ul>
+      </div>
+      <div class="side-section">
+        <h4>Saved Views</h4>
+        <ul class="side-nav">
+          <li>Price drop this week</li>
+          <li>Over 30 DOM</li>
+          <li>My listings</li>
+          <li>Open this weekend</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="crumbs"><span>Workspace</span><span class="sep">›</span><span>Listings</span><span class="sep">›</span><span class="current">Active</span></div>
+
+      <div class="page-head">
+        <div>
+          <h1>Active Listings</h1>
+          <div class="sub">41 properties across 11 neighborhoods · Last synced from BrightMLS 3 minutes ago</div>
+        </div>
+        <div class="page-actions">
+          <button class="btn">Export CSV</button>
+          <button class="btn">Saved view</button>
+          <button class="btn primary">+ New listing</button>
+        </div>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi">
+          <div class="label">Avg list price</div>
+          <div class="value">$684K</div>
+          <div class="delta up">▲ 2.4% vs. last quarter</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Median days on market</div>
+          <div class="value">17</div>
+          <div class="delta down">▼ 3 days from May</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Sold-to-list ratio</div>
+          <div class="value">98.6%</div>
+          <div class="delta up">▲ 0.4 pts</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Showings this week</div>
+          <div class="value">41</div>
+          <div class="delta">12 scheduled, 29 completed</div>
+        </div>
+      </div>
+
+      <div class="filterbar">
+        <span class="chip active">All Status</span>
+        <span class="chip">$300K – $1.2M</span>
+        <span class="chip">3+ beds</span>
+        <span class="chip">Linden Hill +3</span>
+        <span class="chip alt">Single family</span>
+        <span class="chip alt">+Add filter</span>
+        <div class="spacer"></div>
+        <label class="dim" style="font-size:11.5px;"><input type="checkbox" checked style="vertical-align:middle;" /> Only my listings</label>
+        <div class="seg" style="margin-left:8px;">
+          <button class="active">Sort: Newest first</button>
+        </div>
+      </div>
+
+      <div class="filterbar">
+        <div class="seg">
+          <button class="active">Grid</button>
+          <button>List</button>
+          <button>Map</button>
+        </div>
+      </div>
+
+      <div class="listing-grid">
+
+        <div class="listing">
+          <span class="badge-tag">Open Sun 2–4</span>
+          <div class="photo"><div class="house"><div class="roof"></div><div class="body-h"><div class="win w1"></div><div class="win w2"></div><div class="door"></div></div></div></div>
+          <div class="body">
+            <h3>412 Linden Hill Road</h3>
+            <div class="addr">Linden Hill · Cottersfield, PA 19087</div>
+            <div class="stats"><span><b>4</b> bd</span><span><b>2.5</b> ba</span><span><b>2,318</b> sqft</span><span><b>0.42</b> ac</span></div>
+            <div class="tag-row"><span class="tag">Active</span></div>
+            <div class="price-row">
+              <div class="price">$1,185,000</div>
+              <div class="meta">▲ 81 showings</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing">
+          <span class="badge-tag alt">New</span>
+          <div class="photo"><div class="house condo"><div class="body-h"><div class="win" style="left:10%;top:14%"></div><div class="win" style="left:40%;top:14%"></div><div class="win" style="left:70%;top:14%"></div><div class="win" style="left:10%;top:44%"></div><div class="win" style="left:40%;top:44%"></div><div class="win" style="left:70%;top:44%"></div></div></div></div>
+          <div class="body">
+            <h3>88 Mill Creek Lane, Unit 4B</h3>
+            <div class="addr">Mill Creek · Cottersfield, PA 19089</div>
+            <div class="stats"><span><b>2</b> bd</span><span><b>2</b> ba</span><span><b>1,560</b> sqft</span><span>—</span></div>
+            <div class="tag-row"><span class="tag">Active</span></div>
+            <div class="price-row">
+              <div class="price">$524,000</div>
+              <div class="meta">Listed yesterday</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing">
+          <span class="badge-tag">Price drop</span>
+          <div class="photo"><div class="house"><div class="roof"></div><div class="body-h"><div class="win w1"></div><div class="win w2"></div><div class="door"></div></div></div></div>
+          <div class="body">
+            <h3>17 Old Quarry Way</h3>
+            <div class="addr">Old Cottersfield · 19086</div>
+            <div class="stats"><span><b>4</b> bd</span><span><b>4.5</b> ba</span><span><b>4,610</b> sqft</span><span><b>1.18</b> ac</span></div>
+            <div class="tag-row"><span class="tag">Active</span></div>
+            <div class="price-row">
+              <div class="price">$1,675,000</div>
+              <div class="meta">31 days · ▼$40K</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing">
+          <span class="badge-tag alt">Under Contract</span>
+          <div class="photo"><div class="house condo"><div class="body-h"><div class="win" style="left:10%;top:8%"></div><div class="win" style="left:40%;top:8%"></div><div class="win" style="left:70%;top:8%"></div><div class="win" style="left:10%;top:30%"></div><div class="win" style="left:40%;top:30%"></div><div class="win" style="left:70%;top:30%"></div><div class="win" style="left:10%;top:52%"></div><div class="win" style="left:40%;top:52%"></div><div class="win" style="left:70%;top:52%"></div></div></div></div>
+          <div class="body">
+            <h3>2200 Riverside Tower, PH-2</h3>
+            <div class="addr">Riverside North · 19101</div>
+            <div class="stats"><span><b>3</b> bd</span><span><b>2</b> ba</span><span><b>2,890</b> sqft</span><span>Penthouse</span></div>
+            <div class="tag-row"><span class="tag">Under Contract</span></div>
+            <div class="price-row">
+              <div class="price">$2,295,000</div>
+              <div class="meta">Contract pending · close Oct 12</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing">
+          <span class="badge-tag alt">Coming Soon</span>
+          <div class="photo"><div class="house"><div class="roof"></div><div class="body-h"><div class="win w1"></div><div class="win w2"></div><div class="door"></div></div></div></div>
+          <div class="body">
+            <h3>9 Cedar Hollow Court</h3>
+            <div class="addr">Cedar Hollow · 19920</div>
+            <div class="stats"><span><b>3</b> bd</span><span><b>2.5</b> ba</span><span><b>2,100</b> sqft</span><span><b>0.28</b> ac</span></div>
+            <div class="tag-row"><span class="tag">Coming Soon</span></div>
+            <div class="price-row">
+              <div class="price">$795,000</div>
+              <div class="meta">Photo shoot Fri</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing">
+          <span class="badge-tag">Open Sat</span>
+          <div class="photo"><div class="house"><div class="roof"></div><div class="body-h"><div class="win w1"></div><div class="win w2"></div><div class="door"></div></div></div></div>
+          <div class="body">
+            <h3>76 Eastgate Avenue</h3>
+            <div class="addr">Eastgate · 19090</div>
+            <div class="stats"><span><b>4</b> bd</span><span><b>3</b> ba</span><span><b>2,650</b> sqft</span><span><b>0.31</b> ac</span></div>
+            <div class="tag-row"><span class="tag">Active</span></div>
+            <div class="price-row">
+              <div class="price">$612,500</div>
+              <div class="meta">13 days on market</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing">
+          <div class="photo"><div class="house"><div class="roof"></div><div class="body-h"><div class="win w1"></div><div class="win w2"></div><div class="door"></div></div></div></div>
+          <div class="body">
+            <h3>331 Birchwood Lane</h3>
+            <div class="addr">Linden Hill · 19087</div>
+            <div class="stats"><span><b>3</b> bd</span><span><b>2</b> ba</span><span><b>2,140</b> sqft</span><span><b>0.21</b> ac</span></div>
+            <div class="tag-row"><span class="tag">Active</span></div>
+            <div class="price-row">
+              <div class="price">$895,000</div>
+              <div class="meta">▲ 14 showings</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing">
+          <span class="badge-tag alt">Stale · 42 days</span>
+          <div class="photo"><div class="house"><div class="roof"></div><div class="body-h"><div class="win w1"></div><div class="win w2"></div><div class="door"></div></div></div></div>
+          <div class="body">
+            <h3>14 Sycamore Bend</h3>
+            <div class="addr">Mill Creek · 19089</div>
+            <div class="stats"><span><b>2</b> bd</span><span><b>2</b> ba</span><span><b>1,450</b> sqft</span><span>—</span></div>
+            <div class="tag-row"><span class="tag warn">Needs price review</span></div>
+            <div class="price-row">
+              <div class="price">$649,000</div>
+              <div class="meta">▼ 6 showings</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing">
+          <div class="photo"><div class="house condo"><div class="body-h"><div class="win" style="left:10%;top:12%"></div><div class="win" style="left:40%;top:12%"></div><div class="win" style="left:70%;top:12%"></div><div class="win" style="left:10%;top:40%"></div><div class="win" style="left:40%;top:40%"></div><div class="win" style="left:70%;top:40%"></div></div></div></div>
+          <div class="body">
+            <h3>505 Market Street, Loft 7</h3>
+            <div class="addr">Old Cottersfield · 19086</div>
+            <div class="stats"><span><b>1</b> bd</span><span><b>1</b> ba</span><span><b>1,150</b> sqft</span><span>—</span></div>
+            <div class="tag-row"><span class="tag">Active</span></div>
+            <div class="price-row">
+              <div class="price">$478,000</div>
+              <div class="meta">▲ 18 showings</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row" style="margin-top:14px;">
+        <div class="muted" style="font-size:11.5px;">Showing 1–9 of 41 active listings</div>
+        <div class="spacer"></div>
+        <div class="pager">
+          <button>‹</button>
+          <button class="active">1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>5</button>
+          <button>›</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div>© 2026 Ember Grove Works · v3.12</div>
+    <nav>
+      <a>Settings</a>
+      <a>Reports</a>
+      <a>Calendar</a>
+      <a>Help</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>

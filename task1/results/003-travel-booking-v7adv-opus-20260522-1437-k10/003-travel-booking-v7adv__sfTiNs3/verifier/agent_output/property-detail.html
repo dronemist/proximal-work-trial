@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cormorant House — Sable Echo Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.det-hero { display: grid; grid-template-columns: 2fr 1fr; gap: 38px; align-items: end; }
+@media (max-width: 800px) { .det-hero { grid-template-columns: 1fr; gap: 16px; } }
+.det-hero .meta {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.det-hero .meta span.tag { color: var(--gold-3); }
+
+.gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  margin: 22px 0;
+  aspect-ratio: 16 / 6;
+}
+.gallery > div { background: #2a2a36; overflow: hidden; position: relative; }
+.gallery .big { grid-row: span 2; }
+@media (max-width: 700px) {
+  .gallery { aspect-ratio: 4 / 3; grid-template-columns: 1fr 1fr; }
+  .gallery .big { grid-column: span 2; grid-row: span 1; }
+}
+.g-img-1 { background: linear-gradient(135deg, #2c2c38 0%, #1a1a24 100%); }
+.g-img-2 { background: linear-gradient(135deg, #353541 0%, #20202a 100%); position: relative; }
+.g-img-2::after { content: ""; position: absolute; left: 30%; top: 30%; width: 40%; height: 40%; background: radial-gradient(circle at 30% 30%, #d8a647, #8a5e10); border-radius: 50%; }
+.g-img-3 { background: linear-gradient(135deg, #3a3a46 0%, #25252f 100%); }
+.g-img-4 { background: linear-gradient(135deg, #2a2a36 0%, #1e1e28 100%); position: relative; }
+.g-img-4::after { content: ""; position: absolute; left: 20%; bottom: 10%; width: 60%; height: 8%; background: #5c5648; opacity: 0.7; }
+.g-img-5 { background: linear-gradient(135deg, #404049 0%, #29292f 100%); }
+
+.det-main { display: grid; grid-template-columns: 1.5fr 1fr; gap: 38px; }
+@media (max-width: 800px) { .det-main { grid-template-columns: 1fr; gap: 22px; } }
+
+.book-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 22px;
+  position: sticky;
+  top: 18px;
+}
+.book-card .price { font-family: Georgia, serif; font-size: 32px; color: var(--gold-3); margin-bottom: 4px; }
+.book-card .price small { font-size: 13px; color: var(--muted); font-family: inherit; }
+.book-card .row-flex { display: flex; gap: 8px; }
+.book-card .row-flex > * { flex: 1; }
+.book-card .field { margin-bottom: 10px; }
+.book-card .summary { font-size: 12.5px; color: var(--muted); margin: 12px 0; }
+.book-card .summary div { display: flex; justify-content: space-between; padding: 4px 0; }
+.book-card .total {
+  display: flex; justify-content: space-between;
+  border-top: 1px solid var(--border); padding-top: 10px; margin-top: 10px;
+  font-weight: 600;
+}
+.book-card .total .v { color: var(--gold-3); font-family: Georgia, serif; font-size: 18px; }
+
+.spec-table { font-size: 13px; width: 100%; border-collapse: collapse; }
+.spec-table td { padding: 9px 0; border-bottom: 1px dashed var(--border); }
+.spec-table td:last-child { text-align: right; color: var(--muted); }
+
+.split-img {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 22px 0;
+}
+@media (max-width: 700px) { .split-img { grid-template-columns: 1fr; } }
+.split-img .frame { aspect-ratio: 16/9; }
+.split-img .text { padding: 8px 4px; }
+.split-img h3 { font-size: 18px; font-family: Georgia, serif; margin: 6px 0 8px; }
+.split-img p { font-size: 12.5px; color: var(--muted); margin: 0; }
+
+.quote-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin-top: 16px;
+}
+@media (max-width: 768px) { .quote-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .quote-grid { grid-template-columns: 1fr; } }
+
+.host-card {
+  display: grid; grid-template-columns: 80px 1fr auto; gap: 20px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 4px; padding: 22px; align-items: center;
+}
+.host-card .avatar.lg { width: 80px; height: 80px; font-size: 22px; }
+.host-card .name { font-size: 17px; font-family: Georgia, serif; font-weight: 600; }
+.host-card .stats { display: flex; gap: 18px; font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+.rules-table { width: 100%; font-size: 13px; border-collapse: collapse; }
+.rules-table td { padding: 14px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+.rules-table td:first-child { width: 30%; color: var(--muted); }
+
+.cta-block {
+  background: var(--ink); color: #fff; border-radius: 4px;
+  padding: 36px 32px;
+  display: grid; grid-template-columns: 1fr auto; gap: 20px;
+  align-items: center;
+  margin: 22px 0;
+}
+.cta-block h3 { font-family: Georgia, serif; font-size: 26px; margin: 0 0 4px; color: #fff; }
+.cta-block p { margin: 0; color: rgba(255,255,255,0.7); font-size: 13px; }
+@media (max-width: 600px) { .cta-block { grid-template-columns: 1fr; text-align: left; } }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a class="brand">Sable Echo. <span>Studio</span></a>
+    <nav class="primary-nav">
+      <a>Properties</a>
+      <a class="active">Property</a>
+      <a>Guest Messages</a>
+      <a>Rates &amp; Availability</a>
+      <a>Reports</a>
+    </nav>
+    <a class="cta">Reserve</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="det-hero">
+      <div>
+        <div class="meta">
+          <span>FOLIO No. 03</span>
+          <span class="tag">COASTAL</span>
+          <span>ISLAND WALL, KENT</span>
+        </div>
+        <h1 class="title">The Cormorant House, a tide-watcher's retreat on Island Wall.</h1>
+      </div>
+      <div>
+        <p class="lede">A four-bedroom Edwardian fisherman's house, restored in 1923, with crab-grass borders, salt-grey timber, and a view from every kitchen window. Sleeps eight comfortably, ten in a pinch.</p>
+        <a class="btn" style="margin-top:14px">Check availability</a>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="big g-img-1"></div>
+      <div class="g-img-2"></div>
+      <div class="g-img-3"></div>
+      <div class="g-img-4"></div>
+      <div class="g-img-5"></div>
+    </div>
+  </section>
+
+  <section class="det-main">
+    <div>
+      <div class="section-eyebrow">CHAPTER I</div>
+      <h2 class="section-title">A measured restoration, three streets from the harbour wall.</h2>
+      <p class="lede" style="max-width:none">Built in 1909, the Cormorant House was returned to itself between 2018 and 2023 by the architect Joana Vidal and her studio in Margate. The salt-stripped clapboard was re-clad in tarred larch, the rooms re-plastered with horsehair lime, and the kitchen built around a single oak table that seats ten. Bookings begin at three nights — short enough to be a long weekend, long enough to learn the names of the lifeboat crew.</p>
+
+      <h3 style="font-size: 20px; margin: 28px 0 12px;">What you'll find inside.</h3>
+      <table class="spec-table">
+        <tr><td>Bedrooms</td><td>Four, two with sea-glimpses</td></tr>
+        <tr><td>Bathrooms</td><td>Two and a half, all with cast-iron tubs</td></tr>
+        <tr><td>Sleeps</td><td>Eight, ten with the box-bed</td></tr>
+        <tr><td>Kitchen</td><td>Open, with an Aga and a marble counter</td></tr>
+        <tr><td>Library</td><td>Yes — kept warm in autumn</td></tr>
+        <tr><td>Garden</td><td>South-facing, with a hawthorn at the foot</td></tr>
+        <tr><td>Wifi</td><td>Available, though the lighthouse keeps better company</td></tr>
+        <tr><td>Pets</td><td>Welcome, with a note ahead</td></tr>
+        <tr><td>Children</td><td>Welcome, with a kindly grandparent</td></tr>
+      </table>
+    </div>
+
+    <aside>
+      <div class="book-card">
+        <div class="price">£385 <small>/ night</small></div>
+        <div class="muted small">three-night minimum stay</div>
+        <hr class="divider">
+        <div class="field">
+          <span class="field-label">Check-in</span>
+          <input class="input" value="Fri, 17 May 2025">
+        </div>
+        <div class="field">
+          <span class="field-label">Check-out</span>
+          <input class="input" value="Tue, 21 May 2025">
+        </div>
+        <div class="field">
+          <span class="field-label">Guests</span>
+          <input class="input" value="Six adults, no pets">
+        </div>
+        <div class="summary">
+          <div><span>£385 × 4 nights</span><span>£1,540</span></div>
+          <div><span>Cleaning &amp; linens</span><span>£120</span></div>
+          <div><span>Studio service</span><span>£42</span></div>
+        </div>
+        <div class="total"><span>Total</span><span class="v">£1,702</span></div>
+        <a class="btn block" style="margin-top:14px;">Request to reserve</a>
+        <p class="small" style="text-align:center;margin-top:10px;">You won't be charged until Eleanor confirms — usually within four hours.</p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="split-img">
+      <div>
+        <div class="frame dark-image"></div>
+        <div class="text">
+          <div class="section-eyebrow">ROOM 02</div>
+          <h3>A room that reads the weather.</h3>
+          <p>The upper room is a 14-square-metre rebellion against the open plan — a single bed, a deep window-sill, a writing desk that overlooks the bird-loud lane.</p>
+        </div>
+      </div>
+      <div>
+        <div class="frame dark-image"></div>
+        <div class="text">
+          <div class="section-eyebrow">ROOM 03</div>
+          <h3>The library belongs to whoever wakes first.</h3>
+          <p>Built into the half-landing between floors, the library is a quiet, lamp-lit room of about six square metres. Best in autumn, when the rain begins to take the slate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">AVAILABILITY</div>
+    <h2 class="section-title">October 2024</h2>
+    <div class="split">
+      <div class="cal" style="padding: 22px;">
+        <div class="cal-grid">
+          <div class="dow">Mon</div><div class="dow">Tue</div><div class="dow">Wed</div><div class="dow">Thu</div><div class="dow">Fri</div><div class="dow">Sat</div><div class="dow">Sun</div>
+          <div class="cal-cell muted"><span>30</span></div>
+          <div class="cal-cell"><span>1</span></div>
+          <div class="cal-cell"><span>2</span></div>
+          <div class="cal-cell"><span>3</span></div>
+          <div class="cal-cell booked"><span>4</span></div>
+          <div class="cal-cell booked"><span>5</span></div>
+          <div class="cal-cell booked"><span>6</span></div>
+
+          <div class="cal-cell"><span>7</span></div>
+          <div class="cal-cell"><span>8</span></div>
+          <div class="cal-cell"><span>9</span></div>
+          <div class="cal-cell"><span>10</span></div>
+          <div class="cal-cell"><span>11</span></div>
+          <div class="cal-cell"><span>12</span></div>
+          <div class="cal-cell"><span>13</span></div>
+
+          <div class="cal-cell today"><span>14</span></div>
+          <div class="cal-cell"><span>15</span></div>
+          <div class="cal-cell"><span>16</span></div>
+          <div class="cal-cell"><span>17</span></div>
+          <div class="cal-cell"><span>18</span></div>
+          <div class="cal-cell booked"><span>19</span></div>
+          <div class="cal-cell booked"><span>20</span></div>
+
+          <div class="cal-cell"><span>21</span></div>
+          <div class="cal-cell"><span>22</span></div>
+          <div class="cal-cell"><span>23</span></div>
+          <div class="cal-cell"><span>24</span></div>
+          <div class="cal-cell"><span>25</span></div>
+          <div class="cal-cell high"><span>26</span></div>
+          <div class="cal-cell high"><span>27</span></div>
+
+          <div class="cal-row-last"></div>
+          <div class="cal-cell cal-row-last"><span>28</span></div>
+          <div class="cal-cell cal-row-last"><span>29</span></div>
+          <div class="cal-cell cal-row-last"><span>30</span></div>
+          <div class="cal-cell cal-row-last"><span>31</span></div>
+          <div class="cal-cell muted cal-row-last"><span>1</span></div>
+          <div class="cal-cell muted cal-row-last"><span>2</span></div>
+          <div class="cal-cell muted cal-row-last"><span>3</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="quote">
+          <p>"The kind of house you write home from, and reluctantly, on a Tuesday, to rate."</p>
+          <div class="who">
+            <div class="avatar">MV</div>
+            <div>
+              <div class="name">Marisol &amp; Niels</div>
+              <div class="role">stayed in October 2024</div>
+            </div>
+          </div>
+        </div>
+        <p class="small" style="margin-top:14px;">The calendar shows confirmed reservations only. For long-stay enquiries (a fortnight or more), write to Eleanor directly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">YOUR HOST</div>
+    <div class="host-card">
+      <div class="avatar lg">EW</div>
+      <div>
+        <div class="name">Hosted by Eleanor Whitfield since 2019.</div>
+        <p class="small" style="margin:4px 0 6px;color:var(--muted-2)">Painter, daughter of a lifeboat keeper, and the keeper of two whippets. She lives a quarter-mile up the hill, and will leave you alone unless you'd rather not be.</p>
+        <div class="stats">
+          <span>★ 4.96 · 142 reviews</span>
+          <span>Responds in 38 minutes</span>
+          <span>Speaks English and a careful Welsh</span>
+        </div>
+      </div>
+      <a class="btn ghost small">Write to Eleanor</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">GUESTS HAVE SAID</div>
+    <h2 class="section-title">What guests have said.</h2>
+    <div class="quote-grid">
+      <div class="quote">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p>"Eleanor's cliff-edge tip — the sourdough from North Wave, two pints of stout — kept us walking. We came home each evening to a house already on first-name terms."</p>
+        <div class="who">
+          <div class="avatar">RA</div>
+          <div><div class="name">Rohan Ashe</div><div class="role">May 2024</div></div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p>"The garden room is the find. Wedge a window open, the gulls do the rest. The library is a careful gift to those who already love quiet rooms."</p>
+        <div class="who">
+          <div class="avatar">HK</div>
+          <div><div class="name">Helena Kao</div><div class="role">August 2024</div></div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p>"Faultless from the booking note to the last waterborne morning. Eleanor's note in the dish-towel drawer is a small treatise on island hospitality."</p>
+        <div class="who">
+          <div class="avatar">FB</div>
+          <div><div class="name">Frédéric Boivin</div><div class="role">October 2024</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">THE NEIGHBOURHOOD</div>
+    <h2 class="section-title">Within a slow walk.</h2>
+    <div class="split even">
+      <table class="spec-table">
+        <tr><td>The harbour wall</td><td>120 m</td></tr>
+        <tr><td>The Salt Bakery</td><td>200 m</td></tr>
+        <tr><td>Lifeboat Memorial</td><td>320 m</td></tr>
+        <tr><td>Lighthouse Walk</td><td>1.4 km</td></tr>
+      </table>
+      <table class="spec-table">
+        <tr><td>The Coalshed (oysters)</td><td>3 min</td></tr>
+        <tr><td>The Reading Room (drinks)</td><td>6 min</td></tr>
+        <tr><td>Margate Station</td><td>11 min by car</td></tr>
+        <tr><td>Manston Airfield</td><td>22 min by car</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">HOUSE NOTES</div>
+    <h2 class="section-title">A few quiet expectations.</h2>
+    <table class="rules-table">
+      <tr><td>Check-in</td><td>From 4:00 p.m. Eleanor meets you at the gate if you wire a half-hour ahead.</td></tr>
+      <tr><td>Check-out</td><td>By 11:00 a.m. The whippets will not forgive a slow start.</td></tr>
+      <tr><td>Smoking</td><td>Not inside the house, even on a balcony, even kindly meant.</td></tr>
+      <tr><td>Pets</td><td>Two well-behaved dogs accepted, with a note ahead.</td></tr>
+      <tr><td>Quiet hours</td><td>10:00 p.m. — 7:30 a.m. for the sake of the lane.</td></tr>
+      <tr><td>Cancellation</td><td>Full refund up to 30 days before arrival; 50% within fourteen.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <div class="cta-block">
+      <div>
+        <h3>Reserve The Cormorant House.</h3>
+        <p>Most stays are confirmed within four hours. Eleanor is presently in the studio.</p>
+      </div>
+      <a class="btn">Request to reserve</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <h4>Sable Echo. Studio</h4>
+      <p>A small workshop curating a modest number of considered places to stay, hosted with editorial restraint.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Most resources</h5>
+      <a>Properties</a>
+      <a>Rates &amp; Availability</a>
+      <a>Guest Messages</a>
+      <a>Reports</a>
+    </div>
+    <div class="footer-col">
+      <h5>Studio</h5>
+      <a>Editorial</a>
+      <a>Contact</a>
+      <a>Terms &amp; Privacy</a>
+      <a>Instagram, but quiet</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">© 2025 Sable Echo Studio. Composed in ivory and linen.</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Time Off · Onyx Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="mark"></span> Onyx Works</div>
+    <div class="section-label">Workspace</div>
+    <nav>
+      <a class="nav-link" href="people-directory.html"><span class="ico"></span> People</a>
+      <a class="nav-link" href="org-chart.html"><span class="ico"></span> Org Chart</a>
+      <a class="nav-link active" href="time-off.html"><span class="ico"></span> Time Off</a>
+    </nav>
+    <div class="section-label">Finance</div>
+    <nav>
+      <a class="nav-link" href="expenses.html"><span class="ico"></span> Expenses</a>
+    </nav>
+    <div class="section-label">Admin</div>
+    <nav>
+      <a class="nav-link" href="settings.html"><span class="ico"></span> Company Settings</a>
+    </nav>
+    <div class="user-chip">
+      <span class="avatar pink">MD</span>
+      <div>
+        <div class="name">Mara Devlin</div>
+        <div class="role">People Operations Lead</div>
+      </div>
+    </div>
+  </aside>
+
+  <header class="mobile-header"><span class="brand"><span class="mark"></span> Onyx Works</span></header>
+  <nav class="mobile-nav">
+    <a class="nav-link" href="people-directory.html">People</a>
+    <a class="nav-link" href="org-chart.html">Org Chart</a>
+    <a class="nav-link active" href="time-off.html">Time Off</a>
+    <a class="nav-link" href="expenses.html">Expenses</a>
+    <a class="nav-link" href="settings.html">Company Settings</a>
+  </nav>
+  <div class="mobile-user-chip">
+    <span class="avatar pink">MD</span>
+    <div><div class="name">Mara Devlin</div><div class="role">People Operations Lead</div></div>
+  </div>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="crumbs">
+        <span>Content holdings</span>
+        <span class="sep">/</span>
+        <strong>Atelier North LLC</strong>
+      </div>
+      <div class="search">Search by person or date</div>
+      <select class="input select" style="width:auto;"><option>Atelier North · USA</option></select>
+    </div>
+
+    <div class="content">
+      <h1 class="page-title">Time Off</h1>
+
+      <!-- Sub-tabs -->
+      <div class="tabs">
+        <div class="tab active">Calendar</div>
+        <div class="tab">Requests</div>
+        <div class="tab">Balances</div>
+        <div class="tab">Policies</div>
+        <div class="tab">Holidays</div>
+      </div>
+
+      <!-- Balances -->
+      <h2 class="section-title row between">
+        Your balances
+        <span class="muted text-sm">Accrual policy: monthly, capped · Updated 03 Oct 2025</span>
+      </h2>
+      <div class="kpis">
+        <div class="kpi"><div class="label">Vacation</div><div class="value">14.5 <span style="font-size:11px; font-weight:500; color:var(--muted);">days</span></div><div class="bar mt-8" style="height:6px;"><span style="width:62%; background:var(--accent-green);"></span></div><div class="sub mt-8">1.5 used of 24 annual · Carryover allowed to 31 Mar</div></div>
+        <div class="kpi"><div class="label">Sick</div><div class="value">8.0 <span style="font-size:11px; font-weight:500; color:var(--muted);">days</span></div><div class="bar mt-8" style="height:6px;"><span style="width:80%; background:var(--accent-amber);"></span></div><div class="sub mt-8">1.5 used of 10 statutory</div></div>
+        <div class="kpi"><div class="label">Personal</div><div class="value">3.0 <span style="font-size:11px; font-weight:500; color:var(--muted);">days</span></div><div class="bar mt-8" style="height:6px;"><span style="width:50%; background:var(--accent-purple);"></span></div><div class="sub mt-8">1.0 used of 5 annual · Expires 31 Dec</div></div>
+        <div class="kpi"><div class="label">Bereavement</div><div class="value">5.0 <span style="font-size:11px; font-weight:500; color:var(--muted);">days</span></div><div class="bar mt-8" style="height:6px;"><span style="width:100%; background:var(--primary);"></span></div><div class="sub mt-8">Full balance available · Documentation required</div></div>
+      </div>
+
+      <!-- Calendar + New request -->
+      <div class="grid-2" style="grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);">
+        <div>
+          <div class="card">
+            <div class="head">
+              <div>
+                <strong style="font-size:15px;">October 2025</strong>
+                <div class="muted text-xs">Atelier North</div>
+              </div>
+              <div class="row">
+                <span class="chip green"><span class="dot"></span>Approved</span>
+                <span class="chip amber"><span class="dot"></span>Pending</span>
+                <span class="chip purple"><span class="dot"></span>Holiday</span>
+                <span class="chip dark"><span class="dot"></span>Selected</span>
+                <button class="btn sm">‹</button>
+                <button class="btn sm">Today</button>
+                <button class="btn sm">›</button>
+              </div>
+            </div>
+            <div class="cal-grid">
+              <div class="cal-dow">Mon</div><div class="cal-dow">Tue</div><div class="cal-dow">Wed</div>
+              <div class="cal-dow">Thu</div><div class="cal-dow">Fri</div><div class="cal-dow">Sat</div><div class="cal-dow">Sun</div>
+
+              <div class="cal-cell muted"><span class="dn">29</span></div>
+              <div class="cal-cell muted"><span class="dn">30</span></div>
+              <div class="cal-cell"><span class="dn">01</span></div>
+              <div class="cal-cell"><span class="dn">02</span><span class="cal-evt">M. Lin</span><span class="cal-evt amber">J. Reyes</span></div>
+              <div class="cal-cell"><span class="dn">03</span><span class="cal-evt">M. Lin</span></div>
+              <div class="cal-cell muted"><span class="dn">04</span></div>
+              <div class="cal-cell muted"><span class="dn">05</span></div>
+
+              <div class="cal-cell"><span class="dn">06</span><span class="cal-evt">J. Reyes</span></div>
+              <div class="cal-cell"><span class="dn">07</span></div>
+              <div class="cal-cell"><span class="dn">08</span></div>
+              <div class="cal-cell"><span class="dn">09</span></div>
+              <div class="cal-cell"><span class="dn">10</span><span class="cal-evt purple">C. Holiday</span></div>
+              <div class="cal-cell muted"><span class="dn">11</span></div>
+              <div class="cal-cell muted"><span class="dn">12</span></div>
+
+              <div class="cal-cell holiday"><span class="dn">13</span><span class="cal-evt dark">Indigenous</span></div>
+              <div class="cal-cell"><span class="dn">14</span></div>
+              <div class="cal-cell"><span class="dn">15</span><span class="cal-evt">E. Maes</span></div>
+              <div class="cal-cell"><span class="dn">16</span><span class="cal-evt">E. Maes</span></div>
+              <div class="cal-cell"><span class="dn">17</span><span class="cal-evt amber">S. Whittaker</span></div>
+              <div class="cal-cell muted"><span class="dn">18</span></div>
+              <div class="cal-cell muted"><span class="dn">19</span></div>
+
+              <div class="cal-cell"><span class="dn">20</span></div>
+              <div class="cal-cell"><span class="dn">21</span></div>
+              <div class="cal-cell"><span class="dn">22</span><span class="cal-evt">H. Akram</span></div>
+              <div class="cal-cell selected"><span class="dn">23</span><span class="cal-evt dark">Mara D.</span></div>
+              <div class="cal-cell"><span class="dn">24</span></div>
+              <div class="cal-cell muted"><span class="dn">25</span></div>
+              <div class="cal-cell muted"><span class="dn">26</span></div>
+
+              <div class="cal-cell holiday"><span class="dn">27</span><span class="cal-evt dark">Off-site</span></div>
+              <div class="cal-cell"><span class="dn">28</span></div>
+              <div class="cal-cell"><span class="dn">29</span></div>
+              <div class="cal-cell today"><span class="dn">30</span></div>
+              <div class="cal-cell"><span class="dn">31</span><span class="cal-evt">Half day</span></div>
+              <div class="cal-cell muted"><span class="dn">1</span></div>
+              <div class="cal-cell muted"><span class="dn">2</span></div>
+            </div>
+            <div class="legend">
+              Calendar shows requests across Atelier North only. Switch entities to see other teams. Times are local to America/New_York.
+            </div>
+          </div>
+
+          <!-- Awaiting review -->
+          <h2 class="section-title row between">Awaiting your review <span class="muted text-sm">4 pending · oldest 3 days</span></h2>
+          <div class="card scroll-x">
+            <div class="row between pad-sm" style="border-bottom: 1px solid var(--border); flex-wrap: wrap;">
+              <div class="row gap-lg">
+                <span class="chip dark">Status: Pending</span>
+                <span class="chip">Entity: Atelier North</span>
+                <span class="chip">Type: All</span>
+              </div>
+              <div class="muted text-sm">Showing 1–4 of 4</div>
+            </div>
+            <table class="table">
+              <thead><tr><th>Person</th><th>Type</th><th>Dates</th><th>Days</th><th>Coverage</th><th>Submitted</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="avatar gray">HO</span> Hana Okafor</td>
+                  <td>Sick</td><td>06 Oct</td><td>1.0</td>
+                  <td>—</td><td>3 days ago</td>
+                  <td><span class="chip amber"><span class="dot"></span>PENDING</span></td>
+                  <td><a style="color:var(--primary)" href="#">Review</a></td>
+                </tr>
+                <tr>
+                  <td><span class="avatar pink">JR</span> Jorge Reyes</td>
+                  <td>Personal</td><td>08 Oct</td><td>0.5</td>
+                  <td>Oren Marin</td><td>3 days ago</td>
+                  <td><span class="chip amber"><span class="dot"></span>PENDING</span></td>
+                  <td><a style="color:var(--primary)" href="#">Review</a></td>
+                </tr>
+                <tr>
+                  <td><span class="avatar blue">SW</span> Sam Whittaker</td>
+                  <td>Personal</td><td>15 Oct</td><td>1.5</td>
+                  <td>Nia Brennan</td><td>1 day ago</td>
+                  <td><span class="chip amber"><span class="dot"></span>PENDING</span></td>
+                  <td><a style="color:var(--primary)" href="#">Review</a></td>
+                </tr>
+                <tr>
+                  <td><span class="avatar amber">EM</span> Elena Mathers</td>
+                  <td>Vacation</td><td>17 Nov → 21 Nov</td><td>5.0</td>
+                  <td>Priya Naturajan</td><td>5 hours ago</td>
+                  <td><span class="chip amber"><span class="dot"></span>PENDING</span></td>
+                  <td><a style="color:var(--primary)" href="#">Review</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Recent activity + Holidays -->
+          <div class="grid-2 mt-24">
+            <div class="card">
+              <div class="head">
+                <strong>Recent activity</strong>
+                <span class="muted text-sm">Last 14 days</span>
+              </div>
+              <div class="pad-sm">
+                <div class="list-row" style="padding:8px 0;">
+                  <span class="avatar gray">LK</span>
+                  <div class="flex-1 min-0">
+                    <div class="bold text-sm">Lee Kalu — Vacation approved</div>
+                    <div class="muted text-xs">02 Oct → 07 Oct · 5 days · by Mara Devlin</div>
+                  </div>
+                  <span class="chip green"><span class="dot"></span>APPROVED</span>
+                </div>
+                <div class="list-row" style="padding:8px 0;">
+                  <span class="avatar pink">PN</span>
+                  <div class="flex-1 min-0">
+                    <div class="bold text-sm">Priya Naturajan — Vacation approved</div>
+                    <div class="muted text-xs">06 Nov → New date opened. Director, IT &amp; Security</div>
+                  </div>
+                  <span class="chip green"><span class="dot"></span>APPROVED</span>
+                </div>
+                <div class="list-row" style="padding:8px 0;">
+                  <span class="avatar blue">DM</span>
+                  <div class="flex-1 min-0">
+                    <div class="bold text-sm">Drew Marin — Sick recorded</div>
+                    <div class="muted text-xs">28 Sep · 1 day · auto-logged</div>
+                  </div>
+                  <span class="chip"><span class="dot"></span>LOGGED</span>
+                </div>
+                <div class="list-row" style="padding:8px 0;">
+                  <span class="avatar amber">TL</span>
+                  <div class="flex-1 min-0">
+                    <div class="bold text-sm">Theo Lin — Personal declined</div>
+                    <div class="muted text-xs">29 Sep · conflicts with client deliverable</div>
+                  </div>
+                  <span class="chip red"><span class="dot"></span>DECLINED</span>
+                </div>
+                <div class="list-row" style="padding:8px 0;">
+                  <span class="avatar gray">IB</span>
+                  <div class="flex-1 min-0">
+                    <div class="bold text-sm">Ida Brennan — Vacation approved</div>
+                    <div class="muted text-xs">25 Sep → 28 Sep · 4 days · by Mara Devlin</div>
+                  </div>
+                  <span class="chip green"><span class="dot"></span>APPROVED</span>
+                </div>
+                <div class="row between mt-8"><span class="muted text-xs">5 of 23 entries</span><a style="color:var(--primary)" href="#">View full log</a></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="head"><strong>Company holidays · USA</strong><span class="muted text-sm">Q4 2025</span></div>
+              <div class="pad-sm">
+                <div class="list-row" style="padding:8px 0;">
+                  <div class="flex-1 min-0"><div class="bold text-sm">Mon, 13 Oct — Indigenous Peoples’ Day</div>
+                  <div class="muted text-xs">Office closed. Applies to all US-based entities. Payroll cycles unaffected, processed Friday 10 Oct as a half-day.</div></div>
+                </div>
+                <div class="list-row" style="padding:8px 0;">
+                  <div class="flex-1 min-0"><div class="bold text-sm">Fri, 31 Oct — Half day, all hands</div></div>
+                </div>
+                <div class="list-row" style="padding:8px 0;">
+                  <div class="flex-1 min-0"><div class="bold text-sm">Thu, 27 Nov — Thanksgiving</div></div>
+                </div>
+                <div class="list-row" style="padding:8px 0;">
+                  <div class="flex-1 min-0"><div class="bold text-sm">Wed, 24 Dec → Fri, 02 Jan — Winter recess</div></div>
+                </div>
+                <div class="row between mt-8"><span class="muted text-xs">4 upcoming · 12 total this year</span><a style="color:var(--primary)" href="#">Manage in Settings</a></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team out this week -->
+          <h2 class="section-title row between">
+            Team out this week
+            <span class="muted text-sm">Week of 13 Oct 2025 · 6 of 42 people away</span>
+          </h2>
+          <div class="kpis" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="kpi"><div class="label">Approved this week</div><div class="value">12</div><div class="sub delta-up">▲ vs last week</div></div>
+            <div class="kpi"><div class="label">Pending review</div><div class="value">4</div><div class="sub">Oldest 3 days</div></div>
+            <div class="kpi"><div class="label">Coverage gaps</div><div class="value">1</div><div class="sub" style="color:var(--accent-red);">Design 18 Oct</div></div>
+            <div class="kpi"><div class="label">Avg. days used (YTD)</div><div class="value">9.2</div><div class="sub">Target 12.0</div></div>
+          </div>
+        </div>
+
+        <!-- Right: New request -->
+        <div>
+          <div class="card">
+            <div class="head">
+              <div>
+                <strong>New request</strong>
+                <div class="muted text-xs">Submitting for yourself · Mara Devlin</div>
+              </div>
+              <button class="btn sm">×</button>
+            </div>
+            <div class="pad">
+              <div class="field mb-12">
+                <label>Leave type</label>
+                <select class="input select"><option>Vacation — 14.5 days available</option></select>
+              </div>
+              <div class="field-row mb-12">
+                <div class="field"><label>Start</label><input class="input" value="Thu, 16 Oct 2025"/></div>
+                <div class="field"><label>End</label><input class="input" value="Mon, 20 Oct 2025"/></div>
+              </div>
+              <div class="field mb-12">
+                <label>Duration</label>
+                <input class="input" value="2.6" />
+                <div class="hint">2.6 days · 3 working days</div>
+              </div>
+              <div class="hint mb-12 muted">Weekends and the 13 Oct holiday are excluded.</div>
+              <div class="field mb-12">
+                <label>Coverage</label>
+                <select class="input select"><option>Jorge Reyes — Senior Partner</option></select>
+                <div class="hint">They will receive a hand-off summary on the day before you leave.</div>
+              </div>
+              <div class="field mb-12">
+                <label>Note for approver</label>
+                <textarea class="input" rows="3">Family trip booked in August. All Q4 client check-ins are pre-scheduled around these dates.</textarea>
+              </div>
+              <div class="row mb-12">
+                <span class="checkbox checked"></span>
+                <span class="text-sm">Add out-of-office reply to email and chat</span>
+              </div>
+
+              <div class="divider"></div>
+              <div class="row between">
+                <button class="btn">Save draft</button>
+                <button class="btn primary">Submit request</button>
+              </div>
+              <div class="muted text-xs mt-8">Submitting locks the dates from edits until your manager replies. Approvers must respond within 5 business days or the request auto-escalates.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div>Onyx Works Group, v4.12.0 · environment production-eu</div>
+      <div class="links">
+        <a href="people-directory.html">People</a>
+        <a href="org-chart.html">Org Chart</a>
+        <a href="time-off.html">Time Off</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="settings.html">Settings</a>
+        <a href="#">Knowledge</a>
+        <a href="#">Support</a>
+      </div>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

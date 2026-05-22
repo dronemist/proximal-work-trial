@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Properties — Sable Echo. Studio</title>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  /* page-specific tweaks */
+  .houses-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    margin: 14px 0 18px;
+  }
+  .ctlset {
+    display: inline-flex; gap: 4px; padding: 2px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+    font-size: 11px; font-family: -apple-system, Arial, sans-serif;
+  }
+  .ctlset button { background: transparent; border: 0; padding: 6px 14px; border-radius: 999px; cursor: pointer; color: var(--muted); font-family: inherit; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .ctlset button.on { background: var(--ink); color: #fff; }
+  .ctlset button.gold { background: var(--gold); color: #fff; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- top navigation -->
+  <header class="topbar">
+    <a href="properties.html" class="brand">Sable Echo<span class="dot">.</span> Studio</a>
+    <nav class="nav">
+      <a href="properties.html" class="active">Properties</a>
+      <a href="property-detail.html">Property</a>
+      <a href="messaging.html">Guest Messages</a>
+      <a href="rates.html">Rates &amp; Availability</a>
+      <a href="reports.html">Reports</a>
+    </nav>
+    <a class="btn-pill" href="#">Get in touch</a>
+  </header>
+
+  <div class="eyebrow"><span>The portfolio</span><span class="sep">·</span><span class="accent">Spring season</span></div>
+
+  <!-- hero -->
+  <section class="hero">
+    <h1 class="display">Eleven stays, quietly considered.</h1>
+    <p class="lede">A working catalogue of the houses, lodges, and apartments under your stewardship — each one introduced with the same care a curator brings to a wall-label. Sort by season, by silhouette, by the way the light moves through the rooms.</p>
+  </section>
+
+  <!-- KPI summary strip (small) -->
+  <div class="row gap-lg" style="border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0; margin-bottom:30px; flex-wrap:wrap;">
+    <div>
+      <div class="tn-cap">Properties under management</div>
+      <div class="serif" style="font-size:22px; margin-top:4px;">11</div>
+    </div>
+    <div style="flex:1;"></div>
+    <div>
+      <div class="tn-cap">Average tenancy</div>
+      <div class="serif" style="font-size:22px; margin-top:4px;">4.6 nights</div>
+    </div>
+    <div>
+      <div class="tn-cap">Avg occupancy YTD</div>
+      <div class="serif" style="font-size:22px; margin-top:4px; color:var(--gold-2);">78.4%</div>
+    </div>
+  </div>
+
+  <!-- filter bar -->
+  <div class="search-bar" style="margin-bottom:14px;">
+    <input placeholder="Search by name, place, or silhouette..."/>
+    <div class="filt">All regions <span style="color:var(--muted)">▾</span></div>
+    <div class="filt">All seasons <span style="color:var(--muted)">▾</span></div>
+    <div class="filt">All conditions <span style="color:var(--muted)">▾</span></div>
+    <button class="btn-pill" style="margin:0 4px;">Filters</button>
+  </div>
+
+  <!-- Currently published -->
+  <div class="sect-head" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:18px;">
+    <div>
+      <div class="chapter">Chapter 1 — In rotation</div>
+      <div class="title">Currently published</div>
+    </div>
+    <div class="ctlset">
+      <button class="on">Grid</button>
+      <button>List</button>
+      <button>Map</button>
+    </div>
+  </div>
+
+  <div class="prop-grid">
+
+    <!-- card 1 -->
+    <article class="prop-card">
+      <div class="thumb">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" class="illust">
+          <rect width="320" height="200" fill="#1d160e"/>
+          <circle cx="240" cy="40" r="14" fill="#e6dab6"/>
+          <polygon points="40,150 120,80 200,150" fill="#0f0a06"/>
+          <rect x="60" y="120" width="120" height="40" fill="#f1e5c4"/>
+          <rect x="80" y="130" width="14" height="20" fill="#e9b733"/>
+          <rect x="110" y="130" width="14" height="20" fill="#e9b733"/>
+          <rect x="140" y="130" width="14" height="20" fill="#e9b733"/>
+          <rect x="0" y="160" width="320" height="40" fill="#0a0805"/>
+        </svg>
+      </div>
+      <div class="body">
+        <div class="meta-tags"><span class="tag">Coastal</span><span class="tag">·</span><span class="tag">Bay of Korthavn</span></div>
+        <h3>The Black Barn of Korthavnen</h3>
+        <p>A tidal residence framed by salt-bleached cedar. Sleeps four around a slow-burning hearth.</p>
+        <div class="prop-stats">
+          <div class="stat"><div class="v">€420</div><div class="k">/ night</div></div>
+          <div class="stat"><div class="v">82%</div><div class="k">YTD occ.</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- card 2 -->
+    <article class="prop-card">
+      <div class="thumb">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" class="illust">
+          <rect width="320" height="200" fill="#2a1f14"/>
+          <rect x="0" y="150" width="320" height="50" fill="#100a05"/>
+          <polygon points="40,150 70,90 100,150" fill="#1a120a"/>
+          <polygon points="100,150 150,60 200,150" fill="#0d0905"/>
+          <rect x="120" y="100" width="14" height="14" fill="#e9b733"/>
+          <rect x="160" y="100" width="14" height="14" fill="#e9b733"/>
+        </svg>
+      </div>
+      <div class="body">
+        <div class="meta-tags"><span class="tag">Forest</span><span class="tag">·</span><span class="tag">Värmland</span></div>
+        <h3>Casa Encinal</h3>
+        <p>A spare studio bedded into oak shadow. The kitchen window catches the late afternoon thrush.</p>
+        <div class="prop-stats">
+          <div class="stat"><div class="v">€285</div><div class="k">/ night</div></div>
+          <div class="stat"><div class="v">71%</div><div class="k">YTD occ.</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- card 3 -->
+    <article class="prop-card">
+      <div class="thumb">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" class="illust">
+          <rect width="320" height="200" fill="#2a1f14"/>
+          <rect x="0" y="160" width="320" height="40" fill="#100a05"/>
+          <polygon points="80,160 160,70 240,160" fill="#0a0604"/>
+          <rect x="100" y="120" width="120" height="40" fill="#efe2b8"/>
+          <rect x="115" y="130" width="14" height="22" fill="#1c150d"/>
+          <rect x="145" y="130" width="14" height="22" fill="#1c150d"/>
+          <rect x="175" y="130" width="14" height="22" fill="#1c150d"/>
+          <rect x="200" y="130" width="14" height="22" fill="#1c150d"/>
+          <rect x="148" y="92" width="24" height="20" fill="#efe2b8"/>
+        </svg>
+      </div>
+      <div class="body">
+        <div class="meta-tags"><span class="tag">Highland</span><span class="tag">·</span><span class="tag">Aabenraa</span></div>
+        <h3>Atelier sur les Saintonge</h3>
+        <p>A four-room artist's loft on the third floor; grand windows and a wood-stove that hums on cold mornings.</p>
+        <div class="prop-stats">
+          <div class="stat"><div class="v">€360</div><div class="k">/ night</div></div>
+          <div class="stat"><div class="v">88%</div><div class="k">YTD occ.</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- card 4 -->
+    <article class="prop-card">
+      <div class="thumb">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" class="illust">
+          <rect width="320" height="200" fill="#2a1f14"/>
+          <rect x="0" y="160" width="320" height="40" fill="#100a05"/>
+          <polygon points="60,160 100,100 140,160" fill="#0d0805"/>
+          <polygon points="160,160 220,60 280,160" fill="#0d0805"/>
+          <rect x="180" y="110" width="14" height="14" fill="#e9b733"/>
+          <rect x="225" y="110" width="14" height="14" fill="#e9b733"/>
+          <rect x="180" y="135" width="14" height="14" fill="#e9b733"/>
+          <rect x="225" y="135" width="14" height="14" fill="#e9b733"/>
+        </svg>
+      </div>
+      <div class="body">
+        <div class="meta-tags"><span class="tag">Townhouse</span><span class="tag">·</span><span class="tag">Cohue Pinatevre</span></div>
+        <h3>Cabaña Pinatevre</h3>
+        <p>A craft-built timber cabin on the river edge. Decked in pine, lined in linen, listened over by owls.</p>
+        <div class="prop-stats">
+          <div class="stat"><div class="v">€275</div><div class="k">/ night</div></div>
+          <div class="stat"><div class="v">66%</div><div class="k">YTD occ.</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- card 5 -->
+    <article class="prop-card">
+      <div class="thumb">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" class="illust">
+          <rect width="320" height="200" fill="#2a1f14"/>
+          <rect x="0" y="160" width="320" height="40" fill="#100a05"/>
+          <polygon points="30,160 90,90 150,160" fill="#0d0805"/>
+          <rect x="50" y="125" width="22" height="35" fill="#e9b733"/>
+          <rect x="100" y="125" width="22" height="35" fill="#e9b733"/>
+          <polygon points="170,160 230,100 290,160" fill="#0d0805"/>
+          <rect x="195" y="125" width="20" height="35" fill="#e9b733"/>
+          <rect x="240" y="125" width="20" height="35" fill="#e9b733"/>
+        </svg>
+      </div>
+      <div class="body">
+        <div class="meta-tags"><span class="tag">Maison</span><span class="tag">·</span><span class="tag">Carrer Aragó</span></div>
+        <h3>Planta Tercera, Carrer Aragó</h3>
+        <p>A modernist apartment with characterful tile floors and high south-facing balconies. Lit through both ends of the day.</p>
+        <div class="prop-stats">
+          <div class="stat"><div class="v">€295</div><div class="k">/ night</div></div>
+          <div class="stat"><div class="v">72%</div><div class="k">YTD occ.</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- card 6 -->
+    <article class="prop-card">
+      <div class="thumb">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" class="illust">
+          <rect width="320" height="200" fill="#2a1f14"/>
+          <rect x="0" y="160" width="320" height="40" fill="#100a05"/>
+          <polygon points="60,160 160,50 260,160" fill="#0a0604"/>
+          <rect x="100" y="115" width="120" height="45" fill="#efe2b8"/>
+          <rect x="115" y="125" width="20" height="30" fill="#e9b733"/>
+          <rect x="145" y="125" width="20" height="30" fill="#e9b733"/>
+          <rect x="175" y="125" width="20" height="30" fill="#e9b733"/>
+          <rect x="205" y="125" width="20" height="30" fill="#e9b733"/>
+          <circle cx="220" cy="70" r="10" fill="#efe2b8"/>
+        </svg>
+      </div>
+      <div class="body">
+        <div class="meta-tags"><span class="tag">Inland</span><span class="tag">·</span><span class="tag">Kuro Moka</span></div>
+        <h3>Kuro Moka, Hakuba</h3>
+        <p>A converted ryokan with paper screens and a charcoal pit. Four mats around a low kotatsu.</p>
+        <div class="prop-stats">
+          <div class="stat"><div class="v">¥18,500</div><div class="k">/ night</div></div>
+          <div class="stat"><div class="v">81%</div><div class="k">YTD occ.</div></div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Featured property block -->
+  <div class="feature">
+    <div class="img">
+      <svg viewBox="0 0 480 280" preserveAspectRatio="xMidYMid slice" class="illust">
+        <rect width="480" height="280" fill="#2a1f14"/>
+        <rect x="0" y="220" width="480" height="60" fill="#100a05"/>
+        <polygon points="120,220 260,80 400,220" fill="#0a0604"/>
+        <rect x="170" y="160" width="180" height="60" fill="#efe2b8"/>
+        <rect x="190" y="170" width="22" height="46" fill="#e9b733"/>
+        <rect x="225" y="170" width="22" height="46" fill="#e9b733"/>
+        <rect x="260" y="170" width="22" height="46" fill="#e9b733"/>
+        <rect x="300" y="170" width="22" height="46" fill="#1c150d"/>
+        <circle cx="380" cy="60" r="16" fill="#e6d99a"/>
+      </svg>
+    </div>
+    <div class="body">
+      <div class="chapter">Folio No. 04 — Featured</div>
+      <h3>The Black Barn returns to the spring calendar.</h3>
+      <p>After a quiet winter — new flooring, a re-pointed chimney, and a new tinsmith — the house returns to the open list this week. We've kept the late-spring window quiet, by design.</p>
+      <div class="meta">
+        <div class="k">Reopens</div><div class="v">Wednesday, 3 April</div>
+        <div class="k">Booked nights</div><div class="v">21 of 38</div>
+        <div class="k">Lead time</div><div class="v">12 days, median</div>
+        <div class="k">Channels</div><div class="v">Direct, Folio</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second featured: reversed (image right) -->
+  <div class="feature" style="grid-template-columns: 1fr 1.4fr;">
+    <div class="body">
+      <div class="chapter">Folio No. 05 — In planning</div>
+      <h3>Casa Encinal, between fog and fire.</h3>
+      <p>Of all the houses in the portfolio, Casa Encinal is the one we most often photograph at four in the afternoon. The light, then, lifts the long shadows from the eaves and warms the limestone to a tone of weak honey.</p>
+      <div class="meta">
+        <div class="k">Photoshoot</div><div class="v">21 March</div>
+        <div class="k">Stylist</div><div class="v">Mireille Vintras</div>
+        <div class="k">Returns to listing</div><div class="v">04 April</div>
+      </div>
+    </div>
+    <div class="img">
+      <svg viewBox="0 0 480 280" preserveAspectRatio="xMidYMid slice" class="illust">
+        <rect width="480" height="280" fill="#2a1f14"/>
+        <rect x="0" y="220" width="480" height="60" fill="#100a05"/>
+        <polygon points="160,220 260,120 360,220" fill="#0a0604"/>
+        <rect x="190" y="170" width="140" height="50" fill="#efe2b8"/>
+        <rect x="205" y="180" width="20" height="35" fill="#1c150d"/>
+        <rect x="235" y="180" width="20" height="35" fill="#1c150d"/>
+        <rect x="265" y="180" width="20" height="35" fill="#1c150d"/>
+        <rect x="295" y="180" width="20" height="35" fill="#1c150d"/>
+        <circle cx="380" cy="80" r="14" fill="#e6d99a"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- In preparation -->
+  <div class="sect-head">
+    <div class="chapter">Chapter 2 — In preparation</div>
+    <div class="title">In preparation</div>
+  </div>
+
+  <div class="prop-grid">
+    <article class="prop-card">
+      <div class="thumb">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" class="illust">
+          <rect width="320" height="200" fill="#2a1f14"/>
+          <rect x="0" y="160" width="320" height="40" fill="#100a05"/>
+          <polygon points="80,160 160,90 240,160" fill="#0d0805"/>
+          <rect x="120" y="130" width="80" height="30" fill="#efe2b8"/>
+          <rect x="135" y="138" width="14" height="20" fill="#1c150d"/>
+          <rect x="165" y="138" width="14" height="20" fill="#1c150d"/>
+        </svg>
+      </div>
+      <div class="body">
+        <div class="meta-tags"><span class="tag">Pending</span><span class="tag">·</span><span class="tag">Bergen</span></div>
+        <h3>The Old Wool Store</h3>
+        <p>A salt-loft above the harbour, opens for the summer once the stonework dries.</p>
+        <div class="prop-stats">
+          <div class="stat"><div class="v">€320</div><div class="k">/ night est.</div></div>
+          <div class="stat"><div class="v">Jun</div><div class="k">Opening</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="prop-card">
+      <div class="thumb">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" class="illust">
+          <rect width="320" height="200" fill="#2a1f14"/>
+          <rect x="0" y="160" width="320" height="40" fill="#100a05"/>
+          <polygon points="50,160 100,100 150,160" fill="#0d0805"/>
+          <polygon points="170,160 230,90 290,160" fill="#0d0805"/>
+          <rect x="180" y="120" width="100" height="40" fill="#efe2b8"/>
+          <rect x="190" y="130" width="14" height="20" fill="#e9b733"/>
+          <rect x="215" y="130" width="14" height="20" fill="#e9b733"/>
+          <rect x="240" y="130" width="14" height="20" fill="#e9b733"/>
+          <circle cx="60" cy="60" r="10" fill="#e6d99a"/>
+        </svg>
+      </div>
+      <div class="body">
+        <div class="meta-tags"><span class="tag">Pending</span><span class="tag">·</span><span class="tag">Yvelines</span></div>
+        <h3>Trolla della Marina</h3>
+        <p>A two-house complex on a high coast, opening once the road repairs settle.</p>
+        <div class="prop-stats">
+          <div class="stat"><div class="v">€460</div><div class="k">/ night est.</div></div>
+          <div class="stat"><div class="v">Jul</div><div class="k">Opening</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="prop-card">
+      <div class="thumb">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" class="illust">
+          <rect width="320" height="200" fill="#2a1f14"/>
+          <rect x="0" y="160" width="320" height="40" fill="#100a05"/>
+          <polygon points="60,160 160,100 260,160" fill="#0a0604"/>
+          <rect x="100" y="130" width="120" height="30" fill="#efe2b8"/>
+          <rect x="115" y="138" width="20" height="22" fill="#e9b733"/>
+          <rect x="155" y="138" width="20" height="22" fill="#e9b733"/>
+          <rect x="195" y="138" width="20" height="22" fill="#e9b733"/>
+          <circle cx="240" cy="60" r="10" fill="#e6d99a"/>
+        </svg>
+      </div>
+      <div class="body">
+        <div class="meta-tags"><span class="tag">Pending</span><span class="tag">·</span><span class="tag">Ærø</span></div>
+        <h3>Hzal Bah Doukkala</h3>
+        <p>A coastal villa returning after a careful summer recoupling of the south wing.</p>
+        <div class="prop-stats">
+          <div class="stat"><div class="v">€395</div><div class="k">/ night est.</div></div>
+          <div class="stat"><div class="v">Aug</div><div class="k">Opening</div></div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- All properties table -->
+  <div class="sect-head">
+    <div class="chapter">Chapter 3 — Catalogue</div>
+    <div class="title">All properties, at a glance.</div>
+  </div>
+
+  <div class="card" style="padding:0; overflow-x:auto;">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>The Stay &amp; its Architecture</th>
+          <th>Region</th>
+          <th>Sleeps</th>
+          <th>Nightly</th>
+          <th>YTD occ.</th>
+          <th>Status</th>
+          <th>Last edited</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>The Black Barn of Korthavnen</td><td>Helsør, Sealing, DK</td>
+          <td>4</td><td class="gold">€420</td><td>82%</td>
+          <td><span class="pill green">Published</span></td><td>2 Apr 2024</td>
+        </tr>
+        <tr>
+          <td>Casa Encinal</td><td>Värmland, SE</td>
+          <td>2</td><td class="gold">€285</td><td>71%</td>
+          <td><span class="pill green">Published</span></td><td>14 Mar 2024</td>
+        </tr>
+        <tr>
+          <td>Atelier sur les Saintonge</td><td>Aabenraa, DK</td>
+          <td>6</td><td class="gold">€360</td><td>88%</td>
+          <td><span class="pill green">Published</span></td><td>9 Mar 2024</td>
+        </tr>
+        <tr>
+          <td>Planta Tercera, Carrer Aragó</td><td>Barcelona, ES</td>
+          <td>4</td><td class="gold">€295</td><td>72%</td>
+          <td><span class="pill green">Published</span></td><td>4 Mar 2024</td>
+        </tr>
+        <tr>
+          <td>Cabaña Pinatevre</td><td>Cohue, FR</td>
+          <td>3</td><td class="gold">€275</td><td>66%</td>
+          <td><span class="pill green">Published</span></td><td>21 Feb 2024</td>
+        </tr>
+        <tr>
+          <td>Kuro Moka, Hakuba</td><td>Nagano, JP</td>
+          <td>2</td><td class="gold">¥18,500</td><td>81%</td>
+          <td><span class="pill green">Published</span></td><td>14 Feb 2024</td>
+        </tr>
+        <tr>
+          <td>The Old Wool Store</td><td>Bergen, NO</td>
+          <td>4</td><td class="gold">€320</td><td>—</td>
+          <td><span class="pill">In preparation</span></td><td>2 Feb 2024</td>
+        </tr>
+        <tr>
+          <td>Trolla della Marina</td><td>Yvelines, FR</td>
+          <td>6</td><td class="gold">€460</td><td>—</td>
+          <td><span class="pill">In preparation</span></td><td>22 Jan 2024</td>
+        </tr>
+        <tr>
+          <td>Hzal Bah Doukkala</td><td>Ærø, DK</td>
+          <td>4</td><td class="gold">€395</td><td>—</td>
+          <td><span class="pill">In preparation</span></td><td>14 Jan 2024</td>
+        </tr>
+        <tr>
+          <td>Vauclause Studio</td><td>Provence, FR</td>
+          <td>2</td><td class="gold">€240</td><td>—</td>
+          <td><span class="pill red">Drafted</span></td><td>2 Jan 2024</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- footer -->
+  <footer class="foot">
+    <div class="row">
+      <div>
+        <a class="brand" href="#">Sable Echo<span class="dot">.</span> Studio</a>
+        <p>A small atelier representing a modest number of considered places to stay. Working with discreet owners since 2009.</p>
+      </div>
+      <div>
+        <h5>Most Resources</h5>
+        <ul>
+          <li>Properties</li>
+          <li>Rates &amp; Availability</li>
+          <li>Guest Messages</li>
+          <li>Reports</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <ul>
+          <li>Editorial</li>
+          <li>Contact</li>
+          <li>Terms &amp; Privacy</li>
+          <li>Instagram. Are.na</li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <div>© 2025 Sable Echo Studio. Composed in ivory and linen. All correspondence is held in confidence between host and guest.</div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

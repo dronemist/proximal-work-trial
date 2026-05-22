@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alerts — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="brand"><span class="brand-mark"></span>Beacon Harbor Works</div>
+    <nav class="primary-nav">
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html">Team</a>
+      <a href="alerts.html" class="active">Alerts</a>
+    </nav>
+    <div class="user-chip"><span class="avatar avatar-color-1"></span> D. Halvorsen</div>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <div class="breadcrumb"><a href="#">Home</a><span class="sep">/</span><span class="crumb-active">Alerts</span></div>
+
+  <div class="layout">
+    <div class="main-col">
+
+      <section>
+        <div class="eyebrow">Incident Snapshot</div>
+        <h1>Alerts</h1>
+        <div class="page-intro">
+          <p>Open incidents and recent signal across all production surfaces. Sorted by severity, then by time fired. Ack early. Page only when you must.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn primary">Declare incident</button>
+          <button class="btn">Alert rules</button>
+          <button class="btn">Mute window</button>
+        </div>
+      </section>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-label">Firing</div>
+          <div class="stat-value">3</div>
+          <div class="stat-sub">1 crit · 2 warn</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Acknowledged</div>
+          <div class="stat-value">2</div>
+          <div class="stat-sub">avg ack 4m 12s</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Resolved · 24h</div>
+          <div class="stat-value">17</div>
+          <div class="stat-sub">MTTR 26m 04s</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">On Call</div>
+          <div class="stat-value" style="font-size:18px;">D. Halvorsen</div>
+          <div class="stat-sub">Primary · until 18:00 UTC</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="field-row" style="margin-bottom:10px;">
+          <select class="select"><option>Status: Open</option></select>
+          <select class="select"><option>Severity: Any</option></select>
+          <select class="select"><option>Service: All</option></select>
+          <input class="input flex-1" type="text" placeholder="Search by tag, owner, or signal…">
+          <button class="btn">Filter</button>
+        </div>
+
+        <div class="alert-row crit" style="margin-bottom:8px;">
+          <div class="alert-row-head">
+            <span class="badge critical">P1 · Crit</span>
+            <span class="alert-row-title">Checkout 5xx rate above 2% for 6m</span>
+            <span class="muted small">ALT-7438</span>
+            <span class="muted small nowrap">fired 14:38 UTC</span>
+          </div>
+          <svg class="alert-spark" viewBox="0 0 200 28" preserveAspectRatio="none"><polyline fill="none" stroke="#c43d3d" stroke-width="1.5" points="0,22 10,20 20,21 30,19 40,18 50,16 60,17 70,12 80,8 90,11 100,5 110,3 120,6 130,9 140,4 150,7 160,3 170,2 180,5 190,3 200,2"/></svg>
+          <div class="alert-row-meta">
+            <span><span class="lbl">Service:</span> billing-svc</span>
+            <span><span class="lbl">Region:</span> us-east-1</span>
+            <span><span class="lbl">Fired:</span> 14:38 UTC</span>
+            <span><span class="lbl">Signal:</span> http.responses.5xx</span>
+          </div>
+          <div class="alert-row-foot">
+            <button class="btn primary small">Acknowledge</button>
+            <button class="btn small">Snooze 15m</button>
+            <button class="btn small">Runbook</button>
+            <button class="btn small">Resolve</button>
+          </div>
+        </div>
+
+        <div class="alert-row warn" style="margin-bottom:8px;">
+          <div class="alert-row-head">
+            <span class="badge warn">P2 · Warn</span>
+            <span class="alert-row-title">api-gateway p99 latency &gt; 800ms</span>
+            <span class="muted small">ALT-7421</span>
+            <span class="muted small nowrap">fired 14:11 UTC · ack 14:14 UTC by P. Okafor</span>
+          </div>
+          <svg class="alert-spark" viewBox="0 0 200 28" preserveAspectRatio="none"><polyline fill="none" stroke="#e0a83a" stroke-width="1.5" points="0,18 10,17 20,15 30,16 40,14 50,12 60,11 70,9 80,10 90,8 100,6 110,8 120,7 130,5 140,9 150,6 160,4 170,7 180,5 190,4 200,3"/></svg>
+          <div class="alert-row-meta">
+            <span><span class="lbl">Service:</span> api-gateway</span>
+            <span><span class="lbl">Region:</span> eu-west-2</span>
+            <span><span class="lbl">Owner:</span> P. Okafor</span>
+            <span><span class="lbl">Status:</span> investigating</span>
+          </div>
+          <div class="alert-row-foot">
+            <button class="btn small">Add note</button>
+            <button class="btn small">Escalate</button>
+            <button class="btn small">Resolve</button>
+          </div>
+        </div>
+
+        <div class="alert-row warn" style="margin-bottom:8px;">
+          <div class="alert-row-head">
+            <span class="badge warn">P2 · Warn</span>
+            <span class="alert-row-title">Certificate expiry within 14 days · *.harborworks</span>
+            <span class="muted small">ALT-7418</span>
+            <span class="muted small nowrap">fired 09:02 UTC</span>
+          </div>
+          <div class="alert-row-meta">
+            <span><span class="lbl">Platform:</span> www</span>
+            <span><span class="lbl">Expires:</span> 2026-04-08</span>
+            <span><span class="lbl">Fired:</span> 09:02 UTC</span>
+            <span><span class="lbl">Auto-renew:</span> disabled</span>
+          </div>
+          <div class="alert-row-foot">
+            <button class="btn small">Acknowledge</button>
+            <button class="btn small">Renew now</button>
+            <button class="btn small">Snooze 24h</button>
+          </div>
+        </div>
+
+        <div class="alert-row info" style="margin-bottom:8px;">
+          <div class="alert-row-head">
+            <span class="badge info">P3 · Info</span>
+            <span class="alert-row-title">media worker queue depth &gt; 5,000 messages</span>
+            <span class="muted small">ALT-7409</span>
+            <span class="muted small nowrap">fired 06:51 UTC · acked</span>
+          </div>
+          <svg class="alert-spark" viewBox="0 0 200 28" preserveAspectRatio="none"><polyline fill="none" stroke="#4a6d8a" stroke-width="1.5" points="0,22 10,21 20,18 30,17 40,18 50,15 60,14 70,16 80,12 90,11 100,9 110,11 120,7 130,8 140,6 150,8 160,5 170,7 180,4 190,5 200,3"/></svg>
+          <div class="alert-row-meta">
+            <span><span class="lbl">Service:</span> media-worker</span>
+            <span><span class="lbl">Queue:</span> transcode-ift</span>
+            <span><span class="lbl">Peak:</span> 7,612</span>
+            <span><span class="lbl">Fired:</span> 13:49 UTC</span>
+          </div>
+          <div class="alert-row-foot">
+            <button class="btn small">Scale workers</button>
+            <button class="btn small">Resolve</button>
+          </div>
+        </div>
+
+        <div class="alert-row ack" style="margin-bottom:8px;">
+          <div class="alert-row-head">
+            <span class="badge ack">Ack</span>
+            <span class="alert-row-title">Nightly snapshot lag · 18 minutes behind schedule</span>
+            <span class="muted small">ALT-7406</span>
+            <span class="muted small nowrap">acked by J. Merriweth</span>
+          </div>
+          <div class="alert-row-meta">
+            <span><span class="lbl">Service:</span> backup-orchestrator</span>
+            <span><span class="lbl">Region:</span> us-pri/eu-sec</span>
+            <span><span class="lbl">Fired:</span> 04:18 UTC</span>
+            <span><span class="lbl">Channel:</span> #ops-low</span>
+          </div>
+          <div class="alert-row-foot">
+            <button class="btn small">Add note</button>
+            <button class="btn small">Resolve</button>
+          </div>
+        </div>
+
+        <div class="alert-row info">
+          <div class="alert-row-head">
+            <span class="badge info">P3 · Info</span>
+            <span class="alert-row-title">Data · sending image</span>
+            <span class="muted small">ALT-7401</span>
+            <span class="muted small nowrap">fired 02:14 UTC</span>
+          </div>
+          <div class="alert-row-meta">
+            <span><span class="lbl">Service:</span> mailer</span>
+            <span><span class="lbl">Region:</span> eu-west-1</span>
+            <span><span class="lbl">Owner:</span> S. Park</span>
+            <span><span class="lbl">Status:</span> watching</span>
+          </div>
+          <div class="alert-row-foot">
+            <button class="btn small">Acknowledge</button>
+            <button class="btn small">Mute 1h</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Resolved · last 24 hours</div>
+            <div class="section-title">Closed manifest</div>
+          </div>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Severity</th>
+              <th>Alert</th>
+              <th>Service</th>
+              <th>Owner</th>
+              <th>Duration</th>
+              <th>Closed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mono">ALT-7404</td>
+              <td><span class="badge warn">P2</span></td>
+              <td>Redis evictions spike on cache fleet</td>
+              <td>cache-fleet</td>
+              <td>P. Okafor</td>
+              <td>00:18:42</td>
+              <td class="muted">13:11</td>
+            </tr>
+            <tr>
+              <td class="mono">ALT-7392</td>
+              <td><span class="badge warn">P2</span></td>
+              <td>Webhook delivery retries above threshold</td>
+              <td>events-fanout</td>
+              <td>S. Bergstrom</td>
+              <td>00:39:11</td>
+              <td class="muted">11:42</td>
+            </tr>
+            <tr>
+              <td class="mono">ALT-7387</td>
+              <td><span class="badge info">P3</span></td>
+              <td>auth-edge degraded for SSO tenants</td>
+              <td>auth-edge</td>
+              <td>D. Halvorsen</td>
+              <td>00:24:03</td>
+              <td class="muted">09:55</td>
+            </tr>
+            <tr>
+              <td class="mono">ALT-7381</td>
+              <td><span class="badge info">P3</span></td>
+              <td>S3 cross-region replication lag</td>
+              <td>media-store</td>
+              <td>J. Merriweth</td>
+              <td>00:12:30</td>
+              <td class="muted">07:31</td>
+            </tr>
+            <tr>
+              <td class="mono">ALT-7376</td>
+              <td><span class="badge warn">P2</span></td>
+              <td>Synthetic check flap — marketing harbor.works</td>
+              <td>synthetics</td>
+              <td>Auto-closed</td>
+              <td>00:05:54</td>
+              <td class="muted">04:50</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <span class="muted">Showing 1–5 of 17 resolved incidents</span>
+          <span><a href="#">Open full archive →</a></span>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <div class="pages">
+          <span class="current">1</span>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">…</a>
+          <a href="#">9</a>
+        </div>
+        <span class="muted">Page 1 of 9 · 173 alerts</span>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Confirm action</div>
+        <h3 style="margin:6px 0;">Acknowledge ALT-4827?</h3>
+        <p class="muted small">You will be marked as the responder. Pages to the secondary on-call will not be sent. The incident remains open until explicitly resolved.</p>
+        <div class="mt-12">
+          <div class="eyebrow">Short note (optional)</div>
+          <input class="input full" type="text" placeholder="e.g. looking at canary inflow">
+        </div>
+        <div class="flex between mt-12">
+          <button class="btn">Cancel</button>
+          <button class="btn primary">Acknowledge &amp; take page</button>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="side-col">
+
+      <div class="side-card">
+        <h3>On-call rotation</h3>
+        <div class="people-list">
+          <div class="person"><span class="avatar avatar-color-1"></span><div><div class="person-name">D. Halvorsen</div><div class="person-sub">Primary · until 18:00 UTC</div></div></div>
+          <div class="person"><span class="avatar avatar-color-2"></span><div><div class="person-name">L. Bergstrom</div><div class="person-sub">Secondary</div></div></div>
+          <div class="person"><span class="avatar avatar-color-3"></span><div><div class="person-name">J. Merriweth</div><div class="person-sub">Escalation</div></div></div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Recent activity</h3>
+        <div class="row-list">
+          <div>
+            <div class="small bold">ALT-7438</div>
+            <div class="small muted">page primary, mute room ops/p1</div>
+          </div>
+          <div>
+            <div class="small bold">ALT-7421</div>
+            <div class="small muted">acked by P. Okafor · note added</div>
+          </div>
+          <div>
+            <div class="small bold">ALT-7418</div>
+            <div class="small muted">channel ping, no page</div>
+          </div>
+          <div>
+            <div class="small bold">ALT-7409</div>
+            <div class="small muted">queue auto-scaled +4 workers</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Triage links</h3>
+        <div class="row-list">
+          <div class="flex between"><a href="#">runbook/5xx-spike</a><span class="small muted">RB-002</span></div>
+          <div class="flex between"><a href="#">runbook/cache-flush</a><span class="small muted">RB-011</span></div>
+          <div class="flex between"><a href="#">runbook/lift-rotate</a><span class="small muted">RB-022</span></div>
+          <div class="flex between"><a href="#">runbook/cert-renew</a><span class="small muted">RB-024</span></div>
+          <div class="flex between"><a href="#">runbook/no-failover</a><span class="small muted">RB-031</span></div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Suggested follow-ups</h3>
+        <div class="row-list">
+          <div>
+            <div class="small bold">From recent incidents</div>
+          </div>
+          <div>
+            <div class="small">Add canary auto-rollback</div>
+            <div class="small muted">billing-svc · proposed by D. Halvorsen</div>
+          </div>
+          <div>
+            <div class="small">Increase Redis maxmemory</div>
+            <div class="small muted">cache-fleet · open PR #284</div>
+          </div>
+          <div>
+            <div class="small">Enable cert auto-rotate</div>
+            <div class="small muted">platform · awaiting review</div>
+          </div>
+          <div>
+            <div class="small">Backfill SLO alert</div>
+            <div class="small muted">events-fanout · drafted</div>
+          </div>
+          <a href="#" class="small">View all queued items →</a>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Trending alerts</h3>
+        <div class="small muted mb-8">Touched today</div>
+        <div class="row-list">
+          <div class="flex between"><span class="mono small">harbor/billing-svc</span><span class="small muted">7×</span></div>
+          <div class="flex between"><span class="mono small">harbor/api-gateway</span><span class="small muted">4×</span></div>
+          <div class="flex between"><span class="mono small">harbor/media-worker</span><span class="small muted">3×</span></div>
+          <div class="flex between"><span class="mono small">harbor/infra-tf</span><span class="small muted">2×</span></div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span>© 2026 Beacon Harbor Works · Status &amp; transparency</span>
+    <nav class="footer-nav">
+      <a href="#">Changelog</a>
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

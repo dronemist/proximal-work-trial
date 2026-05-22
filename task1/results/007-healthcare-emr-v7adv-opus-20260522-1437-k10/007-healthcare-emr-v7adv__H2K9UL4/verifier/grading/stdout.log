@@ -1,0 +1,171 @@
+[grade] VLM judge: 15 pairs in 16.6s
+{
+  "per_page_viewport": {
+    "appointment-calendar": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.724456773312427,
+          "extra": {
+            "reference_size": [
+              1440,
+              3443
+            ],
+            "candidate_size": [
+              1440,
+              2524
+            ],
+            "compared_size": [
+              1440,
+              2524
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.38112160563468933,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.1452537477016449,
+            "raw_score_before_sqrt": 0.14525367319583893
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8215613455262691,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.17843865447373092,
+            "page_diagonal_px": 3732.190745394689
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.6965672989657947,
+          "extra": {
+            "bg_score": 0.790605607186045,
+            "fg_score": 0.6025289907455443,
+            "bg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 15,
+              "weighted_mean_oklab_distance": 0.02129487320780754,
+              "base_score_before_penalty": 0.8580341786146164,
+              "over_color_penalty": 0.06742857142857142
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 13,
+              "weighted_mean_oklab_distance": 0.049220651388168335,
+              "base_score_before_penalty": 0.6718623240788777,
+              "over_color_penalty": 0.06933333333333332
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7296292190749776,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.8280417415356822,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.14308426073131955
+              ],
+              [
+                12.0,
+                0.383147853736089
+              ],
+              [
+                14.0,
+                0.43402225755166934
+              ],
+              [
+                20.0,
+                0.02702702702702703
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.013888888888888888
+              ],
+              [
+                11.0,
+                0.3551587301587302
+              ],
+              [
+                12.0,
+                0.18452380952380953
+              ],
+              [
+                13.0,
+                0.17063492063492064
+              ],
+              [
+                14.0,
+                0.251984126984127
+              ],
+              [
+                22.0,
+                0.021825396825396824
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5755148741418764,
+          "extra": {
+            "reference_tokens": 755,
+            "candidate_tokens": 622,
+            "matched_tokens": 503,
+            "union_tokens": 874,
+            "reference_unique": 325,
+            "candidate_unique": 310
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content differences: the reference shows a detailed right-side panel with Today's appointments including specific status badges (Checked in, In room, Waiting) and patient details matching the reference, but the candidate shows different patients/clinicians (e.g., 'Dr. Voss' inst",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 6.69
+          }
+        },
+        "_structured": 0.633715687812759

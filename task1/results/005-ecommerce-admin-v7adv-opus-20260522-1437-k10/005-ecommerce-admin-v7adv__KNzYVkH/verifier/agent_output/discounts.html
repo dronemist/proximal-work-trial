@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discounts — Onyx Bridge Lab</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Onyx Bridge Lab</div>
+    <nav class="nav-links">
+      <a href="orders.html">Orders</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="customers.html">Customers</a>
+      <a href="products.html">Products</a>
+      <a href="discounts.html" class="active">Discounts</a>
+    </nav>
+    <div class="nav-meta">v 24.7 · prod</div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="page-head">
+    <div class="breadcrumb">Discounts <span class="sep">/</span> Q3 2024 <span class="sep">/</span> Storefront <span class="sep">/</span> <span class="cur">“Always a loop”</span></div>
+    <h1 class="page-title">Active promotions, codes &amp; performance</h1>
+    <p class="page-sub">Seventeen discount mechanisms are currently live across the storefront. Coral indicates codes earning above their baseline; review the queue below the weekend drop.</p>
+    <div class="row" style="margin-top:12px;gap:8px">
+      <button class="btn ghost">Export CSV</button>
+      <button class="btn ghost">Schedule a sale</button>
+      <button class="btn primary">+ New discount</button>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-label">Codes live</div><div class="kpi-value">17</div><div class="kpi-delta up">▲ 3 vs last week</div></div>
+    <div class="kpi"><div class="kpi-label">Redemptions · 30d</div><div class="kpi-value">2,418</div><div class="kpi-delta up">▲ 11.2%</div></div>
+    <div class="kpi"><div class="kpi-label">Revenue attributed</div><div class="kpi-value">$84.2k</div><div class="kpi-delta up">▲ $9.3k</div></div>
+    <div class="kpi"><div class="kpi-label">Avg. discount</div><div class="kpi-value">14.8%</div><div class="kpi-delta warn">— flat 60 days</div></div>
+  </div>
+
+  <div class="layout wide-side">
+    <div class="col">
+      <div class="card flush">
+        <div class="card-head" style="padding:14px 16px 4px">
+          <h3 class="card-title">Active codes <span class="card-meta">17 live · 5 scheduled</span></h3>
+          <div class="row" style="gap:6px">
+            <span class="pill green">All running</span>
+          </div>
+        </div>
+        <div class="row" style="padding:0 16px 12px;gap:8px">
+          <input class="input" placeholder="Search by code, name or tag" style="flex:1">
+          <select class="select" style="width:140px"><option>All types</option></select>
+          <select class="select" style="width:140px"><option>Status: all</option></select>
+          <button class="btn ghost">More filters</button>
+        </div>
+        <table class="dat">
+          <thead><tr><th style="width:32px"></th><th>Code</th><th>Type</th><th>Status</th><th>Uses</th><th>Revenue</th><th>AOV</th><th>Ends</th></tr></thead>
+          <tbody>
+            <tr><td><input type="checkbox"></td><td><b class="mono">FALL24</b><div class="text-3 small">Fall edit · 15% storewide</div></td><td>15% off · storewide</td><td><span class="pill green">Live</span></td><td class="num">412</td><td class="num">$18,440</td><td class="num">$44.71</td><td class="muted num">Dec 14</td></tr>
+            <tr><td><input type="checkbox"></td><td><b class="mono">LINEN-EARLY</b><div class="text-3 small">Linen drop · early access</div></td><td>$20 off · linen</td><td><span class="pill green">Live</span></td><td class="num">298</td><td class="num">$11,800</td><td class="num">$39.60</td><td class="muted num">Nov 30</td></tr>
+            <tr><td><input type="checkbox"></td><td><b class="mono">WELCOME10</b><div class="text-3 small">First-order opt-in</div></td><td>10% · first order</td><td><span class="pill green">Live</span></td><td class="num">621</td><td class="num">$12,330</td><td class="num">$19.85</td><td class="muted num">Always</td></tr>
+            <tr><td><input type="checkbox"></td><td><b class="mono">FREESHIP75</b><div class="text-3 small">Free ship over $75</div></td><td>Free ship</td><td><span class="pill green">Live</span></td><td class="num">540</td><td class="num">$22,160</td><td class="num">$41.04</td><td class="muted num">Dec 31</td></tr>
+            <tr><td><input type="checkbox"></td><td><b class="mono">TRADE-PRO</b><div class="text-3 small">Trade program</div></td><td>20% · trade tier</td><td><span class="pill amber">Limited</span></td><td class="num">82</td><td class="num">$9,140</td><td class="num">$111.46</td><td class="muted num">Jun 30, 25</td></tr>
+            <tr><td><input type="checkbox"></td><td><b class="mono">BUNDLE-2</b><div class="text-3 small">Buy 2 save 10%</div></td><td>Auto · bundle</td><td><span class="pill green">Live</span></td><td class="num">117</td><td class="num">$4,920</td><td class="num">$42.05</td><td class="muted num">—</td></tr>
+            <tr><td><input type="checkbox"></td><td><b class="mono">STUDIO-EU</b><div class="text-3 small">Studio loop · EU</div></td><td>Tiered · 10–25%</td><td><span class="pill blue">Scheduled</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="muted num">Dec 02</td></tr>
+            <tr><td><input type="checkbox"></td><td><b class="mono">RETURN-VIP</b><div class="text-3 small">VIP winback</div></td><td>$40 off · winback</td><td><span class="pill green">Live</span></td><td class="num">64</td><td class="num">$4,710</td><td class="num">$73.59</td><td class="muted num">Jan 06, 25</td></tr>
+            <tr><td><input type="checkbox"></td><td><b class="mono">SUMMER280</b><div class="text-3 small">Summer leftover</div></td><td>20% · seasonal</td><td><span class="pill gray">Paused</span></td><td class="num">532</td><td class="num">$8,140</td><td class="num">$15.30</td><td class="muted num">Sep 12</td></tr>
+          </tbody>
+        </table>
+        <div class="row between" style="padding:11px 14px;border-top:1px solid var(--border)">
+          <div class="label">Showing 9 of 17 · 0 in audit</div>
+          <div class="row" style="gap:4px">
+            <button class="btn ghost">‹</button>
+            <button class="btn primary" style="padding:5px 10px">1</button>
+            <button class="btn ghost" style="padding:5px 10px">2</button>
+            <button class="btn ghost">›</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Redemption volume <span class="card-meta">last 14 days · all codes</span></h3>
+          <div class="row" style="gap:6px">
+            <button class="btn ghost">7d</button>
+            <button class="btn primary" style="padding:5px 10px">14d</button>
+            <button class="btn ghost">30d</button>
+          </div>
+        </div>
+        <div class="bars" style="height:140px">
+          <div class="b" style="height:42%"></div>
+          <div class="b" style="height:51%"></div>
+          <div class="b" style="height:36%"></div>
+          <div class="b" style="height:62%"></div>
+          <div class="b" style="height:71%"></div>
+          <div class="b" style="height:55%"></div>
+          <div class="b" style="height:48%"></div>
+          <div class="b" style="height:78%"></div>
+          <div class="b" style="height:91%"></div>
+          <div class="b" style="height:66%"></div>
+          <div class="b" style="height:74%"></div>
+          <div class="b" style="height:88%"></div>
+          <div class="b" style="height:96%"></div>
+          <div class="b" style="height:82%"></div>
+        </div>
+        <div class="chart-axis"><span>Sep 12</span><span>Sep 15</span><span>Sep 18</span><span>Sep 21</span><span>Sep 24</span></div>
+        <div class="row" style="margin-top:10px;gap:18px">
+          <span class="label">312 codes · $11.40 / order · 5.2% combined w/ shipping</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Automatic discounts</h3>
+          <span class="card-meta">no code required · cart-applied</span>
+        </div>
+        <div class="row" style="gap:12px;margin-bottom:8px">
+          <button class="btn ghost">+ Add automatic</button>
+        </div>
+        <table class="dat">
+          <thead><tr><th>Rule</th><th>Trigger</th><th>Discount</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><b>Volume tier · 3+ items</b><div class="text-3 small">Auto applies when cart contains 3 from any line. Excludes trade.</div></td><td class="num">≥ 3 items</td><td class="num">8% off cart</td><td><span class="pill green">Live</span></td></tr>
+            <tr><td><b>Gift with purchase</b><div class="text-3 small">Adds linen sachet over $90. Targets 1,200 from this month.</div></td><td class="num">≥ $90</td><td class="num">+ Gift</td><td><span class="pill green">Live</span></td></tr>
+            <tr><td><b>Subscriber-only</b><div class="text-3 small">5% off cart on opt-in cookie set.</div></td><td class="num">Email opt-in</td><td class="num">5% off</td><td><span class="pill amber">Testing</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <aside class="col sidebar">
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Draft · <span class="accent">WINTER-PRE</span></h3>
+          <span class="pill amber">Draft</span>
+        </div>
+        <div class="kv" style="margin-bottom:8px">
+          <span class="k">Code</span><span class="v">WINTER-PRE</span>
+        </div>
+        <div class="stack" style="gap:8px">
+          <div class="field"><label>Type</label><select class="select"><option>Percentage</option></select></div>
+          <div class="row" style="gap:10px">
+            <div class="field" style="flex:1"><label>Amount</label><input class="input" value="18%"></div>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--text-2)">
+            <input type="checkbox" checked> Limit to one use per customer
+          </label>
+          <div class="text-3 small">Recommended for high-discount window codes.</div>
+          <div class="row" style="gap:6px;margin-top:4px">
+            <button class="btn ghost">Discard</button>
+            <button class="btn">Save draft</button>
+            <button class="btn primary">Activate</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Top performer</h3>
+          <span class="card-meta">attributed revenue</span>
+        </div>
+        <div class="stack" style="gap:10px">
+          <div class="row between"><div><b class="mono">FALL24</b><div class="text-3 small">Fall edit · 15% storewide</div></div><div class="big-num">$18.4k</div></div>
+          <div class="row between"><div><b class="mono">LINEN-EARLY</b><div class="text-3 small">Linen drop access</div></div><div class="big-num">$14.2k</div></div>
+          <div class="row between"><div><b class="mono">WELCOME10</b><div class="text-3 small">First-order opt-in</div></div><div class="big-num">$12.3k</div></div>
+          <div class="row between"><div><b class="mono">FREESHIP75</b><div class="text-3 small">Free ship over $75</div></div><div class="big-num">$11.2k</div></div>
+          <div class="row between"><div><b class="mono">TRADE-PRO</b><div class="text-3 small">Trade program</div></div><div class="big-num">$9.1k</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Program health</h3>
+          <span class="pill green">Healthy</span>
+        </div>
+        <div class="kv">
+          <span class="k">Average attach</span><span class="v">1.4 items / order</span>
+          <span class="k">Stack collision rate</span><span class="v">2.1%</span>
+          <span class="k">Combination policy</span><span class="v">Auto + 1 code</span>
+          <span class="k">Discount budget left</span><span class="v">$22.4k</span>
+        </div>
+        <div class="prog gr" style="margin-top:10px"><span style="width:64%"></span></div>
+        <div class="text-3 small" style="margin-top:6px">64% of Q3 cap used · projected on plan</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 class="card-title">Recent activity</h3>
+          <span class="card-meta">last 72h</span>
+        </div>
+        <div class="stack" style="gap:11px;font-size:11.5px">
+          <div><div class="label">Today · 09:14</div><b>FALL24</b> limit raised to 1,500 uses<div class="text-3">Edited by Maren V · previous cap reached EoD</div></div>
+          <div><div class="label">Yesterday · 17:02</div><b>STUDIO-EU</b> scheduled for Sep 18<div class="text-3">Linked to “Editor's Pick” email</div></div>
+          <div><div class="label">Wed · 11:42</div><b>Subscriber 5% off paused</b><div class="text-3">Home flagged loops with mobile loop</div></div>
+          <div><div class="label">Mon · 08:30</div><b>LINEN-EARLY</b> exceeded forecast by 22%<div class="text-3">Auto-flagged by attribution model</div></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© 2025 Onyx Bridge Lab · A protocol of Lacewing &amp; Co.</div>
+    <div class="footer-links">
+      <a>Orders</a><a>Marketing</a><a>Customers</a><a>Products</a><a>Discounts</a><a>Support</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

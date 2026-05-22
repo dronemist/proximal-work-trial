@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alerts — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="projects.html">Beacon Harbor Works</a>
+    <nav class="nav-main">
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html">Team</a>
+      <a class="active" href="alerts.html">Alerts</a>
+    </nav>
+    <span class="user-pill"><span class="avatar">DH</span> D. Halvorsen</span>
+  </div>
+</header>
+
+<div class="page">
+  <div class="crumbs"><a href="projects.html">Home</a><span class="sep">/</span><span class="here">Alerts</span></div>
+
+  <div class="eyebrow">Incident Monitors</div>
+  <h1 class="page-title">Alerts</h1>
+  <p class="page-lede">Open incidents and recent signal across all production surfaces. Sorted by severity, then by time fired. Ack early. Page only when you must.</p>
+
+  <div class="btn-row">
+    <a class="btn primary" href="#">Declare incident</a>
+    <a class="btn" href="#">Alert rules</a>
+    <a class="btn ghost" href="#">Mute window</a>
+  </div>
+
+  <div class="cols">
+    <div class="main">
+
+      <div class="stats">
+        <div class="stat"><div class="k">Firing</div><div class="v">3</div><div class="sub">2 acute, all sev1/2</div></div>
+        <div class="stat"><div class="k">Acknowledged</div><div class="v">2</div><div class="sub">avg ack 4m 12s</div></div>
+        <div class="stat"><div class="k">Resolved 24h</div><div class="v">17</div><div class="sub">MTTR 38m 04s</div></div>
+        <div class="stat"><div class="k">On call</div><div class="v" style="font-size:18px;">D. Halvorsen</div><div class="sub">Primary, rolls 09:00 UTC Mon</div></div>
+      </div>
+
+      <div class="filterbar">
+        <select><option>Status: Open</option><option>All</option><option>Resolved</option></select>
+        <select><option>Severity: Any</option><option>Sev 1</option><option>Sev 2</option><option>Sev 3</option></select>
+        <select><option>Service: All</option><option>billing-svc</option><option>auth</option><option>media-svc</option></select>
+        <input class="search" type="search" placeholder="Search by tag, owner, or signal…">
+        <a class="btn sm" href="#">Saved</a>
+      </div>
+
+      <div class="incident-card sev-stripe s1">
+        <div class="head-row">
+          <span class="badge solid-red">Sev 1</span>
+          <span class="title">Checkout 5xx rate above 2% for 6m</span>
+          <span class="badge red">Firing</span>
+          <div class="actions">
+            <a class="btn xs" href="#">Ack</a>
+            <a class="btn xs" href="#">Page</a>
+            <a class="btn xs" href="#">Snooze</a>
+          </div>
+        </div>
+        <div class="meta">Service · <b>billing-svc</b> &nbsp; Region · <b>eu-west-2</b> &nbsp; Fired · <b>14:38 UTC</b> &nbsp; Owner · K. Lindqvist &nbsp; Signal · <span class="code-inline">http.responses.5xx</span></div>
+        <div class="sparkline" style="margin-top:8px;">
+          <svg viewBox="0 0 200 30" preserveAspectRatio="none"><polyline fill="none" stroke="#b6342c" stroke-width="1.5" points="0,22 10,21 20,19 30,20 40,18 50,17 60,15 70,14 80,16 90,13 100,12 110,9 120,11 130,7 140,8 150,5 160,6 170,4 180,5 190,3 200,2"/></svg>
+        </div>
+      </div>
+
+      <div class="incident-card sev-stripe s2">
+        <div class="head-row">
+          <span class="badge solid-red" style="background:#a13d33;">Sev 2</span>
+          <span class="title">api-gateway p99 latency > 800ms</span>
+          <span class="badge amber">Ack</span>
+          <div class="actions">
+            <a class="btn xs" href="#">Resolve</a>
+            <a class="btn xs" href="#">Reassign</a>
+          </div>
+        </div>
+        <div class="meta">Service · <b>api-gateway</b> &nbsp; Region · <b>us-east-1</b> &nbsp; Fired · <b>14:11 UTC</b> &nbsp; Ack'd · <b>14:14 UTC</b> by P. Okafor</div>
+        <div class="sparkline" style="margin-top:8px;">
+          <svg viewBox="0 0 200 30" preserveAspectRatio="none"><polyline fill="none" stroke="#b06321" stroke-width="1.5" points="0,18 20,20 40,16 60,14 80,12 100,10 120,8 140,11 160,7 180,5 200,8"/></svg>
+        </div>
+      </div>
+
+      <div class="incident-card sev-stripe s3">
+        <div class="head-row">
+          <span class="badge blue">Sev 3</span>
+          <span class="title">Certificate expiry within 14 days · *.harborworks</span>
+          <span class="badge amber">Ack</span>
+          <div class="actions">
+            <a class="btn xs" href="#">Renew</a>
+            <a class="btn xs" href="#">Suppress</a>
+          </div>
+        </div>
+        <div class="meta">Domain · <b>auth.harborworks.io</b> &nbsp; Expires · <b>2025-06-09</b> &nbsp; Fired · <b>09:01 UTC</b> &nbsp; Owner · auto-bot &nbsp; Channel · <span class="code-inline">#sec-renew</span></div>
+      </div>
+
+      <div class="incident-card sev-stripe s2">
+        <div class="head-row">
+          <span class="badge amber">Sev 2</span>
+          <span class="title">Platform — investigating</span>
+          <span class="badge gray">Investigating</span>
+          <div class="actions">
+            <a class="btn xs" href="#">Update</a>
+          </div>
+        </div>
+        <div class="meta">Page started · <b>2025-04-29</b> &nbsp; Fired · <b>08:02 UTC</b> &nbsp; Auto-Index · disabled</div>
+      </div>
+
+      <div class="incident-card sev-stripe s3">
+        <div class="head-row">
+          <span class="badge blue">Sev 3</span>
+          <span class="title">media-worker queue depth > 5,000 messages</span>
+          <span class="badge amber">Ack</span>
+          <div class="actions">
+            <a class="btn xs" href="#">Drain</a>
+            <a class="btn xs" href="#">Mute</a>
+          </div>
+        </div>
+        <div class="meta">Service · <b>media-svc</b> &nbsp; Queue · <b>transcode.fifo</b> &nbsp; Peak · <b>7,612</b> &nbsp; Fired · <b>13:49 UTC</b></div>
+        <div class="sparkline" style="margin-top:8px;">
+          <svg viewBox="0 0 200 30" preserveAspectRatio="none"><polyline fill="none" stroke="#305e8e" stroke-width="1.5" points="0,26 20,24 40,22 60,18 80,16 100,12 120,9 140,12 160,10 180,8 200,7"/></svg>
+        </div>
+      </div>
+
+      <div class="incident-card sev-stripe s4">
+        <div class="head-row">
+          <span class="badge gray">Sev 4</span>
+          <span class="title">Nightly snapshot lag · 18 minutes behind schedule</span>
+          <span class="badge gray">Observing</span>
+          <div class="actions">
+            <a class="btn xs" href="#">Acknowledge</a>
+          </div>
+        </div>
+        <div class="meta">Service · <b>backup-orchestrator</b> &nbsp; Cluster · <b>pg-primary-04</b> &nbsp; Fired · <b>04:18 UTC</b> &nbsp; Channel · #ops-low</div>
+      </div>
+
+      <div class="incident-card sev-stripe s5">
+        <div class="head-row">
+          <span class="badge gray">Note</span>
+          <span class="title">Data — seeding triage</span>
+          <span class="badge gray">Open</span>
+          <div class="actions">
+            <a class="btn xs" href="#">Acknowledge</a>
+            <a class="btn xs" href="#">Resolve</a>
+          </div>
+        </div>
+        <div class="meta">Owner · L. Marchetti &nbsp; Source · manual report &nbsp; Updated · 12m ago</div>
+      </div>
+
+      <div class="eyebrow" style="margin-top:18px;">Resolved · Last 7 days</div>
+      <h3 style="font-size:18px; margin-bottom:8px;">Closed manifest</h3>
+
+      <div class="card">
+        <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>ID</th><th>Severity</th><th>Alert</th><th>Service</th><th>Owner</th><th>Duration</th><th>Closed</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">ALT-4831</td><td><span class="badge red">Sev 2</span></td><td>Redis evictions spike on cache-fleet</td><td>cache-fleet</td><td>P. Okafor</td><td>00:14:21</td><td>2d 04h</td></tr>
+            <tr><td class="mono">ALT-4818</td><td><span class="badge amber">Sev 3</span></td><td>Webhook delivery retries above threshold</td><td>events-fanout</td><td>J. Bergstrom</td><td>00:31:09</td><td>2d 16h</td></tr>
+            <tr><td class="mono">ALT-4791</td><td><span class="badge blue">Sev 4</span></td><td>auth-edge degraded for SSO tenants</td><td>auth-edge</td><td>D. Halvorsen</td><td>00:08:42</td><td>3d 02h</td></tr>
+            <tr><td class="mono">ALT-4763</td><td><span class="badge red">Sev 2</span></td><td>S3 cross-region replication lag</td><td>media-store</td><td>L. Marchetti</td><td>01:12:34</td><td>4d 07h</td></tr>
+            <tr><td class="mono">ALT-4754</td><td><span class="badge amber">Sev 3</span></td><td>Synthetic check flap · marketing harbor.works</td><td>web-edge</td><td>Auto-resolved</td><td>00:04:01</td><td>5d 19h</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="pager">
+          <a class="pg active" href="#">1</a>
+          <a class="pg" href="#">2</a>
+          <a class="pg" href="#">3</a>
+          <a class="pg" href="#">4</a>
+          <a class="pg" href="#">5</a>
+          <span>… Showing 5 of 47 resolved incidents</span>
+          <span class="spacer"></span>
+          <span>Page 1 of 10 · 5/page</span>
+          <a class="pg" href="#">›</a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px;">
+        <div class="head">
+          <span class="title">Confirm action</span>
+          <span>Acknowledge ALT-4821</span>
+        </div>
+        <div class="body">
+          <p style="margin:0 0 10px; font-size:12px;">You will be marked as the responder. Pages to the secondary on-call will pause for 20 minutes while you read. The incident remains open until manually resolved.</p>
+          <div class="form-row"><label>Handoff note (optional)</label><textarea placeholder="e.g. looking at canary rollout"></textarea></div>
+          <div class="row-flex" style="justify-content:flex-end; gap:6px;">
+            <a class="btn" href="#">Cancel</a>
+            <a class="btn primary" href="#">Acknowledge &amp; take page</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="side">
+      <div class="card">
+        <div class="head"><span class="title">This shift</span><span>On-call rotation</span></div>
+        <div class="body">
+          <div class="item"><span class="av c2">DH</span><div class="who"><div><b>D. Halvorsen</b></div><div class="when">Primary · rolls Mon 09:00 UTC</div></div></div>
+          <div class="item"><span class="av c4">PO</span><div class="who"><div><b>P. Okafor</b></div><div class="when">Secondary · platform</div></div></div>
+          <div class="item"><span class="av c3">LB</span><div class="who"><div><b>L. Bergstrom</b></div><div class="when">Networking, escalation</div></div></div>
+          <div class="item"><span class="av c5">JM</span><div class="who"><div><b>J. Marchetti</b></div><div class="when">Data &amp; backups</div></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">Routing rules</span><span>Recent edits</span></div>
+        <div class="body">
+          <div class="evt"><div class="top"><span class="badge gray">Sev 3</span><b>page primary, mute team-quiet hours</b></div><div class="meta">edited 31m ago</div></div>
+          <div class="evt"><div class="top"><span class="badge amber">Sev 2</span><b>page secondary, 15m ack window</b></div><div class="meta">edited 2h ago</div></div>
+          <div class="evt"><div class="top"><span class="badge blue">Sev 4</span><b>channel ping, no page</b></div><div class="meta">edited yesterday</div></div>
+          <div class="evt"><div class="top"><span class="badge gray">Mute</span><b>nightly · 23:00–05:00 UTC</b></div><div class="meta">edited Apr 19</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">Triage links</span><span>Recent</span></div>
+        <div class="body">
+          <div class="evt"><span class="code-inline">runbook/5xx-spike</span> &nbsp;<span class="muted t-tiny right">RB-122</span></div>
+          <div class="evt"><span class="code-inline">runbook/cache-evictions</span> &nbsp;<span class="muted t-tiny right">RB-091</span></div>
+          <div class="evt"><span class="code-inline">runbook/cert-renewal</span> &nbsp;<span class="muted t-tiny right">RB-048</span></div>
+          <div class="evt"><span class="code-inline">runbook/queue-drain</span> &nbsp;<span class="muted t-tiny right">RB-031</span></div>
+          <div class="evt"><span class="code-inline">runbook/lift-failover</span> &nbsp;<span class="muted t-tiny right">RB-014</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">Follow-ups</span><span>Recent</span></div>
+        <div class="body">
+          <div class="evt"><b>From recent incidents</b></div>
+          <div class="evt"><b>Add canary auto-rollback</b> · billing-svc · proposed by D. Halvorsen<br><span class="meta">opened today</span></div>
+          <div class="evt"><b>Increase Redis maxmemory</b> · cache-fleet · open<br><span class="meta">opened 1d</span></div>
+          <div class="evt"><b>Backfill SLO alert</b> · events-fanout · drafted<br><span class="meta">opened 2d</span></div>
+          <div class="evt"><a href="#">View all open items</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">Touched today</span><span>Trending tags</span></div>
+        <div class="body">
+          <div class="evt"><span class="code-inline">harbor/billing-svc</span><span class="muted t-tiny right">12 incidents</span></div>
+          <div class="evt"><span class="code-inline">harbor/api-gateway</span><span class="muted t-tiny right">9 incidents</span></div>
+          <div class="evt"><span class="code-inline">harbor/media-worker</span><span class="muted t-tiny right">6 incidents</span></div>
+          <div class="evt"><span class="code-inline">harbor/auth-edge</span><span class="muted t-tiny right">5 incidents</span></div>
+          <div class="evt"><span class="code-inline">harbor/CoPa-tf</span><span class="muted t-tiny right">4 incidents</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="foot-wrap">
+  <div class="foot-inner">
+    <div>&copy; 2025 Beacon Harbor Works · Operations Engineering</div>
+    <nav><a href="#">Status</a><a href="#">Changelog</a><a href="projects.html">Projects</a><a href="deploys.html">Deployments</a><a href="builds.html">Builds</a><a href="team.html">Team</a><a href="alerts.html">Alerts</a></nav>
+  </div>
+</footer>
+</body>
+</html>

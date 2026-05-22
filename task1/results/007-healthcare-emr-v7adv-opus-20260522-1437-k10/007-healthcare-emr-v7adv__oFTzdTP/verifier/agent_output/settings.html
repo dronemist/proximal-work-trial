@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Practice Settings — Quartz Grove Lab</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+.field { display:flex; flex-direction:column; gap:4px; margin-bottom: 10px; }
+.field .lbl { font-size: 11px; text-transform: uppercase; color: var(--muted); letter-spacing: 0.04em; font-weight: 600; }
+.field .input { padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: #fff; font-size: 13px; color: var(--text); display: flex; justify-content: space-between; align-items: center; }
+.toggle-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--gray-100); gap: 10px; }
+.toggle-row:last-child { border-bottom: 0; }
+.toggle-row .ti { flex:1; min-width:0; }
+.toggle-row .tt { font-weight: 500; color: var(--text-strong); font-size: 13px; }
+.toggle-row .td { font-size: 12px; color: var(--muted); }
+.integration { display: flex; gap: 10px; align-items: flex-start; padding: 12px; border: 1px solid var(--border); border-radius: 10px; }
+.integration .ico { width: 36px; height: 36px; border-radius: 8px; background: var(--gray-100); display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--gray-700); flex-shrink: 0; }
+.integration .info { flex: 1; min-width: 0; }
+.integration .name { font-weight: 600; font-size: 13px; }
+.integration .desc { font-size: 12px; color: var(--muted); }
+.weekday { display: grid; grid-template-columns: 60px 1fr 1fr 60px; gap: 8px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--gray-100); font-size: 12px; }
+.weekday:last-child { border-bottom: 0; }
+.weekday .h { color: var(--muted); }
+.faq-row { padding: 12px 0; border-bottom: 1px solid var(--gray-100); display:flex; justify-content:space-between; gap:10px; }
+.faq-row:last-child { border-bottom: 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a class="brand"><span class="brand-mark"></span> Quartz Grove Lab</a>
+      <nav class="nav-links">
+        <a class="nav-link">Patients</a>
+        <a class="nav-link">Calendar</a>
+        <a class="nav-link">Billing</a>
+        <a class="nav-link">Payment plans</a>
+        <a class="nav-link active">Settings</a>
+      </nav>
+      <div class="nav-right">
+        <div class="search">Search settings…</div>
+        <div class="avatar">RV</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="card" style="margin-bottom:16px;">
+      <h1 class="page-title" style="margin-bottom:6px;">Quartz Grove Family Clinic</h1>
+      <p class="lede">Most of the practice's day-to-day knobs live here. Hours, branding, notifications, integrations — everything saves as you go.</p>
+      <div class="row-tight" style="gap:6px; margin-bottom:6px;">
+        <span class="tag green"><span class="dot"></span>HIPAA compliant</span>
+        <span class="tag blue"><span class="dot"></span>2.4k patient records</span>
+        <span class="tag amber"><span class="dot"></span>3 admins</span>
+        <span class="tag"><span class="dot"></span>Backed up 12 min ago</span>
+      </div>
+      <div class="row-tight" style="gap:24px; margin-top:14px; flex-wrap:wrap;">
+        <div><div class="bignum" style="font-size:24px;">7</div><div class="tiny muted">Clinicians</div></div>
+        <div><div class="bignum" style="font-size:24px;">14</div><div class="tiny muted">Staff seats</div></div>
+        <div><div class="bignum" style="font-size:24px;">9 <span style="font-size:13px; font-weight:500;">connected</span></div><div class="tiny muted">Integrations</div></div>
+        <div><div class="bignum" style="font-size:24px;">62%</div><div class="tiny muted">Onboarding complete</div></div>
+        <div style="margin-left:auto;"><button class="btn btn-primary">+ Invite a teammate</button></div>
+      </div>
+    </div>
+
+    <div class="row cols-3-2" style="margin-bottom:16px;">
+      <div class="card">
+        <div class="card-h"><h3>Clinic profile</h3><span class="tag green tiny">Saved 1 min ago</span></div>
+        <div class="row cols-2">
+          <div class="field"><div class="lbl">Clinic name</div><div class="input">Quartz Grove Family Clinic</div></div>
+          <div class="field"><div class="lbl">Tax ID (EIN)</div><div class="input">47-2901844</div></div>
+          <div class="field"><div class="lbl">Street address</div><div class="input">1665 Linden Way</div></div>
+          <div class="field"><div class="lbl">Suite</div><div class="input">Suite 204</div></div>
+          <div class="field"><div class="lbl">City</div><div class="input">Walnut Creek</div></div>
+          <div class="field"><div class="lbl">State</div><div class="input">California ▾</div></div>
+          <div class="field"><div class="lbl">ZIP</div><div class="input">94596</div></div>
+          <div class="field"><div class="lbl">Phone</div><div class="input">(925) 555-0140</div></div>
+          <div class="field"><div class="lbl">Primary email</div><div class="input">hello@quartzgrove.health</div></div>
+          <div class="field"><div class="lbl">Patient-facing site</div><div class="input">quartzgrove.health</div></div>
+        </div>
+        <div class="divider"></div>
+        <div class="field"><div class="lbl">Public greeting</div><div class="input" style="min-height: 56px; align-items: flex-start; padding-top: 8px;">Welcome to Quartz Grove. We're a small family-medicine practice in Walnut Creek serving the Linden corridor since 2014.</div></div>
+        <div class="tiny muted">Shown on the patient portal home and confirmation emails.</div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Operating hours</h3><a class="btn-link">Holidays</a></div>
+        <div class="weekday"><span class="h">Mon</span><span>8:00 AM – 6:00 PM</span><span class="muted tiny">Standard</span><span class="switch on"></span></div>
+        <div class="weekday"><span class="h">Tue</span><span>8:00 AM – 6:00 PM</span><span class="muted tiny">Standard</span><span class="switch on"></span></div>
+        <div class="weekday"><span class="h">Wed</span><span>8:00 AM – 6:00 PM</span><span class="muted tiny">Standard</span><span class="switch on"></span></div>
+        <div class="weekday"><span class="h">Thu</span><span>9:00 AM – 7:00 PM</span><span class="muted tiny">Late night</span><span class="switch on"></span></div>
+        <div class="weekday"><span class="h">Fri</span><span>8:00 AM – 5:00 PM</span><span class="muted tiny">Standard</span><span class="switch on"></span></div>
+        <div class="weekday"><span class="h">Sat</span><span>9:00 AM – 1:00 PM</span><span class="muted tiny">Walk-ins</span><span class="switch on"></span></div>
+        <div class="weekday"><span class="h">Sun</span><span class="muted">Closed</span><span class="muted tiny">—</span><span class="switch"></span></div>
+        <div class="divider"></div>
+        <div class="tiny muted">Time zone: America/Los_Angeles</div>
+        <button class="btn btn-sm" style="margin-top:6px;">Apply to all rooms</button>
+      </div>
+    </div>
+
+    <div class="row cols-3-2" style="margin-bottom:16px;">
+      <div class="card">
+        <div class="card-h"><h3>Notification preferences</h3><div class="seg"><span class="opt active">SMS</span><span class="opt">Email</span><span class="opt">Push</span></div></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Appointment reminders</div><div class="td">48 h and 2 h before each visit · sent via SMS</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">No-show follow-ups</div><div class="td">Auto-message patients to reschedule the same day</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Statement &amp; balance alerts</div><div class="td">Notify on new statement and 5 days before due</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Lab results ready</div><div class="td">Patients receive a portal nudge when results post</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Marketing &amp; wellness tips</div><div class="td">Quarterly newsletter to opted-in patients</div></div><span class="switch"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Staff daily digest</div><div class="td">Morning summary at 7:30 AM</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Shift swap requests</div><div class="td">Alert managers in Slack when a request is filed</div></div><span class="switch on"></span></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Team &amp; roles</h3><a class="btn-link">Manage roles</a></div>
+        <div class="person-row"><div class="avatar green">RV</div><div class="info"><div class="name">Dr. Renata Welford</div><div class="meta">Owner · MD</div></div><span class="tag blue">Owner</span></div>
+        <div class="person-row"><div class="avatar purple">UC</div><div class="info"><div class="name">Dr. Linda Castro</div><div class="meta">Admin · Internal medicine</div></div><span class="tag">Admin</span></div>
+        <div class="person-row"><div class="avatar pink">AB</div><div class="info"><div class="name">Aaliyah Brooks</div><div class="meta">RN · Care coordinator</div></div><span class="tag">Editor</span></div>
+        <div class="person-row"><div class="avatar amber">MB</div><div class="info"><div class="name">Marcus Boone</div><div class="meta">Billing · Read &amp; write</div></div><span class="tag">Editor</span></div>
+        <div class="person-row"><div class="avatar gray">CN</div><div class="info"><div class="name">Cory Nash</div><div class="meta">Front desk · Read</div></div><span class="tag">Viewer</span></div>
+        <div class="person-row"><div class="avatar blue">MK</div><div class="info"><div class="name">Mira Khouri</div><div class="meta">Dietician · Limited</div></div><span class="tag">Viewer</span></div>
+        <div class="person-row"><div class="avatar">+</div><div class="info"><div class="name">Invite teammate</div><div class="meta">Owner approval required</div></div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-h"><h3>Integrations</h3><div class="tiny muted">9 connected, 4 available</div></div>
+      <div class="row cols-3">
+        <div class="integration"><div class="ico">G</div><div class="info"><div class="name">Greenshade e-Prescribing</div><div class="desc">Send Rx directly to pharmacies</div><span class="tag green tiny" style="margin-top:6px;">Connected</span></div></div>
+        <div class="integration"><div class="ico" style="color:#9f1239">Q</div><div class="info"><div class="name">Quest Diagnostics</div><div class="desc">Direct lab orders &amp; results</div><span class="tag green tiny" style="margin-top:6px;">Connected</span></div></div>
+        <div class="integration"><div class="ico" style="color:#2563eb">D</div><div class="info"><div class="name">Doxy.me telehealth</div><div class="desc">HIPAA-grade video for visits</div><span class="tag green tiny" style="margin-top:6px;">Connected</span></div></div>
+        <div class="integration"><div class="ico" style="color:#16a34a">B</div><div class="info"><div class="name">Availity eligibility</div><div class="desc">Real-time payer verification</div><span class="tag green tiny" style="margin-top:6px;">Connected</span></div></div>
+        <div class="integration"><div class="ico" style="color:#0ea5e9">S</div><div class="info"><div class="name">Stripe payments</div><div class="desc">Cards, ACH, and payment plans</div><span class="tag green tiny" style="margin-top:6px;">Connected</span></div></div>
+        <div class="integration"><div class="ico" style="color:#9333ea">P</div><div class="info"><div class="name">Postmark transactional</div><div class="desc">Email statements and receipts</div><span class="tag green tiny" style="margin-top:6px;">Connected</span></div></div>
+        <div class="integration"><div class="ico" style="color:#dc2626">T</div><div class="info"><div class="name">Twilio SMS</div><div class="desc">Reminders &amp; one-way messages</div><span class="tag amber tiny" style="margin-top:6px;">Action needed</span></div></div>
+        <div class="integration"><div class="ico" style="color:#a16207">G</div><div class="info"><div class="name">Google Workspace</div><div class="desc">Sync calendars and email aliases</div><span class="tag green tiny" style="margin-top:6px;">Connected</span></div></div>
+        <div class="integration"><div class="ico" style="color:#6366f1">S</div><div class="info"><div class="name">Slack notifications</div><div class="desc">Operational alerts to #clinic-floor</div><span class="tag tiny" style="margin-top:6px;">Available</span></div></div>
+      </div>
+    </div>
+
+    <div class="row cols-2" style="margin-bottom:16px;">
+      <div class="card">
+        <div class="card-h"><h3>Branding</h3><a class="btn-link">Preview portal</a></div>
+        <div class="row cols-2">
+          <div>
+            <div class="tiny muted">PRACTICE LOGO</div>
+            <div class="card tight" style="display:flex; align-items:center; justify-content:center; height:80px; margin-top:4px;"><div class="brand"><span class="brand-mark"></span> Quartz Grove</div></div>
+            <button class="btn btn-sm" style="margin-top:6px;">Replace</button>
+          </div>
+          <div>
+            <div class="tiny muted">PRIMARY COLOR</div>
+            <div class="row-tight" style="margin-top:4px;">
+              <span style="width:24px; height:24px; border-radius:6px; background: var(--primary); border: 1px solid #1d4ed8;"></span>
+              <div class="input" style="flex:1;">#2563EB</div>
+            </div>
+            <div class="tiny muted" style="margin-top:8px;">ACCENT</div>
+            <div class="row-tight" style="margin-top:4px;">
+              <span style="width:24px; height:24px; border-radius:6px; background: #10b981;"></span>
+              <div class="input" style="flex:1;">#10B981</div>
+            </div>
+          </div>
+        </div>
+        <div class="alert blue" style="margin-top:10px;"><div><div class="title">Portal preview saved</div><div class="desc">Patients see the updated palette on next sign-in.</div></div></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Patient portal</h3><a class="btn-link">Open patient view</a></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Online self-scheduling</div><div class="td">Allow patients to book or reschedule routine visits</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Direct message clinicians</div><div class="td">Asynchronous secure threads</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Statement downloads</div><div class="td">PDF statements available for 24 months</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">View immunization record</div><div class="td">Patients see and download lifetime record</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Family portal access</div><div class="td">Caregivers can manage minors' bookings</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Patient surveys</div><div class="td">Send a post-visit pulse survey 24 h later</div></div><span class="switch"></span></div>
+      </div>
+    </div>
+
+    <div class="row cols-2" style="margin-bottom:16px;">
+      <div class="card">
+        <div class="card-h"><h3>Security &amp; compliance</h3><a class="btn-link">View audit log</a></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Require two-factor auth</div><div class="td">All staff must enroll in 30 days</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Auto sign-out</div><div class="td">Lock screen after 15 minutes idle</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">Single sign-on (SSO)</div><div class="td">Google Workspace · enforced for owners</div></div><span class="switch on"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">IP allowlist</div><div class="td">Restrict access to clinic + remote VPN</div></div><span class="switch"></span></div>
+        <div class="toggle-row"><div class="ti"><div class="tt">PHI export approval</div><div class="td">Owner must approve any bulk export</div></div><span class="switch on"></span></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>API &amp; webhooks</h3><a class="btn-link">Read the docs</a></div>
+        <div class="field"><div class="lbl">Live API key</div><div class="input mono">qg_live_••••••••••••••••••••••82c1</div></div>
+        <div class="field"><div class="lbl">Webhook URL</div><div class="input mono">https://hooks.quartzgrove.health/billing</div></div>
+        <div class="field"><div class="lbl">Events</div><div class="input">patient.created, invoice.paid, claim.adjudicated, appointment.cancelled · 4 selected ▾</div></div>
+        <div class="tiny muted" style="margin-bottom:6px;">Last delivery 2 min ago · 99.7% success across the last 7 days.</div>
+        <div class="row-tight"><button class="btn btn-sm">Rotate key</button><button class="btn btn-sm">Send test event</button></div>
+      </div>
+    </div>
+
+    <div class="row cols-2" style="margin-bottom:16px;">
+      <div class="card">
+        <div class="card-h"><h3>Recent activity</h3><a class="btn-link">View full log</a></div>
+        <div class="tl-item"><div class="dot"></div><div class="body"><div class="title">User added — Marcus Boone</div><div class="meta">8 min ago · by Dr. Renata Welford · billing role</div></div></div>
+        <div class="tl-item"><div class="dot"></div><div class="body"><div class="title">Operating hours updated</div><div class="meta">1 h ago · Thu now closes at 7 PM</div></div></div>
+        <div class="tl-item"><div class="dot"></div><div class="body"><div class="title">Twilio reconnect required</div><div class="meta">3 h ago · token expiry · system alert</div></div></div>
+        <div class="tl-item"><div class="dot"></div><div class="body"><div class="title">Audit log exported</div><div class="meta">Yesterday · 12:14 PM · 38,402 rows</div></div></div>
+        <div class="tl-item"><div class="dot"></div><div class="body"><div class="title">Webhook test successful</div><div class="meta">Yesterday · 11:02 AM</div></div></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Plan &amp; billing</h3><a class="btn-link">Upgrade options</a></div>
+        <div class="kv"><span class="k">Current plan</span><span class="v">Practice · annual</span></div>
+        <div class="bignum" style="font-size:30px;">$486 <span class="tiny muted" style="font-size:13px; font-weight:500;">/ month</span></div>
+        <div class="tiny muted">Billed annually · renews Mar 18</div>
+        <div class="divider"></div>
+        <div class="kv"><span class="k">Seats used</span><span class="v">14 / 20</span></div>
+        <div class="kv"><span class="k">Patient records</span><span class="v">2,431</span></div>
+        <div class="kv"><span class="k">SMS credits</span><span class="v">3,800 / 5,000</span></div>
+        <div class="divider"></div>
+        <div class="kv" style="font-weight:600;"><span class="k">Estimated next charge</span><span class="v">$486.00</span></div>
+        <div class="row-tight" style="margin-top:10px;"><button class="btn btn-sm">Payment method</button><button class="btn btn-sm">Download invoice</button></div>
+      </div>
+    </div>
+
+    <div class="row cols-2" style="margin-bottom:16px;">
+      <div class="card">
+        <div class="card-h"><h3>Helpful answers</h3><div class="tiny muted">Common settings questions</div></div>
+        <div class="faq-row"><span>How do I add a new provider to the schedule?</span><span class="chev">+</span></div>
+        <div class="faq-row"><span>Can I change my clinic's tax ID mid-year?</span><span class="chev">+</span></div>
+        <div class="faq-row"><span>How do I export patient records before retiring?</span><span class="chev">+</span></div>
+        <div class="faq-row"><span>What happens when an integration disconnects?</span><span class="chev">+</span></div>
+        <div class="faq-row"><span>Why is my patient portal showing the old theme?</span><span class="chev">+</span></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Archived locations</h3></div>
+        <div class="tiny muted" style="margin-bottom:8px;">For history; new appointments cannot route here.</div>
+        <div class="card tight" style="text-align:center; background: var(--gray-50);">
+          <div style="font-weight:600;">Nothing in the archive</div>
+          <div class="tiny muted">Move a location to archive from its detail page.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px;">
+      <h3 style="margin:0 0 4px; color: var(--red-700);">Careful, slow steps</h3>
+      <div class="tiny muted">These actions affect the whole clinic and can't be undone. Talk it over with your team first.</div>
+      <div class="divider"></div>
+      <div class="faq-row"><div><strong>Transfer ownership</strong><div class="tiny muted">Move owner role to another admin · current owner becomes admin</div></div><button class="btn btn-sm">Transfer →</button></div>
+      <div class="faq-row"><div><strong>Export the practice archive</strong><div class="tiny muted">Bundle every record into a portable ZIP · 6 hour job</div></div><button class="btn btn-sm">Begin export →</button></div>
+      <div class="faq-row"><div style="color:var(--red-700);"><strong>Close the practice</strong><div class="tiny muted">Suspend all access · patients get a 30-day notice automatically</div></div><button class="btn btn-sm" style="color: var(--red-700); border-color: #fecaca;">Begin closure →</button></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© 2025 Quartz Grove Lab · Built with care for small practices</div>
+      <div class="footer-links"><a>Patients</a><a>Calendar</a><a>Billing</a><a>Payment plans</a><a>Settings</a></div>
+      <div>Support: care@quartzgrove.health · HIPAA-compliant · Build 4.21.1</div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

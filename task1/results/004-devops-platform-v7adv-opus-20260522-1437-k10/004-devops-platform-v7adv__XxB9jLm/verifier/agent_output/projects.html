@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="brand"><span class="brand-mark"></span>Beacon Harbor Works</div>
+    <nav class="primary-nav">
+      <a href="projects.html" class="active">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+    <div class="user-chip"><span class="avatar avatar-color-2"></span> A.Kalstrom</div>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <div class="breadcrumb"><a href="#">Harbor</a><span class="sep">/</span><span class="crumb-active">Projects</span></div>
+
+  <div class="layout">
+    <div class="main-col">
+
+      <section>
+        <div class="eyebrow">Fleet manifest · 14 services</div>
+        <h1>Projects</h1>
+        <div class="page-intro">
+          <p>Every service shipped under the Harbor org. Status, owner, and last deploy are pulled from the build registry every 90 seconds.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn primary">New project</button>
+          <button class="btn">Import from Git</button>
+          <button class="btn">Manifest CSV</button>
+        </div>
+      </section>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-label">Operational</div>
+          <div class="stat-value">11<span class="small muted"> / 14</span></div>
+          <div class="stat-sub">3 in degraded mode</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Deploys · 24h</div>
+          <div class="stat-value">37</div>
+          <div class="stat-sub">21 prod · 16 staging</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Failed Builds</div>
+          <div class="stat-value">2</div>
+          <div class="stat-sub">harbor-auth, ledger-svc</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">P95 Deploy Time</div>
+          <div class="stat-value">4m 12s</div>
+          <div class="stat-sub">+8s vs 7d trailing</div>
+        </div>
+      </div>
+
+      <div class="search-row">
+        <span class="muted small">FILTER</span>
+        <input class="input flex-1" type="text" placeholder="Search by name, owner, repo…">
+        <select class="select"><option>All environments</option></select>
+        <select class="select"><option>All status</option></select>
+        <div class="btn-group">
+          <button class="btn small active">Cards</button>
+          <button class="btn small">Table</button>
+        </div>
+      </div>
+
+      <div class="project-card prod">
+        <div class="pc-head">
+          <div class="pc-title">
+            <div class="flex center gap-8"><span class="eyebrow">PROJECTS · PRODUCTION</span></div>
+            <div class="name">ledger-svc</div>
+            <div class="desc">Double-entry ledger and reconciliation engine. Owns the canonical balance tables.</div>
+          </div>
+          <span class="badge critical">Failing</span>
+        </div>
+        <div class="pc-meta">
+          <div class="pc-cell"><div class="lbl">Last Deploy</div><div class="val">14m ago · failed</div></div>
+          <div class="pc-cell"><div class="lbl">Commit</div><div class="val mono">a47f1e2</div></div>
+          <div class="pc-cell"><div class="lbl">Owner</div><div class="val"><span class="avatar xs avatar-color-1"></span> J. Reuters</div></div>
+          <div class="pc-cell"><div class="lbl">Region</div><div class="val">eu-west-1</div></div>
+        </div>
+      </div>
+
+      <div class="project-card prod">
+        <div class="pc-head">
+          <div class="pc-title">
+            <div class="flex center gap-8"><span class="eyebrow">EDGE · PRODUCTION</span></div>
+            <div class="name">router-gw</div>
+            <div class="desc">Public API gateway. TLS termination, rate limits, request signing.</div>
+          </div>
+          <span class="badge warn">Degraded</span>
+        </div>
+        <div class="pc-meta">
+          <div class="pc-cell"><div class="lbl">Last Deploy</div><div class="val">2h 30m ago</div></div>
+          <div class="pc-cell"><div class="lbl">Commit</div><div class="val mono">9bc92ef</div></div>
+          <div class="pc-cell"><div class="lbl">Owner</div><div class="val"><span class="avatar xs avatar-color-2"></span> S. Olubid</div></div>
+          <div class="pc-cell"><div class="lbl">Region</div><div class="val">multi-region</div></div>
+        </div>
+      </div>
+
+      <div class="project-card prod">
+        <div class="pc-head">
+          <div class="pc-title">
+            <div class="flex center gap-8"><span class="eyebrow">IDENTITY · PRODUCTION</span></div>
+            <div class="name">harbor-auth</div>
+            <div class="desc">OIDC provider, session store, and machine token issuance for internal services.</div>
+          </div>
+          <span class="badge ok">Healthy</span>
+        </div>
+        <div class="pc-meta">
+          <div class="pc-cell"><div class="lbl">Last Deploy</div><div class="val">Yesterday · 18:42</div></div>
+          <div class="pc-cell"><div class="lbl">Commit</div><div class="val mono">1d949dc</div></div>
+          <div class="pc-cell"><div class="lbl">Owner</div><div class="val"><span class="avatar xs avatar-color-5"></span> M. Kalstrom</div></div>
+          <div class="pc-cell"><div class="lbl">Region</div><div class="val">us-west-2</div></div>
+        </div>
+      </div>
+
+      <div class="project-card prod">
+        <div class="pc-head">
+          <div class="pc-title">
+            <div class="flex center gap-8"><span class="eyebrow">DATA · PRODUCTION</span></div>
+            <div class="name">manifest-ingest</div>
+            <div class="desc">Kafka-fed event pipeline writing to the analytics warehouse. Batch + streaming consumers.</div>
+          </div>
+          <span class="badge ok">Healthy</span>
+        </div>
+        <div class="pc-meta">
+          <div class="pc-cell"><div class="lbl">Last Deploy</div><div class="val">36m ago</div></div>
+          <div class="pc-cell"><div class="lbl">Commit</div><div class="val mono">7795c33</div></div>
+          <div class="pc-cell"><div class="lbl">Owner</div><div class="val"><span class="avatar xs avatar-color-4"></span> A. Brandt</div></div>
+          <div class="pc-cell"><div class="lbl">Region</div><div class="val">eu-west-1</div></div>
+        </div>
+      </div>
+
+      <div class="project-card prod">
+        <div class="pc-head">
+          <div class="pc-title">
+            <div class="flex center gap-8"><span class="eyebrow">WEB · PRODUCTION</span></div>
+            <div class="name">dockside-web</div>
+            <div class="desc">Customer dashboard, billing portal, and the marketing surface served from these.</div>
+          </div>
+          <span class="badge ok">Healthy</span>
+        </div>
+        <div class="pc-meta">
+          <div class="pc-cell"><div class="lbl">Last Deploy</div><div class="val">3h 21m ago</div></div>
+          <div class="pc-cell"><div class="lbl">Commit</div><div class="val mono">c81b908</div></div>
+          <div class="pc-cell"><div class="lbl">Owner</div><div class="val"><span class="avatar xs avatar-color-7"></span> P. Vondy</div></div>
+          <div class="pc-cell"><div class="lbl">Region</div><div class="val">global · cdn</div></div>
+        </div>
+      </div>
+
+      <div class="project-card prod">
+        <div class="pc-head">
+          <div class="pc-title">
+            <div class="flex center gap-8"><span class="eyebrow">BATCH · PRODUCTION</span></div>
+            <div class="name">tideline-jobs</div>
+            <div class="desc">Cron and queue runner. Owns periodic reconciliation, retention sweeps, and report emails.</div>
+          </div>
+          <span class="badge ok">Healthy</span>
+        </div>
+        <div class="pc-meta">
+          <div class="pc-cell"><div class="lbl">Last Deploy</div><div class="val">5d ago</div></div>
+          <div class="pc-cell"><div class="lbl">Commit</div><div class="val mono">e032687</div></div>
+          <div class="pc-cell"><div class="lbl">Owner</div><div class="val"><span class="avatar xs avatar-color-3"></span> H. Tanaka</div></div>
+          <div class="pc-cell"><div class="lbl">Region</div><div class="val">eu-west-1</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <table class="data-table">
+          <thead>
+            <tr><th>Project</th><th>Env</th><th>Status</th><th>Last Deploy</th><th>Commit</th><th>Owner</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="mono">cargo-search</td><td>Production</td><td><span class="badge ok">Healthy</span></td><td>16h ago</td><td class="mono">dh21wd</td><td><span class="avatar xs avatar-color-1"></span> J. Ferreira</td></tr>
+            <tr><td class="mono">pilot-ti</td><td>—</td><td><span class="badge muted">Idle</span></td><td>21d ago</td><td class="mono">cf69dd</td><td><span class="avatar xs avatar-color-2"></span> S. Olubid</td></tr>
+            <tr><td class="mono">harbor-billing</td><td>Production</td><td><span class="badge ok">Healthy</span></td><td>2d ago</td><td class="mono">22ed44</td><td><span class="avatar xs avatar-color-5"></span> M. Kalstrom</td></tr>
+            <tr><td class="mono">signal-relay</td><td>Staging</td><td><span class="badge warn">Degraded</span></td><td>4h ago</td><td class="mono">991100</td><td><span class="avatar xs avatar-color-6"></span> R. Adin</td></tr>
+            <tr><td class="mono">drydock-docs</td><td>Production</td><td><span class="badge ok">Healthy</span></td><td>3d ago</td><td class="mono">11ea22</td><td><span class="avatar xs avatar-color-3"></span> H. Lakins</td></tr>
+            <tr><td class="mono">moor-routes</td><td>Production</td><td><span class="badge ok">Healthy</span></td><td>1d ago</td><td class="mono">d09122</td><td><span class="avatar xs avatar-color-4"></span> A. Brandt</td></tr>
+            <tr><td class="mono">archive-prune</td><td>Sandbox</td><td><span class="badge sandbox">Idle</span></td><td>30d ago</td><td class="mono">7afc23</td><td><span class="avatar xs avatar-color-3"></span> H. Tanaka</td></tr>
+            <tr><td class="mono">creator-api</td><td>Production</td><td><span class="badge ok">Healthy</span></td><td>20h ago</td><td class="mono">eaf102</td><td><span class="avatar xs avatar-color-1"></span> J. Reuters</td></tr>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <div class="pages">
+            <span class="current">1</span>
+            <a href="#">2</a>
+          </div>
+          <span class="muted">14 results · page 1 of 2</span>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="side-col">
+
+      <div class="side-card">
+        <h3>Suggestions</h3>
+        <div class="small bold">Pin to your dock</div>
+        <div class="small muted mb-8">Frequently visited services</div>
+        <div class="row-list">
+          <div>
+            <div class="bold small mono">harbor-auth</div>
+            <div class="small muted">You opened this 12× this week.</div>
+          </div>
+          <div>
+            <div class="bold small mono">ledger-svc</div>
+            <div class="small muted">Currently failing — check it.</div>
+          </div>
+          <div>
+            <div class="bold small mono">router-gw</div>
+            <div class="small muted">Lantern shared</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Crew online</h3>
+        <div class="small bold mb-8">On watch</div>
+        <div class="people-list">
+          <div class="person"><span class="avatar avatar-color-1"></span><div><div class="person-name">Jonas Reuters</div><div class="person-sub">Primary · ledger</div></div></div>
+          <div class="person"><span class="avatar avatar-color-2"></span><div><div class="person-name">Sade Olubid</div><div class="person-sub">Edge / gateway</div></div></div>
+          <div class="person"><span class="avatar avatar-color-4"></span><div><div class="person-name">Aren Brandt</div><div class="person-sub">Data / ingest</div></div></div>
+          <div class="person"><span class="avatar avatar-color-3"></span><div><div class="person-name">Hideo Tanaka</div><div class="person-sub">Batch / jobs</div></div></div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Trending repos</h3>
+        <div class="small muted mb-8">Most activity · 7d</div>
+        <div class="row-list">
+          <div class="flex between"><span class="mono small">ledger-svc</span><span class="small muted">61 commits</span></div>
+          <div class="flex between"><span class="mono small">router-gw</span><span class="small muted">42 commits</span></div>
+          <div class="flex between"><span class="mono small">dockside-web</span><span class="small muted">38 commits</span></div>
+          <div class="flex between"><span class="mono small">manifest-ingest</span><span class="small muted">22 commits</span></div>
+          <div class="flex between"><span class="mono small">harbor-auth</span><span class="small muted">15 commits</span></div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Recent shortcuts</h3>
+        <div class="small bold mb-8">If something gives</div>
+        <div class="shortcut-list">
+          <a href="#">Open runbook · ledger-svc</a>
+          <a href="#">Roll back router-gw</a>
+          <a href="#">Page the on-call</a>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span>© 2026 Beacon Harbor Works · Registered in Reykjavík</span>
+    <nav class="footer-nav">
+      <a href="#">RFC roadmap</a>
+      <a href="#">SOC2 trust</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

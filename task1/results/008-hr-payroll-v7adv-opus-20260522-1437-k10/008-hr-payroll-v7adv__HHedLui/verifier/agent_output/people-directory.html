@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>People · Onyx Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="logo"></span> Onyx Works</div>
+    <div class="nav-section nav">
+      <div class="nav-label">Workspace</div>
+      <a href="people-directory.html" class="active"><span class="ico">◎</span> People</a>
+      <a href="org-chart.html"><span class="ico">⌗</span> Org Chart</a>
+      <a href="time-off.html"><span class="ico">◷</span> Time Off</a>
+      <a href="expenses.html"><span class="ico">€</span> Expenses</a>
+      <a href="settings.html"><span class="ico">⚙</span> Company Settings</a>
+    </div>
+    <div class="sidebar-bottom">
+      <span class="avatar dark">MR</span>
+      <span class="who"><span class="name">Maeve Rusk</span><br/><span class="role">People Ops · Admin</span></span>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div class="crumbs">
+        <span>Hallam Holdings - NL ▾</span>
+        <span class="sep">›</span>
+        <span>Workforce</span>
+        <span class="sep">›</span>
+        <span class="current">People</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="search"><input type="text" placeholder="Search name, role, location, project" /></div>
+      <button class="btn">Export CSV</button>
+      <button class="btn primary">+ New person</button>
+    </div>
+
+    <div class="content">
+
+      <h1 class="page-title">People <span class="sub">As of 14 March 2025, 08:00 CET</span></h1>
+
+      <div class="row between">
+        <h2 class="serif" style="font-size: 22px; margin:0; font-weight: 500;">Workforce overview</h2>
+        <a class="muted" style="font-size: 11px; text-decoration: underline;">Full drill in ↗</a>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi"><div class="label">Active employees</div><div class="val">214</div><div class="delta pos">▲ 4 this quarter</div></div>
+        <div class="kpi"><div class="label">Open requisitions</div><div class="val">11</div><div class="delta">3 in offer stage</div></div>
+        <div class="kpi"><div class="label">Headcount cost (MTD)</div><div class="val">€1.84M</div><div class="delta">Forecast €1.91M</div></div>
+        <div class="kpi"><div class="label">Pending reviews</div><div class="val">17</div><div class="delta">Due 25 March</div></div>
+      </div>
+
+      <div class="filterbar">
+        <span class="chip active">All people · 214</span>
+        <span class="chip">Employees · 198</span>
+        <span class="chip">Contractors · 11</span>
+        <span class="chip">Onboarding · 5</span>
+        <span class="right"></span>
+      </div>
+
+      <div class="filterbar">
+        <input type="text" placeholder="Filter people" style="max-width: 240px; height: 28px;" />
+        <span class="chip">All departments ▾</span>
+        <span class="chip">All locations ▾</span>
+        <span class="chip active">Active only</span>
+      </div>
+
+      <div class="grid-2-wide">
+
+        <div class="stack">
+
+          <!-- People grid -->
+          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+
+            <div class="person-card">
+              <div class="top">
+                <span class="avatar tan">AV</span>
+                <div class="meta"><div class="name">Anouk de Vries</div><div class="role">Head of Engineering</div></div>
+                <span class="badge active">ACTIVE</span>
+              </div>
+              <div class="info"><span>ENGINEERING · AMSTERDAM HQ</span><span>anouk.dv@onyx.co</span></div>
+              <div class="footer-bits"><span>Joined 02 Apr 2018</span><span>↗</span></div>
+            </div>
+
+            <div class="person-card">
+              <div class="top">
+                <span class="avatar olive">IO</span>
+                <div class="meta"><div class="name">Idris Okafor</div><div class="role">Senior Product Designer</div></div>
+                <span class="badge active">ACTIVE</span>
+              </div>
+              <div class="info"><span>DESIGN · REMOTE / NL</span><span>idris.o@onyx.co</span></div>
+              <div class="footer-bits"><span>Joined 11 Jan 2021</span><span>↗</span></div>
+            </div>
+
+            <div class="person-card">
+              <div class="top">
+                <span class="avatar gray">SW</span>
+                <div class="meta"><div class="name">Saoirse Whelan</div><div class="role">Payroll Specialist</div></div>
+                <span class="badge leave">ON LEAVE</span>
+              </div>
+              <div class="info"><span>FINANCE · AMSTERDAM HQ</span><span>saoirse.w@onyx.co</span></div>
+              <div class="footer-bits"><span>Returns 28 Apr</span><span>↗</span></div>
+            </div>
+
+            <div class="person-card">
+              <div class="top">
+                <span class="avatar tan">ML</span>
+                <div class="meta"><div class="name">Marcos Lindqvist</div><div class="role">Staff Engineer, Platform</div></div>
+                <span class="badge active">ACTIVE</span>
+              </div>
+              <div class="info"><span>ENGINEERING · ROTTERDAM</span><span>marcos.l@onyx.co</span></div>
+              <div class="footer-bits"><span>Joined 19 Sep 2019</span><span>↗</span></div>
+            </div>
+
+            <div class="person-card">
+              <div class="top">
+                <span class="avatar pink">PR</span>
+                <div class="meta"><div class="name">Priya Raghavan</div><div class="role">Office Operations</div></div>
+                <span class="badge pink">NEW</span>
+              </div>
+              <div class="info"><span>PEOPLE OPS · BERLIN</span><span>priya.r@onyx.co</span></div>
+              <div class="footer-bits"><span>Joined 03 Mar 2025</span><span>↗</span></div>
+            </div>
+
+            <div class="person-card">
+              <div class="top">
+                <span class="avatar olive">TB</span>
+                <div class="meta"><div class="name">Tomás Beltrán</div><div class="role">Finance Controller</div></div>
+                <span class="badge active">ACTIVE</span>
+              </div>
+              <div class="info"><span>FINANCE · AMSTERDAM HQ</span><span>tomas.b@onyx.co</span></div>
+              <div class="footer-bits"><span>Joined 22 Jun 2016</span><span>↗</span></div>
+            </div>
+
+            <div class="person-card">
+              <div class="top">
+                <span class="avatar gray">HC</span>
+                <div class="meta"><div class="name">Hua Chen</div><div class="role">Data Engineer II</div></div>
+                <span class="badge contract">CONTRACTOR</span>
+              </div>
+              <div class="info"><span>ENGINEERING · REMOTE / TW</span><span>hua.c@onyx.co</span></div>
+              <div class="footer-bits"><span>Contract ends 30 Jun</span><span>↗</span></div>
+            </div>
+
+            <div class="person-card">
+              <div class="top">
+                <span class="avatar tan">EM</span>
+                <div class="meta"><div class="name">Eveline Maes</div><div class="role">Brand &amp; Content Lead</div></div>
+                <span class="badge contract">CONTRACTOR</span>
+              </div>
+              <div class="info"><span>DESIGN · AMSTERDAM HQ</span><span>eveline.m@onyx.co</span></div>
+              <div class="footer-bits"><span>Contract ends 30 Sep</span><span>↗</span></div>
+            </div>
+
+            <div class="person-card">
+              <div class="top">
+                <span class="avatar olive">OK</span>
+                <div class="meta"><div class="name">Olu Karlsen</div><div class="role">Operations Manager</div></div>
+                <span class="badge active">ACTIVE</span>
+              </div>
+              <div class="info"><span>OPERATIONS · ROTTERDAM</span><span>olu.k@onyx.co</span></div>
+              <div class="footer-bits"><span>Joined 04 May 2020</span><span>↗</span></div>
+            </div>
+
+          </div>
+
+          <div class="row between">
+            <span class="muted" style="font-size: 11px;">Showing 1–9 of 214</span>
+            <div class="actions-row">
+              <button class="btn xs">‹</button>
+              <button class="btn xs dark">1</button>
+              <button class="btn xs">2</button>
+              <button class="btn xs">3</button>
+              <button class="btn xs">…</button>
+              <button class="btn xs">24</button>
+              <button class="btn xs">›</button>
+            </div>
+          </div>
+
+          <!-- Recent lifecycle events -->
+          <div class="card">
+            <div class="card-h">
+              <h3>Recent lifecycle events</h3>
+              <div class="actions-row">
+                <button class="btn xs dark">LAST 14 DAYS</button>
+                <button class="btn xs">All entities</button>
+                <button class="btn xs">Filter</button>
+              </div>
+            </div>
+            <table class="tbl">
+              <thead><tr><th>Date</th><th>Person</th><th>Event</th><th>Entity</th><th>Processed by</th></tr></thead>
+              <tbody>
+                <tr><td>02 Mar</td><td>Priya Raghavan</td><td>Hired · People Partner, EMEA</td><td>Hallam Holdings NL</td><td>M. Rusk</td></tr>
+                <tr><td>28 Feb</td><td>Saoirse Whelan</td><td>Parental leave begins</td><td>Hallam Holdings NL</td><td>System</td></tr>
+                <tr><td>24 Feb</td><td>Marcos Lindqvist</td><td>Promoted to Staff Engineer</td><td>Hallam Holdings NL</td><td>M. Rusk</td></tr>
+                <tr><td>19 Feb</td><td>Linnea Forsberg</td><td>Resignation noted</td><td>Hallam Tech NV</td><td>M. Rusk · DRAFT</td></tr>
+                <tr><td>11 Feb</td><td>Eveline Maes</td><td>Contract renewed · 8 months</td><td>Hallam Studio</td><td>T. Beltrán</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right side: Add a person form -->
+        <aside class="side-card">
+          <div class="card pad">
+            <div class="row between" style="margin-bottom: 4px;">
+              <h3 style="margin:0; font-size: 14px;">Add a person</h3>
+              <button class="btn xs">✕</button>
+            </div>
+            <div class="muted" style="font-size: 11px;">Creates a record. Payroll begins on the effective date you choose.</div>
+
+            <div class="divider"></div>
+
+            <div class="label-up">Identity</div>
+            <div class="muted" style="font-size: 11px; margin-bottom: 8px;">Legal name as it appears on the employment contract.</div>
+            <div class="form-grid">
+              <label>First name<input type="text" placeholder="Nadia" /></label>
+              <label>Last name<input type="text" placeholder="Holmberg" /></label>
+            </div>
+            <label style="margin-top:10px;">Work email<input type="text" placeholder="first.last@onyx.co" /></label>
+            <div class="muted" style="font-size: 11px;">A mailbox will be provisioned once approved.</div>
+
+            <div class="divider"></div>
+
+            <div class="label-up">Assignment</div>
+            <div class="form-grid" style="margin-top: 6px;">
+              <label>Department<select><option>Engineering</option></select></label>
+              <label>Location<select><option>Amsterdam HQ</option></select></label>
+            </div>
+            <label style="margin-top:10px;">Role title<input type="text" placeholder="Senior Engineer" /></label>
+            <div class="form-grid" style="margin-top:10px;">
+              <label>Effective date<input type="date" value="2025-04-01" /></label>
+              <label>Employment type<select><option>Full time</option></select></label>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="label-up" style="margin-bottom: 6px;">Onboarding</div>
+            <label style="flex-direction:row; align-items:center; gap:8px;"><input type="checkbox" checked /> Send welcome packet</label>
+            <label style="flex-direction:row; align-items:center; gap:8px;"><input type="checkbox" /> Assign default equipment kit</label>
+            <label style="flex-direction:row; align-items:center; gap:8px;"><input type="checkbox" checked /> Notify direct manager only</label>
+
+            <div class="actions-row" style="margin-top: 14px; justify-content: space-between;">
+              <button class="btn">Cancel</button>
+              <button class="btn">Save draft</button>
+              <button class="btn primary">Create person</button>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <div class="row between">
+              <h3 style="margin:0; font-size: 14px;">Headcount by department</h3>
+              <span class="muted" style="font-size: 11px;">Hallam NL</span>
+            </div>
+            <table class="tbl">
+              <tbody>
+                <tr><td>Engineering</td><td class="right" style="text-align:right;">78</td></tr>
+                <tr><td>Operations</td><td class="right" style="text-align:right;">42</td></tr>
+                <tr><td>Design</td><td class="right" style="text-align:right;">26</td></tr>
+                <tr><td>Finance</td><td class="right" style="text-align:right;">22</td></tr>
+                <tr><td>People Ops</td><td class="right" style="text-align:right;">15</td></tr>
+                <tr><td>Private Ops</td><td class="right" style="text-align:right;">11</td></tr>
+                <tr><td>Sales</td><td class="right" style="text-align:right;">20</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </aside>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <span>© 2025 Onyx Works Group · v4.18.2 · production-eu-west</span>
+      <span class="links"><a>People</a><a>Org Chart</a><a>Time Off</a><a>Expenses</a><a>Settings</a><a>Workplace settings</a></span>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>

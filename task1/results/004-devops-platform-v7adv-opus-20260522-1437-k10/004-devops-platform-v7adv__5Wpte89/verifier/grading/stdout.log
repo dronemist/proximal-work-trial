@@ -1,0 +1,181 @@
+[grade] VLM judge: 15 pairs in 14.3s
+{
+  "per_page_viewport": {
+    "alerts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6597446183806169,
+          "extra": {
+            "reference_size": [
+              1440,
+              2271
+            ],
+            "candidate_size": [
+              1440,
+              1989
+            ],
+            "compared_size": [
+              1440,
+              1989
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4208456873893738,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 347,
+            "matched_pairs": 347,
+            "mean_matched_iou": 0.17711108922958374,
+            "raw_score_before_sqrt": 0.17711108922958374
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7151451543148026,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 347,
+            "matched_pairs": 347,
+            "mean_normalized_centroid_distance": 0.2848548456851973,
+            "page_diagonal_px": 2689.336619208539
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.31744322634027117,
+          "extra": {
+            "bg_score": 0.0,
+            "fg_score": 0.6348864526805423,
+            "bg": {
+              "reference_palette_size": 9,
+              "candidate_palette_size": 18,
+              "weighted_mean_oklab_distance": 0.15567952394485474,
+              "base_score_before_penalty": 0.0,
+              "over_color_penalty": 0.055999999999999994
+            },
+            "fg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 20,
+              "weighted_mean_oklab_distance": 0.03608131781220436,
+              "base_score_before_penalty": 0.7594578812519709,
+              "over_color_penalty": 0.12457142857142857
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6725626949241534,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.5322324213202192,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.28217821782178215
+              ],
+              [
+                14.0,
+                0.45544554455445546
+              ],
+              [
+                16.0,
+                0.22772277227722773
+              ],
+              [
+                18.0,
+                0.022277227722772276
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.05763688760806916
+              ],
+              [
+                10.5,
+                0.10662824207492795
+              ],
+              [
+                11.0,
+                0.040345821325648415
+              ],
+              [
+                11.5,
+                0.2219020172910663
+              ],
+              [
+                12.0,
+                0.14121037463976946
+              ],
+              [
+                12.5,
+                0.17579250720461095
+              ],
+              [
+                13.0,
+                0.1930835734870317
+              ],
+              [
+                13.5,
+                0.0345821325648415
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia",
+              "sfmono-regular"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5930555555555556,
+          "extra": {
+            "reference_tokens": 592,
+            "candidate_tokens": 555,
+            "matched_tokens": 427,
+            "union_tokens": 720,
+            "reference_unique": 313,
+            "candidate_unique": 303
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple major content fabrications: the candidate shows 7 firing alerts vs 3 in reference, different alert IDs (ALT-482

@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>People · Onyx Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="mark"></span> Onyx Works</div>
+    <div class="section-label">Workspace</div>
+    <nav>
+      <a class="nav-link active" href="people-directory.html"><span class="ico"></span> People</a>
+      <a class="nav-link" href="org-chart.html"><span class="ico"></span> Org Chart</a>
+      <a class="nav-link" href="time-off.html"><span class="ico"></span> Time Off</a>
+    </nav>
+    <div class="section-label">Finance</div>
+    <nav>
+      <a class="nav-link" href="expenses.html"><span class="ico"></span> Expenses</a>
+    </nav>
+    <div class="section-label">Workspace</div>
+    <nav>
+      <a class="nav-link" href="settings.html"><span class="ico"></span> Company Settings</a>
+    </nav>
+    <div class="user-chip">
+      <span class="avatar pink">MR</span>
+      <div>
+        <div class="name">Maeve Rook</div>
+        <div class="role">People Ops · Admin</div>
+      </div>
+    </div>
+  </aside>
+
+  <header class="mobile-header"><span class="brand"><span class="mark"></span> Onyx Works</span></header>
+  <nav class="mobile-nav">
+    <a class="nav-link active" href="people-directory.html">People</a>
+    <a class="nav-link" href="org-chart.html">Org Chart</a>
+    <a class="nav-link" href="time-off.html">Time Off</a>
+    <a class="nav-link" href="expenses.html">Expenses</a>
+    <a class="nav-link" href="settings.html">Company Settings</a>
+  </nav>
+  <div class="mobile-user-chip">
+    <span class="avatar pink">MR</span>
+    <div><div class="name">Maeve Rook</div><div class="role">People Ops · Admin</div></div>
+  </div>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="crumbs">
+        <span class="crumb-pill"><span class="dot"></span> Hailen Holdings, NL</span>
+        <span class="sep">/</span><span>Workforce</span><span class="sep">/</span>
+        <strong>People</strong>
+      </div>
+      <div class="search">Search name, role, country</div>
+      <button class="btn">Export CSV</button>
+      <button class="btn primary">+ New person</button>
+    </div>
+
+    <div class="content">
+      <h1 class="page-title">People <span class="muted" style="font-size:13px; font-weight:500;">as of 14 March 2025, 09:32 CET</span></h1>
+      <h2 class="section-title">Workforce overview</h2>
+
+      <div class="kpis">
+        <div class="kpi">
+          <div class="label">Active employees</div>
+          <div class="value">214</div>
+          <div class="sub delta-up">▲ 4% quarter</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Open requisitions</div>
+          <div class="value">11</div>
+          <div class="sub">3 in offer stage</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Headcount cost (mtd)</div>
+          <div class="value">€1.84M</div>
+          <div class="sub">Forecast €1.91M</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Pending reviews</div>
+          <div class="value">17</div>
+          <div class="sub delta-up">Due 28 March</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <div class="tab active">All people <span class="badge-count">214</span></div>
+        <div class="tab">Employees <span class="badge-count">198</span></div>
+        <div class="tab">Contractors <span class="badge-count">11</span></div>
+        <div class="tab">Onboarding <span class="badge-count">4</span></div>
+      </div>
+
+      <!-- Two columns: list + Add person form -->
+      <div class="grid-2" style="grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);">
+        <div>
+          <!-- Filters -->
+          <div class="filters">
+            <input class="input" placeholder="🔍 Filter people" style="flex:1; min-width:200px;" />
+            <select class="input select"><option>All departments</option></select>
+            <select class="input select"><option>All locations</option></select>
+            <span class="chip green"><span class="dot"></span>Active only</span>
+          </div>
+
+          <!-- People cards grid -->
+          <div class="grid-2" style="gap:10px;">
+            <div class="card pad-sm">
+              <div class="row between">
+                <div class="row"><span class="avatar lg">AV</span>
+                  <div><div class="bold">Anouk de Vries</div><div class="muted text-xs">Head of Engineering</div></div>
+                </div>
+                <span class="chip green"><span class="dot"></span>ACTIVE</span>
+              </div>
+              <div class="muted text-xs mt-8" style="letter-spacing:0.04em; text-transform:uppercase;">Engineering · Amsterdam HQ</div>
+              <div class="row between mt-8 text-xs muted"><span>anouk.dv@onyx.co</span><span>Joined 12 Jun 2021</span></div>
+            </div>
+            <div class="card pad-sm">
+              <div class="row between">
+                <div class="row"><span class="avatar lg gray">IO</span>
+                  <div><div class="bold">Idris Olufon</div><div class="muted text-xs">Senior Product Designer</div></div>
+                </div>
+                <span class="chip green"><span class="dot"></span>ACTIVE</span>
+              </div>
+              <div class="muted text-xs mt-8" style="letter-spacing:0.04em; text-transform:uppercase;">Design · Remote NL</div>
+              <div class="row between mt-8 text-xs muted"><span>idris.o@onyx.co</span><span>Joined 14 Jan 2022</span></div>
+            </div>
+            <div class="card pad-sm">
+              <div class="row between">
+                <div class="row"><span class="avatar lg pink">SW</span>
+                  <div><div class="bold">Saoirse Whelan</div><div class="muted text-xs">Payroll Specialist</div></div>
+                </div>
+                <span class="chip amber"><span class="dot"></span>ON LEAVE</span>
+              </div>
+              <div class="muted text-xs mt-8" style="letter-spacing:0.04em; text-transform:uppercase;">Finance · Amsterdam HQ</div>
+              <div class="row between mt-8 text-xs muted"><span>saoirse.w@onyx.co</span><span>Joined 12 Jun 2023</span></div>
+            </div>
+            <div class="card pad-sm">
+              <div class="row between">
+                <div class="row"><span class="avatar lg blue">ML</span>
+                  <div><div class="bold">Marcus Lindqvist</div><div class="muted text-xs">Staff Engineer, Platform</div></div>
+                </div>
+                <span class="chip green"><span class="dot"></span>ACTIVE</span>
+              </div>
+              <div class="muted text-xs mt-8" style="letter-spacing:0.04em; text-transform:uppercase;">Engineering · Rotterdam</div>
+              <div class="row between mt-8 text-xs muted"><span>marcus.l@onyx.co</span><span>Joined 24 Jul 2020</span></div>
+            </div>
+            <div class="card pad-sm">
+              <div class="row between">
+                <div class="row"><span class="avatar lg amber">PR</span>
+                  <div><div class="bold">Priya Raghavan</div><div class="muted text-xs">People Partner, EMEA</div></div>
+                </div>
+                <span class="chip pink"><span class="dot"></span>NEW</span>
+              </div>
+              <div class="muted text-xs mt-8" style="letter-spacing:0.04em; text-transform:uppercase;">People Ops · Berlin DE</div>
+              <div class="row between mt-8 text-xs muted"><span>priya.r@onyx.co</span><span>Joined 03 Mar 2025</span></div>
+            </div>
+            <div class="card pad-sm">
+              <div class="row between">
+                <div class="row"><span class="avatar lg gray">TB</span>
+                  <div><div class="bold">Tomás Belisle</div><div class="muted text-xs">Finance Controller</div></div>
+                </div>
+                <span class="chip green"><span class="dot"></span>ACTIVE</span>
+              </div>
+              <div class="muted text-xs mt-8" style="letter-spacing:0.04em; text-transform:uppercase;">Finance · Amsterdam HQ</div>
+              <div class="row between mt-8 text-xs muted"><span>tomas.b@onyx.co</span><span>Joined 11 Apr 2019</span></div>
+            </div>
+            <div class="card pad-sm">
+              <div class="row between">
+                <div class="row"><span class="avatar lg green">HC</span>
+                  <div><div class="bold">Hua Chen</div><div class="muted text-xs">Data Engineer II</div></div>
+                </div>
+                <span class="chip purple"><span class="dot"></span>CONTRACTOR</span>
+              </div>
+              <div class="muted text-xs mt-8" style="letter-spacing:0.04em; text-transform:uppercase;">Engineering · Remote SG</div>
+              <div class="row between mt-8 text-xs muted"><span>hua.c@onyx.co</span><span>Contract ends 30 Jun</span></div>
+            </div>
+            <div class="card pad-sm">
+              <div class="row between">
+                <div class="row"><span class="avatar lg blue">EM</span>
+                  <div><div class="bold">Eveline Maes</div><div class="muted text-xs">Brand &amp; Content Lead</div></div>
+                </div>
+                <span class="chip green"><span class="dot"></span>ACTIVE</span>
+              </div>
+              <div class="muted text-xs mt-8" style="letter-spacing:0.04em; text-transform:uppercase;">Marketing · Amsterdam HQ</div>
+              <div class="row between mt-8 text-xs muted"><span>eveline.m@onyx.co</span><span>Joined 09 May 2022</span></div>
+            </div>
+            <div class="card pad-sm">
+              <div class="row between">
+                <div class="row"><span class="avatar lg pink">OK</span>
+                  <div><div class="bold">Otis Karlsen</div><div class="muted text-xs">Operations Manager</div></div>
+                </div>
+                <span class="chip green"><span class="dot"></span>ACTIVE</span>
+              </div>
+              <div class="muted text-xs mt-8" style="letter-spacing:0.04em; text-transform:uppercase;">Operations · Oslo</div>
+              <div class="row between mt-8 text-xs muted"><span>otis.k@onyx.co</span><span>Joined 04 May 2020</span></div>
+            </div>
+          </div>
+
+          <div class="row between mt-16">
+            <div class="muted text-sm">Showing 1–9 of 214</div>
+            <div class="row">
+              <button class="btn sm">‹</button>
+              <button class="btn sm primary">1</button>
+              <button class="btn sm">2</button>
+              <button class="btn sm">3</button>
+              <button class="btn sm">…</button>
+              <button class="btn sm">24</button>
+              <button class="btn sm">›</button>
+            </div>
+          </div>
+
+          <!-- Recent lifecycle events -->
+          <h2 class="section-title row between">
+            Recent lifecycle events
+            <a href="#" class="text-sm" style="color:var(--primary);">Full audit log →</a>
+          </h2>
+
+          <div class="card scroll-x">
+            <div class="row between pad-sm" style="border-bottom:1px solid var(--border);">
+              <div class="row gap-lg">
+                <span class="chip dark">LAST 14 DAYS</span>
+                <span class="chip">All entities</span>
+              </div>
+              <button class="btn sm">Filter</button>
+            </div>
+            <table class="table">
+              <thead><tr><th>Date</th><th>Person</th><th>Event</th><th>Entity</th><th>Processed by</th></tr></thead>
+              <tbody>
+                <tr><td>03 Mar</td><td><span class="avatar amber">PR</span> Priya Raghavan</td><td>Hired · People Partner, EMEA</td><td>Hailen Holdings NL</td><td>M. Rook</td></tr>
+                <tr><td>02 Mar</td><td><span class="avatar gray">SW</span> Saoirse Whelan</td><td>Parental leave start</td><td>Hailen Holdings NL</td><td>System</td></tr>
+                <tr><td>28 Feb</td><td><span class="avatar green">MM</span> Mateusz Marek</td><td>Promotion to Staff Engineer</td><td>Hailen DE GmbH</td><td>A. de Vries</td></tr>
+                <tr><td>24 Feb</td><td><span class="avatar pink">LF</span> Linnea Forsberg</td><td>Resignation noted</td><td>Hailen Tech AS</td><td>M. Rook <span class="chip red"> </span></td></tr>
+                <tr><td>19 Feb</td><td><span class="avatar blue">EM</span> Eveline Maes</td><td>Contract renewed · 6 months</td><td>Hailen Studio</td><td>T. Belisle</td></tr>
+                <tr><td>11 Feb</td><td><span class="avatar gray">EW</span> Evelina Maes</td><td>Contract reviewed</td><td>Hailen Studio</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right column: Add a person form -->
+        <div>
+          <div class="card">
+            <div class="head">
+              <strong>Add a person</strong>
+              <button class="btn sm">×</button>
+            </div>
+            <div class="pad">
+              <div class="muted text-sm mb-12">Creates a record. Payroll begins on the effective date you choose.</div>
+              <div class="muted text-xs" style="text-transform:uppercase; letter-spacing:0.06em; font-weight:600; margin-bottom:8px;">Identity</div>
+              <div class="muted text-xs mb-8">Legal name as it appears on the employment contract.</div>
+              <div class="field-row mb-8">
+                <div class="field"><label>First name</label><input class="input" value="Nadia"/></div>
+                <div class="field"><label>Last name</label><input class="input" value="Holmberg"/></div>
+              </div>
+              <div class="field mb-8">
+                <label>Work email</label>
+                <input class="input" value="first.last@onyx.co" />
+                <div class="hint">A mailbox will be provisioned upon approval.</div>
+              </div>
+
+              <div class="muted text-xs mt-16" style="text-transform:uppercase; letter-spacing:0.06em; font-weight:600; margin-bottom:8px;">Assignment</div>
+              <div class="field-row mb-8">
+                <div class="field"><label>Department</label><select class="input select"><option>Engineering</option></select></div>
+                <div class="field"><label>Location</label><select class="input select"><option>Amsterdam HQ</option></select></div>
+              </div>
+              <div class="field mb-8">
+                <label>Role title</label>
+                <input class="input" value="Senior Engineer" />
+              </div>
+              <div class="field-row mb-8">
+                <div class="field"><label>Effective date</label><input class="input" value="01 Apr 2025"/></div>
+                <div class="field"><label>Employment type</label><select class="input select"><option>Full time</option></select></div>
+              </div>
+
+              <div class="muted text-xs mt-16" style="text-transform:uppercase; letter-spacing:0.06em; font-weight:600; margin-bottom:8px;">Onboarding</div>
+              <div class="row mb-8"><span class="checkbox checked"></span> <span class="text-sm">Send welcome packet</span></div>
+              <div class="row mb-8"><span class="checkbox checked"></span> <span class="text-sm">Assign default equipment kit</span></div>
+              <div class="row mb-8"><span class="checkbox"></span> <span class="text-sm">Notify direct manager only</span></div>
+
+              <div class="divider"></div>
+              <div class="row between">
+                <button class="btn">Cancel</button>
+                <div class="row">
+                  <button class="btn">Save draft</button>
+                  <button class="btn primary">Create person</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mt-16">
+            <div class="head"><strong>Headcount by department</strong></div>
+            <div class="pad-sm">
+              <div class="row between text-sm" style="padding:5px 0;"><span>Engineering</span><span class="bold">79</span></div>
+              <div class="row between text-sm" style="padding:5px 0;"><span>Operations</span><span class="bold">42</span></div>
+              <div class="row between text-sm" style="padding:5px 0;"><span>Design</span><span class="bold">21</span></div>
+              <div class="row between text-sm" style="padding:5px 0;"><span>Finance</span><span class="bold">19</span></div>
+              <div class="row between text-sm" style="padding:5px 0;"><span>People Ops</span><span class="bold">11</span></div>
+              <div class="row between text-sm" style="padding:5px 0;"><span>Marketing</span><span class="bold">16</span></div>
+              <div class="row between text-sm" style="padding:5px 0;"><span>Private (Ops)</span><span class="bold">14</span></div>
+              <div class="row between text-sm" style="padding:5px 0;"><span>Sales</span><span class="bold">12</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div>© 2025 Onyx Works Group, v4.18.3 · prod-eu-1</div>
+      <div class="links">
+        <a href="#">Workforce settings</a>
+        <a href="people-directory.html">People</a>
+        <a href="org-chart.html">Org Chart</a>
+        <a href="time-off.html">Time Off</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="#">Support</a>
+      </div>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

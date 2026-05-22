@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deployments — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="projects.html">Beacon Harbor Works</a>
+    <nav class="nav-main">
+      <a href="projects.html">Projects</a>
+      <a class="active" href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+    <span class="user-pill"><span class="avatar">SR</span> a.sundvik</span>
+  </div>
+</header>
+
+<div class="page">
+  <div class="crumbs"><a href="projects.html">Harbor</a><span class="sep">/</span><span class="here">Deployments</span></div>
+
+  <div class="eyebrow">Manifest · Last 7 days</div>
+  <h1 class="page-title">Deployments</h1>
+  <p class="page-lede">A chronological record of every release shipped to a Beacon Harbor environment. Sorted by environment, newest first. All times in UTC.</p>
+
+  <div class="btn-row">
+    <a class="btn green" href="#">Deploy to environment</a>
+    <a class="btn" href="#">Export manifest</a>
+    <a class="btn ghost" href="#">View dev log</a>
+  </div>
+
+  <div class="cols">
+    <div class="main">
+
+      <div class="card" style="background:#f0eada;">
+        <div class="body" style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+          <span class="badge solid-green">In progress</span>
+          <b>harbor-api</b> rolling out to <b>production</b>
+          <span class="muted">canary at 25% · started 00:04 ago</span>
+          <a class="btn xs right" href="#">Pause</a>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="k">Deploys · 7d</div><div class="v">142</div><div class="sub">+12 vs prior week</div></div>
+        <div class="stat"><div class="k">Success rate</div><div class="v">96.4%</div><div class="sub">5 rollbacks</div></div>
+        <div class="stat"><div class="k">Median duration</div><div class="v">4m 21s</div><div class="sub">canary + verify</div></div>
+        <div class="stat"><div class="k">Lead time</div><div class="v">1h 47m</div><div class="sub">commit → prod</div></div>
+      </div>
+
+      <div class="filterbar">
+        <select><option>All environments</option><option>Production</option><option>Staging</option><option>Preview</option></select>
+        <select><option>Production</option><option>Staging</option><option>Preview</option></select>
+        <select><option>Staging</option><option>Active</option><option>Pending</option></select>
+        <select><option>Preview</option><option>Active</option><option>Closed</option></select>
+        <span class="right muted t-tiny">Auto-refresh · 30s</span>
+      </div>
+
+      <div class="filterbar">
+        <select><option>Filter: All services</option><option>harbor-api</option><option>harbor-web</option></select>
+        <select><option>Any status</option><option>Success</option><option>Failed</option></select>
+        <select><option>Any actor</option><option>k.lindqvist</option><option>m.rasmussen</option></select>
+        <input class="search" type="search" placeholder="Search by commit, branch, tag…">
+      </div>
+
+      <div class="card">
+        <div class="head" style="background:#e4dabd;">
+          <span class="title">▾ Production</span>
+          <span>48 deploys · 7d</span>
+        </div>
+        <div class="body" style="padding:0;">
+
+          <div style="padding:12px 14px; border-bottom:1px solid var(--line-soft);">
+            <div class="row-flex" style="gap:14px;">
+              <span class="muted t-tiny no-wrap">02:14 UTC</span>
+              <span class="badge solid-green">Succeeded</span>
+              <span class="badge red">Canary OK</span>
+              <b>harbor-api · v3.18.2</b> — Roll out to 5% in flight, going green
+              <span class="right muted t-tiny">2m ago</span>
+            </div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Triggered by <b>k.lindqvist</b> from <span class="code-inline">main</span> · merge of PR #2196</div>
+            <div class="kv" style="margin-top:8px;">
+              <div><span class="k">Service</span><b>harbor-api</b></div>
+              <div><span class="k">Commit</span><span class="code-inline">a47c021</span></div>
+              <div><span class="k">Region</span>us-east-1</div>
+              <div><span class="k">Duration</span>00:04:21</div>
+            </div>
+          </div>
+
+          <div style="padding:12px 14px; border-bottom:1px solid var(--line-soft);">
+            <div class="row-flex" style="gap:14px;">
+              <span class="muted t-tiny no-wrap">23:48 UTC</span>
+              <span class="badge solid-green">Succeeded</span>
+              <b>harbor-api · v3.18.1</b> — Manifest export, morning filter v2
+              <span class="right muted t-tiny">3h 12m ago</span>
+            </div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Triggered by <b>a.sundvik</b> · 4-hour soak during canary</div>
+            <div class="kv" style="margin-top:8px;">
+              <div><span class="k">Service</span><b>harbor-api</b></div>
+              <div><span class="k">Commit</span><span class="code-inline">88a9b73</span></div>
+              <div><span class="k">Region</span>us-west-2</div>
+              <div><span class="k">Duration</span>00:05:18</div>
+            </div>
+          </div>
+
+          <div style="padding:12px 14px; border-bottom:1px solid var(--line-soft);">
+            <div class="row-flex" style="gap:14px;">
+              <span class="muted t-tiny no-wrap">22:09 UTC</span>
+              <span class="badge solid-red">Rolled back</span>
+              <b>signal-worker · v1.12.4</b> — Webhook retry backoff
+              <span class="right muted t-tiny">5h ago</span>
+            </div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Auto-rollback after queue lag threshold exceeded at 00:31, restored to v1.12.3</div>
+            <div class="kv" style="margin-top:8px;">
+              <div><span class="k">Service</span><b>signal-worker</b></div>
+              <div><span class="k">Branch</span>main</div>
+              <div><span class="k">Region</span>multi</div>
+              <div><span class="k">Duration</span>00:08:14</div>
+            </div>
+          </div>
+
+          <div style="padding:12px 14px; border-bottom:1px solid var(--line-soft);">
+            <div class="row-flex" style="gap:14px;">
+              <span class="muted t-tiny no-wrap">19:32 UTC</span>
+              <span class="badge solid-green">Succeeded</span>
+              <b>harbor-api · v3.18.0</b> — Config flag for slow rate signal
+              <span class="right muted t-tiny">8h ago</span>
+            </div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Triggered by <b>a.sundvik</b> · scheduled window</div>
+          </div>
+
+          <div style="padding:12px 14px;">
+            <div class="row-flex" style="gap:14px;">
+              <span class="muted t-tiny no-wrap">14:01 UTC</span>
+              <span class="badge solid-green">Succeeded</span>
+              <b>lantern-ui · v1.7</b> — Banners + UI flag</span>
+              <span class="right muted t-tiny">14h ago</span>
+            </div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Triggered by <b>j.yarga</b> · On-the-tagged release</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head" style="background:#e4dabd;"><span class="title">▾ Staging</span><span>18 deploys · 7d</span></div>
+        <div class="body" style="padding:0;">
+          <div style="padding:12px 14px; border-bottom:1px solid var(--line-soft);">
+            <div class="row-flex"><span class="muted t-tiny">01:18 UTC</span><span class="badge solid-green">Succeeded</span><b>harbor-api · v3.19.0-rc.2</b> — PR fixing pagination cursor<span class="right muted t-tiny">3h ago</span></div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Triggered by <b>e.lindqvist</b> · PR #2201</div>
+          </div>
+          <div style="padding:12px 14px; border-bottom:1px solid var(--line-soft);">
+            <div class="row-flex"><span class="muted t-tiny">00:42 UTC</span><span class="badge solid-green">Succeeded</span><b>harbor-web · v2.6.1</b> — Compact deploy timeline<span class="right muted t-tiny">4h ago</span></div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Triggered by <b>p.danforth</b> · PR #1142</div>
+          </div>
+          <div style="padding:12px 14px;">
+            <div class="row-flex"><span class="muted t-tiny">22:12 UTC</span><span class="badge solid-red">Failed</span><b>signal-worker · v1.13.0-rc.1</b> — Migration deploy verification failed<span class="right muted t-tiny">7h ago</span></div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Migration step blocked on assigned table; fix staffed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head" style="background:#e4dabd;"><span class="title">▾ Preview</span><span>32 deploys · 7d</span></div>
+        <div class="body" style="padding:0;">
+          <div style="padding:12px 14px; border-bottom:1px solid var(--line-soft);">
+            <div class="row-flex"><span class="muted t-tiny">00:51 UTC</span><span class="badge solid-green">Succeeded</span><b>harbor-web · pr-1175</b> — Right rail rendecal shortcuts<span class="right muted t-tiny">2h ago</span></div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Triggered by <b>p.danforth</b></div>
+          </div>
+          <div style="padding:12px 14px; border-bottom:1px solid var(--line-soft);">
+            <div class="row-flex"><span class="muted t-tiny">23:36 UTC</span><span class="badge solid-green">Succeeded</span><b>harbor-api · pr-2208</b> — One-eight hours rules engine<span class="right muted t-tiny">3h ago</span></div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Triggered by <b>k.lindqvist</b></div>
+          </div>
+          <div style="padding:12px 14px; border-bottom:1px solid var(--line-soft);">
+            <div class="row-flex"><span class="muted t-tiny">22:01 UTC</span><span class="badge solid-green">Succeeded</span><b>lantern-ui · pr-079</b> — Add — for color flag<span class="right muted t-tiny">5h ago</span></div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Waiting to build &amp; <b>g4d_ucl</b> · pased 12m</div>
+          </div>
+          <div style="padding:12px 14px;">
+            <div class="row-flex"><span class="muted t-tiny">21:14 UTC</span><span class="badge solid-green">Succeeded</span><b>harbor-api · b.troffit</b><span class="right muted t-tiny">5h ago</span></div>
+            <div class="meta muted t-tiny" style="margin-top:6px;">Triggered by <b>a.brandt</b></div>
+          </div>
+        </div>
+        <div class="pager">
+          <a class="pg active" href="#">1</a>
+          <a class="pg" href="#">2</a>
+          <a class="pg" href="#">3</a>
+          <a class="pg" href="#">4</a>
+          <a class="pg" href="#">5</a>
+          <span class="spacer"></span>
+          <span>Showing 1 to 18 of 142</span>
+          <a class="pg" href="#">›</a>
+        </div>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="card">
+        <div class="head"><span class="title">Past 14 days</span><span>Deploy frequency</span></div>
+        <div class="body">
+          <div class="sparkbars">
+            <span class="b" style="height:48%"></span><span class="b" style="height:62%"></span><span class="b" style="height:70%"></span>
+            <span class="b" style="height:42%"></span><span class="b" style="height:54%"></span><span class="b" style="height:78%"></span>
+            <span class="b" style="height:38%"></span><span class="b" style="height:64%"></span><span class="b" style="height:80%"></span>
+            <span class="b" style="height:46%"></span><span class="b" style="height:90%"></span><span class="b" style="height:55%"></span>
+            <span class="b" style="height:72%"></span><span class="b" style="height:60%"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">Teammates online</span><span>On call</span></div>
+        <div class="body">
+          <div class="item"><span class="av c3">AO</span><div class="who">Aris Otterling<br><span class="when">Primary — prod</span></div></div>
+          <div class="item"><span class="av c2">PD</span><div class="who">Priya Danforth<br><span class="when">Web releases</span></div></div>
+          <div class="item"><span class="av c4">JV</span><div class="who">Jonas Verga<br><span class="when">Staging duty</span></div></div>
+          <div class="item"><span class="av c8">RA</span><div class="who">Renata Ashcroft<br><span class="when">Reviewing PRs</span></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">Most deployed</span><span>7d</span></div>
+        <div class="body links">
+          <a href="#">harbor-api <span class="muted right t-tiny">48</span></a>
+          <a href="#">harbor-web <span class="muted right t-tiny">32</span></a>
+          <a href="#">signal/secret-worker <span class="muted right t-tiny">18</span></a>
+          <a href="#">lantern-ci <span class="muted right t-tiny">14</span></a>
+          <a href="#">tipeline-docs <span class="muted right t-tiny">9</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">Quick actions</span><span>Shortcuts</span></div>
+        <div class="body links">
+          <a href="#">Open active alerts (3)</a>
+          <a href="#">Lock production deploys</a>
+          <a href="#">Roll back last release</a>
+          <a href="#">Page primary on-call</a>
+          <a href="#">Declare incident</a>
+        </div>
+      </div>
+
+      <div class="card" style="background:#efe9d4;">
+        <div class="head"><span class="title">Deploy window</span><span>Notice</span></div>
+        <div class="body">
+          <p style="margin:0; font-size:11.5px;">No production deploys after <b>20:00 UTC Fridays</b>. Override requires two-engineer approval.</p>
+          <a class="btn xs" href="#" style="margin-top:8px;">Request waiver</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="foot-wrap">
+  <div class="foot-inner">
+    <div>&copy; 2025 Beacon Harbor Works · Release Operations</div>
+    <nav><a href="#">ETC · Deploy manifest</a><a href="#">Quick start</a><a href="projects.html">Projects</a><a href="deploys.html">Deployments</a><a href="builds.html">Builds</a><a href="team.html">Team</a><a href="alerts.html">Alerts</a></nav>
+  </div>
+</footer>
+</body>
+</html>

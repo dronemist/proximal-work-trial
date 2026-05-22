@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Transactions — Drift Harbor Studio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-name">Drift Harbor Studio</div>
+      <div class="brand-sub">Personal banking</div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-label">Banking</div>
+      <nav class="nav"><ul>
+        <li><a href="account-overview.html">Accounts</a></li>
+        <li><a class="active" href="transactions.html">Transactions</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="statements.html">Statements</a></li>
+        <li><a href="support.html">Help &amp; Support</a></li>
+      </ul></nav>
+    </div>
+    <div class="side-bottom">
+      <div class="avatar">MH</div>
+      <div class="side-user">
+        <div class="name">Margot Hennessey</div>
+        <div class="meta">Member since 2014</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <nav class="topnav">
+      <div class="top-1">
+        <div>
+          <div class="brand-name">Drift Harbor Studio</div>
+          <div class="brand-sub">Personal banking</div>
+        </div>
+        <div class="user"><div class="avatar">MH</div></div>
+      </div>
+      <div class="top-2">
+        <div class="nav-h">
+          <a href="account-overview.html">Accounts</a>
+          <a class="active" href="transactions.html">Transactions</a>
+          <a href="cards.html">Cards</a>
+          <a href="statements.html">Statements</a>
+          <a href="support.html">Help &amp; Support</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <h1 class="page-title">Transactions</h1>
+      <div class="page-tools">
+        <button class="btn btn-sm">Export CSV</button>
+        <button class="btn btn-primary btn-sm">Add transaction</button>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="hero">
+        <div class="crumbs">Ledger · October 2024</div>
+        <h1>A measured view of where money moved.</h1>
+        <p>Every posted and pending entry across your linked accounts, grouped by date and category. Filters are conservative by default; widen them as needed.</p>
+      </div>
+
+      <div class="row cols-4">
+        <div class="kpi"><div class="label">Net month</div><div class="value neg" style="color:var(--danger)">−$1,284.62</div><div class="delta down">Down $410 from September</div></div>
+        <div class="kpi"><div class="label">Money in</div><div class="value">$6,420.00</div><div class="delta up">+8.4% vs last October</div></div>
+        <div class="kpi"><div class="label">Money out</div><div class="value">$7,704.62</div><div class="delta">94 posted · 4 pending</div></div>
+        <div class="kpi"><div class="label">Largest expense</div><div class="value">$1,895.00</div><div class="delta">Rent · Brook &amp; Vale Holdings</div></div>
+      </div>
+
+      <div class="card">
+        <div class="search-row" style="grid-template-columns:1fr 1fr 1fr 1fr auto">
+          <div class="field"><label>Search</label><input class="input" placeholder="Merchant, memo, amount…"></div>
+          <div class="field"><label>Account</label><select class="select"><option>All accounts</option></select></div>
+          <div class="field"><label>Category</label><select class="select"><option>All categories</option></select></div>
+          <div class="field"><label>Date range</label><select class="select"><option>This month</option></select></div>
+          <button class="btn btn-primary">Apply</button>
+        </div>
+        <div class="between" style="margin-top:8px">
+          <div class="chips">
+            <span class="chip active">All</span>
+            <span class="chip">Posted</span>
+            <span class="chip">Pending</span>
+            <span class="chip">Recurring</span>
+            <span class="chip">Reviewed</span>
+            <span class="chip">Flagged</span>
+          </div>
+          <div class="small faint">● Income &nbsp; ● Expense &nbsp; ● Pending</div>
+        </div>
+      </div>
+
+      <div class="row main-aside">
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Activity</h3><span class="card-sub">Showing 24 of 47 entries · sorted newest first</span></div>
+          <table class="t">
+            <thead><tr><th>Date</th><th>Merchant</th><th>Category</th><th>Account</th><th class="right">Amount</th></tr></thead>
+            <tbody>
+              <tr><td colspan="5" class="date-divider">Thursday, 24 October</td></tr>
+              <tr><td>21:04</td><td><strong>Marin &amp; Field Grocers</strong><div class="small faint">card payment</div></td><td><span class="tag">Groceries</span></td><td>Cove Credit</td><td class="amt neg">−$68.20</td></tr>
+              <tr><td>13:18</td><td><strong>Olive Branch Café</strong><div class="small faint">card payment</div></td><td><span class="tag">Dining</span></td><td>Cove Credit</td><td class="amt neg">−$14.50</td></tr>
+              <tr><td colspan="5" class="date-divider">Wednesday, 23 October</td></tr>
+              <tr><td>17:42</td><td><strong>Lighthouse Press — payroll</strong><div class="small faint">monthly salary</div></td><td><span class="tag">Income</span></td><td>Harbor Checking</td><td class="amt pos">+$5,220.00</td></tr>
+              <tr><td>11:08</td><td><strong>Tideswim Transit Authority</strong><div class="small faint">monthly pass</div></td><td><span class="tag">Transit</span></td><td>Harbor Checking</td><td class="amt neg">−$112.00</td></tr>
+              <tr><td>09:33</td><td><strong>North Quay Bookshop</strong></td><td><span class="tag">Media</span></td><td>Harbor Checking</td><td class="amt neg">−$42.00</td></tr>
+              <tr><td colspan="5" class="date-divider">Tuesday, 22 October</td></tr>
+              <tr><td>19:55</td><td><strong>Brook &amp; Vale Holdings</strong><div class="small faint">monthly rent</div></td><td><span class="tag">Housing</span></td><td>Harbor Checking</td><td class="amt neg">−$1,895.00</td></tr>
+              <tr><td>14:21</td><td><strong>Coastal Light &amp; Power</strong><div class="small faint">utility</div></td><td><span class="tag">Utilities</span></td><td>Harbor Checking</td><td class="amt neg">−$78.40</td></tr>
+              <tr><td>10:02</td><td><strong>Internal transfer</strong><div class="small faint">to Long Tide Savings</div></td><td><span class="tag">Transfer</span></td><td>Harbor Checking</td><td class="amt neg">−$600.00</td></tr>
+              <tr><td colspan="5" class="date-divider">Monday, 21 October</td></tr>
+              <tr><td>16:30</td><td><strong>Wren &amp; Stone Apothecary</strong></td><td><span class="tag">Health</span></td><td>Harbor Checking</td><td class="amt neg">−$34.12</td></tr>
+              <tr><td>12:48</td><td><strong>Harbor Wireless</strong><div class="small faint">subscription</div></td><td><span class="tag">Utilities</span></td><td>Cove Credit</td><td class="amt neg">−$58.00</td></tr>
+              <tr><td>09:14</td><td><strong>Salt &amp; Linen Restaurant</strong></td><td><span class="tag">Dining</span></td><td>Cove Credit</td><td class="amt neg">−$92.30</td></tr>
+              <tr><td colspan="5" class="date-divider">Friday, 18 October</td></tr>
+              <tr><td>18:02</td><td><strong>A. Halvensen</strong><div class="small faint">venmo cash back</div></td><td><span class="tag">Transfer</span></td><td>Harbor Checking</td><td class="amt pos">+$120.00</td></tr>
+              <tr><td>15:14</td><td><strong>Ridgeway Cycles</strong><div class="small faint">service</div></td><td><span class="tag">Transit</span></td><td>Cove Credit</td><td class="amt neg">−$226.00</td></tr>
+              <tr><td>11:30</td><td><strong>Field-Notes Quarterly</strong><div class="small faint">subscription</div></td><td><span class="tag">Media</span></td><td>Cove Credit</td><td class="amt neg">−$32.00</td></tr>
+              <tr><td colspan="5" class="date-divider">Tuesday, 15 October</td></tr>
+              <tr><td>20:14</td><td><strong>Marin &amp; Field Grocers</strong></td><td><span class="tag">Groceries</span></td><td>Harbor Checking</td><td class="amt neg">−$92.10</td></tr>
+              <tr><td>13:42</td><td><strong>Cape Vista Insurance</strong><div class="small faint">monthly</div></td><td><span class="tag">Housing</span></td><td>Harbor Checking</td><td class="amt neg">−$182.00</td></tr>
+              <tr><td>10:21</td><td><strong>Lighthouse Press — payroll</strong></td><td><span class="tag">Income</span></td><td>Harbor Checking</td><td class="amt pos">+$1,000.00</td></tr>
+              <tr><td>08:52</td><td><strong>Heron &amp; Pine Florist</strong></td><td><span class="tag">Other</span></td><td>Cove Credit</td><td class="amt neg">−$48.00</td></tr>
+            </tbody>
+          </table>
+          <div class="table-foot"><span>Showing 19 of 47</span><div class="pager"><span class="pg dis">‹</span><span class="pg active">1</span><span class="pg">2</span><span class="pg">3</span><span class="pg">›</span></div></div>
+        </div>
+
+        <div class="stack">
+          <div class="card">
+            <div class="card-header"><h3 class="card-title">By category</h3><span class="card-sub">October</span></div>
+            <div class="legend">
+              <div class="row-l"><span class="sw" style="background:#C68A6A"></span><span>Housing</span><span class="amount">$1,914.00</span></div>
+              <div class="row-l"><span class="sw"></span><span>Groceries</span><span class="amount">$612.20</span></div>
+              <div class="row-l"><span class="sw" style="background:#8C9956"></span><span>Dining</span><span class="amount">$284.10</span></div>
+              <div class="row-l"><span class="sw" style="background:#B4A878"></span><span>Utilities</span><span class="amount">$246.00</span></div>
+              <div class="row-l"><span class="sw" style="background:#7B7A60"></span><span>Transit</span><span class="amount">$338.00</span></div>
+              <div class="row-l"><span class="sw" style="background:#D5C58C"></span><span>Media &amp; books</span><span class="amount">$74.00</span></div>
+              <div class="row-l"><span class="sw" style="background:#9E7B57"></span><span>Other</span><span class="amount">$640.71</span></div>
+              <div class="row-l"><span class="sw" style="background:#A8772C"></span><span>Health</span><span class="amount">$34.12</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><h3 class="card-title">Daily spend</h3><span class="card-sub">Last 30 days</span></div>
+            <div class="sparkline">
+              <svg viewBox="0 0 200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline fill="none" stroke="#5C6B3D" stroke-width="1.4"
+                  points="0,30 8,28 16,34 24,22 32,26 40,18 48,30 56,24 64,32 72,12 80,28 88,20 96,32 104,22 112,30 120,16 128,28 136,38 144,20 152,28 160,18 168,30 176,22 184,32 192,26 200,30"/>
+              </svg>
+            </div>
+            <div class="small muted" style="margin-top:6px">Average $254 per day. Three days exceeded $400, all attributable to housing and transit cycles.</div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><h3 class="card-title">Recurring</h3></div>
+            <div class="list">
+              <div class="list-row"><div class="lhs"><div class="title">Brook &amp; Vale Holdings</div><div class="meta">Monthly · rent</div></div><div class="rhs"><div class="amount">$1,895.00</div></div></div>
+              <div class="list-row"><div class="lhs"><div class="title">Coastal Light &amp; Power</div><div class="meta">Monthly · utility</div></div><div class="rhs"><div class="amount">$78.40</div></div></div>
+              <div class="list-row"><div class="lhs"><div class="title">Harbor Wireless</div><div class="meta">Monthly</div></div><div class="rhs"><div class="amount">$58.00</div></div></div>
+              <div class="list-row"><div class="lhs"><div class="title">Field-Notes Quarterly</div><div class="meta">Quarterly · Jan, Apr, Jul, Oct</div></div><div class="rhs"><div class="amount">$32.00</div></div></div>
+            </div>
+            <div class="table-foot"><span>4 subscriptions active</span><a href="#">Manage →</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div>Drift Harbor Studio, N.A. · Member of the Federal Deposit Insurance framework. Equal Housing Lender.</div>
+      <div class="links"><a href="support.html">Support</a><a href="statements.html">Statements</a><a href="#">Build 2025.03.04</a></div>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

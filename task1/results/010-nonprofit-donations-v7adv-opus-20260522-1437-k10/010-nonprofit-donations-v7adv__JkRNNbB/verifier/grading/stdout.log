@@ -1,0 +1,172 @@
+[grade] VLM judge: 15 pairs in 39.7s
+{
+  "per_page_viewport": {
+    "blog": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.5512905058409702,
+          "extra": {
+            "reference_size": [
+              1440,
+              3320
+            ],
+            "candidate_size": [
+              1440,
+              2347
+            ],
+            "compared_size": [
+              1440,
+              2347
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.3524504005908966,
+          "extra": {
+            "reference_blocks": 386,
+            "candidate_blocks": 333,
+            "matched_pairs": 333,
+            "mean_matched_iou": 0.1242213100194931,
+            "raw_score_before_sqrt": 0.12422129511833191
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6690788333163395,
+          "extra": {
+            "reference_blocks": 386,
+            "candidate_blocks": 333,
+            "matched_pairs": 333,
+            "mean_normalized_centroid_distance": 0.3309211666836605,
+            "page_diagonal_px": 3690.255617926049
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.5613690510193506,
+          "extra": {
+            "bg_score": 0.7157284345626831,
+            "fg_score": 0.4070096674760182,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 6,
+              "weighted_mean_oklab_distance": 0.040240734815597534,
+              "base_score_before_penalty": 0.7317284345626831,
+              "over_color_penalty": 0.015999999999999997
+            },
+            "fg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.08774854987859726,
+              "base_score_before_penalty": 0.4150096674760182,
+              "over_color_penalty": 0.00799999999999999
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.63633442390342,
+          "extra": {
+            "bucket_score": 0.3333333333333333,
+            "size_score": 0.766192034147743,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                6.0,
+                0.010362694300518135
+              ],
+              [
+                11.0,
+                0.031088082901554404
+              ],
+              [
+                12.0,
+                0.5233160621761658
+              ],
+              [
+                15.0,
+                0.3963730569948187
+              ],
+              [
+                20.0,
+                0.031088082901554404
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                8.0,
+                0.018018018018018018
+              ],
+              [
+                10.0,
+                0.22522522522522523
+              ],
+              [
+                11.0,
+                0.4114114114114114
+              ],
+              [
+                12.0,
+                0.042042042042042045
+              ],
+              [
+                13.0,
+                0.2822822822822823
+              ],
+              [
+                16.0,
+                0.015015015015015015
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "georgia",
+              "ui-monospace"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.2722772277227723,
+          "extra": {
+            "reference_tokens": 1003,
+            "candidate_tokens": 796,
+            "matched_tokens": 385,
+            "union_tokens": 1414,
+            "reference_unique": 537,
+            "candidate_unique": 416
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple major defects stack: wrong dominant color theme (candidate uses near-black/dark-brown with orange accents vs reference's very dark brown/near-black with different accent treatment), significant content hallucination (different organization name 'Sable Barrow Foundry' vs 'Sable Anchor Fou

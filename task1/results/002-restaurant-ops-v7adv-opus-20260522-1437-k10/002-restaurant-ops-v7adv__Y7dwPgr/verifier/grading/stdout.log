@@ -1,0 +1,171 @@
+[grade] VLM judge: 15 pairs in 13.3s
+{
+  "per_page_viewport": {
+    "discounts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6272798474347253,
+          "extra": {
+            "reference_size": [
+              1440,
+              3780
+            ],
+            "candidate_size": [
+              1440,
+              2956
+            ],
+            "compared_size": [
+              1440,
+              2956
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.5365952849388123,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.28793445229530334,
+            "raw_score_before_sqrt": 0.28793448209762573
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8732292526951189,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.12677074730488117,
+            "page_diagonal_px": 4089.84414460958
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7434977078835169,
+          "extra": {
+            "bg_score": 0.7210328571399052,
+            "fg_score": 0.7659625586271286,
+            "bg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 10,
+              "weighted_mean_oklab_distance": 0.033445071429014206,
+              "base_score_before_penalty": 0.7770328571399052,
+              "over_color_penalty": 0.055999999999999994
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 9,
+              "weighted_mean_oklab_distance": 0.03270561620593071,
+              "base_score_before_penalty": 0.7819625586271286,
+              "over_color_penalty": 0.015999999999999997
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.8615595382546304,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.8022279117923293,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                12.0,
+                0.2802197802197802
+              ],
+              [
+                14.0,
+                0.6611721611721612
+              ],
+              [
+                15.0,
+                0.027472527472527472
+              ],
+              [
+                28.0,
+                0.01282051282051282
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.030991735537190084
+              ],
+              [
+                10.5,
+                0.06198347107438017
+              ],
+              [
+                11.0,
+                0.22727272727272727
+              ],
+              [
+                12.0,
+                0.10330578512396695
+              ],
+              [
+                12.5,
+                0.4152892561983471
+              ],
+              [
+                14.0,
+                0.11983471074380166
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "ui-monospace"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.4389348025711662,
+          "extra": {
+            "reference_tokens": 811,
+            "candidate_tokens": 756,
+            "matched_tokens": 478,
+            "union_tokens": 1089,
+            "reference_unique": 367,
+            "candidate_unique": 376
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content differences: the candidate hallucmates different discount codes (SHIFT15, FAMILY24, FUELTAP, FIESTA, CORKAGE vs reference's INDUSTRY20, OYSTERHOUR, FAMILY15, RESTAURANT_WK, FIRST10, CORK24), different stats ($1,284 vs $4,218 today metric, 21.4% vs -11.4% margin impact), ",
+            "model": "claude-sonnet-4-6"

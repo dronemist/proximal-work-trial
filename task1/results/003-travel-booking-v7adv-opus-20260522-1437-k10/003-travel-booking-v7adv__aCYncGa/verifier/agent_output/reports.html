@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reports · Sable Echo Studio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="logo">Sable Echo<span class="dot"></span>Studio</div>
+    <nav class="site-nav">
+      <a href="properties.html">Properties</a>
+      <a href="property-detail.html">Property</a>
+      <a href="messaging.html">Guest Messages</a>
+      <a href="rates.html">Rates &amp; Availability</a>
+      <a href="reports.html" class="active">Reports</a>
+    </nav>
+    <a class="btn btn-primary" href="#">Export quarter</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro">
+    <span class="eyebrow">Studio Summary · Q3 2024</span>
+    <h1>The quarter, read in figures and in feeling.</h1>
+    <p class="lead">A measured account of how the portfolio performed between July and September — occupancy held by season, average rates lifted but believably, and the quiet ascent of two studios in the wings.</p>
+
+    <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+      <div class="field"><span class="label">Range</span><select class="input small"><option>Jul – Sep 2024</option><option>Year to date</option></select></div>
+      <div class="field"><span class="label">Compare</span><select class="input small"><option>Same period, prior year</option></select></div>
+      <div class="field"><span class="label">Property</span><select class="input small"><option>All properties</option></select></div>
+      <div style="margin-top:18px;display:flex;gap:8px">
+        <button class="btn btn-outline btn-sm">Export</button>
+        <button class="btn btn-outline btn-sm">Schedule</button>
+      </div>
+    </div>
+
+    <div class="kpi-row" style="margin-top:18px">
+      <div class="kpi"><span class="label">Occupancy</span><div class="value">78.4%</div><div class="delta">↑ 5.1 pts vs. Q3 2023</div></div>
+      <div class="kpi"><span class="label">Average daily rate</span><div class="value">€412</div><div class="delta">↑ 7.8% in mood Cardo</div></div>
+      <div class="kpi"><span class="label">RevPAR</span><div class="value">€323</div><div class="delta">↑ 13.2% strongest yet</div></div>
+      <div class="kpi"><span class="label">Net to hosts</span><div class="value">€268k</div><div class="delta">↑ 11.6% across nine houses</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="line-chart">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <div>
+          <span class="eyebrow">Occupancy by week</span>
+          <h3 style="margin:6px 0 0;font-size:16px">A held-summer, then a steady descent.</h3>
+        </div>
+        <div class="muted" style="font-size:11px">— 2024 &nbsp; ··· 2023</div>
+      </div>
+      <div class="axis-y"><span>100%</span><span>80%</span><span>60%</span><span>40%</span><span>20%</span></div>
+      <div class="plot">
+        <svg viewBox="0 0 600 180" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#c9962a" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#c9962a" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0 60 C 60 30, 120 30, 180 50 S 300 100, 360 80 S 480 60, 540 100 L 600 130" fill="none" stroke="#1c1a17" stroke-width="2"/>
+          <path d="M0 80 C 60 70, 120 50, 180 60 S 300 40, 360 50 S 480 80, 540 70 L 600 100" fill="none" stroke="#c9962a" stroke-width="2"/>
+          <path d="M0 80 C 60 70, 120 50, 180 60 S 300 40, 360 50 S 480 80, 540 70 L 600 100 L 600 180 L 0 180 Z" fill="url(#g1)"/>
+          <circle cx="180" cy="60" r="3" fill="#c9962a"/>
+          <circle cx="360" cy="50" r="3" fill="#c9962a"/>
+          <circle cx="540" cy="70" r="3" fill="#c9962a"/>
+        </svg>
+      </div>
+      <div class="axis-x"><span>Jul 1</span><span>Jul 15</span><span>Aug 1</span><span>Aug 15</span><span>Sep 1</span><span>Sep 15</span><span>Sep 30</span></div>
+    </div>
+  </section>
+
+  <section class="cols-2">
+    <div class="bar-chart">
+      <span class="eyebrow">Average Daily Rate</span>
+      <h3 style="margin:6px 0 0;font-size:16px">A summer held its breath, and the rooms stayed full.</h3>
+      <div class="bars-v">
+        <div class="bv" style="height:48%"></div>
+        <div class="bv alt" style="height:62%"></div>
+        <div class="bv" style="height:72%"></div>
+        <div class="bv" style="height:88%"></div>
+        <div class="bv alt" style="height:94%"></div>
+        <div class="bv" style="height:80%"></div>
+        <div class="bv" style="height:66%"></div>
+        <div class="bv alt" style="height:56%"></div>
+        <div class="bv" style="height:42%"></div>
+        <div class="bv" style="height:46%"></div>
+        <div class="bv alt" style="height:54%"></div>
+        <div class="bv" style="height:50%"></div>
+      </div>
+      <div class="bars-x"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span></div>
+    </div>
+    <div>
+      <span class="eyebrow">Reading I</span>
+      <h2 style="font-size:24px">A summer held its breath, and the rooms stayed full.</h2>
+      <p class="muted">Mid-July through mid-September held over 91% occupancy across the portfolio. The chief contributors were the Mediterranean stays in Liguria and Lipari — both stretching their seasons. The dip after Labour Day mirrors a gentle pricing reset.</p>
+    </div>
+  </section>
+
+  <section class="cols-2">
+    <div>
+      <span class="eyebrow">Reading II</span>
+      <h2 style="font-size:24px">Rates lifted without strain, the market simply followed.</h2>
+      <p class="muted">The first ADR increase appeared in February. A lighter, more honest, and more confident, with the help of repeat guests. ADR climbed 9.4% year over year, with the steepest gain in late August — a quiet pace, not a leap.</p>
+      <div class="kv" style="margin-top:14px"><span class="k">Highest single night</span><span class="v">€680 · Aug 14</span></div>
+      <div class="kv"><span class="k">Lowest published</span><span class="v">€185 · Feb 04</span></div>
+      <div class="kv"><span class="k">YoY ADR change</span><span class="v" style="color:var(--gold)">+9.4%</span></div>
+    </div>
+    <div class="bar-chart">
+      <span class="eyebrow">RevPAR by property</span>
+      <div class="bars-h" style="margin-top:14px">
+        <div class="b"><span>Casa Ercival</span><div class="bar" style="width:92%"></div><span class="muted">€412</span></div>
+        <div class="b"><span>The Cormorant House</span><div class="bar" style="width:84%"></div><span class="muted">€376</span></div>
+        <div class="b"><span>Atelier sur les Goémons</span><div class="bar alt" style="width:72%"></div><span class="muted">€322</span></div>
+        <div class="b"><span>Maison Verre</span><div class="bar" style="width:68%"></div><span class="muted">€304</span></div>
+        <div class="b"><span>The Astoria Loft</span><div class="bar" style="width:56%"></div><span class="muted">€250</span></div>
+        <div class="b"><span>Cabaña Pimientos</span><div class="bar alt" style="width:44%"></div><span class="muted">€198</span></div>
+        <div class="b"><span>Kore Mhòra</span><div class="bar" style="width:38%"></div><span class="muted">€172</span></div>
+        <div class="b"><span>Casa Lente</span><div class="bar" style="width:32%"></div><span class="muted">€144</span></div>
+        <div class="b"><span>Cap Ferret Cabin</span><div class="bar" style="width:26%"></div><span class="muted">€118</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cols-2 swap">
+    <div>
+      <span class="eyebrow">Reading III</span>
+      <h2 style="font-size:24px">The portfolio ranks itself, top to bottom, by quiet preference.</h2>
+      <p class="muted">Casa Ercival continues to top the bookings table this quarter, followed by The Cormorant House. The lower-third are smaller properties, often booked for one or two nights, and they hold the studio's character even when their RevPAR is modest.</p>
+      <div class="kv" style="margin-top:10px"><span class="k">Median nightly booked</span><span class="v">€288</span></div>
+      <div class="kv"><span class="k">Mean stay length</span><span class="v">4.1 nights</span></div>
+    </div>
+    <div class="bar-chart">
+      <span class="eyebrow">Where the bookings come from</span>
+      <h3 style="margin:6px 0 0;font-size:16px">Booking channel mix</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center;margin-top:14px">
+        <div class="donut-wrap">
+          <div class="donut"></div>
+          <div class="donut-center"><div class="muted" style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase">Total</div><div class="val">€268k</div></div>
+        </div>
+        <div class="legend-list">
+          <div class="lg"><span class="swatch"></span> Direct · 36%</div>
+          <div class="lg"><span class="swatch" style="background:var(--ink)"></span> Airbnb · 26%</div>
+          <div class="lg"><span class="swatch" style="background:#b48d2b"></span> Vrbo · 18%</div>
+          <div class="lg"><span class="swatch" style="background:#d8c98a"></span> Plum Guide · 12%</div>
+          <div class="lg"><span class="swatch" style="background:#4a4126"></span> Repeat · 8%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">Reading IV</span>
+        <h2>Where the bookings come from, and what that says.</h2>
+      </div>
+    </div>
+    <p class="muted" style="max-width:60ch">Direct reservations through the studio's own pages still account for the largest share — a quiet vote of confidence in the editorial gesture. Repeat guests, though small in share, return at a multiple of three.</p>
+    <div class="kpi-row" style="margin-top:14px">
+      <div class="kpi"><span class="label">Direct share</span><div class="value">36%</div><div class="delta">↑ 3 pts</div></div>
+      <div class="kpi"><span class="label">Repeat bookings</span><div class="value">14<small style="font-size:18px;color:var(--muted)">%</small></div><div class="delta">↑ 2 pts</div></div>
+      <div class="kpi"><span class="label">Lead time</span><div class="value">34 <small style="font-size:14px;color:var(--muted)">days</small></div><div class="delta">↓ 4 days</div></div>
+      <div class="kpi"><span class="label">Cancellation</span><div class="value">3.8%</div><div class="delta">stable</div></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Reading V</span>
+    <h2>Occupancy heatmap, property by month.</h2>
+    <div class="heatmap">
+      <div class="heat-grid">
+        <div></div>
+        <div class="h">Jan</div><div class="h">Feb</div><div class="h">Mar</div><div class="h">Apr</div><div class="h">May</div><div class="h">Jun</div><div class="h">Jul</div><div class="h">Aug</div><div class="h">Sep</div><div class="h">Oct</div><div class="h">Nov</div><div class="h">Dec</div>
+
+        <div class="lbl">Casa Ercival</div>
+        <div class="cell l2"></div><div class="cell l1"></div><div class="cell l2"></div><div class="cell l3"></div><div class="cell l4"></div><div class="cell l5"></div><div class="cell l5"></div><div class="cell l5"></div><div class="cell l4"></div><div class="cell l3"></div><div class="cell l2"></div><div class="cell l3"></div>
+
+        <div class="lbl">The Cormorant House</div>
+        <div class="cell l1"></div><div class="cell l1"></div><div class="cell l2"></div><div class="cell l3"></div><div class="cell l4"></div><div class="cell l4"></div><div class="cell l5"></div><div class="cell l5"></div><div class="cell l3"></div><div class="cell l3"></div><div class="cell l2"></div><div class="cell l4"></div>
+
+        <div class="lbl">Atelier sur les Goémons</div>
+        <div class="cell l1"></div><div class="cell l1"></div><div class="cell l2"></div><div class="cell l3"></div><div class="cell l4"></div><div class="cell l5"></div><div class="cell l5"></div><div class="cell l4"></div><div class="cell l3"></div><div class="cell l2"></div><div class="cell l1"></div><div class="cell l2"></div>
+
+        <div class="lbl">Maison Verre</div>
+        <div class="cell l1"></div><div class="cell l2"></div><div class="cell l3"></div><div class="cell l4"></div><div class="cell l5"></div><div class="cell l5"></div><div class="cell l5"></div><div class="cell l4"></div><div class="cell l4"></div><div class="cell l3"></div><div class="cell l2"></div><div class="cell l2"></div>
+
+        <div class="lbl">The Astoria Loft</div>
+        <div class="cell l2"></div><div class="cell l2"></div><div class="cell l3"></div><div class="cell l3"></div><div class="cell l4"></div><div class="cell l4"></div><div class="cell l3"></div><div class="cell l3"></div><div class="cell l4"></div><div class="cell l4"></div><div class="cell l3"></div><div class="cell l4"></div>
+
+        <div class="lbl">Cabaña Pimientos</div>
+        <div class="cell l1"></div><div class="cell l1"></div><div class="cell l1"></div><div class="cell l2"></div><div class="cell l3"></div><div class="cell l4"></div><div class="cell l4"></div><div class="cell l4"></div><div class="cell l3"></div><div class="cell l2"></div><div class="cell l1"></div><div class="cell l1"></div>
+
+        <div class="lbl">Kore Mhòra</div>
+        <div class="cell l1"></div><div class="cell l1"></div><div class="cell l1"></div><div class="cell l2"></div><div class="cell l3"></div><div class="cell l4"></div><div class="cell l4"></div><div class="cell l4"></div><div class="cell l3"></div><div class="cell l2"></div><div class="cell l1"></div><div class="cell l1"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Tabbed Register</span>
+    <h2>Property-level statement, Q3 2024.</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Property</th><th>Nights sold</th><th>Occupancy</th><th>ADR</th><th>RevPAR</th><th>Gross</th><th>Net to host</th><th>Rating</th></tr></thead>
+        <tbody>
+          <tr><td>Casa Ercival</td><td>82</td><td>89%</td><td>€462</td><td>€412</td><td>€38,084</td><td>€34,012</td><td>4.9</td></tr>
+          <tr><td>The Cormorant House</td><td>74</td><td>80%</td><td>€470</td><td>€376</td><td>€34,780</td><td>€31,002</td><td>4.9</td></tr>
+          <tr><td>Atelier sur les Goémons</td><td>68</td><td>74%</td><td>€434</td><td>€322</td><td>€29,512</td><td>€26,408</td><td>4.8</td></tr>
+          <tr><td>Maison Verre</td><td>65</td><td>71%</td><td>€428</td><td>€304</td><td>€27,820</td><td>€24,820</td><td>4.7</td></tr>
+          <tr><td>The Astoria Loft</td><td>62</td><td>67%</td><td>€373</td><td>€250</td><td>€23,126</td><td>€20,654</td><td>4.8</td></tr>
+          <tr><td>Cabaña Pimientos</td><td>54</td><td>59%</td><td>€336</td><td>€198</td><td>€18,144</td><td>€16,128</td><td>4.6</td></tr>
+          <tr><td>Kore Mhòra</td><td>48</td><td>52%</td><td>€331</td><td>€172</td><td>€15,888</td><td>€14,028</td><td>4.9</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="cols-2">
+    <div>
+      <span class="eyebrow">Reading VI</span>
+      <h2 style="font-size:24px">What the figures are not saying.</h2>
+      <p class="muted">A reporting period is a matter of scale. The studio's larger view — five quarters in — sees an even quieter ascent than the headline. ADR has lifted by 9% across the year, but our hidden cost — energy in the Mediterranean, staff in the off-season — has lifted by 11. Net to host has thinned, by a margin small enough to ignore now, but not for the year after the year after.</p>
+      <p class="muted">Two new houses, returned this year. Continued careful planning, and the gentle.</p>
+      <button class="btn btn-outline btn-sm" style="margin-top:8px">Read the full quarter notes</button>
+    </div>
+    <div class="scheduled-card">
+      <span class="eyebrow">Scheduled exports</span>
+      <h3 style="margin:6px 0 14px;font-size:16px">Scheduled reports</h3>
+      <div class="kv"><span class="k">Weekly summary</span><span class="v pill green">Active</span></div>
+      <div class="kv"><span class="k">Monthly statement</span><span class="v pill green">Active</span></div>
+      <div class="kv"><span class="k">Quarterly review</span><span class="v pill gold">Drafting</span></div>
+      <div class="kv"><span class="k">Tax export, annual</span><span class="v pill">Off</span></div>
+      <div class="kv"><span class="k">Bespoke, host</span><span class="v">3 enrolled</span></div>
+      <button class="btn btn-outline btn-block btn-sm" style="margin-top:12px">Manage schedule</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <div class="logo">Sable Echo<span class="dot"></span>Studio</div>
+        <p class="blurb">A composed view of a small studio, in confidence between hosts and guests.</p>
+      </div>
+      <div>
+        <h4>Host Resources</h4>
+        <ul><li><a>Properties</a></li><li><a>Rates &amp; Availability</a></li><li><a>Guest Messages</a></li><li><a>Reports</a></li></ul>
+      </div>
+      <div>
+        <h4>Legal &amp; Privacy</h4>
+        <ul><li><a>Terms</a></li><li><a>Privacy</a></li><li><a>Cookies</a></li><li><a>Contact</a></li></ul>
+      </div>
+      <div></div>
+    </div>
+    <div class="legal"><span>© 2025 Sable Echo Studio.</span><span>Quarter closed gently, the figures filed quietly.</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

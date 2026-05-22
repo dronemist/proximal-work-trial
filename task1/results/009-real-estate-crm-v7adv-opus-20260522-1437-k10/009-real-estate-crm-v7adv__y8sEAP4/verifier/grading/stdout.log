@@ -1,0 +1,181 @@
+[grade] VLM judge: 15 pairs in 12.9s
+{
+  "per_page_viewport": {
+    "calendar": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6857010722452772,
+          "extra": {
+            "reference_size": [
+              1440,
+              2721
+            ],
+            "candidate_size": [
+              1440,
+              2049
+            ],
+            "compared_size": [
+              1440,
+              2049
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.44360557198524475,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 389,
+            "matched_pairs": 389,
+            "mean_matched_iou": 0.1967858523130417,
+            "raw_score_before_sqrt": 0.19678589701652527
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8173802710645184,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 389,
+            "matched_pairs": 389,
+            "mean_normalized_centroid_distance": 0.18261972893548162,
+            "page_diagonal_px": 3079.3048659194806
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8094885332385698,
+          "extra": {
+            "bg_score": 0.8398723666469255,
+            "fg_score": 0.7791046998302141,
+            "bg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.02041914500296116,
+              "base_score_before_penalty": 0.8638723666469256,
+              "over_color_penalty": 0.024000000000000004
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 9,
+              "weighted_mean_oklab_distance": 0.030734295025467873,
+              "base_score_before_penalty": 0.7951046998302141,
+              "over_color_penalty": 0.015999999999999997
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6564043828181694,
+          "extra": {
+            "bucket_score": 0.3333333333333333,
+            "size_score": 0.7948634040259563,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.10849056603773585
+              ],
+              [
+                12.0,
+                0.3089622641509434
+              ],
+              [
+                14.0,
+                0.33254716981132076
+              ],
+              [
+                16.0,
+                0.21933962264150944
+              ],
+              [
+                19.0,
+                0.014150943396226415
+              ],
+              [
+                34.0,
+                0.01179245283018868
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.12853470437017994
+              ],
+              [
+                11.0,
+                0.18766066838046272
+              ],
+              [
+                11.5,
+                0.2879177377892031
+              ],
+              [
+                12.0,
+                0.08226221079691516
+              ],
+              [
+                12.5,
+                0.12082262210796915
+              ],
+              [
+                13.0,
+                0.16966580976863754
+              ],
+              [
+                22.0,
+                0.010282776349614395
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "arial",
+              "ui-sans-serif"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.621875,
+          "extra": {
+            "reference_tokens": 559,
+            "candidate_tokens": 479,
+            "matched_tokens": 398,
+            "union_tokens": 640,
+            "reference_unique": 208,
+            "candidate_unique": 191
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant differences: the candidate halluccinates different buyer names and sale

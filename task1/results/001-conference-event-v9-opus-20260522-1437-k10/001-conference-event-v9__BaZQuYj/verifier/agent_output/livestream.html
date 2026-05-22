@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Livestream — Ember Vector Works</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .channel-tabs { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .channel-tab {
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    min-width: 170px;
+  }
+  .channel-tab .ti { font-size: 13px; font-weight: 600; }
+  .channel-tab.active { border-color: var(--coral); background: var(--coral-3); }
+  .channel-tab .meta { color: var(--muted); font-size: 11px; }
+  .video-frame {
+    background: linear-gradient(135deg, #f7e0d8 0%, #f4d2c8 60%, #ecbcae 100%);
+    border-radius: var(--radius);
+    aspect-ratio: 16/9;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .video-frame .live {
+    position: absolute; top: 12px; left: 12px;
+  }
+  .video-frame .viewers {
+    position: absolute; top: 12px; right: 12px;
+    color: #fff; font-size: 11px;
+    background: rgba(0,0,0,.35); padding: 3px 8px; border-radius: 4px;
+  }
+  .video-frame .mock {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 60%; aspect-ratio: 16/10; background: #fff;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    padding: 14px;
+    gap: 12px;
+    box-shadow: 0 12px 24px rgba(0,0,0,.18);
+  }
+  .video-frame .mock .circle { width: 60px; height: 60px; background: var(--coral-2); border-radius: 50%; }
+  .video-frame .mock .lines { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+  .video-frame .mock .lines span { display:block; height: 7px; background: #e9e3d4; border-radius: 3px; }
+  .video-frame .mock .lines span:nth-child(2) { width: 80%; }
+  .video-frame .mock .lines span:nth-child(3) { width: 60%; }
+  .video-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--card);
+    margin-bottom: 20px;
+  }
+  .video-controls .scrubber {
+    flex: 1; height: 4px; background: var(--line-2); border-radius: 2px; position: relative;
+  }
+  .video-controls .scrubber::after {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 30%; background: var(--coral); border-radius: 2px;
+  }
+  .tabs-row { display: flex; gap: 16px; border-bottom: 1px solid var(--line-2); margin-bottom: 12px; }
+  .tabs-row a { padding: 8px 0; color: var(--muted); font-size: 13px; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  .tabs-row a.active { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .qa-item { padding: 12px 0; border-bottom: 1px solid var(--line-2); display: flex; gap: 12px; }
+  .qa-vote {
+    flex: none;
+    width: 40px;
+    text-align: center;
+    font-size: 12px;
+  }
+  .qa-vote .arrow { font-size: 16px; color: var(--muted); }
+  .qa-vote .count { font-weight: 700; }
+  .qa-body { flex: 1; font-size: 13px; }
+  .qa-body .meta { color: var(--muted); font-size: 11.5px; margin-top: 2px; }
+
+  .replay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .replay {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--line-2);
+    overflow: hidden;
+  }
+  .replay .thumb {
+    aspect-ratio: 16/9;
+    background: var(--sage-3);
+    position: relative;
+  }
+  .replay.r2 .thumb { background: var(--coral-3); }
+  .replay.r3 .thumb { background: #f0e6d3; }
+  .replay .thumb .play {
+    position: absolute; left:50%; top:50%; transform: translate(-50%, -50%);
+    width: 34px; height: 34px; background: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 12px rgba(0,0,0,.1);
+  }
+  .replay .thumb .play::after { content: '▶'; color: var(--coral); font-size: 12px; margin-left: 2px; }
+  .replay .thumb .dur {
+    position: absolute; right: 8px; bottom: 8px;
+    background: rgba(0,0,0,.6); color: #fff; font-size: 11px; padding: 1px 6px; border-radius: 3px;
+  }
+  .replay .body { padding: 12px; }
+  .replay .body h4 { font-family: var(--sans); font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+  .replay .body .meta { color: var(--muted); font-size: 11.5px; }
+
+  .chat-msg { padding: 8px 0; font-size: 12.5px; border-bottom: 1px dashed var(--line-2); }
+  .chat-msg .user { font-weight: 700; color: var(--ink); }
+  .chat-msg.host .user { color: var(--coral); }
+  .chat-msg.host { background: var(--coral-3); border-radius: 6px; padding: 8px 10px; border: none; margin: 4px 0; }
+
+  @media (max-width: 768px) {
+    .replay-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="schedule.html" class="brand"><span class="dot"></span> Ember Vector Works</a>
+    <nav class="nav">
+      <a href="schedule.html">Schedule</a>
+      <a href="speakers.html">Speakers</a>
+      <a href="my-agenda.html">My Agenda</a>
+      <a href="attendees.html">Attendees</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="livestream.html" class="active">Livestream</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="btn btn-primary" href="registration.html">Register</a>
+      <span class="avatar-sm">MK</span>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <div class="page-header" style="margin-bottom:14px;">
+      <div>
+        <div class="eyebrow"><span class="live-pill">LIVE NOW</span> &nbsp; DAY 2 · MAIN STAGE</div>
+        <h1>Designing systems that age well</h1>
+        <p class="muted">A working session with Mira Ostrowski on building component libraries that survive three redesigns and four product managers.</p>
+      </div>
+      <div class="flex gap-8" style="margin-top:14px;">
+        <button class="btn btn-ghost btn-sm">Share</button>
+        <button class="btn btn-ghost btn-sm">Add to agenda</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <div class="channel-tabs">
+          <div class="channel-tab active">
+            <span class="live-pill">LIVE</span>
+            <span class="ti">Main Stage</span>
+            <span class="meta">Mira Ostrowski · 1 of 6</span>
+          </div>
+          <div class="channel-tab">
+            <span class="ti">Studio B</span>
+            <span class="meta">Cast: Indie show TBA</span>
+          </div>
+          <div class="channel-tab">
+            <span class="ti">Workshop Hall</span>
+            <span class="meta">starts 13:30 PM</span>
+          </div>
+          <div class="channel-tab">
+            <span class="ti">Hallway Track</span>
+            <span class="meta">Lounge cam · ambient</span>
+          </div>
+        </div>
+
+        <div class="video-frame">
+          <span class="live live-pill">LIVE</span>
+          <span class="viewers">● 1,047 watching</span>
+          <div class="mock">
+            <div class="circle"></div>
+            <div class="lines">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-controls">
+          <span>⏸</span>
+          <span class="scrubber"></span>
+          <span>21:38 / 1:02:08</span>
+          <span>CC</span>
+          <span>HD</span>
+          <span>⛶</span>
+        </div>
+
+        <div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px;">
+            <span class="chip"><span class="tag-dot"></span> Track</span>
+            <span class="chip">Design Systems &amp; Tooling</span>
+            <span class="chip chip-coral">Featured</span>
+          </div>
+          <h2 style="font-family:var(--serif); font-size:22px; margin-bottom:4px;">Designing systems that age well</h2>
+          <div class="muted small">About · Transcript · Slides · Resources</div>
+        </div>
+
+        <div class="tabs-row" style="margin-top:14px;">
+          <a class="active">About</a>
+          <a>Transcript</a>
+          <a>Slides</a>
+          <a>Resources</a>
+        </div>
+
+        <p style="font-size:13.5px;">Component libraries promise stability, but most don't make it to their third birthday. This session looks at the small architectural choices that decide whether a system gets adopted, abandoned, or quietly forked into oblivion — pulled from seven years of public design-system audits.</p>
+
+        <div class="flex ai-center gap-12 mb-16" style="margin: 14px 0;">
+          <span class="av av-coral">MO</span>
+          <div>
+            <div class="person-name">Mira Ostrowski</div>
+            <div class="muted small">Principal Designer · Foundry &amp; Fir</div>
+          </div>
+          <button class="btn btn-ghost btn-sm" style="margin-left:auto;">Follow</button>
+        </div>
+
+        <div class="flex gap-12 mb-24" style="font-size:12px; color:var(--muted);">
+          <span>🛡 421</span>
+          <span>👍 187</span>
+          <span>💬 31</span>
+          <span>🔗 74</span>
+          <span>● 26</span>
+        </div>
+
+        <div class="card mb-16" style="padding: 16px;">
+          <div class="flex between ai-center mb-12">
+            <h3 style="font-family:var(--serif);margin:0;font-size:18px;">Audience Q&amp;A</h3>
+            <span class="muted small">Sorted by votes · 24 questions</span>
+          </div>
+
+          <div class="qa-item">
+            <div class="qa-vote"><div class="arrow">▲</div><div class="count">42</div></div>
+            <div class="qa-body">
+              <strong>How do you handle the migration period when a token name changes — do you keep both names alive forever or fail at hard sunset?</strong>
+              <div class="meta">Priya · timestamped · 6 min ago · 3 replies</div>
+            </div>
+          </div>
+          <div class="qa-item">
+            <div class="qa-vote"><div class="arrow">▲</div><div class="count">31</div></div>
+            <div class="qa-body">
+              <strong>Curious about your governance model — is there a single owner, or rotating maintainers per surface?</strong>
+              <div class="meta">Tess Hammeram · 9 min ago</div>
+            </div>
+          </div>
+          <div class="qa-item">
+            <div class="qa-vote"><div class="arrow">▲</div><div class="count">28</div></div>
+            <div class="qa-body">
+              <strong>What's your read on Tailwind-style utility libraries vs. a traditional semantic component set in 2025?</strong>
+              <div class="meta">Devon · 13 min ago</div>
+            </div>
+          </div>
+          <div class="qa-item">
+            <div class="qa-vote"><div class="arrow">▲</div><div class="count">19</div></div>
+            <div class="qa-body">
+              <strong>When you say "audit," what's actually in the deliverable? A doc, a spreadsheet, a Figma file?</strong>
+              <div class="meta">Renée Olivier · 18 min ago</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:8px; margin-top:14px;">
+            <input placeholder="Ask Mira a question…" />
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+
+        <div class="flex between ai-center mb-12">
+          <h2 style="font-family:var(--serif); margin:0;">Recent replays</h2>
+          <span class="muted small">Browse all sessions →</span>
+        </div>
+
+        <div class="replay-grid">
+          <div class="replay">
+            <div class="thumb"><span class="play"></span><span class="dur">38:12</span></div>
+            <div class="body">
+              <div class="muted small">WORKSHOP · YESTERDAY</div>
+              <h4>Type at small sizes, with feeling</h4>
+              <div class="meta">Harveline Kraan · 1.2k views</div>
+            </div>
+          </div>
+          <div class="replay r2">
+            <div class="thumb"><span class="play"></span><span class="dur">52:05</span></div>
+            <div class="body">
+              <div class="muted small">KEYNOTE · YESTERDAY</div>
+              <h4>The independent practice in 2025</h4>
+              <div class="meta">Aaron Wright · 3.4k views</div>
+            </div>
+          </div>
+          <div class="replay r3">
+            <div class="thumb"><span class="play"></span><span class="dur">29:40</span></div>
+            <div class="body">
+              <div class="muted small">PANEL · 2 DAYS AGO</div>
+              <h4>Pricing creative work without flinching</h4>
+              <div class="meta">Four-person panel · 2.1k views</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="aside">
+        <div class="widget">
+          <div class="flex between ai-center mb-8">
+            <h4 style="margin:0;">Live Chat · <span class="muted">823 here</span></h4>
+            <span class="muted small">Settings</span>
+          </div>
+          <div class="chat-msg host">
+            <span class="user">EVW Crew:</span> Welcome the host! Drop questions in the Q&amp;A panel to upvote — chat is for the running conversation.
+          </div>
+          <div class="chat-msg"><span class="user">Mira O.</span> Hi everyone! Will be live for Q&amp;A in the last 20 minutes…</div>
+          <div class="chat-msg"><span class="user">Tomas Reyes</span> That slide about deprecation policies — chef's kiss</div>
+          <div class="chat-msg"><span class="user">Aoife Brennan</span> Anyone else taking notes in Obsidian? Sharing my graph after :)</div>
+          <div class="chat-msg"><span class="user">Jin-Ho Park</span> The "Patreon"-component metaphor is going to live in my brain rent-free.</div>
+          <div class="chat-msg"><span class="user">Sami Achterberg</span> 🌳 admin. Already messaged my team.</div>
+          <div class="chat-msg"><span class="user">Lena Sorgori</span> Will the slide deck be shared after?</div>
+          <div style="display:flex; gap:6px; margin-top:8px;">
+            <input placeholder="Say something nice…" />
+            <button class="btn btn-primary btn-sm">Send</button>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h4>Up next on Main Stage</h4>
+          <ul class="widget-list">
+            <li><strong>13:30</strong> Quiet interfaces, loud ideas<div class="meta">Studio B · 30 min</div></li>
+            <li><strong>14:30</strong> Lunch &amp; Spaces demos<div class="meta">Vector Lounge · 1 hr</div></li>
+            <li><strong>15:30</strong> Working with research, not around it<div class="meta">Workshop Hall · 75 min</div></li>
+            <li><strong>16:30</strong> Closing keynote: Craft as input<div class="meta">Main Stage · 45 min</div></li>
+          </ul>
+        </div>
+
+        <div class="widget">
+          <h4>Watching with you</h4>
+          <div class="person mb-12"><span class="av av-coral">EM</span><div><div class="person-name">Em Munoz-Wright</div><div class="meta">Saturn Co.</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Follow</button></div>
+          <div class="person mb-12"><span class="av av-sage">JP</span><div><div class="person-name">Jin Ho Park</div><div class="meta">Indie Berlin</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Follow</button></div>
+          <div class="person"><span class="av av-olive">NP</span><div><div class="person-name">Naomi Patnaik</div><div class="meta">Speaker · Wed.</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Follow</button></div>
+        </div>
+
+        <div class="widget">
+          <h4>Trending in the stream</h4>
+          <ul class="widget-list">
+            <li><strong>#design-systems</strong><div class="meta">52 mentions in the chat</div></li>
+            <li><strong>#token-governance</strong><div class="meta">38 mentions</div></li>
+            <li><strong>#figma-variables</strong><div class="meta">22 mentions</div></li>
+            <li><strong>#abandoned-libraries</strong><div class="meta">14 mentions</div></li>
+            <li><strong>#community-forks</strong><div class="meta">9 mentions</div></li>
+          </ul>
+        </div>
+
+        <div class="widget" style="background:var(--coral-3); border-color:transparent;">
+          <h4>Streamed by</h4>
+          <p style="font-size:13px;"><strong>Halftone Cloud</strong><br>Low-latency video for events that respect their audience.</p>
+          <button class="btn btn-ghost btn-sm">View all sponsors</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="#"><span class="dot"></span> Ember Vector Works</a>
+      <p>A three-day program for independent designers, developers, and small studios. Held in Lisbon, 14–16 October 2025.</p>
+    </div>
+    <div>
+      <h5>Program</h5>
+      <ul>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+        <li><a href="livestream.html">Livestream</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Attend</h5>
+      <ul>
+        <li><a href="registration.html">Register</a></li>
+        <li><a href="my-agenda.html">My agenda</a></li>
+        <li><a href="attendees.html">Attendees</a></li>
+        <li><a href="#">Code of conduct</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Elsewhere</h5>
+      <ul>
+        <li><a href="#">Mastodon</a></li>
+        <li><a href="#">Bluesky</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">RSS</a></li>
+      </ul>
+    </div>
+    <div></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Ember Vector Works · LX Factory, Lisbon</span>
+    <span>Designed in mid- and quiet bursts.</span>
+  </div>
+</footer>
+
+</body>
+</html>

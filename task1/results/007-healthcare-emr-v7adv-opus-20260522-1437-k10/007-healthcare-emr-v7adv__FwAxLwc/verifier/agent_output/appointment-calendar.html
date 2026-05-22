@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Appointment Calendar — Quartz Grove Lab</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* Week grid */
+  .week-table { width:100%; border-collapse: collapse; font-size: 11.5px; table-layout: fixed; }
+  .week-table th { background:#f8fafc; border:1px solid var(--border-2); padding:6px 4px; font-weight:500; color:var(--text-2); }
+  .week-table th.timecol { width:54px; }
+  .week-table td { border:1px solid var(--border-2); padding:3px; vertical-align: top; height:38px; }
+  .week-table td.timecell { background:#fafbfc; color:var(--muted); text-align:right; font-size:11px; padding-right:6px; vertical-align: top; }
+  .appt { display:block; padding:3px 5px; border-radius:4px; font-size:10.5px; line-height:1.15; margin-bottom:2px; color:var(--text); }
+  .appt.blue { background:#dbeafe; color:#1e3a8a; }
+  .appt.green { background:#dcfce7; color:#14532d; }
+  .appt.amber { background:#fef3c7; color:#78350f; }
+  .appt.pink { background:#fce7f3; color:#831843; }
+  .appt.violet { background:#ede9fe; color:#4c1d95; }
+  .appt.teal { background:#ccfbf1; color:#115e59; }
+  .appt.slate { background:#e2e8f0; color:#334155; }
+  .day-pill {
+    display:flex;flex-direction:column;align-items:center;
+    background:#fff; border:1px solid var(--border); border-radius:8px; padding:8px 4px;
+    flex:1; min-width:0;
+  }
+  .day-pill.today { background:var(--primary-bg); border-color:#c7d2fe; }
+  .day-pill .lbl { font-size:11px; color: var(--muted); text-transform: uppercase; letter-spacing:0.05em; }
+  .day-pill.today .lbl { color: var(--primary); }
+  .day-pill .num { font-size: 18px; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="brand-mark">Q</span><span class="brand-text-hide">Quartz Grove Lab</span></div>
+    <nav class="nav-tabs">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html" class="active">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="nav-right">
+      <div class="search"><input placeholder="Search patients, appointments..." /></div>
+      <div class="avatar sm">RN</div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="container">
+
+    <div class="eyebrow">Schedule · Week of Mar 11</div>
+    <h1 class="h1">A steady week, with room to breathe.</h1>
+    <p class="lede">42 appointments booked across five clinicians, three rooms open Thursday afternoon, and two telehealth slots still available. Drag any block to reschedule.</p>
+
+    <div class="flex gap-8 mt-12" style="flex-wrap:wrap;">
+      <span class="badge green dot">42 booked</span>
+      <span class="badge slate">5 clinicians</span>
+      <span class="badge slate">3 rooms open</span>
+    </div>
+
+    <div class="flex gap-8 mt-16" style="flex-wrap:wrap;">
+      <button class="btn primary">+ New appointment</button>
+      <button class="btn">Jump to today</button>
+      <button class="btn ghost">Print day sheet</button>
+    </div>
+
+    <!-- Week selector card -->
+    <div class="card mt-16">
+      <div class="card-head">
+        <div class="flex items-center gap-8">
+          <button class="btn sm">‹</button>
+          <h3 class="card-title">March 11 — 17, 2025</h3>
+          <button class="btn sm">›</button>
+        </div>
+        <div class="flex gap-8 items-center">
+          <div class="btn-group">
+            <button class="btn sm">Day</button>
+            <button class="btn sm active">Week</button>
+            <button class="btn sm">Month</button>
+          </div>
+          <select class="select" style="width:140px;height:30px;"><option>All clinicians</option></select>
+        </div>
+      </div>
+      <div class="flex gap-8" style="flex-wrap:wrap;">
+        <div class="day-pill"><div class="lbl">MON</div><div class="num">11</div><div class="text-xs muted">8 visits</div></div>
+        <div class="day-pill"><div class="lbl">TUE</div><div class="num">12</div><div class="text-xs muted">7 visits</div></div>
+        <div class="day-pill today"><div class="lbl">WED · Today</div><div class="num">13</div><div class="text-xs">9 visits</div></div>
+        <div class="day-pill"><div class="lbl">THU</div><div class="num">14</div><div class="text-xs muted">6 visits</div></div>
+        <div class="day-pill"><div class="lbl">FRI</div><div class="num">15</div><div class="text-xs muted">9 visits</div></div>
+        <div class="day-pill"><div class="lbl">SAT</div><div class="num">16</div><div class="text-xs muted">3 visits</div></div>
+        <div class="day-pill"><div class="lbl">SUN</div><div class="num">17</div><div class="text-xs muted">closed</div></div>
+      </div>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="grid grid-4 mt-16">
+      <div class="stat-card">
+        <div class="stat-label">Booked this week</div>
+        <div class="stat-value">42</div>
+        <div class="stat-delta up">+8 vs. last week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Confirmed</div>
+        <div class="stat-value">38</div>
+        <div class="stat-delta">90% of bookings</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">No-show rate</div>
+        <div class="stat-value">3.1%</div>
+        <div class="stat-delta down">−0.4 pts</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg. wait time</div>
+        <div class="stat-value">7 min</div>
+        <div class="stat-delta">For ed-target</div>
+      </div>
+    </div>
+
+    <!-- Week view + Today schedule -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-8">
+        <div class="card-head">
+          <h3 class="card-title">Week view</h3>
+          <div class="flex gap-8 items-center text-xs muted">
+            <span><span class="badge blue">In office</span></span>
+            <span><span class="badge teal">Telehealth</span></span>
+            <span><span class="badge violet">Admin</span></span>
+            <span><span class="badge slate">Block</span></span>
+            <span><span class="badge pink">Cancelled</span></span>
+          </div>
+        </div>
+        <table class="week-table">
+          <thead>
+            <tr>
+              <th class="timecol"></th>
+              <th>Mon 11</th><th>Tue 12</th><th>Wed 13</th><th>Thu 14</th><th>Fri 15</th><th>Sat 16</th><th>Sun 17</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="timecell">8 AM</td>
+              <td><span class="appt blue">8:00 · M. Ahn</span></td>
+              <td><span class="appt blue">8:15 · J. Marlow</span></td>
+              <td><span class="appt blue">8:00 · J. Reyes</span></td>
+              <td></td>
+              <td><span class="appt teal">8:30 · D. Foll TH</span></td>
+              <td><span class="appt blue">9:00 · R. Park</span></td>
+              <td class="slate" style="background:#f8fafc"></td>
+            </tr>
+            <tr>
+              <td class="timecell">9 AM</td>
+              <td><span class="appt amber">9:15 · K. Singh</span></td>
+              <td><span class="appt blue">9:00 · T. Lee</span></td>
+              <td><span class="appt blue">9:00 · N. Fontaine</span><span class="appt teal">9:45 · E. McTavish</span></td>
+              <td><span class="appt blue">9:30 · A. Patel</span></td>
+              <td><span class="appt blue">9:00 · O. Ramos</span></td>
+              <td></td>
+              <td style="background:#f8fafc"></td>
+            </tr>
+            <tr>
+              <td class="timecell">10 AM</td>
+              <td><span class="appt teal">10:00 · K. Davis TH</span></td>
+              <td><span class="appt blue">10:00 · I. Cohen</span></td>
+              <td><span class="appt blue">10:15 · R. Alaina</span></td>
+              <td><span class="appt blue">10:00 · S. Verma</span></td>
+              <td><span class="appt amber">10:30 · L. Webb</span></td>
+              <td><span class="appt blue">10:15 · M. Choi</span></td>
+              <td style="background:#f8fafc"></td>
+            </tr>
+            <tr>
+              <td class="timecell">11 AM</td>
+              <td><span class="appt blue">11:00 · D. Brooks</span></td>
+              <td><span class="appt violet">11:15 · Admin</span></td>
+              <td><span class="appt blue">11:00 · Y. Castillo</span></td>
+              <td><span class="appt blue">11:00 · T. Reyes</span></td>
+              <td><span class="appt blue">11:15 · F. Yamada</span></td>
+              <td></td>
+              <td style="background:#f8fafc"></td>
+            </tr>
+            <tr>
+              <td class="timecell">12 PM</td>
+              <td colspan="7" style="background:#f8fafc; text-align:center; color:var(--muted);">Lunch · 12:00 — 1:00</td>
+            </tr>
+            <tr>
+              <td class="timecell">1 PM</td>
+              <td><span class="appt blue">1:15 · N. Park</span></td>
+              <td><span class="appt blue">1:00 · S. Boateng</span></td>
+              <td><span class="appt blue">1:00 · H. Aoki</span></td>
+              <td><span class="appt teal">1:30 · J. Lin TH</span></td>
+              <td><span class="appt blue">1:00 · M. Patel</span></td>
+              <td><span class="appt blue">1:00 · B. Foster</span></td>
+              <td style="background:#f8fafc"></td>
+            </tr>
+            <tr>
+              <td class="timecell">2 PM</td>
+              <td><span class="appt amber">2:00 · A. Reed</span></td>
+              <td><span class="appt blue">2:15 · K. Bell</span></td>
+              <td><span class="appt blue">2:00 · C. Bellweather</span></td>
+              <td><span class="appt blue">2:30 · M. Voss</span></td>
+              <td><span class="appt blue">2:00 · D. Klein</span></td>
+              <td></td>
+              <td style="background:#f8fafc"></td>
+            </tr>
+            <tr>
+              <td class="timecell">3 PM</td>
+              <td><span class="appt blue">3:00 · L. Olerefs</span></td>
+              <td><span class="appt blue">3:15 · O. Singh</span></td>
+              <td><span class="appt blue">3:15 · L. Okonkwo</span></td>
+              <td><span class="appt slate">Block · admin</span></td>
+              <td><span class="appt blue">3:00 · J. Akers</span></td>
+              <td></td>
+              <td style="background:#f8fafc"></td>
+            </tr>
+            <tr>
+              <td class="timecell">4 PM</td>
+              <td><span class="appt pink">4:00 · Cancelled</span></td>
+              <td><span class="appt blue">4:00 · R. Park</span></td>
+              <td><span class="appt blue">4:00 · B. Tillman</span></td>
+              <td></td>
+              <td><span class="appt blue">4:00 · O. Magill</span></td>
+              <td></td>
+              <td style="background:#f8fafc"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card col-4">
+        <div class="card-head">
+          <div>
+            <h3 class="card-title">Today · Wed Mar 13</h3>
+            <div class="text-xs muted">9 appointments · 2 telehealth</div>
+          </div>
+        </div>
+        <ul>
+          <li class="list-item">
+            <div style="width:60px;" class="text-xs muted">8:00 AM</div>
+            <div style="flex:1;">
+              <div class="fw-500">Jordan Reyes</div>
+              <div class="text-xs muted">Annual physical · Room 2</div>
+            </div>
+            <span class="badge green">Checked in</span>
+          </li>
+          <li class="list-item">
+            <div style="width:60px;" class="text-xs muted">9:00 AM</div>
+            <div style="flex:1;">
+              <div class="fw-500">Naomi Fontaine</div>
+              <div class="text-xs muted">Annual physical · Room 1</div>
+            </div>
+            <span class="badge amber">Waiting</span>
+          </li>
+          <li class="list-item">
+            <div style="width:60px;" class="text-xs muted">9:45 AM</div>
+            <div style="flex:1;">
+              <div class="fw-500">Rafael Aldana</div>
+              <div class="text-xs muted">Telehealth · Dr. Voss</div>
+            </div>
+            <span class="badge slate">Pending</span>
+          </li>
+          <li class="list-item">
+            <div style="width:60px;" class="text-xs muted">11:00 AM</div>
+            <div style="flex:1;">
+              <div class="fw-500">Yara Castillo</div>
+              <div class="text-xs muted">New patient intake</div>
+            </div>
+            <span class="badge slate">Confirmed</span>
+          </li>
+          <li class="list-item">
+            <div style="width:60px;" class="text-xs muted">1:00 PM</div>
+            <div style="flex:1;">
+              <div class="fw-500">Hira Aoki</div>
+              <div class="text-xs muted">Blood pressure check · Room 3</div>
+            </div>
+            <span class="badge slate">Confirmed</span>
+          </li>
+          <li class="list-item">
+            <div style="width:60px;" class="text-xs muted">2:00 PM</div>
+            <div style="flex:1;">
+              <div class="fw-500">Cassidy Bellweather</div>
+              <div class="text-xs muted">F/U thyroid · Room 2</div>
+            </div>
+            <span class="badge slate">Confirmed</span>
+          </li>
+          <li class="list-item">
+            <div style="width:60px;" class="text-xs muted">3:15 PM</div>
+            <div style="flex:1;">
+              <div class="fw-500">Lior Okonkwo</div>
+              <div class="text-xs muted">Pediatric · Room 4</div>
+            </div>
+            <span class="badge slate">Confirmed</span>
+          </li>
+          <li class="list-item">
+            <div style="width:60px;" class="text-xs muted">4:00 PM</div>
+            <div style="flex:1;">
+              <div class="fw-500">Benji Tillman</div>
+              <div class="text-xs muted">Sports physical · Room 1</div>
+            </div>
+            <span class="badge slate">Confirmed</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Calendar + On shift + Rooms -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-4">
+        <div class="card-head">
+          <h3 class="card-title">March 2025</h3>
+          <span class="text-xs muted">Pick a day to jump</span>
+        </div>
+        <table class="calendar">
+          <thead><tr><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr></thead>
+          <tbody>
+            <tr><td class="muted"><span class="cell">24</span></td><td class="muted"><span class="cell">25</span></td><td class="muted"><span class="cell">26</span></td><td class="muted"><span class="cell">27</span></td><td class="muted"><span class="cell">28</span></td><td><span class="cell">1</span></td><td><span class="cell">2</span></td></tr>
+            <tr><td><span class="cell">3</span></td><td><span class="cell">4</span></td><td><span class="cell">5</span></td><td><span class="cell">6</span></td><td class="has"><span class="cell">7</span></td><td><span class="cell">8</span></td><td><span class="cell">9</span></td></tr>
+            <tr><td class="has"><span class="cell">10</span></td><td class="has"><span class="cell">11</span></td><td class="has"><span class="cell">12</span></td><td class="today"><span class="cell">13</span></td><td class="has"><span class="cell">14</span></td><td><span class="cell">15</span></td><td><span class="cell">16</span></td></tr>
+            <tr><td class="has"><span class="cell">17</span></td><td><span class="cell">18</span></td><td><span class="cell">19</span></td><td><span class="cell">20</span></td><td><span class="cell">21</span></td><td><span class="cell">22</span></td><td><span class="cell">23</span></td></tr>
+            <tr><td><span class="cell">24</span></td><td><span class="cell">25</span></td><td class="has"><span class="cell">26</span></td><td><span class="cell">27</span></td><td><span class="cell">28</span></td><td><span class="cell">29</span></td><td><span class="cell">30</span></td></tr>
+            <tr><td><span class="cell">31</span></td><td class="muted"><span class="cell">1</span></td><td class="muted"><span class="cell">2</span></td><td class="muted"><span class="cell">3</span></td><td class="muted"><span class="cell">4</span></td><td class="muted"><span class="cell">5</span></td><td class="muted"><span class="cell">6</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card col-5">
+        <div class="card-head">
+          <h3 class="card-title">On shift today</h3>
+          <a class="link sm" href="#">View list</a>
+        </div>
+        <ul>
+          <li class="list-item">
+            <div class="avatar">RM</div>
+            <div style="flex:1;">
+              <div class="fw-500">Dr. Renata Mossberg</div>
+              <div class="text-xs muted">Family medicine · Rooms 1 &amp; 2</div>
+            </div>
+            <span class="badge green">In room</span>
+          </li>
+          <li class="list-item">
+            <div class="avatar green">IC</div>
+            <div style="flex:1;">
+              <div class="fw-500">Dr. Idris Calloway</div>
+              <div class="text-xs muted">Internal medicine · Room 3</div>
+            </div>
+            <span class="badge slate">Charting</span>
+          </li>
+          <li class="list-item">
+            <div class="avatar amber">HP</div>
+            <div style="flex:1;">
+              <div class="fw-500">Hana Petrov, NP</div>
+              <div class="text-xs muted">Pediatrics · Room 4</div>
+            </div>
+            <span class="badge green">Available</span>
+          </li>
+          <li class="list-item">
+            <div class="avatar pink">JS</div>
+            <div style="flex:1;">
+              <div class="fw-500">Dr. Jenn Salisbury</div>
+              <div class="text-xs muted">Telehealth · Booth</div>
+            </div>
+            <span class="badge amber">Calls only</span>
+          </li>
+          <li class="list-item">
+            <div class="avatar teal">BG</div>
+            <div style="flex:1;">
+              <div class="fw-500">Brigit Garza, MA</div>
+              <div class="text-xs muted">Vitals &amp; triage</div>
+            </div>
+            <span class="badge green">Available</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card col-3">
+        <div class="card-head">
+          <h3 class="card-title">Rooms</h3>
+        </div>
+        <ul>
+          <li class="list-item"><div style="flex:1;"><div class="fw-500">Room 1</div><div class="text-xs muted">Adams · 9-min visit</div></div><span class="badge red">Occupied</span></li>
+          <li class="list-item"><div style="flex:1;"><div class="fw-500">Room 2</div><div class="text-xs muted">Fontaine · In room</div></div><span class="badge red">Occupied</span></li>
+          <li class="list-item"><div style="flex:1;"><div class="fw-500">Room 3</div><div class="text-xs muted">Ready · sanitized</div></div><span class="badge green">Open</span></li>
+          <li class="list-item"><div style="flex:1;"><div class="fw-500">Room 4</div><div class="text-xs muted">Pediatric · ready</div></div><span class="badge green">Open</span></li>
+          <li class="list-item"><div style="flex:1;"><div class="fw-500">Room 5</div><div class="text-xs muted">Telehealth booth</div></div><span class="badge amber">In use</span></li>
+          <li class="list-item"><div style="flex:1;"><div class="fw-500">Procedure</div><div class="text-xs muted">Awaiting cleanup</div></div><span class="badge slate">Cleaning</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Wait list + Quick add -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-7">
+        <div class="card-head">
+          <h3 class="card-title">Wait list</h3>
+          <a class="link sm" href="#">Manage</a>
+        </div>
+        <div class="text-xs muted mb-8">Six patients hoping for an earlier slot.</div>
+        <table class="table">
+          <thead>
+            <tr><th>Patient</th><th>Preferred clinician</th><th>Reason</th><th>Earliest OK</th><th>Added</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="strong">Mira Halverson</td><td>Dr. Mossberg</td><td>Any</td><td>Wed</td><td>Mar 11</td></tr>
+            <tr><td class="strong">Priya Lang</td><td>Any</td><td>Cough, 4 days</td><td>Today</td><td>Mar 13</td></tr>
+            <tr><td class="strong">Ezra Strickland</td><td>NP Petrov</td><td>Eye pain (child)</td><td>Today</td><td>Mar 13</td></tr>
+            <tr><td class="strong">Devon Patel</td><td>Dr. Calloway</td><td>Lab follow-up</td><td>By Fri</td><td>Mar 12</td></tr>
+            <tr><td class="strong">Sara Khoury</td><td>Any · telehealth</td><td>Refill consult</td><td>Today</td><td>Mar 13</td></tr>
+            <tr><td class="strong">Olive Marigold</td><td>Dr. Salisbury</td><td>Skin check</td><td>Next week</td><td>Mar 10</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card col-5">
+        <div class="card-head">
+          <h3 class="card-title">Quick add</h3>
+          <span class="text-xs muted">Book in seconds · we'll send a confirmation text</span>
+        </div>
+        <div class="field-row">
+          <div class="field"><div class="label">Patient</div><input class="input" value="Naomi Fontaine" /></div>
+          <div class="field"><div class="label">Clinician</div><input class="input" value="NP Hana Petrov" /></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><div class="label">Date</div><input class="input" value="Mar 14, 2025" /></div>
+          <div class="field"><div class="label">Time</div><input class="input" value="9:30 AM" /></div>
+          <div class="field"><div class="label">Type</div><input class="input" value="Office visit · 30 min" /></div>
+        </div>
+        <div class="field"><div class="label">Notes for the visit</div><textarea class="textarea">Follow-up on iron panel from Feb. Patient prefers afternoon if possible.</textarea></div>
+        <div class="flex gap-8 justify-between mt-8">
+          <button class="btn">Save draft</button>
+          <button class="btn primary">Book appointment</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Things to look at + Recent activity -->
+    <div class="grid grid-12 mt-16">
+      <div class="card col-7">
+        <div class="card-head">
+          <h3 class="card-title">Things to look at</h3>
+          <span class="text-xs muted">3 items</span>
+        </div>
+        <div class="alert blue mb-8">
+          <div>
+            <div class="alert-title">Double-booking on Friday 2:30 PM</div>
+            <div>Dr. Calloway has overlapping holds for R. Halpern and L. Bonar. One can move to 3:00.</div>
+          </div>
+        </div>
+        <div class="alert green mb-8">
+          <div>
+            <div class="alert-title">Confirmations sent</div>
+            <div>30 of 42 patients confirmed by SMS. Four reminders will resend tonight at 6 PM.</div>
+          </div>
+        </div>
+        <div class="alert red">
+          <div>
+            <div class="alert-title">Two cancellations need follow-up</div>
+            <div>I. Halverson (Tue 11 AM) and S. Park (Wed 4 PM) — both could go on next week's calendar.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card col-5">
+        <div class="card-head">
+          <h3 class="card-title">Recent activity</h3>
+          <a class="link sm" href="#">All changes</a>
+        </div>
+        <ul class="timeline">
+          <li><div class="t-date">8 minutes ago · Brigit G.</div><div class="t-title">Naomi Fontaine checked in</div><div class="text-xs muted">Room 1 assigned, intake in progress.</div></li>
+          <li><div class="t-date">22 minutes ago · Front desk</div><div class="t-title">Jordan Reyes telehealth started</div></li>
+          <li><div class="t-date">8:14 AM · Adelia M.</div><div class="t-title">Mira Halverson asked to reschedule</div><div class="text-xs muted">Cancelled Tue 11 AM; on patient action. Moved to wait list.</div></li>
+          <li><div class="t-date">Yesterday · 5:42 PM · Dr. Mossberg</div><div class="t-title">Blocked Thu 3 — 5 PM</div><div class="text-xs muted">CME webinar; auto-decline incoming.</div></li>
+          <li><div class="t-date">Yesterday · 11:30 AM · System</div><div class="t-title">42 reminders queued</div><div class="text-xs muted">For appointments Mar 11 — 14.</div></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© 2025 Quartz Grove Lab · Quartz Grove Family Medicine PLLC</div>
+    <div class="footer-links">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html">Settings</a>
+    </div>
+    <div class="footer-support">Support · help@quartzgrove.com</div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

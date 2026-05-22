@@ -724,6 +724,88 @@ These reverse or extend earlier user-confirmed decisions; collecting them here s
 
 ---
 
+## Phase 2 / v7 observations (2026-05-22)
+
+Findings worth surfacing in the report from the 10×5 v7 trial fleet:
+
+1. **Palette weakness on specific color families.** Claude reliably under-scores on certain palettes — dark-themed pages with cyan/teal accents and pages whose dominant background is a desaturated near-black (e.g. `#0d1117` cyan-tinted vs `#0a1020` navy) consistently show large hue deltas in the palette metric. The agent tends to drift toward "generic dark blue" regardless of the reference's actual tint. Suggests the agent samples color *category* (dark / light / accent) but not the precise hue.
+
+2. **Numeric fidelity is poor.** Across financial dashboards, KPI cards, status counters, and tabular data, the agent rarely transcribes numbers exactly from the reference screenshots. It tends to invent plausible-looking values that match the visual scale but not the literal digits (e.g. "$2,847" in ref → "$2,500" in candidate). Text metric catches some of this; chart-data fabrication is what VLM judge is supposed to catch.
+
+3. **Non-responsive output / inflated widths.** Inspecting the v7 candidate PNGs, the agent often produces pages whose rendered width exceeds the target viewport, especially at tablet (768) and mobile (375). Desktop, tablet, and mobile renders look nearly identical — the agent doesn't actually adapt the layout per viewport, it just lets the desktop design overflow horizontally or get cropped. The `overflow` metric only partially catches this; we should add an explicit responsiveness penalty that compares rendered widths across viewports (or pixel-correlates the three renders against each other — high correlation = no adaptation = penalised).
+
+4. **`block_match` saturated against the `MAX_BLOCKS = 400` cap.** Every v7 page has >400 DOM elements; both ref and candidate were being clipped to exactly 400 → Hungarian forced into 400 matches → many forced pairings of nested wrapper `<div>`s with low IoU → raw mean-IoU pinned ~0.15, sqrt-rescaled score pinned at ~0.4 across all tasks. Pages with <400 elements (security/support: ~250) scored visibly higher (~0.46), confirming saturation. Lowered to `MAX_BLOCKS = 100` (top-K by area): per-(page,vp) variance ~doubled (stdev 0.04 → 0.06, range 0.34–0.65) but cross-task spread stayed tight (stdev 0.034) because bbox-IoU is fundamentally a low-discrimination metric — a 20–40px shift on a matched block yields IoU ≈ 0.3–0.5 even on visually-correct pages. For real layout discrimination, a non-IoU formulation (grid-cell occupancy, or match-or-miss thresholding at IoU > 0.5) would be needed. Leaving block_match at k=100 for now.
+
+5. **Per-test eval variability is narrow, two features carry the discrimination.** Best-of-5 reward across 10 v7 tasks: range 0.48–0.64, stdev 0.053, CV ~9%. Per-feature variance is bimodal: palette (stdev 0.157, range 0.55) and text (stdev 0.125, range 0.36) do almost all the discriminating; block_match (stdev 0.025), ssim (0.047) are nearly flat. So the eval set is good at telling Claude's *known weaknesses* (color identity, numbers/text fidelity) apart, weak at separating overall task difficulty. For benchmarking another agent, mix easy + hard tasks deliberately to stretch the score axis.
+
+6. **`overflow` metric measures the wrong width.** It reads `document.documentElement.scrollWidth` from the DOM dump, which can be much smaller than the actual rendered PNG width (e.g., a page that lays out 574px wide at mobile shows scrollWidth=398 because `overflow:hidden` on `<body>` clips it). Two failure modes: (a) PNG > scrollWidth → metric under-penalises real overflow, (b) `overflow:hidden` on a non-responsive layout → scrollWidth == viewport → metric scores 1.0 while the page still looks like desktop crammed into mobile. Fix: use `overflow_ratio = max(cand_scrollWidth, cand_png_width) / viewport`. Even better: add a "responsiveness" metric that compares cand_desktop vs cand_mobile pixel-correlation — high correlation = agent never adapted = explicit penalty.
+
+7. **Anticheat × structured-reward coupling makes the eval reward bimodal, hurting RL training shape.** Aggregate reward distribution across 50 trials is sharply bimodal: ~22% near 0.0–0.07 and 78% in the 0.40–0.65 band, with an empty dead-zone in 0.10–0.40 — bad for RL gradient. **Cause:** the flat `0.1×` anticheat multiplier clobbered 9 trials whose underlying structured score was a healthy 0.45–0.60 (they wrote real pages but used `data:image` URIs or oversized inline SVGs). Once anticheat is divided out, the structured reward becomes smooth: 47/50 trials in a `[0.40, 0.65]` band with stdev 0.13 — well-shaped for RL.
+
+   **Implication:** decouple constraint from reward. Use structured composite (or arithmetic-mean of metrics, not harmonic) as the **dense training signal**, treat anticheat as a **constraint/penalty term** (fixed subtraction per violation, severity-scaled, not multiplicative). Keep the multiplicative `0.1×` only at **held-out eval** where a hard "you cheated → near-zero" signal is the right semantic. Currently the same formula is used for both regimes, which is fine for eval but flattens learning gradient in training.
+
+8. **Anticheat misclassification — two false-positive surfaces in `anticheat.py`.** Re-examining the 9 trials clobbered by the `0.1×` multiplier (finding #7) shows the violations were not adversarial:
+   - **`data_image_uri`** matches any `data:image/...` URI by regex. Reference pages embed small inline SVG icons (logo glyphs, status dots, etc.) as data URIs; agents that reproduce this pattern faithfully trip the check. The check has no payload-size threshold — a 200-byte inline icon and a 200-KB embedded PNG are treated identically. Legitimate icons (<2 KB) should be exempted; a real screenshot-embed cheat base64-encodes to 100 KB+.
+   - **`oversized_inline_svg`** parses `<svg width=… height=…>` attributes and flags area > threshold. SVGs declared with percentage units (`width="100%"`) cannot be reasoned about from HTML alone — `_parse_svg_dimensions` should return `None` for percent-width SVGs (caller already drops `None`-area entries) and instead rely on rendered bbox from `dom.json` for the real check. Currently chart tiles and decorative full-width SVGs get flagged despite occupying normal layout area.
+
+   The other three checks (`image_byte_copy`, `off_origin`, `raster_image_file`) fire correctly on the trials inspected. Fix queued in implementation order; until then, the structured (pre-multiplier) score in `subscores_v2.json` is the trustworthy signal for the 9 affected trials.
+
+9. **`end_turn` planning-stall regression in claude-code 2.1.148** (vs 2.1.146): ~13% of trials hit `end_turn` after creating a TODO list and reading references, without ever invoking `Write`. Mitigated by `k=5` (per-task pass rate ≈ 99.9%) and a top-of-instruction "do not stop after planning" directive.
+
+---
+
+## Reward function — LOCKED (v6, 2026-05-22)
+
+After the v9 calibration pass, the design-replication reward is locked to the following shape. All thirteen `tasks/v9/*/tests/{metrics.py,grade.py,anticheat.py,vlm_judge.py}` files are in sync with `pipeline/grader/`.
+
+**Per-(page, viewport) composite**:
+```
+structured = weighted_arith({ssim, block_match, palette, text, position, typography})
+base       = min(structured, vlm_judge)
+composite  = base * (0.5 + 0.5 * overflow_score)
+```
+
+Weights (sum to 1.0 of *present* metrics; renormalised by `_weighted_arith` when any score is None):
+- text 0.20, ssim 0.15, block_match 0.15, palette 0.12, typography 0.10, position 0.10
+- overflow weight = 0 (acts only as the partial multiplier above)
+- vlm_judge weight = 0 (acts only as the hard min ceiling above)
+
+**Change vs v5:** overflow promoted from soft *ceiling* (`min(composite, 0.5 + 0.5×overflow)`) to partial *multiplier* (`composite × (0.5 + 0.5×overflow)`). v5 capped non-responsive pages at 0.5 but couldn't drag them lower; v6 multiplies — a fully-broken responsive layout (overflow=0) now halves the composite. Eyeball calibration on 008-hr-payroll/time-off mobile (candidate is 588px wide at 375px viewport, missing widgets) pushed final score 0.500 → 0.288, matching the ~0.4 eyeball verdict.
+
+**VLM judge fixes (also new in v6):**
+- Downscale screenshots whose max dimension exceeds 7800px before sending (Anthropic API rejects >8000px). Previously 17% of mobile and 2% of tablet pairs silently skipped VLM.
+- `VLM_MAX_TOKENS` bumped 256 → 512; tolerant JSON parser handles truncated responses.
+- Prompt tightened: explicit caps for wrong-widget-shape (≤0.4), candidate-simpler-than-reference (≤0.4), content fabrication (≤0.4). Removed implicit mobile leniency.
+
+**Per-page aggregation**: harmonic mean across the 3 viewports of that page (worst viewport dominates).
+**Per-site aggregation**: harmonic mean across pages × anticheat factor.
+
+**Anticheat factor (decoupled eval vs train)**:
+- Eval (`reward = site × penalty_multiplier`): `0.1×` if any violation, else `1.0×`. Hard "you cheated → near-zero" semantic.
+- Train (`reward = max(0, site − train_penalty)`): subtractive `0.05 × distinct_violation_types`, capped at 0.20. Preserves RL gradient when the policy writes real pages but trips one violation.
+
+**Calibration history** that shaped v6 (each step validated against eyeball verdicts before next):
+1. SSIM cropped to `min(ref, cand)` (not zero-padded) to avoid triple-counting truncation with block_match/position.
+2. Palette split into bg/fg channels (fixed the dark-page false-match where text-color was pooled with bg).
+3. Palette normaliser tightened to 0.15 OKLab L2 (~15 JNDs) from 0.6.
+4. Block_match cap dropped 400 → 100 (was saturating; per-page stdev doubled).
+5. Overflow rewritten as symmetric width-diff using `max(scrollWidth, png_width)` so DOM `overflow:hidden` no longer hides real overflow; empty candidates return 0 instead of None.
+6. Anticheat `data_image_uri` made size-aware (≥2KB threshold) and `oversized_inline_svg` skips percent-width SVGs from HTML alone — fixed 9 false-positive 0.1× clobberings.
+7. Weights rebalanced text→0.20, overflow→0.18 (later moved out of weighted term).
+8. **(v5)** Overflow moved from weighted term to soft ceiling so a non-responsive page caps at 0.5.
+9. **(v6)** Overflow promoted from soft ceiling to partial multiplier so a fully-broken responsive layout drags the composite by 50%, not just floors at 0.5.
+10. **(v6)** VLM downscale-before-send (Anthropic 8000px limit), max_tokens 256→512, tolerant JSON parse — recovered 130 silently-failing VLM calls (17% of mobile).
+11. **(v6)** VLM prompt tightened to remove mobile leniency (explicit "reference defines target, do not grant credit for the candidate looking reasonable for mobile"; hard caps on wrong-widget / candidate-simpler-than-reference).
+
+**Variance assessment (v9 set, claude-opus-4-7, k=10)**: cross-task mean-of-means ranges 0.266 → 0.867 (CV ~30%), best-of-10 ranges 0.307 → 0.893. The v9 set added 2 easy "hello" tasks (single-page, simple) and 1 large "conference-event" task (8 pages) on top of the 10 dashboard-style v7adv tasks, stretching the axis from v7's 0.475–0.619 to v9's 0.27–0.89. Healthcare-emr saw 5/10 trials hit the Claude Code 2.1.148 end_turn regression (zero rewards from agent never writing files) — excluded from mean via `n_valid` filter on `reward > 0.01`. Reporting both `mean` (across non-regression trials) and `best` (capability ceiling) gives reliability + ceiling per task.
+
+**Known gaps left for follow-ups (not blockers):**
+- Block_match still bbox-IoU based; per-task cross-task stdev is ~0.025 even at k=100. Grid-cell occupancy or match-or-miss thresholding would discriminate more, but the metric is already useful.
+- `oversized_inline_svg` stage-2 follow-up (read rendered bbox from `dom.json` instead of regex-parsing HTML) not implemented. The percent-width skip closes the false-positive flood; we lose the (rare) "agent draws entire page as one big SVG" detector. Acceptable because such a hack would still score poorly on text/block_match/VLM.
+- `numeric_match` sub-metric (digit-level fidelity) considered but not added — text metric partially captures it, VLM judge catches the worst cases.
+
+---
+
 ## Open Questions (TBD — to be resolved before locking the pipeline)
 
 - **DreamSim backbone:** original (CLIP+OpenCLIP+DINO) or DINOv2 refresh (Oct 2024). Latter is stronger but heavier.

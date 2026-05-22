@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Builds — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <div class="brand"><span class="mark"></span> Beacon Harbor Works</div>
+    <nav class="nav">
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="builds.html" class="active">Builds</a>
+      <a href="team.html">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+    <div class="account"><span class="av">EL</span> ergon/eL</div>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="crumbs"><a href="#">Projects</a><span class="sep">/</span><a href="#">harbor-api</a><span class="sep">/</span><span class="here">Builds</span></div>
+
+  <div class="layout">
+    <main>
+      <div class="eyebrow">Continuous integration</div>
+      <h1 class="page-title">Build history</h1>
+      <p class="lead">Every pipeline run across the fleet. Filter by branch, repository, or outcome. Logs retained for 90 days.</p>
+
+      <div class="btn-row">
+        <button class="btn primary">Run new build</button>
+        <button class="btn">Download manifest</button>
+        <button class="btn ghost">Pipeline settings</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="k">Success rate · 7d</div><div class="v">94.2%</div><div class="sub">+1.4pp vs prior week</div></div>
+        <div class="stat"><div class="k">Avg duration</div><div class="v">4m 21s</div><div class="sub">p95 9m 04s</div></div>
+        <div class="stat"><div class="k">Builds today</div><div class="v">38</div><div class="sub">28 of 30 last week</div></div>
+        <div class="stat"><div class="k">Queue depth</div><div class="v">3</div><div class="sub">2 on runners-x</div></div>
+      </div>
+
+      <div class="card">
+        <div class="head">
+          <div>
+            <div class="title">Last 30 days · main branch</div>
+            <div class="name">Trend</div>
+          </div>
+          <div class="bars-legend">
+            <span class="sw"><i style="background:var(--green);"></i> Passed</span>
+            <span class="sw"><i style="background:var(--red);"></i> Failed</span>
+            <span class="sw"><i style="background:var(--amber);"></i> Cancelled</span>
+          </div>
+        </div>
+        <div class="bars">
+          <i class="b4"></i><i class="b5"></i><i class="b3"></i><i class="b6"></i><i class="b7"></i>
+          <i class="b5"></i><i class="bf"></i><i class="b6"></i><i class="b8"></i><i class="b6"></i>
+          <i class="b3"></i><i class="b5"></i><i class="b7"></i><i class="b4"></i><i class="b8"></i>
+          <i class="bw"></i><i class="b5"></i><i class="b7"></i><i class="b6"></i><i class="b6"></i>
+          <i class="bf"></i><i class="b5"></i><i class="b6"></i><i class="b7"></i><i class="b8"></i>
+          <i class="b6"></i><i class="b5"></i><i class="b7"></i><i class="b6"></i><i class="b8"></i>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <span class="on">All</span>
+        <a>Passed <span class="muted">28</span></a>
+        <a>Failed <span class="muted">2</span></a>
+        <a>Running <span class="muted">1</span></a>
+        <a>Queued <span class="muted">3</span></a>
+        <a>Cancelled <span class="muted">4</span></a>
+      </div>
+
+      <div class="filters">
+        <input class="input" placeholder="Search by commit, branch, or author…">
+        <select class="select"><option>All repositories</option></select>
+        <select class="select"><option>All branches</option></select>
+        <select class="select"><option>All triggers</option></select>
+      </div>
+
+      <div class="sect-head">
+        <h2 style="font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">Pipeline log</h2>
+        <div class="muted small">Showing 1–12 of 426 · Times in your local zone (UTC −5).</div>
+      </div>
+
+      <div class="list-rows">
+
+        <div class="row-card accent-red">
+          <div class="top">
+            <span class="badge b-red">● failed</span>
+            <span class="ttl">Add idempotency keys to webhook dispatcher</span>
+            <span class="muted small"><span class="av av-b" style="display:inline-flex;vertical-align:middle;">EL</span> Elin Lindqvist</span>
+            <span class="badge b-mono small">2m 14s</span>
+            <span class="muted small">99 KB</span>
+          </div>
+          <div class="muted small">repo: <b>harbor-api</b> · branch: <b>feat/idempotency-2</b> · trigger: push · commit <span class="mono">a14b03c</span></div>
+        </div>
+
+        <div class="row-card accent-green">
+          <div class="top">
+            <span class="badge b-green">● passed</span>
+            <span class="ttl">Bump postgres client to 16.4, retire pgbouncer shim</span>
+            <span class="muted small"><span class="av av-c" style="display:inline-flex;vertical-align:middle;">JT</span> Jules Tavares</span>
+            <span class="badge b-mono small">3m 02s</span>
+            <span class="muted small">95 KB</span>
+          </div>
+          <div class="muted small">repo: <b>harbor-svc</b> · branch: <b>main</b> · trigger: merge · commit <span class="mono">17ee9b4</span></div>
+        </div>
+
+        <div class="row-card accent-amber">
+          <div class="top">
+            <span class="badge b-amber">● cancelled</span>
+            <span class="ttl">Refactor manifest parser to streaming reader</span>
+            <span class="muted small"><span class="av av-d" style="display:inline-flex;vertical-align:middle;">MR</span> Maren Rasmussen</span>
+            <span class="badge b-mono small">5m 02s</span>
+            <span class="muted small">112 KB</span>
+          </div>
+          <div class="muted small">repo: <b>harbor-svc</b> · branch: <b>feat/parser-stream</b> · trigger: push · commit <span class="mono">7c84a3a</span></div>
+        </div>
+
+        <div class="row-card accent-green">
+          <div class="top">
+            <span class="badge b-green">● passed</span>
+            <span class="ttl">Nightly snapshot build · all targets</span>
+            <span class="muted small">⏱ scheduler</span>
+            <span class="badge b-mono small">14m 06s</span>
+            <span class="muted small">221 KB</span>
+          </div>
+          <div class="muted small">repo: <b>all</b> · branch: <b>release-cuts/2026.04</b> · trigger: cron · commit <span class="mono">94e0e21</span></div>
+        </div>
+
+        <div class="row-card accent-green">
+          <div class="top">
+            <span class="badge b-green">● passed</span>
+            <span class="ttl">Tighten CSP on dashboard routes, drop unsafe-inline</span>
+            <span class="muted small"><span class="av av-e" style="display:inline-flex;vertical-align:middle;">SK</span> Sander Kniss</span>
+            <span class="badge b-mono small">2m 39s</span>
+            <span class="muted small">78 KB</span>
+          </div>
+          <div class="muted small">repo: <b>harbor-web</b> · branch: <b>feat/csp</b> · trigger: push · commit <span class="mono">c84a3a3</span></div>
+        </div>
+
+        <div class="row-card accent-red">
+          <div class="top">
+            <span class="badge b-red">● failed</span>
+            <span class="ttl">Experimental: switch CI runner to graviton4</span>
+            <span class="muted small"><span class="av av-a" style="display:inline-flex;vertical-align:middle;">PV</span> Priya Veady</span>
+            <span class="badge b-mono small">3m 47s</span>
+            <span class="muted small">200 KB</span>
+          </div>
+          <div class="muted small">repo: <b>internal/ci-config</b> · branch: <b>spike/graviton</b> · trigger: manual · commit <span class="mono">db5f1c4</span></div>
+        </div>
+
+        <div class="row-card accent-green">
+          <div class="top">
+            <span class="badge b-green">● passed</span>
+            <span class="ttl">Add retry/backoff to S3 lifecycle uploader</span>
+            <span class="muted small"><span class="av av-b" style="display:inline-flex;vertical-align:middle;">EL</span> Elin Lindqvist</span>
+            <span class="badge b-mono small">2m 12s</span>
+            <span class="muted small">66 KB</span>
+          </div>
+          <div class="muted small">repo: <b>harbor-data</b> · branch: <b>fix/lifecycle-retry</b> · trigger: push · commit <span class="mono">4b1cab0</span></div>
+        </div>
+
+        <div class="row-card accent-green">
+          <div class="top">
+            <span class="badge b-green">● passed</span>
+            <span class="ttl">Migrate billing tables to partitioned schema</span>
+            <span class="muted small"><span class="av av-c" style="display:inline-flex;vertical-align:middle;">JT</span> Jules Tavares</span>
+            <span class="badge b-mono small">7m 22s</span>
+            <span class="muted small">198 KB</span>
+          </div>
+          <div class="muted small">repo: <b>harbor-billing</b> · branch: <b>feat/partition</b> · trigger: merge · commit <span class="mono">7e0c930</span></div>
+        </div>
+
+        <div class="row-card accent-green">
+          <div class="top">
+            <span class="badge b-green">● passed</span>
+            <span class="ttl">Document deploy contracts in /docs/runbook</span>
+            <span class="muted small"><span class="av av-e" style="display:inline-flex;vertical-align:middle;">DA</span> Dimitra Albrecht</span>
+            <span class="badge b-mono small">1m 06s</span>
+            <span class="muted small">22 KB</span>
+          </div>
+          <div class="muted small">repo: <b>harbor-docs</b> · branch: <b>main</b> · trigger: push · commit <span class="mono">11a09c4</span></div>
+        </div>
+
+        <div class="row-card accent-green">
+          <div class="top">
+            <span class="badge b-green">● passed</span>
+            <span class="ttl">Release candidate · v0.18.0-rc.2</span>
+            <span class="muted small"><span class="av av-d" style="display:inline-flex;vertical-align:middle;">MR</span> Maren Rasmussen</span>
+            <span class="badge b-mono small">9m 18s</span>
+            <span class="muted small">240 KB</span>
+          </div>
+          <div class="muted small">repo: <b>harbor-release</b> · branch: <b>release/0.18</b> · trigger: manual · commit <span class="mono">b3e4ad3</span></div>
+        </div>
+
+        <div class="row-card accent-amber">
+          <div class="top">
+            <span class="badge b-amber">● cancelled</span>
+            <span class="ttl">Trim docker image · drop dev dependencies</span>
+            <span class="muted small"><span class="av av-e" style="display:inline-flex;vertical-align:middle;">SK</span> Sander Kniss</span>
+            <span class="badge b-mono small">1m 33s</span>
+            <span class="muted small">40 KB</span>
+          </div>
+          <div class="muted small">repo: <b>harbor-svc</b> · branch: <b>chore/image-shrink</b> · trigger: push · commit <span class="mono">d40f6e1</span></div>
+        </div>
+
+        <div class="row-card accent-green">
+          <div class="top">
+            <span class="badge b-green">● passed</span>
+            <span class="ttl">Add structured logging to scheduler worker</span>
+            <span class="muted small"><span class="av av-a" style="display:inline-flex;vertical-align:middle;">PV</span> Priya Veady</span>
+            <span class="badge b-mono small">3m 02s</span>
+            <span class="muted small">82 KB</span>
+          </div>
+          <div class="muted small">repo: <b>harbor-jobs</b> · branch: <b>feat/log-format</b> · trigger: push · commit <span class="mono">e024457</span></div>
+        </div>
+
+      </div>
+
+      <div class="flex between mt" style="align-items:center;">
+        <div class="pager"><a>‹</a><span class="on">1</span><a>2</a><a>3</a><a>4</a><a>5</a><a>›</a></div>
+        <div class="muted small">426 runs · 36 per page</div>
+      </div>
+
+      <div class="card mt">
+        <div class="head">
+          <div>
+            <div class="title">Slowest stages · last 7 days</div>
+            <div class="name">Where time is spent</div>
+          </div>
+        </div>
+        <table class="tbl">
+          <thead>
+            <tr><th>Stage</th><th>Repository</th><th class="num">P50</th><th class="num">P95</th><th class="num">Trend</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Integration tests</td><td class="mono">harbor-api</td><td class="num">1m 38s</td><td class="num">3m 02s</td><td class="num"><span style="color:var(--red);">↑ 14%</span></td></tr>
+            <tr><td>Docker package</td><td class="mono">harbor-svc</td><td class="num">52s</td><td class="num">1m 21s</td><td class="num">−</td></tr>
+            <tr><td>Lint &amp; typecheck</td><td class="mono">harbor-web</td><td class="num">30s</td><td class="num">52s</td><td class="num">↓ 4%</td></tr>
+            <tr><td>Migration dry-run</td><td class="mono">harbor-billing</td><td class="num">1m 02s</td><td class="num">2m 18s</td><td class="num">↓ 8%</td></tr>
+            <tr><td>Publish artifact</td><td class="mono">manifest-cli</td><td class="num">22s</td><td class="num">41s</td><td class="num">−</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+
+    <aside class="side">
+
+      <div class="card">
+        <div class="h">In queue</div>
+        <div class="name">Awaiting runner</div>
+        <ul class="list">
+          <li class="row"><span><span class="legend-dot dot-g"></span>harbor-api · main</span><span class="r">12s</span></li>
+          <li class="row"><span><span class="legend-dot dot-a"></span>harbor-web · feat/csp</span><span class="r">38s</span></li>
+          <li class="row"><span><span class="legend-dot dot-b"></span>signal-worker · main</span><span class="r">1m 04s</span></li>
+        </ul>
+        <div class="muted small mt">View queue plot</div>
+      </div>
+
+      <div class="card">
+        <div class="h">Active on this</div>
+        <div class="name">Online now</div>
+        <ul class="list">
+          <li class="item"><span class="av av-b">EL</span><span class="who"><div class="n">Elin Lindqvist</div><div class="r">harbor-api</div></span><span class="dot"></span></li>
+          <li class="item"><span class="av av-d">MR</span><span class="who"><div class="n">Maren Rasmussen</div><div class="r">harbor-release</div></span><span class="dot"></span></li>
+          <li class="item"><span class="av av-c">JT</span><span class="who"><div class="n">Jules Tavares</div><div class="r">harbor-billing</div></span><span class="dot"></span></li>
+          <li class="item"><span class="av av-e">SK</span><span class="who"><div class="n">Sander Kniss</div><div class="r">harbor-web</div></span><span class="dot"></span></li>
+          <li class="item"><span class="av av-a">DA</span><span class="who"><div class="n">Dimitra Albrecht</div><div class="r">harbor-docs</div></span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="h">Trending repos</div>
+        <div class="name">This week</div>
+        <ul class="list">
+          <li class="row"><span class="mono">harbor-api</span><span class="r">86 runs</span></li>
+          <li class="row"><span class="mono">harbor-web</span><span class="r">58 runs</span></li>
+          <li class="row"><span class="mono">signal-worker</span><span class="r">22 runs</span></li>
+          <li class="row"><span class="mono">manifest-cli</span><span class="r">19 runs</span></li>
+          <li class="row"><span class="mono">lighthouse-cfg</span><span class="r">5 runs</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="h">Incident shortcuts</div>
+        <div class="name">If a build fails</div>
+        <div class="links">
+          <a>Open active alerts</a>
+          <a>Roll back last deploy</a>
+          <a>Page the on-call engineer</a>
+          <a>Runbook · CI failures</a>
+          <a>Request a runner boost</a>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="meta">© 2026 Beacon Harbor Works · All builds reproducible</div>
+    <div class="links">
+      <a>Pipeline</a><a>Runners</a><a>Status</a><a>Docs</a><a>API</a><a>Shipping</a><a>Privacy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sponsors — Ember Vector Works</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .stat-tiles { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+  .stat-tile { background: var(--card); border: 1px solid var(--line-2); border-radius: var(--radius); padding: 16px; }
+  .stat-tile .num { font-family: var(--serif); font-size: 28px; line-height: 1; }
+  .stat-tile .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .07em; margin-top: 6px; }
+
+  .tier-row { margin-bottom: 22px; }
+  .tier-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .tier-row.featured .grid { grid-template-columns: 1fr 1fr; }
+  .tier-row.featured .sponsor-card { padding: 36px 24px; min-height: 130px; align-items: center; }
+  .tier-row.featured .sponsor-name { font-size: 20px; }
+
+  .grid { display: grid; gap: 12px; }
+  .g-2 { grid-template-columns: 1fr 1fr; }
+  .g-3 { grid-template-columns: repeat(3, 1fr); }
+  .g-4 { grid-template-columns: repeat(4, 1fr); }
+  .g-6 { grid-template-columns: repeat(6, 1fr); }
+
+  .sponsor-card {
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius);
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    min-height: 100px;
+  }
+  .sponsor-card .logo {
+    width: 28px; height: 28px;
+    background: var(--coral);
+    flex: none;
+  }
+  .sponsor-card.r .logo { border-radius: 0; }
+  .sponsor-card.c .logo { border-radius: 50%; }
+  .sponsor-card.d .logo { transform: rotate(45deg); }
+  .sponsor-card.ring .logo { background: transparent; border: 3px solid var(--coral); }
+  .sponsor-card.sage .logo { background: var(--sage); }
+  .sponsor-card.sage-ring .logo { background: transparent; border: 3px solid var(--sage); }
+  .sponsor-name { font-family: var(--serif); font-weight: 600; font-size: 16px; }
+
+  .ally-tile {
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  table.directory td .chip { font-size: 10px; }
+
+  @media (max-width: 980px) {
+    .stat-tiles { grid-template-columns: repeat(2, 1fr); }
+    .g-4 { grid-template-columns: repeat(2, 1fr); }
+    .g-6 { grid-template-columns: repeat(3, 1fr); }
+    .tier-row.featured .grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .g-3 { grid-template-columns: 1fr 1fr; }
+    .g-6 { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="schedule.html" class="brand"><span class="dot"></span> Ember Vector Works</a>
+    <nav class="nav">
+      <a href="schedule.html">Schedule</a>
+      <a href="speakers.html">Speakers</a>
+      <a href="my-agenda.html">My Agenda</a>
+      <a href="attendees.html">Attendees</a>
+      <a href="sponsors.html" class="active">Sponsors</a>
+      <a href="livestream.html">Livestream</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="btn btn-primary" href="registration.html">Register</a>
+      <span class="avatar-sm">MK</span>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <div class="page-header">
+      <div>
+        <div class="shapes" style="margin-bottom:8px;">
+          <span class="shape shape-circle bg-coral"></span>
+          <span class="shape shape-circle bg-coral-2"></span>
+          <span class="shape shape-circle bg-coral-3"></span>
+        </div>
+        <div class="eyebrow">Sponsors &amp; partners</div>
+        <h1>The companies making Ember Vector Works 2025 possible.</h1>
+        <p>Three days of independent design and engineering wouldn't happen without the studios, tool-makers, and quiet champions who believe in this community. Browse their tiers, find their booths in the Mezzanine, or follow the links below to say hello.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <div class="stat-tiles">
+          <div class="stat-tile"><div class="num">42</div><div class="label">Sponsors</div></div>
+          <div class="stat-tile"><div class="num">17</div><div class="label">Countries</div></div>
+          <div class="stat-tile"><div class="num">9</div><div class="label">First-time partners</div></div>
+          <div class="stat-tile"><div class="num">$0</div><div class="label">Pay-to-speak slots</div></div>
+        </div>
+
+        <div class="tier-row featured">
+          <div class="tier-label">Presenting partner</div>
+          <div class="grid">
+            <div class="sponsor-card r"><span class="logo"></span><span class="sponsor-name">Lumen &amp; Loom</span><div class="muted small">Design systems platform helping independent studios ship interfaces that travel across brands.</div></div>
+            <div class="sponsor-card sage c"><span class="logo"></span><span class="sponsor-name">Northbound Cloud</span><div class="muted small">Edge hosting for builders who care about latency, accessibility, and a fair pricing page.</div></div>
+          </div>
+        </div>
+
+        <div class="tier-row">
+          <div class="tier-label">Forest tier</div>
+          <div class="grid g-3">
+            <div class="sponsor-card d"><span class="logo"></span><span class="sponsor-name">Halftone Type</span></div>
+            <div class="sponsor-card sage r"><span class="logo"></span><span class="sponsor-name">Mercator &amp; Co.</span></div>
+            <div class="sponsor-card r"><span class="logo"></span><span class="sponsor-name">Carbon Press</span></div>
+            <div class="sponsor-card r"><span class="logo"></span><span class="sponsor-name">Atlas Bookings</span></div>
+            <div class="sponsor-card sage ring"><span class="logo"></span><span class="sponsor-name">Pine &amp; Ink</span></div>
+            <div class="sponsor-card d"><span class="logo"></span><span class="sponsor-name">Linefeed Studio</span></div>
+            <div class="sponsor-card sage r"><span class="logo"></span><span class="sponsor-name">Quail Software</span></div>
+            <div class="sponsor-card ring"><span class="logo"></span><span class="sponsor-name">Heron Analytics</span></div>
+          </div>
+        </div>
+
+        <div class="tier-row">
+          <div class="tier-label">Peach tier</div>
+          <div class="grid g-3">
+            <div class="sponsor-card sage c"><span class="logo"></span><span class="sponsor-name">Foundry Nine</span></div>
+            <div class="sponsor-card r"><span class="logo"></span><span class="sponsor-name">Salt &amp; Sand</span></div>
+            <div class="sponsor-card sage d"><span class="logo"></span><span class="sponsor-name">Tessera Labs</span></div>
+            <div class="sponsor-card r"><span class="logo"></span><span class="sponsor-name">Margin Notes</span></div>
+            <div class="sponsor-card c"><span class="logo"></span><span class="sponsor-name">Otter &amp; Oak</span></div>
+            <div class="sponsor-card r"><span class="logo"></span><span class="sponsor-name">Hatchwell</span></div>
+            <div class="sponsor-card d"><span class="logo"></span><span class="sponsor-name">Verge Books</span></div>
+            <div class="sponsor-card sage c"><span class="logo"></span><span class="sponsor-name">Drift Audio</span></div>
+            <div class="sponsor-card d"><span class="logo"></span><span class="sponsor-name">Slope Studio</span></div>
+          </div>
+        </div>
+
+        <div class="tier-row">
+          <div class="tier-label">Community allies</div>
+          <div class="grid g-4">
+            <div class="ally-tile">Kindling</div>
+            <div class="ally-tile">Plain Tree Co.</div>
+            <div class="ally-tile">Riverbed</div>
+            <div class="ally-tile">Foxglove</div>
+            <div class="ally-tile">Mast &amp; Mortar</div>
+            <div class="ally-tile">Ledger Lane</div>
+            <div class="ally-tile">Quiet Hours</div>
+            <div class="ally-tile">Pebble Shop</div>
+            <div class="ally-tile">Outpost FM</div>
+            <div class="ally-tile">Folio Union</div>
+            <div class="ally-tile">Bramble OSS</div>
+            <div class="ally-tile">Tide Marks</div>
+          </div>
+        </div>
+
+        <div class="card mb-16">
+          <div class="flex between ai-center mb-12">
+            <h3 style="font-family:var(--serif);margin:0;font-size:18px;">Booth directory — Mezzanine Level</h3>
+            <span class="muted small">Updated Sep 16</span>
+          </div>
+          <p class="muted small" style="margin-bottom:8px;">Open during all conference hours. Pick up swag, demos, and the occasional good coffee.</p>
+          <table class="directory">
+            <thead><tr><th>Booth</th><th>Sponsor</th><th>What's there</th><th>Talk</th></tr></thead>
+            <tbody>
+              <tr><td>F-01</td><td>Lumen &amp; Loom</td><td>Live tokens workshop, every hour</td><td><span class="chip chip-coral">Presenting</span></td></tr>
+              <tr><td>F-02</td><td>Northbound Cloud</td><td>Edge deploy a portfolio in 6 minutes</td><td><span class="chip chip-sage">Presenting</span></td></tr>
+              <tr><td>M-08</td><td>Halftone Type</td><td>Free trial licences, type specimen prints</td><td><span class="chip">Forest</span></td></tr>
+              <tr><td>M-09</td><td>Mercator &amp; Co.</td><td>Map &amp; dimensions, sticker swap</td><td><span class="chip">Forest</span></td></tr>
+              <tr><td>M-17</td><td>Pine &amp; Ink</td><td>Portfolio reviews, drop in</td><td><span class="chip">Forest</span></td></tr>
+              <tr><td>P-12</td><td>Foundry Nine</td><td>Hand-recording demos, headphones provided</td><td><span class="chip">Peach</span></td></tr>
+              <tr><td>P-22</td><td>Drift Audio</td><td></td><td><span class="chip">Peach</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card mb-16">
+          <h3 style="font-family:var(--serif);margin:0 0 8px;font-size:18px;">Become a sponsor for 2026</h3>
+          <p class="muted small" style="margin-bottom:8px;">Applications for next year open July 1; here's the structure.</p>
+          <table>
+            <thead><tr><th>Tier</th><th>Investment</th><th>What's included</th><th>Slots</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Presenting</strong></td><td>$80,000</td><td>Headline placement, opening night reception, 6 passes</td><td>2</td></tr>
+              <tr><td><strong>Forest</strong></td><td>$18,000</td><td>Premium booth, lounge naming, 5 passes, attendee gift drop</td><td>8</td></tr>
+              <tr><td><strong>Peach</strong></td><td>$7,500</td><td>Standard booth, 3 passes, program listing</td><td>16</td></tr>
+              <tr><td><strong>Community</strong></td><td>$1,200</td><td>Wall listing, 1 pass, swag table day</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card" style="background:var(--coral-3); border-color:transparent; display:flex; gap:24px;">
+          <div style="flex:1;">
+            <div class="eyebrow">Sponsor with intent</div>
+            <h3 style="font-family:var(--serif);margin:0 0 8px;font-size:20px;">Sponsorship at Ember Vector Works is small by design.</h3>
+            <p style="font-size:13px;">No keynote sales pitches, no logo wallpaper. We cap each tier, write program copy together, and share attendance numbers the week after the event. If that sounds like your kind of partnership, the prospectus is a short read.</p>
+            <div style="display:flex; gap:8px; margin-top:10px;">
+              <button class="btn btn-primary">Request the prospectus</button>
+              <button class="btn btn-ghost">Email the partnerships team</button>
+            </div>
+          </div>
+          <div style="flex:1;">
+            <div class="eyebrow">What partners get</div>
+            <ul style="margin:0; padding-left: 18px; font-size:13px;">
+              <li>A written sponsor brief, co-edited with our editorial team</li>
+              <li>Onsite booth in the Mezzanine, all three days</li>
+              <li>Attendee opt-in lead capture (no scrape)</li>
+              <li>Post-event recap with demographics and feedback quotes</li>
+              <li>Invitation to the sponsor dinner on opening night</li>
+            </ul>
+            <div class="shapes" style="margin-top:10px;">
+              <span class="shape shape-circle bg-coral-2"></span>
+              <span class="shape shape-circle outline-coral"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="aside">
+        <div class="widget">
+          <h4>Featured this morning</h4>
+          <ul class="widget-list">
+            <li><strong>Lumen &amp; Loom</strong><div class="meta">Tokens workshop · every hour</div></li>
+            <li><strong>Northbound Cloud</strong><div class="meta">Edge deploy · 10:15 · Hall A</div></li>
+            <li><strong>Pine &amp; Ink</strong><div class="meta">Pop-ups · 12:00 · Booth M-17</div></li>
+          </ul>
+        </div>
+
+        <div class="widget">
+          <h4>People to meet</h4>
+          <div class="person mb-12"><span class="av av-coral">JE</span><div><div class="person-name">Joles Erikssen</div><div class="meta">Partnerships, Lumen &amp; Loom</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Say hi</button></div>
+          <div class="person mb-12"><span class="av av-sage">MS</span><div><div class="person-name">Mira Sodimas</div><div class="meta">Founder · Pine &amp; Ink</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Say hi</button></div>
+          <div class="person"><span class="av av-olive">TO</span><div><div class="person-name">Theo Okafor</div><div class="meta">Booth, Northbound Cloud</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Say hi</button></div>
+        </div>
+
+        <div class="widget">
+          <h4>Trending on the floor</h4>
+          <ul class="widget-list">
+            <li><strong>#design-tokens</strong><div class="meta">22 mentions</div></li>
+            <li><strong>#edge-deploys</strong><div class="meta">17 mentions</div></li>
+            <li><strong>#small-studios</strong><div class="meta">11 mentions</div></li>
+          </ul>
+        </div>
+
+        <div class="widget">
+          <h4>Sponsor a coffee cart</h4>
+          <p style="font-size:12.5px;">A few add-on spots are open for the Thursday afternoon coffee break. Quick decision, quiet impact.</p>
+          <button class="btn btn-ghost btn-sm">See add-ons</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="#"><span class="dot"></span> Ember Vector Works</a>
+      <p>A three-day gathering for independent designers, developers, and the people who back them. Held in Lisbon, 14–16 October 2025.</p>
+    </div>
+    <div>
+      <h5>Program</h5>
+      <ul>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+        <li><a href="livestream.html">Livestream</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Attend</h5>
+      <ul>
+        <li><a href="registration.html">Register</a></li>
+        <li><a href="my-agenda.html">My agenda</a></li>
+        <li><a href="attendees.html">Attendees</a></li>
+        <li><a href="#">Code of conduct</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Venue &amp; conduct</h5>
+      <ul>
+        <li>Pier 79, San Francisco</li>
+        <li><a href="#">Code of conduct</a></li>
+        <li><a href="#">Accessibility</a></li>
+        <li><a href="#">Mastodon · Bluesky · LinkedIn</a></li>
+      </ul>
+    </div>
+    <div></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Ember Vector Works Cooperative. Built quietly.</span>
+    <span>Presented with Lumen &amp; Loom and Northbound Cloud</span>
+  </div>
+</footer>
+
+</body>
+</html>

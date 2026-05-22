@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="anchor"></span> Beacon Harbor Works</div>
+  <nav class="topnav">
+    <a class="active" href="projects.html">Projects</a>
+    <a href="deploys.html">Deployments</a>
+    <a href="builds.html">Builds</a>
+    <a href="team.html">Team</a>
+    <a href="alerts.html">Alerts</a>
+  </nav>
+  <div class="user-pill"><span class="avatar a8">EH</span> H.LARSEN</div>
+</header>
+
+<div class="crumbs">
+  <a href="#">Harbor</a><span class="sep">/</span><span class="current">Projects</span>
+</div>
+
+<main class="container">
+  <div class="layout">
+    <section>
+      <div class="page-eyebrow">Fleet manifest · 14 services</div>
+      <h1 class="page-title">Projects</h1>
+      <p class="page-intro">Every service shipped under the Harbor org. Status, owner, and last deploy are pulled from the build registry every 90 seconds.</p>
+
+      <div class="actions-row">
+        <button class="btn primary">New project</button>
+        <button class="btn">Import from Git</button>
+        <button class="btn">Manifest CSV</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Operational</div>
+          <div class="value">11<span class="muted" style="font-size:14px;"> / 14</span></div>
+          <div class="sub">3 degraded</div>
+        </div>
+        <div class="stat">
+          <div class="label">Deploys · 24h</div>
+          <div class="value">37</div>
+          <div class="sub">last at 15:42 UTC</div>
+        </div>
+        <div class="stat">
+          <div class="label">Failed builds</div>
+          <div class="value">2</div>
+          <div class="sub">multi-region</div>
+        </div>
+        <div class="stat">
+          <div class="label">P95 deploy time</div>
+          <div class="value">4m 12s</div>
+          <div class="sub">prod median 8m 14s</div>
+        </div>
+      </div>
+
+      <div class="filterbar">
+        <span class="label">Filter</span>
+        <input class="input" placeholder="Search by name, owner, repo…">
+        <select class="select"><option>All environments</option></select>
+        <select class="select"><option>All status</option></select>
+        <button class="btn sm primary">Cards</button>
+        <button class="btn sm">Table</button>
+      </div>
+
+      <!-- Projects: card list -->
+      <div class="project-card red">
+        <div class="topline">
+          <div>
+            <div class="page-eyebrow">Projects · Production</div>
+            <div class="pname">ledger-svc</div>
+          </div>
+          <span class="badge solid-red">FAILING</span>
+        </div>
+        <div class="pdesc">Double-entry ledger and reconciliation engine. Owns the canonical balance tables.</div>
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px;">
+          <div><div class="eyebrow">Last deploy</div><div class="mono">14m ago · failed</div></div>
+          <div><div class="eyebrow">Commit</div><div class="mono">a47fc2</div></div>
+          <div><div class="eyebrow">Owner</div><div class="flex-row"><span class="avatar a4">JR</span><span>J. Rivers</span></div></div>
+          <div><div class="eyebrow">Region</div><div class="mono">eu-west-1</div></div>
+        </div>
+      </div>
+
+      <div class="project-card amber">
+        <div class="topline">
+          <div>
+            <div class="page-eyebrow">Edge · Production</div>
+            <div class="pname">router-gw</div>
+          </div>
+          <span class="badge solid-amber">DEGRADED</span>
+        </div>
+        <div class="pdesc">Public API gateway. TLS termination, rate limits, request signing.</div>
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px;">
+          <div><div class="eyebrow">Last deploy</div><div class="mono">2h 04m ago</div></div>
+          <div><div class="eyebrow">Commit</div><div class="mono">9b3554</div></div>
+          <div><div class="eyebrow">Owner</div><div class="flex-row"><span class="avatar a2">SO</span><span>S. Okafor</span></div></div>
+          <div><div class="eyebrow">Region</div><div class="mono">multi-region</div></div>
+        </div>
+      </div>
+
+      <div class="project-card green">
+        <div class="topline">
+          <div>
+            <div class="page-eyebrow">Identity · Production</div>
+            <div class="pname">harbor-auth</div>
+          </div>
+          <span class="badge solid-green">HEALTHY</span>
+        </div>
+        <div class="pdesc">OIDC provider, session store, and machine token issuance for internal services.</div>
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px;">
+          <div><div class="eyebrow">Last deploy</div><div class="mono">Yesterday · 18:42</div></div>
+          <div><div class="eyebrow">Commit</div><div class="mono">14b44dd</div></div>
+          <div><div class="eyebrow">Owner</div><div class="flex-row"><span class="avatar a3">MK</span><span>M. Kalanen</span></div></div>
+          <div><div class="eyebrow">Region</div><div class="mono">eu-west-1</div></div>
+        </div>
+      </div>
+
+      <div class="project-card green">
+        <div class="topline">
+          <div>
+            <div class="page-eyebrow">Data · Production</div>
+            <div class="pname">manifest-ingest</div>
+          </div>
+          <span class="badge solid-green">HEALTHY</span>
+        </div>
+        <div class="pdesc">Kafka-fed event pipeline writing to the analytics warehouse. Batch + streaming consumers.</div>
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px;">
+          <div><div class="eyebrow">Last deploy</div><div class="mono">38m ago</div></div>
+          <div><div class="eyebrow">Commit</div><div class="mono">7706b11</div></div>
+          <div><div class="eyebrow">Owner</div><div class="flex-row"><span class="avatar a9">AB</span><span>A. Brandt</span></div></div>
+          <div><div class="eyebrow">Region</div><div class="mono">eu-west-3</div></div>
+        </div>
+      </div>
+
+      <div class="project-card green">
+        <div class="topline">
+          <div>
+            <div class="page-eyebrow">Web · Production</div>
+            <div class="pname">dockside-web</div>
+          </div>
+          <span class="badge solid-green">HEALTHY</span>
+        </div>
+        <div class="pdesc">Customer dashboard, billing portal, and the marketing surface served from there.</div>
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px;">
+          <div><div class="eyebrow">Last deploy</div><div class="mono">3h 21m ago</div></div>
+          <div><div class="eyebrow">Commit</div><div class="mono">c032d09</div></div>
+          <div><div class="eyebrow">Owner</div><div class="flex-row"><span class="avatar a1">PH</span><span>P. Healy</span></div></div>
+          <div><div class="eyebrow">Region</div><div class="mono">global · cdn</div></div>
+        </div>
+      </div>
+
+      <div class="project-card green">
+        <div class="topline">
+          <div>
+            <div class="page-eyebrow">Data · Production</div>
+            <div class="pname">tideline-jobs</div>
+          </div>
+          <span class="badge solid-green">HEALTHY</span>
+        </div>
+        <div class="pdesc">Cron and queue runner. Owns periodic reconciliation, retention sweeps, and report emails.</div>
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px;">
+          <div><div class="eyebrow">Last deploy</div><div class="mono">5d ago</div></div>
+          <div><div class="eyebrow">Commit</div><div class="mono">e2d2657</div></div>
+          <div><div class="eyebrow">Owner</div><div class="flex-row"><span class="avatar a6">HT</span><span>H. Tanaka</span></div></div>
+          <div><div class="eyebrow">Region</div><div class="mono">eu-west-1</div></div>
+        </div>
+      </div>
+
+      <!-- Bottom listing as table -->
+      <div class="list-card mt-3">
+        <table class="data">
+          <thead><tr><th>Name</th><th>Env</th><th>Status</th><th>Last deploy</th><th>Commit</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">cargo-export</td><td>Production</td><td><span class="badge green">HEALTHY</span></td><td>14h ago</td><td class="mono">7e2c103</td><td>L. Ferreira</td></tr>
+            <tr><td class="mono">pier-tx</td><td>—</td><td><span class="badge gray">DRAFT</span></td><td>—</td><td class="mono">—</td><td>R. Adler</td></tr>
+            <tr><td class="mono">harbor-billing</td><td>Production</td><td><span class="badge green">HEALTHY</span></td><td>2d ago</td><td class="mono">a2db94</td><td>A. Brandt</td></tr>
+            <tr><td class="mono">signal-relay</td><td>Staging</td><td><span class="badge amber">DEGRADED</span></td><td>4h ago</td><td class="mono">28afc1</td><td>S. Okafor</td></tr>
+            <tr><td class="mono">drydock-docs</td><td>Production</td><td><span class="badge green">HEALTHY</span></td><td>6d ago</td><td class="mono">14ddb1</td><td>P. Healy</td></tr>
+            <tr><td class="mono">moor-harbor</td><td>Production</td><td><span class="badge green">HEALTHY</span></td><td>3h ago</td><td class="mono">b2c2bb</td><td>A. Brandt</td></tr>
+            <tr><td class="mono">archive-prune</td><td>Sandbox</td><td><span class="badge gray">IDLE</span></td><td>22d ago</td><td class="mono">14e2d1</td><td>H. Tanaka</td></tr>
+            <tr><td class="mono">crowbar-api</td><td>Production</td><td><span class="badge green">HEALTHY</span></td><td>4h ago</td><td class="mono">1f8a13</td><td>J. Rivers</td></tr>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <button class="page">‹</button>
+          <button class="page active">1</button>
+          <button class="page">2</button>
+          <button class="page">3</button>
+          <button class="page">›</button>
+          <span class="info">14 of 14 · page 1 of 3</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="side-panel">
+        <h4>Suggested</h4>
+        <div class="title">Pin to your dock</div>
+        <ul>
+          <li><span><span class="dot blue"></span><a class="mono">harbor-auth</a></span><span class="tiny">Pin</span></li>
+          <li><span><span class="dot blue"></span><a class="mono">ledger-svc</a></span><span class="tiny">Pin</span></li>
+          <li><span><span class="dot blue"></span><a class="mono">router-gw</a></span><span class="tiny">Pin</span></li>
+        </ul>
+      </div>
+
+      <div class="side-panel">
+        <h4>Crew online</h4>
+        <div class="title">On watch</div>
+        <div class="row"><span class="avatar a4">JR</span><div><div class="name">Jonas Rivers</div><div class="meta">Primary · 18:42 UTC</div></div></div>
+        <div class="row"><span class="avatar a2">SO</span><div><div class="name">Sade Okafor</div><div class="meta">Tooling</div></div></div>
+        <div class="row"><span class="avatar a9">AB</span><div><div class="name">Anna Brandt</div><div class="meta">Migration</div></div></div>
+        <div class="row"><span class="avatar a6">HT</span><div><div class="name">Hideo Tanaka</div><div class="meta">Offline</div></div></div>
+      </div>
+
+      <div class="side-panel">
+        <h4>Trending repos</h4>
+        <div class="title">Most activity · 7d</div>
+        <ul>
+          <li><a class="mono">ledger-svc</a><span class="mono">+22</span></li>
+          <li><a class="mono">router-gw</a><span class="mono">+14</span></li>
+          <li><a class="mono">dockside-web</a><span class="mono">+11</span></li>
+          <li><a class="mono">manifest-ingest</a><span class="mono">+8</span></li>
+          <li><a class="mono">harbor-auth</a><span class="mono">+5</span></li>
+        </ul>
+      </div>
+
+      <div class="side-panel">
+        <h4>Recent shortcuts</h4>
+        <div class="title">If something gives</div>
+        <div class="side-link-list">
+          <a>Open runbook · ledger-svc</a>
+          <a>Roll back router-gw</a>
+          <a>Page the on-call</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="left">© 2025 Beacon Harbor Works · Registered as Stenholm AS</div>
+  <div class="right">
+    <a>API</a><a>Status</a><a>Changelog</a><a>Docs</a>
+    <a>Projects</a><a>Deployments</a><a>Builds</a><a>Team</a><a>Alerts</a>
+  </div>
+</footer>
+
+</body>
+</html>

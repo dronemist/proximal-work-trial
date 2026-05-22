@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Services — Ember Field</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-light">
+<header class="appbar">
+  <div class="appbar-inner">
+    <a class="brand" href="service-catalog.html">Ember Field<span class="dot">.</span></a>
+    <nav class="appnav">
+      <a href="service-catalog.html" class="is-active">Services</a>
+      <a href="account.html">My Account</a>
+      <a href="notifications.html">Notifications</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="application.html">Apply</a>
+    </nav>
+    <div class="searchbar"><input type="text" placeholder="Search services, forms, or place…" /></div>
+    <div class="appbar-right">
+      <span class="bell">&#9737;</span>
+      <span class="avatar">MR</span>
+      <span class="meta-text">EN</span>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="side-section">
+      <div class="side-label">Services</div>
+      <ul class="side-list">
+        <li><a href="service-catalog.html" class="is-active">Services</a></li>
+        <li><a href="account.html">My Account</a></li>
+        <li><a href="notifications.html">Notifications</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+        <li><a href="application.html">Applications</a></li>
+      </ul>
+    </div>
+    <div class="side-section">
+      <div class="side-label">Service tree</div>
+      <ul class="side-list">
+        <li><a href="#permits" class="is-active">Permits &amp; Licenses</a></li>
+        <li><a href="#">Building permits</a></li>
+        <li><a href="#">Business licenses</a></li>
+        <li><a href="#">Block-party permits</a></li>
+        <li><a href="#housing">Housing &amp; Property</a></li>
+        <li><a href="#">Rental assistance</a></li>
+        <li><a href="#">Property tax appeals</a></li>
+        <li><a href="#">Tenant rights</a></li>
+        <li><a href="#vehicles">Vehicles &amp; Roads</a></li>
+        <li><a href="#records">Records &amp; ID</a></li>
+        <li><a href="#">Civic &amp; Elections</a></li>
+        <li><a href="#">Health &amp; Family</a></li>
+        <li><a href="#">Trash &amp; Utilities</a></li>
+      </ul>
+    </div>
+    <div class="side-section">
+      <div class="side-label">Help</div>
+      <ul class="side-list">
+        <li><a href="#">Visit a service center</a></li>
+        <li><a href="#">Call 311</a></li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="crumbs"><a href="#">Portal</a><span class="sep">›</span><span class="here">Services</span></div>
+
+    <section class="hero">
+      <h1>Every service, in <span class="accent">one place</span>.</h1>
+      <p class="lead">Browse 247 government services from 18 agencies — sorted by what you actually need, not which department handles it. If you can't find it, that's on us, not you.</p>
+      <div class="row text-xs muted" style="gap:14px;"><span><b>247 services</b></span><span><b>18 agencies</b></span><span><b>87 available online</b></span><span>Updated Mar 14, 2025</span></div>
+    </section>
+
+    <div class="card" style="margin-top:14px;">
+      <div class="row" style="gap:10px;">
+        <div class="searchbar" style="flex:1; max-width:none;">
+          <input type="text" value='Try "marriage license," "potholes," or "food assistance"' />
+        </div>
+        <button class="btn btn-primary">Search</button>
+        <button class="btn btn-ghost">Advanced</button>
+      </div>
+      <div class="chips" style="margin-top:10px;">
+        <span class="chip is-active">All categories</span>
+        <span class="chip">Permits &amp; Licenses</span>
+        <span class="chip">Housing &amp; Property</span>
+        <span class="chip">Vehicles &amp; Roads</span>
+        <span class="chip">Records &amp; ID</span>
+        <span class="chip">Health &amp; Family</span>
+        <span class="chip">Civic &amp; Elections</span>
+        <span class="chip">Trash &amp; Utilities</span>
+      </div>
+    </div>
+
+    <h2 class="section">Popular this week</h2>
+    <p class="dim text-sm">Based on what your neighbors are actually clicking on.</p>
+    <div class="pop-cards">
+      <div class="pop-card">
+        <span class="pill pill-green">Online</span>
+        <h4 style="margin:8px 0 6px;">Renew a driver's license</h4>
+        <p class="text-sm dim" style="margin:0 0 8px;">Most renewals take place in under 7 minutes online. You'll need your current address.</p>
+        <div class="text-xs muted">≈ 7 min · DMV</div>
+      </div>
+      <div class="pop-card">
+        <span class="pill pill-green">Online</span>
+        <h4 style="margin:8px 0 6px;">Report a pothole</h4>
+        <p class="text-sm dim" style="margin:0 0 8px;">A photo helps. Crews tend to patch within 5 business days, weather depending.</p>
+        <div class="text-xs muted">≈ 2 min · Public Works</div>
+      </div>
+      <div class="pop-card">
+        <span class="pill">In-person</span>
+        <h4 style="margin:8px 0 6px;">Marriage license</h4>
+        <p class="text-sm dim" style="margin:0 0 8px;">Book a 20-min appointment. Bring an ID, plus a witness if you can.</p>
+        <div class="text-xs muted">≈ 20 min · Clerk's Office</div>
+      </div>
+    </div>
+
+    <div class="callout-banner" style="margin-top:18px;">
+      <h3 class="sub">Rental assistance is open for applications.</h3>
+      <p class="dim text-sm">Households earning under 80% of area median income can apply for up to $4,800 in arrears coverage. Average decision time is 11 days; payments go directly to landlords.</p>
+      <div class="row" style="gap:8px;">
+        <button class="btn btn-primary">Start an application</button>
+        <button class="btn btn-ghost">Read the eligibility rules</button>
+      </div>
+    </div>
+
+    <div class="row-between" style="margin:24px 0 14px;">
+      <h2 class="section" style="margin:0;">Browse by category</h2>
+      <div class="text-xs muted">Showing 1–12 of 247 services &nbsp;|&nbsp; Sort: <b>Most popular</b></div>
+    </div>
+
+    <h3 class="sub" id="permits">Permits &amp; Licenses</h3>
+    <div class="cat-grid">
+      <div class="svc-card">
+        <div class="kicker">Civil · construction</div>
+        <h4>Residential building permit</h4>
+        <p>For additions, decks, sheds, and most interior work over 200 sq ft.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 12 min · Building Bureau</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">Civil · commercial</div>
+        <h4>General business license</h4>
+        <p>Required for any business operating within city limits. Renews annually.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 18 min · Revenue Office</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">Civil · neighborhood</div>
+        <h4>Block-party permit</h4>
+        <p>Close your street to a neighborhood gathering. Apply 14 days ahead.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 5 min · Public Works</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">Food services</div>
+        <h4>Mobile food vendor permit</h4>
+        <p>Trucks, carts, and pop-up stands. Includes a health inspection.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill">In-person</span><span class="meta">≈ 22 min · Health Bureau</span></div>
+      </div>
+    </div>
+
+    <h3 class="sub" id="housing" style="margin-top:22px;">Housing &amp; Property</h3>
+    <div class="cat-grid">
+      <div class="svc-card">
+        <div class="kicker">Emergency</div>
+        <h4>Emergency rental assistance</h4>
+        <p>Up to $4,800 in back rent for income-qualified households facing eviction.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 11 days · Housing Bureau</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">Property tax</div>
+        <h4>Property assessment appeal</h4>
+        <p>Disagree with your 2025 assessed value? You have 30 days from receipt to file.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 25 min · Assessor's Office</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">Civic · enforcement</div>
+        <h4>Report a code violation</h4>
+        <p>Mail, e-mail, broken trees, inspections start within 5 business days.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 4 min · Code Enforcement</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">Tax · exemption</div>
+        <h4>Senior homestead exemption</h4>
+        <p>Property tax reduction for residents 65+ earning under $58,000.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 9 min · Assessor</span></div>
+      </div>
+    </div>
+
+    <h3 class="sub" id="vehicles" style="margin-top:22px;">Vehicles &amp; Roads</h3>
+    <div class="cat-grid">
+      <div class="svc-card">
+        <div class="kicker">DMV · vehicle</div>
+        <h4>Driver's license renewal</h4>
+        <p>Most renewals are fully online if your last in-person visit was within 8 years.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 7 min · DMV</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">DMV · permit</div>
+        <h4>Residential parking pass</h4>
+        <p>Valid in your zone for 12 months. $75/year.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 10 min · DMV</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">Public Works</div>
+        <h4>Report a pothole or street hazard</h4>
+        <p>Photo and location help. Crews are out 5–10 business days, weather depending.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 2 min · Public Works</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">DMV · parking</div>
+        <h4>Contest a parking ticket</h4>
+        <p>Schedule a hearing or submit written evidence within 30 days of issue.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 6 min · DMV</span></div>
+      </div>
+    </div>
+
+    <h3 class="sub" id="records" style="margin-top:22px;">Records &amp; ID</h3>
+    <div class="cat-grid">
+      <div class="svc-card">
+        <div class="kicker">Vital records</div>
+        <h4>Order a birth certificate</h4>
+        <p>Certified copy, mailed in 7–10 business days. Rush option available.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 5 min · Vital Records</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">Vital records</div>
+        <h4>Marriage license</h4>
+        <p>Both parties must appear together. Valid for 90 days from issue.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill">In-person</span><span class="meta">≈ 20 min · Clerk's Office</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">Voter services</div>
+        <h4>Register to vote</h4>
+        <p>Or update your address. Deadline is 21 days before each election.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill pill-green">Online</span><span class="meta">≈ 3 min · Elections</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="kicker">Identification</div>
+        <h4>State ID card (non-driver)</h4>
+        <p>For residents who don't drive. Bring documents on the day.</p>
+        <div class="row" style="justify-content:space-between;"><span class="pill">In-person</span><span class="meta">≈ 30 min · DMV</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="text-align:center; margin-top:24px;">
+      <b>Looking for something we didn't list?</b>
+      <p class="muted text-sm" style="margin:4px 0 10px;">Type a few more words, or call 311. A real person will figure out what's a fit and route you there.</p>
+      <div class="row" style="justify-content:center; gap:8px;"><button class="btn btn-ghost">Try another search</button><button class="btn btn-primary">Talk to a clerk</button></div>
+    </div>
+
+    <div class="row" style="justify-content:center; gap:6px; margin:18px 0;">
+      <button class="btn btn-ghost btn-sm">‹</button>
+      <button class="btn btn-primary btn-sm">1</button>
+      <button class="btn btn-ghost btn-sm">2</button>
+      <button class="btn btn-ghost btn-sm">3</button>
+      <button class="btn btn-ghost btn-sm">4</button>
+      <button class="btn btn-ghost btn-sm">›</button>
+    </div>
+
+    <h2 class="section">Browse by agency</h2>
+    <p class="dim text-sm">If you already know which department handles your thing, start here.</p>
+    <div class="cat-grid">
+      <div class="svc-card row-between"><span>Department of Buildings</span><span class="text-xs muted">34 services</span></div>
+      <div class="svc-card row-between"><span>Housing &amp; Community Dev.</span><span class="text-xs muted">21 services</span></div>
+      <div class="svc-card row-between"><span>Department of Transportation</span><span class="text-xs muted">28 services</span></div>
+      <div class="svc-card row-between"><span>Public Records Office</span><span class="text-xs muted">12 services</span></div>
+      <div class="svc-card row-between"><span>Health &amp; Human Services</span><span class="text-xs muted">19 services</span></div>
+      <div class="svc-card row-between"><span>Office of the Comptroller</span><span class="text-xs muted">9 services</span></div>
+      <div class="svc-card row-between"><span>Police &amp; Emergency Services</span><span class="text-xs muted">16 services</span></div>
+      <div class="svc-card row-between"><span>Office of Elections</span><span class="text-xs muted">8 services</span></div>
+      <div class="svc-card row-between"><span>Sanitation Department</span><span class="text-xs muted">10 services</span></div>
+      <div class="svc-card row-between"><span>Office of Small Business</span><span class="text-xs muted">11 services</span></div>
+    </div>
+
+    <h2 class="section">Still stuck? Here's a human.</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4 class="sub">Call 311</h4>
+        <p class="text-sm dim">Weekdays 7am-7pm. Saturdays 9am-1pm. Holidays closed.</p>
+        <div style="font-size:18px; font-weight:700;">311 · (555) 311-0000</div>
+        <button class="btn btn-ghost btn-sm" style="margin-top:8px;">Find the nearest one</button>
+      </div>
+      <div class="card">
+        <h4 class="sub">Visit a service center</h4>
+        <p class="text-sm dim">Six locations across the city. Most accept walk-ins until 4 PM.</p>
+        <button class="btn btn-ghost btn-sm">Find the nearest one</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><b>Ember Field Systems</b> · An official portal of the City &amp; County government</div>
+    <nav class="footer-links">
+      <a href="service-catalog.html">Services</a>
+      <a href="account.html">Account</a>
+      <a href="notifications.html">Notifications</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="application.html">Apply</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="footer-right">Last updated 2025-03-14 · 09:31 PT · EN</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,178 @@
+[grade] VLM judge: 15 pairs in 13.8s
+{
+  "per_page_viewport": {
+    "account-overview": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6846302801009871,
+          "extra": {
+            "reference_size": [
+              1440,
+              1684
+            ],
+            "candidate_size": [
+              1440,
+              1376
+            ],
+            "compared_size": [
+              1440,
+              1376
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4295332133769989,
+          "extra": {
+            "reference_blocks": 284,
+            "candidate_blocks": 237,
+            "matched_pairs": 237,
+            "mean_matched_iou": 0.18449881672859192,
+            "raw_score_before_sqrt": 0.18449877202510834
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6977242770460232,
+          "extra": {
+            "reference_blocks": 284,
+            "candidate_blocks": 237,
+            "matched_pairs": 237,
+            "mean_normalized_centroid_distance": 0.3022757229539768,
+            "page_diagonal_px": 2215.9548648685886
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7573264619509379,
+          "extra": {
+            "bg_score": 0.8412455120086669,
+            "fg_score": 0.6734074118932087,
+            "bg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 10,
+              "weighted_mean_oklab_distance": 0.01941317319869995,
+              "base_score_before_penalty": 0.8705788453420003,
+              "over_color_penalty": 0.029333333333333336
+            },
+            "fg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.04778888821601868,
+              "base_score_before_penalty": 0.6814074118932087,
+              "over_color_penalty": 0.00799999999999999
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.5074668589945945,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.5106669414208493,
+            "reference_buckets": [
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.3380281690140845
+              ],
+              [
+                15.0,
+                0.6126760563380281
+              ],
+              [
+                22.0,
+                0.02464788732394366
+              ],
+              [
+                32.0,
+                0.017605633802816902
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.04219409282700422
+              ],
+              [
+                10.5,
+                0.04219409282700422
+              ],
+              [
+                11.0,
+                0.12236286919831224
+              ],
+              [
+                11.5,
+                0.12236286919831224
+              ],
+              [
+                12.0,
+                0.24050632911392406
+              ],
+              [
+                12.5,
+                0.03375527426160337
+              ],
+              [
+                13.0,
+                0.31645569620253167
+              ],
+              [
+                16.0,
+                0.0379746835443038
+              ],
+              [
+                22.0,
+                0.02109704641350211
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.7398568019093079,
+          "extra": {
+            "reference_tokens": 368,
+            "candidate_tokens": 361,
+            "matched_tokens": 310,
+            "union_tokens": 419,
+            "reference_unique": 218,
+            "candidate_unique": 217
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple content fabrications throughout: wrong account numbers (4173 vs 4471, 8821 vs 0218, 0093 vs 9920, 5536 vs 1182), wrong payroll company name ('Ladine & Co.' vs 

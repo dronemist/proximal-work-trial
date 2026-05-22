@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guest Messages — Sable Echo Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.msg-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 300px;
+  gap: 16px;
+  margin-top: 14px;
+}
+@media (max-width: 1024px) {
+  .msg-layout { grid-template-columns: 240px 1fr 260px; gap: 12px; }
+}
+@media (max-width: 900px) {
+  .msg-layout { grid-template-columns: 1fr; }
+}
+.thread-list {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.thread-item {
+  display: block;
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  border-left: 3px solid transparent;
+}
+.thread-item:last-child { border-bottom: none; }
+.thread-item.active {
+  border-left-color: var(--gold);
+  background: var(--card-2);
+}
+.thread-item .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+.thread-item .name { font-weight: 600; font-size: 13px; }
+.thread-item .time { font-size: 10px; color: var(--muted); }
+.thread-item .meta { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+.thread-item .preview {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.45;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.thread-item .tags { margin-top: 6px; display: flex; gap: 4px; flex-wrap: wrap; }
+.thread-item .tag { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 6px; border: 1px solid var(--border-2); border-radius: 2px; color: var(--muted); }
+.thread-item .tag.gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+
+.conv {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.conv-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+}
+.conv-header .row1 { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.conv-header .name { font-size: 17px; font-family: Georgia, serif; font-weight: 600; }
+.conv-header .sub { font-size: 11px; color: var(--muted); }
+.conv-header .pills { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.conv-header .pill { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; }
+.conv-meta {
+  display: flex;
+  gap: 22px;
+  font-size: 11px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+.conv-meta .k { color: var(--muted); }
+.conv-meta .v { color: var(--ink-2); font-weight: 600; margin-left: 6px; }
+
+.conv-body { padding: 18px 22px; flex: 1; }
+.day-sep { text-align: center; color: var(--muted); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; margin: 18px 0 14px; position: relative; }
+.day-sep::before, .day-sep::after { content: ""; position: absolute; top: 50%; width: 38%; height: 1px; background: var(--border); }
+.day-sep::before { left: 0; }
+.day-sep::after { right: 0; }
+.bubble {
+  max-width: 78%;
+  padding: 11px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 4px;
+}
+.bubble.guest {
+  background: #f4ecd6;
+  margin-right: auto;
+}
+.bubble.host {
+  background: var(--ink);
+  color: #fff;
+  margin-left: auto;
+}
+.bubble .when {
+  display: block;
+  font-size: 10px;
+  color: rgba(255,255,255,0.65);
+  margin-top: 4px;
+}
+.bubble.guest .when { color: var(--muted); }
+.msg-block { margin-bottom: 14px; display: flex; flex-direction: column; }
+.msg-block.host { align-items: flex-end; }
+
+.reply-area { border-top: 1px solid var(--border); padding: 14px 22px 18px; }
+.reply-area textarea {
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid var(--border);
+  background: var(--card-2);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  border-radius: 3px;
+  resize: vertical;
+}
+.reply-chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+.chip {
+  font-size: 11px;
+  color: var(--ink-2);
+  padding: 5px 10px;
+  border: 1px solid var(--border-2);
+  border-radius: 999px;
+  background: var(--card);
+}
+.reply-foot { display: flex; gap: 10px; justify-content: space-between; align-items: center; margin-top: 8px; }
+.reply-foot .left { font-size: 11px; color: var(--muted); }
+.reply-foot .actions { display: flex; gap: 8px; }
+
+.dossier {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 18px;
+  font-size: 12.5px;
+}
+.dossier h4 {
+  font-size: 16px;
+  margin: 0 0 4px;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+.dossier .sub { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+.dossier .underline { width: 60px; height: 2px; background: var(--gold); margin: 10px 0 14px; }
+.dossier .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 12px;
+  border-bottom: 1px dashed var(--border);
+}
+.dossier .row:last-child { border-bottom: none; }
+.dossier .row .k { color: var(--muted); }
+.dossier .row .v { color: var(--ink-2); font-weight: 500; }
+.dossier .section-h {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 18px 0 6px;
+}
+.dossier .total {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+  font-weight: 600;
+}
+.dossier .total .v { color: var(--gold-3); }
+.note {
+  background: var(--card-2);
+  padding: 10px 12px;
+  border-left: 2px solid var(--gold);
+  font-size: 12px;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+}
+.note .by { font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+/* image cards row */
+.image-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+.image-trio .ic .illus { aspect-ratio: 4 / 3; }
+.image-trio .ic .cap { font-size: 11px; color: var(--muted); padding: 8px 0; line-height: 1.5; }
+.image-trio .ic .cap b { color: var(--ink); font-weight: 600; font-family: Georgia, serif; font-size: 12px; display: block; margin-bottom: 2px; }
+@media (max-width: 700px) { .image-trio { grid-template-columns: 1fr; } }
+
+.tbl-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 8px 16px; }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a class="brand">Sable Echo. <span>Studio</span></a>
+    <nav class="primary-nav">
+      <a>Properties</a>
+      <a>Property</a>
+      <a class="active">Guest Messages</a>
+      <a>Rates &amp; Availability</a>
+      <a>Reports</a>
+    </nav>
+    <a class="cta">Compose</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="eyebrow">CORRESPONDENCE <span class="sep">—</span> FOLIO No. 41</div>
+    <h1 class="title">The guest, in their own words.</h1>
+    <p class="lede">Every enquiry, confirmation and quiet thank-you, gathered into a single reading room. Reply with the calm of an innkeeper who has all the time in the world — because, here, you do.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="label">Guests</div>
+        <div class="num">7</div>
+        <div class="sub">across 4 properties</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Awaiting Reply</div>
+        <div class="num">12</div>
+        <div class="sub">2 over 6 hours</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Response Time</div>
+        <div class="num">41 <span style="font-size:14px;color:var(--muted)">min</span></div>
+        <div class="sub">12 min faster than June</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Resolution Rate</div>
+        <div class="num">96<span style="font-size:18px">%</span></div>
+        <div class="sub">last thirty days</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="filter-row">
+      <input class="input" placeholder="Search by guest, property, or reservation number">
+      <select class="select"><option>All properties</option></select>
+      <button class="btn ghost small">Filters</button>
+    </div>
+
+    <div class="tabs">
+      <a class="active">Inbox</a>
+      <a>Awaiting Reply</a>
+      <a>Pre-arrival</a>
+      <a>In-house</a>
+      <a>Archived</a>
+      <a>Flagged</a>
+    </div>
+
+    <div class="msg-layout">
+
+      <!-- Thread list -->
+      <div class="thread-list">
+        <a class="thread-item active">
+          <div class="top">
+            <span class="name">Elena Marchetti</span>
+            <span class="time">10:42</span>
+          </div>
+          <div class="meta">A late check-in on Friday — in the wide gate dis…</div>
+          <div class="tags">
+            <span class="tag gold">Awaiting</span>
+            <span class="tag">Pre-arrival</span>
+          </div>
+        </a>
+        <a class="thread-item">
+          <div class="top"><span class="name">Jonas Thelin</span><span class="time">yesterday</span></div>
+          <div class="meta">Thank you for the kind welcome note — the win…</div>
+          <div class="tags">
+            <span class="tag">Replied</span>
+            <span class="tag">Archive list</span>
+          </div>
+        </a>
+        <a class="thread-item">
+          <div class="top"><span class="name">Priya Raman</span><span class="time">Tuesday</span></div>
+          <div class="meta">Would the studio be available for an additional ni…</div>
+          <div class="tags">
+            <span class="tag gold">Awaiting</span>
+          </div>
+        </a>
+        <a class="thread-item">
+          <div class="top"><span class="name">Henrik Kappel</span><span class="time">Tuesday</span></div>
+          <div class="meta">The Norgesvei machine seems to be a willing s…</div>
+          <div class="tags"><span class="tag">Replied</span></div>
+        </a>
+        <a class="thread-item">
+          <div class="top"><span class="name">Sigrid Tisberg</span><span class="time">Monday</span></div>
+          <div class="meta">Confirming our arrival window for the long week…</div>
+          <div class="tags"><span class="tag">Pre-arrival</span></div>
+        </a>
+        <a class="thread-item">
+          <div class="top"><span class="name">Anders Coelho</span><span class="time">12 May</span></div>
+          <div class="meta">We've left the keys in the bottled jar &amp; t…</div>
+          <div class="tags"><span class="tag">Resolved</span></div>
+        </a>
+        <a class="thread-item">
+          <div class="top"><span class="name">Margot Fournier</span><span class="time">10 May</span></div>
+          <div class="meta">A small thank you, but it leaves room for a peace…</div>
+          <div class="tags"><span class="tag">Resolved</span></div>
+        </a>
+        <a class="thread-item">
+          <div class="top"><span class="name">Yuki Nakamura</span><span class="time">7 May</span></div>
+          <div class="meta">A late afternoon coffee on the verandah, on the t…</div>
+          <div class="tags"><span class="tag">Resolved</span></div>
+        </a>
+      </div>
+
+      <!-- Active conversation -->
+      <div class="conv">
+        <div class="conv-header">
+          <div class="row1">
+            <div class="avatar lg">EM</div>
+            <div>
+              <div class="name">Elena Marchetti</div>
+              <div class="sub">Verified guest since 2022 · 4 prior stays</div>
+            </div>
+          </div>
+          <div class="pills">
+            <span class="pill gold">Pre-arrival</span>
+            <span class="pill">Awaiting Reply</span>
+            <span class="pill">Flag</span>
+          </div>
+          <div class="conv-meta">
+            <div><span class="k">RESERVATION</span><span class="v">SE-44392</span></div>
+            <div><span class="k">PROPERTY</span><span class="v">Maison Verre, Antibes</span></div>
+            <div><span class="k">CHECK-IN</span><span class="v">17 — 22 May 2025</span></div>
+            <div><span class="k">GUESTS</span><span class="v">2 adults</span></div>
+            <div><span class="k">VALUE</span><span class="v gold">€1,840</span></div>
+          </div>
+        </div>
+
+        <div class="conv-body">
+          <div class="day-sep">Tuesday, 14 May</div>
+
+          <div class="msg-block">
+            <div class="bubble guest">
+              Good morning, Elena. Your reservation at Maison Verre is confirmed for the seventeenth. I've added the citrus orchard view you mentioned last June — the same room as before. Anything else I should prepare?
+              <span class="when">9:18 · sent</span>
+            </div>
+          </div>
+
+          <div class="msg-block host">
+            <div class="bubble host">
+              Thank you, that's wonderful. One question — our flight lands at Nice at 22.40, so we'll likely reach the house close to midnight. Will the wide gate code still work at that hour, or should I ring you?
+              <span class="when">9:46</span>
+            </div>
+          </div>
+
+          <div class="day-sep">Wednesday, 15 May</div>
+
+          <div class="msg-block">
+            <div class="bubble guest">
+              Not to worry, the gate code is active around the clock. I'll leave the courtyard lantern on and a light supper — olives, bread, the local rosé — on the marble counter. Drive safely.
+              <span class="when">7:54 · sent</span>
+            </div>
+          </div>
+
+          <div class="msg-block host">
+            <div class="bubble host">
+              A late check-in on Friday — in the wide gate still the easier entrance, or should we use the front door? Also I would like to possibly add a bottle of the Bandol you served last time? We'd happily pay for it directly.
+              <span class="when">22:18</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reply-area">
+          <div class="field-label">Your reply</div>
+          <textarea>Of course — the Bandol will be waiting, alongside two glasses. The wide gate is best at that hour; the main door bell tends to echo into the neighbouring courtyard. Travel well.</textarea>
+          <div class="reply-chips">
+            <span class="chip">+ Insert · check-in details</span>
+            <span class="chip">+ Insert · house manual</span>
+            <span class="chip">+ Insert · directions</span>
+            <span class="chip">+ Saved replies ▾</span>
+          </div>
+          <div class="reply-foot">
+            <div class="left">Signed as Camille Aubrun, Host · Auto-translate <b>off</b></div>
+            <div class="actions">
+              <button class="btn ghost small">Save draft</button>
+              <button class="btn small">Send reply</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dossier -->
+      <div class="dossier">
+        <div class="section-h">Guest Dossier</div>
+        <h4>Elena Marchetti</h4>
+        <div class="sub">A returning guest who travels with her husband Alessandro. Prefers quiet arrivals, ground-floor rooms, and a small plate of fruit in the morning. Speaks Italian and French.</div>
+        <div class="underline"></div>
+        <div class="row"><span class="k">Member since</span><span class="v">March 2022</span></div>
+        <div class="row"><span class="k">Total nights</span><span class="v">27</span></div>
+        <div class="row"><span class="k">Lifetime value</span><span class="v">€7,420</span></div>
+        <div class="row"><span class="k">Avg. review</span><span class="v">★ 4.9</span></div>
+        <div class="row"><span class="k">Cancellations</span><span class="v">0</span></div>
+
+        <div class="section-h">This Reservation</div>
+        <div class="underline"></div>
+        <div class="row"><span class="k">Confirmation</span><span class="v">SE-44392</span></div>
+        <div class="row"><span class="k">Check-in</span><span class="v">Fri 17 May · 22:00</span></div>
+        <div class="row"><span class="k">Check-out</span><span class="v">Tue 22 May · 11:00</span></div>
+        <div class="row"><span class="k">Nightly rate</span><span class="v">€368</span></div>
+        <div class="row"><span class="k">Cleaning</span><span class="v">€95</span></div>
+        <div class="row"><span class="k">City tax</span><span class="v">€21</span></div>
+        <div class="total"><span>Total</span><span class="v">€1,840.00</span></div>
+        <button class="btn ghost small block" style="margin-top:12px;">Open reservation</button>
+
+        <div class="section-h">Internal Notes</div>
+        <div class="underline"></div>
+        <div class="note">
+          "Elena was thrilled with the orchard view in June — she lingered there each morning with a book. Worth recreating."
+          <div class="by">— Camille, 12 May 2025</div>
+        </div>
+        <div class="note">
+          "Allergy : Hazelnuts. Confirmed with everyone in the kitchen — no surprises."
+          <div class="by">— Camille, 14 May 2025</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="image-trio">
+      <div class="ic">
+        <div class="illus" style="background:linear-gradient(135deg,#d6c39b,#bca57a);position:relative;overflow:hidden;">
+          <div style="position:absolute;left:18%;top:38%;width:62%;height:30%;background:#f0e7cf;border:1px solid #b89a64;"></div>
+          <div style="position:absolute;left:32%;top:52%;width:18px;height:18px;background:var(--gold);border-radius:50%;"></div>
+        </div>
+        <div class="cap"><b>On the first reply.</b> A guest's enquiry is a doorway, however slim. Answer it in the voice you'd use at the threshold itself.</div>
+      </div>
+      <div class="ic">
+        <div class="illus dark-image"></div>
+        <div class="cap"><b>On the small ask.</b> A bottle of Bandol, a baker open on a Sunday — small mercies, kindly arranged, are how a house begins to remember its guests.</div>
+      </div>
+      <div class="ic">
+        <div class="illus" style="background:#cdbf9d;position:relative;overflow:hidden;">
+          <div style="position:absolute;left:42%;top:8%;width:6%;height:84%;background:var(--ink);"></div>
+          <div style="position:absolute;left:48%;top:14%;width:30%;height:62%;background:#f0e7cf;border:1px solid var(--ink);"></div>
+        </div>
+        <div class="cap"><b>On the late afternoon.</b> Not every message wants a reply. A read receipt and a lantern at midnight will speak for themselves.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">VOLUME BY PROPERTY <span class="sep">—</span> LAST 30 DAYS</div>
+    <h2 class="section-title">Where the conversation gathers.</h2>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th class="num-col">Enquiries</th>
+            <th class="num-col">Avg. response</th>
+            <th>Median length</th>
+            <th>Sentiment</th>
+            <th class="num-col">Open</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Maison Verre, Antibes</td>
+            <td class="num-col">38</td>
+            <td class="num-col">32 min</td>
+            <td>6 messages</td>
+            <td><span class="pill green">Warm</span></td>
+            <td class="num-col">2</td>
+          </tr>
+          <tr>
+            <td>The Aviary Loft, Brooklyn</td>
+            <td class="num-col">29</td>
+            <td class="num-col">28 min</td>
+            <td>4 messages</td>
+            <td><span class="pill green">Warm</span></td>
+            <td class="num-col">3</td>
+          </tr>
+          <tr>
+            <td>Casa Lente, Lisbon</td>
+            <td class="num-col">22</td>
+            <td class="num-col">51 min</td>
+            <td>5 messages</td>
+            <td><span class="pill muted">Neutral</span></td>
+            <td class="num-col">4</td>
+          </tr>
+          <tr>
+            <td>Cap Ferret Cabin</td>
+            <td class="num-col">19</td>
+            <td class="num-col">44 min</td>
+            <td>4 messages</td>
+            <td><span class="pill green">Warm</span></td>
+            <td class="num-col">1</td>
+          </tr>
+          <tr>
+            <td>Atelier Nord, Copenhagen</td>
+            <td class="num-col">14</td>
+            <td class="num-col">1 h 02 min</td>
+            <td>5 messages</td>
+            <td><span class="pill muted">Quiet</span></td>
+            <td class="num-col">2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <h4>Sable Echo. Studio</h4>
+      <p>A booking platform for hosts who treat their houses like quiet exhibitions — and their guests like the makers of a careful letter.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Most resources</h5>
+      <a>Properties</a>
+      <a>Rates &amp; Availability</a>
+      <a>Guest Messages</a>
+      <a>Reports</a>
+    </div>
+    <div class="footer-col">
+      <h5>Studio</h5>
+      <a>Editorial</a>
+      <a>Contact</a>
+      <a>Terms &amp; Privacy</a>
+      <a>Instagram, but quiet</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">© 2025 Sable Echo Studio. Composed in ivory and linen. All correspondence is held in confidence between host and guest.</div>
+</footer>
+
+</body>
+</html>

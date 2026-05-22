@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deployments — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="anchor"></span> Beacon Harbor Works</div>
+  <nav class="topnav">
+    <a href="projects.html">Projects</a>
+    <a class="active" href="deploys.html">Deployments</a>
+    <a href="builds.html">Builds</a>
+    <a href="team.html">Team</a>
+    <a href="alerts.html">Alerts</a>
+  </nav>
+  <div class="user-pill"><span class="avatar a2">A</span> A.CARRER</div>
+</header>
+
+<div class="crumbs">
+  <a href="#">Harbor</a><span class="sep">/</span><span class="current">Deployments</span>
+</div>
+
+<main class="container">
+  <div class="layout">
+    <section>
+      <div class="page-eyebrow">Manifest · Last 7 days</div>
+      <h1 class="page-title">Deployments</h1>
+      <p class="page-intro">A chronological record of every release shipped to a Beacon Harbor environment. Sorted by environment, newest first. All times in UTC.</p>
+
+      <div class="actions-row">
+        <button class="btn primary">Deploy to environment</button>
+        <button class="btn">Export manifest</button>
+        <button class="btn ghost">View dev log</button>
+      </div>
+
+      <div class="card">
+        <div class="card-body" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+          <div>
+            <span class="dot blue"></span>
+            <strong>In progress:</strong>
+            <span class="mono">harbor-api</span> rolling out to <strong>production</strong> · canary at 25% · started 00:04 ago.
+          </div>
+          <a href="#" class="tiny">View build log →</a>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Deploys 7d</div>
+          <div class="value">142</div>
+          <div class="sub">21 prod · 121 other</div>
+        </div>
+        <div class="stat">
+          <div class="label">Success rate</div>
+          <div class="value">96.4%</div>
+          <div class="sub">5 rollbacks</div>
+        </div>
+        <div class="stat">
+          <div class="label">Median duration</div>
+          <div class="value">4m 21s</div>
+          <div class="sub">prod median 8m 14s</div>
+        </div>
+        <div class="stat">
+          <div class="label">Lead time</div>
+          <div class="value">1h 47m</div>
+          <div class="sub">commit → prod</div>
+        </div>
+      </div>
+
+      <div class="filterbar">
+        <span class="label">Filter</span>
+        <select class="select"><option>All environments</option></select>
+        <select class="select"><option>Production</option></select>
+        <select class="select"><option>Staging</option></select>
+        <select class="select"><option>Preview</option></select>
+        <span class="space"></span>
+        <a href="#" class="tiny">Reset filters</a>
+      </div>
+
+      <!-- Production -->
+      <div class="deploy-section">
+        <h3><span>▸ Production</span><span class="meta">21 deploys · 5 rollbacks</span></h3>
+
+        <div class="deploy-row">
+          <div class="time">15:42 UTC<br>20m ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-blue">IN PROGRESS</span><span class="badge gray">CANARY 25%</span><span class="mono">v3.18.4-fix-rate-limit</span> — Routes A/B for prod tracing query</div>
+            <div class="meta">Triggered by <strong>k.osterborg</strong> from main · merge of PR #2962</div>
+            <div class="kvgrid">
+              <div><div class="k">Service</div><div class="v mono">harbor-api</div></div>
+              <div><div class="k">Commit</div><div class="v mono">8e2a7c1</div></div>
+              <div><div class="k">Region</div><div class="v mono">eu-west-1</div></div>
+              <div><div class="k">Duration</div><div class="v mono">00:04</div></div>
+            </div>
+          </div>
+          <div class="pillset" style="flex-direction:column; align-items:flex-end;">
+            <span class="badge blue">CANARY</span>
+          </div>
+        </div>
+
+        <div class="deploy-row">
+          <div class="time">14:55 UTC<br>1h ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-red">ROLLED BACK</span><span class="mono">v3.18.3</span> — Manifest export, missing filter v2</div>
+            <div class="meta">Triggered by <strong>m.northrop</strong> · 28m running time</div>
+            <div class="kvgrid">
+              <div><div class="k">Service</div><div class="v mono">harbor-api</div></div>
+              <div><div class="k">Commit</div><div class="v mono">b21d913</div></div>
+              <div><div class="k">Region</div><div class="v mono">us-east-1</div></div>
+              <div><div class="k">Duration</div><div class="v mono">28:11</div></div>
+            </div>
+          </div>
+          <div class="pillset" style="flex-direction:column; align-items:flex-end;">
+            <span class="badge red">ROLLED BACK</span>
+          </div>
+        </div>
+
+        <div class="deploy-row">
+          <div class="time">12:10 UTC<br>4h ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-green">SUCCEEDED</span><span class="mono">v0.22.1</span> — Webhook retry backoff</div>
+            <div class="meta">Auto-rolled after canary tag exceeded threshold at 09:18, throttled to (none).</div>
+            <div class="kvgrid">
+              <div><div class="k">Service</div><div class="v mono">signal-worker</div></div>
+              <div><div class="k">Commit</div><div class="v mono">7a2cf01</div></div>
+              <div><div class="k">Region</div><div class="v mono">eu-west-1, eu-west-2</div></div>
+              <div><div class="k">Duration</div><div class="v mono">06:14</div></div>
+            </div>
+          </div>
+          <div class="pillset" style="flex-direction:column; align-items:flex-end;">
+            <span class="badge green">OK</span>
+          </div>
+        </div>
+
+        <div class="deploy-row">
+          <div class="time">11:48 UTC<br>4h ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-green">SUCCEEDED</span><span class="mono">v1.4.1</span> — Config flag for shrub view query</div>
+            <div class="meta">Triggered by <strong>m.northrop</strong> · scheduled window</div>
+          </div>
+          <div></div>
+        </div>
+
+        <div class="deploy-row">
+          <div class="time">10:33 UTC<br>5h ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-green">SUCCEEDED</span><span class="mono">v2.5.3</span> — Tweener pin to flag</div>
+            <div class="meta">Triggered by <strong>l.yango</strong> · 2m 06s · tagged release</div>
+          </div>
+          <div></div>
+        </div>
+      </div>
+
+      <!-- Staging -->
+      <div class="deploy-section">
+        <h3><span>▸ Staging</span><span class="meta">54 deploys · 0 rollbacks</span></h3>
+
+        <div class="deploy-row">
+          <div class="time">15:21 UTC<br>40m ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-green">SUCCEEDED</span><span class="mono">v3.19.0-rc.1</span> — Pre-flight pagination cursor</div>
+            <div class="meta">Triggered by <strong>k.osterborg</strong> · 0m staging duration · PR #2962</div>
+          </div>
+          <div></div>
+        </div>
+
+        <div class="deploy-row">
+          <div class="time">14:45 UTC<br>1h ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-green">SUCCEEDED</span><span class="mono">v0.22.2-canary</span> — Compact deploy timeline</div>
+            <div class="meta">Triggered by <strong>p.danforth</strong> · 4m 16s</div>
+          </div>
+          <div></div>
+        </div>
+
+        <div class="deploy-row">
+          <div class="time">13:54 UTC<br>2h ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-amber">REVIEW PENDING</span><span class="mono">v3.19.0-rc.0</span> — Migration design without ledger</div>
+            <div class="meta">Migration step: blobtests, queue tracker T-001 to handle</div>
+          </div>
+          <div></div>
+        </div>
+
+        <div class="deploy-row">
+          <div class="time">12:10 UTC<br>3h ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-green">SUCCEEDED</span><span class="mono">v3.18.5</span> — auto-bot · nightly</div>
+            <div class="meta">Triggered by <strong>auto-bot</strong></div>
+          </div>
+          <div></div>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="deploy-section">
+        <h3><span>▸ Preview</span><span class="meta">68 deploys</span></h3>
+
+        <div class="deploy-row">
+          <div class="time">15:38 UTC<br>22m ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-green">SUCCEEDED</span><span class="mono">pr-973</span> — Right rail rocker reorders</div>
+            <div class="meta">Triggered by <strong>e.lindqvist</strong> · 1m 02s</div>
+          </div>
+          <div></div>
+        </div>
+
+        <div class="deploy-row">
+          <div class="time">15:21 UTC<br>40m ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-green">SUCCEEDED</span><span class="mono">pr-970</span> — Show app's hero responses</div>
+            <div class="meta">Triggered by <strong>k.osterborg</strong> · 0m 58s</div>
+          </div>
+          <div></div>
+        </div>
+
+        <div class="deploy-row">
+          <div class="time">14:38 UTC<br>1h ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-amber">WAITING</span><span class="mono">pr-979</span> — Build · on-call flag</div>
+            <div class="meta">Waiting on build #4422 · paused 4m</div>
+          </div>
+          <div></div>
+        </div>
+
+        <div class="deploy-row">
+          <div class="time">13:48 UTC<br>2h ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-green">SUCCEEDED</span><span class="mono">pr-fed8x</span> — no canary flag</div>
+            <div class="meta">Waiting in build #4421 · paused 12m</div>
+          </div>
+          <div></div>
+        </div>
+
+        <div class="deploy-row">
+          <div class="time">13:01 UTC<br>2h ago</div>
+          <div>
+            <div class="title-line"><span class="badge solid-green">SUCCEEDED</span><span class="mono">a.holtby</span></div>
+            <div class="meta">Triggered by <strong>a.holtby</strong></div>
+          </div>
+          <div></div>
+        </div>
+      </div>
+
+      <div class="pagination" style="border-top:none; padding-left:0; background:transparent;">
+        <button class="page">‹</button>
+        <button class="page active">1</button>
+        <button class="page">2</button>
+        <button class="page">3</button>
+        <button class="page">4</button>
+        <button class="page">5</button>
+        <button class="page">…</button>
+        <button class="page">›</button>
+        <span class="info">Showing 1 of 24</span>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="side-panel">
+        <h4>Deploy frequency</h4>
+        <div class="title">Past 14 days</div>
+        <div style="padding: 0 14px;">
+          <div class="bars" style="height:60px;">
+            <div class="bar" style="height:30%"></div>
+            <div class="bar" style="height:60%"></div>
+            <div class="bar" style="height:45%"></div>
+            <div class="bar" style="height:80%"></div>
+            <div class="bar" style="height:70%"></div>
+            <div class="bar" style="height:35%"></div>
+            <div class="bar" style="height:20%"></div>
+            <div class="bar" style="height:55%"></div>
+            <div class="bar" style="height:65%"></div>
+            <div class="bar" style="height:90%"></div>
+            <div class="bar" style="height:75%"></div>
+            <div class="bar" style="height:50%"></div>
+            <div class="bar" style="height:60%"></div>
+            <div class="bar" style="height:85%"></div>
+          </div>
+          <div class="legend"><span>Prod</span><span class="muted">Staging</span></div>
+        </div>
+      </div>
+
+      <div class="side-panel">
+        <h4>On-call</h4>
+        <div class="title">Teammates online</div>
+        <div class="row"><span class="avatar a1">KO</span><div><div class="name">Kira Osterborg</div><div class="meta">Primary · windows</div></div></div>
+        <div class="row"><span class="avatar a2">PD</span><div><div class="name">Priya Danforth</div><div class="meta">Tooling</div></div></div>
+        <div class="row"><span class="avatar a3">JV</span><div><div class="name">Jonas Verga</div><div class="meta">Reviewing PRs</div></div></div>
+        <div class="row"><span class="avatar a4">RA</span><div><div class="name">Renata Ashcroft</div><div class="meta">Migration</div></div></div>
+      </div>
+
+      <div class="side-panel">
+        <h4>Recent shortcuts</h4>
+        <div class="title">Most deployed</div>
+        <ul>
+          <li><a class="mono">harbor-api</a><span class="mono">38</span></li>
+          <li><a class="mono">harbor-web</a><span class="mono">26</span></li>
+          <li><a class="mono">signalboat-worker</a><span class="mono">14</span></li>
+          <li><a class="mono">lantern-cli</a><span class="mono">7</span></li>
+          <li><a class="mono">tideline-docs</a><span class="mono">5</span></li>
+        </ul>
+      </div>
+
+      <div class="side-panel">
+        <h4>Quick actions</h4>
+        <div class="side-link-list">
+          <a>Open active alerts (3)</a>
+          <a>Lock production deploys</a>
+          <a>Roll back last release</a>
+          <a>Page primary on-call</a>
+          <a>Declare incident</a>
+        </div>
+      </div>
+
+      <div class="side-panel">
+        <h4>Deploy window</h4>
+        <div style="padding: 4px 14px 12px; font-size:12px; color:#4e5b65;">
+          No production deploys after <strong>20:00 UTC Fridays</strong>. Override requires two-engineer approval.
+          <div style="margin-top:8px"><a href="#" class="tiny">Read deploy policy →</a></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="left">© 2025 Beacon Harbor Works · Available locally</div>
+  <div class="right">
+    <a>STAY UNDER WORKED, KEEP MERGES OPEN</a>
+    <a>Projects</a><a>Deployments</a><a>Builds</a><a>Team</a><a>Alerts</a>
+  </div>
+</footer>
+
+</body>
+</html>

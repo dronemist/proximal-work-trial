@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Builds — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="projects.html">Beacon Harbor Works</a>
+    <nav class="nav-main">
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a class="active" href="builds.html">Builds</a>
+      <a href="team.html">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+    <span class="user-pill"><span class="avatar">EL</span> esprit_l</span>
+  </div>
+</header>
+
+<div class="page">
+  <div class="crumbs"><a href="projects.html">Projects</a><span class="sep">/</span><a href="#">harbor-api</a><span class="sep">/</span><span class="here">Builds</span></div>
+
+  <div class="eyebrow">Continuous Integration</div>
+  <h1 class="page-title">Build history</h1>
+  <p class="page-lede">Every pipeline run across the fleet. Filter by branch, repository, or outcome. Logs retained for 90 days.</p>
+
+  <div class="btn-row">
+    <a class="btn green" href="#">Run on build</a>
+    <a class="btn" href="#">Download manifest</a>
+    <a class="btn ghost" href="#">Pipeline settings</a>
+  </div>
+
+  <div class="cols">
+    <div class="main">
+      <div class="stats">
+        <div class="stat"><div class="k">Success rate</div><div class="v">94.2%</div><div class="sub">+0.4 vs prior week</div></div>
+        <div class="stat"><div class="k">Avg duration</div><div class="v">4m 21s</div><div class="sub">p95 7m 02s</div></div>
+        <div class="stat"><div class="k">Builds today</div><div class="v">38</div><div class="sub">11 from main</div></div>
+        <div class="stat"><div class="k">Queue depth</div><div class="v">3</div><div class="sub">awaiting runners</div></div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">Trend</span><span>Last 30 days · main branch</span></div>
+        <div class="body">
+          <div class="sparkbars tall">
+            <span class="b" style="height:62%"></span>
+            <span class="b" style="height:74%"></span>
+            <span class="b" style="height:50%"></span>
+            <span class="b" style="height:80%"></span>
+            <span class="b w" style="height:38%"></span>
+            <span class="b" style="height:72%"></span>
+            <span class="b" style="height:88%"></span>
+            <span class="b" style="height:65%"></span>
+            <span class="b" style="height:84%"></span>
+            <span class="b r" style="height:30%"></span>
+            <span class="b" style="height:60%"></span>
+            <span class="b" style="height:78%"></span>
+            <span class="b" style="height:82%"></span>
+            <span class="b" style="height:55%"></span>
+            <span class="b" style="height:70%"></span>
+            <span class="b w" style="height:42%"></span>
+            <span class="b" style="height:75%"></span>
+            <span class="b" style="height:90%"></span>
+            <span class="b" style="height:68%"></span>
+            <span class="b" style="height:78%"></span>
+            <span class="b" style="height:84%"></span>
+            <span class="b" style="height:62%"></span>
+            <span class="b" style="height:73%"></span>
+            <span class="b" style="height:88%"></span>
+            <span class="b" style="height:81%"></span>
+            <span class="b" style="height:64%"></span>
+            <span class="b" style="height:76%"></span>
+            <span class="b" style="height:92%"></span>
+            <span class="b w" style="height:46%"></span>
+            <span class="b" style="height:70%"></span>
+          </div>
+          <div class="kv" style="margin-top:6px;"><span><span class="dot green"></span>Passed</span><span><span class="dot red"></span>Failed</span><span><span class="dot amber"></span>Running</span><span><span class="dot gray"></span>Canceled</span></div>
+        </div>
+      </div>
+
+      <div class="pillbar">
+        <span class="pill active">All</span>
+        <span class="pill">Passed <span class="x">×</span></span>
+        <span class="pill">Failed <span class="x">×</span></span>
+        <span class="pill">Running <span class="x">×</span></span>
+        <span class="pill">Queued <span class="x">×</span></span>
+        <span class="pill">Canceled <span class="x">×</span></span>
+      </div>
+
+      <div class="filterbar">
+        <input class="search" type="search" placeholder="Search by commit, branch, or author…">
+        <select><option>All repositories</option><option>harbor-api</option><option>harbor-web</option><option>signal-worker</option></select>
+        <select><option>All branches</option><option>main</option><option>release/2.1</option></select>
+        <select><option>All triggers</option><option>push</option><option>schedule</option><option>manual</option></select>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">Runs</span><span>Showing 1 — 12 of 426 · Times in your local zone (UTC−5)</span></div>
+        <div class="body tight">
+          <div class="row-list">
+            <div class="row">
+              <span class="badge solid-green">✓</span>
+              <div>
+                <div class="name">Add idempotency keys to webhook dispatcher</div>
+                <div class="meta">harbor-api · feature/idempot-keys · <span class="code-inline">a31b4d7</span> · 2m ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c2">EL</span>
+                <span class="muted no-wrap">Elin Lindqvist</span>
+                <span class="t-bold no-wrap">2m 16s</span>
+                <span class="badge green">95%</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="badge solid-green">✓</span>
+              <div>
+                <div class="name">Bump postgres client to 16.4, retire pgbouncer shim</div>
+                <div class="meta">harbor-api · main · <span class="code-inline">8f1ec23</span> · 24m ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c4">JT</span>
+                <span class="muted no-wrap">Jules Tavares</span>
+                <span class="t-bold no-wrap">6m 47s</span>
+                <span class="badge green">98%</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="badge solid-red">✗</span>
+              <div>
+                <div class="name">Refactor manifest parser to streaming reader</div>
+                <div class="meta">harbor-cli · feature/stream-manifest · <span class="code-inline">d4220a8</span> · 38m ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c3">MR</span>
+                <span class="muted no-wrap">Maren Rasmussen</span>
+                <span class="t-bold no-wrap">5m 03s</span>
+                <span class="badge red">62%</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="badge solid-green">✓</span>
+              <div>
+                <div class="name">Nightly snapshot build · all targets</div>
+                <div class="meta">harbor-orch · schedule · <span class="code-inline">scheduler</span> · 1h ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c6">SC</span>
+                <span class="muted no-wrap">scheduler</span>
+                <span class="t-bold no-wrap">14m 50s</span>
+                <span class="badge green">98%</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="badge solid-green">✓</span>
+              <div>
+                <div class="name">Tighten CSP on dashboard routes, drop unsafe-inline</div>
+                <div class="meta">harbor-web · main · <span class="code-inline">b9af7a1</span> · 2h ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c5">PV</span>
+                <span class="muted no-wrap">Priya Vendant</span>
+                <span class="t-bold no-wrap">4m 38s</span>
+                <span class="badge green">96%</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="badge solid-red">✗</span>
+              <div>
+                <div class="name">Experimental: switch CI runner to graviton</div>
+                <div class="meta">harbor-runners · experiment/graviton · <span class="code-inline">4c9b551</span> · 3h ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c5">PV</span>
+                <span class="muted no-wrap">Priya Vendant</span>
+                <span class="t-bold no-wrap">2m 09s</span>
+                <span class="badge red">31%</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="badge solid-green">✓</span>
+              <div>
+                <div class="name">Add etcyfsucksff to S3 lifecycle uploader</div>
+                <div class="meta">signal-worker · main · <span class="code-inline">f0d3a2a</span> · 4h ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c2">EL</span>
+                <span class="muted no-wrap">Elin Lindqvist</span>
+                <span class="t-bold no-wrap">3m 02s</span>
+                <span class="badge green">94%</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="badge solid-green">✓</span>
+              <div>
+                <div class="name">Migrate billing tables to partitioned schema</div>
+                <div class="meta">harbor-api · feature/partition-billing · <span class="code-inline">7e2c0d4</span> · 5h ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c8">DA</span>
+                <span class="muted no-wrap">Daniela Albrecht</span>
+                <span class="t-bold no-wrap">8m 21s</span>
+                <span class="badge green">91%</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="badge solid-green">✓</span>
+              <div>
+                <div class="name">Document deploy contracts in /docs/runbook</div>
+                <div class="meta">harbor-docs · main · <span class="code-inline">2a991d3</span> · 6h ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c4">JT</span>
+                <span class="muted no-wrap">Jules Tavares</span>
+                <span class="t-bold no-wrap">1m 24s</span>
+                <span class="badge green">99%</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="badge solid-green">✓</span>
+              <div>
+                <div class="name">Release candidate · v2.10.0-rc.2</div>
+                <div class="meta">harbor-api · release/2.10 · <span class="code-inline">cc7b119</span> · 8h ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c3">MR</span>
+                <span class="muted no-wrap">Maren Rasmussen</span>
+                <span class="t-bold no-wrap">9m 51s</span>
+                <span class="badge green">96%</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="badge solid-green">✓</span>
+              <div>
+                <div class="name">Trim docker image · drop dev dependencies</div>
+                <div class="meta">harbor-runners · main · <span class="code-inline">ad34221</span> · 10h ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c6">SK</span>
+                <span class="muted no-wrap">Sander Korsu</span>
+                <span class="t-bold no-wrap">3m 18s</span>
+                <span class="badge green">93%</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="badge solid-green">✓</span>
+              <div>
+                <div class="name">Add structured logging to scheduler worker</div>
+                <div class="meta">harbor-orch · main · <span class="code-inline">4441b7e</span> · 12h ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="av c5">PV</span>
+                <span class="muted no-wrap">Priya Vendant</span>
+                <span class="t-bold no-wrap">2m 05s</span>
+                <span class="badge green">94%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pager">
+          <a class="pg active" href="#">1</a>
+          <a class="pg" href="#">2</a>
+          <a class="pg" href="#">3</a>
+          <a class="pg" href="#">4</a>
+          <a class="pg" href="#">5</a>
+          <span class="spacer"></span>
+          <span>Page 1 of 36 · 12/page</span>
+          <a class="pg" href="#">›</a>
+        </div>
+      </div>
+
+      <div class="eyebrow" style="margin-top:14px;">Slowest stages · Last 7 days</div>
+      <h3 style="font-size:18px; margin-bottom:8px;">Where time is spent</h3>
+      <div class="card">
+        <table class="tbl">
+          <thead><tr><th>Stage</th><th>Repository</th><th>P50</th><th>P95</th><th>Trend</th></tr></thead>
+          <tbody>
+            <tr><td>Integration tests</td><td>harbor-api</td><td>3m 12s</td><td>5m 47s</td><td><span class="badge red">↑ 14%</span></td></tr>
+            <tr><td>Docker package</td><td>harbor-web</td><td>1m 41s</td><td>3m 09s</td><td><span class="badge gray">—</span></td></tr>
+            <tr><td>Lint &amp; typecheck</td><td>harbor-web</td><td>1m 02s</td><td>1m 33s</td><td><span class="badge green">↓ 4%</span></td></tr>
+            <tr><td>Migration dry-run</td><td>harbor-api</td><td>43s</td><td>1m 27s</td><td><span class="badge gray">—</span></td></tr>
+            <tr><td>Publish artifact</td><td>manifest-cli</td><td>21s</td><td>52s</td><td><span class="badge green">↓ 9%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="card">
+        <div class="head"><span class="title">In queue</span><span>Awaiting runner</span></div>
+        <div class="body">
+          <div class="evt"><span class="badge amber">●</span> <b>harbor-api</b> · main<br><span class="meta">queued 2m, e2e holdover</span></div>
+          <div class="evt"><span class="badge amber">●</span> <b>harbor-web</b> · pr/1141<br><span class="meta">queued 1m, lint</span></div>
+          <div class="evt"><span class="badge amber">●</span> <b>signal-worker</b> · main<br><span class="meta">queued 30s, smoke</span></div>
+          <div class="evt"><a href="#">View queued jobs</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">Online now</span><span>Crew on duty</span></div>
+        <div class="body">
+          <div class="item"><span class="av c2">EL</span><div class="who">Elin Lindqvist<br><span class="when">Triaging 1141</span></div></div>
+          <div class="item"><span class="av c3">MR</span><div class="who">Maren Rasmussen<br><span class="when">Reviewing PR</span></div></div>
+          <div class="item"><span class="av c4">JT</span><div class="who">Jules Tavares<br><span class="when">Slacking</span></div></div>
+          <div class="item"><span class="av c6">SK</span><div class="who">Sander Korsu<br><span class="when">Idle</span></div></div>
+          <div class="item"><span class="av c8">DA</span><div class="who">Daniela Albrecht<br><span class="when">Triaging 1138</span></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">This week</span><span>Builds by repo</span></div>
+        <div class="body">
+          <div class="evt"><span>harbor-api</span><span class="right muted t-tiny">142 runs</span></div>
+          <div class="evt"><span>harbor-web</span><span class="right muted t-tiny">98 runs</span></div>
+          <div class="evt"><span>signal-worker</span><span class="right muted t-tiny">73 runs</span></div>
+          <div class="evt"><span>manifest-cli</span><span class="right muted t-tiny">41 runs</span></div>
+          <div class="evt"><span>lighthouse-cfg</span><span class="right muted t-tiny">22 runs</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span class="title">If a build fails</span><span>Recent shortcuts</span></div>
+        <div class="body links">
+          <a href="#">Open active alerts</a>
+          <a href="#">Roll back last deploy</a>
+          <a href="#">Page the on-call engineer</a>
+          <a href="#">Runbooks · CI failures</a>
+          <a href="#">Request a runner block</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="foot-wrap">
+  <div class="foot-inner">
+    <div>&copy; 2025 Beacon Harbor Works · All servicable freight</div>
+    <nav><a href="#">Status</a><a href="#">Changelog</a><a href="projects.html">Projects</a><a href="deploys.html">Deployments</a><a href="builds.html">Builds</a><a href="team.html">Team</a><a href="alerts.html">Alerts</a></nav>
+  </div>
+</footer>
+</body>
+</html>

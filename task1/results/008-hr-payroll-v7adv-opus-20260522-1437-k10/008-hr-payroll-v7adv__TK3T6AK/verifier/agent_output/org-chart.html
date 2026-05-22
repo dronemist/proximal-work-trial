@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Org Chart — Onyx Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark"></span> Onyx Works</div>
+
+    <div class="nav-section">
+      <div class="nav-title">Workspace</div>
+      <nav class="nav">
+        <a href="people-directory.html"><span class="nav-icon ic-people"></span> People</a>
+        <a class="active" href="org-chart.html"><span class="nav-icon ic-chart"></span> Org Chart</a>
+        <a href="time-off.html"><span class="nav-icon ic-time"></span> Time Off</a>
+      </nav>
+    </div>
+    <div class="nav-section">
+      <div class="nav-title">Finance</div>
+      <nav class="nav">
+        <a href="expenses.html"><span class="nav-icon ic-money"></span> Expenses</a>
+      </nav>
+    </div>
+    <div class="nav-section">
+      <div class="nav-title">Workspace</div>
+      <nav class="nav">
+        <a href="settings.html"><span class="nav-icon ic-gear"></span> Company Settings</a>
+      </nav>
+    </div>
+
+    <div class="user-card">
+      <div class="avatar a2">MR</div>
+      <div class="user-meta"><span class="name">Mira Rasmund</span><span class="role">Operations Lead</span></div>
+    </div>
+  </aside>
+
+  <header class="topnav">
+    <div class="brand-row"><span class="brand-mark"></span><strong>Onyx Works</strong></div>
+    <div class="nav-pills">
+      <a href="people-directory.html">People</a>
+      <a class="active" href="org-chart.html">Org Chart</a>
+      <a href="time-off.html">Time Off</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="settings.html">Company Settings</a>
+    </div>
+    <div class="user-card">
+      <div class="avatar a2">MR</div>
+      <div class="user-meta"><span class="name">Mira Rasmund</span><span class="role">Operations Lead</span></div>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="crumbs">
+        <span>Haldon Holdings</span><span class="sep">›</span>
+        <span>Helix Studio EU / GmbH</span><span class="sep">›</span>
+        <strong>Org Chart</strong>
+      </div>
+      <div class="search"><input placeholder="Find a person or team"></div>
+    </div>
+
+    <main class="page">
+      <h1 class="page-title">Org Chart</h1>
+
+      <div class="stat-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="stat"><div class="label">Headcount</div><div class="value">184</div><div class="delta pos">▲ 6 this quarter</div></div>
+        <div class="stat"><div class="label">Departments</div><div class="value">11</div><div class="delta">Across 3 entities</div></div>
+        <div class="stat"><div class="label">Open roles</div><div class="value">7</div><div class="delta">2 in approval</div></div>
+        <div class="stat"><div class="label">Avg span of control</div><div class="value">5.4</div><div class="delta">Target range 4–7</div></div>
+      </div>
+
+      <div class="cols-2">
+        <div class="col gap-12">
+          <div class="section-head">
+            <h2>Reporting structure</h2>
+            <span class="size-11 text-muted">Snapshot · 14 March 2025 · effective today</span>
+          </div>
+
+          <div class="tabs">
+            <a class="active">Tree</a>
+            <a>By department</a>
+            <a>List</a>
+            <a>Vacant seats</a>
+          </div>
+
+          <div class="filter-row">
+            <div>
+              <div class="label">Department</div>
+              <select class="select"><option>All departments</option></select>
+            </div>
+            <div>
+              <div class="label">Location</div>
+              <select class="select"><option>All locations</option></select>
+            </div>
+            <div>
+              <div class="label">Employment</div>
+              <select class="select"><option>All types</option></select>
+            </div>
+            <div class="grow"></div>
+            <button class="btn">Export PDF</button>
+            <button class="btn">Print view</button>
+          </div>
+
+          <div class="row gap-12 size-11 text-muted">
+            <span><input type="checkbox" checked> Filled seats</span>
+            <span><input type="checkbox"> Vacant</span>
+            <span><input type="checkbox" checked> Hiring</span>
+            <span><input type="checkbox"> Detached</span>
+          </div>
+
+          <div class="card" style="padding:18px">
+            <!-- Org tree -->
+            <div style="display:flex;justify-content:center;margin-bottom:24px">
+              <div class="orgnode" style="display:flex;align-items:center;gap:10px;background:var(--pink);color:#fff;border-radius:8px;padding:10px 14px;min-width:220px">
+                <div class="avatar dark" style="background:#fff;color:var(--pink)">EH</div>
+                <div>
+                  <div class="semi">Elin Hartmann</div>
+                  <div class="size-11" style="opacity:0.9">Chief Executive Officer</div>
+                  <div class="size-11" style="opacity:0.9; margin-top:2px"><span class="chip" style="background:rgba(255,255,255,0.2);color:#fff;border:none">CEO</span> 11 REPORTS</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+              <div class="card" style="padding:10px">
+                <div class="row gap-6 center"><div class="avatar a3">JS</div><div><div class="size-11 semi">John Trevino</div><div class="size-10 text-muted">Chief Technology</div></div></div>
+                <div class="size-10 text-muted mt-8">12 in TECH</div>
+              </div>
+              <div class="card" style="padding:10px;border-color:var(--pink);box-shadow:0 0 0 2px var(--pink-soft)">
+                <div class="row gap-6 center"><div class="avatar dark">RB</div><div><div class="size-11 semi">Rohan Bhat</div><div class="size-10 text-muted">Chief Operations</div></div></div>
+                <div class="size-10 text-muted mt-8">21 in OPS · 5 leads</div>
+              </div>
+              <div class="card" style="padding:10px">
+                <div class="row gap-6 center"><div class="avatar a4">SK</div><div><div class="size-11 semi">Sofie Kriger</div><div class="size-10 text-muted">Chief Financial</div></div></div>
+                <div class="size-10 text-muted mt-8">9 in FIN</div>
+              </div>
+              <div class="card" style="padding:10px">
+                <div class="row gap-6 center"><div class="avatar a5">DA</div><div><div class="size-11 semi">Dara Achebe</div><div class="size-10 text-muted">Chief People</div></div></div>
+                <div class="size-10 text-muted mt-8">7 in PEOPLE</div>
+              </div>
+              <div class="card" style="padding:10px">
+                <div class="row gap-6 center"><div class="avatar a6">MR</div><div><div class="size-11 semi">Mira Rasmund</div><div class="size-10 text-muted">Operations Lead</div></div></div>
+                <div class="size-10 text-muted mt-8">5 reports</div>
+              </div>
+              <div class="card" style="padding:10px">
+                <div class="row gap-6 center"><div class="avatar a7">PN</div><div><div class="size-11 semi">Priya Naidu</div><div class="size-10 text-muted">Vendor Programs</div></div></div>
+                <div class="size-10 text-muted mt-8">3 reports</div>
+              </div>
+              <div class="card" style="padding:10px">
+                <div class="row gap-6 center"><div class="avatar a1">MH</div><div><div class="size-11 semi">Mira Rasmund</div><div class="size-10 text-muted">Director, IT &amp; Security</div></div></div>
+                <div class="size-10 text-muted mt-8">4 reports</div>
+              </div>
+              <div class="card" style="padding:10px">
+                <div class="row gap-6 center"><div class="avatar a8">TO</div><div><div class="size-11 semi">Tomas Otieno</div><div class="size-10 text-muted">Director, Legal &amp; Risk</div></div></div>
+                <div class="size-10 text-muted mt-8">2 reports · <span class="text-pink">OPEN</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="row between"><strong>Headcount by department</strong><span class="size-11 text-muted">Helix Studio EU</span></div>
+            <table class="table tight mt-8">
+              <thead><tr><th>Department</th><th>Lead</th><th class="right">Filled</th><th class="right">Open</th><th class="right">Span</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Engineering</td><td>John Trevino</td><td class="right">52</td><td class="right">3</td><td class="right">6.2</td><td><span class="chip active">Healthy</span></td></tr>
+                <tr><td>Operations</td><td>Rohan Bhat</td><td class="right">38</td><td class="right">1</td><td class="right">4.9</td><td><span class="chip active">Healthy</span></td></tr>
+                <tr><td>Finance</td><td>Sofie Kriger</td><td class="right">19</td><td class="right">0</td><td class="right">4.8</td><td><span class="chip active">Healthy</span></td></tr>
+                <tr><td>Design</td><td>Yusuf Çelik</td><td class="right">14</td><td class="right">2</td><td class="right">7.0</td><td><span class="chip pending">Stretched</span></td></tr>
+                <tr><td>People</td><td>Dara Achebe</td><td class="right">21</td><td class="right">0</td><td class="right">3.7</td><td><span class="chip active">Healthy</span></td></tr>
+                <tr><td>Revenue</td><td>Helena Brandt</td><td class="right">22</td><td class="right">1</td><td class="right">5.5</td><td><span class="chip active">Healthy</span></td></tr>
+                <tr><td class="semi">Total</td><td>—</td><td class="right semi">184</td><td class="right semi">7</td><td class="right semi">5.4</td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card">
+            <div class="row between"><strong>Change history (last 30 days)</strong><span class="text-muted">▾</span></div>
+            <ul class="size-12 text-muted" style="padding-left:14px; margin:8px 0 0">
+              <li>11 Mar — Mira Rasmund moved from Workplace to report directly to COO.</li>
+              <li>06 Mar — New role opened: Director, IT &amp; Security (Haldon Holdings).</li>
+              <li>02 Mar — Design promoted Yusuf Çelik to Department Lead.</li>
+              <li>28 Feb — Engineering split Platform pod into Infra and Apps sub-pods.</li>
+            </ul>
+          </div>
+
+          <div class="card row between"><strong>Pending approvals (2)</strong><span class="text-muted">▾</span></div>
+          <div class="card row between"><strong>Effective-dated changes</strong><span class="text-muted">▾</span></div>
+        </div>
+
+        <aside class="col gap-12">
+          <div class="card">
+            <div class="size-11 text-muted">Selected node</div>
+            <div class="row between center"><h2 style="margin:4px 0;font-size:16px">Rohan Bhat</h2><span class="text-muted">›</span></div>
+            <div class="row gap-12 center">
+              <div class="avatar xl dark">RB</div>
+              <div>
+                <div class="semi">Chief Operating Officer</div>
+                <div class="size-11 text-muted">Reports to Elin Hartmann</div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="kv">
+              <span class="k">Employee ID</span><span class="v">HX-001142</span>
+              <span class="k">Entity</span><span class="v">Helix Studio EU GmbH</span>
+              <span class="k">Location</span><span class="v">Berlin DE</span>
+              <span class="k">Joined</span><span class="v">12 Aug 2021</span>
+              <span class="k">Cost center</span><span class="v">OPS-EU-100</span>
+            </div>
+            <div class="divider"></div>
+            <div class="size-11 text-muted semi">DIRECT REPORTS · 5</div>
+            <div class="col gap-6 mt-8">
+              <div class="row between center"><div class="row gap-6 center"><div class="avatar a3">LW</div><div><div class="size-11 semi">Lukas Weiss</div><div class="size-10 text-muted">Director, Workplace</div></div></div><span class="text-muted">›</span></div>
+              <div class="row between center"><div class="row gap-6 center"><div class="avatar a7">PN</div><div><div class="size-11 semi">Priya Naidu</div><div class="size-10 text-muted">Director, Procurement</div></div></div><span class="text-muted">›</span></div>
+              <div class="row between center"><div class="row gap-6 center"><div class="avatar a4">MR</div><div><div class="size-11 semi">Mira Rasmund</div><div class="size-10 text-muted">Operations Lead, EU</div></div></div><span class="text-muted">›</span></div>
+              <div class="row between center"><div class="row gap-6 center"><div class="avatar a1">DI</div><div><div class="size-11 semi">Director, IT &amp; Security</div><div class="size-10 text-muted">Vacancy — hiring</div></div></div><span class="chip pink">OPEN</span></div>
+              <div class="row between center"><div class="row gap-6 center"><div class="avatar a8">TO</div><div><div class="size-11 semi">Tomas Otieno</div><div class="size-10 text-muted">Director, Legal &amp; Risk</div></div></div><span class="text-muted">›</span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="row gap-6 mt-8">
+              <button class="btn">Open profile</button>
+              <button class="btn primary">Propose change</button>
+            </div>
+            <div class="size-11 text-muted mt-8">Proposed changes route to the CEO and CPO for review. Approved edits publish to the chart at the next effective date.</div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>© 2025 Onyx Works Group, vX.18.2 · production eu-west</span>
+      <div class="links"><a>People</a><a>Org Chart</a><a>Time Off</a><a>Expenses</a><a>Settings</a></div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

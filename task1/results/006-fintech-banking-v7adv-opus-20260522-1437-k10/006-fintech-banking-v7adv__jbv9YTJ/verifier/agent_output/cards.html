@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cards · Drift Harbor Studio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar">
+    <div class="brand">Drift Harbor Studio<small>Personal banking</small></div>
+    <nav class="nav-group">
+      <div class="nav-title">Banking</div>
+      <a href="account-overview.html">Accounts</a>
+      <a href="transactions.html">Transactions</a>
+      <a href="cards.html" class="active">Cards</a>
+      <a href="statements.html">Statements</a>
+      <a href="support.html">Help &amp; Support</a>
+    </nav>
+    <nav class="nav-group">
+      <div class="nav-title">Account</div>
+      <a href="#">Settings</a>
+      <a href="#">Preferences</a>
+      <a href="#">Sign out</a>
+    </nav>
+    <div class="userblock">
+      <strong>Margot Hennessy</strong>
+      Member since 2018
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <h1>Cards</h1>
+      <div class="topbar-right">
+        <a href="#">Report lost</a>
+        <a class="btn btn-ghost" href="#">Add card</a>
+        <span class="pill">PIN</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="eyebrow">Wallet · Last sync 9 minutes ago</div>
+      <h2 class="page-title">Three physical cards, two virtual.</h2>
+      <p class="lede">Freeze, set limits, and issue single-merchant virtual cards. Changes take effect immediately across all devices linked to your profile.</p>
+
+      <div class="stat-row" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="stat"><div class="stat-label">Active cards</div><div class="stat-value">4</div><div class="stat-sub">2 frozen, 0 expired</div></div>
+        <div class="stat"><div class="stat-label">Month-to-date spend</div><div class="stat-value">$2,418.60</div><div class="stat-sub neg">−9.4% vs Feb</div></div>
+        <div class="stat"><div class="stat-label">Pending authorizations</div><div class="stat-value">$184.22</div><div class="stat-sub muted">4 holds, posts within 3 days</div></div>
+        <div class="stat"><div class="stat-label">Rewards earned</div><div class="stat-value">$36.27</div><div class="stat-sub muted">Cycle ends Mar 31</div></div>
+      </div>
+
+      <div class="tabs" style="margin-top: 24px;">
+        <a href="#" class="active">Physical <span class="count">(3)</span></a>
+        <a href="#">Virtual <span class="count">(2)</span></a>
+        <a href="#">Archived <span class="count">(1)</span></a>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-preview">
+            <div class="cp-top"><span>Harbor Debit · Primary</span><span>Visa</span></div>
+            <div class="cp-num">•••• •••• •••• 4173</div>
+            <div class="cp-foot"><span class="cp-name">Margot Hennessy</span><span class="cp-exp">Exp 03/27</span></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-top:12px; font-size:11.5px;">
+            <span class="muted">••• 4173 to Harbor Checking</span>
+            <a class="btn-link">Details</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-preview gold">
+            <div class="cp-top"><span>Harbor Credit · Walnut</span><span>Visa</span></div>
+            <div class="cp-num">•••• •••• •••• 8804</div>
+            <div class="cp-foot"><span class="cp-name">Margot Hennessy</span><span class="cp-exp">Exp 11/26</span></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-top:12px; font-size:11.5px;">
+            <span class="muted">2.1% on travel, 1% other</span>
+            <a class="btn-link">Details</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-preview charcoal">
+            <div class="cp-top"><span>Harbor Debit · Travel</span><span style="opacity:.7">Frozen</span></div>
+            <div class="cp-num">•••• •••• •••• 1102</div>
+            <div class="cp-foot"><span class="cp-name">Margot Hennessy</span><span class="cp-exp">Exp 02/28</span></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-top:12px; font-size:11.5px;">
+            <span class="muted">Frozen since 12 Feb</span>
+            <a class="btn-link">Unfreeze</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="split" style="margin-top: 22px;">
+        <div class="card" style="padding: 0;">
+          <div style="padding: 14px 16px; border-bottom: 1px solid var(--border-soft); display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-weight:600;">Harbor Debit · Primary</div>
+              <div class="small muted">Ending in 4173 · Issued March 2023</div>
+            </div>
+            <button class="btn btn-ghost">Settings</button>
+          </div>
+          <div class="card-action-row"><div><div class="ttl">Freeze card</div><div class="sub">Blocks new purchases. Recurring charges continue.</div></div><span class="toggle"></span></div>
+          <div class="card-action-row"><div><div class="ttl">Contactless payments</div><div class="sub">Tap-to-pay at terminals</div></div><span class="toggle on"></span></div>
+          <div class="card-action-row"><div><div class="ttl">Online &amp; in-app</div><div class="sub">E-commerce and recurring billing</div></div><span class="toggle on"></span></div>
+          <div class="card-action-row"><div><div class="ttl">International use</div><div class="sub">Use in US merchants and ATMs</div></div><span class="toggle on"></span></div>
+          <div class="card-action-row"><div><div class="ttl">ATM withdrawals</div><div class="sub">Cash at ATMs and bank counters</div></div><span class="toggle on"></span></div>
+          <div class="card-action-row"><div><div class="ttl">Magnetic stripe</div><div class="sub">Legacy swipe terminals</div></div><span class="toggle"></span></div>
+          <div style="padding: 10px 16px; display:flex; justify-content:space-between; align-items:center; border-top: 1px solid var(--border-soft);">
+            <span class="small muted">Last edited Sat 1 Mar, 8:42</span>
+            <a class="btn-link" href="#">View activity →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:baseline;">
+            <div style="font-weight:600;">Spending limits</div>
+            <a class="btn-link">Adjust</a>
+          </div>
+          <div class="small muted" style="margin-bottom: 10px;">Per-card daily and monthly caps</div>
+          <div class="bar-row" style="margin-bottom: 10px;"><span class="lbl">Daily purchases</span><span class="bar"><span style="width:62%"></span></span><span class="val">$1,240 of $2,000</span></div>
+          <div class="bar-row" style="margin-bottom: 10px;"><span class="lbl">Monthly purchases</span><span class="bar"><span style="width:34%"></span></span><span class="val">$2,418 of $7,000</span></div>
+          <div class="bar-row" style="margin-bottom: 10px;"><span class="lbl">ATM withdrawals</span><span class="bar"><span style="width:18%"></span></span><span class="val">$90 of $500</span></div>
+          <div class="bar-row" style="margin-bottom: 10px;"><span class="lbl">Online single transaction</span><span class="bar"><span style="width:50%"></span></span><span class="val">$420 of $850</span></div>
+          <div class="bar-row" style="margin-bottom: 0;"><span class="lbl">International daily</span><span class="bar"><span style="width:0%"></span></span><span class="val">Disabled</span></div>
+          <div class="small muted" style="margin-top: 12px;">Changes apply within 90 seconds. Cycle resets Apr 1.</div>
+        </div>
+      </div>
+
+      <div class="split" style="margin-top: 22px;">
+        <div class="card" style="padding: 0;">
+          <div style="padding: 14px 16px; border-bottom: 1px solid var(--border-soft); display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-weight:600;">Virtual cards</div>
+              <div class="small muted">Single-merchant numbers for online use</div>
+            </div>
+            <a class="btn btn-primary" href="#">Generate new</a>
+          </div>
+          <div class="card-action-row"><div><div class="ttl">Studio Hosting · Recurring</div><div class="sub">•••• 6038 · created 02 Apr 2024</div></div><div style="text-align:right"><div class="amt" style="font-family:Georgia,serif;">$32.00 / mo</div><span class="tag tag-green">Active</span></div></div>
+          <div class="card-action-row"><div><div class="ttl">Tilden Books</div><div class="sub">•••• 7732 · single use, expires 24 Mar</div></div><div style="text-align:right"><div class="amt" style="font-family:Georgia,serif;">$120 cap</div><span class="tag tag-gold">Pending</span></div></div>
+          <div class="card-action-row"><div><div class="ttl">Newsstand subscription</div><div class="sub">•••• 4416 · created 11 Feb</div></div><div style="text-align:right"><div class="amt" style="font-family:Georgia,serif;">$11.99 / mo</div><span class="tag tag-green">Active</span></div></div>
+          <div class="card-action-row"><div><div class="ttl">Field Research Co.</div><div class="sub">•••• 9912 · single use, expired</div></div><div style="text-align:right"><div class="amt" style="font-family:Georgia,serif;">$18.00</div><span class="tag">Expired</span></div></div>
+          <div style="padding: 10px 16px; display:flex; justify-content:space-between; align-items:center; border-top: 1px solid var(--border-soft);">
+            <span class="small muted">2 active · 2 expired · 1 archived</span>
+            <a class="btn-link" href="#">See all (5) →</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 0;">
+          <div style="padding: 14px 16px; border-bottom: 1px solid var(--border-soft); display:flex; justify-content:space-between; align-items:center;">
+            <div style="font-weight:600;">Recent card activity</div>
+            <a class="btn-link" href="transactions.html">View all</a>
+          </div>
+          <table class="tbl">
+            <thead><tr><th>Date</th><th>Merchant</th><th>Card</th><th class="amount">Amount</th></tr></thead>
+            <tbody>
+              <tr><td class="date">Mar 03</td><td>Marin Coffee Roasters</td><td>•••• 4173</td><td class="amount neg">−$6.20</td></tr>
+              <tr><td class="date">Mar 02</td><td>Studio Hosting</td><td>•••• 6038</td><td class="amount neg">−$32.00</td></tr>
+              <tr><td class="date">Mar 01</td><td>Pacific Greens</td><td>•••• 4173</td><td class="amount neg">−$54.10</td></tr>
+              <tr><td class="date">Feb 27</td><td>Refund · Tilden Books</td><td>•••• 7732</td><td class="amount pos">+$18.00</td></tr>
+              <tr><td class="date">Feb 26</td><td>SFMTA Parking</td><td>•••• 4173</td><td class="amount neg">−$4.50</td></tr>
+              <tr><td class="date">Feb 25</td><td>Frugbright Cinema</td><td>•••• 8804</td><td class="amount neg">−$26.50</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 22px;">
+        <div style="display:flex; justify-content:space-between; align-items:baseline;">
+          <div style="font-weight:600;">Card support</div>
+          <span class="small muted">Common requests</span>
+        </div>
+        <div style="margin-top: 8px;">
+          <div class="qa"><span class="q">How do I temporarily freeze my card?</span><span class="plus">−</span></div>
+          <div class="qa-open-body">Use the freeze toggle on any card. New purchases will be declined within sixty seconds, while recurring charges and refunds continue. Unfreezing instantly re-enables the card &mdash; no replacement is needed.</div>
+          <div class="qa"><span class="q">What happens to recurring charges on a frozen card?</span><span class="plus">+</span></div>
+          <div class="qa"><span class="q">Can I share a virtual card with a household member?</span><span class="plus">+</span></div>
+          <div class="qa"><span class="q">My card was lost or stolen — what now?</span><span class="plus">+</span></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span>© 2025 Drift Harbor Studio, a division of Harbor Trust, N.A. Member FDIC.</span>
+      <span class="links">
+        <a href="support.html">Support</a>
+        <a href="statements.html">Statements</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Build 2025.03.04</a>
+      </span>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

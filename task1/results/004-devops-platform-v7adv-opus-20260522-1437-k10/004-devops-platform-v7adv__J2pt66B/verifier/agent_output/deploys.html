@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deployments — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <div class="brand"><span class="mark"></span> Beacon Harbor Works</div>
+    <nav class="nav">
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html" class="active">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+    <div class="account"><span class="av">AC</span> accounts</div>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="crumbs"><a href="#">Harbor</a><span class="sep">/</span><span class="here">Deployments</span></div>
+
+  <div class="layout">
+    <main>
+      <div class="eyebrow">Manifest · last 7 days</div>
+      <h1 class="page-title">Deployments</h1>
+      <p class="lead">A chronological record of every release shipped to a Beacon Harbor environment. Sorted by environment, newest first. All times in UTC.</p>
+
+      <div class="btn-row">
+        <button class="btn primary">Deploy to environment</button>
+        <button class="btn">Export manifest</button>
+        <button class="btn ghost">View dev log</button>
+      </div>
+
+      <div class="banner">
+        <span class="badge b-amber">● in progress</span>
+        <span><b>harbor-api</b> rolling out to <b>production</b> · canary at 25% · started 00:04 ago</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="k">Deploys · 7d</div><div class="v">142</div><div class="sub">+ 6 vs prior week</div></div>
+        <div class="stat"><div class="k">Success rate</div><div class="v">96.4%</div><div class="sub">5 rollbacks</div></div>
+        <div class="stat"><div class="k">Median duration</div><div class="v">4m 21s</div><div class="sub">across stages</div></div>
+        <div class="stat"><div class="k">Lead time</div><div class="v">1h 47m</div><div class="sub">commit → production</div></div>
+      </div>
+
+      <div class="filters">
+        <select class="select"><option>All environments</option></select>
+        <select class="select"><option>Production</option></select>
+        <select class="select"><option>Staging</option></select>
+        <select class="select"><option>Preview</option></select>
+        <span class="grow"></span>
+        <select class="select"><option>Any status</option></select>
+        <select class="select"><option>Any actor</option></select>
+        <span class="muted small">last 7d ▾</span>
+      </div>
+
+      <div class="sect-group">
+        <div class="head">
+          <div class="name">▸ Production</div>
+          <div class="count">42 deploys</div>
+        </div>
+        <div class="list-rows">
+
+          <div class="row-card accent-amber">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 14:02</span>
+              <span class="badge b-amber">● in progress</span>
+              <span class="ttl">harbor-api · v4.18.2 — canary 25%</span>
+              <span class="badge b-mono">canary 25%</span>
+            </div>
+            <div class="row-grid">
+              <div><div class="lab">Commit</div><div class="val mono">a14f0c8</div></div>
+              <div><div class="lab">Region</div><div class="val">us-east-1, eu-west-1</div></div>
+              <div><div class="lab">ETA</div><div class="val">08:30</div></div>
+              <div><div class="lab">Eng</div><div class="val"><span class="av av-b">EL</span> Elin L.</div></div>
+            </div>
+            <div class="muted small mt">Triggered by <b>e.lindqvist</b> from harbor-api · merge of PR #1422</div>
+          </div>
+
+          <div class="row-card accent-green">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 13:14</span>
+              <span class="badge b-green">● succeeded</span>
+              <span class="ttl">harbor-billing · v2.14.0 — Migrate cluster blue→green</span>
+            </div>
+            <div class="row-grid">
+              <div><div class="lab">Service</div><div class="val mono">harbor-billing</div></div>
+              <div><div class="lab">Commit</div><div class="val mono">c84a3a3</div></div>
+              <div><div class="lab">Stage</div><div class="val">5/5</div></div>
+              <div><div class="lab">Duration</div><div class="val">06:32</div></div>
+            </div>
+            <div class="muted small mt">Triggered by <b>j.tavares</b> · 8m 12s during canary</div>
+          </div>
+
+          <div class="row-card accent-red">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 11:55</span>
+              <span class="badge b-red">● rolled back</span>
+              <span class="ttl">harbor-svc · v1.13.4 — Webhook retry knobs</span>
+            </div>
+            <div class="row-grid">
+              <div><div class="lab">Service</div><div class="val mono">harbor-svc</div></div>
+              <div><div class="lab">Region</div><div class="val">us-east-1, eu-west-1</div></div>
+              <div><div class="lab">Stage</div><div class="val">2/5</div></div>
+              <div><div class="lab">Duration</div><div class="val">02:18</div></div>
+            </div>
+            <div class="muted small mt">Auto-rollback after queue lag breached threshold at 12:21. Reverted to <span class="mono">v1.13.3</span>.</div>
+          </div>
+
+          <div class="row-card accent-green">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 10:21</span>
+              <span class="badge b-green">● succeeded</span>
+              <span class="ttl">signal-worker · v0.7.1 — Config flip for slow-disk queue</span>
+            </div>
+            <div class="muted small">Triggered by scheduler · 03:11 duration · low-risk change</div>
+          </div>
+
+          <div class="row-card accent-green">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 09:02</span>
+              <span class="badge b-green">● succeeded</span>
+              <span class="ttl">harbor-cli · v3.11.0 — Telemetry: opt-in flag</span>
+            </div>
+            <div class="row-grid">
+              <div><div class="lab">Stage</div><div class="val">7/7</div></div>
+              <div><div class="lab">Region</div><div class="val">global · cdn</div></div>
+              <div><div class="lab">Build</div><div class="val mono">94f1f44</div></div>
+              <div><div class="lab">Duration</div><div class="val">01:09</div></div>
+            </div>
+          </div>
+
+          <div class="row-card accent-green">
+            <div class="top">
+              <span class="muted small mono">apr 22 · 22:51</span>
+              <span class="badge b-green">● succeeded</span>
+              <span class="ttl">lantern-st · v0.4.0 — Retention sweep</span>
+            </div>
+            <div class="muted small">Triggered by <b>r.yega</b> · low-risk change · tagged release</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="sect-group">
+        <div class="head">
+          <div class="name">▸ Staging</div>
+          <div class="count">38 deploys</div>
+        </div>
+        <div class="list-rows">
+
+          <div class="row-card accent-green">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 14:30</span>
+              <span class="badge b-green">● succeeded</span>
+              <span class="ttl">harbor-svc · v1.13.5 — PR linting regression error</span>
+            </div>
+            <div class="muted small">Triggered by <b>e.lindqvist</b> · PR #1424 · 4m 02s</div>
+          </div>
+
+          <div class="row-card accent-red">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 13:11</span>
+              <span class="badge b-red">● failed</span>
+              <span class="ttl">signal-master · v0.9.0-1 — Migration design rebase ledger</span>
+            </div>
+            <div class="muted small">Triggered by <b>p.berfoot</b> · auto-revert</div>
+          </div>
+
+          <div class="row-card accent-green">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 12:08</span>
+              <span class="badge b-green">● succeeded</span>
+              <span class="ttl">signal-master · v0.8.9-1 — Migration step (tickets/3, no-merge)</span>
+            </div>
+            <div class="muted small">Migration step (tickets/3, postgres-master) · No traffic shift</div>
+          </div>
+
+          <div class="row-card accent-green">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 09:31</span>
+              <span class="badge b-green">● succeeded</span>
+              <span class="ttl">harbor-api · v4.18.1 — nightly</span>
+            </div>
+            <div class="muted small">Triggered by <b>auto-bot</b> · nightly</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="sect-group">
+        <div class="head">
+          <div class="name">▸ Preview</div>
+          <div class="count">62 deploys</div>
+        </div>
+        <div class="list-rows">
+
+          <div class="row-card accent-green">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 11:46</span>
+              <span class="badge b-green">● succeeded</span>
+              <span class="ttl">harbor-web · pr-272 — Rigid cell border elements</span>
+            </div>
+            <div class="muted small">Triggered by <b>e.lindqvist</b></div>
+          </div>
+
+          <div class="row-card accent-green">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 10:18</span>
+              <span class="badge b-green">● succeeded</span>
+              <span class="ttl">harbor-web · pr-273 — Drop login form scopes</span>
+            </div>
+            <div class="muted small">Triggered by <b>e.lindqvist</b></div>
+          </div>
+
+          <div class="row-card accent-green">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 08:55</span>
+              <span class="badge b-green">● succeeded</span>
+              <span class="ttl">lantern-st · pr-377 — link · on rotate flag</span>
+            </div>
+            <div class="muted small">Waiting on build #4622 · queued 0m 12s</div>
+          </div>
+
+          <div class="row-card accent-green">
+            <div class="top">
+              <span class="muted small mono">apr 23 · 06:33</span>
+              <span class="badge b-green">● succeeded</span>
+              <span class="ttl">harbor-svc · v.8a8b</span>
+            </div>
+            <div class="muted small">Triggered by <b>e.lindqvist</b></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="flex between mt" style="align-items:center;">
+        <div class="pager"><a>‹</a><span class="on">1</span><a>2</a><a>3</a><a>4</a><a>5</a><a>›</a></div>
+        <div class="muted small">Showing 16 of 142</div>
+      </div>
+
+    </main>
+
+    <aside class="side">
+
+      <div class="card">
+        <div class="h">Deploy frequency</div>
+        <div class="name">Past 14 days</div>
+        <div class="heat">
+          <i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i>
+          <i class="h3"></i><i class="h2"></i><i class="h1"></i><i class="h0"></i>
+          <i class="h2"></i><i class="h3"></i><i class="h4"></i><i class="h3"></i>
+          <i class="h2"></i><i class="h3"></i>
+        </div>
+        <div class="muted tiny mt">mon · tue · wed · thu · fri · sat · sun</div>
+      </div>
+
+      <div class="card">
+        <div class="h">On call</div>
+        <div class="name">Teammates online</div>
+        <ul class="list">
+          <li class="item"><span class="av av-a">KE</span><span class="who"><div class="n">Ana Esterling</div><div class="r">primary · platform</div></span><span class="dot"></span></li>
+          <li class="item"><span class="av av-c">PD</span><span class="who"><div class="n">Priya Danforth</div><div class="r">secondary</div></span><span class="dot"></span></li>
+          <li class="item"><span class="av av-b">JV</span><span class="who"><div class="n">Jonas Verge</div><div class="r">manager · escalation</div></span></li>
+          <li class="item"><span class="av av-d">RA</span><span class="who"><div class="n">Rasmus Ashcroft</div><div class="r">incident commander</div></span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="h">7d activity</div>
+        <div class="name">Most deployed</div>
+        <ul class="list">
+          <li class="row"><span class="mono">harbor-api</span><span class="r">22</span></li>
+          <li class="row"><span class="mono">harbor-web</span><span class="r">18</span></li>
+          <li class="row"><span class="mono">signal-master</span><span class="r">11</span></li>
+          <li class="row"><span class="mono">lantern-st</span><span class="r">8</span></li>
+          <li class="row"><span class="mono">tideline-docs</span><span class="r">6</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="h">Recent shortcuts</div>
+        <div class="name">Quick actions</div>
+        <div class="links">
+          <a>Open active alerts (3)</a>
+          <a>Lock production deploys</a>
+          <a>Roll back last release</a>
+          <a>Page primary on-call</a>
+          <a>Declare incident</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="h">Reminder</div>
+        <div class="name">Deploy window</div>
+        <div class="muted small">No production deploys after <b>20:00 UTC</b> Fridays. Override requires two-engineer approval.</div>
+        <div class="links mt"><a>Read deploy policy →</a></div>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="meta">© 2026 Beacon Harbor Works · UTC 14:42</div>
+    <div class="links">
+      <a>SLO</a><a>Deploy windows</a><a>Quick: who's on call</a><a>Projects</a><a>Deployments</a><a>Builds</a><a>Team</a><a>Alerts</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

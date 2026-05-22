@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appointment calendar · Quartz Grove Lab</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .day-strip {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: 1px solid var(--border); border-radius: 10px; background: #fff;
+  }
+  .day-strip > div { padding: 12px; text-align: center; border-right: 1px solid var(--border); }
+  .day-strip > div:last-child { border-right: 0; }
+  .day-strip .d { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: .05em; }
+  .day-strip .n { font-size: 22px; font-weight: 700; margin-top: 2px; }
+  .day-strip .x { font-size: 11px; color: var(--text-3); margin-top: 2px; }
+  .day-strip .today { background: #eff6ff; color: var(--primary-700); border-radius: 8px; }
+  .day-strip .selected { background: #2563eb; color: #fff; border-radius: 8px; }
+  .day-strip .selected .d, .day-strip .selected .x { color: rgba(255,255,255,.85); }
+
+  .seg {
+    display: inline-flex; border: 1px solid var(--border-strong); border-radius: 8px; overflow: hidden; background: #fff;
+  }
+  .seg > button { padding: 6px 12px; background: #fff; border: 0; font-size: 12px; color: var(--text-2); cursor: pointer; }
+  .seg > button.active { background: #eef2ff; color: var(--primary-700); font-weight: 500; }
+  .seg > button + button { border-left: 1px solid var(--border); }
+
+  .week-grid {
+    display: grid; grid-template-columns: 80px repeat(6, 1fr);
+    border-top: 1px solid var(--border);
+  }
+  .week-grid .h, .week-grid .t, .week-grid .cell {
+    padding: 6px 8px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    font-size: 11px;
+  }
+  .week-grid .h { background: #fafafa; font-weight: 600; color: var(--text-2); text-align: center; }
+  .week-grid .t { color: var(--text-3); }
+  .week-grid .cell { min-height: 44px; }
+  .appt {
+    background: #dbeafe; color: #1d4ed8;
+    border-left: 3px solid #2563eb;
+    border-radius: 4px;
+    padding: 4px 6px;
+    margin-bottom: 4px;
+    font-size: 11px;
+  }
+  .appt.green { background: #dcfce7; color: #166534; border-color: #16a34a; }
+  .appt.purple { background: #ede9fe; color: #6d28d9; border-color: #7c3aed; }
+  .appt.amber { background: #fef3c7; color: #92400e; border-color: #ca8a04; }
+  .appt.gray { background: #f3f4f6; color: var(--text-2); border-color: #9ca3af; }
+
+  .month-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; padding: 8px; }
+  .month-grid .h { font-size: 10px; text-align: center; color: var(--text-3); text-transform: uppercase; padding: 4px 0; font-weight: 600; }
+  .month-grid .d { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 6px; font-size: 12px; color: var(--text); }
+  .month-grid .d.muted { color: #c7c9cf; }
+  .month-grid .d.selected { background: #dbeafe; color: var(--primary-700); font-weight: 600; }
+  .month-grid .d.today { border: 1px solid var(--primary); }
+  .month-grid .d .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--primary); margin-top: 2px; }
+
+  .agenda-item { display: grid; grid-template-columns: 70px 1fr auto; gap: 10px; padding: 12px 16px; border-top: 1px solid var(--border); align-items: center; }
+  .agenda-item .time { font-size: 12px; color: var(--text-3); }
+  .agenda-item .who { font-weight: 600; }
+  .agenda-item .what { font-size: 12px; color: var(--text-2); }
+
+  .roster .row-item { display:flex; align-items:center; gap: 10px; padding: 11px 16px; border-top: 1px solid var(--border); }
+  .roster .row-item .name { font-weight: 600; }
+  .roster .row-item .sub { font-size: 12px; color: var(--text-3); }
+
+  .room-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 0; }
+  .room-list > div { padding: 11px 16px; border-top: 1px solid var(--border); border-right: 1px solid var(--border); display:flex; justify-content: space-between; align-items: center; }
+  .room-list > div:nth-child(2n) { border-right: 0; }
+
+  @media (max-width: 760px) {
+    .day-strip { grid-template-columns: 1fr; }
+    .day-strip > div { border-right: 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: baseline; text-align: left; }
+    .week-grid { grid-template-columns: 60px repeat(6, minmax(80px, 1fr)); overflow-x: auto; }
+    .room-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <span class="brand"><span class="brand-mark"></span>Quartz Grove Lab</span>
+    <nav class="primary-nav">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html" class="active">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="search">Search patients, appointments…</div>
+    <span class="avatar">RV</span>
+  </div>
+</header>
+
+<main class="container page">
+  <div class="eyebrow">SCHEDULE · WEEK OF MAR 11</div>
+  <h1 class="page-title">A steady week, with room to breathe.</h1>
+  <p class="lede">42 appointments booked across five clinicians, three rooms open Thursday afternoon, and two telehealth slots still available. Drag any block to reschedule.</p>
+
+  <div class="row gap-8 mb-12">
+    <span class="badge badge-blue badge-dot">In-clinic</span>
+    <span class="badge badge-purple badge-dot">Telehealth</span>
+    <span class="badge badge-amber badge-dot">Lab visit</span>
+    <span class="badge badge-gray">No-shows: 2</span>
+  </div>
+
+  <div class="row gap-8 mb-16">
+    <button class="btn btn-primary">+ New appointment</button>
+    <button class="btn">Jump to today</button>
+    <button class="btn">Print day sheet</button>
+  </div>
+
+  <section class="card mb-16">
+    <div class="card-header between">
+      <div class="row gap-8">
+        <button class="btn btn-sm">‹</button>
+        <h3>March 11 – 17, 2025</h3>
+        <button class="btn btn-sm">›</button>
+      </div>
+      <div class="row gap-8">
+        <div class="seg">
+          <button>Day</button>
+          <button class="active">Week</button>
+          <button>Month</button>
+        </div>
+        <select class="input" style="width:auto"><option>All clinicians</option></select>
+      </div>
+    </div>
+    <div class="day-strip" style="border:0;">
+      <div><div class="d">Mon</div><div class="n">11</div><div class="x">6 appt</div></div>
+      <div><div class="d">Tue</div><div class="n">12</div><div class="x">7 appt</div></div>
+      <div class="selected"><div class="d">Wed · today</div><div class="n">13</div><div class="x">9 appt</div></div>
+      <div><div class="d">Thu</div><div class="n">14</div><div class="x">5 appt</div></div>
+      <div><div class="d">Fri</div><div class="n">15</div><div class="x">8 appt</div></div>
+      <div><div class="d">Sat</div><div class="n">16</div><div class="x">4 appt</div></div>
+      <div><div class="d">Sun</div><div class="n">17</div><div class="x">3 appt</div></div>
+    </div>
+  </section>
+
+  <div class="grid cols-4 mb-16">
+    <div class="stat">
+      <div class="stat-label">Booked this week</div>
+      <div class="stat-value">42</div>
+      <div class="stat-sub">93 % utilization, +6 vs. last week</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Confirmed</div>
+      <div class="stat-value">38</div>
+      <div class="stat-sub">90 % of bookings</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">No-show rate</div>
+      <div class="stat-value">3.1 %</div>
+      <div class="stat-sub">YTD target ≤ 5%</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Avg. wait time</div>
+      <div class="stat-value">7 min</div>
+      <div class="stat-sub">Tier 1 target</div>
+    </div>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-8">
+      <div class="card-header between">
+        <h3>Week view</h3>
+        <div class="row gap-8">
+          <span class="badge badge-gray">In-clinic</span>
+          <span class="badge badge-gray">Telehealth</span>
+          <span class="badge badge-gray">Admin / block</span>
+          <span class="badge badge-gray">Cancelled</span>
+        </div>
+      </div>
+      <div class="week-grid">
+        <div class="h"></div>
+        <div class="h">Mon 11</div><div class="h">Tue 12</div><div class="h">Wed 13</div><div class="h">Thu 14</div><div class="h">Fri 15</div><div class="h">Sat 16</div>
+        <div class="t">8:00</div>
+        <div class="cell"><div class="appt">Lab — A. Brooks</div></div>
+        <div class="cell"><div class="appt">M. Hayes</div></div>
+        <div class="cell"><div class="appt">J. Reyes — F/U</div></div>
+        <div class="cell"><div class="appt purple">TeleH · Patel</div></div>
+        <div class="cell"><div class="appt green">Wellness · Lin</div></div>
+        <div class="cell"><div class="appt amber">Lab draw</div></div>
+
+        <div class="t">9:00</div>
+        <div class="cell"><div class="appt">N. Fontaine</div></div>
+        <div class="cell"><div class="appt">B. Park</div></div>
+        <div class="cell"><div class="appt">R. Aldana</div></div>
+        <div class="cell"><div class="appt">Y. Castillo</div></div>
+        <div class="cell"><div class="appt">D. Marwick</div></div>
+        <div class="cell"></div>
+
+        <div class="t">10:00</div>
+        <div class="cell"><div class="appt purple">TeleH · Vela</div></div>
+        <div class="cell"><div class="appt green">L. Okonkwo</div></div>
+        <div class="cell"><div class="appt">H. Araki</div></div>
+        <div class="cell"><div class="appt">C. Bellweather</div></div>
+        <div class="cell"><div class="appt">G. Rios</div></div>
+        <div class="cell"><div class="appt amber">Lab draw</div></div>
+
+        <div class="t">11:00</div>
+        <div class="cell"><div class="appt">G. Sun</div></div>
+        <div class="cell"><div class="appt">A. Sanders</div></div>
+        <div class="cell"><div class="appt">B. Tillman</div></div>
+        <div class="cell gray"></div>
+        <div class="cell"><div class="appt purple">TeleH · Akin</div></div>
+        <div class="cell"></div>
+
+        <div class="t">12:00</div>
+        <div class="cell"><div class="appt gray">Lunch block</div></div>
+        <div class="cell"><div class="appt gray">Lunch block</div></div>
+        <div class="cell"><div class="appt gray">Lunch block</div></div>
+        <div class="cell"><div class="appt gray">Lunch block</div></div>
+        <div class="cell"><div class="appt gray">Lunch block</div></div>
+        <div class="cell"></div>
+
+        <div class="t">1:00</div>
+        <div class="cell"><div class="appt">N. Patel</div></div>
+        <div class="cell"><div class="appt">D. Sun</div></div>
+        <div class="cell"><div class="appt">E. Vance</div></div>
+        <div class="cell"><div class="appt">M. Lee</div></div>
+        <div class="cell"><div class="appt purple">TeleH · Rao</div></div>
+        <div class="cell"></div>
+
+        <div class="t">2:00</div>
+        <div class="cell"><div class="appt">G. Park</div></div>
+        <div class="cell"><div class="appt">K. Han</div></div>
+        <div class="cell"><div class="appt">J. Park</div></div>
+        <div class="cell"><div class="appt">B. Solano</div></div>
+        <div class="cell"><div class="appt">A. Saito</div></div>
+        <div class="cell"></div>
+
+        <div class="t">3:00</div>
+        <div class="cell"><div class="appt purple">TeleH · Diaz</div></div>
+        <div class="cell"><div class="appt green">Wellness · Bo</div></div>
+        <div class="cell"><div class="appt">F. Akano</div></div>
+        <div class="cell"><div class="appt">K. Patel</div></div>
+        <div class="cell"><div class="appt">M. Roe</div></div>
+        <div class="cell"></div>
+      </div>
+    </section>
+
+    <section class="card col-span-4">
+      <div class="card-header">
+        <div>
+          <h3>Today · Wed Mar 13</h3>
+          <div class="text-xs muted mt-4">9 appointments · 2 telehealth</div>
+        </div>
+      </div>
+      <div class="agenda">
+        <div class="agenda-item">
+          <div class="time">8:30</div>
+          <div>
+            <div class="who">Jordan Reyes</div>
+            <div class="what">Annual physical · Room 1</div>
+          </div>
+          <span class="badge badge-green badge-dot">Checked in</span>
+        </div>
+        <div class="agenda-item">
+          <div class="time">9:00</div>
+          <div>
+            <div class="who">Naomi Fontaine</div>
+            <div class="what">Annual physical · Room 2 · Dr. Voss</div>
+          </div>
+          <span class="badge badge-blue">Confirmed</span>
+        </div>
+        <div class="agenda-item">
+          <div class="time">9:45</div>
+          <div>
+            <div class="who">Rafael Aldana</div>
+            <div class="what">Follow-up · Room 1 · Dr. Voss</div>
+          </div>
+          <span class="badge badge-amber">Waiting</span>
+        </div>
+        <div class="agenda-item">
+          <div class="time">10:15</div>
+          <div>
+            <div class="who">Yara Castillo</div>
+            <div class="what">Blood pressure check · Room 3</div>
+          </div>
+          <span class="badge badge-blue">Confirmed</span>
+        </div>
+        <div class="agenda-item">
+          <div class="time">11:00</div>
+          <div>
+            <div class="who">Hiro Araki</div>
+            <div class="what">Blood pressure check · Room 3</div>
+          </div>
+          <span class="badge badge-blue">Confirmed</span>
+        </div>
+        <div class="agenda-item">
+          <div class="time">1:30</div>
+          <div>
+            <div class="who">Cassidy Bellweather</div>
+            <div class="what">Pediatric well · Room 4</div>
+          </div>
+          <span class="badge badge-blue">Confirmed</span>
+        </div>
+        <div class="agenda-item">
+          <div class="time">2:15</div>
+          <div>
+            <div class="who">Luc Okonkwo</div>
+            <div class="what">Pediatric well · Room 4 · Dr. Vos</div>
+          </div>
+          <span class="badge badge-blue">Confirmed</span>
+        </div>
+        <div class="agenda-item">
+          <div class="time">3:00</div>
+          <div>
+            <div class="who">Benji Tillman</div>
+            <div class="what">Pediatric · Room 4 · Dr. T</div>
+          </div>
+          <span class="badge badge-blue">Confirmed</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-4">
+      <div class="card-header">
+        <h3>March 2025</h3>
+        <button class="btn-link text-sm">Pick a date to view</button>
+      </div>
+      <div class="month-grid">
+        <div class="h">Mon</div><div class="h">Tue</div><div class="h">Wed</div><div class="h">Thu</div><div class="h">Fri</div><div class="h">Sat</div><div class="h">Sun</div>
+        <div class="d muted">24</div><div class="d muted">25</div><div class="d muted">26</div><div class="d muted">27</div><div class="d muted">28</div><div class="d">1</div><div class="d">2</div>
+        <div class="d">3</div><div class="d">4</div><div class="d">5</div><div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div>
+        <div class="d">10</div><div class="d">11</div><div class="d">12</div><div class="d selected">13<span class="dot"></span></div><div class="d">14</div><div class="d">15</div><div class="d">16</div>
+        <div class="d">17</div><div class="d">18</div><div class="d">19</div><div class="d">20</div><div class="d">21</div><div class="d">22</div><div class="d">23</div>
+        <div class="d">24</div><div class="d">25</div><div class="d">26</div><div class="d">27</div><div class="d">28</div><div class="d">29</div><div class="d">30</div>
+        <div class="d">31</div><div class="d muted">1</div><div class="d muted">2</div><div class="d muted">3</div><div class="d muted">4</div><div class="d muted">5</div><div class="d muted">6</div>
+      </div>
+    </section>
+
+    <section class="card col-span-4">
+      <div class="card-header">
+        <h3>On shift today</h3>
+        <button class="btn-link text-sm">View full roster</button>
+      </div>
+      <div class="roster">
+        <div class="row-item">
+          <span class="av">RV</span>
+          <div>
+            <div class="name">Dr. Renata Mossberg</div>
+            <div class="sub">Family medicine · Rooms 1 &amp; 4</div>
+          </div>
+          <span class="badge badge-green right">In</span>
+        </div>
+        <div class="row-item">
+          <span class="av">IC</span>
+          <div>
+            <div class="name">Dr. Idris Calloway</div>
+            <div class="sub">Internal medicine · Room 2</div>
+          </div>
+          <span class="badge badge-green right">In</span>
+        </div>
+        <div class="row-item">
+          <span class="av">HP</span>
+          <div>
+            <div class="name">Hana Petrov, NP</div>
+            <div class="sub">Pediatrics · Room 4</div>
+          </div>
+          <span class="badge badge-amber right">Out 3p</span>
+        </div>
+        <div class="row-item">
+          <span class="av">JS</span>
+          <div>
+            <div class="name">Dr. Jiren Salisbury</div>
+            <div class="sub">Cardio · Room 3</div>
+          </div>
+          <span class="badge badge-green right">In</span>
+        </div>
+        <div class="row-item">
+          <span class="av">BG</span>
+          <div>
+            <div class="name">Brigit Garza, MA</div>
+            <div class="sub">Vitals &amp; triage</div>
+          </div>
+          <span class="badge badge-green right">In</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card col-span-4">
+      <div class="card-header"><h3>Rooms</h3></div>
+      <div class="room-list">
+        <div><span class="fw-600">Room 1</span><span class="badge badge-red">Occupied</span></div>
+        <div><span class="fw-600">Room 2</span><span class="badge badge-amber">Turning</span></div>
+        <div><span class="fw-600">Room 3</span><span class="badge badge-green">Open</span></div>
+        <div><span class="fw-600">Room 4</span><span class="badge badge-red">Occupied</span></div>
+        <div><span class="fw-600">Room 5</span><span class="badge badge-green">Open</span></div>
+        <div><span class="fw-600">Procedure</span><span class="badge badge-amber">Reserved 4 pm</span></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid cols-12 mb-16">
+    <section class="card col-span-8">
+      <div class="card-header">
+        <h3>Wait list</h3>
+        <button class="btn-link text-sm">Manage</button>
+      </div>
+      <table class="data">
+        <thead><tr><th>Patient</th><th>Preferred clinician</th><th>Reason</th><th>Earliest ok</th><th>Added</th></tr></thead>
+        <tbody>
+          <tr><td>Mira Halverson</td><td>Dr. Mossberg</td><td>Annual</td><td>Any</td><td>Mar 11</td></tr>
+          <tr><td>Priya Liang</td><td>Any</td><td>Cough, 4 days</td><td>Today</td><td>Mar 13</td></tr>
+          <tr><td>Ezra Strickland</td><td>NP Petrov</td><td>Ear pain (child)</td><td>Today</td><td>Mar 13</td></tr>
+          <tr><td>Devon Patel</td><td>Dr. Calloway</td><td>Lab follow-up</td><td>By Fri</td><td>Mar 12</td></tr>
+          <tr><td>Sana Khoury</td><td>Any · telehealth</td><td>Refill consult</td><td>Today</td><td>Mar 13</td></tr>
+          <tr><td>Olive Marigold</td><td>Dr. Salisbury</td><td>Skin check</td><td>Next week</td><td>Mar 11</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card col-span-4">
+      <div class="card-header">
+        <h3>Quick add</h3>
+      </div>
+      <div class="card-body">
+        <div class="text-xs muted mb-8">Book in seconds — we'll send a confirmation text.</div>
+        <div class="grid cols-2 gap-8">
+          <div class="field-row"><label class="field">Patient</label><select class="input"><option>Naomi Fontaine</option></select></div>
+          <div class="field-row"><label class="field">Clinician</label><select class="input"><option>NP Hana Petrov</option></select></div>
+          <div class="field-row"><label class="field">Date</label><input class="input" value="Mar 14, 2025"></div>
+          <div class="field-row"><label class="field">Time</label><input class="input" value="9:30 AM"></div>
+          <div class="field-row" style="grid-column: span 2"><label class="field">Type</label><select class="input"><option>Office visit · 30 min</option></select></div>
+        </div>
+        <div class="field-row mt-12"><label class="field">Notes for the visit</label>
+          <textarea class="input" rows="2">Follow-up on iron panel from Feb. Patient prefers afternoon if possible.</textarea>
+        </div>
+        <div class="row mt-12 between">
+          <button class="btn">Save draft</button>
+          <button class="btn btn-primary">Book appointment</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid cols-12">
+    <section class="card col-span-6">
+      <div class="card-header">
+        <h3>Things to look at</h3>
+        <span class="badge badge-gray">3 items</span>
+      </div>
+      <div class="card-body" style="display:flex; flex-direction:column; gap:10px;">
+        <div class="banner banner-blue">
+          <div><strong>Double-booking on Friday 2:30 PM</strong>
+            <div>Dr. Calloway has overlapping holds for E. Vance and L. Bruno. One can move to 3:30 PM.</div>
+          </div>
+        </div>
+        <div class="banner banner-green">
+          <div><strong>Confirmations sent</strong>
+            <div>36 of 42 patients confirmed by SMS. Four reminders will resend tonight at 6 PM.</div>
+          </div>
+        </div>
+        <div class="banner banner-red">
+          <div><strong>Two cancellations need follow-up</strong>
+            <div>K. Solomon (Tue 11 AM) and S. Patel (Wed 4 PM) — both could go to next-week slots.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card col-span-6">
+      <div class="card-header">
+        <h3>Recent activity</h3>
+        <button class="btn-link text-sm">All changes</button>
+      </div>
+      <div class="card-body" style="font-size:13px;">
+        <div class="row gap-8 mb-12"><span class="av">NF</span><div><div class="fw-600">Naomi Fontaine checked in</div><div class="text-xs muted">Room 2 assigned · vitals in progress</div><div class="text-xs muted">4 minutes ago</div></div></div>
+        <div class="row gap-8 mb-12"><span class="av">JR</span><div><div class="fw-600">Jordan Reyes telehealth started</div><div class="text-xs muted">Connection healthy</div><div class="text-xs muted">12 minutes ago</div></div></div>
+        <div class="row gap-8 mb-12"><span class="av">MH</span><div><div class="fw-600">Mira Halverson asked to reschedule</div><div class="text-xs muted">Cancelled Mar 13 11 AM via patient portal</div><div class="text-xs muted">29 minutes ago</div></div></div>
+        <div class="row gap-8 mb-12"><span class="av">AB</span><div><div class="fw-600">Blocked Thu 3–5 PM</div><div class="text-xs muted">CME webinar · Auto-confirm disabled</div><div class="text-xs muted">1 hour ago</div></div></div>
+        <div class="row gap-8"><span class="av">SK</span><div><div class="fw-600">42 reminders queued</div><div class="text-xs muted">For appointments Mar 14 – Mar 17</div><div class="text-xs muted">2 hours ago</div></div></div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© 2025 Quartz Grove Lab · Quartz Grove Family Medicine, PLLC</span>
+    <nav class="footer-nav">
+      <a href="patient-dashboard.html">Patients</a>
+      <a href="appointment-calendar.html">Calendar</a>
+      <a href="billing-insurance.html">Billing</a>
+      <a href="financing-plans.html">Payment plans</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <span class="support">Support: hello@quartzgrove.health · HIPAA-compliant</span>
+  </div>
+</footer>
+
+</body>
+</html>

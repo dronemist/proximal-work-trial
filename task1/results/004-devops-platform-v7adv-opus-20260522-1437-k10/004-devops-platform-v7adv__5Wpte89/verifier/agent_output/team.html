@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Team — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <div class="brand-row" style="display:flex;align-items:center;justify-content:space-between;width:100%;max-width:340px;">
+      <a href="#" class="brand"><span class="dot"></span>Beacon Harbor Works</a>
+    </div>
+    <nav>
+      <a href="projects.html">Projects</a>
+      <a href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a>
+      <a href="team.html" class="active">Team</a>
+      <a href="alerts.html">Alerts</a>
+    </nav>
+    <button class="userchip"><span class="avatar amber">MK</span>Mark K.</button>
+  </div>
+</header>
+
+<div class="shell">
+<div class="page">
+
+  <div class="crumbs"><a href="#">Harbor</a><span class="sep">/</span><span class="current">Team</span></div>
+  <div class="eyebrow">Crew manifest · pier 4</div>
+  <h1 class="page-title">Team &amp; On-Call</h1>
+  <p class="lede">Eleven engineers across three time zones. Rotations run Monday 09:00 UTC to the following Monday. Secondary covers when primary is heads-down or sleeping.</p>
+
+  <div class="actions">
+    <button class="btn btn-primary">Invite engineer</button>
+    <button class="btn">Edit rotation</button>
+    <button class="btn btn-ghost">Export manifest</button>
+  </div>
+
+  <div class="grid">
+    <div class="col-main">
+
+      <div class="metrics">
+        <div class="metric"><div class="label">Members</div><div class="value">11</div><div class="sub">8 engineers · 3 leads</div></div>
+        <div class="metric"><div class="label">On call · 24h</div><div class="value">2</div><div class="sub">primary &amp; secondary</div></div>
+        <div class="metric"><div class="label">Time zones</div><div class="value">3</div><div class="sub">UTC-5 · UTC · UTC+1</div></div>
+        <div class="metric"><div class="label">MTTA (24h)</div><div class="value">04m</div><div class="sub">+8s vs week</div></div>
+      </div>
+
+      <!-- tabs -->
+      <div class="tabs">
+        <a href="#" class="active">Directory</a>
+        <a href="#">On-call rotation</a>
+        <a href="#">Groups</a>
+        <a href="#">Permissions</a>
+        <a href="#">Audit log</a>
+      </div>
+
+      <h2 style="font-family:Georgia,serif;font-size:18px;color:#1f2c34;margin-bottom:8px;">Directory</h2>
+      <div class="filterbar">
+        <input class="input grow" placeholder="Search by name, handle, repo…">
+        <select class="input"><option>All roles</option></select>
+        <select class="input"><option>Any status</option></select>
+        <button class="btn btn-sm">Filters</button>
+        <span style="margin-left:auto;" class="muted xs">Showing 1 to 8 of 11</span>
+      </div>
+
+      <div class="two-col">
+        <div class="dir-card">
+          <div class="top">
+            <span class="avatar lg amber">DH</span>
+            <div>
+              <div class="name">Elin Halvorsen</div>
+              <div class="role">Platform Lead · Oslo</div>
+              <div class="tags"><span class="tag tag-dark">ON CALL</span><span class="tag tag-blue">PRIMARY</span></div>
+            </div>
+          </div>
+          <div class="data">
+            <div class="k">Handle</div><div class="v mono">@elin</div>
+            <div class="k">Email</div><div class="v mono">elin@harbor.works</div>
+            <div class="k">Repos</div><div class="v">harbor-api · auth-edge</div>
+            <div class="k">Pages</div><div class="v">38 (90d) · 2 active</div>
+          </div>
+        </div>
+        <div class="dir-card">
+          <div class="top">
+            <span class="avatar lg teal">DP</span>
+            <div>
+              <div class="name">Devon Park</div>
+              <div class="role">Senior SRE · Brooklyn</div>
+              <div class="tags"><span class="tag tag-gray">SECONDARY</span><span class="tag tag-outline">SHADOWING</span></div>
+            </div>
+          </div>
+          <div class="data">
+            <div class="k">Handle</div><div class="v mono">@devon</div>
+            <div class="k">Email</div><div class="v mono">devon@harbor.works</div>
+            <div class="k">Repos</div><div class="v">media-svc · scheduler</div>
+            <div class="k">Pages</div><div class="v">22 (90d)</div>
+          </div>
+        </div>
+        <div class="dir-card">
+          <div class="top">
+            <span class="avatar lg slate">MR</span>
+            <div>
+              <div class="name">Mara Reyes</div>
+              <div class="role">Engineering Manager · Lisbon</div>
+              <div class="tags"><span class="tag tag-gray">OFF DUTY</span></div>
+            </div>
+          </div>
+          <div class="data">
+            <div class="k">Handle</div><div class="v mono">@mara</div>
+            <div class="k">Email</div><div class="v mono">mara@harbor.works</div>
+            <div class="k">Repos</div><div class="v">harbor-cli · docs-eng</div>
+            <div class="k">Pages</div><div class="v">8 (90d)</div>
+          </div>
+        </div>
+        <div class="dir-card">
+          <div class="top">
+            <span class="avatar lg dust">JK</span>
+            <div>
+              <div class="name">Jonas Kemper</div>
+              <div class="role">Staff Engineer · Berlin</div>
+              <div class="tags"><span class="tag tag-green">ON CALL</span></div>
+            </div>
+          </div>
+          <div class="data">
+            <div class="k">Handle</div><div class="v mono">@jonas</div>
+            <div class="k">Email</div><div class="v mono">jonas@harbor.works</div>
+            <div class="k">Repos</div><div class="v">ledger-svc · billing</div>
+            <div class="k">Pages</div><div class="v">18 (90d)</div>
+          </div>
+        </div>
+        <div class="dir-card">
+          <div class="top">
+            <span class="avatar lg sage">SO</span>
+            <div>
+              <div class="name">Saoirse O'Brien</div>
+              <div class="role">Backend Engineer · Cork</div>
+              <div class="tags"><span class="tag tag-amber">DAYTIME ONLY</span></div>
+            </div>
+          </div>
+          <div class="data">
+            <div class="k">Handle</div><div class="v mono">@saoirse</div>
+            <div class="k">Email</div><div class="v mono">saoirse@harbor.works</div>
+            <div class="k">Repos</div><div class="v">media-svc · signal-worker</div>
+            <div class="k">Pages</div><div class="v">6 (90d)</div>
+          </div>
+        </div>
+        <div class="dir-card">
+          <div class="top">
+            <span class="avatar lg indigo">TA</span>
+            <div>
+              <div class="name">Tomas Aalto</div>
+              <div class="role">Frontend Engineer · Helsinki</div>
+              <div class="tags"><span class="tag tag-outline">SHADOWING</span><span class="tag tag-gray">TRAINING</span></div>
+            </div>
+          </div>
+          <div class="data">
+            <div class="k">Handle</div><div class="v mono">@tomas</div>
+            <div class="k">Email</div><div class="v mono">tomas@harbor.works</div>
+            <div class="k">Repos</div><div class="v">harbor-web · lantern-ui</div>
+            <div class="k">Pages</div><div class="v">2 (90d)</div>
+          </div>
+        </div>
+        <div class="dir-card">
+          <div class="top">
+            <span class="avatar lg rose">RN</span>
+            <div>
+              <div class="name">Renata Novak</div>
+              <div class="role">Infrastructure · Ljubljana</div>
+              <div class="tags"><span class="tag tag-green">ON CALL</span><span class="tag tag-blue">PRIMARY</span></div>
+            </div>
+          </div>
+          <div class="data">
+            <div class="k">Handle</div><div class="v mono">@renata</div>
+            <div class="k">Email</div><div class="v mono">renata@harbor.works</div>
+            <div class="k">Repos</div><div class="v">infra · runners</div>
+            <div class="k">Pages</div><div class="v">28 (90d)</div>
+          </div>
+        </div>
+        <div class="dir-card">
+          <div class="top">
+            <span class="avatar lg plum">CY</span>
+            <div>
+              <div class="name">Cyrus Yates</div>
+              <div class="role">Designer · Toronto</div>
+              <div class="tags"><span class="tag tag-gray">OFF DUTY</span></div>
+            </div>
+          </div>
+          <div class="data">
+            <div class="k">Handle</div><div class="v mono">@cyrus</div>
+            <div class="k">Email</div><div class="v mono">cyrus@harbor.works</div>
+            <div class="k">Repos</div><div class="v">harbor-web · brand</div>
+            <div class="k">Pages</div><div class="v">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pager mt-10">
+        <a href="#" class="active">1</a><a href="#">2</a>
+        <span class="info">11 members · page 1 of 2</span>
+      </div>
+
+      <!-- On-call rotation section -->
+      <h2 style="font-family:Georgia,serif;font-size:22px;color:#1f2c34;margin:24px 0 6px;">On call rotation</h2>
+      <p class="muted small" style="margin-bottom:10px;">Primary takes pages. Secondary takes over after 15 minutes of no acknowledgement, or on explicit handoff. Rotary is engaged only for SEV-1 surges.</p>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <div>
+            <div class="eyebrow" style="margin:0;">Week 19/26</div>
+            <div style="font-family:Georgia,serif;font-size:18px;color:#1f2c34;font-weight:600;">November 04 — 10</div>
+            <div class="muted xs">Eight-hour shifts. Hand-offs at 00:00, 08:00, 16:00.</div>
+          </div>
+          <div class="muted xs">‹ prev | next ›</div>
+        </div>
+        <div class="heatmap">
+          <div></div>
+          <div class="dayhead">Mon</div><div class="dayhead">Tue</div><div class="dayhead">Wed</div>
+          <div class="dayhead">Thu</div><div class="dayhead">Fri</div><div class="dayhead">Sat</div>
+          <div class="dayhead">Sun</div>
+          <div class="hour">00–08</div>
+          <div class="hcell l3"></div><div class="hcell l3"></div><div class="hcell l4"></div>
+          <div class="hcell l3"></div><div class="hcell l2"></div><div class="hcell l1"></div>
+          <div class="hcell l1"></div>
+          <div class="hour">08–16</div>
+          <div class="hcell l4"></div><div class="hcell l4"></div><div class="hcell l3"></div>
+          <div class="hcell l4"></div><div class="hcell l3"></div><div class="hcell l2"></div>
+          <div class="hcell l2"></div>
+          <div class="hour">16–24</div>
+          <div class="hcell l3"></div><div class="hcell l2"></div><div class="hcell l3"></div>
+          <div class="hcell l2"></div><div class="hcell l1"></div><div class="hcell l3"></div>
+          <div class="hcell l3"></div>
+        </div>
+        <div class="muted xs" style="margin-top:8px;">
+          <span class="tag tag-green">PRIMARY</span>
+          <span class="tag tag-gray">SECONDARY</span>
+          more p95 ack engaged @ 23 minutes prior
+        </div>
+      </div>
+
+      <div class="table-wrap mt-10">
+        <table class="t">
+          <thead><tr><th>Shift</th><th>Engineer</th><th>Role</th><th>Starts</th><th>Ends</th><th>Pages (week)</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Now</td><td>Elin Halvorsen</td><td>Primary</td><td>Mon · 08:00</td><td>Mon · 16:00</td><td>2</td><td><span class="tag tag-green">ACTIVE</span></td></tr>
+            <tr><td>Now</td><td>Devon Park</td><td>Secondary</td><td>Mon · 08:00</td><td>Mon · 16:00</td><td>0</td><td><span class="tag tag-gray">STANDBY</span></td></tr>
+            <tr><td>Next</td><td>Saoirse O'Brien</td><td>Primary</td><td>Mon · 16:00</td><td>Tue · 00:00</td><td>—</td><td><span class="tag tag-outline">QUEUED</span></td></tr>
+            <tr><td>Next</td><td>Jonas Kemper</td><td>Secondary</td><td>Mon · 16:00</td><td>Tue · 00:00</td><td>—</td><td><span class="tag tag-outline">QUEUED</span></td></tr>
+            <tr><td>Next</td><td>Renata Novak</td><td>Primary (overnight)</td><td>Tue · 00:00</td><td>Tue · 08:00</td><td>—</td><td><span class="tag tag-outline">QUEUED</span></td></tr>
+            <tr><td>—</td><td>Tomas Aalto</td><td>Off rotation</td><td>—</td><td>—</td><td>—</td><td><span class="tag tag-rose">EXCUSED</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- sidebar -->
+    <aside class="col-side">
+      <div class="card">
+        <div class="card-title">Crew status</div>
+        <div style="font-weight:600;font-size:13.5px;color:#1f2c34;margin-bottom:6px;">Pager holders</div>
+        <div class="person"><span class="avatar amber">DH</span><div><div style="font-weight:600;">Elin Halvorsen</div><div class="muted xs">Primary · until 16:00</div></div></div>
+        <div class="person"><span class="avatar teal">DP</span><div><div style="font-weight:600;">Devon Park</div><div class="muted xs">Secondary</div></div></div>
+        <div class="person"><span class="avatar slate">MR</span><div><div style="font-weight:600;">Mara Reyes</div><div class="muted xs">Manager-on-call</div></div></div>
+        <div class="muted xs" style="margin-top:8px;"><a href="#">Page on-call ›</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title lined">Currently coding</div>
+        <div style="font-weight:600;font-size:13.5px;color:#1f2c34;margin-bottom:6px;">Active now</div>
+        <div class="person"><span class="avatar dust">SO</span><div><div style="font-weight:600;">Saoirse O'Brien</div><div class="muted xs">harbor-api</div></div></div>
+        <div class="person"><span class="avatar rose">RN</span><div><div style="font-weight:600;">Renata Novak</div><div class="muted xs">infra · runners</div></div></div>
+        <div class="person"><span class="avatar plum">CY</span><div><div style="font-weight:600;">Cyrus Yates</div><div class="muted xs">harbor-web</div></div></div>
+        <div class="person"><span class="avatar indigo">TA</span><div><div style="font-weight:600;">Tomas Aalto</div><div class="muted xs">lantern-ui</div></div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Trending repos</div>
+        <div style="font-weight:600;font-size:13.5px;color:#1f2c34;margin-bottom:6px;">This week</div>
+        <ul class="linklist">
+          <li><span class="mono">harbor-api</span><span class="meta">+ 22</span></li>
+          <li><span class="mono">pier-infra</span><span class="meta">+ 18</span></li>
+          <li><span class="mono">cargo-worker</span><span class="meta">+ 11</span></li>
+          <li><span class="mono">manifest-cfg</span><span class="meta">+ 8</span></li>
+          <li><span class="mono">lighthouse-cfg</span><span class="meta">+ 4</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Recent shortcuts</div>
+        <div style="font-weight:600;font-size:13.5px;color:#1f2c34;margin-bottom:6px;">Quick rooms</div>
+        <ul class="linklist">
+          <li><a href="#">Open active alerts (3)</a></li>
+          <li><a href="#">Lock production deploys</a></li>
+          <li><a href="#">Add deployment</a></li>
+          <li><a href="#">Runbook · API latency</a></li>
+          <li><a href="#">Status page editor</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Crew gigs</div>
+        <p class="muted small">No comp covers Saturday 05:00 to week 19. Consider rotating Saoirse forward, or paging Mara on escalation.</p>
+        <button class="btn btn-sm mt-6">Reassign</button>
+      </div>
+    </aside>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© 2026 Beacon Harbor · 11 thingshouts</div>
+    <nav>
+      <a href="#">Status</a><a href="#">Docs</a><a href="#">API</a>
+      <a href="projects.html">Projects</a><a href="deploys.html">Deployments</a>
+      <a href="builds.html">Builds</a><a href="alerts.html">Alerts</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

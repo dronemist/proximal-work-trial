@@ -1,0 +1,175 @@
+[grade] VLM judge: 15 pairs in 14.5s
+{
+  "per_page_viewport": {
+    "customers": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6549533350003869,
+          "extra": {
+            "reference_size": [
+              1440,
+              2179
+            ],
+            "candidate_size": [
+              1440,
+              1598
+            ],
+            "compared_size": [
+              1440,
+              1598
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.45976847410202026,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.21138697862625122,
+            "raw_score_before_sqrt": 0.211387038230896
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8505796807451245,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.14942031925487548,
+            "page_diagonal_px": 2635.6902711286593
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.6264808345025494,
+          "extra": {
+            "bg_score": 0.7526082744172641,
+            "fg_score": 0.5003533945878347,
+            "bg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 18,
+              "weighted_mean_oklab_distance": 0.021851615980267525,
+              "base_score_before_penalty": 0.8543225601315498,
+              "over_color_penalty": 0.10171428571428573
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 14,
+              "weighted_mean_oklab_distance": 0.0625469908118248,
+              "base_score_before_penalty": 0.5830200612545013,
+              "over_color_penalty": 0.08266666666666668
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.8153822828889448,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.9505461184127783,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "mono"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.08143939393939394
+              ],
+              [
+                11.0,
+                0.13636363636363635
+              ],
+              [
+                12.0,
+                0.5492424242424242
+              ],
+              [
+                13.3,
+                0.020833333333333332
+              ],
+              [
+                15.0,
+                0.18181818181818182
+              ],
+              [
+                20.0,
+                0.011363636363636364
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                9.0,
+                0.1721311475409836
+              ],
+              [
+                10.0,
+                0.16393442622950818
+              ],
+              [
+                11.0,
+                0.26844262295081966
+              ],
+              [
+                12.0,
+                0.24180327868852458
+              ],
+              [
+                13.0,
+                0.13729508196721313
+              ],
+              [
+                28.0,
+                0.010245901639344262
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "ui-monospace"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.4196547144754316,
+          "extra": {
+            "reference_tokens": 558,
+            "candidate_tokens": 511,
+            "matched_tokens": 316,
+            "union_tokens": 753,
+            "reference_unique": 331,
+            "candidate_unique": 319
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content fabrications and discrepancies: customer names/emails differ (e.g., 'Marcus Olerud' vs 'Marcus Abend', different email domains throughout), segment distribution percentages are completely different (reference 

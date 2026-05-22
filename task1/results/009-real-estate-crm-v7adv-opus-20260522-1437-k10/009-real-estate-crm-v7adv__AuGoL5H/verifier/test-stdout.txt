@@ -1,0 +1,2929 @@
+--- reward ---
+0.4040473605917866
+
+--- grading/subscores.json ---
+{
+  "per_page_viewport": {
+    "calendar": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.7232666783003734,
+          "extra": {
+            "reference_size": [
+              1440,
+              2721
+            ],
+            "candidate_size": [
+              1440,
+              2110
+            ],
+            "compared_size": [
+              1440,
+              2110
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.45420101284980774,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 390,
+            "matched_pairs": 390,
+            "mean_matched_iou": 0.20629851520061493,
+            "raw_score_before_sqrt": 0.2062985599040985
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8218538387775639,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 390,
+            "matched_pairs": 390,
+            "mean_normalized_centroid_distance": 0.17814616122243612,
+            "page_diagonal_px": 3079.3048659194806
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8154046159982681,
+          "extra": {
+            "bg_score": 0.8748636583089828,
+            "fg_score": 0.7559455736875533,
+            "bg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.015170451253652573,
+              "base_score_before_penalty": 0.8988636583089828,
+              "over_color_penalty": 0.024000000000000004
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.03620816394686699,
+              "base_score_before_penalty": 0.75861224035422,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7133344626205917,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.7333349466008454,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.10849056603773585
+              ],
+              [
+                12.0,
+                0.3089622641509434
+              ],
+              [
+                14.0,
+                0.33254716981132076
+              ],
+              [
+                16.0,
+                0.21933962264150944
+              ],
+              [
+                19.0,
+                0.014150943396226415
+              ],
+              [
+                34.0,
+                0.01179245283018868
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.017948717948717947
+              ],
+              [
+                10.5,
+                0.16666666666666666
+              ],
+              [
+                11.0,
+                0.3230769230769231
+              ],
+              [
+                11.5,
+                0.08461538461538462
+              ],
+              [
+                12.0,
+                0.010256410256410256
+              ],
+              [
+                12.5,
+                0.07435897435897436
+              ],
+              [
+                13.0,
+                0.020512820512820513
+              ],
+              [
+                14.0,
+                0.27692307692307694
+              ],
+              [
+                26.0,
+                0.010256410256410256
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5695067264573991,
+          "extra": {
+            "reference_tokens": 559,
+            "candidate_tokens": 491,
+            "matched_tokens": 381,
+            "union_tokens": 669,
+            "reference_unique": 208,
+            "candidate_unique": 208
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple major defects: wrong color theme (candidate uses light/white background vs reference's dark green theme), hallucinated agent names (Hollis Brown/Marisol Paine/Amelia Oh vs Hollis Wren/Marisol Pace/Annika Ott), wrong data in stats panels (Closings shows 3 vs 4, Showings count differs), and f",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 6.11
+          }
+        },
+        "_structured": 0.6608401012483106,
+        "_overflow_factor": 1.0,
+        "_composite": 0.3
+      },
+      "mobile": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.610973385892398,
+          "extra": {
+            "reference_size": [
+              375,
+              5224
+            ],
+            "candidate_size": [
+              375,
+              3813
+            ],
+            "compared_size": [
+              375,
+              3813
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4148383140563965,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 390,
+            "matched_pairs": 390,
+            "mean_matched_iou": 0.1720908135175705,
+            "raw_score_before_sqrt": 0.1720908284187317
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.837605955430175,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 390,
+            "matched_pairs": 390,
+            "mean_normalized_centroid_distance": 0.16239404456982495,
+            "page_diagonal_px": 5276.288349245591
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8114612099528312,
+          "extra": {
+            "bg_score": 0.872718089779218,
+            "fg_score": 0.7502043301264444,
+            "bg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.015492286533117294,
+              "base_score_before_penalty": 0.8967180897792181,
+              "over_color_penalty": 0.024000000000000004
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.037069350481033325,
+              "base_score_before_penalty": 0.7528709967931111,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7041009711238949,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.7201442444627071,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.11004784688995216
+              ],
+              [
+                12.0,
+                0.48086124401913877
+              ],
+              [
+                14.0,
+                0.15789473684210525
+              ],
+              [
+                16.0,
+                0.22009569377990432
+              ],
+              [
+                19.0,
+                0.014354066985645933
+              ],
+              [
+                34.0,
+                0.011961722488038277
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                9.5,
+                0.1282051282051282
+              ],
+              [
+                10.0,
+                0.1076923076923077
+              ],
+              [
+                10.5,
+                0.038461538461538464
+              ],
+              [
+                11.0,
+                0.23333333333333334
+              ],
+              [
+                11.5,
+                0.08461538461538462
+              ],
+              [
+                12.0,
+                0.028205128205128206
+              ],
+              [
+                12.5,
+                0.07435897435897436
+              ],
+              [
+                14.0,
+                0.27692307692307694
+              ],
+              [
+                26.0,
+                0.01282051282051282
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5590433482810164,
+          "extra": {
+            "reference_tokens": 552,
+            "candidate_tokens": 491,
+            "matched_tokens": 374,
+            "union_tokens": 669,
+            "reference_unique": 206,
+            "candidate_unique": 208
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 375,
+            "reference_scroll_width": 375,
+            "candidate_png_width": 375,
+            "reference_png_width": 375,
+            "effective_candidate_width": 375,
+            "effective_reference_width": 375,
+            "viewport_width": 375,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.4,
+          "extra": {
+            "reason": "The candidate shows a weekly calendar view with a 5-column grid (Sun-Thu visible) while the reference shows a monthly calendar grid with a full 7-column layout, and the candidate adds a map view widget not present in the reference, while also showing different agent names/hours in the 'This week at ",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 5.26
+          }
+        },
+        "_structured": 0.6307639786564259,
+        "_overflow_factor": 1.0,
+        "_composite": 0.4
+      },
+      "tablet": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.688275438801519,
+          "extra": {
+            "reference_size": [
+              768,
+              4145
+            ],
+            "candidate_size": [
+              768,
+              3036
+            ],
+            "compared_size": [
+              768,
+              3036
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.40087389945983887,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 390,
+            "matched_pairs": 390,
+            "mean_matched_iou": 0.16069979965686798,
+            "raw_score_before_sqrt": 0.16069987416267395
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8127083783810775,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 390,
+            "matched_pairs": 390,
+            "mean_normalized_centroid_distance": 0.18729162161892257,
+            "page_diagonal_px": 4225.663535636297
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8127615008006492,
+          "extra": {
+            "bg_score": 0.8741322658558687,
+            "fg_score": 0.7513907357454299,
+            "bg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.015280160121619701,
+              "base_score_before_penalty": 0.8981322658558687,
+              "over_color_penalty": 0.024000000000000004
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.0368913896381855,
+              "base_score_before_penalty": 0.7540574024120966,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7132647446282749,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.7332353494689643,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.11004784688995216
+              ],
+              [
+                12.0,
+                0.48086124401913877
+              ],
+              [
+                14.0,
+                0.15789473684210525
+              ],
+              [
+                16.0,
+                0.22009569377990432
+              ],
+              [
+                19.0,
+                0.014354066985645933
+              ],
+              [
+                34.0,
+                0.011961722488038277
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.017948717948717947
+              ],
+              [
+                10.5,
+                0.16666666666666666
+              ],
+              [
+                11.0,
+                0.3230769230769231
+              ],
+              [
+                11.5,
+                0.08461538461538462
+              ],
+              [
+                12.0,
+                0.010256410256410256
+              ],
+              [
+                12.5,
+                0.07435897435897436
+              ],
+              [
+                13.0,
+                0.020512820512820513
+              ],
+              [
+                14.0,
+                0.27692307692307694
+              ],
+              [
+                26.0,
+                0.010256410256410256
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5590433482810164,
+          "extra": {
+            "reference_tokens": 552,
+            "candidate_tokens": 491,
+            "matched_tokens": 374,
+            "union_tokens": 669,
+            "reference_unique": 206,
+            "candidate_unique": 208
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 768,
+            "reference_scroll_width": 768,
+            "candidate_png_width": 768,
+            "reference_png_width": 768,
+            "effective_candidate_width": 768,
+            "effective_reference_width": 768,
+            "viewport_width": 768,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.5,
+          "extra": {
+            "reason": "The candidate largely replicates the layout and structure but contains several content differences: the 'Closings Scheduled' count shows 3 instead of 4, agent names differ ('Hollis Brown' vs 'Hollis Wren', 'Marisol Paine' vs 'Marisol Pace', 'Amelia Oh' vs 'Annika Ott'), hours booked differ slightly ",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 5.79
+          }
+        },
+        "_structured": 0.6406216619419758,
+        "_overflow_factor": 1.0,
+        "_composite": 0.5
+      }
+    },
+    "listing-detail": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.7054290696476926,
+          "extra": {
+            "reference_size": [
+              1440,
+              2759
+            ],
+            "candidate_size": [
+              1440,
+              2013
+            ],
+            "compared_size": [
+              1440,
+              2013
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4565705358982086,
+          "extra": {
+            "reference_blocks": 375,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_matched_iou": 0.20845669507980347,
+            "raw_score_before_sqrt": 0.20845665037631989
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6763805759022773,
+          "extra": {
+            "reference_blocks": 375,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_normalized_centroid_distance": 0.3236194240977227,
+            "page_diagonal_px": 3113.152342688848
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8026206756333509,
+          "extra": {
+            "bg_score": 0.8710075641671816,
+            "fg_score": 0.7342337870995203,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.019348865374922752,
+              "base_score_before_penalty": 0.8710075641671816,
+              "over_color_penalty": 0.0
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.039464931935071945,
+              "base_score_before_penalty": 0.736900453766187,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6117564308681671,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.5882234726688103,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                12.0,
+                0.224
+              ],
+              [
+                14.0,
+                0.3333333333333333
+              ],
+              [
+                16.0,
+                0.36
+              ],
+              [
+                19.0,
+                0.064
+              ],
+              [
+                24.0,
+                0.013333333333333334
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.08666666666666667
+              ],
+              [
+                11.0,
+                0.04
+              ],
+              [
+                11.5,
+                0.14333333333333334
+              ],
+              [
+                12.0,
+                0.013333333333333334
+              ],
+              [
+                12.5,
+                0.21
+              ],
+              [
+                13.0,
+                0.02666666666666667
+              ],
+              [
+                14.0,
+                0.39
+              ],
+              [
+                16.0,
+                0.02
+              ],
+              [
+                17.0,
+                0.04
+              ],
+              [
+                22.0,
+                0.016666666666666666
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.734789391575663,
+          "extra": {
+            "reference_tokens": 566,
+            "candidate_tokens": 546,
+            "matched_tokens": 471,
+            "union_tokens": 641,
+            "reference_unique": 372,
+            "candidate_unique": 356
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple major content discrepancies: wrong theme (reference is dark/black background, candidate is light/white), wrong offer count badge ('3 offers in' vs '5 offers in'), wrong highest current offer ($731,500 vs $711,500), wrong interior sq ft (2,318 vs 2,158), wrong tax amount ($4,820 vs $4,620), ",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 6.02
+          }
+        },
+        "_structured": 0.6663243913415418,
+        "_overflow_factor": 1.0,
+        "_composite": 0.3
+      },
+      "mobile": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6499459965493923,
+          "extra": {
+            "reference_size": [
+              375,
+              7186
+            ],
+            "candidate_size": [
+              375,
+              5662
+            ],
+            "compared_size": [
+              375,
+              5662
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4620414972305298,
+          "extra": {
+            "reference_blocks": 375,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_matched_iou": 0.21348240971565247,
+            "raw_score_before_sqrt": 0.2134823352098465
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6949659354430373,
+          "extra": {
+            "reference_blocks": 375,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_normalized_centroid_distance": 0.30503406455696275,
+            "page_diagonal_px": 7215.46164322516
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8032579920887947,
+          "extra": {
+            "bg_score": 0.8731026301781336,
+            "fg_score": 0.7334133539994557,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.019034605473279953,
+              "base_score_before_penalty": 0.8731026301781336,
+              "over_color_penalty": 0.0
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.039587996900081635,
+              "base_score_before_penalty": 0.7360800206661224,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6234269053430974,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.6048955790615678,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                12.0,
+                0.224
+              ],
+              [
+                14.0,
+                0.3333333333333333
+              ],
+              [
+                16.0,
+                0.36
+              ],
+              [
+                19.0,
+                0.064
+              ],
+              [
+                24.0,
+                0.013333333333333334
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.08666666666666667
+              ],
+              [
+                11.0,
+                0.04
+              ],
+              [
+                11.5,
+                0.14333333333333334
+              ],
+              [
+                12.0,
+                0.03666666666666667
+              ],
+              [
+                12.5,
+                0.21
+              ],
+              [
+                14.0,
+                0.39
+              ],
+              [
+                16.0,
+                0.02
+              ],
+              [
+                17.0,
+                0.04
+              ],
+              [
+                22.0,
+                0.016666666666666666
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.734789391575663,
+          "extra": {
+            "reference_tokens": 566,
+            "candidate_tokens": 546,
+            "matched_tokens": 471,
+            "union_tokens": 641,
+            "reference_unique": 372,
+            "candidate_unique": 356
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 375,
+            "reference_scroll_width": 375,
+            "candidate_png_width": 375,
+            "reference_png_width": 375,
+            "effective_candidate_width": 375,
+            "effective_reference_width": 375,
+            "viewport_width": 375,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.7,
+          "extra": {
+            "reason": "The candidate reproduces the overall structure and most content accurately, but shows notable differences: the candidate uses a lighter/white background theme in several sections versus the reference's darker green theme, and the 'Offers \u2014 3 active' section in the candidate shows a more detailed exp",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.94
+          }
+        },
+        "_structured": 0.6609588359894997,
+        "_overflow_factor": 1.0,
+        "_composite": 0.6609588359894997
+      },
+      "tablet": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6802633201671048,
+          "extra": {
+            "reference_size": [
+              768,
+              4685
+            ],
+            "candidate_size": [
+              768,
+              3795
+            ],
+            "compared_size": [
+              768,
+              3795
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.44291797280311584,
+          "extra": {
+            "reference_blocks": 375,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_matched_iou": 0.19617627561092377,
+            "raw_score_before_sqrt": 0.19617632031440735
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6786734471313811,
+          "extra": {
+            "reference_blocks": 375,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_normalized_centroid_distance": 0.3213265528686189,
+            "page_diagonal_px": 4748.2401165170195
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8133520200550556,
+          "extra": {
+            "bg_score": 0.8772889499862989,
+            "fg_score": 0.7494150901238122,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 4,
+              "weighted_mean_oklab_distance": 0.018406657502055168,
+              "base_score_before_penalty": 0.8772889499862989,
+              "over_color_penalty": 0.0
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.037187736481428146,
+              "base_score_before_penalty": 0.752081756790479,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6117564308681671,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.5882234726688103,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                12.0,
+                0.224
+              ],
+              [
+                14.0,
+                0.3333333333333333
+              ],
+              [
+                16.0,
+                0.36
+              ],
+              [
+                19.0,
+                0.064
+              ],
+              [
+                24.0,
+                0.013333333333333334
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.08666666666666667
+              ],
+              [
+                11.0,
+                0.04
+              ],
+              [
+                11.5,
+                0.14333333333333334
+              ],
+              [
+                12.0,
+                0.013333333333333334
+              ],
+              [
+                12.5,
+                0.21
+              ],
+              [
+                13.0,
+                0.02666666666666667
+              ],
+              [
+                14.0,
+                0.39
+              ],
+              [
+                16.0,
+                0.02
+              ],
+              [
+                17.0,
+                0.04
+              ],
+              [
+                22.0,
+                0.016666666666666666
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.734789391575663,
+          "extra": {
+            "reference_tokens": 566,
+            "candidate_tokens": 546,
+            "matched_tokens": 471,
+            "union_tokens": 641,
+            "reference_unique": 372,
+            "candidate_unique": 356
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 768,
+            "reference_scroll_width": 768,
+            "candidate_png_width": 768,
+            "reference_png_width": 768,
+            "effective_candidate_width": 768,
+            "effective_reference_width": 768,
+            "viewport_width": 768,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.6,
+          "extra": {
+            "reason": "The candidate mostly replicates the structure and content but has several notable differences: the showing schedule table shows different confirmed/pending statuses (Thu Mar 28 shows 'Confirmed' in candidate vs 'Pending' in reference), tax value differs ($4,620 vs $4,829), lot size differs (0.34 vs ",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 5.21
+          }
+        },
+        "_structured": 0.6610735395941794,
+        "_overflow_factor": 1.0,
+        "_composite": 0.6
+      }
+    },
+    "listings": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6937413012712055,
+          "extra": {
+            "reference_size": [
+              1440,
+              2161
+            ],
+            "candidate_size": [
+              1440,
+              1600
+            ],
+            "compared_size": [
+              1440,
+              1600
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4290000796318054,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_matched_iou": 0.1840410828590393,
+            "raw_score_before_sqrt": 0.1840410679578781
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6287627519055634,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_normalized_centroid_distance": 0.3712372480944366,
+            "page_diagonal_px": 2596.7640150490215
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.426614904075861,
+          "extra": {
+            "bg_score": 0.853229808151722,
+            "fg_score": 0.0,
+            "bg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 5,
+              "weighted_mean_oklab_distance": 0.017615528777241707,
+              "base_score_before_penalty": 0.8825631414850553,
+              "over_color_penalty": 0.029333333333333336
+            },
+            "fg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.1554916352033615,
+              "base_score_before_penalty": 0.0,
+              "over_color_penalty": 0.0
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6099158117975947,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.5855940168537068,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.017964071856287425
+              ],
+              [
+                12.0,
+                0.36327345309381237
+              ],
+              [
+                14.0,
+                0.16367265469061876
+              ],
+              [
+                16.0,
+                0.405189620758483
+              ],
+              [
+                19.0,
+                0.03792415169660679
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.08
+              ],
+              [
+                11.0,
+                0.11666666666666667
+              ],
+              [
+                11.5,
+                0.23666666666666666
+              ],
+              [
+                12.0,
+                0.013333333333333334
+              ],
+              [
+                12.5,
+                0.11
+              ],
+              [
+                13.0,
+                0.02666666666666667
+              ],
+              [
+                14.0,
+                0.33666666666666667
+              ],
+              [
+                15.0,
+                0.03
+              ],
+              [
+                18.0,
+                0.03
+              ],
+              [
+                26.0,
+                0.013333333333333334
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6579572446555819,
+          "extra": {
+            "reference_tokens": 380,
+            "candidate_tokens": 318,
+            "matched_tokens": 277,
+            "union_tokens": 421,
+            "reference_unique": 208,
+            "candidate_unique": 179
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant differences: listing cards lack status badges (Open Sun 2-4, New, Price drop, Under Contract, Coming Soon, Open Sat, Stale-42 days), property details differ (bedrooms/baths/sqft values, city names show 'Coldenfield' instead of 'Cattersfield'), the sidebar shows different counts ",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 5.29
+          }
+        },
+        "_structured": 0.5793467084463257,
+        "_overflow_factor": 1.0,
+        "_composite": 0.3
+      },
+      "mobile": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6737929942358303,
+          "extra": {
+            "reference_size": [
+              375,
+              6697
+            ],
+            "candidate_size": [
+              375,
+              5150
+            ],
+            "compared_size": [
+              375,
+              5150
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4442712962627411,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_matched_iou": 0.19737699627876282,
+            "raw_score_before_sqrt": 0.19737698137760162
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6354555725082645,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_normalized_centroid_distance": 0.3645444274917356,
+            "page_diagonal_px": 6707.159173321409
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.42711286983887353,
+          "extra": {
+            "bg_score": 0.8542257396777471,
+            "fg_score": 0.0,
+            "bg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 5,
+              "weighted_mean_oklab_distance": 0.017466139048337936,
+              "base_score_before_penalty": 0.8835590730110804,
+              "over_color_penalty": 0.029333333333333336
+            },
+            "fg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.15445540845394135,
+              "base_score_before_penalty": 0.0,
+              "over_color_penalty": 0.0
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6265695513216192,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.6093850733165989,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.01818181818181818
+              ],
+              [
+                12.0,
+                0.36767676767676766
+              ],
+              [
+                14.0,
+                0.15353535353535352
+              ],
+              [
+                16.0,
+                0.4101010101010101
+              ],
+              [
+                19.0,
+                0.03838383838383838
+              ],
+              [
+                34.0,
+                0.010101010101010102
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.08
+              ],
+              [
+                11.0,
+                0.11666666666666667
+              ],
+              [
+                11.5,
+                0.23666666666666666
+              ],
+              [
+                12.0,
+                0.03666666666666667
+              ],
+              [
+                12.5,
+                0.11
+              ],
+              [
+                14.0,
+                0.33666666666666667
+              ],
+              [
+                15.0,
+                0.03
+              ],
+              [
+                18.0,
+                0.03
+              ],
+              [
+                26.0,
+                0.016666666666666666
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6452380952380953,
+          "extra": {
+            "reference_tokens": 373,
+            "candidate_tokens": 318,
+            "matched_tokens": 271,
+            "union_tokens": 420,
+            "reference_unique": 207,
+            "candidate_unique": 179
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 375,
+            "reference_scroll_width": 375,
+            "candidate_png_width": 375,
+            "reference_png_width": 375,
+            "effective_candidate_width": 375,
+            "effective_reference_width": 375,
+            "viewport_width": 375,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.6,
+          "extra": {
+            "reason": "The candidate reproduces the overall layout and listing content reasonably well, but key differences include: the candidate uses a lighter/different color theme (darker green background in reference vs. lighter olive/muted tones in candidate), the sidebar navigation panel visible in the reference is",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.99
+          }
+        },
+        "_structured": 0.5783089260805584,
+        "_overflow_factor": 1.0,
+        "_composite": 0.5783089260805584
+      },
+      "tablet": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.7087777113809941,
+          "extra": {
+            "reference_size": [
+              768,
+              4362
+            ],
+            "candidate_size": [
+              768,
+              3354
+            ],
+            "compared_size": [
+              768,
+              3354
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4373213052749634,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_matched_iou": 0.19124992191791534,
+            "raw_score_before_sqrt": 0.19124993681907654
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6437739317122088,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 300,
+            "matched_pairs": 300,
+            "mean_normalized_centroid_distance": 0.35622606828779124,
+            "page_diagonal_px": 4428.924089667943
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.4263359295030435,
+          "extra": {
+            "bg_score": 0.852671859006087,
+            "fg_score": 0.0,
+            "bg": {
+              "reference_palette_size": 3,
+              "candidate_palette_size": 5,
+              "weighted_mean_oklab_distance": 0.017699221149086952,
+              "base_score_before_penalty": 0.8820051923394203,
+              "over_color_penalty": 0.029333333333333336
+            },
+            "fg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.15358582139015198,
+              "base_score_before_penalty": 0.0,
+              "over_color_penalty": 0.0
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6147757649772712,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.5925368071103874,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.01818181818181818
+              ],
+              [
+                12.0,
+                0.36767676767676766
+              ],
+              [
+                14.0,
+                0.15353535353535352
+              ],
+              [
+                16.0,
+                0.4101010101010101
+              ],
+              [
+                19.0,
+                0.03838383838383838
+              ],
+              [
+                34.0,
+                0.010101010101010102
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.08
+              ],
+              [
+                11.0,
+                0.11666666666666667
+              ],
+              [
+                11.5,
+                0.23666666666666666
+              ],
+              [
+                12.0,
+                0.013333333333333334
+              ],
+              [
+                12.5,
+                0.11
+              ],
+              [
+                13.0,
+                0.02666666666666667
+              ],
+              [
+                14.0,
+                0.33666666666666667
+              ],
+              [
+                15.0,
+                0.03
+              ],
+              [
+                18.0,
+                0.03
+              ],
+              [
+                26.0,
+                0.013333333333333334
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6452380952380953,
+          "extra": {
+            "reference_tokens": 373,
+            "candidate_tokens": 318,
+            "matched_tokens": 271,
+            "union_tokens": 420,
+            "reference_unique": 207,
+            "candidate_unique": 179
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 768,
+            "reference_scroll_width": 768,
+            "candidate_png_width": 768,
+            "reference_png_width": 768,
+            "effective_candidate_width": 768,
+            "effective_reference_width": 768,
+            "viewport_width": 768,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.7,
+          "extra": {
+            "reason": "The candidate faithfully reproduces the overall layout, content, and color scheme, but is missing several key visual details from the reference: property cards lack status badges (Open Sat, New, Price drop, Under Contract, Coming Soon, Open Sat, Stale), the listing cards don't show the MLS agent att",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 4.53
+          }
+        },
+        "_structured": 0.5828996984821047,
+        "_overflow_factor": 1.0,
+        "_composite": 0.5828996984821047
+      }
+    },
+    "reports": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.695697996573859,
+          "extra": {
+            "reference_size": [
+              1440,
+              3567
+            ],
+            "candidate_size": [
+              1440,
+              2812
+            ],
+            "compared_size": [
+              1440,
+              2812
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4558735191822052,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.20782074332237244,
+            "raw_score_before_sqrt": 0.20782066881656647
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8469203970770384,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.15307960292296163,
+            "page_diagonal_px": 3846.6839656376947
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7823176209231217,
+          "extra": {
+            "bg_score": 0.8044851813515028,
+            "fg_score": 0.7601500604947408,
+            "bg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 11,
+              "weighted_mean_oklab_distance": 0.01852722279727459,
+              "base_score_before_penalty": 0.8764851813515028,
+              "over_color_penalty": 0.07200000000000001
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.03557749092578888,
+              "base_score_before_penalty": 0.7628167271614075,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6316925727950484,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.47384653256435505,
+            "reference_buckets": [
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.04065040650406504
+              ],
+              [
+                12.0,
+                0.2959349593495935
+              ],
+              [
+                14.0,
+                0.47479674796747967
+              ],
+              [
+                16.0,
+                0.16422764227642275
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.013257575757575758
+              ],
+              [
+                10.5,
+                0.08901515151515152
+              ],
+              [
+                11.0,
+                0.04924242424242424
+              ],
+              [
+                11.5,
+                0.18371212121212122
+              ],
+              [
+                12.0,
+                0.1571969696969697
+              ],
+              [
+                12.5,
+                0.35795454545454547
+              ],
+              [
+                13.0,
+                0.015151515151515152
+              ],
+              [
+                14.0,
+                0.10606060606060606
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6597307221542228,
+          "extra": {
+            "reference_tokens": 680,
+            "candidate_tokens": 676,
+            "matched_tokens": 539,
+            "union_tokens": 817,
+            "reference_unique": 349,
+            "candidate_unique": 325
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content discrepancies: neighborhood names differ (reference shows 'Old Mill District' and 'Lakeside Commons' with specific values like $812,400 median price and 101.4% sale-to-list; candidate shows 'Old Mill Downs' and different metrics), agent details are fabricated (different ",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 6.59
+          }
+        },
+        "_structured": 0.66636741864907,
+        "_overflow_factor": 1.0,
+        "_composite": 0.3
+      },
+      "mobile": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6078378829061144,
+          "extra": {
+            "reference_size": [
+              375,
+              6753
+            ],
+            "candidate_size": [
+              375,
+              5432
+            ],
+            "compared_size": [
+              375,
+              5432
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4370701313018799,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.1910303235054016,
+            "raw_score_before_sqrt": 0.19103029370307922
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8708015456383372,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.12919845436166277,
+            "page_diagonal_px": 6790.043698604235
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7797451527516047,
+          "extra": {
+            "bg_score": 0.8048508185942969,
+            "fg_score": 0.7546394869089126,
+            "bg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 11,
+              "weighted_mean_oklab_distance": 0.018472377210855484,
+              "base_score_before_penalty": 0.8768508185942968,
+              "over_color_penalty": 0.07200000000000001
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.0364040769636631,
+              "base_score_before_penalty": 0.7573061535755793,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.777598554466022,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.6822836492371744,
+            "reference_buckets": [
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.040983606557377046
+              ],
+              [
+                12.0,
+                0.2983606557377049
+              ],
+              [
+                14.0,
+                0.4704918032786885
+              ],
+              [
+                16.0,
+                0.16557377049180327
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.013257575757575758
+              ],
+              [
+                10.5,
+                0.08901515151515152
+              ],
+              [
+                11.0,
+                0.04924242424242424
+              ],
+              [
+                11.5,
+                0.18371212121212122
+              ],
+              [
+                12.0,
+                0.17045454545454544
+              ],
+              [
+                12.5,
+                0.35795454545454547
+              ],
+              [
+                14.0,
+                0.10606060606060606
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6568627450980392,
+          "extra": {
+            "reference_tokens": 676,
+            "candidate_tokens": 676,
+            "matched_tokens": 536,
+            "union_tokens": 816,
+            "reference_unique": 349,
+            "candidate_unique": 325
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 375,
+            "reference_scroll_width": 375,
+            "candidate_png_width": 375,
+            "reference_png_width": 375,
+            "effective_candidate_width": 375,
+            "effective_reference_width": 375,
+            "viewport_width": 375,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.5,
+          "extra": {
+            "reason": "The candidate reproduces the overall layout and section structure but shows significantly different chart shapes/data (the bar charts for closed transactions and days on market appear with different proportions), the neighborhood activity table has different color coding and values, and the agent pe",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.07
+          }
+        },
+        "_structured": 0.6664855847456529,
+        "_overflow_factor": 1.0,
+        "_composite": 0.5
+      },
+      "tablet": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6386005464928661,
+          "extra": {
+            "reference_size": [
+              768,
+              5066
+            ],
+            "candidate_size": [
+              768,
+              3845
+            ],
+            "compared_size": [
+              768,
+              3845
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4104369282722473,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.16845852136611938,
+            "raw_score_before_sqrt": 0.1684584617614746
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8403989580483808,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.15960104195161914,
+            "page_diagonal_px": 5124.207711458037
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7819655996163686,
+          "extra": {
+            "bg_score": 0.8070866881608962,
+            "fg_score": 0.7568445110718408,
+            "bg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 11,
+              "weighted_mean_oklab_distance": 0.018136996775865555,
+              "base_score_before_penalty": 0.8790866881608963,
+              "over_color_penalty": 0.07200000000000001
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.03607332333922386,
+              "base_score_before_penalty": 0.7595111777385075,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6316197049924357,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.4737424357034795,
+            "reference_buckets": [
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.040983606557377046
+              ],
+              [
+                12.0,
+                0.2983606557377049
+              ],
+              [
+                14.0,
+                0.4704918032786885
+              ],
+              [
+                16.0,
+                0.16557377049180327
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.013257575757575758
+              ],
+              [
+                10.5,
+                0.08901515151515152
+              ],
+              [
+                11.0,
+                0.04924242424242424
+              ],
+              [
+                11.5,
+                0.18371212121212122
+              ],
+              [
+                12.0,
+                0.1571969696969697
+              ],
+              [
+                12.5,
+                0.35795454545454547
+              ],
+              [
+                13.0,
+                0.015151515151515152
+              ],
+              [
+                14.0,
+                0.10606060606060606
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6568627450980392,
+          "extra": {
+            "reference_tokens": 676,
+            "candidate_tokens": 676,
+            "matched_tokens": 536,
+            "union_tokens": 816,
+            "reference_unique": 349,
+            "candidate_unique": 325
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 768,
+            "reference_scroll_width": 768,
+            "candidate_png_width": 768,
+            "reference_png_width": 768,
+            "effective_candidate_width": 768,
+            "effective_reference_width": 768,
+            "viewport_width": 768,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.5,
+          "extra": {
+            "reason": "The candidate reproduces the overall structure and most content accurately, but shows wrong/different data in several key areas: the Agent Performance table shows different volume figures (e.g., Elena Cortez $9,940,000 vs $9.84M, different agent rankings and metrics), the Neighborhood medians table ",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 4.67
+          }
+        },
+        "_structured": 0.6460559859663667,
+        "_overflow_factor": 1.0,
+        "_composite": 0.5
+      }
+    },
+    "settings": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.7196374629786736,
+          "extra": {
+            "reference_size": [
+              1440,
+              4080
+            ],
+            "candidate_size": [
+              1440,
+              3407
+            ],
+            "compared_size": [
+              1440,
+              3407
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.43795979022979736,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.1918087750673294,
+            "raw_score_before_sqrt": 0.1918087899684906
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8571337480331956,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.1428662519668044,
+            "page_diagonal_px": 4328.061310028907
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8147111173421144,
+          "extra": {
+            "bg_score": 0.8617189945677916,
+            "fg_score": 0.7677032401164372,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.015342150814831257,
+              "base_score_before_penalty": 0.8977189945677916,
+              "over_color_penalty": 0.036
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.03484451398253441,
+              "base_score_before_penalty": 0.7677032401164372,
+              "over_color_penalty": 0.0
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7335765871214835,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.7622522673164052,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                12.0,
+                0.21666666666666667
+              ],
+              [
+                14.0,
+                0.44375
+              ],
+              [
+                16.0,
+                0.30625
+              ],
+              [
+                19.0,
+                0.01875
+              ],
+              [
+                24.0,
+                0.0125
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.01707317073170732
+              ],
+              [
+                10.5,
+                0.06341463414634146
+              ],
+              [
+                11.0,
+                0.06341463414634146
+              ],
+              [
+                11.5,
+                0.1073170731707317
+              ],
+              [
+                12.5,
+                0.33658536585365856
+              ],
+              [
+                13.0,
+                0.01951219512195122
+              ],
+              [
+                14.0,
+                0.35853658536585364
+              ],
+              [
+                17.0,
+                0.01951219512195122
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5902031063321386,
+          "extra": {
+            "reference_tokens": 697,
+            "candidate_tokens": 634,
+            "matched_tokens": 494,
+            "union_tokens": 837,
+            "reference_unique": 397,
+            "candidate_unique": 366
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple major defects: wrong color theme (candidate uses light/white background vs reference's dark green theme), different team member data (candidate shows Marisol Vega as Owner/Principal Broker, Renata Halpin as Senior agent, etc. vs reference showing Renata Holm as Owner/Principal Broker, Danie",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 5.06
+          }
+        },
+        "_structured": 0.6689226546880732,
+        "_overflow_factor": 1.0,
+        "_composite": 0.3
+      },
+      "mobile": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.5910605687252563,
+          "extra": {
+            "reference_size": [
+              375,
+              7931
+            ],
+            "candidate_size": [
+              375,
+              6142
+            ],
+            "compared_size": [
+              375,
+              6142
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.462666779756546,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.21406066417694092,
+            "raw_score_before_sqrt": 0.21406055986881256
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8689594046746287,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.1310405953253713,
+            "page_diagonal_px": 7985.103610652248
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8105238010187943,
+          "extra": {
+            "bg_score": 0.8588678746819496,
+            "fg_score": 0.7621797273556391,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.015769818797707558,
+              "base_score_before_penalty": 0.8948678746819496,
+              "over_color_penalty": 0.036
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.03567304089665413,
+              "base_score_before_penalty": 0.7621797273556391,
+              "over_color_penalty": 0.0
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7531401724628387,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.7902002463754839,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                12.0,
+                0.21940928270042195
+              ],
+              [
+                14.0,
+                0.43670886075949367
+              ],
+              [
+                16.0,
+                0.310126582278481
+              ],
+              [
+                19.0,
+                0.0189873417721519
+              ],
+              [
+                24.0,
+                0.012658227848101266
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.01707317073170732
+              ],
+              [
+                10.5,
+                0.06341463414634146
+              ],
+              [
+                11.0,
+                0.06341463414634146
+              ],
+              [
+                11.5,
+                0.1073170731707317
+              ],
+              [
+                12.0,
+                0.026829268292682926
+              ],
+              [
+                12.5,
+                0.33658536585365856
+              ],
+              [
+                14.0,
+                0.35853658536585364
+              ],
+              [
+                17.0,
+                0.01951219512195122
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5818399044205496,
+          "extra": {
+            "reference_tokens": 690,
+            "candidate_tokens": 634,
+            "matched_tokens": 487,
+            "union_tokens": 837,
+            "reference_unique": 396,
+            "candidate_unique": 366
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 375,
+            "reference_scroll_width": 375,
+            "candidate_png_width": 375,
+            "reference_png_width": 375,
+            "effective_candidate_width": 375,
+            "effective_reference_width": 375,
+            "viewport_width": 375,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "The candidate is missing the dark/sidebar navigation panel that dominates the left side of the reference, uses a much lighter color theme throughout, and omits or restructures several key sections (the reference shows a dark left nav with collapsed menu items while the candidate shows a minimal top-",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 4.01
+          }
+        },
+        "_structured": 0.6510974353565637,
+        "_overflow_factor": 1.0,
+        "_composite": 0.3
+      },
+      "tablet": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6536702712426771,
+          "extra": {
+            "reference_size": [
+              768,
+              5428
+            ],
+            "candidate_size": [
+              768,
+              4290
+            ],
+            "compared_size": [
+              768,
+              4290
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4557672142982483,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.20772375166416168,
+            "raw_score_before_sqrt": 0.20772376656532288
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8655284715716667,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.13447152842833332,
+            "page_diagonal_px": 5517.291901646904
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.811880033309261,
+          "extra": {
+            "bg_score": 0.860524641662836,
+            "fg_score": 0.7632354249556859,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.015521303750574589,
+              "base_score_before_penalty": 0.8965246416628361,
+              "over_color_penalty": 0.036
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.03551468625664711,
+              "base_score_before_penalty": 0.7632354249556859,
+              "over_color_penalty": 0.0
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7335765871214835,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.7622522673164052,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                12.0,
+                0.21666666666666667
+              ],
+              [
+                14.0,
+                0.44375
+              ],
+              [
+                16.0,
+                0.30625
+              ],
+              [
+                19.0,
+                0.01875
+              ],
+              [
+                24.0,
+                0.0125
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.01707317073170732
+              ],
+              [
+                10.5,
+                0.06341463414634146
+              ],
+              [
+                11.0,
+                0.06341463414634146
+              ],
+              [
+                11.5,
+                0.1073170731707317
+              ],
+              [
+                12.5,
+                0.33658536585365856
+              ],
+              [
+                13.0,
+                0.01951219512195122
+              ],
+              [
+                14.0,
+                0.35853658536585364
+              ],
+              [
+                17.0,
+                0.01951219512195122
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5902031063321386,
+          "extra": {
+            "reference_tokens": 697,
+            "candidate_tokens": 634,
+            "matched_tokens": 494,
+            "union_tokens": 837,
+            "reference_unique": 397,
+            "candidate_unique": 366
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 768,
+            "reference_scroll_width": 768,
+            "candidate_png_width": 768,
+            "reference_png_width": 768,
+            "effective_candidate_width": 768,
+            "effective_reference_width": 768,
+            "viewport_width": 768,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.5,
+          "extra": {
+            "reason": "The candidate uses a dark/black sidebar navigation theme while the reference uses a light/white sidebar, representing a wrong dominant color theme; additionally the candidate shows different team member names (Bramble Halls ownership vs Renata Holte), different field mapping values, and some section",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 3.97
+          }
+        },
+        "_structured": 0.6607223828829181,
+        "_overflow_factor": 1.0,
+        "_composite": 0.5
+      }
+    }
+  },
+  "per_page_harmonic": {
+    "calendar": 0.3829787234042553,
+    "listing-detail": 0.46062051403179566,
+    "listings": 0.4426036097716904,
+    "reports": 0.40909090909090906,
+    "settings": 0.3461538461538461
+  },
+  "metric_weights": {
+    "text": 0.2,
+    "ssim": 0.15,
+    "block_match": 0.15,
+    "palette": 0.12,
+    "typography": 0.1,
+    "position": 0.1,
+    "overflow": 0.0,
+    "vlm_judge": 0.0
+  },
+  "anticheat_multiplier": 1.0,
+  "anticheat_violations": 0,
+  "anticheat_counts": {},
+  "missing": [],
+  "reference_warnings": [],
+  "reward": 0.4040473605917866,
+  "viewport_widths": {
+    "desktop": 1440,
+    "tablet": 768,
+    "mobile": 375
+  },
+  "wall_clock_seconds": 60.02341365814209
+}
+--- grading/anticheat.json ---
+{
+  "penalty_multiplier": 1.0,
+  "violation_counts": {},
+  "violations": []
+}
+--- agent output files ---
+total 98
+drwxr-xr-x 1 root root   160 May 22 09:22 .
+drwxrwxrwx 1 root root   180 May 22 09:24 ..
+-rw-r--r-- 1 root root 16484 May 22 09:22 calendar.html
+-rw-r--r-- 1 root root 15498 May 22 09:22 listing-detail.html
+-rw-r--r-- 1 root root 12641 May 22 09:22 listings.html
+-rw-r--r-- 1 root root 19338 May 22 09:22 reports.html
+-rw-r--r-- 1 root root 18341 May 22 09:22 settings.html
+-rw-r--r-- 1 root root 15990 May 22 09:22 styles.css
+
+--- egress summary (proxy log) ---
+      7  downloads.claude.ai:443
+      3  api.anthropic.com:443
+      2  archive.ubuntu.com:80
+      1  STARTUP
+      1  security.ubuntu.com:80
+      1  claude.ai:443

@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Customers — Onyx Bridge Lab</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="shell nav-row">
+    <a class="brand" href="#">Onyx Bridge Lab</a>
+    <nav class="nav-links">
+      <a href="orders.html">Orders</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="customers.html" class="active">Customers</a>
+      <a href="products.html">Products</a>
+      <a href="discounts.html">Discounts</a>
+    </nav>
+  </div>
+</header>
+
+<main class="shell">
+
+  <div class="crumbs"><strong>Customers</strong> <span class="sep">/</span> Directory</div>
+
+  <section class="hero">
+    <h1>A field guide to the people who keep buying.</h1>
+    <p class="lede">4,812 active accounts across two regions, segmented by recency, frequency and lifetime spend. Filter below, drill into any account for full order history, or open the segment workbench in the right column.</p>
+  </section>
+
+  <section class="kpis">
+    <div class="kpi">
+      <div class="label">Total Customers</div>
+      <div class="value">4,812</div>
+      <div class="delta"><span class="up">▲ 6.1%</span> <span class="muted">vs prior 30d</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">Repeat Rate</div>
+      <div class="value">38.4%</div>
+      <div class="delta"><span class="up">▲ 2.1 pts</span> <span class="muted">vs prior 30d</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">Avg. LTV</div>
+      <div class="value">$284</div>
+      <div class="delta"><span class="down">▼ $4</span> <span class="muted">cohort drift</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">At-Risk Accounts</div>
+      <div class="value">127</div>
+      <div class="delta"><span class="muted">▲ 18 needing outreach</span></div>
+    </div>
+  </section>
+
+  <div class="col-2-wide">
+    <div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="filter-bar">
+            <div class="input-group">
+              <span class="field-label">Search</span>
+              <input class="input" placeholder="🔎  Name, email, order # or tag">
+            </div>
+            <div class="input-group">
+              <span class="field-label">Segment</span>
+              <span class="select-like">VIP (top 5%)</span>
+            </div>
+            <div class="input-group">
+              <span class="field-label">Region</span>
+              <span class="select-like">All regions</span>
+            </div>
+            <div class="input-group">
+              <span class="field-label">&nbsp;</span>
+              <div class="row gap-8">
+                <button class="btn">Export CSV</button>
+                <button class="btn btn-primary">Apply</button>
+              </div>
+            </div>
+          </div>
+          <div class="chip-row mt-8">
+            <span class="chip active">Segment: VIP <span class="x">×</span></span>
+            <span class="chip">Spent &gt; $500</span>
+            <span class="chip">Subscribed to email</span>
+            <span class="chip">Created after Jan 2025</span>
+            <span class="chip">+ Add filter</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="title">Directory</div>
+            <div class="meta">412 matching · sorted by LTV</div>
+          </div>
+          <div class="row gap-8">
+            <span class="muted small">Columns</span>
+            <button class="btn btn-sm">Export</button>
+            <button class="btn btn-primary btn-sm">Add</button>
+          </div>
+        </div>
+        <div class="card-body tight">
+          <table class="table-compact">
+            <thead>
+              <tr>
+                <th style="width:24px"></th>
+                <th>Customer</th>
+                <th class="t-right">Segment</th>
+                <th class="t-right">Orders</th>
+                <th class="t-right">LTV</th>
+                <th class="t-right">Last Order</th>
+                <th class="t-right">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="cbx"></span></td>
+                <td>
+                  <div class="user-cell"><span class="avatar av-a">IT</span>
+                    <div class="meta"><span class="name">Inez Tamura</span><span class="sub">inez.tamura@example.com</span></div>
+                  </div>
+                </td>
+                <td class="t-right"><span class="pill accent">VIP</span></td>
+                <td class="t-right t-num">24</td>
+                <td class="t-right t-num">$3,182</td>
+                <td class="t-right t-num">3d ago</td>
+                <td class="t-right"><span class="pill good"><span class="dot"></span>Active</span></td>
+              </tr>
+              <tr>
+                <td><span class="cbx"></span></td>
+                <td>
+                  <div class="user-cell"><span class="avatar av-b">MA</span>
+                    <div class="meta"><span class="name">Marcus Ahmadi</span><span class="sub">m.ahmadi@example.com</span></div>
+                  </div>
+                </td>
+                <td class="t-right"><span class="pill info">Loyal</span></td>
+                <td class="t-right t-num">19</td>
+                <td class="t-right t-num">$2,210</td>
+                <td class="t-right t-num">9d ago</td>
+                <td class="t-right"><span class="pill good"><span class="dot"></span>Active</span></td>
+              </tr>
+              <tr>
+                <td><span class="cbx"></span></td>
+                <td>
+                  <div class="user-cell"><span class="avatar av-c">SB</span>
+                    <div class="meta"><span class="name">Solene Bouquet</span><span class="sub">solene@example.fr</span></div>
+                  </div>
+                </td>
+                <td class="t-right"><span class="pill accent">VIP</span></td>
+                <td class="t-right t-num">22</td>
+                <td class="t-right t-num">$2,940</td>
+                <td class="t-right t-num">12d ago</td>
+                <td class="t-right"><span class="pill good"><span class="dot"></span>Active</span></td>
+              </tr>
+              <tr>
+                <td><span class="cbx"></span></td>
+                <td>
+                  <div class="user-cell"><span class="avatar av-d">DC</span>
+                    <div class="meta"><span class="name">Diego Chen</span><span class="sub">d.chen@example.com</span></div>
+                  </div>
+                </td>
+                <td class="t-right"><span class="pill info">Loyal</span></td>
+                <td class="t-right t-num">17</td>
+                <td class="t-right t-num">$1,884</td>
+                <td class="t-right t-num">18d ago</td>
+                <td class="t-right"><span class="pill warn"><span class="dot"></span>Lapsing</span></td>
+              </tr>
+              <tr>
+                <td><span class="cbx"></span></td>
+                <td>
+                  <div class="user-cell"><span class="avatar av-e">RV</span>
+                    <div class="meta"><span class="name">Renata da Vinci</span><span class="sub">renata@example.com</span></div>
+                  </div>
+                </td>
+                <td class="t-right"><span class="pill neutral">New</span></td>
+                <td class="t-right t-num">3</td>
+                <td class="t-right t-num">$420</td>
+                <td class="t-right t-num">21d ago</td>
+                <td class="t-right"><span class="pill good"><span class="dot"></span>Active</span></td>
+              </tr>
+              <tr>
+                <td><span class="cbx"></span></td>
+                <td>
+                  <div class="user-cell"><span class="avatar av-f">TS</span>
+                    <div class="meta"><span class="name">Theo Sundstrom</span><span class="sub">t.sundstrom@example.se</span></div>
+                  </div>
+                </td>
+                <td class="t-right"><span class="pill info">Loyal</span></td>
+                <td class="t-right t-num">14</td>
+                <td class="t-right t-num">$1,610</td>
+                <td class="t-right t-num">25d ago</td>
+                <td class="t-right"><span class="pill warn"><span class="dot"></span>Lapsing</span></td>
+              </tr>
+              <tr>
+                <td><span class="cbx"></span></td>
+                <td>
+                  <div class="user-cell"><span class="avatar av-g">PK</span>
+                    <div class="meta"><span class="name">Priya Kothari</span><span class="sub">priya.k@example.com</span></div>
+                  </div>
+                </td>
+                <td class="t-right"><span class="pill accent">VIP</span></td>
+                <td class="t-right t-num">21</td>
+                <td class="t-right t-num">$2,701</td>
+                <td class="t-right t-num">1mo ago</td>
+                <td class="t-right"><span class="pill good"><span class="dot"></span>Active</span></td>
+              </tr>
+              <tr>
+                <td><span class="cbx"></span></td>
+                <td>
+                  <div class="user-cell"><span class="avatar av-h">AB</span>
+                    <div class="meta"><span class="name">Aurelio Banderas</span><span class="sub">a.banderas@example.com</span></div>
+                  </div>
+                </td>
+                <td class="t-right"><span class="pill neutral">New</span></td>
+                <td class="t-right t-num">2</td>
+                <td class="t-right t-num">$192</td>
+                <td class="t-right t-num">2mo ago</td>
+                <td class="t-right"><span class="pill bad"><span class="dot"></span>At risk</span></td>
+              </tr>
+              <tr>
+                <td><span class="cbx"></span></td>
+                <td>
+                  <div class="user-cell"><span class="avatar av-a">HS</span>
+                    <div class="meta"><span class="name">Hana Sakaeg</span><span class="sub">h.sakaeg@example.jp</span></div>
+                  </div>
+                </td>
+                <td class="t-right"><span class="pill info">Loyal</span></td>
+                <td class="t-right t-num">12</td>
+                <td class="t-right t-num">$1,344</td>
+                <td class="t-right t-num">2mo ago</td>
+                <td class="t-right"><span class="pill warn"><span class="dot"></span>Lapsing</span></td>
+              </tr>
+              <tr>
+                <td><span class="cbx"></span></td>
+                <td>
+                  <div class="user-cell"><span class="avatar av-c">MP</span>
+                    <div class="meta"><span class="name">Marshall Park</span><span class="sub">m.park@example.com</span></div>
+                  </div>
+                </td>
+                <td class="t-right"><span class="pill neutral">Cold</span></td>
+                <td class="t-right t-num">1</td>
+                <td class="t-right t-num">$58</td>
+                <td class="t-right t-num">7mo ago</td>
+                <td class="t-right"><span class="pill bad"><span class="dot"></span>At risk</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="pager">
+            <div>Showing 1–10 of 412</div>
+            <div class="pages">
+              <a href="#">‹</a>
+              <span class="now">1</span>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+              <span>…</span>
+              <a href="#">42</a>
+              <a href="#">›</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="row gap-12">
+            <span class="avatar av-a" style="width:36px;height:36px;font-size:13px">IT</span>
+            <div>
+              <div class="title">Inez Tamura</div>
+              <div class="meta">Customer #19461 · joined Mar 11, 2023</div>
+            </div>
+          </div>
+          <div class="row gap-8">
+            <span class="pill accent">VIP</span>
+            <span class="pill good"><span class="dot"></span>Active</span>
+            <button class="btn btn-sm">Message</button>
+            <button class="btn btn-primary btn-sm">New order</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="col-3" style="gap:18px">
+            <div>
+              <div class="tiny">Lifetime value</div>
+              <div style="font-size:24px;font-weight:700;margin-top:4px">$3,182.40</div>
+              <div class="small muted">▲ $611 last 90d</div>
+            </div>
+            <div>
+              <div class="tiny">Orders</div>
+              <div style="font-size:24px;font-weight:700;margin-top:4px">24</div>
+              <div class="small muted">3 returns lifetime</div>
+            </div>
+            <div>
+              <div class="tiny">Last order</div>
+              <div style="font-size:24px;font-weight:700;margin-top:4px">3d ago</div>
+              <div class="small muted">#OBL-19432 · pickup</div>
+            </div>
+          </div>
+
+          <div class="section-title mt-24">Recent activity</div>
+          <div class="activity" style="border-top:1px solid var(--line)">
+            <div class="item"><div class="time">Oct 12, 2024</div>
+              <div class="ev"><div class="ttl">Order #4901 delivered</div>
+                <div class="desc">2 items — Brass Lapel Pin, Linen Wrap V3 · $146.50 paid via Onyx Pay</div></div>
+            </div>
+            <div class="item"><div class="time">Oct 03, 2024</div>
+              <div class="ev"><div class="ttl">Opened campaign "Autumn Index Vol. 3"</div>
+                <div class="desc">Clicked through to the editorial collection; viewed 14 SKUs.</div></div>
+            </div>
+            <div class="item"><div class="time">Sep 28, 2024</div>
+              <div class="ev"><div class="ttl">Order #4773 — $214.80</div>
+                <div class="desc">Used loyalty code IT24FALL; shipped to Portland OR via USPS Priority</div></div>
+            </div>
+            <div class="item"><div class="time">Sep 17, 2024</div>
+              <div class="ev"><div class="ttl">Left review on Cedar Notebook</div>
+                <div class="desc">5 stars — "The paper feels resworked. Coming back for the blank version."</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- right column -->
+    <aside>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="title">Segments</div>
+          <div class="meta">FILT · LAST 30 DAYS</div>
+        </div>
+        <div class="card-body">
+          <div class="seg-row"><span class="name">VIP</span><div class="bar"><span style="width:88%"></span></div><span class="val">241 · 5%</span></div>
+          <div class="seg-row"><span class="name">Loyal</span><div class="bar"><span style="width:65%"></span></div><span class="val">812 · 17%</span></div>
+          <div class="seg-row"><span class="name">New</span><div class="bar"><span style="width:42%"></span></div><span class="val">488 · 10%</span></div>
+          <div class="seg-row"><span class="name">Window</span><div class="bar"><span style="width:55%"></span></div><span class="val">1,202 · 25%</span></div>
+          <div class="seg-row"><span class="name">Dormant</span><div class="bar"><span style="width:38%"></span></div><span class="val">901 · 19%</span></div>
+          <div class="seg-row"><span class="name">Cold</span><div class="bar"><span style="width:48%"></span></div><span class="val">1,168 · 24%</span></div>
+        </div>
+        <div class="card-foot">
+          <span>Updated 14 min ago</span>
+          <button class="btn btn-primary btn-sm">Build campaign</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="title">Cohort retention</div>
+          <div class="meta">% RETAINED BY MONTH</div>
+        </div>
+        <div class="card-body">
+          <div class="heat">
+            <div class="lbl">Jan</div>
+            <div class="cell h5">100</div><div class="cell h4">62</div><div class="cell h3">48</div><div class="cell h3">41</div><div class="cell h2">34</div><div class="cell h2">30</div>
+            <div class="lbl">Feb</div>
+            <div class="cell h5">100</div><div class="cell h4">58</div><div class="cell h3">44</div><div class="cell h2">37</div><div class="cell h2">31</div><div class="cell h1">—</div>
+            <div class="lbl">Mar</div>
+            <div class="cell h5">100</div><div class="cell h4">60</div><div class="cell h3">46</div><div class="cell h2">35</div><div class="cell h1">—</div><div class="cell h0">—</div>
+            <div class="lbl">Apr</div>
+            <div class="cell h5">100</div><div class="cell h4">55</div><div class="cell h3">42</div><div class="cell h1">—</div><div class="cell h0">—</div><div class="cell h0">—</div>
+            <div class="lbl">May</div>
+            <div class="cell h5">100</div><div class="cell h4">57</div><div class="cell h2">39</div><div class="cell h0">—</div><div class="cell h0">—</div><div class="cell h0">—</div>
+            <div class="lbl">Jun</div>
+            <div class="cell h5">100</div><div class="cell h4">61</div><div class="cell h0">—</div><div class="cell h0">—</div><div class="cell h0">—</div><div class="cell h0">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="title">Top locations</div>
+          <div class="meta">BY LTV</div>
+        </div>
+        <div class="card-body">
+          <div class="bar-row"><span class="lbl">Portland</span><div class="bar"><span style="width:92%"></span></div><span class="val">$48k</span></div>
+          <div class="bar-row"><span class="lbl">Brooklyn</span><div class="bar"><span style="width:78%"></span></div><span class="val">$41k</span></div>
+          <div class="bar-row"><span class="lbl">London</span><div class="bar"><span style="width:64%"></span></div><span class="val">$34k</span></div>
+          <div class="bar-row"><span class="lbl">Berlin</span><div class="bar"><span style="width:56%"></span></div><span class="val">$29k</span></div>
+          <div class="bar-row"><span class="lbl">Austin</span><div class="bar"><span style="width:48%"></span></div><span class="val">$25k</span></div>
+          <div class="bar-row"><span class="lbl">Kyoto</span><div class="bar"><span style="width:40%"></span></div><span class="val">$21k</span></div>
+          <div class="bar-row"><span class="lbl">Lyon</span><div class="bar"><span style="width:32%"></span></div><span class="val">$18k</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="title">Saved views</div>
+          <div class="meta">7 SHARED</div>
+        </div>
+        <div class="card-body">
+          <div class="link-list">
+            <a href="#"><span>VIP — North America</span><span class="meta">1,488</span></a>
+            <a href="#"><span>At-risk — winback eligible</span><span class="meta">211</span></a>
+            <a href="#"><span>First-order under $40</span><span class="meta">628</span></a>
+            <a href="#"><span>EU subscribers, no recent purchase</span><span class="meta">344</span></a>
+            <a href="#"><span>+ New saved view</span><span class="meta">Save filter</span></a>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <footer class="foot">
+    <div class="left"><span class="status-dot"></span> Production · us-east-2 · © 2026 Onyx Bridge Lab</div>
+    <div class="right">
+      <a href="orders.html">Orders</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="customers.html">Customers</a>
+      <a href="products.html">Products</a>
+      <a href="discounts.html">Discounts</a>
+      <a href="#">Docs</a>
+      <a href="#">Support</a>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>

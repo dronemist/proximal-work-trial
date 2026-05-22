@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listings · Ember Grove Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Ember Grove Works</div>
+  <nav class="topnav">
+    <a href="listings.html" class="active">Listings</a>
+    <a href="listing-detail.html">Listing Detail</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="reports.html">Reports</a>
+    <a href="reports.html">Market Reports</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+  <div class="topbar-search"><input type="text" placeholder="Search listings, contacts, addresses…"></div>
+  <div class="topbar-icons">
+    <span class="icon-btn">?</span>
+    <span class="avatar">MH</span>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <span class="filter-pill">⏷ Filter listings</span>
+
+    <div class="sb-section">
+      <h4>Workspace</h4>
+      <ul>
+        <li>Dashboard <span class="count">142</span></li>
+        <li class="active">Listings <span class="count">67</span></li>
+        <li>Calendar <span class="count">31</span></li>
+        <li>Market Reports <span class="count">8</span></li>
+      </ul>
+    </div>
+
+    <div class="sb-section">
+      <h4>By Status</h4>
+      <ul>
+        <li class="active">Active <span class="count">41</span></li>
+        <li>Under Contract <span class="count">12</span></li>
+        <li>Coming Soon <span class="count">6</span></li>
+        <li>Pending <span class="count">5</span></li>
+        <li>Withdrawn <span class="count">2</span></li>
+        <li>Closed (YTD) <span class="count">38</span></li>
+      </ul>
+    </div>
+
+    <div class="sb-section">
+      <h4>By Neighborhood</h4>
+      <ul>
+        <li>Linden Hill <span class="count">14</span></li>
+        <li>Old Coldenfield <span class="count">9</span></li>
+        <li>Mill Creek <span class="count">8</span></li>
+        <li>Riverside North <span class="count">7</span></li>
+        <li>Eastgate <span class="count">6</span></li>
+        <li>Cedar Hollow <span class="count">5</span></li>
+      </ul>
+    </div>
+
+    <div class="sb-section">
+      <h4>Saved Views</h4>
+      <ul>
+        <li>Price drop this week <span class="count">5</span></li>
+        <li>Over 30 DOM <span class="count">12</span></li>
+        <li>My listings <span class="count">22</span></li>
+        <li>Open this weekend <span class="count">8</span></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="crumbs">Workspace <span>›</span> Listings <span>›</span> Active</div>
+
+    <div class="page-head">
+      <div>
+        <h1>Active Listings</h1>
+        <p class="subtitle">67 properties across 11 neighborhoods · Last synced 4 minutes ago</p>
+      </div>
+      <div class="actions">
+        <button class="btn">Export CSV</button>
+        <button class="btn">Saved view</button>
+        <button class="btn btn-primary">+ New listing</button>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="label">Avg List Price</div><div class="value">$684K</div><div class="delta">↑ 2.4% vs. last quarter</div></div>
+      <div class="kpi"><div class="label">Median Days On Market</div><div class="value">17</div><div class="delta down">↑ 3 days since June</div></div>
+      <div class="kpi"><div class="label">Sold-to-List Ratio</div><div class="value">98.6%</div><div class="delta">↑ 0.9 pts</div></div>
+      <div class="kpi"><div class="label">Showings This Week</div><div class="value">41</div><div class="delta">12 scheduled, 29 completed</div></div>
+    </div>
+
+    <div class="flex gap-8 mb-12" style="flex-wrap: wrap; align-items: center;">
+      <span class="chip active">All Statuses</span>
+      <span class="chip">$500K - $1.2M</span>
+      <span class="chip">3+ Beds</span>
+      <span class="chip">Linden Hill</span>
+      <span class="chip">+ Add filter</span>
+      <div style="flex:1"></div>
+      <span class="muted small"><span class="cbox checked"></span> Only my listings</span>
+      <span class="muted small">Sort: <strong style="color:var(--text);">Newest first ›</strong></span>
+    </div>
+
+    <div class="flex gap-8 mb-16">
+      <span class="chip active">Grid</span>
+      <span class="chip">Table</span>
+      <span class="chip">Map</span>
+    </div>
+
+    <div class="listings-grid">
+      <div class="listing-card">
+        <span class="badge orange">Open Sun 2–4</span>
+        <div class="listing-thumb">
+          <svg width="80" height="60" viewBox="0 0 80 60"><polygon points="40,8 8,32 72,32" fill="#3a2a1f"/><rect x="14" y="32" width="52" height="22" fill="#7a594a"/><rect x="34" y="40" width="12" height="14" fill="#1a2018"/><rect x="20" y="38" width="8" height="8" fill="#1a2018"/><rect x="52" y="38" width="8" height="8" fill="#1a2018"/></svg>
+        </div>
+        <div class="listing-meta">
+          <div class="addr">412 Linden Hill Road</div>
+          <div class="sub">Linden Hill · Coldenfield, PA 19087</div>
+          <div class="stats"><span>4 bd</span><span>2.5 ba</span><span>2,640 sf</span><span>0.42 ac</span></div>
+          <div class="row"><div class="price">$1,185,000</div><span class="muted tiny">▲ Hollis</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <span class="badge gray">New</span>
+        <div class="listing-thumb">
+          <svg width="80" height="60" viewBox="0 0 80 60"><polygon points="40,10 12,34 68,34" fill="#3a2a1f"/><rect x="16" y="34" width="48" height="20" fill="#a68272"/><rect x="34" y="42" width="12" height="12" fill="#1a2018"/></svg>
+        </div>
+        <div class="listing-meta">
+          <div class="addr">88 Mill Creek Lane, Unit 4B</div>
+          <div class="sub">Mill Creek · Coldenfield, PA 19088</div>
+          <div class="stats"><span>3 bd</span><span>2 ba</span><span>1,440 sf</span><span></span></div>
+          <div class="row"><div class="price">$524,000</div><span class="muted tiny">Listed yesterday</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <span class="badge red">Price drop</span>
+        <div class="listing-thumb">
+          <svg width="80" height="60" viewBox="0 0 80 60"><polygon points="40,8 6,32 74,32" fill="#3a2a1f"/><rect x="12" y="32" width="56" height="22" fill="#7a594a"/><rect x="32" y="40" width="14" height="14" fill="#1a2018"/><rect x="50" y="38" width="10" height="8" fill="#1a2018"/></svg>
+        </div>
+        <div class="listing-meta">
+          <div class="addr">17 Old Quarry Way</div>
+          <div class="sub">Old Coldenfield · 19086</div>
+          <div class="stats"><span>5 bd</span><span>4 ba</span><span>3,840 sf</span><span>0.61 ac</span></div>
+          <div class="row"><div class="price">$1,675,000</div><span class="muted tiny">31 days · $40K ↓</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <span class="badge gray">Under Contract</span>
+        <div class="listing-thumb">
+          <svg width="80" height="60" viewBox="0 0 80 60"><rect x="12" y="14" width="56" height="40" fill="#a68272"/><rect x="22" y="22" width="8" height="8" fill="#1a2018"/><rect x="36" y="22" width="8" height="8" fill="#1a2018"/><rect x="50" y="22" width="8" height="8" fill="#1a2018"/><rect x="22" y="34" width="8" height="8" fill="#1a2018"/><rect x="36" y="34" width="8" height="8" fill="#1a2018"/><rect x="50" y="34" width="8" height="8" fill="#1a2018"/></svg>
+        </div>
+        <div class="listing-meta">
+          <div class="addr">2200 Riverside Tower, PH-2</div>
+          <div class="sub">Riverside North · 19405</div>
+          <div class="stats"><span>3 bd</span><span>3 ba</span><span>2,690 sf</span><span>Penthouse</span></div>
+          <div class="row"><div class="price">$2,295,000</div><span class="muted tiny">Contract pending</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <span class="badge gray">Coming Soon</span>
+        <div class="listing-thumb">
+          <svg width="80" height="60" viewBox="0 0 80 60"><polygon points="40,10 12,34 68,34" fill="#3a2a1f"/><rect x="16" y="34" width="48" height="20" fill="#7a594a"/><rect x="34" y="40" width="12" height="14" fill="#1a2018"/></svg>
+        </div>
+        <div class="listing-meta">
+          <div class="addr">9 Cedar Hollow Court</div>
+          <div class="sub">Cedar Hollow · 19088</div>
+          <div class="stats"><span>4 bd</span><span>3 ba</span><span>2,890 sf</span><span>0.55 ac</span></div>
+          <div class="row"><div class="price">$795,000</div><span class="muted tiny">Photo shoot Fri</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <span class="badge red">Open Sat</span>
+        <div class="listing-thumb">
+          <svg width="80" height="60" viewBox="0 0 80 60"><polygon points="40,12 14,34 66,34" fill="#3a2a1f"/><rect x="18" y="34" width="44" height="20" fill="#a68272"/><rect x="34" y="42" width="12" height="12" fill="#1a2018"/></svg>
+        </div>
+        <div class="listing-meta">
+          <div class="addr">76 Eastgate Avenue</div>
+          <div class="sub">Eastgate · 19090</div>
+          <div class="stats"><span>3 bd</span><span>2 ba</span><span>1,990 sf</span><span>0.30 ac</span></div>
+          <div class="row"><div class="price">$612,500</div><span class="muted tiny">12 days on market</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <svg width="80" height="60" viewBox="0 0 80 60"><polygon points="40,10 10,34 70,34" fill="#3a2a1f"/><rect x="14" y="34" width="52" height="20" fill="#7a594a"/><rect x="34" y="40" width="12" height="14" fill="#1a2018"/></svg>
+        </div>
+        <div class="listing-meta">
+          <div class="addr">331 Birchwood Lane</div>
+          <div class="sub">Linden Hill · 19087</div>
+          <div class="stats"><span>4 bd</span><span>3 ba</span><span>2,540 sf</span><span>0.51 ac</span></div>
+          <div class="row"><div class="price">$895,000</div><span class="muted tiny">▲ Hollis</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <span class="badge gray">Stale · 42 days</span>
+        <div class="listing-thumb">
+          <svg width="80" height="60" viewBox="0 0 80 60"><polygon points="40,14 16,34 64,34" fill="#3a2a1f"/><rect x="20" y="34" width="40" height="20" fill="#a68272"/><rect x="34" y="42" width="12" height="12" fill="#1a2018"/></svg>
+        </div>
+        <div class="listing-meta">
+          <div class="addr">14 Sycamore Bend</div>
+          <div class="sub">Mill Creek · 19088</div>
+          <div class="stats"><span>3 bd</span><span>2 ba</span><span>2,140 sf</span><span>0.32 ac</span></div>
+          <div class="row"><div class="price">$649,000</div><span class="muted tiny">Needs price review</span></div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <svg width="80" height="60" viewBox="0 0 80 60"><rect x="14" y="14" width="52" height="40" fill="#a68272"/><rect x="22" y="22" width="8" height="8" fill="#1a2018"/><rect x="36" y="22" width="8" height="8" fill="#1a2018"/><rect x="50" y="22" width="8" height="8" fill="#1a2018"/><rect x="22" y="34" width="8" height="8" fill="#1a2018"/><rect x="36" y="34" width="8" height="8" fill="#1a2018"/><rect x="50" y="34" width="8" height="8" fill="#1a2018"/></svg>
+        </div>
+        <div class="listing-meta">
+          <div class="addr">505 Market Street, Loft 7</div>
+          <div class="sub">Old Coldenfield · 19086</div>
+          <div class="stats"><span>2 bd</span><span>2 ba</span><span>1,540 sf</span><span></span></div>
+          <div class="row"><div class="price">$478,000</div><span class="muted tiny">Loft conversion</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-between mt-8" style="margin-top:18px;">
+      <span class="muted small">Showing 1–9 of 67 active listings</span>
+      <div class="flex gap-8">
+        <span class="chip">‹</span>
+        <span class="chip active">1</span>
+        <span class="chip">2</span>
+        <span class="chip">3</span>
+        <span class="chip">4</span>
+        <span class="chip">›</span>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div>© 2024 Ember Grove Works · v3.14.0</div>
+  <div class="footer-links">
+    <a>Settings</a>
+    <a>Reports</a>
+    <a>Calendar</a>
+    <a>Help</a>
+  </div>
+  <div class="muted-2">Press <strong>?</strong> for shortcuts</div>
+</footer>
+
+</body>
+</html>

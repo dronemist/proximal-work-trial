@@ -1,0 +1,171 @@
+[grade] VLM judge: 15 pairs in 11.4s
+{
+  "per_page_viewport": {
+    "discounts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.5786966828426473,
+          "extra": {
+            "reference_size": [
+              1440,
+              3780
+            ],
+            "candidate_size": [
+              1440,
+              3214
+            ],
+            "compared_size": [
+              1440,
+              3214
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.5363873243331909,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.2877112030982971,
+            "raw_score_before_sqrt": 0.28771138191223145
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8863520693339041,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.11364793066609591,
+            "page_diagonal_px": 4089.84414460958
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7799186057845751,
+          "extra": {
+            "bg_score": 0.7174345045884449,
+            "fg_score": 0.8424027069807052,
+            "bg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.038784824311733246,
+              "base_score_before_penalty": 0.741434504588445,
+              "over_color_penalty": 0.024000000000000004
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 8,
+              "weighted_mean_oklab_distance": 0.02323959395289421,
+              "base_score_before_penalty": 0.8450693736473719,
+              "over_color_penalty": 0.002666666666666657
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.6211192346945735,
+          "extra": {
+            "bucket_score": 0.3333333333333333,
+            "size_score": 0.7444560495636765,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                12.0,
+                0.2802197802197802
+              ],
+              [
+                14.0,
+                0.6611721611721612
+              ],
+              [
+                15.0,
+                0.027472527472527472
+              ],
+              [
+                28.0,
+                0.01282051282051282
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.09170305676855896
+              ],
+              [
+                11.0,
+                0.11135371179039301
+              ],
+              [
+                12.0,
+                0.09606986899563319
+              ],
+              [
+                12.5,
+                0.1462882096069869
+              ],
+              [
+                13.0,
+                0.4585152838427948
+              ],
+              [
+                14.0,
+                0.0611353711790393
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "iowan old style"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.4293785310734463,
+          "extra": {
+            "reference_tokens": 811,
+            "candidate_tokens": 707,
+            "matched_tokens": 456,
+            "union_tokens": 1062,
+            "reference_unique": 367,
+            "candidate_unique": 344
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple defects compound: the candidate reorganizes Promotion Tiers from 4 tiers (Counter/Service/Concept/Group) to 4 differently-named/numbered tiers, the Active Discount Codes table has different code names, campaign names, discount values, and margin figures (hallucinated data throughout), the S",
+            "model": "claud

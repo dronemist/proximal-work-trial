@@ -1,0 +1,182 @@
+[grade] VLM judge: 15 pairs in 14.0s
+{
+  "per_page_viewport": {
+    "blog": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.5522492119856648,
+          "extra": {
+            "reference_size": [
+              1440,
+              3320
+            ],
+            "candidate_size": [
+              1440,
+              2520
+            ],
+            "compared_size": [
+              1440,
+              2520
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.36761727929115295,
+          "extra": {
+            "reference_blocks": 386,
+            "candidate_blocks": 323,
+            "matched_pairs": 323,
+            "mean_matched_iou": 0.1351424604654312,
+            "raw_score_before_sqrt": 0.1351424604654312
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6633182499498871,
+          "extra": {
+            "reference_blocks": 386,
+            "candidate_blocks": 323,
+            "matched_pairs": 323,
+            "mean_normalized_centroid_distance": 0.33668175005011297,
+            "page_diagonal_px": 3690.255617926049
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.8261103343268235,
+          "extra": {
+            "bg_score": 0.8277866725524266,
+            "fg_score": 0.8244339961012204,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.020431999117136,
+              "base_score_before_penalty": 0.8637866725524266,
+              "over_color_penalty": 0.036
+            },
+            "fg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 7,
+              "weighted_mean_oklab_distance": 0.025134900584816933,
+              "base_score_before_penalty": 0.8324339961012204,
+              "over_color_penalty": 0.00799999999999999
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.64671909606691,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.638170137238443,
+            "reference_buckets": [
+              "mono",
+              "sans"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                6.0,
+                0.010362694300518135
+              ],
+              [
+                11.0,
+                0.031088082901554404
+              ],
+              [
+                12.0,
+                0.5233160621761658
+              ],
+              [
+                15.0,
+                0.3963730569948187
+              ],
+              [
+                20.0,
+                0.031088082901554404
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.12693498452012383
+              ],
+              [
+                10.5,
+                0.25386996904024767
+              ],
+              [
+                11.0,
+                0.15479876160990713
+              ],
+              [
+                11.5,
+                0.043343653250773995
+              ],
+              [
+                12.0,
+                0.1238390092879257
+              ],
+              [
+                12.5,
+                0.10835913312693499
+              ],
+              [
+                14.0,
+                0.15479876160990713
+              ],
+              [
+                18.0,
+                0.015479876160990712
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.25224071702944945,
+          "extra": {
+            "reference_tokens": 1003,
+            "candidate_tokens": 953,
+            "matched_tokens": 394,
+            "union_tokens": 1562,
+            "reference_unique": 537,
+            "candidate_unique": 492
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple major defects: wrong brand name ('Cable Anchor Foundry' vs 'Sable A

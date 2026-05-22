@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Deployments — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="brand-mark"></span>Beacon Harbor Works</div>
+  <nav class="primary-nav">
+    <a href="projects.html">Projects</a>
+    <a href="deploys.html" class="active">Deployments</a>
+    <a href="builds.html">Builds</a>
+    <a href="team.html">Team</a>
+    <a href="alerts.html">Alerts</a>
+  </nav>
+  <span class="user-chip"><span class="avatar"></span>H. Halvorsen</span>
+</header>
+
+<div class="crumbs"><a href="#">Harbor</a><span class="sep">›</span><span class="here">Deployments</span></div>
+
+<main class="layout">
+  <section class="content">
+
+    <div class="page-head">
+      <div class="eyebrow">Manifest · last 7 days</div>
+      <h1>Deployments</h1>
+      <p class="lede">A chronological record of every release shipped to a Beacon Harbor environment. Sorted by environment, newest first. All times in UTC.</p>
+      <div class="btn-row">
+        <button class="btn btn-primary">Deploy to environment</button>
+        <button class="btn">Export manifest</button>
+        <button class="btn">View dev log</button>
+      </div>
+    </div>
+
+    <div class="banner">
+      <strong>In progress:</strong> <span class="mono">harbor-api</span> rolling out to <strong>production</strong> · canary at 25% · started 00:04 ago
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="lbl">Deploys · 7d</div><div class="val">142</div><div class="sub">+18 vs prior week</div></div>
+      <div class="stat"><div class="lbl">Success rate</div><div class="val">96.4%</div><div class="sub">2 rollbacks</div></div>
+      <div class="stat"><div class="lbl">Median duration</div><div class="val">4m 21s</div><div class="sub">P95 · 9m 02s</div></div>
+      <div class="stat"><div class="lbl">Lead time</div><div class="val">1h 47m</div><div class="sub">Commit → prod</div></div>
+    </div>
+
+    <div class="filter-bar">
+      <span class="lbl">Filter</span>
+      <span class="field caret">All environments</span>
+      <span class="field caret">Production</span>
+      <span class="field caret">Staging</span>
+      <span class="field caret">Preview</span>
+      <span style="flex:1"></span>
+      <span class="field caret">Any status</span>
+      <span class="field caret">Any actor</span>
+    </div>
+
+    <div class="env-section">
+      <div class="env-head">
+        <span><span class="env-name">▾ Production</span></span>
+        <span class="muted">68 deploys · 7d</span>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 22 · 09:12</div>
+          <span class="badge badge-green">SUCCEEDED</span>
+          <span class="badge" style="margin-left:4px">CANARY 100%</span>
+        </div>
+        <div>
+          <div class="title">harbor-api · v4.30.1 — Reduce P95 on auth fan-out</div>
+          <div class="sub">Triggered by <strong>k.osterberg</strong> from <span class="mono">main</span> · merge of PR #2402</div>
+          <div class="sub mono">harbor-api &nbsp; ba51ec7 &nbsp; eu-west-1 &nbsp; 04:21</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+184 / −37</div>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 22 · 08:01</div>
+          <span class="badge badge-red">ROLLED BACK</span>
+        </div>
+        <div>
+          <div class="title">harbor-api · v4.30.0 — Manifest ingest, moving filter v2</div>
+          <div class="sub">Triggered by <strong>p.danforth</strong> · 04:12 dwell during canary</div>
+          <div class="sub mono">harbor-api &nbsp; ad6c0bb &nbsp; eu-west-1</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+1,041 / −402</div>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 22 · 06:48</div>
+          <span class="badge badge-amber">CANARY DWELL</span>
+        </div>
+        <div>
+          <div class="title">signalboat-worker · v2.0.4 — Webhook retry backoff</div>
+          <div class="sub">Auto-rollback after queue lag exceeded threshold at 06:51. Reverted to <span class="mono">v2.0.3</span></div>
+          <div class="sub mono">signalboat-worker &nbsp; auto &nbsp; eu-west-1, eu-west-2 &nbsp; 05:14</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">—</div>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 22 · 05:31</div>
+          <span class="badge badge-green">SUCCEEDED</span>
+        </div>
+        <div>
+          <div class="title">harbor-api · v4.29.7 — Config flag for slow-init queue</div>
+          <div class="sub">Triggered by <strong>a.urvonen</strong> · scheduled window</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+62 / −9</div>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 21 · 22:10</div>
+          <span class="badge badge-green">SUCCEEDED</span>
+        </div>
+        <div>
+          <div class="title">lantern-cli · v0.7.1 — Tessera; opt to flag</div>
+          <div class="sub">Triggered by <strong>y.yango</strong> · 1m 36s · tagged release</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+11 / −2</div>
+      </div>
+    </div>
+
+    <div class="env-section">
+      <div class="env-head">
+        <span><span class="env-name">▾ Staging</span></span>
+        <span class="muted">38 deploys · 7d</span>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 22 · 10:02</div>
+          <span class="badge badge-green">SUCCEEDED</span>
+        </div>
+        <div>
+          <div class="title">ledger-svc · v3.2.0-rc.1 — Pin tracing pagination cursor</div>
+          <div class="sub">Triggered by <strong>k.osterberg</strong> · PR #2451</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+71 / −12</div>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 22 · 08:11</div>
+          <span class="badge badge-green">SUCCEEDED</span>
+        </div>
+        <div>
+          <div class="title">harbor-billing · v0.16.3 — Compact deploy timeline</div>
+          <div class="sub">Triggered by <strong>p.danforth</strong> · 03:02s</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+34 / −18</div>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 22 · 06:54</div>
+          <span class="badge badge-amber">CANARY DWELL</span>
+        </div>
+        <div>
+          <div class="title">signalboat-worker · v2.0.4 — Migration delay webhook ledger</div>
+          <div class="sub">Migration step: 040x0c92_lineage timed out · 06:23 idle</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+0 / −0</div>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 21 · 18:25</div>
+          <span class="badge badge-red">ROLLED BACK</span>
+        </div>
+        <div>
+          <div class="title">harbor-api · v4.29.6 — Auto-fan registry</div>
+          <div class="sub">Triggered by <strong>auto-bot</strong> · nightly · 04:17s</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+402 / −198</div>
+      </div>
+    </div>
+
+    <div class="env-section">
+      <div class="env-head">
+        <span><span class="env-name">▾ Preview</span></span>
+        <span class="muted">36 deploys · 7d</span>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 22 · 11:00</div>
+          <span class="badge badge-green">SUCCEEDED</span>
+        </div>
+        <div>
+          <div class="title">harbor-web · pr-877 — Right rail review elements</div>
+          <div class="sub">Triggered by <strong>e.osterberg</strong> · preview · 01:21s</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+212 / −44</div>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 22 · 10:38</div>
+          <span class="badge badge-green">SUCCEEDED</span>
+        </div>
+        <div>
+          <div class="title">harbor-web · pr-870 — Drop logo's twin importers</div>
+          <div class="sub">Triggered by <strong>e.osterberg</strong> · preview · 01:42s</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+89 / −62</div>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 22 · 09:04</div>
+          <span class="badge badge-green">SUCCEEDED</span>
+        </div>
+        <div>
+          <div class="title">lantern-cli · pr-870 — sale — rev cursor flag</div>
+          <div class="sub">Waiting on build #4011 · passed 1m</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+18 / −2</div>
+      </div>
+
+      <div class="dep-entry">
+        <div>
+          <div class="when">Apr 21 · 22:18</div>
+          <span class="badge badge-green">SUCCEEDED</span>
+        </div>
+        <div>
+          <div class="title">harbor-api · pr-870 — Bus over the by lag</div>
+          <div class="sub">Triggered by <strong>e.frenberg</strong> · preview</div>
+        </div>
+        <div class="muted mono" style="font-size:11px">+33 / −2</div>
+      </div>
+    </div>
+
+    <div class="pager">
+      <a href="#">«</a>
+      <span class="on">1</span><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+      <a href="#">»</a>
+      <span class="info">Showing 1–18 of 142</span>
+    </div>
+
+  </section>
+
+  <aside class="sidebar">
+
+    <div class="side-card">
+      <div class="hd">Deploy frequency</div>
+      <div class="bd">
+        <div class="muted" style="font-size:11px;margin-bottom:6px">Past 14 days</div>
+        <div class="bars bars-sm">
+          <span style="height:30%"></span><span style="height:55%"></span><span style="height:48%"></span>
+          <span style="height:70%"></span><span style="height:65%"></span><span style="height:80%"></span>
+          <span style="height:42%"></span><span style="height:33%"></span><span style="height:88%"></span>
+          <span style="height:75%"></span><span class="warn" style="height:62%"></span><span style="height:48%"></span>
+          <span style="height:90%"></span><span style="height:70%"></span>
+        </div>
+        <div class="muted mono" style="font-size:10.5px;margin-top:4px;display:flex;justify-content:space-between"><span>Apr 8</span><span>Apr 22</span></div>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <div class="hd">On call</div>
+      <div class="bd">
+        <div class="muted" style="font-size:11px;margin-bottom:6px">Teammates online</div>
+        <ul class="crew">
+          <li><span class="avatar-md"></span><div><div class="nm">Kris Osterberg</div><div class="role">Primary · platform</div></div></li>
+          <li><span class="avatar-md"></span><div><div class="nm">Priya Danforth</div><div class="role">Secondary · payments</div></div></li>
+          <li><span class="avatar-md"></span><div><div class="nm">Jonas Verga</div><div class="role">Backup · gateway</div></div></li>
+          <li><span class="avatar-md"></span><div><div class="nm">Reuna Ashcraft</div><div class="role">Manager · escalations</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <div class="hd">Most deployed</div>
+      <div class="bd">
+        <ul class="side-list">
+          <li><span class="ttl">harbor-api</span><span class="mono sub">38</span></li>
+          <li><span class="ttl">harbor-web</span><span class="mono sub">31</span></li>
+          <li><span class="ttl">signalboat-worker</span><span class="mono sub">18</span></li>
+          <li><span class="ttl">lantern-cli</span><span class="mono sub">14</span></li>
+          <li><span class="ttl">tideline-docs</span><span class="mono sub">9</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <div class="hd">Quick actions</div>
+      <div class="bd">
+        <ul class="qlist">
+          <li><a href="#">Open status alert (P2)</a></li>
+          <li><a href="#">Lock production deploys</a></li>
+          <li><a href="#">Roll back last release</a></li>
+          <li><a href="#">Page primary on call</a></li>
+          <li><a href="#">Open changelog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <div class="hd">Deploy window</div>
+      <div class="bd">
+        <p style="margin:0;font-size:12px;color:var(--ink-2)">No production deploys after <strong>20:00 UTC Fridays</strong>. Override requires two-engineer approval.</p>
+        <button class="btn btn-sm" style="margin-top:8px">Read deploy policy</button>
+      </div>
+    </div>
+
+  </aside>
+</main>
+
+<footer class="footer">
+  <div class="footer-row">
+    <span>© 2026 Beacon Harbor Works · Engineered in Gothenburg, SE</span>
+    <span class="grow"></span>
+    <a href="#">SLO</a><a href="#">License manifest</a><a href="#">Status</a><a href="#">Projects</a><a href="#">Deployments</a><a href="#">Builds</a><a href="#">Team</a>
+  </div>
+</footer>
+
+</body>
+</html>

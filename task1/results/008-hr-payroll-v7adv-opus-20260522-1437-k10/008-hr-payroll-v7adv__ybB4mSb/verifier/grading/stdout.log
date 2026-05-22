@@ -1,0 +1,181 @@
+[grade] VLM judge: 15 pairs in 14.3s
+{
+  "per_page_viewport": {
+    "expenses": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6467309605529045,
+          "extra": {
+            "reference_size": [
+              1440,
+              2539
+            ],
+            "candidate_size": [
+              1440,
+              2152
+            ],
+            "compared_size": [
+              1440,
+              2152
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.40209656953811646,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_matched_iou": 0.161681666970253,
+            "raw_score_before_sqrt": 0.1616816520690918
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.8421925078220066,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 400,
+            "matched_pairs": 400,
+            "mean_normalized_centroid_distance": 0.1578074921779934,
+            "page_diagonal_px": 2919.8352911075763
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.38979902282978096,
+          "extra": {
+            "bg_score": 0.7795980456595619,
+            "fg_score": 0.0,
+            "bg": {
+              "reference_palette_size": 4,
+              "candidate_palette_size": 18,
+              "weighted_mean_oklab_distance": 0.003060293151065707,
+              "base_score_before_penalty": 0.979598045659562,
+              "over_color_penalty": 0.2
+            },
+            "fg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 13,
+              "weighted_mean_oklab_distance": 0.1883910894393921,
+              "base_score_before_penalty": 0.0,
+              "over_color_penalty": 0.06933333333333332
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7537713642734528,
+          "extra": {
+            "bucket_score": 0.3333333333333333,
+            "size_score": 0.9339590918192184,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                10.0,
+                0.012962962962962963
+              ],
+              [
+                11.0,
+                0.09814814814814815
+              ],
+              [
+                12.0,
+                0.1814814814814815
+              ],
+              [
+                13.0,
+                0.3814814814814815
+              ],
+              [
+                13.3,
+                0.016666666666666666
+              ],
+              [
+                16.0,
+                0.26851851851851855
+              ],
+              [
+                18.0,
+                0.016666666666666666
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.04085603112840467
+              ],
+              [
+                10.5,
+                0.0933852140077821
+              ],
+              [
+                11.0,
+                0.17315175097276264
+              ],
+              [
+                11.5,
+                0.16536964980544747
+              ],
+              [
+                12.0,
+                0.21011673151750973
+              ],
+              [
+                13.0,
+                0.2918287937743191
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.6020408163265306,
+          "extra": {
+            "reference_tokens": 545,
+            "candidate_tokens": 554,
+            "matched_tokens": 413,
+            "union_tokens": 686,
+            "reference_unique": 278,
+            "candidate_unique": 286
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant content differences: the candidate shows wrong line items for EXP-2024-1148 (4 items with different amounts vs 3

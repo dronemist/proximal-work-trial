@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apply for a residential parking permit · Ember Field</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-application">
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#">Ember Field<span class="dot">.</span></a>
+    <nav class="topnav">
+      <a href="service-catalog.html">Services</a>
+      <a href="account.html">My Account</a>
+      <a href="notifications.html">Notifications</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="application.html" class="active">Apply</a>
+    </nav>
+    <div class="search">
+      <div class="search-inner"><input placeholder="Search services, forms, FAQs…"></div>
+    </div>
+    <button class="bell" aria-label="Notifications"><span class="dot-pill"></span></button>
+    <div class="avatar">MR</div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section-title">Services</div>
+    <ul class="sidebar-nav">
+      <li><a href="service-catalog.html">All services</a></li>
+      <li><a href="#">Permits &amp; licenses</a></li>
+      <li><a href="application.html" class="active">Residential parking permit</a></li>
+      <li><a href="#">Block party permit</a></li>
+      <li><a href="#">Dog license</a></li>
+      <li><a href="#">Records &amp; certificates</a></li>
+      <li><a href="#">Housing assistance</a></li>
+      <li><a href="#">Tax &amp; payments</a></li>
+      <li><a href="#">Utilities</a></li>
+    </ul>
+    <div class="sidebar-section-title">My Account</div>
+    <ul class="sidebar-nav">
+      <li><a href="account.html">Overview</a></li>
+      <li><a href="notifications.html">Notifications</a></li>
+      <li><a href="appointments.html">Appointments</a></li>
+      <li><a class="active" href="#">My applications</a></li>
+    </ul>
+    <div class="sidebar-section-title">Help</div>
+    <ul class="sidebar-nav">
+      <li><a href="#">Contact a clerk</a></li>
+      <li><a href="#">Accessibility</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><span>Services</span><span>Permits &amp; licenses</span><span class="current">Residential parking permit</span></div>
+
+    <h1 class="page-title">Apply for a <span class="accent">residential</span> parking permit.</h1>
+    <p class="page-lede">Five short steps. We'll save your progress automatically, so feel free to come back later if life gets in the way.</p>
+
+    <div class="card flat" style="display:flex;align-items:center;gap:12px;padding:10px 14px;">
+      <span class="badge green">⏱ Draft saved 2:14 PM</span>
+      <span class="small muted">Application: APP-2025-08421</span>
+      <span class="small muted" style="margin-left:auto;">Auto-save on</span>
+    </div>
+
+    <div class="stepper">
+      <div class="step done"><span class="num">1</span><span class="label">Eligibility</span></div>
+      <div class="step done"><span class="num">2</span><span class="label">Applicant</span></div>
+      <div class="step active"><span class="num">3</span><span class="label">Vehicle &amp; address</span></div>
+      <div class="step"><span class="num">4</span><span class="label">Documents</span></div>
+      <div class="step"><span class="num">5</span><span class="label">Review &amp; pay</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3 class="card-title">Step 3 — Vehicle &amp; address</h3>
+        <span class="small muted">3 of 5</span>
+      </div>
+      <p class="small text-2">Tell us about the vehicle that will use this permit and where it'll be parked. One permit, one car — sorry, we don't make the rules.</p>
+
+      <div class="field-row">
+        <div class="field">
+          <label>License plate</label>
+          <input value="MLU4 432">
+        </div>
+        <div class="field">
+          <label>Registered state</label>
+          <select><option>Washington</option></select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Make</label>
+          <input value="Subaru">
+        </div>
+        <div class="field">
+          <label>Model</label>
+          <input value="Outback">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Model year</label>
+          <input value="2019">
+        </div>
+        <div class="field">
+          <label>Color</label>
+          <select><option>Slate gray</option></select>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Parking address</h3>
+      <div class="field">
+        <label>Street address</label>
+        <input value="2418 NW Burnside Ct, Apt 6B">
+      </div>
+      <div class="field-row three">
+        <div class="field"><label>City</label><input value="Portland"></div>
+        <div class="field"><label>Permit zone</label><select><option>Zone N — Northwest</option></select></div>
+        <div class="field"><label>ZIP</label><input value="97210"></div>
+      </div>
+
+      <div class="notice">
+        <span class="dot"></span>
+        <div>
+          <div class="strong">Zone N is at 94% capacity.</div>
+          <div class="muted small">Permits in this zone are valid through June 30, 2026 and renew annually.</div>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Permit options</h3>
+      <div class="col" style="gap:10px;">
+        <label class="row" style="gap:10px;align-items:flex-start;">
+          <input type="radio" name="permopt" checked style="margin-top:4px;">
+          <div>
+            <div class="strong">Annual permit — $75 <span class="muted small" style="font-weight:normal;">valid 12 months from issue date</span></div>
+            <div class="small muted">Most common option.</div>
+          </div>
+        </label>
+        <label class="row" style="gap:10px;align-items:flex-start;">
+          <input type="radio" name="permopt" style="margin-top:4px;">
+          <div>
+            <div class="strong">Six-month permit — $45</div>
+            <div class="small muted">For shorter stays, sublets, and the chronically uncommitted.</div>
+          </div>
+        </label>
+        <label class="row" style="gap:10px;align-items:flex-start;">
+          <input type="radio" name="permopt" style="margin-top:4px;">
+          <div>
+            <div class="strong">Visitor pass add-on — $20</div>
+            <div class="small muted">Five transferrable hangtags for guests. Add at any time.</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="notice" style="margin-top:14px;">
+        <span class="dot"></span>
+        <div>Send my permit by mail (USPS, 7–10 business days). Uncheck for in-person pickup at the SE District Office.</div>
+      </div>
+
+      <div class="row between" style="margin-top:18px;">
+        <a class="btn" href="#">← Back: Applicant</a>
+        <a class="btn primary" href="#">Continue: Documents →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3 class="card-title">Step 4 — Documents</h3>
+        <span class="small muted">3 required</span>
+      </div>
+      <p class="small text-2">Upload PDFs or photos. Each file under 10 MB. We accept JPEG, PNG, and PDF.</p>
+
+      <div style="border:1.5px dashed var(--border-2); border-radius:10px; padding:24px; text-align:center; margin:10px 0 16px;">
+        <div style="font-size:18px; margin-bottom:6px;">⬆</div>
+        <div class="strong">Drag, drop, or browse to upload</div>
+        <div class="small muted">Vehicle registration · proof of residency (utility bill) · lease, deed or rent receipt</div>
+        <a class="btn sm" style="margin-top:10px;" href="#">Choose files</a>
+      </div>
+
+      <div class="col" style="gap:8px;">
+        <div class="row between center" style="padding:10px 12px; background:var(--panel-2); border-radius:8px;">
+          <div class="row center" style="gap:10px;">
+            <span>📄</span>
+            <div>
+              <div class="strong small">vehicle-registration-2024.pdf</div>
+              <div class="small muted">412 KB · Aug 2, 2:18 PM</div>
+            </div>
+          </div>
+          <span class="badge verified">Verified</span>
+        </div>
+        <div class="row between center" style="padding:10px 12px; background:var(--panel-2); border-radius:8px;">
+          <div class="row center" style="gap:10px;">
+            <span>📄</span>
+            <div>
+              <div class="strong small">lease-agreement-burnside.pdf</div>
+              <div class="small muted">1.2 MB · Aug 2, 2:18 PM</div>
+            </div>
+          </div>
+          <span class="badge verified">Verified</span>
+        </div>
+        <div class="row between center" style="padding:10px 12px; background:var(--panel-2); border-radius:8px;">
+          <div class="row center" style="gap:10px;">
+            <span>📄</span>
+            <div>
+              <div class="strong small">utility bill (last 60 days)</div>
+              <div class="small muted">Required to confirm address</div>
+            </div>
+          </div>
+          <a class="btn sm" href="#">Upload</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3 class="card-title">Step 5 — Review &amp; pay</h3>
+        <span class="badge green">Unsaved draft</span>
+      </div>
+      <p class="small text-2">A last look before you submit. Anything off? Click "Edit" to jump back to the section.</p>
+
+      <div class="row between" style="margin-top:6px;">
+        <div class="strong">Applicant</div>
+        <a class="btn link" href="#">Edit</a>
+      </div>
+      <div class="docs-table" style="margin-top:4px;">
+        <div class="doc-row" style="grid-template-columns:160px 1fr;">
+          <span class="muted small">Full name</span><span>Marisol J. Trujillo</span>
+        </div>
+        <div class="doc-row" style="grid-template-columns:160px 1fr;">
+          <span class="muted small">Email</span><span>marisol.trujillo@hotmail.com</span>
+        </div>
+        <div class="doc-row" style="grid-template-columns:160px 1fr;">
+          <span class="muted small">Phone</span><span>(503) 555-0179</span>
+        </div>
+        <div class="doc-row" style="grid-template-columns:160px 1fr;">
+          <span class="muted small">Resident since</span><span>March 14, 1996</span>
+        </div>
+      </div>
+
+      <div class="row between" style="margin-top:14px;">
+        <div class="strong">Vehicle &amp; address</div>
+        <a class="btn link" href="#">Edit</a>
+      </div>
+      <div class="docs-table" style="margin-top:4px;">
+        <div class="doc-row" style="grid-template-columns:160px 1fr;">
+          <span class="muted small">Plate</span><span>MLU4-432 (Washington)</span>
+        </div>
+        <div class="doc-row" style="grid-template-columns:160px 1fr;">
+          <span class="muted small">Vehicle</span><span>2019 Subaru Outback, Slate gray</span>
+        </div>
+        <div class="doc-row" style="grid-template-columns:160px 1fr;">
+          <span class="muted small">Parking address</span><span>2418 NW Burnside Ct, Apt 6B · Portland, 97210</span>
+        </div>
+        <div class="doc-row" style="grid-template-columns:160px 1fr;">
+          <span class="muted small">Zone</span><span>Zone N — Northwest</span>
+        </div>
+      </div>
+
+      <div class="row between" style="margin-top:14px;">
+        <div class="strong">Permit</div>
+        <a class="btn link" href="#">Edit</a>
+      </div>
+      <div class="docs-table" style="margin-top:4px;">
+        <div class="doc-row" style="grid-template-columns:160px 1fr;">
+          <span class="muted small">Type</span><span>Annual permit (12 months)</span>
+        </div>
+        <div class="doc-row" style="grid-template-columns:160px 1fr;">
+          <span class="muted small">Effective</span><span>July 1, 2024 — June 30, 2025</span>
+        </div>
+        <div class="doc-row" style="grid-template-columns:160px 1fr;">
+          <span class="muted small">Delivery</span><span>Mail (USPS, 7–10 business days)</span>
+        </div>
+      </div>
+
+      <h3 class="subsection-title" style="margin-top:18px;">Fees</h3>
+      <div class="card flat" style="margin-bottom:0;">
+        <div class="row between" style="padding:4px 0;"><span>Annual permit</span><span class="mono">$75.00</span></div>
+        <div class="row between" style="padding:4px 0;"><span>Processing fee</span><span class="mono">$1.50</span></div>
+        <div class="row between" style="padding:4px 0;"><span>Mail delivery</span><span class="mono">$3.00</span></div>
+        <hr class="div">
+        <div class="row between strong"><span>Total due today</span><span class="mono">$80.50</span></div>
+      </div>
+
+      <h3 class="subsection-title">Payment method</h3>
+      <div class="col" style="gap:8px;">
+        <label class="row between center" style="padding:10px 12px; border:1px solid var(--border); border-radius:8px;">
+          <span class="row center" style="gap:10px;">
+            <input type="radio" name="pay" checked>
+            <span class="strong small">Visa •• 4427</span>
+            <span class="badge">Saved</span>
+          </span>
+          <span class="small muted">Exp 04/27</span>
+        </label>
+        <label class="row between center" style="padding:10px 12px; border:1px solid var(--border); border-radius:8px;">
+          <span class="row center" style="gap:10px;">
+            <input type="radio" name="pay">
+            <span class="strong small">Bank transfer (ACH)</span>
+          </span>
+          <span class="small muted">no fee · 3–5 days</span>
+        </label>
+        <label class="row between center" style="padding:10px 12px; border:1px solid var(--border); border-radius:8px;">
+          <span class="row center" style="gap:10px;">
+            <input type="radio" name="pay">
+            <span class="strong small">New card</span>
+          </span>
+        </label>
+      </div>
+
+      <label class="row" style="gap:8px;align-items:flex-start;margin-top:14px;">
+        <input type="checkbox" checked style="margin-top:3px;">
+        <span class="small text-2">I certify that the information above is accurate and that I am the legal resident at the address listed. Submitting false information may result in permit revocation.</span>
+      </label>
+      <label class="row" style="gap:8px;align-items:flex-start;margin-top:8px;">
+        <input type="checkbox" checked style="margin-top:3px;">
+        <span class="small text-2">Email me a receipt and a digital copy of the permit.</span>
+      </label>
+
+      <div class="row between" style="margin-top:18px;">
+        <a class="btn" href="#">Save &amp; finish later</a>
+        <a class="btn primary" href="#">Submit &amp; pay $80.50</a>
+      </div>
+    </div>
+
+    <h2 class="section-title">Need a hand?</h2>
+    <p class="section-lede">Applications get reviewed within 3 business days. If something's wrong, a clerk will email you — not a form letter, an actual person.</p>
+
+    <div class="two-col">
+      <div class="card">
+        <h3 class="card-title">Talk to a clerk</h3>
+        <div class="small muted" style="margin-top:4px;">Open Mon–Fri, 8 AM – 5 PM PT. Average wait: 6 minutes.</div>
+        <a class="btn" style="margin-top:12px;" href="#">Start chat</a>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Common questions</h3>
+        <div class="small muted" style="margin-top:4px;">Answers about permit renewals, replacements, and zones.</div>
+        <a class="btn" style="margin-top:12px;" href="#">Browse FAQ</a>
+      </div>
+    </div>
+  </main>
+
+  <aside class="toc">
+    <div class="toc-title">On this page</div>
+    <ul>
+      <li><a class="active" href="#">Vehicle &amp; address</a></li>
+      <li class="sub"><a href="#">Parking address</a></li>
+      <li class="sub"><a href="#">Permit options</a></li>
+      <li><a href="#">Documents</a></li>
+      <li><a href="#">Review</a></li>
+      <li class="sub"><a href="#">Fees</a></li>
+      <li class="sub"><a href="#">Payment method</a></li>
+      <li><a href="#">Need a hand?</a></li>
+    </ul>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Ember Field Systems</div>
+    <div class="footer-tagline muted">An official agency of the City of Portland</div>
+    <nav class="footer-meta">
+      <a href="service-catalog.html">Services</a>
+      <a href="#">About</a>
+      <a href="notifications.html">Notifications</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="application.html">Apply</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="footer-right">
+      <span>English · Español</span>
+      <span>Last updated 2024-04-14 14:32</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

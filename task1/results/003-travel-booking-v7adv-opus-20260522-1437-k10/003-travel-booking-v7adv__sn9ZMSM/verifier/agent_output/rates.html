@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Rates &amp; Availability — Sable Echo. Studio</title>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  .cal-pair {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 18px;
+  }
+  @media (max-width: 900px) { .cal-pair { grid-template-columns: 1fr; } }
+  .cal-mini .month {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .cal-mini .month .name { font-family: Georgia, serif; font-size: 18px; }
+  .cal-mini .month .nav { font-size: 12px; color: var(--muted); font-family: -apple-system, Arial, sans-serif; }
+  .reprice-form {
+    background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 0; margin-top: 18px;
+  }
+  .reprice-form .field { padding: 14px 18px; border-right: 1px solid var(--line-2); }
+  .reprice-form .field:last-of-type { border-right: 0; }
+  .reprice-form .field .l { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; font-family: -apple-system, Arial, sans-serif; }
+  .reprice-form .field .v { font-family: Georgia, serif; font-size: 14px; }
+  .reprice-form .submit { padding: 14px 18px; align-self: center; }
+  @media (max-width: 900px) {
+    .reprice-form { grid-template-columns: 1fr 1fr; }
+    .reprice-form .field { border-bottom: 1px solid var(--line-2); }
+    .reprice-form .field:nth-child(2) { border-right: 0; }
+    .reprice-form .submit { grid-column: span 2; }
+  }
+  @media (max-width: 600px) {
+    .reprice-form { grid-template-columns: 1fr; }
+    .reprice-form .field { border-right: 0; }
+    .reprice-form .submit { grid-column: auto; }
+  }
+  .defaults { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 18px; }
+  @media (max-width: 900px) { .defaults { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .defaults { grid-template-columns: 1fr 1fr; } }
+  .def {
+    background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 18px 20px;
+  }
+  .def .l { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-family: -apple-system, Arial, sans-serif; }
+  .def .v { font-family: Georgia, serif; font-size: 28px; font-weight: 500; margin: 6px 0 4px; letter-spacing: -0.01em; }
+  .def .v.gold { color: var(--gold-2); }
+  .def .n { font-size: 12px; color: var(--muted); font-family: -apple-system, Arial, sans-serif; }
+
+  .seasons-tbl {
+    background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+  }
+  .seasons-tbl table { border-collapse: collapse; width: 100%; font-family: -apple-system, Arial, sans-serif; font-size: 13px; }
+  .seasons-tbl th { text-align: left; font-weight: 500; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); padding: 14px 18px; border-bottom: 1px solid var(--line); }
+  .seasons-tbl td { padding: 16px 18px; border-bottom: 1px solid var(--line-2); }
+  .seasons-tbl tr:last-child td { border-bottom: 0; }
+  .badge-dot { display:inline-block; width: 8px; height: 8px; border-radius: 999px; margin-right: 8px; vertical-align: middle; }
+
+  .changes-tbl table { border-collapse: collapse; width: 100%; font-family: -apple-system, Arial, sans-serif; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topbar">
+    <a href="properties.html" class="brand">Sable Echo<span class="dot">.</span> Studio</a>
+    <nav class="nav">
+      <a href="properties.html">Properties</a>
+      <a href="property-detail.html">Property</a>
+      <a href="messaging.html">Guest Messages</a>
+      <a href="rates.html" class="active">Rates &amp; Availability</a>
+      <a href="reports.html">Reports</a>
+    </nav>
+    <a class="btn-pill" href="#">Publish changes</a>
+  </header>
+
+  <div class="eyebrow"><span>Calendar &amp; Pricing</span><span class="sep">·</span><span class="accent">Folio No. 04</span></div>
+
+  <section class="hero">
+    <h1 class="display">The year, priced to its mood.</h1>
+    <p class="lede">Each night is a decision — what to charge, who to welcome, when to rest the rooms. Set the rhythm once: the calendar carries it across every channel you sell on.</p>
+  </section>
+
+  <div class="filterbar">
+    <div class="field"><div class="lbl">Property</div><div class="val">Maison Verre <span class="caret">▾</span></div></div>
+    <div class="field"><div class="lbl">View</div><div class="val">Calendar <span class="caret">▾</span></div></div>
+    <div class="field"><div class="lbl">Channel</div><div class="val">All channels <span class="caret">▾</span></div></div>
+    <div class="field"><div class="lbl">Currency</div><div class="val">€ EUR <span class="caret">▾</span></div></div>
+  </div>
+
+  <div class="bul-row">
+    <span style="color:var(--ink);">Available</span>
+    <span>Booked, paid</span>
+    <span>Booked, pending</span>
+    <span>Owner-held</span>
+    <span>Closed for service</span>
+  </div>
+
+  <!-- Calendar pair -->
+  <div class="sect-head">
+    <div class="chapter">Chapter 1</div>
+    <div class="title" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:18px;">
+      <span>Twelve months, set in advance.</span>
+      <div style="display:flex; gap:6px;">
+        <button class="btn-pill ghost" style="background:transparent; color:var(--ink); border:1px solid var(--line); padding:6px 14px; font-size:12px;">Month</button>
+        <button class="btn-pill dark" style="padding:6px 14px; font-size:12px;">Two-month</button>
+        <button class="btn-pill ghost" style="background:transparent; color:var(--ink); border:1px solid var(--line); padding:6px 14px; font-size:12px;">Year</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="lede" style="font-size:14px; margin-bottom: 12px;">A two-month overlay view sits below. Touch the dates to override pricing, hold a window, or block service. Changes commit when you press Publish.</p>
+
+  <div class="cal-pair">
+    <!-- Nov -->
+    <div class="cal-mini">
+      <div class="month"><div class="name">November 2024</div><div class="nav">‹ &nbsp; ›</div></div>
+      <div class="cal">
+        <div class="dow">M</div><div class="dow">T</div><div class="dow">W</div><div class="dow">T</div><div class="dow">F</div><div class="dow">S</div><div class="dow">S</div>
+        <div class="day mute">28</div><div class="day mute">29</div><div class="day mute">30</div><div class="day mute">31</div>
+        <div class="day book">1<div class="px">385</div></div><div class="day book">2<div class="px">420</div></div><div class="day book">3<div class="px">420</div></div>
+
+        <div class="day">4<div class="px">365</div></div><div class="day">5<div class="px">365</div></div><div class="day">6<div class="px">365</div></div><div class="day">7<div class="px">365</div></div><div class="day book2">8<div class="px">395</div></div><div class="day book2">9<div class="px">395</div></div><div class="day book2">10<div class="px">395</div></div>
+
+        <div class="day">11<div class="px">365</div></div><div class="day">12<div class="px">365</div></div><div class="day dark">13<div class="px">365</div></div><div class="day dark">14<div class="px">365</div></div><div class="day dark">15<div class="px">395</div></div><div class="day dark">16<div class="px">395</div></div><div class="day">17<div class="px">395</div></div>
+
+        <div class="day book2">18<div class="px">365</div></div><div class="day book2">19<div class="px">365</div></div><div class="day book2">20<div class="px">365</div></div><div class="day book2">21<div class="px">365</div></div><div class="day book2">22<div class="px">395</div></div><div class="day">23<div class="px">395</div></div><div class="day">24<div class="px">395</div></div>
+
+        <div class="day">25<div class="px">365</div></div><div class="day">26<div class="px">365</div></div><div class="day">27<div class="px">365</div></div><div class="day">28<div class="px">365</div></div><div class="day book">29<div class="px">420</div></div><div class="day book">30<div class="px">420</div></div><div class="day mute">1</div>
+      </div>
+    </div>
+
+    <!-- Dec -->
+    <div class="cal-mini">
+      <div class="month"><div class="name">December 2024</div><div class="nav">‹ &nbsp; ›</div></div>
+      <div class="cal">
+        <div class="dow">M</div><div class="dow">T</div><div class="dow">W</div><div class="dow">T</div><div class="dow">F</div><div class="dow">S</div><div class="dow">S</div>
+        <div class="day mute">25</div><div class="day mute">26</div><div class="day mute">27</div><div class="day mute">28</div><div class="day mute">29</div><div class="day mute">30</div><div class="day">1<div class="px">395</div></div>
+
+        <div class="day">2<div class="px">395</div></div><div class="day">3<div class="px">395</div></div><div class="day">4<div class="px">395</div></div><div class="day">5<div class="px">395</div></div><div class="day book">6<div class="px">450</div></div><div class="day book">7<div class="px">450</div></div><div class="day book">8<div class="px">450</div></div>
+
+        <div class="day">9<div class="px">395</div></div><div class="day">10<div class="px">395</div></div><div class="day">11<div class="px">395</div></div><div class="day">12<div class="px">395</div></div><div class="day">13<div class="px">450</div></div><div class="day">14<div class="px">450</div></div><div class="day">15<div class="px">450</div></div>
+
+        <div class="day book2">16<div class="px">395</div></div><div class="day book2">17<div class="px">395</div></div><div class="day book2">18<div class="px">395</div></div><div class="day book2">19<div class="px">395</div></div><div class="day book2">20<div class="px">495</div></div><div class="day dark">21<div class="px">495</div></div><div class="day dark">22<div class="px">495</div></div>
+
+        <div class="day dark">23<div class="px">495</div></div><div class="day dark">24<div class="px">495</div></div><div class="day dark">25<div class="px">495</div></div><div class="day dark">26<div class="px">495</div></div><div class="day dark">27<div class="px">495</div></div><div class="day dark">28<div class="px">495</div></div><div class="day dark">29<div class="px">495</div></div>
+
+        <div class="day dark">30<div class="px">495</div></div><div class="day dark">31<div class="px">495</div></div><div class="day mute">1</div><div class="day mute">2</div><div class="day mute">3</div><div class="day mute">4</div><div class="day mute">5</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reprice a range -->
+  <div class="sect-head">
+    <div class="chapter">Bulk Editor</div>
+    <div class="title">Reprice a range.</div>
+  </div>
+
+  <div class="reprice-form">
+    <div class="field"><div class="l">From</div><div class="v">12 / 11 / 2024</div></div>
+    <div class="field"><div class="l">To</div><div class="v">19 / 11 / 2024</div></div>
+    <div class="field"><div class="l">New nightly rate</div><div class="v">Set rate <span style="color:var(--muted)">▾</span></div></div>
+    <div class="submit"><button class="btn-pill">Apply to 8 nights</button></div>
+  </div>
+
+  <!-- Defaults -->
+  <div class="sect-head">
+    <div class="chapter">Rules engine</div>
+    <div class="title">Defaults that govern the year.</div>
+  </div>
+
+  <div class="defaults">
+    <div class="def">
+      <div class="l">Minimum stay</div>
+      <div class="v">2 nights</div>
+      <div class="n">3 nights over Fri–Sun</div>
+    </div>
+    <div class="def">
+      <div class="l">Check-in window</div>
+      <div class="v">15:00 — 19:00</div>
+      <div class="n">Late by arrangement</div>
+    </div>
+    <div class="def">
+      <div class="l">Lead time</div>
+      <div class="v">14 days</div>
+      <div class="n">Earliest bookable window</div>
+    </div>
+    <div class="def">
+      <div class="l">Lead time</div>
+      <div class="v">36 hours</div>
+      <div class="n">Cancellation notice</div>
+    </div>
+  </div>
+
+  <!-- Seasons -->
+  <div class="feature">
+    <div class="img">
+      <svg viewBox="0 0 480 280" preserveAspectRatio="xMidYMid slice" class="illust">
+        <rect width="480" height="280" fill="#2c2519"/>
+        <circle cx="320" cy="140" r="60" fill="#cfa830"/>
+      </svg>
+    </div>
+    <div class="body">
+      <div class="chapter">Chapter 2</div>
+      <h3>Seasons declared, then honoured.</h3>
+      <p>Define four windows, set the price floor for each, and let the calendar take it from there. Special weeks override season — bank holidays, festivals — without altering the rest.</p>
+      <button class="btn-pill ghost" style="background:transparent; color:var(--ink); border:1px solid var(--line); margin-top:12px;">Edit season windows</button>
+    </div>
+  </div>
+
+  <div class="seasons-tbl" style="margin-top: 18px;">
+    <table>
+      <thead>
+        <tr>
+          <th>Season</th>
+          <th>Window</th>
+          <th>Nightly floor</th>
+          <th>Min. stay</th>
+          <th>Channel</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge-dot" style="background:#c9a234;"></span>Festival weeks</td>
+          <td>20 Dec — 5 Jan</td>
+          <td class="gold">€495</td>
+          <td>5 nights</td>
+          <td>Direct</td>
+          <td><span class="pill green">Live</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge-dot" style="background:#7c612a;"></span>High</td>
+          <td>1 Jun — 31 Aug</td>
+          <td class="gold">€450</td>
+          <td>3 nights</td>
+          <td>All</td>
+          <td><span class="pill green">Live</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge-dot" style="background:#3a7c64;"></span>Shoulder</td>
+          <td>Apr–May, Sep–Oct</td>
+          <td class="gold">€395</td>
+          <td>2 nights</td>
+          <td>All</td>
+          <td><span class="pill green">Live</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge-dot" style="background:#8c8d6c;"></span>Low</td>
+          <td>Nov, Jan–Mar</td>
+          <td class="gold">€365</td>
+          <td>2 nights</td>
+          <td>All</td>
+          <td><span class="pill">Draft</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- four moods -->
+  <div class="sect-head">
+    <div class="chapter">Chapter 3</div>
+    <div class="title">What the calendar is forecasting.</div>
+  </div>
+
+  <div class="defaults">
+    <div class="def">
+      <div class="l">Next 90 nights</div>
+      <div class="v gold">€271</div>
+      <div class="n">Average nightly · paid</div>
+    </div>
+    <div class="def">
+      <div class="l">Forecast occupancy</div>
+      <div class="v">68%</div>
+      <div class="n">Above three-yr average</div>
+    </div>
+    <div class="def">
+      <div class="l">Open nights, Q4</div>
+      <div class="v">342</div>
+      <div class="n">Across all properties</div>
+    </div>
+    <div class="def">
+      <div class="l">RevPAR forecast</div>
+      <div class="v gold">€184</div>
+      <div class="n">Median across portfolio</div>
+    </div>
+  </div>
+
+  <!-- distributed -->
+  <div class="feature">
+    <div class="img">
+      <svg viewBox="0 0 480 280" preserveAspectRatio="xMidYMid slice" class="illust">
+        <rect width="480" height="280" fill="#2c2519"/>
+        <polygon points="80,220 280,80 380,220" fill="#0a0604"/>
+      </svg>
+    </div>
+    <div class="body">
+      <div class="chapter">Chapter 4</div>
+      <h3>Distributed, but never duplicated.</h3>
+      <p>When you publish, the calendar pushes outward in three minutes — to the direct booking page, to Airbnb, to the partner channels you've selected at the agency. Distribution is a function of patience; remember, every reservation arrives in a small, measured form.</p>
+    </div>
+  </div>
+
+  <!-- where rates appear -->
+  <div class="sect-head">
+    <div class="chapter">Distribution</div>
+    <div class="title">Where these rates appear.</div>
+  </div>
+
+  <div class="seasons-tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th>Adjustment</th>
+          <th>Last sync</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Direct (sableecho.studio)</td><td>0%</td><td>2 minutes ago</td><td><span class="pill green">Synced</span></td></tr>
+        <tr><td>Airbnb</td><td>+ 12%</td><td>4 minutes ago</td><td><span class="pill green">Synced</span></td></tr>
+        <tr><td>Vrbo / HomeAway</td><td>+ 10%</td><td>11 minutes ago</td><td><span class="pill green">Synced</span></td></tr>
+        <tr><td>Plum Guide</td><td>+ 18%</td><td>1 hour ago</td><td><span class="pill">Pending</span></td></tr>
+        <tr><td>Booking.com</td><td>Disabled by host preference</td><td>—</td><td><span class="pill gray">Off</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- recent changes -->
+  <div class="sect-head">
+    <div class="chapter">Audit trail</div>
+    <div class="title">Recent changes to the calendar.</div>
+  </div>
+
+  <div class="seasons-tbl">
+    <table>
+      <thead>
+        <tr><th>When</th><th>Property</th><th>Range</th><th>Change</th><th>By</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Today, 09:42</td><td>Maison Verre</td><td>18–22 Nov</td><td>Set rate to €395</td><td>Camille S.</td></tr>
+        <tr><td>Today, 08:17</td><td>The Cormorant</td><td>23–27 Oct</td><td>Closed for service</td><td>Eleanor W.</td></tr>
+        <tr><td>Yesterday, 22:06</td><td>Casa Encinal</td><td>1–7 Dec</td><td>Reduced minimum stay</td><td>Camille S.</td></tr>
+        <tr><td>Yesterday, 19:31</td><td>Kuro Moka</td><td>20 Dec — 5 Jan</td><td>Festival rate, ¥24,500</td><td>Akira F.</td></tr>
+        <tr><td>2 days ago</td><td>Black Barn</td><td>3 Apr</td><td>Reopened to availability</td><td>Camille S.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer class="foot">
+    <div class="row">
+      <div>
+        <a class="brand" href="#">Sable Echo<span class="dot">.</span> Studio</a>
+        <p>A booking platform for hosts who treat their houses like quiet exhibitions — and their guests like the readers of a careful letter.</p>
+      </div>
+      <div>
+        <h5>Most Resources</h5>
+        <ul><li>Properties</li><li>Rates &amp; Availability</li><li>Guest Messages</li><li>Reports</li></ul>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <ul><li>Editorial</li><li>Contact</li><li>Terms &amp; Privacy</li><li>Instagram. Are.na</li></ul>
+      </div>
+    </div>
+    <div class="colophon"><div>© 2025 Sable Echo Studio. Composed in ivory and linen.</div></div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Calendar · Ember Grove Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="brand-mark"></span> Ember Grove Works</div>
+  <nav class="topnav">
+    <a href="listings.html">Listings</a>
+    <a href="listing-detail.html">Listing Detail</a>
+    <a href="calendar.html" class="active">Calendar</a>
+    <a href="reports.html">Market Reports</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+  <div class="topbar-search">
+    <span class="icon">⌕</span>
+    <span>Search events, clients, addresses…</span>
+  </div>
+  <div class="topbar-right">
+    <span class="bell">◔</span>
+    <span class="avatar">MH</span>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="filter-input">Filter calendars…</div>
+
+    <div class="minical">
+      <div class="minical-head">
+        <span>‹</span><span>October 2024</span><span>›</span>
+      </div>
+      <div class="minical-grid">
+        <div class="dow">S</div><div class="dow">M</div><div class="dow">T</div><div class="dow">W</div><div class="dow">T</div><div class="dow">F</div><div class="dow">S</div>
+        <div class="d muted">29</div><div class="d muted">30</div><div class="d">1</div><div class="d">2</div><div class="d">3</div><div class="d">4</div><div class="d">5</div>
+        <div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div><div class="d">10</div><div class="d">11</div><div class="d">12</div>
+        <div class="d">13</div><div class="d range">14</div><div class="d range">15</div><div class="d today">16</div><div class="d range">17</div><div class="d range">18</div><div class="d">19</div>
+        <div class="d">20</div><div class="d">21</div><div class="d">22</div><div class="d">23</div><div class="d">24</div><div class="d">25</div><div class="d">26</div>
+        <div class="d">27</div><div class="d">28</div><div class="d">29</div><div class="d">30</div><div class="d">31</div><div class="d muted">1</div><div class="d muted">2</div>
+      </div>
+    </div>
+
+    <div class="sidebar-section" style="margin-top:16px">
+      <div class="sidebar-title">Views</div>
+      <a class="active" href="#"><span>Month</span></a>
+      <a href="#"><span>Week</span></a>
+      <a href="#"><span>Agenda</span></a>
+      <a href="#"><span>Map view</span></a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Event types</div>
+      <a href="#"><span><span class="dot accent"></span> Showings</span><span class="count">12</span></a>
+      <a href="#"><span><span class="dot green"></span> Closings</span><span class="count">3</span></a>
+      <a href="#"><span><span class="dot yellow"></span> Open houses</span><span class="count">5</span></a>
+      <a href="#"><span><span class="dot blue"></span> Inspections</span><span class="count">2</span></a>
+      <a href="#"><span><span class="dot red"></span> Listing prep</span><span class="count">7</span></a>
+      <a href="#"><span><span class="dot"></span> Client calls</span><span class="count">3</span></a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Agents</div>
+      <a href="#"><span>Hollis Mews</span><span class="count">9</span></a>
+      <a href="#"><span>Pretzel Pace</span><span class="count">6</span></a>
+      <a href="#"><span>Theo Brennan</span><span class="count">5</span></a>
+      <a href="#"><span>Pending closings</span><span class="count">4</span></a>
+      <a href="#"><span>Zenn Quill</span><span class="count">3</span></a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Saved filters</div>
+      <a href="#"><span>This week, mine</span></a>
+      <a href="#"><span>Pending closings</span></a>
+      <a href="#"><span>Conflicts &amp; overlaps</span></a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Legend</div>
+      <div class="muted text-xs"><span class="dot green"></span> Booking · Open house</div>
+      <div class="muted text-xs" style="margin-top:4px"><span class="dot yellow"></span> Tentative</div>
+      <div class="muted text-xs" style="margin-top:4px"><span class="dot red"></span> Needs attention</div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="crumbs">
+      <a href="#">Workspaces</a><span class="sep">›</span><a href="#">Calendar</a><span class="sep">›</span><span class="current">October 2024</span>
+    </div>
+
+    <div class="page-head">
+      <div>
+        <h1>October 2024</h1>
+        <div class="page-sub">Week 41 · 32 events scheduled across 5 agents · 4 closings on the books</div>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <div class="kpi-label">Showings this week</div>
+        <div class="kpi-value">11</div>
+        <div class="kpi-delta accent">↑ +2 vs. last week</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Closings scheduled</div>
+        <div class="kpi-value">3</div>
+        <div class="kpi-delta">Next: Oct 18, 2:00 PM</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Open houses (Sat–Sun)</div>
+        <div class="kpi-value">3</div>
+        <div class="kpi-delta">1 co-host needed</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Hours booked</div>
+        <div class="kpi-value">38.5</div>
+        <div class="kpi-delta">Capacity 64% · Hollis</div>
+      </div>
+    </div>
+
+    <div class="cal" style="margin-top:8px">
+      <div class="cal-head">
+        <div class="row">
+          <button class="btn sm">Today</button>
+          <span class="muted text-sm">Showing all calendars</span>
+        </div>
+        <div class="row">
+          <div class="tabs">
+            <a class="on">Month</a><a>Week</a><a>Agenda</a>
+          </div>
+          <button class="btn sm ghost">⚙ Filter</button>
+          <button class="btn sm primary">+ New event</button>
+        </div>
+      </div>
+      <div class="cal-head" style="padding:8px 16px; border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft)">
+        <div class="row">
+          <span class="muted text-sm">October 2024</span>
+        </div>
+        <div class="muted text-sm">Week starts Sunday</div>
+      </div>
+      <div class="cal-grid">
+        <div class="cal-dow">Sun</div><div class="cal-dow">Mon</div><div class="cal-dow">Tue</div><div class="cal-dow">Wed</div><div class="cal-dow">Thu</div><div class="cal-dow">Fri</div><div class="cal-dow">Sat</div>
+
+        <div class="cal-day muted"><div class="dn">29</div></div>
+        <div class="cal-day muted"><div class="dn">30</div></div>
+        <div class="cal-day"><div class="dn">1</div><div class="cal-evt green">Team standup</div></div>
+        <div class="cal-day"><div class="dn">2</div></div>
+        <div class="cal-day"><div class="dn">3</div><div class="cal-evt">Showing · 22 Holl…</div></div>
+        <div class="cal-day"><div class="dn">4</div><div class="cal-evt yellow">Open house · 14…</div></div>
+        <div class="cal-day"><div class="dn">5</div><div class="cal-evt">Co Showing · 412</div></div>
+
+        <div class="cal-day"><div class="dn">6</div><div class="cal-evt green">Open house</div></div>
+        <div class="cal-day"><div class="dn">7</div><div class="cal-evt green">Team standup</div></div>
+        <div class="cal-day"><div class="dn">8</div><div class="cal-evt">Listing prep</div><div class="cal-evt blue">Inspection</div></div>
+        <div class="cal-day"><div class="dn">9</div><div class="cal-evt">Co Showing · 88</div></div>
+        <div class="cal-day"><div class="dn">10</div><div class="cal-evt">Showing · 412</div></div>
+        <div class="cal-day"><div class="dn">11</div><div class="cal-evt">Closing · 22 Hol</div></div>
+        <div class="cal-day"><div class="dn">12</div><div class="cal-evt yellow">Open house</div></div>
+
+        <div class="cal-day"><div class="dn">13</div><div class="cal-evt">Co Showing · 17</div></div>
+        <div class="cal-day"><div class="dn">14</div><div class="cal-evt green">Team standup</div></div>
+        <div class="cal-day"><div class="dn">15</div><div class="cal-evt">Listing prep</div><div class="cal-evt blue">Client call</div></div>
+        <div class="cal-day today"><div class="dn">16</div><div class="cal-evt">Showing · 412…</div><div class="cal-evt red">Pre-closing wal…</div></div>
+        <div class="cal-day"><div class="dn">17</div><div class="cal-evt blue">Inspection · 88</div><div class="cal-evt">Open house prep</div></div>
+        <div class="cal-day"><div class="dn">18</div><div class="cal-evt green">Closing · 412</div><div class="cal-evt">Showing</div></div>
+        <div class="cal-day"><div class="dn">19</div><div class="cal-evt yellow">Open house</div></div>
+
+        <div class="cal-day"><div class="dn">20</div><div class="cal-evt">Co Showing · 9</div></div>
+        <div class="cal-day"><div class="dn">21</div><div class="cal-evt green">Team standup</div></div>
+        <div class="cal-day"><div class="dn">22</div><div class="cal-evt">Showing · 76</div></div>
+        <div class="cal-day"><div class="dn">23</div><div class="cal-evt">Co Showing · 22</div></div>
+        <div class="cal-day"><div class="dn">24</div><div class="cal-evt blue">Inspection</div></div>
+        <div class="cal-day"><div class="dn">25</div><div class="cal-evt">Co Showing · 17</div></div>
+        <div class="cal-day"><div class="dn">26</div><div class="cal-evt yellow">Open house</div></div>
+
+        <div class="cal-day"><div class="dn">27</div></div>
+        <div class="cal-day"><div class="dn">28</div><div class="cal-evt green">Team standup</div></div>
+        <div class="cal-day"><div class="dn">29</div><div class="cal-evt">Showing</div></div>
+        <div class="cal-day"><div class="dn">30</div><div class="cal-evt">Co Showing</div></div>
+        <div class="cal-day"><div class="dn">31</div><div class="cal-evt">Co Listing tour</div></div>
+        <div class="cal-day muted"><div class="dn">1</div></div>
+        <div class="cal-day muted"><div class="dn">2</div></div>
+      </div>
+    </div>
+
+    <div class="sect-head" style="margin-top:28px">
+      <h2>Today &amp; tomorrow</h2>
+      <a href="#">Open agenda view →</a>
+    </div>
+
+    <div class="panel" style="padding:0">
+      <div class="agenda-day">
+        <h4>Wednesday, October 16</h4>
+        <div class="meta">Today · 4 events</div>
+        <div class="agenda-item">
+          <div class="agenda-time"><div class="t">10:00 AM</div><div>45 min</div></div>
+          <div class="agenda-title">Showing · 412 Linden Crossing<div class="sub">Buyer: Robin Yarrow · with Marina Pace · Confirmed</div></div>
+          <div><span class="badge dim">Showing</span></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time"><div class="t">1:30 PM</div><div>60 min</div></div>
+          <div class="agenda-title">Showing · 9 Wren Court<div class="sub">Buyer: Sutton Hale · keys waiting confirmation</div></div>
+          <div><span class="badge warn">Tentative</span></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time"><div class="t">4:00 PM</div><div>30 min</div></div>
+          <div class="agenda-title">Listing prep · 22 Holloway Lane<div class="sub">Photography brief · copy review</div></div>
+          <div><span class="badge dim">Internal</span></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time"><div class="t">5:30 PM</div><div>45 min</div></div>
+          <div class="agenda-title">Client call — Renata Voss<div class="sub">Listing strategy follow-up · Hollis</div></div>
+          <div><span class="badge dim">Client call</span></div>
+        </div>
+      </div>
+
+      <div class="agenda-day">
+        <h4>Thursday, October 17</h4>
+        <div class="meta">Tomorrow · 3 events</div>
+        <div class="agenda-item">
+          <div class="agenda-time"><div class="t">9:00 AM</div><div>45 min</div></div>
+          <div class="agenda-title">Inspection · 88 Sage Hollow<div class="sub">Inspector: Pemberton &amp; Co · Seller present · Theo Brennan</div></div>
+          <div><span class="badge blue" style="background:#1F3142;color:var(--blue);border-color:#2A4256">Inspection</span></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time"><div class="t">11:30 AM</div><div>30 min</div></div>
+          <div class="agenda-title">Showing · 305 Barwick Ave<div class="sub">Buyer: Pomeroy · with Hollis Co</div></div>
+          <div><span class="badge dim">Showing</span></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time"><div class="t">4:00 PM</div><div>90 min</div></div>
+          <div class="agenda-title">Pre-closing walkthrough · 412 Linden Crossing<div class="sub">Closing tomorrow 2:00 PM · Title: Brennan &amp; Pearce</div></div>
+          <div><span class="badge red">Critical</span></div>
+        </div>
+      </div>
+
+      <div class="agenda-day">
+        <h4>Friday, October 18</h4>
+        <div class="meta">In two days · 3 events</div>
+        <div class="agenda-item">
+          <div class="agenda-time"><div class="t">2:00 PM</div><div>60 min</div></div>
+          <div class="agenda-title">Closing · 412 Linden Crossing<div class="sub">Buyer: Yarrow · Seller: Marston Trust · $730,000 · Title: Brennan &amp; Pearce</div></div>
+          <div><span class="badge green">Closing</span></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time"><div class="t">3:30 PM</div><div>45 min</div></div>
+          <div class="agenda-title">Showing · 22 Holloway Lane<div class="sub">Buyer: V. Marlowe · with Pretzel Pace</div></div>
+          <div><span class="badge dim">Showing</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:20px">
+      <div class="panel">
+        <div class="panel-title">Conflicts to resolve</div>
+        <div class="muted text-sm" style="margin-bottom:10px">One overlap detected on the active filter list.</div>
+        <div class="row" style="gap:14px">
+          <div class="badge red">Oct 18 · 2:00 PM</div>
+          <div class="muted text-sm">Closing at 412 Linden overlaps Hollis Mews's pre-listing tour at 14 Cedar Hollow Court. Reassign or reschedule.</div>
+        </div>
+        <div class="row" style="margin-top:14px; gap:8px">
+          <button class="btn sm primary">Reassign listing review</button>
+          <button class="btn sm ghost">Dismiss</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">This week at a glance</div>
+        <div class="muted text-sm" style="margin-bottom:10px">Hours per agent · Oct 14 – Oct 20</div>
+        <div class="row between" style="padding:6px 0; border-bottom:1px solid var(--border-soft);"><span>Hollis Mews</span><span class="muted">12.5 hrs · 6 events</span></div>
+        <div class="row between" style="padding:6px 0; border-bottom:1px solid var(--border-soft);"><span>Pretzel Pace</span><span class="muted">8.0 hrs · 4 events</span></div>
+        <div class="row between" style="padding:6px 0; border-bottom:1px solid var(--border-soft);"><span>Theo Brennan</span><span class="muted">7.0 hrs · 4 events</span></div>
+        <div class="row between" style="padding:6px 0; border-bottom:1px solid var(--border-soft);"><span>Amelia Zin</span><span class="muted">5.5 hrs · 3 events</span></div>
+        <div class="row between" style="padding:6px 0;"><span>Zenn Quill</span><span class="muted">2.5 hrs · 2 events</span></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div>© 2024 Ember Grove Works · v6.2</div>
+  <div class="footer-nav">
+    <a href="#">Help &amp; documentation</a>
+    <a href="#">Market reports</a>
+    <a href="listings.html">Listings</a>
+  </div>
+  <div>
+    <span class="muted text-xs">10.2.0.4 · Wed Oct 16</span>
+  </div>
+</footer>
+
+</body>
+</html>

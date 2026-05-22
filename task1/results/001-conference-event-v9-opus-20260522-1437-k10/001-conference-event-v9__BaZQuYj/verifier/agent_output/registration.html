@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registration — Ember Vector Works</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .steps { display: flex; gap: 14px; align-items: center; margin-bottom: 22px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+  .step { display: inline-flex; align-items: center; gap: 6px; }
+  .step .dot { width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; }
+  .step.done .dot, .step.active .dot { background: var(--sage); border-color: var(--sage); color: #fff; }
+  .step.active strong { color: var(--ink); }
+  .step .sep { width: 14px; height: 1px; background: var(--line); }
+
+  .ticket {
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius);
+    padding: 18px;
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .ticket.selected { border-color: var(--coral); box-shadow: 0 0 0 2px var(--coral-3); }
+  .ticket .name { font-family: var(--serif); font-size: 18px; font-weight: 600; }
+  .ticket .desc { color: var(--ink-2); font-size: 13px; }
+  .ticket .price { font-family: var(--serif); font-size: 22px; font-weight: 600; text-align: right; }
+  .ticket ul { padding-left: 16px; font-size: 12.5px; color: var(--ink-2); margin: 6px 0; }
+  .ticket .bestvalue {
+    font-size: 10px; background: var(--coral); color: #fff; padding: 2px 7px; border-radius: 4px;
+    margin-left: 6px; text-transform: uppercase; letter-spacing: .05em; font-weight: 700;
+  }
+  .ticket .badge-yellow {
+    position: absolute;
+    top: -8px; right: 16px;
+    background: #f4d35e; color: #5a4500;
+    font-size: 10px; padding: 2px 7px; border-radius: 4px;
+    text-transform: uppercase; font-weight: 700; letter-spacing: .04em;
+  }
+  .ticket-radio { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--line); margin-top: 4px; flex: none; }
+  .ticket.selected .ticket-radio { border-color: var(--coral); background: radial-gradient(circle, var(--coral) 0 5px, transparent 6px); }
+
+  .addons-card {
+    background: var(--card); border: 1px solid var(--line-2); border-radius: var(--radius);
+    padding: 16px; margin-bottom: 14px;
+  }
+  .addons-card .row-add { padding: 10px 0; border-top: 1px solid var(--line-2); display: flex; gap: 10px; align-items: flex-start; font-size: 13px; }
+  .addons-card .row-add:first-of-type { border-top: none; }
+  .addons-card .row-add input[type="checkbox"] { margin-top: 3px; flex: none; }
+  .addons-card .price-add { margin-left: auto; font-weight: 700; flex: none; }
+
+  .form-card {
+    background: var(--card); border: 1px solid var(--line-2); border-radius: var(--radius); padding: 16px; margin-bottom: 14px;
+  }
+  .pay-tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+  .pay-tabs span { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 12px; background: var(--card-2); cursor: pointer; }
+  .pay-tabs span.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .summary { position: sticky; top: 12px; }
+  .summary-line { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; }
+  .summary-line.total { font-family: var(--serif); font-size: 20px; font-weight: 700; padding-top: 12px; border-top: 1px solid var(--line-2); margin-top: 8px; }
+
+  .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .countdown div { background: var(--card-2); border-radius: 6px; padding: 8px; text-align: center; }
+  .countdown .num { font-family: var(--serif); font-size: 18px; font-weight: 700; }
+  .countdown .lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; }
+
+  .faq-item { padding: 12px 0; border-bottom: 1px solid var(--line-2); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h4 { font-family: var(--sans); font-weight: 600; margin-bottom: 4px; font-size: 13.5px; }
+  .faq-item p { font-size: 13px; margin: 0; color: var(--ink-2); }
+
+  @media (max-width: 600px) {
+    .ticket { grid-template-columns: auto 1fr; }
+    .ticket .price { grid-column: 2; text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="schedule.html" class="brand"><span class="dot"></span> Ember Vector Works</a>
+    <nav class="nav">
+      <a href="schedule.html">Schedule</a>
+      <a href="speakers.html">Speakers</a>
+      <a href="my-agenda.html">My Agenda</a>
+      <a href="attendees.html">Attendees</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="livestream.html">Livestream</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="btn btn-primary" href="registration.html">Register</a>
+      <span class="avatar-sm">MK</span>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <div class="page-header">
+      <div>
+        <div class="eyebrow">Registration — Vector Works IV</div>
+        <h1>Pick your pass. We'll save your seat.</h1>
+        <p>Three days in Lisbon, four tracks, and a community of builders who actually finish things. Early-bird pricing is good through October 14 — after that the gate closes politely but firmly.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step done"><span class="dot">✓</span> Account</div>
+      <span class="sep"></span>
+      <div class="step active"><span class="dot">2</span> <strong>Choose ticket</strong></div>
+      <span class="sep"></span>
+      <div class="step"><span class="dot">3</span> Attendee details</div>
+      <span class="sep"></span>
+      <div class="step"><span class="dot">4</span> Payment</div>
+    </div>
+
+    <div class="row">
+      <div>
+        <h2 style="font-family:var(--serif);margin-bottom:12px;">Choose your ticket</h2>
+
+        <div class="ticket">
+          <span class="ticket-radio"></span>
+          <div>
+            <div class="name">Community</div>
+            <div class="desc">All keynotes &amp; the main stage. Perfect for first-timers and curious builders.</div>
+            <ul>
+              <li>Main stage &amp; opening keynote</li>
+              <li>Sponsor expo + lunch on day one</li>
+              <li>One pass per attendee</li>
+              <li>Workshop access · waitlisted</li>
+            </ul>
+          </div>
+          <div class="price">€180</div>
+        </div>
+
+        <div class="ticket selected" style="position:relative;">
+          <span class="badge-yellow">Best value</span>
+          <span class="ticket-radio"></span>
+          <div>
+            <div class="name">Maker <span class="bestvalue">most popular</span></div>
+            <div class="desc">All sessions, all four tracks, plus reserved seating for two workshops. The honest sweet spot.</div>
+            <ul>
+              <li>Everything in Community</li>
+              <li>Two workshop seats (reserved)</li>
+              <li>Speakers' dinner on Friday</li>
+              <li>Recordings for 12 months</li>
+              <li>Speakers' dinner on Friday — limited</li>
+              <li>20 % off Studio add-on</li>
+            </ul>
+          </div>
+          <div class="price">€420</div>
+        </div>
+
+        <div class="ticket">
+          <span class="ticket-radio"></span>
+          <div>
+            <div class="name">Studio (team of 4)</div>
+            <div class="desc">Four Maker passes, plus reserved seating in the workshops, plus product reading. Bring the whole table.</div>
+            <ul>
+              <li>4× Maker passes</li>
+              <li>Studio lounge with reserved tables</li>
+              <li>Dedicated office hour with a speaker</li>
+              <li>4× 12-mo. recordings</li>
+            </ul>
+          </div>
+          <div class="price">€1,480</div>
+        </div>
+
+        <div class="ticket">
+          <span class="ticket-radio"></span>
+          <div>
+            <div class="name">Patron</div>
+            <div class="desc">Supports two community scholarships; includes everything in Maker plus a backstage tour and a Saturday off-site dinner.</div>
+            <ul>
+              <li>Everything in Maker</li>
+              <li>Funds 2 scholarship seats</li>
+              <li>Backstage &amp; production tour</li>
+              <li>Saturday off-site dinner (Belém)</li>
+            </ul>
+          </div>
+          <div class="price">€700</div>
+        </div>
+
+        <div class="addons-card">
+          <div class="flex between ai-center mb-8">
+            <h3 style="font-family:var(--serif);margin:0;font-size:17px;">Add-ons</h3>
+            <span class="muted small">Optional</span>
+          </div>
+          <div class="row-add">
+            <input type="checkbox" checked>
+            <div><strong>Friday workshop — Type Systems in Practice</strong><div class="meta muted">Half day, 24 seats. Led by Rin Takahashi.</div></div>
+            <span class="price-add">€85</span>
+          </div>
+          <div class="row-add">
+            <input type="checkbox">
+            <div><strong>Conference tote &amp; printed program</strong><div class="meta muted">Risograph printed by Estudio Trim in Casanave, Bermondsey.</div></div>
+            <span class="price-add">€26</span>
+          </div>
+          <div class="row-add">
+            <input type="checkbox">
+            <div><strong>Carbon-offset (one return flight, EU)</strong><div class="meta muted">Routed through Lisbon Bridges, audited annually.</div></div>
+            <span class="price-add">€14</span>
+          </div>
+          <div class="row-add">
+            <input type="checkbox">
+            <div><strong>Saturday harbor walk &amp; brunch</strong><div class="meta muted">Small group, 9am to 12pm. Be there.</div></div>
+            <span class="price-add">€48</span>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <div class="flex between ai-center mb-12">
+            <h3 style="font-family:var(--serif);margin:0;font-size:17px;">Attendee details</h3>
+            <span class="muted small">Shown on your badge</span>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>First name</label><input value="Maren"></div>
+            <div class="field"><label>Last name</label><input value="Köhler"></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Email</label><input value="maren@northfold.studio"></div>
+            <div class="field"><label>Pronouns (optional)</label><select><option>she / her</option></select></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Organization</label><input value="Northfold Studio"></div>
+            <div class="field"><label>Role</label><input value="e.g. Principal Designer"></div>
+          </div>
+          <div class="field"><label>One-line bio (visible on the Attendees page)</label><input value="Designer building tools for independent typographers."></div>
+          <div class="field"><label>Dietary notes</label><textarea>Allergies, restrictions, or preferences — we'll pass these to catering.</textarea></div>
+          <div class="checkrow"><input type="checkbox" checked> List me in the public Attendees directory</div>
+          <div class="checkrow"><input type="checkbox"> Subscribe to the field-notes newsletter (monthly, no sponsor mail)</div>
+          <div class="checkrow"><input type="checkbox" checked> I agree to the <a href="#" style="color:var(--coral);">code of conduct</a> and <a href="#" style="color:var(--coral);">venue accessibility guidelines</a></div>
+        </div>
+
+        <div class="form-card">
+          <div class="flex between ai-center mb-12">
+            <h3 style="font-family:var(--serif);margin:0;font-size:17px;">Payment</h3>
+            <span class="muted small">Secured by Stripe · VAT 442/IS</span>
+          </div>
+          <div class="pay-tabs">
+            <span class="active">Card</span>
+            <span>SEPA direct debit</span>
+            <span>Invoice (companies)</span>
+            <span>Apple Pay</span>
+          </div>
+          <div class="field"><label>Card number</label><input value="4242  4242  4242  4242"></div>
+          <div class="form-row-3">
+            <div class="field"><label>Expiry</label><input value="08 / YY"></div>
+            <div class="field"><label>CVC</label><input value="123"></div>
+            <div class="field"><label>Billing country</label><select><option>Germany</option></select></div>
+          </div>
+
+          <div class="flex between ai-center mt-16">
+            <a class="btn btn-link">← Back to details</a>
+            <button class="btn btn-primary btn-lg">Pay €520 &amp; reserve seat</button>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3 style="font-family:var(--serif);margin:0 0 10px;font-size:17px;">Common questions, answered briefly</h3>
+          <div class="faq-item"><h4>What's the refund policy?</h4><p>Full refund through November 1. After that, a 25% admin fee applies. Transfers to another attendee are free up to 48 hours before the event.</p></div>
+          <div class="faq-item"><h4>Do you offer scholarships?</h4><p>Yes — 40 seats reserved each year for students, career changers, and folks from under-represented backgrounds. Applications open until Sept 24. <a href="#" style="color:var(--coral)">Read more.</a></p></div>
+          <div class="faq-item"><h4>Can I expense this?</h4><p>We issue a proper VAT invoice automatically. Pick "invoice" above and add your company's billing details.</p></div>
+          <div class="faq-item"><h4>Is the venue accessible?</h4><p>All seven rooms are step-free with reserved seating up front. Live captions on each main stage talk. Quiet room available throughout.</p></div>
+        </div>
+      </div>
+
+      <aside class="aside">
+        <div class="widget summary">
+          <h4>Order summary</h4>
+          <div class="summary-line"><span>Maker pass × 1</span><span>€420.00</span></div>
+          <div class="summary-line"><span>Workshop — Type Systems</span><span>€85.00</span></div>
+          <div class="summary-line"><span>Early-bird discount</span><span style="color:var(--coral);">-€60.00</span></div>
+          <div class="summary-line"><span>VAT (Germany, 19%)</span><span>€80.25</span></div>
+          <div class="summary-line total"><span>Total</span><span>€565.25</span></div>
+          <div style="margin-top:10px;">
+            <label>Promo code</label>
+            <div class="flex gap-8">
+              <input value="EARLY40" />
+              <button class="btn btn-ghost btn-sm">Apply</button>
+            </div>
+            <div class="muted small" style="margin-top:6px;">Code applied for early-bird ✓</div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h4>Early-bird closes in</h4>
+          <div class="countdown">
+            <div><div class="num">11</div><div class="lbl">Days</div></div>
+            <div><div class="num">06</div><div class="lbl">Hours</div></div>
+            <div><div class="num">42</div><div class="lbl">Min</div></div>
+            <div><div class="num">19</div><div class="lbl">Sec</div></div>
+          </div>
+          <div class="muted small" style="margin-top:8px;">After Oct 14 at midnight WET, ticket prices step up by €60.</div>
+        </div>
+
+        <div class="widget">
+          <h4>Coming with you</h4>
+          <div class="person mb-12"><span class="av av-coral">PA</span><div><div class="person-name">Priya Adesanya</div><div class="meta">Studio Mate</div></div><span class="spacer"></span></div>
+          <div class="person mb-12"><span class="av av-sage">TG</span><div><div class="person-name">Thiago Gomez</div><div class="meta">CSS Layout Now</div></div><span class="spacer"></span></div>
+          <div class="person"><span class="av av-olive">EA</span><div><div class="person-name">Elin Angström</div><div class="meta">Independent</div></div><span class="spacer"></span></div>
+          <div class="muted small" style="margin-top:6px;">See all 412 attendees →</div>
+        </div>
+
+        <div class="widget">
+          <h4>Trending sessions</h4>
+          <ul class="widget-list">
+            <li><strong>Designing for slow networks</strong><div class="meta">152 saved this morning</div></li>
+            <li><strong>Vector tooling after Figma</strong><div class="meta">141 saved this morning</div></li>
+            <li><strong>The case against component libraries</strong><div class="meta">109 saved this morning</div></li>
+            <li><strong>Notes from running a 2-person studio</strong><div class="meta">96 saved this morning</div></li>
+          </ul>
+        </div>
+
+        <div class="widget" style="background:var(--coral-3); border-color:transparent;">
+          <p style="font-size:13px;"><em>"Easily the calmest, most thoughtfully run conference I've been to. I left with three projects I actually shipped."</em></p>
+          <div class="muted small" style="margin-top:6px;">— Lorenzo Branca, prior attendee · '24</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="#"><span class="dot"></span> Ember Vector Works</a>
+      <p>Vector Works IV<br>14 Foundry Lane, Lisbon</p>
+    </div>
+    <div>
+      <h5>Event</h5>
+      <ul>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+        <li><a href="livestream.html">Livestream</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Community</h5>
+      <ul>
+        <li><a href="attendees.html">Attendees</a></li>
+        <li><a href="my-agenda.html">My agenda</a></li>
+        <li><a href="#">Code of conduct</a></li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Elsewhere</h5>
+      <ul>
+        <li><a href="#">Mastodon</a></li>
+        <li><a href="#">Bluesky</a></li>
+        <li><a href="#">Linkedin</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+    <div></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Ember Vector Works Cooperative.</span>
+    <span>Powered by adorable dues, not ads.</span>
+  </div>
+</footer>
+
+</body>
+</html>

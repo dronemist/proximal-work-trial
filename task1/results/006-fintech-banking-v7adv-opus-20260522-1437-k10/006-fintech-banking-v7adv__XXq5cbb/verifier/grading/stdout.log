@@ -1,0 +1,174 @@
+[grade] VLM judge: 15 pairs in 14.7s
+{
+  "per_page_viewport": {
+    "account-overview": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6827216848351977,
+          "extra": {
+            "reference_size": [
+              1440,
+              1684
+            ],
+            "candidate_size": [
+              1440,
+              1453
+            ],
+            "compared_size": [
+              1440,
+              1453
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.43694329261779785,
+          "extra": {
+            "reference_blocks": 284,
+            "candidate_blocks": 252,
+            "matched_pairs": 252,
+            "mean_matched_iou": 0.19091936945915222,
+            "raw_score_before_sqrt": 0.190919429063797
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7530368731287655,
+          "extra": {
+            "reference_blocks": 284,
+            "candidate_blocks": 252,
+            "matched_pairs": 252,
+            "mean_normalized_centroid_distance": 0.24696312687123442,
+            "page_diagonal_px": 2215.9548648685886
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7606561208764712,
+          "extra": {
+            "bg_score": 0.7421539574861526,
+            "fg_score": 0.7791582842667897,
+            "bg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 6,
+              "weighted_mean_oklab_distance": 0.0386769063770771,
+              "base_score_before_penalty": 0.7421539574861526,
+              "over_color_penalty": 0.0
+            },
+            "fg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 6,
+              "weighted_mean_oklab_distance": 0.03312625735998154,
+              "base_score_before_penalty": 0.7791582842667897,
+              "over_color_penalty": 0.0
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.49443253610108295,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.49204648014440433,
+            "reference_buckets": [
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.3380281690140845
+              ],
+              [
+                15.0,
+                0.6126760563380281
+              ],
+              [
+                22.0,
+                0.02464788732394366
+              ],
+              [
+                32.0,
+                0.017605633802816902
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.07539682539682539
+              ],
+              [
+                11.0,
+                0.1626984126984127
+              ],
+              [
+                12.0,
+                0.25793650793650796
+              ],
+              [
+                13.0,
+                0.1111111111111111
+              ],
+              [
+                14.0,
+                0.3373015873015873
+              ],
+              [
+                15.0,
+                0.023809523809523808
+              ],
+              [
+                22.0,
+                0.01984126984126984
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "georgia"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.7339667458432304,
+          "extra": {
+            "reference_tokens": 368,
+            "candidate_tokens": 362,
+            "matched_tokens": 309,
+            "union_tokens": 421,
+            "reference_unique": 218,
+            "candidate_unique": 217
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.4,
+          "extra": {
+            "reason": "Multiple content fabrications and data errors throughout: wrong account numbers (8412 vs 4471, 0023 vs 0218, etc.), wrong payroll amount (+$4,120.30 vs +$4,128.00), wrong savings APY (3.80% vs 3.85%), wrong grocery total ($512.10 vs $612.40), wrong 'Other' spending ($865.20 vs $694.72), wrong net po",
+            "model": "claude-sonnet-4-6",
+            "wall_s": 8.1
+          }
+ 

@@ -1,0 +1,174 @@
+[grade] VLM judge: 15 pairs in 13.2s
+{
+  "per_page_viewport": {
+    "alerts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6217015893401768,
+          "extra": {
+            "reference_size": [
+              1440,
+              2271
+            ],
+            "candidate_size": [
+              1440,
+              1976
+            ],
+            "compared_size": [
+              1440,
+              1976
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4210331439971924,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 327,
+            "matched_pairs": 327,
+            "mean_matched_iou": 0.17726890742778778,
+            "raw_score_before_sqrt": 0.17726890742778778
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.6752604313615627,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 327,
+            "matched_pairs": 327,
+            "mean_normalized_centroid_distance": 0.3247395686384374,
+            "page_diagonal_px": 2689.336619208539
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.6947807320356368,
+          "extra": {
+            "bg_score": 0.6815191909074783,
+            "fg_score": 0.7080422731637954,
+            "bg": {
+              "reference_palette_size": 9,
+              "candidate_palette_size": 12,
+              "weighted_mean_oklab_distance": 0.04737212136387825,
+              "base_score_before_penalty": 0.684185857574145,
+              "over_color_penalty": 0.002666666666666657
+            },
+            "fg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 14,
+              "weighted_mean_oklab_distance": 0.03539365902543068,
+              "base_score_before_penalty": 0.7640422731637955,
+              "over_color_penalty": 0.055999999999999994
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.7164511987250635,
+          "extra": {
+            "bucket_score": 0.6666666666666666,
+            "size_score": 0.7377874267500908,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.28217821782178215
+              ],
+              [
+                14.0,
+                0.45544554455445546
+              ],
+              [
+                16.0,
+                0.22772277227722773
+              ],
+              [
+                18.0,
+                0.022277227722772276
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.04281345565749235
+              ],
+              [
+                11.0,
+                0.09785932721712538
+              ],
+              [
+                11.5,
+                0.05504587155963303
+              ],
+              [
+                12.0,
+                0.10091743119266056
+              ],
+              [
+                12.5,
+                0.42813455657492355
+              ],
+              [
+                13.0,
+                0.22018348623853212
+              ],
+              [
+                13.5,
+                0.03058103975535168
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "sfmono-regular"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5602739726027397,
+          "extra": {
+            "reference_tokens": 592,
+            "candidate_tokens": 547,
+            "matched_tokens": 409,
+            "union_tokens": 730,
+            "reference_unique": 313,
+            "candidate_unique": 311
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Major content fabrication and structural differences: candidate shows 7 firing alerts vs 3 in reference, different on-call rotation members (L. Bergstrom, R. Petrosian, J. Marchetti vs P. Okafor, L. Bergstr\u00f6m, J. Marchetti), wrong 

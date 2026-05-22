@@ -1,0 +1,131 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f4ecd8;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #1a2440;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 28px 20px 40px;
+}
+
+header {
+  margin-bottom: 18px;
+}
+
+.site-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2a1a0a;
+  margin: 0 0 14px 0;
+  line-height: 1.2;
+}
+
+nav {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 22px;
+}
+
+nav a {
+  color: #a55d28;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #d8c39c;
+  margin: 18px 0 28px;
+}
+
+main {
+  margin-bottom: 28px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2a1a0a;
+  margin: 12px 0 24px;
+  line-height: 1.2;
+}
+
+main p {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin: 0 0 18px;
+  color: #1a2440;
+}
+
+main ul {
+  padding-left: 24px;
+  margin: 0 0 18px;
+}
+
+main li {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin-bottom: 12px;
+  color: #1a2440;
+}
+
+main li::marker {
+  color: #a55d28;
+}
+
+footer {
+  color: #b8a072;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 22px 18px 30px;
+  }
+
+  .site-title {
+    font-size: 1.4rem;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  nav ul {
+    gap: 0 16px;
+  }
+
+  nav a,
+  main p,
+  main li {
+    font-size: 1rem;
+  }
+}

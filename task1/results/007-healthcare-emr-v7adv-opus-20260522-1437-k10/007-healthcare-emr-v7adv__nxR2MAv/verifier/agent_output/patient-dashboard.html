@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patient Dashboard · Quartz Grove Lab</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .dash-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; }
+  .dash-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .vitals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .vital {
+    border: 1px solid var(--border-soft); border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .vital .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-soft); font-weight: 600; }
+  .vital .val { font-size: 18px; font-weight: 700; margin-top: 4px; }
+  .vital .sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .vital.span { grid-column: span 1; }
+  .patient-card .patient-head {
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .patient-card .info-row {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;
+    margin-top: 12px;
+  }
+  .patient-card .info-row .k { font-size: 10px; color: var(--text-soft); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .patient-card .info-row .v { font-size: 13px; font-weight: 500; margin-top: 2px; }
+  .meds-list .row-item { padding: 12px 0; }
+  .meds-list .row-item:first-child { padding-top: 0; }
+  .lab-row { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border-soft); font-size: 13px; }
+  .lab-row:last-child { border-bottom: none; }
+  .lab-row .val { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .care-team .row-item { padding: 10px 0; }
+  .care-team .row-item:first-child { padding-top: 0; }
+  .ins-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .ins-grid .k { font-size: 10px; color: var(--text-soft); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .ins-grid .v { font-size: 13px; font-weight: 500; margin-top: 2px; }
+  .ins-grid .sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .qa-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .pref-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border-soft); font-size: 13px; }
+  .pref-row:last-child { border-bottom: none; }
+  .pref-row .lbl { font-weight: 500; }
+  .pref-row .sub { font-size: 12px; color: var(--text-muted); }
+  .problem-list .row-item { padding: 10px 0; }
+  .problem-list .row-item:first-child { padding-top: 0; }
+  .problem-list .icon {
+    width: 28px; height: 28px; border-radius: 6px; background: var(--primary-soft);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--primary); font-weight: 600; font-size: 13px;
+  }
+  .problem-list .icon.amber { background: var(--warning-soft); color: #b45309; }
+  .problem-list .icon.green { background: var(--success-soft); color: #15803d; }
+  .problem-list .icon.purple { background: #ede9fe; color: #6d28d9; }
+  @media (max-width: 1024px) {
+    .dash-grid, .dash-grid-3 { grid-template-columns: 1fr; }
+    .vitals { grid-template-columns: repeat(4, 1fr); }
+    .patient-card .info-row { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .vitals { grid-template-columns: 1fr 1fr; }
+    .patient-card .info-row { grid-template-columns: 1fr 1fr; }
+    .patient-card .patient-head { flex-direction: column; }
+    .ins-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand"><span class="brand-dot"></span>Quartz Grove Lab</div>
+  <div class="nav-links">
+    <a href="patient-dashboard.html" class="active">Patients</a>
+    <a href="appointment-calendar.html">Calendar</a>
+    <a href="billing-insurance.html">Billing</a>
+    <a href="financing-plans.html">Payment Plans</a>
+    <a href="settings.html">Settings</a>
+  </div>
+  <div class="nav-spacer"></div>
+  <div class="nav-search"><input type="text" placeholder="Search patients, visits..."></div>
+  <div class="nav-avatar">ME</div>
+</nav>
+
+<main class="page">
+  <div class="crumb">Patients <span>›</span> Active <span>›</span> <span>Margaret Ellsworth</span></div>
+
+  <div class="eyebrow">Patient overview · MRN 109-4421</div>
+  <h1 class="h1">Margaret Ellsworth</h1>
+  <p class="lede">Established patient since 2017. Generally well — managing Type 2 diabetes and mild hypertension. Last seen for a routine follow-up nine days ago; everything looked steady.</p>
+
+  <div class="card patient-card mt-16">
+    <div class="patient-head">
+      <div class="avatar xl">ME</div>
+      <div style="flex:1">
+        <div class="info-row">
+          <div><div class="k">Age</div><div class="v">58</div></div>
+          <div><div class="k">Sex</div><div class="v">Female</div></div>
+          <div><div class="k">DOB</div><div class="v">Mar 14, 1967</div></div>
+          <div><div class="k">Primary</div><div class="v">Dr. Renata Voss</div></div>
+          <div><div class="k">Preferred contact</div><div class="v">SMS · (415) 555-0182</div></div>
+          <div class="row" style="justify-content: flex-end; align-items: center; gap: 6px;">
+            <button class="btn btn-sm">Start visit note</button>
+            <button class="btn btn-sm">Message patient</button>
+            <button class="btn btn-primary btn-sm">Schedule follow-up</button>
+          </div>
+        </div>
+        <div class="row gap-8 mt-16">
+          <span class="pill pill-success"><span class="dot"></span>Active</span>
+          <span class="pill pill-primary">Diabetes care plan</span>
+          <span class="pill">Annual wellness due Aug 19</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split mt-16">
+    <div class="callout danger">
+      <div class="callout-title">Drug interaction flagged</div>
+      <div class="callout-body">Metformin + lisinopril contrast — please note BP is below the imaging cutoff before May 22.</div>
+    </div>
+    <div class="callout info">
+      <div class="callout-title">Preventive care reminder</div>
+      <div class="callout-body">Mammogram booster recommended this fall. Eligible per coverage; available with Dr. Brooks.</div>
+    </div>
+  </div>
+
+  <div class="dash-grid mt-16">
+    <div class="card">
+      <div class="card-head">
+        <div class="title">Recent vitals</div>
+        <div class="row gap-8"><span class="muted small">Captured Sep 4, 2025 · 10:42 AM by Nuria Aaliyah Brooks</span> <span class="pill pill-success"><span class="dot"></span>Within range</span> <a href="#" class="small">View history</a></div>
+      </div>
+      <div class="vitals">
+        <div class="vital">
+          <div class="lbl">Blood pressure</div>
+          <div class="val">128/82</div>
+          <div class="sub">mmHg</div>
+          <svg class="sparkline" viewBox="0 0 100 24" preserveAspectRatio="none"><polyline fill="none" stroke="#2563eb" stroke-width="1.5" points="0,12 10,10 20,14 30,9 40,13 50,8 60,12 70,10 80,14 90,11 100,12"/></svg>
+        </div>
+        <div class="vital">
+          <div class="lbl">Heart rate</div>
+          <div class="val">72</div>
+          <div class="sub">bpm</div>
+          <svg class="sparkline" viewBox="0 0 100 24" preserveAspectRatio="none"><polyline fill="none" stroke="#16a34a" stroke-width="1.5" points="0,14 10,12 20,10 30,11 40,9 50,12 60,10 70,8 80,11 90,9 100,10"/></svg>
+        </div>
+        <div class="vital">
+          <div class="lbl">Temperature</div>
+          <div class="val">98.4</div>
+          <div class="sub">°F</div>
+          <svg class="sparkline" viewBox="0 0 100 24" preserveAspectRatio="none"><polyline fill="none" stroke="#7c3aed" stroke-width="1.5" points="0,12 10,13 20,11 30,12 40,13 50,11 60,12 70,13 80,11 90,12 100,12"/></svg>
+        </div>
+        <div class="vital">
+          <div class="lbl">SpO₂</div>
+          <div class="val">98</div>
+          <div class="sub">%</div>
+          <svg class="sparkline" viewBox="0 0 100 24" preserveAspectRatio="none"><polyline fill="none" stroke="#0d9488" stroke-width="1.5" points="0,12 10,11 20,12 30,10 40,11 50,12 60,10 70,11 80,12 90,11 100,11"/></svg>
+        </div>
+        <div class="vital">
+          <div class="lbl">Weight</div>
+          <div class="val">164</div>
+          <div class="sub">−1.2 lb since June</div>
+        </div>
+        <div class="vital">
+          <div class="lbl">BMI</div>
+          <div class="val">26.4</div>
+          <div class="sub">Overweight range</div>
+        </div>
+        <div class="vital">
+          <div class="lbl">Resp rate</div>
+          <div class="val">16</div>
+          <div class="sub">breaths/min</div>
+        </div>
+        <div class="vital">
+          <div class="lbl">Pain</div>
+          <div class="val">1</div>
+          <div class="sub">Mild knee, left</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card problem-list">
+      <div class="card-head">
+        <div class="title">Problem list</div>
+        <a href="#" class="small">Edit</a>
+      </div>
+      <div class="muted tiny" style="text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">Active conditions</div>
+      <div class="row mt-8 gap-12" style="align-items: flex-end">
+        <div style="font-size: 36px; font-weight: 700; line-height: 1">4</div>
+        <div class="muted small" style="padding-bottom: 6px">2 chronic · 2 monitored</div>
+      </div>
+      <div class="divider"></div>
+      <div class="list">
+        <div class="row-item">
+          <div class="icon">T2</div>
+          <div style="flex:1">
+            <div class="name">Type 2 diabetes mellitus</div>
+            <div class="sub">E11.9 · Diagnosed 2019</div>
+          </div>
+          <span class="pill pill-warning">Active</span>
+        </div>
+        <div class="row-item">
+          <div class="icon amber">EH</div>
+          <div style="flex:1">
+            <div class="name">Essential hypertension</div>
+            <div class="sub">I10 · Diagnosed 2021</div>
+          </div>
+          <span class="pill pill-warning">Active</span>
+        </div>
+        <div class="row-item">
+          <div class="icon green">OA</div>
+          <div style="flex:1">
+            <div class="name">Osteoarthritis, left knee</div>
+            <div class="sub">M17.12 · Diagnosed 2023</div>
+          </div>
+          <span class="pill pill-info">Managed</span>
+        </div>
+        <div class="row-item">
+          <div class="icon purple">VD</div>
+          <div style="flex:1">
+            <div class="name">Vitamin D deficiency</div>
+            <div class="sub">E55.9 · Diagnosed 2024</div>
+          </div>
+          <span class="pill pill-info">Managed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-grid mt-16">
+    <div class="card">
+      <div class="card-head">
+        <div class="title">Visit history</div>
+        <div class="chip-tabs">
+          <span class="chip-tab active">All</span>
+          <span class="chip-tab">Office</span>
+          <span class="chip-tab">Telehealth</span>
+          <span class="chip-tab">Labs</span>
+        </div>
+      </div>
+      <div class="muted small mb-12">Last 6 encounters across the practice</div>
+      <ul class="timeline">
+        <li>
+          <div class="when">Sep 4, 2025 · 10:42 AM</div>
+          <div class="what">Diabetes follow-up — Dr. Renata Voss</div>
+          <div class="muted small">A1C trending down to 6.8. Medication unchanged. Patient reports steady sleep since walking after dinner. Scheduled bloodwork for Dec.</div>
+        </li>
+        <li>
+          <div class="when">Aug 11, 2025</div>
+          <div class="what">Lipid panel & CMP — Quartz Grove Lab</div>
+          <div class="muted small">All values within reference range. LDL slightly improved from June.</div>
+        </li>
+        <li>
+          <div class="when">Jul 28, 2025 · 2:15 PM</div>
+          <div class="what">Telehealth — medication review</div>
+          <div class="muted small">10-minute call with Dr. Voss. Reviewed metformin and lisinopril dose for 90 days. Reassured on BMI plan.</div>
+        </li>
+        <li>
+          <div class="when">May 6, 2025</div>
+          <div class="what">Annual physical — Dr. Renata Voss</div>
+          <div class="muted small">Full physical, vaccination updates, mammogram referral placed. Patient generally well.</div>
+        </li>
+        <li>
+          <div class="when">Feb 18, 2025</div>
+          <div class="what">Sick visit — Nurse Aaliyah Brooks</div>
+          <div class="muted small">Mild URI; symptomatic care advised. Resolution within a week per follow-up note.</div>
+        </li>
+      </ul>
+      <div class="row mt-12"><a href="#" class="small">Open full chart →</a></div>
+    </div>
+
+    <div class="card meds-list">
+      <div class="card-head">
+        <div class="title">Active medications</div>
+        <a href="#" class="small">+ Add</a>
+      </div>
+      <div class="list">
+        <div class="row-item">
+          <div class="avatar sm green">M</div>
+          <div style="flex:1">
+            <div class="name">Metformin HCl</div>
+            <div class="sub">500 mg · twice daily with meals</div>
+          </div>
+          <span class="pill pill-success">Refill ✓</span>
+        </div>
+        <div class="row-item">
+          <div class="avatar sm">L</div>
+          <div style="flex:1">
+            <div class="name">Lisinopril</div>
+            <div class="sub">10 mg · once daily, morning</div>
+          </div>
+          <span class="pill pill-success">Refill ✓</span>
+        </div>
+        <div class="row-item">
+          <div class="avatar sm purple">A</div>
+          <div style="flex:1">
+            <div class="name">Atorvastatin</div>
+            <div class="sub">20 mg · once daily, evening</div>
+          </div>
+          <span class="pill pill-warning">Refill 7d</span>
+        </div>
+        <div class="row-item">
+          <div class="avatar sm amber">V</div>
+          <div style="flex:1">
+            <div class="name">Vitamin D₃</div>
+            <div class="sub">2000 IU · once daily</div>
+          </div>
+          <span class="pill">OTC</span>
+        </div>
+        <div class="row-item">
+          <div class="avatar sm pink">A</div>
+          <div style="flex:1">
+            <div class="name">Acetaminophen</div>
+            <div class="sub">500 mg · PRN, knee discomfort</div>
+          </div>
+          <span class="pill">PRN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-grid-3 mt-16">
+    <div class="card">
+      <div class="card-head">
+        <div class="title">Allergies</div>
+        <span class="pill pill-warning">4 active</span>
+      </div>
+      <div class="list">
+        <div class="row-item">
+          <div style="flex:1"><div class="name">Penicillin</div><div class="sub">Hives · confirmed 2009</div></div>
+          <span class="pill pill-danger">Severe</span>
+        </div>
+        <div class="row-item">
+          <div style="flex:1"><div class="name">Sulfa drugs</div><div class="sub">Rash · self-reported</div></div>
+          <span class="pill pill-warning">Mod</span>
+        </div>
+        <div class="row-item">
+          <div style="flex:1"><div class="name">Latex</div><div class="sub">Contact dermatitis</div></div>
+          <span class="pill pill-warning">Mod</span>
+        </div>
+        <div class="row-item">
+          <div style="flex:1"><div class="name">Shellfish</div><div class="sub">Stomach upset</div></div>
+          <span class="pill">Mild</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="title">Latest labs</div>
+        <a href="#" class="small">All results</a>
+      </div>
+      <div class="muted small mb-8">Drawn Aug 11, 2025</div>
+      <div class="lab-row">
+        <div>Hemoglobin A1C</div>
+        <div class="val">6 . 8 %</div>
+        <span class="pill pill-success">In range</span>
+      </div>
+      <div class="lab-row">
+        <div>Fasting glucose</div>
+        <div class="val">112 mg/dL</div>
+        <span class="pill pill-warning">High-normal</span>
+      </div>
+      <div class="lab-row">
+        <div>LDL cholesterol</div>
+        <div class="val">94 mg/dL</div>
+        <span class="pill pill-success">In range</span>
+      </div>
+      <div class="lab-row">
+        <div>HDL cholesterol</div>
+        <div class="val">56 mg/dL</div>
+        <span class="pill pill-success">In range</span>
+      </div>
+      <div class="lab-row">
+        <div>eGFR</div>
+        <div class="val">82 mL/min</div>
+        <span class="pill pill-success">In range</span>
+      </div>
+      <div class="lab-row">
+        <div>Vitamin D, 25-OH</div>
+        <div class="val">29 ng/mL</div>
+        <span class="pill pill-warning">Low</span>
+      </div>
+    </div>
+
+    <div class="card care-team">
+      <div class="card-head">
+        <div class="title">Care team</div>
+        <a href="#" class="small">Manage</a>
+      </div>
+      <div class="list">
+        <div class="row-item">
+          <div class="avatar">RV</div>
+          <div style="flex:1"><div class="name">Dr. Renata Voss</div><div class="sub">Primary care · MD</div></div>
+        </div>
+        <div class="row-item">
+          <div class="avatar green">AB</div>
+          <div style="flex:1"><div class="name">Aaliyah Brooks</div><div class="sub">RN, care coordinator</div></div>
+        </div>
+        <div class="row-item">
+          <div class="avatar purple">JT</div>
+          <div style="flex:1"><div class="name">Dr. John Tabor</div><div class="sub">Endocrinology · referral</div></div>
+        </div>
+        <div class="row-item">
+          <div class="avatar amber">MK</div>
+          <div style="flex:1"><div class="name">Mira Khouri</div><div class="sub">Diabetes educator</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-grid mt-16">
+    <div class="card">
+      <div class="card-head">
+        <div class="title">Insurance snapshot</div>
+        <a href="#" class="small">Manage</a>
+      </div>
+      <div class="ins-grid">
+        <div>
+          <div class="k">Primary</div>
+          <div class="v">Medicare Part B</div>
+          <div class="sub">ID# 3VW-882K-99</div>
+        </div>
+        <div>
+          <div class="k">Secondary</div>
+          <div class="v">BCBS PPO Supplement</div>
+          <div class="sub">Group F · plan 5538</div>
+        </div>
+        <div>
+          <div class="k">Status</div>
+          <div class="row gap-8 mt-4"><span class="pill pill-success"><span class="dot"></span>Verified Aug 28</span></div>
+        </div>
+        <div>
+          <div class="k">Cost share</div>
+          <div class="v">$15 office visit</div>
+          <div class="sub">$0 preventive</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="title">Quick actions</div>
+      </div>
+      <div class="qa-grid-2">
+        <div class="qa-card">Order labs</div>
+        <div class="qa-card">Send Rx</div>
+        <div class="qa-card">Add referral</div>
+        <div class="qa-card">Print summary</div>
+        <div class="qa-card">Upload doc</div>
+        <div class="qa-card">Log visit</div>
+        <div class="qa-card success" style="grid-column: span 2;">All care gaps closed<br><span class="muted tiny" style="font-weight: 400">Quality measures up to date through Q1.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-16">
+    <div class="card-head">
+      <div class="title">Upcoming appointments</div>
+      <a href="#" class="small">Open calendar →</a>
+    </div>
+    <div class="muted small mb-12">Next four scheduled across the next 90 days</div>
+    <table>
+      <thead><tr><th>Date</th><th>Visit type</th><th>Provider</th><th>Location</th><th>Status</th><th>Est.</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Sep 22, 2025 · 9:00 AM</td><td>Imaging — knee X-ray</td><td>Dr. Mireille Ortiz</td><td>Grove St. Imaging</td><td><span class="pill pill-success">Confirmed</span></td><td>$45.00</td><td><a href="#" class="small">View</a></td></tr>
+        <tr><td>Oct 7, 2025 · 11:20 AM</td><td>Lab draw — A1C, CMP</td><td>Aaliyah Brooks, RN</td><td>Quartz Grove Lab</td><td><span class="pill pill-success">Confirmed</span></td><td>$0.00</td><td><a href="#" class="small">View</a></td></tr>
+        <tr><td>Oct 14, 2025 · 2:30 PM</td><td>Diabetes follow-up</td><td>Dr. Renata Voss</td><td>Suite 204</td><td><span class="pill pill-warning">Awaiting confirm</span></td><td>$15.00</td><td><a href="#" class="small">View</a></td></tr>
+        <tr><td>Nov 3, 2025 · 10:00 AM</td><td>Pneumococcal booster</td><td>Aaliyah Brooks, RN</td><td>Suite 204</td><td><span class="pill pill-success">Confirmed</span></td><td>$0.00</td><td><a href="#" class="small">View</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dash-grid mt-16">
+    <div class="card">
+      <div class="card-head">
+        <div class="title">Clinical notes &amp; documents</div>
+        <a href="#" class="small">+ New note</a>
+      </div>
+      <ul class="timeline">
+        <li>
+          <div class="when">Sep 4 · Diabetes follow-up — Dr. Renata Voss</div>
+          <div class="what muted small">Patient reports good adherence to metformin. Home BP log averages 126/80. Discussed Mediterranean-style eating; she's been swapping lentil soups for hypoglycemic events. Plan: continue current regimen, recheck A1C in 90 days, refer to PT for left knee.</div>
+        </li>
+        <li>
+          <div class="when">Aug 12 · Lab review note</div>
+        </li>
+        <li>
+          <div class="when">Jul 28 · Telehealth — medication renewal</div>
+        </li>
+        <li>
+          <div class="when">May 6 · Annual physical</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="title">Preferences &amp; access</div>
+        <a href="#" class="small">Edit</a>
+      </div>
+      <div class="pref-row">
+        <div><div class="lbl">Portal access</div><div class="sub">Last sign-in 3 days ago</div></div>
+        <span class="pill pill-success"><span class="dot"></span>Active</span>
+      </div>
+      <div class="pref-row">
+        <div><div class="lbl">Appointment reminders</div><div class="sub">SMS, 48 hr ahead</div></div>
+        <span class="toggle on"></span>
+      </div>
+      <div class="pref-row">
+        <div><div class="lbl">Preferred pharmacy</div><div class="sub">Linden Care · Walnut Creek</div></div>
+        <a href="#" class="small">Change</a>
+      </div>
+      <div class="pref-row">
+        <div><div class="lbl">Emergency contact</div><div class="sub">David Ellsworth · son · (415) 555-0190</div></div>
+        <a href="#" class="small">Edit</a>
+      </div>
+      <div class="pref-row">
+        <div><div class="lbl">Advance directive</div><div class="sub">On file · uploaded Mar 2024</div></div>
+        <a href="#" class="small">View</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>© 2025 Quartz Grove Lab · 1860 Linden Way, Walnut Creek, CA</div>
+  <div class="footer-spacer"></div>
+  <div class="footer-links">
+    <a href="patient-dashboard.html">Patients</a>
+    <a href="appointment-calendar.html">Calendar</a>
+    <a href="billing-insurance.html">Billing</a>
+    <a href="financing-plans.html">Plans</a>
+    <a href="settings.html">Settings</a>
+  </div>
+  <div>Support · care@quartzgrove.health</div>
+</footer>
+
+</body>
+</html>

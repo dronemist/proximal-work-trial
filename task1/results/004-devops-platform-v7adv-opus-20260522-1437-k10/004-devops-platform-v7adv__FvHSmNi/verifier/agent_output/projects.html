@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projects — Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="logo"></span> Beacon Harbor Works</div>
+  <nav class="topnav">
+    <a href="projects.html" class="is-active">Projects</a>
+    <a href="deploys.html">Deployments</a>
+    <a href="builds.html">Builds</a>
+    <a href="team.html">Team</a>
+    <a href="alerts.html">Alerts</a>
+  </nav>
+  <div class="account"><span class="av"></span><span class="name">H. Olafsdóttir</span></div>
+</header>
+
+<main class="page">
+  <div class="crumbs"><a href="#">Harbor</a><span class="sep">/</span><span class="here">Projects</span></div>
+
+  <div class="layout">
+    <section class="main">
+      <div class="kicker">Fleet manifest<span class="dot">·</span> 14 services</div>
+      <h1>Projects</h1>
+      <p class="lede">Every service shipped under the Harbor org. Status, owner, and last deploy are pulled from the build registry every 90 seconds.</p>
+      <div class="btn-row">
+        <span class="btn primary">New project</span>
+        <span class="btn">Import from Git</span>
+        <span class="btn ghost">Manifest.CSV</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="lbl">Operational</div><div class="val">11 <span class="muted" style="font-size:13px;font-weight:400">/ 14</span></div><div class="sub">3 require attention</div></div>
+        <div class="stat"><div class="lbl">Deploys · 24h</div><div class="val">37</div><div class="sub">+6 vs yesterday</div></div>
+        <div class="stat"><div class="lbl">Paused builds</div><div class="val">2</div><div class="sub">manual hold</div></div>
+        <div class="stat"><div class="lbl">P95 deploy time</div><div class="val">4m 12s</div><div class="sub">trailing 30 days</div></div>
+      </div>
+
+      <div class="filterbar">
+        <span class="lab">Filter</span>
+        <input class="ipt grow" placeholder="Search by name, owner, tag…">
+        <select><option>All environments</option></select>
+        <select><option>All states</option></select>
+        <span class="btn primary">Apply</span>
+        <span class="btn ghost">Reset</span>
+      </div>
+
+      <div class="card">
+        <div class="project">
+          <div class="ph">
+            <strong class="nm">ledger-svc</strong>
+            <span class="chip tone-blue dot">payments</span>
+            <span class="chip">production</span>
+            <span class="spacer"></span>
+            <span class="chip tone-red">failing</span>
+          </div>
+          <p class="desc">Double-entry ledger and reconciliation engine. Owns the canonical balance tables.</p>
+          <div class="bar r"><span style="width:42%"></span></div>
+          <div class="grid">
+            <div><div class="k">Last deploy</div><div class="v">14h ago · failed</div></div>
+            <div><div class="k">Commit</div><div class="v mono">a4f7c2</div></div>
+            <div><div class="k">Owner</div><div class="v">J. Reuvers</div></div>
+            <div><div class="k">Region</div><div class="v">eu-west-1</div></div>
+          </div>
+        </div>
+        <div class="project">
+          <div class="ph">
+            <strong class="nm">router-gw</strong>
+            <span class="chip tone-blue dot">edge</span>
+            <span class="chip">production</span>
+            <span class="spacer"></span>
+            <span class="chip tone-amber">degraded</span>
+          </div>
+          <p class="desc">Public API gateway. TLS termination, rate limits, request signing.</p>
+          <div class="bar a"><span style="width:72%"></span></div>
+          <div class="grid">
+            <div><div class="k">Last deploy</div><div class="v">2h 04m ago</div></div>
+            <div><div class="k">Commit</div><div class="v mono">9bc62a7</div></div>
+            <div><div class="k">Owner</div><div class="v">S. Olafsdóttir</div></div>
+            <div><div class="k">Region</div><div class="v">multi-region</div></div>
+          </div>
+        </div>
+        <div class="project">
+          <div class="ph">
+            <strong class="nm">harbor-auth</strong>
+            <span class="chip tone-blue dot">identity</span>
+            <span class="chip">production</span>
+            <span class="spacer"></span>
+            <span class="chip tone-green">healthy</span>
+          </div>
+          <p class="desc">OIDC provider, session store, and machine token issuance for internal services.</p>
+          <div class="bar"><span style="width:84%"></span></div>
+          <div class="grid">
+            <div><div class="k">Last deploy</div><div class="v">Yesterday · 18:42</div></div>
+            <div><div class="k">Commit</div><div class="v mono">1de44eb</div></div>
+            <div><div class="k">Owner</div><div class="v">M. Kalstein</div></div>
+            <div><div class="k">Region</div><div class="v">eu-west-1</div></div>
+          </div>
+        </div>
+        <div class="project">
+          <div class="ph">
+            <strong class="nm">manifest-ingest</strong>
+            <span class="chip tone-blue dot">data</span>
+            <span class="chip">production</span>
+            <span class="spacer"></span>
+            <span class="chip tone-green">healthy</span>
+          </div>
+          <p class="desc">Kafka-fed event-pipeline writing to the analytics warehouse. Batch + streaming consumers.</p>
+          <div class="bar"><span style="width:67%"></span></div>
+          <div class="grid">
+            <div><div class="k">Last deploy</div><div class="v">38m ago</div></div>
+            <div><div class="k">Commit</div><div class="v mono">7770b11</div></div>
+            <div><div class="k">Owner</div><div class="v">A. Brandt</div></div>
+            <div><div class="k">Region</div><div class="v">us-east-2</div></div>
+          </div>
+        </div>
+        <div class="project">
+          <div class="ph">
+            <strong class="nm">dockside-web</strong>
+            <span class="chip tone-blue dot">web</span>
+            <span class="chip">production</span>
+            <span class="spacer"></span>
+            <span class="chip tone-green">healthy</span>
+          </div>
+          <p class="desc">Customer dashboard, billing portal, and the marketing surface served from there.</p>
+          <div class="bar"><span style="width:90%"></span></div>
+          <div class="grid">
+            <div><div class="k">Last deploy</div><div class="v">3h 21m ago</div></div>
+            <div><div class="k">Commit</div><div class="v mono">c032069</div></div>
+            <div><div class="k">Owner</div><div class="v">P. Vesely</div></div>
+            <div><div class="k">Region</div><div class="v">global / cdn</div></div>
+          </div>
+        </div>
+        <div class="project">
+          <div class="ph">
+            <strong class="nm">tideline-jobs</strong>
+            <span class="chip tone-blue dot">data</span>
+            <span class="chip">production</span>
+            <span class="spacer"></span>
+            <span class="chip tone-green">healthy</span>
+          </div>
+          <p class="desc">Cron and queue runner. Owns periodic reconciliation, retention sweeps, and report emails.</p>
+          <div class="bar"><span style="width:55%"></span></div>
+          <div class="grid">
+            <div><div class="k">Last deploy</div><div class="v">5d ago</div></div>
+            <div><div class="k">Commit</div><div class="v mono">e024417</div></div>
+            <div><div class="k">Owner</div><div class="v">N. Tanaka</div></div>
+            <div><div class="k">Region</div><div class="v">eu-west-1</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <table class="tbl">
+          <thead><tr><th>Service</th><th>Env</th><th>Status</th><th>Last deploy</th><th>Commit</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr><td>cargo-search</td><td>Production</td><td><span class="chip tone-green">healthy</span></td><td>11h ago</td><td class="mono">b2d188</td><td>L. Ferreira</td></tr>
+            <tr><td>pilot-cli</td><td>—</td><td><span class="chip">archived</span></td><td>34 days</td><td class="mono">7be041</td><td>—</td></tr>
+            <tr><td>harbor-billing</td><td>Production</td><td><span class="chip tone-green">healthy</span></td><td>2d ago</td><td class="mono">9af0aa</td><td>R. Adin</td></tr>
+            <tr><td>signal-relay</td><td>Staging</td><td><span class="chip tone-amber">degraded</span></td><td>16h ago</td><td class="mono">3b1180</td><td>S. Olafsdóttir</td></tr>
+            <tr><td>drydock-docs</td><td>Production</td><td><span class="chip tone-green">healthy</span></td><td>3d ago</td><td class="mono">d11a3e</td><td>P. Vesely</td></tr>
+            <tr><td>moss-metrics</td><td>Production</td><td><span class="chip tone-green">healthy</span></td><td>2h ago</td><td class="mono">7705b6</td><td>A. Brandt</td></tr>
+            <tr><td>airline-prune</td><td>Sandbox</td><td><span class="chip">idle</span></td><td>21 days</td><td class="mono">04ce19</td><td>N. Tanaka</td></tr>
+            <tr><td>cinder-api</td><td>Production</td><td><span class="chip tone-green">healthy</span></td><td>4h ago</td><td class="mono">f00b14</td><td>J. Reuvers</td></tr>
+          </tbody>
+        </table>
+        <div class="ft">
+          <div class="pager">
+            <span class="pg">‹</span>
+            <span class="pg is-active">1</span>
+            <span class="pg">2</span>
+            <span class="pg">3</span>
+            <span class="pg">›</span>
+            <span class="spacer"></span>
+            <span>14 services · page 1 of 2</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="card">
+        <div class="hd"><span class="ttl">Suggested</span></div>
+        <div class="bd">
+          <div class="sb-title" style="margin-bottom:6px;">Pin to your deck</div>
+          <div class="sb-list">
+            <div class="kv"><span class="k">harbor-auth</span><span class="v">+0.3%</span></div>
+            <span class="meta" style="color:#8d97a4;font-size:11px">You opened 6 of 10 this week</span>
+            <div class="kv"><span class="k">ledger-svc</span><span class="v">−0.6%</span></div>
+            <span class="meta" style="color:#8d97a4;font-size:11px">Recent deploys, 2 alerts</span>
+            <div class="kv"><span class="k">router-gw</span><span class="v">+1.0%</span></div>
+            <span class="meta" style="color:#8d97a4;font-size:11px">Latency budget tight today</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="hd"><span class="ttl">Crew online</span><span class="muted">5 / 11</span></div>
+        <div class="bd">
+          <div class="sb-list">
+            <div class="sb-row has-status"><span class="av md c2"></span><div><div class="nm">Jonas Reuvers</div><div class="meta">Reviewing PR #1421</div></div></div>
+            <div class="sb-row has-status"><span class="av md c5"></span><div><div class="nm">Sade Olukoi</div><div class="meta">On call</div></div></div>
+            <div class="sb-row has-status"><span class="av md c4"></span><div><div class="nm">Anna Brandt</div><div class="meta">Drafting changelog</div></div></div>
+            <div class="sb-row has-status"><span class="av md c3"></span><div><div class="nm">Hideo Tanaka</div><div class="meta">Heads-down</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="hd"><span class="ttl">Trending repos</span></div>
+        <div class="bd">
+          <div class="sb-title" style="margin-bottom:6px;">Most activity · 7d</div>
+          <div class="linkrow"><span class="k">harbor-api</span><span class="v">81 ↑</span></div>
+          <div class="linkrow"><span class="k">router-gw</span><span class="v">52 ↑</span></div>
+          <div class="linkrow"><span class="k">dockside-web</span><span class="v">44 ↑</span></div>
+          <div class="linkrow"><span class="k">manifest-ingest</span><span class="v">28 ↑</span></div>
+          <div class="linkrow"><span class="k">harbor-auth</span><span class="v">17 ↑</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="hd"><span class="ttl">Recent shortcuts</span></div>
+        <div class="bd">
+          <div class="sb-title" style="margin-bottom:6px;">If something gives</div>
+          <div class="col">
+            <a href="#" class="btn">Open runbook · ledger-svc</a>
+            <a href="#" class="btn">Roll back router-gw</a>
+            <a href="#" class="btn ghost">Page the on-call</a>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="foot">
+  <div>© 2026 Beacon Harbor Works · Registered in Hafnarfjörður, IS</div>
+  <div class="links">
+    <a href="#">ATC</a><a href="#">99.97% uptime</a><a href="#">Status</a><a href="#">Changelog</a>
+    <a href="projects.html">Projects</a><a href="deploys.html">Deployments</a><a href="builds.html">Builds</a><a href="team.html">Team</a><a href="alerts.html">Alerts</a>
+  </div>
+</footer>
+
+</body>
+</html>

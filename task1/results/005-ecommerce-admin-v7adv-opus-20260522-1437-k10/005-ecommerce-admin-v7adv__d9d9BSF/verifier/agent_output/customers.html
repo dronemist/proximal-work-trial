@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Customers — Onyx Bridge Lab</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="brand">Onyx Bridge Lab</span>
+    <ul class="nav-list">
+      <li><a href="orders.html">Orders</a></li>
+      <li><a href="marketing.html">Marketing</a></li>
+      <li><a href="customers.html" class="active">Customers</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="discounts.html">Discounts</a></li>
+    </ul>
+    <div class="nav-side">
+      <span class="nav-pill">Q3 • 2025</span>
+      <span class="nav-pill">UTC −05:00</span>
+      <span class="nav-avatar">IT</span>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+  <div style="padding-top:22px">
+    <div class="crumb">
+      <span>Customers</span><span class="sep">/</span><span>Directory</span>
+    </div>
+    <h1 class="page-title">A field guide to the people who keep buying.</h1>
+    <p class="lede">4,812 active accounts across two regions, segmented by recency, frequency and lifetime spend. Filter below, drill into any account for full order history, or open the segment workbench in the right column.</p>
+  </div>
+
+  <section class="stats">
+    <div class="stat">
+      <div class="k">Total customers</div>
+      <div class="v">4,812</div>
+      <div class="d"><span class="up">▲ 3.1%</span> vs last qtr</div>
+    </div>
+    <div class="stat">
+      <div class="k">Repeat rate</div>
+      <div class="v">38.4%</div>
+      <div class="d"><span class="up">▲ 2.6 pts</span> trailing 90d</div>
+    </div>
+    <div class="stat">
+      <div class="k">Avg. LTV</div>
+      <div class="v">$284</div>
+      <div class="d"><span class="up">▲ $11</span> since Jun</div>
+    </div>
+    <div class="stat">
+      <div class="k">At-risk accounts</div>
+      <div class="v">127</div>
+      <div class="d"><span class="dn">▼ 18</span> need outreach</div>
+    </div>
+  </section>
+
+  <div class="two-col-3">
+    <div>
+      <!-- toolbar -->
+      <div class="toolbar section">
+        <div class="search grow"><span class="ic">⌕</span><input placeholder="Name, email, order # or city"></div>
+        <label class="field" style="min-width:140px">
+          <span>Segment</span>
+          <select class="input"><option>VIP (top 5%)</option><option>Lapsed</option><option>New</option></select>
+        </label>
+        <label class="field" style="min-width:140px">
+          <span>Region</span>
+          <select class="input"><option>All regions</option><option>North America</option><option>EU/UK</option></select>
+        </label>
+        <button class="btn ghost">Export CSV</button>
+        <button class="btn primary">Apply</button>
+      </div>
+
+      <div class="toolbar section" style="background:transparent;border-color:transparent;padding:0 0 8px;gap:6px">
+        <span class="chip accent"><span class="dot"></span> Segment: VIP</span>
+        <span class="chip">Spent &gt; $600</span>
+        <span class="chip">Subscribed to email</span>
+        <span class="chip">Created after Jan 2025</span>
+        <span class="muted small" style="margin-left:auto">7 saved views</span>
+      </div>
+
+      <!-- directory table -->
+      <div class="card white" style="padding:0">
+        <div class="card-h" style="padding:14px 16px;margin-bottom:0;border-bottom:1px solid var(--line)">
+          <h2>Directory</h2>
+          <div class="meta">412 matching · sorted by LTV</div>
+        </div>
+        <table class="t compact">
+          <thead><tr>
+            <th>Customer</th><th class="right">Segment</th><th class="right">Orders</th><th class="right">LTV</th><th>Status</th><th>Last seen</th>
+          </tr></thead>
+          <tbody>
+            <tr><td><div class="cell-name"><span class="avatar">IT</span><div><div class="name">Inez Tamura</div><div class="sub">inez.tamura@oroform.io</div></div></div></td><td class="right"><span class="chip accent">VIP</span></td><td class="right num">24</td><td class="right b">$3,182</td><td><span class="chip green"><span class="dot"></span>Active</span></td><td class="muted">3d ago</td></tr>
+            <tr><td><div class="cell-name"><span class="avatar b">MC</span><div><div class="name">Marcus Chevad</div><div class="sub">m.chevad@lighthousepost.co</div></div></div></td><td class="right"><span class="chip accent">VIP</span></td><td class="right num">19</td><td class="right b">$2,765</td><td><span class="chip green"><span class="dot"></span>Active</span></td><td class="muted">Aug 27</td></tr>
+            <tr><td><div class="cell-name"><span class="avatar c">SB</span><div><div class="name">Selena Boquard</div><div class="sub">selena.b@drift.studio</div></div></div></td><td class="right"><span class="chip accent">VIP</span></td><td class="right num">17</td><td class="right b">$2,512</td><td><span class="chip gold"><span class="dot"></span>Watch</span></td><td class="muted">Aug 22</td></tr>
+            <tr><td><div class="cell-name"><span class="avatar d">DC</span><div><div class="name">Daiyu Chen</div><div class="sub">daiyu@northlamp.co</div></div></div></td><td class="right"><span class="chip accent">VIP</span></td><td class="right num">16</td><td class="right b">$2,408</td><td><span class="chip green"><span class="dot"></span>Active</span></td><td class="muted">Sep 03</td></tr>
+            <tr><td><div class="cell-name"><span class="avatar e">RV</span><div><div class="name">Renata da Viña</div><div class="sub">renata.v@cardboard-letters</div></div></div></td><td class="right"><span class="chip">Repeat</span></td><td class="right num">14</td><td class="right b">$2,131</td><td><span class="chip green"><span class="dot"></span>Active</span></td><td class="muted">Sep 06</td></tr>
+            <tr><td><div class="cell-name"><span class="avatar">TS</span><div><div class="name">Theo Sotomayor</div><div class="sub">theo@cabinpine.org</div></div></div></td><td class="right"><span class="chip">Repeat</span></td><td class="right num">12</td><td class="right b">$1,902</td><td><span class="chip green"><span class="dot"></span>Active</span></td><td class="muted">Sep 11</td></tr>
+            <tr><td><div class="cell-name"><span class="avatar b">PK</span><div><div class="name">Priya Kothari</div><div class="sub">p.kothari@boundbloom.co</div></div></div></td><td class="right"><span class="chip">Repeat</span></td><td class="right num">11</td><td class="right b">$1,684</td><td><span class="chip red"><span class="dot"></span>At risk</span></td><td class="muted">Jul 19</td></tr>
+            <tr><td><div class="cell-name"><span class="avatar c">YS</span><div><div class="name">Yuko Saburay</div><div class="sub">yuko.s@nakamoto.studio</div></div></div></td><td class="right"><span class="chip">Repeat</span></td><td class="right num">10</td><td class="right b">$1,592</td><td><span class="chip green"><span class="dot"></span>Active</span></td><td class="muted">Sep 09</td></tr>
+            <tr><td><div class="cell-name"><span class="avatar d">AB</span><div><div class="name">Aurelio Banderas</div><div class="sub">a.banderas@oxide.lab</div></div></div></td><td class="right"><span class="chip">Repeat</span></td><td class="right num">9</td><td class="right b">$1,486</td><td><span class="chip green"><span class="dot"></span>Active</span></td><td class="muted">Aug 30</td></tr>
+            <tr><td><div class="cell-name"><span class="avatar e">MP</span><div><div class="name">Mariah Pelt</div><div class="sub">m.pelt@coldarbor.co</div></div></div></td><td class="right"><span class="chip">Repeat</span></td><td class="right num">8</td><td class="right b">$1,361</td><td><span class="chip gold"><span class="dot"></span>Watch</span></td><td class="muted">Aug 12</td></tr>
+            <tr><td><div class="cell-name"><span class="avatar">WP</span><div><div class="name">Wendell Pace</div><div class="sub">wendell@trailpark.io</div></div></div></td><td class="right"><span class="chip">New</span></td><td class="right num">5</td><td class="right b">$1,201</td><td><span class="chip green"><span class="dot"></span>Active</span></td><td class="muted">Sep 14</td></tr>
+          </tbody>
+        </table>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--line)">
+          <span class="small muted">Showing 1–11 of 412</span>
+          <div class="pager">
+            <span class="p">‹</span>
+            <span class="p on">1</span><span class="p">2</span><span class="p">3</span><span class="p dot">…</span><span class="p">38</span>
+            <span class="p">›</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer detail -->
+      <div class="card white section" style="margin-top:18px">
+        <div class="card-h">
+          <div>
+            <h2 style="display:flex;align-items:center;gap:10px"><span class="avatar" style="width:28px;height:28px;font-size:11px">IT</span> Inez Tamura</h2>
+            <div class="small muted" style="margin-top:4px">Customer #1 28104 · Joined Mar 14, 2023</div>
+          </div>
+          <div class="flex gap-s">
+            <button class="btn ghost sm">Message</button>
+            <button class="btn sm">View profile</button>
+          </div>
+        </div>
+
+        <div class="row gap-l" style="margin-bottom:12px">
+          <div>
+            <div class="k">Lifetime value</div>
+            <div style="font-size:22px;font-weight:700">$3,182.40</div>
+          </div>
+          <div>
+            <div class="k">Orders</div>
+            <div style="font-size:22px;font-weight:700">24</div>
+          </div>
+          <div>
+            <div class="k">Last order</div>
+            <div style="font-size:22px;font-weight:700">3d ago</div>
+          </div>
+        </div>
+
+        <div class="k" style="margin-bottom:8px">Recent activity</div>
+        <ul class="feed">
+          <li class="feed-it"><div class="when">Oct 12<br>2024</div><div class="what"><div class="h">Order #4801 delivered</div><div class="d">2 items — Onyx Lapel Pin (Char), $48.00 paid via Shop Pay</div></div></li>
+          <li class="feed-it"><div class="when">Oct 09<br>2024</div><div class="what"><div class="h">Opened campaign "Autumn Index Vol. 3"</div><div class="d">Clicked through to the Editions collection, dwell 5m 12s</div></div></li>
+          <li class="feed-it"><div class="when">Sep 29<br>2024</div><div class="what"><div class="h">Order #4773 — $214.50</div><div class="d">3 items, redeemed code STUDIO15, shipped to Portland OR via USPS Priority</div></div></li>
+          <li class="feed-it"><div class="when">Sep 21<br>2024</div><div class="what"><div class="h">Left review on Cedar Notebook</div><div class="d">5 stars — "The paper feels exceptional. Coming back for the linen edition."</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- right sidebar -->
+    <aside>
+      <div class="card section">
+        <div class="card-h"><h2>Segments</h2><div class="meta">9d</div></div>
+        <div class="bar-line"><span class="lbl">VIP</span><div class="bar"><i style="width:18%"></i></div><span class="val">241</span></div>
+        <div class="bar-line"><span class="lbl">Loyal</span><div class="bar"><i style="width:36%"></i></div><span class="val">562</span></div>
+        <div class="bar-line"><span class="lbl">Repeat</span><div class="bar"><i style="width:56%"></i></div><span class="val">931</span></div>
+        <div class="bar-line"><span class="lbl">New</span><div class="bar"><i style="width:46%"></i></div><span class="val">812</span></div>
+        <div class="bar-line"><span class="lbl">Dormant</span><div class="bar muted"><i style="width:62%"></i></div><span class="val">1,043</span></div>
+        <div class="bar-line"><span class="lbl">Lapsed</span><div class="bar muted"><i style="width:38%"></i></div><span class="val">566</span></div>
+        <div class="bar-line"><span class="lbl">At risk</span><div class="bar deep"><i style="width:8%"></i></div><span class="val">127</span></div>
+        <hr>
+        <div class="flex between center"><span class="small muted">Updated 4m ago</span><button class="btn sm">Build campaign →</button></div>
+      </div>
+
+      <div class="card section">
+        <div class="card-h"><h2>Cohort retention</h2><div class="meta">% returning by month</div></div>
+        <div class="heat">
+          <span class="h">Jan</span><span class="h">M1</span><span class="h">M2</span><span class="h">M3</span><span class="h">M4</span><span class="h">M5</span><span class="h">M6</span>
+          <span class="h">Feb</span><span class="c c6">79</span><span class="c c5">62</span><span class="c c4">51</span><span class="c c4">44</span><span class="c c3">38</span><span class="c c2">31</span>
+          <span class="h">Mar</span><span class="c c6">77</span><span class="c c5">59</span><span class="c c4">47</span><span class="c c3">39</span><span class="c c3">34</span><span class="c c2">28</span>
+          <span class="h">Apr</span><span class="c c5">68</span><span class="c c4">52</span><span class="c c4">44</span><span class="c c3">36</span><span class="c c2">30</span><span class="c c1">22</span>
+          <span class="h">May</span><span class="c c5">71</span><span class="c c4">56</span><span class="c c3">42</span><span class="c c3">35</span><span class="c c2">29</span><span class="c c2">24</span>
+          <span class="h">Jun</span><span class="c c6">74</span><span class="c c5">58</span><span class="c c4">46</span><span class="c c3">38</span><span class="c c3">31</span><span class="c c2">25</span>
+          <span class="h">Jul</span><span class="c c5">66</span><span class="c c4">51</span><span class="c c3">41</span><span class="c c2">33</span><span class="c c2">27</span><span class="c c1">21</span>
+          <span class="h">Aug</span><span class="c c6">75</span><span class="c c4">54</span><span class="c c4">45</span><span class="c c3">36</span><span class="c c2">28</span><span class="c c1">—</span>
+        </div>
+      </div>
+
+      <div class="card section">
+        <div class="card-h"><h2>Top locations</h2><div class="meta">By LTV</div></div>
+        <div class="bar-line"><span class="lbl">Portland</span><div class="bar"><i style="width:78%"></i></div><span class="val">$48k</span></div>
+        <div class="bar-line"><span class="lbl">Brooklyn</span><div class="bar"><i style="width:62%"></i></div><span class="val">$39k</span></div>
+        <div class="bar-line"><span class="lbl">Oakland</span><div class="bar"><i style="width:50%"></i></div><span class="val">$31k</span></div>
+        <div class="bar-line"><span class="lbl">Seattle</span><div class="bar"><i style="width:46%"></i></div><span class="val">$28k</span></div>
+        <div class="bar-line"><span class="lbl">Austin</span><div class="bar"><i style="width:40%"></i></div><span class="val">$25k</span></div>
+        <div class="bar-line"><span class="lbl">Toronto</span><div class="bar"><i style="width:34%"></i></div><span class="val">$22k</span></div>
+        <div class="bar-line"><span class="lbl">Bristol</span><div class="bar"><i style="width:28%"></i></div><span class="val">$18k</span></div>
+        <div class="bar-line"><span class="lbl">Berlin</span><div class="bar"><i style="width:22%"></i></div><span class="val">$15k</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>Saved views</h2><div class="meta">7 views</div></div>
+        <ul style="display:flex;flex-direction:column;gap:8px;font-size:12px">
+          <li><span class="chip accent">VIP — North America</span></li>
+          <li class="flex between"><span>At-risk — winback eligible</span><span class="muted small">98</span></li>
+          <li class="flex between"><span>First-order under $40</span><span class="muted small">214</span></li>
+          <li class="flex between"><span>EU subscribers, no recent purchase</span><span class="muted small">133</span></li>
+          <li class="flex between"><span>New + opted in</span><span class="muted small">421</span></li>
+        </ul>
+        <hr>
+        <button class="btn sm ghost" style="width:100%;justify-content:center">+ New saved view</button>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">
+  <span>● Production · us-west-2 · © 2025 Onyx Bridge Lab</span>
+  <div class="footer-links">
+    <a>Orders</a><a>Marketing</a><a>Customers</a><a>Products</a><a>Discounts</a><a>Docs</a><a>Support</a>
+  </div>
+</footer>
+
+</body>
+</html>

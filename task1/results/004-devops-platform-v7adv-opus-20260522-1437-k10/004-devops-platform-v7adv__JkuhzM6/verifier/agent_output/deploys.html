@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deployments · Beacon Harbor Works</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="brand-mark"></span> Beacon Harbor Works</div>
+    <nav>
+      <ul class="nav">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a class="is-active" href="deploys.html">Deployments</a></li>
+        <li><a href="builds.html">Builds</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="alerts.html">Alerts</a></li>
+      </ul>
+    </nav>
+    <span class="user-chip"><span class="avatar c4"></span> a.cuevas</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="crumbs">Harbor <span class="sep">/</span> <span class="here">Deployments</span></div>
+
+  <div class="layout">
+    <div class="main">
+
+      <div class="eyebrow">Manifest <span class="dot">·</span> last 7 days</div>
+      <h1 class="page-title">Deployments</h1>
+      <p class="lede">A chronological record of every release shipped to a Beacon Harbor environment. Sorted by environment, newest first. All times in UTC.</p>
+
+      <div class="btn-row">
+        <a class="btn primary" href="#">Deploy to environment</a>
+        <a class="btn" href="#">Export manifest</a>
+        <a class="btn ghost" href="#">View dev log</a>
+      </div>
+
+      <div class="callout">
+        <strong>● In progress:</strong> harbor-api rolling out to <strong>production</strong> · canary at 25% · started 03:04 ago.
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="k">Deploys · 7d</div><div class="v">142</div><div class="sub">across all envs</div></div>
+        <div class="stat"><div class="k">Success rate</div><div class="v">96.4%</div><div class="sub">+0.7 vs prior</div></div>
+        <div class="stat"><div class="k">Median duration</div><div class="v">4m 21s</div><div class="sub">prod path</div></div>
+        <div class="stat"><div class="k">Lead time</div><div class="v">1h 47m</div><div class="sub">commit → prod</div></div>
+      </div>
+
+      <div class="filterbar">
+        <select class="field"><option>All environments</option></select>
+        <select class="field"><option>Production ▾</option></select>
+        <select class="field"><option>Staging ▾</option></select>
+        <select class="field"><option>Preview ▾</option></select>
+      </div>
+
+      <div class="filterbar">
+        <span class="label">Filter</span>
+        <select class="field"><option>All services</option></select>
+        <select class="field"><option>Any status</option></select>
+        <select class="field"><option>Any actor</option></select>
+        <span class="grow"></span>
+        <span class="muted" style="font-size:11px;">142 deploys</span>
+      </div>
+
+      <!-- Production env group -->
+      <div class="envgroup">
+        <div class="envgroup-head">
+          <span>● Production</span>
+          <span class="meta">52 deploys · 4 failed</span>
+        </div>
+
+        <div class="list">
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 02 · 03:04</span>
+                <span class="tag green uppercase" style="margin-left:6px;">in progress</span>
+                <span style="font-weight:600;margin-left:6px;">harbor-api · v4.18.2 — Rollout in canary stage</span>
+              </div>
+              <span class="muted" style="font-size:11px;">2m 12s</span>
+            </div>
+            <div class="li-meta">
+              <span>Triggered by <strong>k.osterberg</strong> from rocky-merge of PR #2342</span>
+            </div>
+            <div class="li-meta mt-1">
+              <span class="k">commit</span><span class="mono">be7d23c</span>
+              <span class="k">region</span><span>us-east-1</span>
+              <span class="k">duration</span><span>02:34</span>
+            </div>
+          </div>
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 02 · 02:11</span>
+                <span class="tag green uppercase" style="margin-left:6px;">succeeded</span>
+                <span style="font-weight:600;margin-left:6px;">harbor-auth · Hardens logout, moving fiber v2</span>
+              </div>
+              <span class="muted" style="font-size:11px;">3m 41s</span>
+            </div>
+            <div class="li-meta">Triggered by <strong>k.osterberg</strong> · 4m of recovery during canary</div>
+            <div class="li-meta mt-1">
+              <span class="k">commit</span><span class="mono">14b2a47</span>
+              <span class="k">region</span><span>us-east-1, eu-west-1</span>
+              <span class="k">duration</span><span>03:41</span>
+            </div>
+          </div>
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 01 · 22:48</span>
+                <span class="tag fail uppercase" style="margin-left:6px;">rolled back</span>
+                <span style="font-weight:600;margin-left:6px;">signal-worker · v1.5.4 — Webhook retry backoff</span>
+              </div>
+              <span class="muted" style="font-size:11px;">6m 02s</span>
+            </div>
+            <div class="li-meta">Auto-rollback after queue lag exceeded threshold at 04:33. Reverted to <strong>v1.5.3</strong>.</div>
+            <div class="li-meta mt-1">
+              <span class="k">commit</span><span class="mono">signal2eee-worker</span>
+              <span class="k">region</span><span>us-east-1</span>
+              <span class="k">duration</span><span>05:14</span>
+            </div>
+          </div>
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 01 · 18:30</span>
+                <span class="tag green uppercase" style="margin-left:6px;">succeeded</span>
+                <span style="font-weight:600;margin-left:6px;">harbor-api · v4.17.1 — Config flag for slow-disk queue</span>
+              </div>
+              <span class="muted" style="font-size:11px;">3m 24s</span>
+            </div>
+            <div class="li-meta">Triggered by <strong>a.cuevas</strong> · scheduled window</div>
+          </div>
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 01 · 17:11</span>
+                <span class="tag green uppercase" style="margin-left:6px;">succeeded</span>
+                <span style="font-weight:600;margin-left:6px;">lantern-rt · Telemetry opt-in flag</span>
+              </div>
+              <span class="muted" style="font-size:11px;">2m 03s</span>
+            </div>
+            <div class="li-meta">Triggered by <strong>y.osipov</strong> · 04m · tagged release</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Staging env group -->
+      <div class="envgroup">
+        <div class="envgroup-head">
+          <span>● Staging</span>
+          <span class="meta">38 deploys</span>
+        </div>
+
+        <div class="list">
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 02 · 04:01</span>
+                <span class="tag green uppercase" style="margin-left:6px;">succeeded</span>
+                <span style="font-weight:600;margin-left:6px;">harbor-api · v4.19.0-rc.1 — Per-tier paging cursor</span>
+              </div>
+              <span class="muted" style="font-size:11px;">2m 22s</span>
+            </div>
+            <div class="li-meta">Triggered by <strong>k.osterberg</strong> · PR #2351</div>
+          </div>
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 02 · 02:51</span>
+                <span class="tag green uppercase" style="margin-left:6px;">succeeded</span>
+                <span style="font-weight:600;margin-left:6px;">harbor-web · v8.5.1 — Compact deploy timeline</span>
+              </div>
+              <span class="muted" style="font-size:11px;">1m 50s</span>
+            </div>
+            <div class="li-meta">Triggered by <strong>p.danforth</strong> · clone-tap</div>
+          </div>
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 02 · 01:14</span>
+                <span class="tag warn uppercase" style="margin-left:6px;">flaked</span>
+                <span style="font-weight:600;margin-left:6px;">signal-worker · v1.5.4-rc.1 — Migration delays without ledger</span>
+              </div>
+              <span class="muted" style="font-size:11px;">5m 13s</span>
+            </div>
+            <div class="li-meta">Migration step (kinesis_lag): assigned 4.4s, fell traffic shift.</div>
+          </div>
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 01 · 21:58</span>
+                <span class="tag green uppercase" style="margin-left:6px;">succeeded</span>
+                <span style="font-weight:600;margin-left:6px;">harbor-api · v4.17.0-pre — nightly · 7d 17h</span>
+              </div>
+              <span class="muted" style="font-size:11px;">2m 09s</span>
+            </div>
+            <div class="li-meta">Triggered by <strong>auto-bot</strong> · nightly · 14:17h</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Preview env group -->
+      <div class="envgroup">
+        <div class="envgroup-head">
+          <span>● Preview</span>
+          <span class="meta">52 deploys</span>
+        </div>
+
+        <div class="list">
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 02 · 04:00</span>
+                <span class="tag green uppercase" style="margin-left:6px;">succeeded</span>
+                <span style="font-weight:600;margin-left:6px;">harbor-web · pr-372 — Right rail review elements</span>
+              </div>
+              <span class="muted" style="font-size:11px;">1m 23s</span>
+            </div>
+            <div class="li-meta">Triggered by <strong>p.danforth</strong> · preview</div>
+          </div>
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 02 · 03:38</span>
+                <span class="tag green uppercase" style="margin-left:6px;">succeeded</span>
+                <span style="font-weight:600;margin-left:6px;">harbor-api · pr-369 — Drop log/v3 mute respnses</span>
+              </div>
+              <span class="muted" style="font-size:11px;">2m 02s</span>
+            </div>
+            <div class="li-meta">Triggered by <strong>k.osterberg</strong> · preview</div>
+          </div>
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 02 · 02:42</span>
+                <span class="tag green uppercase" style="margin-left:6px;">succeeded</span>
+                <span style="font-weight:600;margin-left:6px;">lantern-rt · MR · no curse flag</span>
+              </div>
+              <span class="muted" style="font-size:11px;">1m 14s</span>
+            </div>
+            <div class="li-meta">Waiting on build #6622 · queued 16s</div>
+          </div>
+
+          <div class="list-item">
+            <div class="li-head">
+              <div>
+                <span class="muted mono" style="font-size:11px;">Apr 01 · 23:08</span>
+                <span class="tag green uppercase" style="margin-left:6px;">succeeded</span>
+                <span style="font-weight:600;margin-left:6px;">harbor-api · pr-370 — bait so to test</span>
+              </div>
+              <span class="muted" style="font-size:11px;">1m 56s</span>
+            </div>
+            <div class="li-meta">Triggered by <strong>s.huebs</strong> · preview</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pager">
+        <span class="p on">1</span><span class="p">2</span><span class="p">3</span><span class="p">4</span><span class="p">5</span>
+        <span class="grow"></span>
+        <span class="muted">Showing 1 of 12</span>
+      </div>
+
+    </div>
+
+    <aside class="side">
+
+      <div class="card">
+        <h3>Deploy frequency</h3>
+        <div class="muted" style="font-size:11px;margin-bottom:6px;">Past 14 days</div>
+        <div class="bars">
+          <i style="height:60%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:90%"></i>
+          <i style="height:42%"></i><i style="height:74%"></i><i style="height:84%"></i><i style="height:62%"></i>
+          <i style="height:50%"></i><i style="height:76%"></i><i style="height:32%"></i><i style="height:70%"></i>
+          <i style="height:88%"></i><i style="height:48%"></i>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>On call</h3>
+        <div class="muted" style="font-size:11.5px;margin-bottom:8px;">Teammates online</div>
+        <div class="online-list">
+          <div class="row"><span class="avatar c1"></span><div class="grow"><div class="name">Kris Osterberg</div><div class="meta">Primary · platform</div></div><span class="dot"></span></div>
+          <div class="row"><span class="avatar c3"></span><div class="grow"><div class="name">Priya Danforth</div><div class="meta">Web</div></div><span class="dot"></span></div>
+          <div class="row"><span class="avatar c4"></span><div class="grow"><div class="name">Jonas Verga</div><div class="meta">Worklog/PR cells</div></div><span class="dot"></span></div>
+          <div class="row"><span class="avatar c5"></span><div class="grow"><div class="name">Renata Ashcroft</div><div class="meta">Lead-rotation</div></div><span class="dot"></span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Most deployed</h3>
+        <ul class="sidelist">
+          <li><span class="mono">harbor-api</span><span class="meta">38</span></li>
+          <li><span class="mono">harbor-web</span><span class="meta">22</span></li>
+          <li><span class="mono">signalboat-worker</span><span class="meta">15</span></li>
+          <li><span class="mono">lantern-rt</span><span class="meta">11</span></li>
+          <li><span class="mono">tideline-docs</span><span class="meta">8</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Quick actions</h3>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a class="btn small" href="#">Open status incl. (24)</a>
+          <a class="btn small" href="#">Lock production deploys</a>
+          <a class="btn small" href="#">Roll back last release</a>
+          <a class="btn small" href="#">Page primary on-call</a>
+          <a class="btn small" href="#">Open runbook</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Deploy window</h3>
+        <div class="muted" style="font-size:11.5px;">No production deploys after <strong>20:00 UTC Fridays</strong>. Override requires two-engineer approval.</div>
+        <div class="mt-1"><a class="btn small" href="#">Read deploy policy</a></div>
+      </div>
+
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© 2026 Beacon Harbor Works · Sealed in Gothenburg</div>
+    <div class="flinks">
+      <a href="#">ETC</a><a href="#">Console</a><a href="#">Quick links</a><a href="#">SAUDE keys</a>
+      <a href="#">Manifest</a><a href="#">Projects</a><a href="#">Deployments</a><a href="#">Builds</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

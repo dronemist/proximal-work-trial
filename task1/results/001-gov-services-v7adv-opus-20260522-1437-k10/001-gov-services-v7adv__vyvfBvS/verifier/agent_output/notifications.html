@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notifications — Ember Field</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Ember Field<span class="brand-dot">.</span></div>
+  <div class="search">
+    <span class="search-icon">⌕</span>
+    <input placeholder="Search services, forms, perm…">
+  </div>
+  <div class="spacer"></div>
+  <button class="icon-btn" aria-label="Notifications">🔔<span class="dot"></span></button>
+  <div class="avatar">MR</div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h4>Services</h4>
+    <a>All Services</a>
+    <a>Housing &amp; Permits</a>
+    <a>Vehicles &amp; Transit</a>
+    <a>Health &amp; Family</a>
+    <a>Taxes &amp; Records</a>
+    <a>Business Licenses</a>
+
+    <h4>My Account</h4>
+    <a href="account.html">Account</a>
+    <a href="notifications.html" class="active">Notifications</a>
+    <a href="application.html">Applications</a>
+    <a>Documents</a>
+    <a>Payments</a>
+
+    <h4>Help</h4>
+    <a>Contact a clerk</a>
+    <a>Accessibility</a>
+    <a>Office hours</a>
+  </aside>
+
+  <main class="content">
+    <nav class="mobile-nav">
+      <h4>Services</h4>
+      <div class="nav-item">All Services</div>
+      <div class="nav-item">Housing &amp; Permits</div>
+      <div class="nav-item">Vehicles &amp; Transit</div>
+      <div class="nav-item">Health &amp; Family</div>
+      <div class="nav-item">Taxes &amp; Records</div>
+      <div class="nav-item">Business Licenses</div>
+      <h4>My Account</h4>
+      <div class="nav-item">Account</div>
+      <div class="nav-item active">Notifications</div>
+      <div class="nav-item">Applications</div>
+      <div class="nav-item">Documents</div>
+      <div class="nav-item">Payments</div>
+      <h4>Help</h4>
+      <div class="nav-item">Contact a clerk</div>
+      <div class="nav-item">Accessibility</div>
+      <div class="nav-item">Office hours</div>
+    </nav>
+
+    <div class="crumbs">My Portal <span class="sep">/</span> <span class="here">Notifications</span></div>
+    <h1 class="page-title">Your civic <span class="hl">inbox</span>.</h1>
+    <p class="page-lede">Receipts, reminders, deadlines, and the occasional good news. We only ping you when something is actually yours to do — promise.</p>
+
+    <div class="stats-grid">
+      <div class="stat"><div class="num">4</div><div class="lbl">Unread</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Action Required</div></div>
+      <div class="stat"><div class="num">11</div><div class="lbl">This Month</div></div>
+      <div class="stat"><div class="num">62</div><div class="lbl">In Archive</div></div>
+    </div>
+
+    <div class="filter-row">
+      <span class="chip active">All</span>
+      <span class="chip">Unread</span>
+      <span class="chip">Action required</span>
+      <span class="chip">Receipts</span>
+      <span class="chip">Reminders</span>
+      <span class="chip">Alerts</span>
+    </div>
+    <div class="flex gap-12 mb-12 small">
+      <button class="btn-link green">↕ Sort: Newest</button>
+      <button class="btn-link">Mark all read</button>
+    </div>
+
+    <div class="card" style="padding:0">
+      <div class="between" style="padding:14px 16px; border-bottom:1px solid var(--border)">
+        <h3 style="margin:0">Inbox</h3>
+      </div>
+
+      <div style="padding:14px 16px; border-bottom:1px solid var(--border)">
+        <div class="between">
+          <div class="flex gap-12" style="align-items:flex-start; flex:1">
+            <span class="check"></span>
+            <div style="flex:1">
+              <div class="between">
+                <div><span class="pill red"><span class="dot"></span>Action required</span> <span class="b">Property tax payment due in 4 days</span></div>
+                <div class="xsmall muted">Today · 8:46 AM</div>
+              </div>
+              <div class="small muted mt-4">Parcel 47-2421-006 — second installment of $1,247.20 is due Thursday, November 21. A late fee of 4% applies after midnight.</div>
+              <div class="mt-8 flex gap-8">
+                <button class="btn btn-primary btn-sm">Pay now</button>
+                <button class="btn btn-sm">Schedule a draft</button>
+                <button class="btn-link green xsmall">Dismiss</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:14px 16px; border-bottom:1px solid var(--border)">
+        <div class="between">
+          <div class="flex gap-12" style="align-items:flex-start; flex:1">
+            <span class="check"></span>
+            <div style="flex:1">
+              <div class="between">
+                <div><span class="pill green"><span class="dot"></span>Confirmed</span> <span class="b">Appointment confirmed — Vehicle title transfer</span></div>
+                <div class="xsmall muted">Yesterday</div>
+              </div>
+              <div class="small muted mt-4">Tuesday, Nov 19 at 10:45 AM with the Bureau of Motor Vehicles, Window 7. Bring a photo ID, current title, and the bill of sale.</div>
+              <div class="mt-8 flex gap-8">
+                <button class="btn btn-sm">View appointment</button>
+                <button class="btn btn-sm">Add to calendar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:14px 16px; border-bottom:1px solid var(--border)">
+        <div class="between">
+          <div class="flex gap-12" style="align-items:flex-start; flex:1">
+            <span class="check"></span>
+            <div style="flex:1">
+              <div class="between">
+                <div><span class="pill amber"><span class="dot"></span>Approved</span> <span class="b">Building permit BP-2024-3218 approved</span></div>
+                <div class="xsmall muted">Yesterday · 4:36</div>
+              </div>
+              <div class="small muted mt-4">Your fence and gate permit at 412 Linden Ave was approved by Inspector M. Okediran. Work may begin once the placard is posted at site.</div>
+              <div class="mt-8 flex gap-8">
+                <button class="btn btn-sm">Download permit (PDF)</button>
+                <button class="btn btn-sm">Book final inspection</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:14px 16px; border-bottom:1px solid var(--border)">
+        <div class="between">
+          <div class="flex gap-12" style="align-items:flex-start; flex:1">
+            <span class="check on">✓</span>
+            <div style="flex:1">
+              <div class="between">
+                <div><span class="pill red"><span class="dot"></span>Action required</span> <span class="b">Verify your new mailing address</span></div>
+                <div class="xsmall muted">Mon · Nov 11</div>
+              </div>
+              <div class="small muted mt-4">We mailed a one-time code to 99 Hadelon Lane, Apt 2C. Enter it within 14 days to keep your records on file at this address.</div>
+              <div class="mt-8 flex gap-8">
+                <button class="btn btn-primary btn-sm">Enter code</button>
+                <button class="btn btn-sm">Resend mail</button>
+                <button class="btn-link green xsmall">I moved — update</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:14px 16px; border-bottom:1px solid var(--border)">
+        <div class="between">
+          <div class="flex gap-12" style="align-items:flex-start; flex:1">
+            <span class="check on">✓</span>
+            <div style="flex:1">
+              <div class="between">
+                <div><span class="b">Water service maintenance — Sector 14</span></div>
+                <div class="xsmall muted">Mon · Nov 11</div>
+              </div>
+              <div class="small muted mt-4">Brief shutoff scheduled Wed, Nov 13 between 2:00 AM and 5:00 AM. We'll restore service before sunrise. No action required.</div>
+              <div class="mt-8 flex gap-8">
+                <button class="btn-link green xsmall">View map</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:14px 16px; border-bottom:1px solid var(--border)">
+        <div class="between">
+          <div class="flex gap-12" style="align-items:flex-start; flex:1">
+            <span class="check on">✓</span>
+            <div style="flex:1">
+              <div class="between">
+                <div><span class="b">Homestead exemption: receipt</span></div>
+                <div class="xsmall muted">Fri · Nov 8</div>
+              </div>
+              <div class="small muted mt-4">Filing #SA-1190N received. Average processing time is 6-10 business days. We'll update you here when there's news.</div>
+              <div class="mt-8 flex gap-8">
+                <button class="btn btn-sm">View filing</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:14px 16px; border-bottom:1px solid var(--border)">
+        <div class="between">
+          <div class="flex gap-12" style="align-items:flex-start; flex:1">
+            <span class="check on">✓</span>
+            <div style="flex:1">
+              <div class="between">
+                <div><span class="b">Driver's license renewal complete</span></div>
+                <div class="xsmall muted">Nov 3</div>
+              </div>
+              <div class="small muted mt-4">Your new card has shipped via certified mail. Tracking: EFL-77-T184-9A. Estimated arrival Nov 12-14.</div>
+              <div class="mt-8 flex gap-8">
+                <button class="btn-link green xsmall">View receipt</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:14px 16px">
+        <div class="between">
+          <div class="flex gap-12" style="align-items:flex-start; flex:1">
+            <span class="check on">✓</span>
+            <div style="flex:1">
+              <div class="between">
+                <div><span class="b">Voter registration window opens Dec 1</span></div>
+                <div class="xsmall muted">Nov 1</div>
+              </div>
+              <div class="small muted mt-4">Update your address, party affiliation, or polling preference. The whole thing takes about three minutes if your name's already on file.</div>
+              <div class="mt-8 flex gap-8">
+                <button class="btn-link green xsmall">Open registration</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="between mt-12">
+      <button class="btn btn-sm">‹ Previous</button>
+      <div class="small muted">Page 1 of 4</div>
+      <button class="btn btn-sm">Next ›</button>
+    </div>
+
+    <h2 class="section-title">Delivery history</h2>
+    <p class="section-sub">A receipt of how and when each notice reached you — useful when something gets lost in the shuffle.</p>
+    <div class="card">
+      <table class="simple">
+        <thead><tr><th>Notice</th><th>Channel</th><th>Sent</th><th>Status</th><th>Reference</th></tr></thead>
+        <tbody>
+          <tr><td>Property tax reminder</td><td class="muted">Email · SMS</td><td class="muted">Nov 15 · 09:14</td><td><span class="pill green"><span class="dot"></span>Delivered</span></td><td class="muted">RP-44210</td></tr>
+          <tr><td>BMV appointment confirmation</td><td class="muted">Email · SMS</td><td class="muted">Nov 14 · 13:30</td><td><span class="pill green"><span class="dot"></span>Delivered</span></td><td class="muted">BV-44239</td></tr>
+          <tr><td>Building permit decision</td><td class="muted">Email</td><td class="muted">Nov 13 · 18:02</td><td><span class="pill green"><span class="dot"></span>Delivered</span></td><td class="muted">BP-44217</td></tr>
+          <tr><td>Mailing address verification</td><td class="muted">USPS Certified</td><td class="muted">Nov 11 · 11:00</td><td><span class="pill amber"><span class="dot"></span>In transit</span></td><td class="muted">AV-44209</td></tr>
+          <tr><td>Homestead exemption receipt</td><td class="muted">Email</td><td class="muted">Nov 8 · 16:41</td><td><span class="pill red"><span class="dot"></span>Bounced</span></td><td class="muted">RP-44022</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title">Delivery preferences</h2>
+    <p class="section-sub">Tell us how you'd like to hear from us. You can change this anytime — even at 3 AM.</p>
+    <div class="card">
+      <div class="between" style="padding:8px 0">
+        <div>
+          <div class="b">Action required</div>
+          <div class="small muted">Permits, payments, deadlines. Hard to opt out of — these are the ones that matter.</div>
+        </div>
+        <div class="flex gap-12 small"><span><span class="check on">✓</span> Email</span><span><span class="check on">✓</span> SMS</span><span><span class="check on">✓</span> Mail</span></div>
+      </div>
+      <div class="between" style="padding:8px 0; border-top:1px solid var(--border)">
+        <div>
+          <div class="b">Reminders</div>
+          <div class="small muted">Appointments, renewal windows. Things you asked us to remind you about.</div>
+        </div>
+        <div class="flex gap-12 small"><span><span class="check on">✓</span> Email</span><span><span class="check"></span> SMS</span><span><span class="check"></span> Mail</span></div>
+      </div>
+      <div class="between" style="padding:8px 0; border-top:1px solid var(--border)">
+        <div>
+          <div class="b">Receipts &amp; confirmations</div>
+          <div class="small muted">A paper trail for every payment and filing.</div>
+        </div>
+        <div class="flex gap-12 small"><span><span class="check on">✓</span> Email</span><span><span class="check"></span> SMS</span><span><span class="check"></span> Mail</span></div>
+      </div>
+      <div class="between" style="padding:8px 0; border-top:1px solid var(--border)">
+        <div>
+          <div class="b">Civic alerts</div>
+          <div class="small muted">Service disruptions, weather, public safety in your district.</div>
+        </div>
+        <div class="flex gap-12 small"><span><span class="check on">✓</span> Email</span><span><span class="check on">✓</span> SMS</span><span><span class="check"></span> Mail</span></div>
+      </div>
+      <div class="between" style="padding:8px 0; border-top:1px solid var(--border)">
+        <div>
+          <div class="b">Updates &amp; newsletters</div>
+          <div class="small muted">Editorial-ish. Office hours changes, new tools, that sort of thing.</div>
+        </div>
+        <div class="flex gap-12 small"><span><span class="check"></span> Email</span><span><span class="check"></span> SMS</span><span><span class="check"></span> Mail</span></div>
+      </div>
+
+      <div class="between mt-12">
+        <div class="flex gap-8"><span class="toggle on"></span><div class="small">Quiet hours: 9 PM – 7 AM</div></div>
+        <div class="flex gap-8">
+          <button class="btn btn-sm">Cancel</button>
+          <button class="btn btn-primary btn-sm">Save preferences</button>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Common questions</h2>
+    <div class="card">
+      <details open style="padding:6px 0; border-bottom:1px solid var(--border)">
+        <summary class="b" style="cursor:pointer">Why am I getting both email and SMS for the same notice?</summary>
+        <p class="small muted">Action-required items are sent on every method channel by default, so the message has the best chance of reaching you. You can narrow this in <span class="green">Delivery preferences</span>, though we'll keep at least one channel on for legal notices.</p>
+      </details>
+      <details style="padding:10px 0; border-bottom:1px solid var(--border)">
+        <summary class="b" style="cursor:pointer">Can I forward notices to my accountant or attorney?</summary>
+      </details>
+      <details style="padding:10px 0; border-bottom:1px solid var(--border)">
+        <summary class="b" style="cursor:pointer">What if a notice bounces or gets returned?</summary>
+      </details>
+      <details style="padding:10px 0">
+        <summary class="b" style="cursor:pointer">How long are notifications kept?</summary>
+      </details>
+    </div>
+
+    <div class="card text-right" style="text-align:center">
+      <div class="b">That's the bottom of the page.</div>
+      <div class="small muted">Need an older notice? Try the <span class="green">delivery history</span> tab or open an archive request.</div>
+      <div class="mt-12 flex gap-8" style="justify-content:center">
+        <button class="btn btn-sm">Request archive</button>
+        <button class="btn btn-sm">Contact a clerk</button>
+      </div>
+    </div>
+  </main>
+
+  <aside class="toc">
+    <h5>On this page</h5>
+    <a>Overview</a>
+    <a class="active">Inbox</a>
+    <a style="margin-left:10px">Filters &amp; sort</a>
+    <a>Delivery history</a>
+    <a>Delivery preferences</a>
+    <a>Common questions</a>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="b" style="color:var(--text)">Ember Field.</div>
+      <div class="xsmall">An official service of the Department of Civic Services.</div>
+    </div>
+    <nav><a>Services</a><a>My account</a><a>Notifications</a><a>Appointments</a><a>Apply</a><a>Accessibility statement</a><a>Contact</a></nav>
+    <div class="meta">Last updated 2025-04-14 · 11:51 PT<br>EN · ES · ZH · VI</div>
+  </div>
+</footer>
+</body>
+</html>

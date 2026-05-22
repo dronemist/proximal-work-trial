@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notifications · Ember Field</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-notifications">
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#">Ember Field<span class="dot">.</span></a>
+    <nav class="topnav">
+      <a href="service-catalog.html">Services</a>
+      <a href="account.html">My Account</a>
+      <a href="notifications.html" class="active">Notifications</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="application.html">Apply</a>
+    </nav>
+    <div class="search">
+      <div class="search-inner"><input placeholder="Search services, items, perms…"></div>
+    </div>
+    <button class="bell" aria-label="Notifications"><span class="dot-pill"></span></button>
+    <div class="avatar">MR</div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section-title">Services</div>
+    <ul class="sidebar-nav">
+      <li><a href="service-catalog.html">All Services</a></li>
+      <li><a href="#">Housing &amp; Permits</a></li>
+      <li><a href="#">Vehicles &amp; Transit</a></li>
+      <li><a href="#">Health &amp; Family</a></li>
+      <li><a href="#">Taxes &amp; Records</a></li>
+      <li><a href="#">Business Licenses</a></li>
+    </ul>
+    <div class="sidebar-section-title">My Portal</div>
+    <ul class="sidebar-nav">
+      <li><a href="account.html">Account</a></li>
+      <li><a href="notifications.html" class="active">Notifications</a></li>
+      <li><a href="appointments.html">Appointments</a></li>
+      <li><a href="application.html">Applications</a></li>
+      <li><a href="#">Documents</a></li>
+      <li><a href="#">Payments</a></li>
+    </ul>
+    <div class="sidebar-section-title">Help</div>
+    <ul class="sidebar-nav">
+      <li><a href="#">Contact a clerk</a></li>
+      <li><a href="#">Accessibility</a></li>
+      <li><a href="#">Office hours</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><span>My Portal</span><span class="current">Notifications</span></div>
+
+    <h1 class="page-title">Your civic <span class="accent">inbox</span>.</h1>
+    <p class="page-lede">Receipts, reminders, deadlines, and the occasional good news. We only ping you when something is actually yours to do — promise.</p>
+
+    <div class="stat-grid" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="stat"><div class="stat-val accent" style="color:var(--accent)">4</div><div class="stat-label">Unread</div></div>
+      <div class="stat"><div class="stat-val">2</div><div class="stat-label">Action required</div></div>
+      <div class="stat"><div class="stat-val">11</div><div class="stat-label">This month</div></div>
+      <div class="stat"><div class="stat-val">62</div><div class="stat-label">In archive</div></div>
+    </div>
+
+    <div class="row wrap" style="gap:6px; margin: 8px 0 4px;">
+      <span class="chip active">All</span>
+      <span class="chip">Unread</span>
+      <span class="chip">Action required</span>
+      <span class="chip">Receipts</span>
+      <span class="chip">Reminders</span>
+      <span class="chip">Alerts</span>
+    </div>
+    <div class="row between" style="margin-bottom:14px;">
+      <div class="small muted">↓ Sort: Newest</div>
+      <a class="btn link small" href="#">Mark all read</a>
+    </div>
+
+    <h3 class="card-title" style="margin-bottom:8px;">Inbox</h3>
+    <div class="card" style="padding:0;">
+      <div class="inbox-row unread">
+        <span class="check"></span>
+        <div>
+          <div class="meta">
+            <span class="badge action">Action required</span>
+            <span class="strong text-2 small">Property tax payment due in 4 days</span>
+            <span class="time" style="margin-left:auto;">Today · 8:45 AM</span>
+          </div>
+          <div class="body" style="margin-top:6px;">Parcel 87-4421-100 — second installment of $1,247.20 is due Thursday, November 21. A late fee of 5% applies after midnight.</div>
+          <div class="actions">
+            <a class="btn primary sm" href="#">Pay now</a>
+            <a class="btn sm" href="#">Schedule a visit</a>
+            <a class="btn link" href="#">Dismiss</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="inbox-row unread">
+        <span class="check"></span>
+        <div>
+          <div class="meta">
+            <span class="badge action">Action required</span>
+            <span class="strong text-2 small">Appointment confirmed — Vehicle title transfer</span>
+            <span class="time" style="margin-left:auto;">Today · 8:32 AM</span>
+          </div>
+          <div class="body" style="margin-top:6px;">Tuesday, Nov 19 at 10:45 AM with the Bureau of Motor Vehicles, Window 7. Bring a photo ID, current title, and the bill of sale.</div>
+          <div class="actions">
+            <a class="btn sm" href="#">View appointment</a>
+            <a class="btn link" href="#">Add to calendar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="inbox-row unread">
+        <span class="check"></span>
+        <div>
+          <div class="meta">
+            <span class="badge">Update</span>
+            <span class="strong text-2 small">Building permit BP-2024-0218 approved</span>
+            <span class="time" style="margin-left:auto;">Yesterday · 4:18 PM</span>
+          </div>
+          <div class="body" style="margin-top:6px;">Your fence and gate permit at 412 Linden Ave was approved by Inspector M. Okonkwo. Work may begin once the placard is posted on site.</div>
+          <div class="actions">
+            <a class="btn sm" href="#">Download permit (PDF)</a>
+            <a class="btn link" href="#">Book final inspection</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="inbox-row unread">
+        <span class="check"></span>
+        <div>
+          <div class="meta">
+            <span class="badge alert">Action required</span>
+            <span class="strong text-2 small">Verify your new mailing address</span>
+            <span class="time" style="margin-left:auto;">Mon · Nov 11</span>
+          </div>
+          <div class="body" style="margin-top:6px;">We mailed a one-time code to 89 Hawthorn Lane, Apt 2C. Enter it within 14 days to keep your records up to date.</div>
+          <div class="actions">
+            <a class="btn primary sm" href="#">Enter code</a>
+            <a class="btn sm" href="#">Resend mail</a>
+            <a class="btn link" href="#">It's not me</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="inbox-row">
+        <span class="check"></span>
+        <div>
+          <div class="meta">
+            <span class="badge">Update</span>
+            <span class="strong text-2 small">Water service maintenance — Sector 14</span>
+            <span class="time" style="margin-left:auto;">Mon · Nov 11</span>
+          </div>
+          <div class="body" style="margin-top:6px;">Brief shutoff scheduled Wed, Nov 13 between 1:00 AM and 5:00 AM. We'll restore service before sunrise; no action required.</div>
+          <div class="actions">
+            <a class="btn sm" href="#">View map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="inbox-row">
+        <span class="check"></span>
+        <div>
+          <div class="meta">
+            <span class="badge">Receipt</span>
+            <span class="strong text-2 small">Homestead exemption · receipt</span>
+            <span class="time" style="margin-left:auto;">Fri · Nov 8</span>
+          </div>
+          <div class="body" style="margin-top:6px;">Filing AS# 23290 received. Average processing time is 4–12 business days. We'll update you here when there's news.</div>
+          <div class="actions"><a class="btn sm" href="#">View filing</a></div>
+        </div>
+      </div>
+
+      <div class="inbox-row">
+        <span class="check"></span>
+        <div>
+          <div class="meta">
+            <span class="badge">Receipt</span>
+            <span class="strong text-2 small">Driver's license renewal complete</span>
+            <span class="time" style="margin-left:auto;">Nov · 3</span>
+          </div>
+          <div class="body" style="margin-top:6px;">Your new card has shipped via certified mail. Tracking: STS-771A8-X4. Estimated arrival Nov 12–14.</div>
+          <div class="actions"><a class="btn sm" href="#">View receipt</a></div>
+        </div>
+      </div>
+
+      <div class="inbox-row">
+        <span class="check"></span>
+        <div>
+          <div class="meta">
+            <span class="badge">Civic</span>
+            <span class="strong text-2 small">Voter registration window opens Dec 1</span>
+            <span class="time" style="margin-left:auto;">Oct · 28</span>
+          </div>
+          <div class="body" style="margin-top:6px;">Update your address, party affiliation, or polling preference. The whole thing takes about three minutes if you have your ID handy.</div>
+          <div class="actions"><a class="btn link" href="#">Open registration</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagination">
+      <a href="#">← Previous</a>
+      <span>Page 1 of 7</span>
+      <a href="#">Next →</a>
+    </div>
+
+    <h2 class="section-title">Delivery history</h2>
+    <p class="section-lede">A receipt of how and where each notice reached you — useful when something gets lost in the shuffle.</p>
+
+    <div class="card">
+      <table class="table">
+        <thead>
+          <tr><th>Notice</th><th>Channel</th><th>Sent</th><th>Status</th><th>Reference</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Property tax reminder</td><td>Email</td><td>Nov 14, 08:14</td><td><span class="badge delivered">Delivered</span></td><td class="mono small">RX-44218</td></tr>
+          <tr><td>BMV appointment confirmation</td><td>SMS</td><td>Nov 14, 08:14</td><td><span class="badge delivered">Delivered</span></td><td class="mono small">RX-44219</td></tr>
+          <tr><td>Building permit decision</td><td>Email</td><td>Nov 13, 16:18</td><td><span class="badge delivered">Delivered</span></td><td class="mono small">RX-44220</td></tr>
+          <tr><td>Mailing address verification</td><td>USPS Certified</td><td>Nov 11, 09:00</td><td><span class="badge delivered">Delivered</span></td><td class="mono small">RX-44221</td></tr>
+          <tr><td>Homestead exemption receipt</td><td>Email</td><td>Nov 8, 11:21</td><td><span class="badge bounced">Bounced</span></td><td class="mono small">RX-44222</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title">Delivery preferences</h2>
+    <p class="section-lede">Tell us how you'd like to hear from us. You can change this anytime — even at 1 AM.</p>
+
+    <div class="card">
+      <div class="row between center" style="padding:10px 0;border-bottom:1px solid #1f2733;">
+        <div>
+          <div class="strong">Action required</div>
+          <div class="small muted">Permits, payments, deadlines. Hard to opt out of — these are the ones that matter.</div>
+        </div>
+        <div class="row" style="gap:14px; font-size:12px;">
+          <span class="row center" style="gap:6px;"><span class="badge green">✓</span>Email</span>
+          <span class="row center" style="gap:6px;"><span class="badge green">✓</span>SMS</span>
+          <span class="row center" style="gap:6px;"><span class="badge">✕</span>Mail</span>
+        </div>
+      </div>
+
+      <div class="row between center" style="padding:10px 0;border-bottom:1px solid #1f2733;">
+        <div>
+          <div class="strong">Reminders</div>
+          <div class="small muted">Appointments, renewal windows. Snoop you out before so you don't get fined.</div>
+        </div>
+        <div class="row" style="gap:14px; font-size:12px;">
+          <span class="row center" style="gap:6px;"><span class="badge green">✓</span>Email</span>
+          <span class="row center" style="gap:6px;"><span class="badge green">✓</span>SMS</span>
+          <span class="row center" style="gap:6px;"><span class="badge">✕</span>Mail</span>
+        </div>
+      </div>
+
+      <div class="row between center" style="padding:10px 0;border-bottom:1px solid #1f2733;">
+        <div>
+          <div class="strong">Receipts &amp; confirmations</div>
+          <div class="small muted">A paper trail for every payment and filing.</div>
+        </div>
+        <div class="row" style="gap:14px; font-size:12px;">
+          <span class="row center" style="gap:6px;"><span class="badge green">✓</span>Email</span>
+          <span class="row center" style="gap:6px;"><span class="badge">✕</span>SMS</span>
+          <span class="row center" style="gap:6px;"><span class="badge">✕</span>Mail</span>
+        </div>
+      </div>
+
+      <div class="row between center" style="padding:10px 0;border-bottom:1px solid #1f2733;">
+        <div>
+          <div class="strong">Civic alerts</div>
+          <div class="small muted">Service disruptions, weather, public safety in your district.</div>
+        </div>
+        <div class="row" style="gap:14px; font-size:12px;">
+          <span class="row center" style="gap:6px;"><span class="badge green">✓</span>Email</span>
+          <span class="row center" style="gap:6px;"><span class="badge green">✓</span>SMS</span>
+          <span class="row center" style="gap:6px;"><span class="badge">✕</span>Mail</span>
+        </div>
+      </div>
+
+      <div class="row between center" style="padding:10px 0;">
+        <div>
+          <div class="strong">Updates &amp; newsletters</div>
+          <div class="small muted">Monthly news. Office hours changes. Nothing on fire.</div>
+        </div>
+        <div class="row" style="gap:14px; font-size:12px;">
+          <span class="row center" style="gap:6px;"><span class="badge">✕</span>Email</span>
+          <span class="row center" style="gap:6px;"><span class="badge">✕</span>SMS</span>
+          <span class="row center" style="gap:6px;"><span class="badge">✕</span>Mail</span>
+        </div>
+      </div>
+
+      <div class="row between center" style="margin-top:14px;">
+        <div class="row center" style="gap:10px;">
+          <span class="toggle on"></span>
+          <span class="small">Quiet hours: 9 PM – 7 AM</span>
+        </div>
+        <div class="row" style="gap:8px;">
+          <a class="btn" href="#">Cancel</a>
+          <a class="btn primary" href="#">Save preferences</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Common questions</h2>
+
+    <div class="card">
+      <div class="strong">Why am I getting both email and SMS for the same notice?</div>
+      <p class="small text-2" style="margin:6px 0 0;">Action-required items are sent on every method channel by default, so the message has the best chance of reaching you. You can narrow this in Delivery preferences, though we'll keep at least one channel on for legal notices.</p>
+    </div>
+    <div class="card row between center"><span class="strong">Can I forward notices to my accountant or attorney?</span><span class="muted">+</span></div>
+    <div class="card row between center"><span class="strong">What if a notice bounces or gets returned?</span><span class="muted">+</span></div>
+    <div class="card row between center"><span class="strong">How long are notifications kept?</span><span class="muted">+</span></div>
+
+    <div class="card" style="text-align:center; padding:24px;">
+      <div class="strong">That's the bottom of the page.</div>
+      <div class="small muted" style="margin-top:6px;">Need an older notice? Try the delivery history tab or open an archive request.</div>
+      <div class="row" style="gap:8px; justify-content:center; margin-top:12px;">
+        <a class="btn" href="#">Request archive</a>
+        <a class="btn primary" href="#">Contact a clerk</a>
+      </div>
+    </div>
+  </main>
+
+  <aside class="toc">
+    <div class="toc-title">On this page</div>
+    <ul>
+      <li><a class="active" href="#">Overview</a></li>
+      <li><a href="#">Inbox</a></li>
+      <li class="sub"><a href="#">Filters &amp; sort</a></li>
+      <li><a href="#">Delivery history</a></li>
+      <li><a href="#">Delivery preferences</a></li>
+      <li><a href="#">Common questions</a></li>
+    </ul>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Ember Field</div>
+    <div class="footer-tagline muted">An official agency of the Department of Civic Services</div>
+    <nav class="footer-meta">
+      <a href="service-catalog.html">Services</a>
+      <a href="account.html">Account</a>
+      <a href="notifications.html">Notifications</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="application.html">Apply</a>
+      <a href="#">Accessibility statement</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="footer-right">
+      <span>Last updated 2024-11-14</span>
+      <span>EN · ES</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

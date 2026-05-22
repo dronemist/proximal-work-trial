@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Session — The Quiet Grid — Ember Vector Works</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .breadcrumbs { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+  .breadcrumbs a { color: var(--muted); }
+  .breadcrumbs span { margin: 0 6px; }
+
+  .session-meta-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin: 14px 0 24px;
+  }
+  .session-meta-row .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .07em; }
+  .session-meta-row strong { font-size: 14px; }
+
+  .takeaways {
+    list-style: none; padding-left: 0; margin: 0;
+  }
+  .takeaways li {
+    padding: 8px 0;
+    padding-left: 22px;
+    position: relative;
+    font-size: 13.5px;
+  }
+  .takeaways li::before {
+    content: '●';
+    color: var(--coral);
+    position: absolute; left: 4px; top: 7px;
+    font-size: 10px;
+  }
+
+  .speaker-block {
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+  }
+  .speaker-block .name { font-weight: 700; font-size: 14px; }
+  .speaker-block .role { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+  .speaker-block p { margin: 4px 0; font-size: 13px; }
+
+  .map-block {
+    background: linear-gradient(135deg, #e6e1d2 0%, #d2cdb6 100%);
+    height: 240px;
+    border-radius: var(--radius);
+    position: relative;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .map-block .pin {
+    width: 18px; height: 18px; background: var(--coral); border-radius: 50%;
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 6px rgba(237,106,90,.25);
+  }
+  .map-caption {
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    border-top: none;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--muted);
+    border-radius: 0 0 var(--radius) var(--radius);
+    margin-top: -8px;
+    margin-bottom: 14px;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .resource {
+    background: var(--card); border: 1px solid var(--line-2); border-radius: var(--radius-sm);
+    padding: 12px;
+    display: flex; gap: 10px; align-items: center;
+    font-size: 13px;
+  }
+  .resource .ic { width: 28px; height: 28px; border-radius: 6px; background: var(--bg-2); display:flex; align-items:center; justify-content:center; font-size: 12px; }
+
+  .stars { color: var(--coral); letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="schedule.html" class="brand"><span class="dot"></span> Ember Vector Works</a>
+    <nav class="nav">
+      <a href="schedule.html" class="active">Schedule</a>
+      <a href="speakers.html">Speakers</a>
+      <a href="my-agenda.html">My Agenda</a>
+      <a href="attendees.html">Attendees</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="livestream.html">Livestream</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="btn btn-primary" href="registration.html">Register</a>
+      <span class="avatar-sm">MK</span>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <div class="breadcrumbs">
+      <a href="schedule.html">Schedule</a><span>›</span>
+      <a href="#">Day 2</a><span>›</span>
+      <a href="#">The Quiet Grid</a>
+    </div>
+
+    <div style="display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap;">
+      <span class="chip chip-coral">● Featured talk</span>
+      <span class="chip">Track · Craft &amp; Foundations</span>
+      <span class="chip">45 min</span>
+      <span class="chip">Intermediate</span>
+    </div>
+
+    <h1 style="font-size:34px; max-width:780px;">The Quiet Grid: Editorial Restraint in Product Design</h1>
+
+    <p class="muted" style="max-width:780px; font-size:14px;">Most product interfaces shout. This session is about the ones that don't — how a magazine-trained eye for hierarchy, whitespace, and typographic rhythm can produce software that feels durable instead of decorative.</p>
+
+    <div class="flex gap-8 mb-12">
+      <button class="btn btn-primary">+ Add to my agenda</button>
+      <button class="btn btn-ghost">↓ Download .ics</button>
+      <button class="btn btn-ghost">Share</button>
+    </div>
+
+    <div class="session-meta-row">
+      <div>
+        <div class="label">WHEN</div>
+        <strong>Thu, Oct 17 · 14:30</strong>
+        <div class="muted small">45 minutes · Day 2</div>
+      </div>
+      <div>
+        <div class="label">WHERE</div>
+        <strong>Lounge Hall · L2</strong>
+        <div class="muted small">Capacity 220</div>
+      </div>
+      <div>
+        <div class="label">CAPACITY</div>
+        <strong>220 seats · 184 RSVP</strong>
+        <div class="muted small">36 seats left</div>
+      </div>
+      <div>
+        <div class="label">FORMAT</div>
+        <strong>Talk + 10m Q&amp;A</strong>
+        <div class="muted small">Recorded</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <h2 style="font-family:var(--serif); margin-bottom:10px;">About this session</h2>
+        <p style="font-size:13.5px;">For two decades, magazines taught us that the most powerful design move is often the one you don't make. A heading set five points larger. A rule that doesn't exist. A column that holds its width because the eye needs somewhere to rest. That instinct has rarely translated from product UI, replaced by elaborate component libraries and competing accent colors.</p>
+        <p style="font-size:13.5px;">In this 45-minute talk, Imani walks through three case studies — a banking dashboard, a calendar app, and a CMS authoring surface — showing how editorial principles translated directly into measurable improvements in task completion and trust. We'll look at type pairings, gutter math, what "negative space" actually says for the brand, and the small typographic decisions that disappear into the background where they belong.</p>
+        <p style="font-size:13.5px;">You'll leave with a framework you can apply Monday morning: a checklist for auditing a screen's noise floor, a shortlist of type stacks worth defending, and permission to delete a lot of borders.</p>
+
+        <h3 style="font-family:var(--serif); font-size: 17px; margin: 20px 0 8px;">What you'll take away</h3>
+        <ul class="takeaways">
+          <li>A practical "noise floor" audit — five questions to ask of any production screen before shipping.</li>
+          <li>How to defend whitespace in a stakeholder review without saying the word "breathing room."</li>
+          <li>The three type pairings that hold up across density, locale, and dark mode.</li>
+          <li>A short reading list, drawn mostly from magazine design and architecture criticism.</li>
+        </ul>
+
+        <h2 style="font-family:var(--serif); margin: 28px 0 12px;">Speakers <span class="muted small" style="font-family:var(--sans);">All speakers</span></h2>
+
+        <div class="speaker-block">
+          <span class="av av-lg av-coral">IO</span>
+          <div>
+            <div class="name">Imani Okafor</div>
+            <div class="role">Principal Designer · Ledger &amp; Bone · formerly The Atlantic</div>
+            <p>Imani leads brand and product design at Ledger &amp; Bone, a small studio working with publishers and financial cooperatives. She writes occasionally at quietweb.notes.</p>
+          </div>
+        </div>
+
+        <div class="speaker-block">
+          <span class="av av-lg av-sage">RH</span>
+          <div>
+            <div class="name">Reika Halverson</div>
+            <div class="role">Independent type designer · Co-host, Type Off</div>
+            <p>Reika joins for the Q&amp;A segment to answer questions on grids; sets in and out of stroke, gently, for nerds in software. Recent releases include the Forest superfamily and Tiding library.</p>
+          </div>
+        </div>
+
+        <h2 style="font-family:var(--serif); margin: 28px 0 12px;">Where to find it</h2>
+        <div class="map-block">
+          <div class="pin"></div>
+        </div>
+        <div class="map-caption">Level 2 · West wing</div>
+        <p style="font-size:13px;">Enter through the West atrium, take the staircase opposite the coffee cart, and Lounge Hall is the second door on your left. Stair-free access via the elevator next to the bookstore. Live captioning provided; an induction loop is available — speak to a volunteer at the door.</p>
+
+        <h2 style="font-family:var(--serif); margin: 28px 0 12px;">Resources</h2>
+        <p class="muted small" style="margin-bottom:8px;">Slides and any code samples will appear here a few minutes after the session ends. Attendees with the session bookmarked will get an email reminder as well.</p>
+        <div class="resources-grid">
+          <div class="resource"><span class="ic">📊</span> Slide deck (PDF) <span class="muted small" style="margin-left:auto;">Available after the talk</span></div>
+          <div class="resource"><span class="ic">📝</span> Noise-floor audit (worksheet) <span class="muted small" style="margin-left:auto;">DOCX · 24 KB</span></div>
+          <div class="resource"><span class="ic">📚</span> Reading list (12 essays, 2 books)</div>
+          <div class="resource"><span class="ic">▶</span> Watch live <span class="muted small" style="margin-left:auto;">Stream opens 5 min before</span></div>
+        </div>
+
+        <h2 style="font-family:var(--serif); margin: 28px 0 12px;">Discussion</h2>
+        <p class="muted small">A short, attendee-only thread opens after the talk. Be specific, be generous.</p>
+        <div class="form-card" style="background:var(--card); border:1px solid var(--line-2); border-radius: var(--radius); padding: 14px;">
+          <label>Leave a note for the speaker</label>
+          <textarea>A question, a counter-example, a magazine you think she'd love…</textarea>
+          <div class="flex between ai-center mt-8">
+            <span class="muted small">Visible to ticket-holders only.</span>
+            <button class="btn btn-primary btn-sm">Post</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="aside">
+        <div class="widget">
+          <h4>Happening at the same time</h4>
+          <ul class="widget-list">
+            <li><strong>Shipping Type at 12px: A Field Report</strong><div class="meta">15:30 · KEYNOTE STAGE · Andrei Falk</div></li>
+            <li><strong>SQLite as a Product Strategy</strong><div class="meta">14:30 · POMEROY HALL · Pria Patton</div></li>
+            <li><strong>Workshop: Color Systems for Light/Dark</strong><div class="meta">14:30 · STUDIO HALL · Yume Beira (workshop)</div></li>
+          </ul>
+        </div>
+
+        <div class="widget">
+          <h4>If you liked this, try</h4>
+          <ul class="widget-list">
+            <li><strong>Hairlines, Rules, and Other Things You Don't Need</strong><div class="meta">FRI 11:00 · Theo Buenavides</div></li>
+            <li><strong>Designing the Spreadsheet That Doesn't Yell</strong><div class="meta">FRI 13:30 · Pria Patton</div></li>
+            <li><strong>Editorial in a CMS: A Three-Year Retro</strong><div class="meta">SAT 09:30 · Tonghua Su</div></li>
+          </ul>
+        </div>
+
+        <div class="widget">
+          <h4>Who's going</h4>
+          <div class="stars">★ ★ ★ ★ ½</div>
+          <div class="muted small" style="margin-bottom:8px;">184 attendees · 12 in your network</div>
+          <div style="display:flex; gap:-6px; margin-bottom:8px;">
+            <span class="av av-coral" style="margin-right:-8px;">A</span>
+            <span class="av av-sage" style="margin-right:-8px;">B</span>
+            <span class="av av-olive" style="margin-right:-8px;">C</span>
+            <span class="av av-ink" style="margin-right:-8px;">D</span>
+            <span class="av" style="background:#c98c52;">+8</span>
+          </div>
+          <a class="btn btn-link">See attendees</a>
+        </div>
+
+        <div class="widget">
+          <h4>Trending topics</h4>
+          <ul class="widget-list">
+            <li><strong>#quietgrid</strong><div class="meta">19 mentions</div></li>
+            <li><strong>#typeoff</strong><div class="meta">14 mentions</div></li>
+            <li><strong>#noisefloor</strong><div class="meta">9 mentions</div></li>
+            <li><strong>#editorialism</strong><div class="meta">6 mentions</div></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="#"><span class="dot"></span> Ember Vector Works</a>
+      <p>A three-day conference for independent designers, developers, and the studios they hire from. Oct 16-18, 2025.</p>
+    </div>
+    <div>
+      <h5>Program</h5>
+      <ul>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+        <li><a href="livestream.html">Livestream</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Venue</h5>
+      <ul>
+        <li>Foundry &amp; West</li>
+        <li>418 Mercer Lane, Portland OR</li>
+        <li>Editing room</li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Community</h5>
+      <ul>
+        <li><a href="#">Code of conduct</a></li>
+        <li><a href="#">Mastodon</a></li>
+        <li><a href="#">RSS</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Ember Vector Works. Independently organized.</span>
+    <span>Brewed in Portland · powered by good coffee &amp; the proper committee.</span>
+  </div>
+</footer>
+
+</body>
+</html>

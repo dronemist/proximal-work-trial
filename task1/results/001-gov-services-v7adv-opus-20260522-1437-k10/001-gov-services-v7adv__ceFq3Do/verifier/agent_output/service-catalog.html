@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Service catalog — Ember Field</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  :root {
+    --bg: #f7f5ef;
+    --bg-2: #efece3;
+    --surface: #ffffff;
+    --surface-2: #faf8f1;
+    --surface-3: #efece3;
+    --border: #e2dccc;
+    --border-2: #d6cfb9;
+    --text: #1a1d23;
+    --muted: #5b6675;
+    --muted-2: #8a93a3;
+    --accent: #8fd91a;
+    --accent-2: #7cc116;
+    --accent-text: #14210b;
+  }
+  body { background: var(--bg); color: var(--text); }
+  .topbar { background: #f1ede1; border-bottom: 1px solid var(--border); }
+  .brand { color: #1a1d23; }
+  .search input { background: #fff; border-color: var(--border); color: var(--text); }
+  .topbar-nav a, .topbar-nav .active { color: var(--text); }
+  .icon-btn { background: #fff; border-color: var(--border); color: var(--muted); }
+  .avatar-chip { background: #fff; border-color: var(--border); color: var(--text); }
+  .sidebar li { color: var(--muted); }
+  .sidebar li.active { background: #fff; color: var(--text); border-color: var(--border); }
+  .card, .stat, .cat-card { background: var(--surface); border-color: var(--border); }
+  .input, select.input, textarea.input { background: #fff; border-color: var(--border-2); color: var(--text); }
+  .btn-ghost { background: #fff; border-color: var(--border-2); color: var(--text); }
+  .btn-outline { border-color: var(--border-2); color: var(--text); }
+  .badge.gray { background: var(--surface-3); color: var(--muted); border-color: var(--border); }
+  .pills .pill { background: #fff; border-color: var(--border); color: var(--muted); }
+  .pills .pill.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+  .callout { background: #f1f8e3; border-color: #d6e9a8; }
+  .foot { border-top-color: var(--border); color: var(--muted); background: #f1ede1; }
+  .foot a { color: var(--muted); }
+  .pager .p { background: #fff; border-color: var(--border); color: var(--muted); }
+  table.data th, table.data td { border-bottom-color: var(--border); }
+  .acc { background: #fff; border-color: var(--border); }
+  .divider { background: var(--border); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">Ember Field</div>
+  <div class="search"><input placeholder="Search services, forms, or place a request…" /></div>
+  <div class="topbar-right">
+    <button class="icon-btn">🔔</button>
+    <span class="avatar-chip">EN</span>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar left">
+    <h4>Services</h4>
+    <ul>
+      <li class="active">Services</li>
+      <li>My Account</li>
+      <li>Notifications</li>
+      <li>Appointments</li>
+      <li>Applications</li>
+    </ul>
+    <h4>Service tree</h4>
+    <ul>
+      <li><strong>Permits &amp; Licenses</strong></li>
+      <li>Building permits</li>
+      <li>Business licenses</li>
+      <li>Block party permits</li>
+      <li><strong>Housing &amp; Property</strong></li>
+      <li>Rental assistance</li>
+      <li>Property tax appeals</li>
+      <li>Tenant rights</li>
+      <li><strong>Vehicles &amp; Roads</strong></li>
+      <li>Records &amp; ID</li>
+      <li>Civic &amp; Elections</li>
+      <li>Trash &amp; Utilities</li>
+    </ul>
+    <h4>Help</h4>
+    <ul>
+      <li>Visit a service center</li>
+      <li>Call 311</li>
+      <li>Accessibility</li>
+    </ul>
+  </aside>
+
+  <main>
+    <div class="crumbs"><span>Home</span><span class="sep">›</span><span class="cur">Services</span></div>
+    <h1 class="page-title">Every service, in one <em>place</em>.</h1>
+    <p class="lede">Browse 247 government services from 19 agencies — sorted by what you actually need, and which department handles it. If you can't find it, that's on us. <a>Tell us</a>.</p>
+
+    <!-- Search -->
+    <div class="card mb-4">
+      <div class="muted tiny mb-2" style="text-transform:uppercase;letter-spacing:.06em;">Updated Mar 14, 2025</div>
+      <div class="flex gap-2 wrap">
+        <select class="input" style="flex:1;min-width:160px;"><option>Try "marriage license", "potholes", or "food assistance"…</option></select>
+        <button class="btn btn-primary">🔍 Search</button>
+        <button class="btn btn-ghost">Advanced</button>
+      </div>
+      <div class="flex gap-2 wrap mt-3">
+        <span class="pill active">All categories</span>
+        <span class="pill">Permits &amp; Licenses</span>
+        <span class="pill">Housing &amp; Property</span>
+        <span class="pill">Vehicles &amp; Roads</span>
+        <span class="pill">Records &amp; ID</span>
+        <span class="pill">Health &amp; Family</span>
+        <span class="pill">Civic &amp; Elections</span>
+        <span class="pill">Trash &amp; Utilities</span>
+      </div>
+    </div>
+
+    <!-- Popular -->
+    <div class="section-head"><h2>Popular this week</h2><p>Based on what your neighbors are actually clicking on.</p></div>
+    <div class="grid-3">
+      <div class="cat-card">
+        <span class="badge">Permit</span>
+        <div class="ttl">Renew a driver's license</div>
+        <div class="desc">Most renewals take place in 5 minutes online, if your last visit went well.</div>
+        <div class="foot-row"><span>🕒 5 min</span><span>·</span><span>$34</span></div>
+      </div>
+      <div class="cat-card">
+        <span class="badge">Service</span>
+        <div class="ttl">Report a pothole</div>
+        <div class="desc">A photo helps. Crews patch within 4 business days.</div>
+        <div class="foot-row"><span>🕒 2 min</span><span>·</span><span>Free</span></div>
+      </div>
+      <div class="cat-card">
+        <span class="badge">Records</span>
+        <div class="ttl">Marriage license</div>
+        <div class="desc">Book a brief appointment. Both parties bring ID.</div>
+        <div class="foot-row"><span>🕒 20 min</span><span>·</span><span>$85</span></div>
+      </div>
+    </div>
+
+    <!-- Rental assistance callout -->
+    <div class="callout flex between center mt-4" style="flex-wrap:wrap;gap:10px;">
+      <div>
+        <strong>Rental assistance is open for applications.</strong>
+        <div class="muted small">Households earning under 60% of area median income can apply for up to $4,000 in arrears coverage. Average decision time is 11 days; payments go directly to landlords.</div>
+      </div>
+      <div class="flex gap-2">
+        <button class="btn btn-primary btn-sm">Start an application</button>
+        <button class="btn btn-ghost btn-sm">Read the eligibility rules</button>
+      </div>
+    </div>
+
+    <!-- Browse by category -->
+    <div class="section-head flex between center"><h2>Browse by category</h2>
+      <select class="input" style="width:auto;"><option>Sort: Most popular</option></select>
+    </div>
+    <div class="muted small mb-3">Showing 1–12 of 247 services</div>
+
+    <h3 class="mb-2">Permits &amp; Licenses</h3>
+    <div class="grid-2">
+      <div class="cat-card">
+        <div class="flex between"><span class="badge">Permit</span><span>★</span></div>
+        <div class="ttl">Residential building permit</div>
+        <div class="desc">For additions, kitchens, decks, and most teardowns under 30 feet.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>$45–215</span><span>·</span><span>Average 12 days</span></div>
+      </div>
+      <div class="cat-card">
+        <div class="flex between"><span class="badge">License</span><span>★</span></div>
+        <div class="ttl">General business license</div>
+        <div class="desc">Required for any business operating within city limits. Renew yearly.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>$120/yr</span></div>
+      </div>
+      <div class="cat-card">
+        <div class="flex between"><span class="badge">Permit</span><span>★</span></div>
+        <div class="ttl">Block-party permit</div>
+        <div class="desc">Close your street to a neighborhood gathering. Apply 14 days ahead.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>$10</span></div>
+      </div>
+      <div class="cat-card">
+        <div class="flex between"><span class="badge">Permit</span><span>★</span></div>
+        <div class="ttl">Mobile food vendor permit</div>
+        <div class="desc">Trucks, carts, and pop-up stands. Includes a health inspection.</div>
+        <div class="foot-row"><span>● In-person</span><span>·</span><span>$300/yr</span></div>
+      </div>
+    </div>
+
+    <h3 class="mt-4 mb-2">Housing &amp; Property</h3>
+    <div class="grid-2">
+      <div class="cat-card">
+        <span class="badge">Assistance</span>
+        <div class="ttl">Emergency rental assistance</div>
+        <div class="desc">Up to $4,000 in back rent for income-qualified households facing eviction.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>Free</span></div>
+      </div>
+      <div class="cat-card">
+        <span class="badge">Property tax</span>
+        <div class="ttl">Property assessment appeal</div>
+        <div class="desc">Disagree with your 2025 assessed value? You have 60 days to appeal.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>$25 filing</span></div>
+      </div>
+      <div class="cat-card">
+        <span class="badge">Service</span>
+        <div class="ttl">Report a code violation</div>
+        <div class="desc">Mold, no heat, broken stairs. Inspectors visit within 5 business days.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>Free</span></div>
+      </div>
+      <div class="cat-card">
+        <span class="badge">Senior</span>
+        <div class="ttl">Senior homestead exemption</div>
+        <div class="desc">Property tax reduction for residents 65+ owning a primary home under $475,000.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>Free</span></div>
+      </div>
+    </div>
+
+    <h3 class="mt-4 mb-2">Vehicles &amp; Roads</h3>
+    <div class="grid-2">
+      <div class="cat-card">
+        <span class="badge">Renewal</span>
+        <div class="ttl">Driver's license renewal</div>
+        <div class="desc">Most renewals are fully online if your ID has been used in the past 8 years.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>$34</span></div>
+      </div>
+      <div class="cat-card">
+        <span class="badge">Permit</span>
+        <div class="ttl">Residential parking pass</div>
+        <div class="desc">Valid in your zone for 12 months. Bring proof of address.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>$75</span></div>
+      </div>
+      <div class="cat-card">
+        <span class="badge">Service</span>
+        <div class="ttl">Report a pothole or street hazard</div>
+        <div class="desc">Photo and location help. Crews are on it within 4 business days.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>Free</span></div>
+      </div>
+      <div class="cat-card">
+        <span class="badge">Penalty</span>
+        <div class="ttl">Contest a parking ticket</div>
+        <div class="desc">Schedule a hearing or submit written evidence within 30 days of issue.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>Free</span></div>
+      </div>
+    </div>
+
+    <h3 class="mt-4 mb-2">Records &amp; ID</h3>
+    <div class="grid-2">
+      <div class="cat-card">
+        <span class="badge">Vital records</span>
+        <div class="ttl">Order a birth certificate</div>
+        <div class="desc">Certified copies, mailed in 7–10 business days. Rush option available.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>$28</span></div>
+      </div>
+      <div class="cat-card">
+        <span class="badge">Records</span>
+        <div class="ttl">Marriage license</div>
+        <div class="desc">Both parties must appear together. Valid for 30 days from issue.</div>
+        <div class="foot-row"><span>● In-person</span><span>·</span><span>$85</span></div>
+      </div>
+      <div class="cat-card">
+        <span class="badge">Civic</span>
+        <div class="ttl">Register to vote</div>
+        <div class="desc">Or update your address. Deadline is 21 days before each election.</div>
+        <div class="foot-row"><span>● Online</span><span>·</span><span>Free</span></div>
+      </div>
+      <div class="cat-card">
+        <span class="badge">ID</span>
+        <div class="ttl">State ID card (non-driver)</div>
+        <div class="desc">For residents who don't drive. Bring two proofs of address.</div>
+        <div class="foot-row"><span>● In-person</span><span>·</span><span>$22</span></div>
+      </div>
+    </div>
+
+    <!-- Search prompt -->
+    <div class="callout mt-4" style="text-align:center;">
+      <strong>Looking for something we didn't list?</strong>
+      <div class="muted small mb-3">Type a few words above, or call 311. Real humans, M–F 8–5. A real person will figure out which form you mean.</div>
+      <div class="flex gap-2" style="justify-content:center;">
+        <button class="btn btn-ghost btn-sm">Try another search</button>
+        <button class="btn btn-primary btn-sm">Talk to a clerk</button>
+      </div>
+    </div>
+
+    <div class="pager mt-3"><span class="p">1</span><span class="p active">2</span><span class="p">3</span><span class="p">4</span><span class="p">5</span><span class="p">›</span></div>
+
+    <!-- Browse by agency -->
+    <div class="section-head"><h2>Browse by agency</h2><p>If you already know which department handles your thing, start here.</p></div>
+    <div class="grid-2">
+      <div class="cat-card flex between"><div><strong>Department of Buildings</strong><div class="muted small">31 services</div></div><span>›</span></div>
+      <div class="cat-card flex between"><div><strong>Housing &amp; Community Dev.</strong><div class="muted small">14 services</div></div><span>›</span></div>
+      <div class="cat-card flex between"><div><strong>Department of Transportation</strong><div class="muted small">22 services</div></div><span>›</span></div>
+      <div class="cat-card flex between"><div><strong>Public Records Office</strong><div class="muted small">12 services</div></div><span>›</span></div>
+      <div class="cat-card flex between"><div><strong>Health &amp; Human Services</strong><div class="muted small">28 services</div></div><span>›</span></div>
+      <div class="cat-card flex between"><div><strong>Office of the Comptroller</strong><div class="muted small">9 services</div></div><span>›</span></div>
+      <div class="cat-card flex between"><div><strong>Police &amp; Recreation</strong><div class="muted small">17 services</div></div><span>›</span></div>
+      <div class="cat-card flex between"><div><strong>Office of Small Business</strong><div class="muted small">11 services</div></div><span>›</span></div>
+      <div class="cat-card flex between"><div><strong>Sanitation Department</strong><div class="muted small">8 services</div></div><span>›</span></div>
+    </div>
+
+    <!-- Still stuck -->
+    <div class="section-head"><h2>Still stuck? Here's a human.</h2></div>
+    <div class="grid-2">
+      <div class="card">
+        <strong>Call 311</strong>
+        <div class="muted small">Weekdays 7am–7pm · Saturdays 9am–2pm</div>
+        <div style="font-size:22px;font-weight:700;margin-top:8px;">311 · (555) 311-0000</div>
+      </div>
+      <div class="card">
+        <strong>Visit a service center</strong>
+        <div class="muted small">Six locations across the city. Most accept walk-ins until 4pm.</div>
+        <button class="btn btn-ghost btn-sm mt-3">Find the nearest one</button>
+      </div>
+    </div>
+  </main>
+
+  <aside class="sidebar right toc">
+    <h5>On this page</h5>
+    <ul>
+      <li class="active">Popular this week</li>
+      <li>Browse by category</li>
+      <ul style="border:none;padding-left:0;">
+        <li class="muted tiny">Permits &amp; Licenses</li>
+        <li class="muted tiny">Housing &amp; Property</li>
+        <li class="muted tiny">Vehicles &amp; Roads</li>
+        <li class="muted tiny">Records &amp; ID</li>
+      </ul>
+      <li>Browse by agency</li>
+      <li>Still stuck? Here's a human.</li>
+    </ul>
+  </aside>
+</div>
+
+<footer class="foot">
+  <div>
+    <div class="brand">Ember Field Systems</div>
+    <div class="muted tiny">An official portal of the City &amp; County government</div>
+  </div>
+  <div class="foot-links">
+    <a>Services</a><a>Notifications</a><a>Appointments</a><a>Apply</a><a>Accessibility statement</a><a>Contact</a>
+  </div>
+  <div class="foot-right"><small>Last updated 2025-03-14 14:32 PT</small></div>
+</footer>
+
+</body>
+</html>

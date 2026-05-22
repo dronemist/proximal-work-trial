@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attendees — Ember Vector Works</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .attendee-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .attendee-row {
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .attendee-row .info { flex: 1; min-width: 0; }
+  .attendee-row .name { font-weight: 600; font-size: 13.5px; color: var(--ink); }
+  .attendee-row .meta { color: var(--muted); font-size: 11.5px; }
+  .group-header {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--ink);
+    margin: 14px 0 8px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .group-header .count { font-family: var(--sans); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+  .stat-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 14px 0 16px;
+  }
+  .stat-tile {
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+  .stat-tile .num { font-family: var(--serif); font-size: 30px; color: var(--ink); }
+  .stat-tile .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; margin-top: 4px;}
+  .alpha-rail-dark { display: flex; flex-wrap: wrap; gap: 4px; margin: 10px 0; }
+  .alpha-rail-dark span { padding: 3px 7px; font-size: 11px; border-radius: 4px; color: var(--ink-2); }
+  .pagination { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
+  .pagination .pages { display: flex; gap: 6px; }
+  .pagination .pages span { padding: 4px 10px; font-size: 12px; background: var(--card); border: 1px solid var(--line-2); border-radius: 4px; }
+  .pagination .pages span.active { background: var(--coral); color: #1d2a25; border-color: transparent; }
+  .private-banner {
+    background: var(--coral);
+    color: #1d2a25;
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 768px) {
+    .attendee-list { grid-template-columns: 1fr; }
+    .stat-tiles { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="schedule.html" class="brand"><span class="dot"></span> Ember Vector Works</a>
+    <nav class="nav">
+      <a href="schedule.html">Schedule</a>
+      <a href="speakers.html">Speakers</a>
+      <a href="my-agenda.html">My Agenda</a>
+      <a href="attendees.html" class="active">Attendees</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="livestream.html">Livestream</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="btn btn-primary" href="registration.html">Register</a>
+      <span class="avatar-sm">MK</span>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <div class="page-header">
+      <div>
+        <div class="eyebrow">Directory — opt-in only</div>
+        <h1>Who's in the room</h1>
+        <p>1,284 designers, developers, and indie founders have opted in to the public directory this year. Browse by craft, city, or company — say hello before the keynote, or queue up a hallway coffee.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <div class="private-banner">
+          <div>
+            <strong>Your profile is currently hidden.</strong>
+            <div style="font-size:12.5px;margin-top:2px;">Only attendees who opt in appear here. Flip the switch in account settings to join the directory.</div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-ghost btn-sm">Learn more</button>
+            <button class="btn btn-sm" style="background:#1d2a25; color:var(--coral);">Make me visible</button>
+          </div>
+        </div>
+
+        <div class="stat-tiles">
+          <div class="stat-tile"><div class="num">1,284</div><div class="label">Opted-in attendees</div></div>
+          <div class="stat-tile"><div class="num">47</div><div class="label">Countries represented</div></div>
+          <div class="stat-tile"><div class="num">312</div><div class="label">Solo / indie practitioners</div></div>
+        </div>
+
+        <div class="filter-row" style="margin-bottom:8px;">
+          <input type="search" placeholder="Search by name, company, or skill…">
+          <span class="chip">All crafts ▾</span>
+          <span class="chip">Sort A → Z ▾</span>
+        </div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px;">
+          <span class="chip chip-coral">Designers · 412</span>
+          <span class="chip">Engineers · 408</span>
+          <span class="chip">Indie · Solo · 312</span>
+          <span class="chip">Speakers · 68</span>
+          <span class="chip">First timers · 247</span>
+        </div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px;">
+          <span class="chip">Lisbon</span><span class="chip">Berlin</span><span class="chip">Porto</span><span class="chip">Bristol</span><span class="chip">Oslo</span><span class="chip">+ 14</span>
+        </div>
+
+        <div class="alpha-rail-dark">
+          <span class="chip-coral chip">A</span>
+          <span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span><span>M</span><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span>
+        </div>
+
+        <div class="group-header">A <span class="count">12 ATTENDEES</span></div>
+        <div class="attendee-list">
+          <div class="attendee-row"><span class="av av-coral">AA</span><div class="info"><div class="name">Amara Akinola</div><div class="meta">Principal Designer · Aleph<br>4 yrs · Lisbon</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+          <div class="attendee-row"><span class="av av-sage">AC</span><div class="info"><div class="name">Aiden Castellano</div><div class="meta">Indie Code · Hosted Stack<br>6 yrs · Trieste</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+          <div class="attendee-row"><span class="av av-olive">AS</span><div class="info"><div class="name">Ana Sorensen</div><div class="meta">Staff Engineer · Foster &amp; Forge<br>9 yrs · Copenhagen</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+          <div class="attendee-row"><span class="av av-coral">AR</span><div class="info"><div class="name">Arjun Ramaswamy</div><div class="meta">Founder · Stonebridge<br>3 yrs · Mumbai</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+        </div>
+
+        <div class="group-header">B <span class="count">17 ATTENDEES</span></div>
+        <div class="attendee-list">
+          <div class="attendee-row"><span class="av av-sage">BV</span><div class="info"><div class="name">Beatrice Vance</div><div class="meta">Editorial Designer · Slow Mark<br>7 yrs · Glasgow</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+          <div class="attendee-row"><span class="av av-olive">BO</span><div class="info"><div class="name">Benji Okafor</div><div class="meta">Frontend · Lumens &amp; Loom<br>5 yrs · Lagos</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+          <div class="attendee-row"><span class="av av-coral">BS</span><div class="info"><div class="name">Bridget Sato</div><div class="meta">Indie Type · Pine &amp; Ink<br>2 yrs · Kyoto</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+          <div class="attendee-row"><span class="av av-olive">BM</span><div class="info"><div class="name">Bjorn Mikkelsen</div><div class="meta">Type Designer · Stilskel<br>8 yrs · Bergen</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+        </div>
+
+        <div class="group-header">C <span class="count">22 ATTENDEES</span></div>
+        <div class="attendee-list">
+          <div class="attendee-row"><span class="av av-coral">CO</span><div class="info"><div class="name">Camille Orta</div><div class="meta">Founder · Atlas Bookings<br>4 yrs · Barcelona</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+          <div class="attendee-row"><span class="av av-sage">CN</span><div class="info"><div class="name">Cassidy Nakamura</div><div class="meta">Engineer · Northbound Cloud<br>5 yrs · Vancouver</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+          <div class="attendee-row"><span class="av av-olive">CD</span><div class="info"><div class="name">Clara Dupont</div><div class="meta">Researcher · Wave Lab<br>4 yrs · Paris</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+          <div class="attendee-row"><span class="av av-coral">CW</span><div class="info"><div class="name">Curtis Wiston</div><div class="meta">Engineer · Lighthouse Studios<br>3 yrs · Portland</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+        </div>
+
+        <div class="group-header">D <span class="count">9 ATTENDEES</span></div>
+        <div class="attendee-list">
+          <div class="attendee-row"><span class="av av-sage">DG</span><div class="info"><div class="name">Daniela Gomez</div><div class="meta">Brand · Estudio Mañana<br>6 yrs · Mexico City</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+          <div class="attendee-row"><span class="av av-coral">DE</span><div class="info"><div class="name">Devon Eze</div><div class="meta">Indie · Lattice Books<br>2 yrs · Accra</div></div><button class="btn btn-ghost btn-sm">Message</button><button class="btn btn-ghost btn-sm">Connect</button></div>
+        </div>
+
+        <div class="pagination">
+          <button class="btn btn-ghost btn-sm">← Previous</button>
+          <div class="pages">
+            <span class="active">1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>…</span><span>32</span>
+          </div>
+          <button class="btn btn-ghost btn-sm">Next →</button>
+        </div>
+      </div>
+
+      <aside class="aside">
+        <div class="widget">
+          <h4>Suggested connections</h4>
+          <div class="person mb-12"><span class="av av-coral">MP</span><div><div class="person-name">Maya Patel</div><div class="meta">Lumens &amp; Loom</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Follow</button></div>
+          <div class="person mb-12"><span class="av av-sage">JS</span><div><div class="person-name">Julien Soto</div><div class="meta">Drift Vector</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Follow</button></div>
+          <div class="person mb-12"><span class="av av-olive">MA</span><div><div class="person-name">Maya Adkkson</div><div class="meta">Followed by 6 you know</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Follow</button></div>
+          <div class="person"><span class="av av-coral">TV</span><div><div class="person-name">Teresa Veiry</div><div class="meta">Speaker · Day 2</div></div><span class="spacer"></span><button class="btn btn-ghost btn-sm">Follow</button></div>
+        </div>
+
+        <div class="widget">
+          <h4>Hallway meetups today</h4>
+          <ul class="widget-list">
+            <li><strong>Type design coffee</strong><div class="meta">10:15 · Hall A</div></li>
+            <li><strong>Indie founders huddle</strong><div class="meta">12:30 · Vector Lounge</div></li>
+            <li><strong>First-timers walk</strong><div class="meta">17:00 · Atrium</div></li>
+          </ul>
+          <button class="btn btn-ghost btn-sm" style="width:100%; margin-top:6px;">See all meetups</button>
+        </div>
+
+        <div class="widget">
+          <h4>Trending topics</h4>
+          <ul class="widget-list">
+            <li><strong>#design-engineering</strong><div class="meta">22 attendees · 4 sessions</div></li>
+            <li><strong>#hosted-software</strong><div class="meta">18 attendees · 3 sessions</div></li>
+            <li><strong>#small-teams</strong><div class="meta">15 attendees · 4 sessions</div></li>
+            <li><strong>#studios-of-one</strong><div class="meta">11 attendees · 2 sessions</div></li>
+          </ul>
+        </div>
+
+        <div class="widget">
+          <h4>Directory tip</h4>
+          <p style="font-size:12.5px; margin:0 0 10px;">Add three skills to your profile and you'll show up in twice as many "Find someone who…" searches during the event.</p>
+          <button class="btn btn-ghost btn-sm">Edit my profile</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="#"><span class="dot"></span> Ember Vector Works</a>
+      <p>October 14–16, 2025<br>Pacific Hall, Portland OR</p>
+    </div>
+    <div>
+      <h5>Program</h5>
+      <ul>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+        <li><a href="livestream.html">Livestream</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Your event</h5>
+      <ul>
+        <li><a href="my-agenda.html">My agenda</a></li>
+        <li><a href="attendees.html">Attendees</a></li>
+        <li><a href="registration.html">Register</a></li>
+        <li><a href="#">Code of conduct</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Elsewhere</h5>
+      <ul>
+        <li><a href="#">Mastodon</a></li>
+        <li><a href="#">Bluesky</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+    <div></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Ember Vector Works Cooperative. Made in Portland.</span>
+    <span>Presented with support from Field Notes Studio, Selfware, and Caretender Press.</span>
+  </div>
+</footer>
+
+</body>
+</html>

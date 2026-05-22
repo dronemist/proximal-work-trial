@@ -1,0 +1,173 @@
+[grade] VLM judge: 15 pairs in 15.2s
+{
+  "per_page_viewport": {
+    "alerts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6686633757986882,
+          "extra": {
+            "reference_size": [
+              1440,
+              2271
+            ],
+            "candidate_size": [
+              1440,
+              1953
+            ],
+            "compared_size": [
+              1440,
+              1953
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4345991909503937,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 344,
+            "matched_pairs": 344,
+            "mean_matched_iou": 0.1888764351606369,
+            "raw_score_before_sqrt": 0.1888764649629593
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7115613615261237,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 344,
+            "matched_pairs": 344,
+            "mean_normalized_centroid_distance": 0.2884386384738763,
+            "page_diagonal_px": 2689.336619208539
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7115555459374473,
+          "extra": {
+            "bg_score": 0.7692275294065475,
+            "fg_score": 0.6538835624683471,
+            "bg": {
+              "reference_palette_size": 9,
+              "candidate_palette_size": 15,
+              "weighted_mean_oklab_distance": 0.030215870589017868,
+              "base_score_before_penalty": 0.7985608627398808,
+              "over_color_penalty": 0.029333333333333336
+            },
+            "fg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 10,
+              "weighted_mean_oklab_distance": 0.05037460848689079,
+              "base_score_before_penalty": 0.6641692767540613,
+              "over_color_penalty": 0.010285714285714285
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.8519226985571646,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.7884609979388066,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.28217821782178215
+              ],
+              [
+                14.0,
+                0.45544554455445546
+              ],
+              [
+                16.0,
+                0.22772277227722773
+              ],
+              [
+                18.0,
+                0.022277227722772276
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                11.0,
+                0.27906976744186046
+              ],
+              [
+                12.0,
+                0.16279069767441862
+              ],
+              [
+                13.0,
+                0.35755813953488375
+              ],
+              [
+                13.3,
+                0.011627906976744186
+              ],
+              [
+                14.0,
+                0.16569767441860464
+              ],
+              [
+                24.0,
+                0.011627906976744186
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "arial",
+              "georgia",
+              "sfmono-regular"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5647887323943662,
+          "extra": {
+            "reference_tokens": 592,
+            "candidate_tokens": 519,
+            "matched_tokens": 401,
+            "union_tokens": 710,
+            "reference_unique": 313,
+            "candidate_unique": 266
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple major content differences: the candidate halluccinates different alert IDs (ALT-4023 vs ALT-4803), wrong signal sources (roster-gw, tideline-jobs, manifest-ingest vs api-gateway, media-worker, backup-orchestrator), different runbook IDs in triage links (RB-002

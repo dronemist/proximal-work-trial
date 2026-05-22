@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Financing &amp; Payment Plans — Quartz Grove Lab</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+.faq { border-bottom: 1px solid var(--gray-200); padding: 10px 0; display:flex; justify-content:space-between; gap:12px; }
+.faq:last-child { border-bottom: 0; }
+.faq .q { font-weight: 500; color: var(--text-strong); font-size: 13px; }
+.faq .chev { color: var(--muted); font-size: 18px; }
+.method-row { display:flex; align-items:center; gap:10px; padding: 10px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; }
+.brand-card { width: 36px; height: 24px; border-radius: 4px; background: linear-gradient(135deg,#1e3a8a,#3b82f6); color:#fff; font-size:9px; font-weight:700; display:inline-flex; align-items:center; justify-content:center; }
+.brand-card.mc { background: linear-gradient(135deg,#dc2626,#f59e0b); }
+.brand-card.bank { background: linear-gradient(135deg,#475569,#94a3b8); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a class="brand"><span class="brand-mark"></span> Quartz Grove Lab</a>
+      <nav class="nav-links">
+        <a class="nav-link">Patient Dashboard</a>
+        <a class="nav-link">Appointments</a>
+        <a class="nav-link">Billing &amp; Insurance</a>
+        <a class="nav-link active">Payment Plans</a>
+        <a class="nav-link">Practice Settings</a>
+      </nav>
+      <div class="nav-right">
+        <div class="search">Search patients, invoices…</div>
+        <div class="avatar">RV</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="crumbs"><span>Billing</span><span class="sep">›</span><span>My Catatonic</span><span class="sep">›</span><span class="here">Payment plan</span></div>
+
+    <div class="eyebrow">Payment plan · Apr 1602</div>
+    <h1 class="page-title">A friendlier way to settle your balance.</h1>
+    <p class="lede">We've worked out a few interest-free options for Aria's outstanding visits. Pick a cadence that fits the month — you can pause or adjust any time by giving the front desk a call.</p>
+    <div class="row-tight" style="gap:6px; margin-bottom:14px;">
+      <span class="tag blue"><span class="dot"></span>Active plan</span>
+      <span class="tag green"><span class="dot"></span>Patient: Iris Calloway</span>
+      <span class="tag"><span class="dot"></span>Started Aug 12, 2024</span>
+      <span class="tag amber"><span class="dot"></span>No interest · 0% APR</span>
+    </div>
+
+    <div class="row cols-3-2" style="margin-bottom:16px;">
+      <div class="card" style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+        <div>
+          <div class="tiny muted">REMAINING BALANCE</div>
+          <div class="bignum" style="font-size:34px;">$1,284.50</div>
+          <div class="tiny muted" style="margin-bottom:10px;">of $2,140.00 originally financed across 6 monthly payments</div>
+          <button class="btn btn-primary">Pay $213.75 now</button>
+          <button class="btn" style="margin-left:6px;">View schedule</button>
+          <div class="tiny muted" style="margin-top:8px;">Adjust plan</div>
+        </div>
+        <div class="card tight" style="background: var(--gray-50);">
+          <div style="display:flex; justify-content:space-between;">
+            <strong>Next payment</strong>
+            <span class="tag amber">In 6 days</span>
+          </div>
+          <div style="font-size: 18px; font-weight:700; margin-top:6px;">Tue, Oct 22</div>
+          <div class="tiny muted">Auto-charged to Visa **4129</div>
+          <div class="divider"></div>
+          <div class="kv"><span class="k">Installment 4 of 6</span><span class="v mono">$213.75</span></div>
+          <div class="kv"><span class="k">Fees</span><span class="v mono">$0.00</span></div>
+          <div class="kv" style="font-weight:600;"><span class="k">Total due</span><span class="v mono">$213.75</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Progress</h3><span class="tag green">On track</span></div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline;">
+          <div><div class="tiny muted">PAID</div><div style="font-weight:700; font-size:18px;">$855.50</div></div>
+          <div><div class="tiny muted">OF</div><div style="font-weight:700; font-size:18px;">$2,140.00</div></div>
+        </div>
+        <div class="bar" style="margin-top:6px;"><div class="track" style="height:10px;"><div class="fill" style="width:40%;"></div></div></div>
+        <div class="tiny muted">40% complete · 4 of 6 installments remaining</div>
+        <div class="divider"></div>
+        <div class="row-tight" style="gap:14px;"><div><div class="tiny muted">VISIT CHARGES</div><div style="font-weight:600;">$2,140.00</div></div><div><div class="tiny muted">LAB SENT 8/16</div><div style="font-weight:600;">$0.00</div></div></div>
+        <div class="divider"></div>
+        <div class="alert blue"><div><div class="title">Autopay is on</div><div class="desc">Each installment is charged automatically the night before the due date</div></div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-h"><h3>Installment options</h3><div class="tiny muted">Switch any time — your remaining balance stays the same · Quartz Grove never charges interest or fees on these plans</div></div>
+      <div class="row cols-3">
+        <div class="opt-card">
+          <div style="display:flex; justify-content:space-between;"><strong>3-month sprint</strong><span class="tag green">30 days</span></div>
+          <div class="tiny muted">Wrap up quickly</div>
+          <div style="font-size: 22px; font-weight:700; margin: 6px 0;">$428.17 <span class="tiny muted" style="font-weight:400;">/ month</span></div>
+          <div class="tiny" style="margin-bottom:4px;">• Paid off by January 2025</div>
+          <div class="tiny" style="margin-bottom:4px;">• No interest, no setup fee</div>
+          <div class="tiny" style="margin-bottom:8px;">• Autopay or manual</div>
+          <button class="btn">Choose 3 months</button>
+        </div>
+        <div class="opt-card featured">
+          <div style="display:flex; justify-content:space-between;"><strong>6-month standard</strong><span class="tag blue">You're on this</span></div>
+          <div class="tiny muted">Your current plan</div>
+          <div style="font-size: 22px; font-weight:700; margin: 6px 0;">$213.75 <span class="tiny muted" style="font-weight:400;">/ month</span></div>
+          <div class="tiny" style="margin-bottom:4px;">• Paid off by April 2025</div>
+          <div class="tiny" style="margin-bottom:4px;">• No interest, no late fee</div>
+          <div class="tiny" style="margin-bottom:4px;">• Skip one month, no penalty</div>
+          <div class="tiny" style="margin-bottom:8px;">• Email + SMS reminders</div>
+          <button class="btn btn-primary" style="width:100%;">Keep this plan</button>
+        </div>
+        <div class="opt-card">
+          <div style="display:flex; justify-content:space-between;"><strong>12-month easy</strong><span class="tag amber">90 days</span></div>
+          <div class="tiny muted">Lowest monthly</div>
+          <div style="font-size: 22px; font-weight:700; margin: 6px 0;">$107.04 <span class="tiny muted" style="font-weight:400;">/ month</span></div>
+          <div class="tiny" style="margin-bottom:4px;">• Paid off by October 2025</div>
+          <div class="tiny" style="margin-bottom:4px;">• No interest, no setup fee</div>
+          <div class="tiny" style="margin-bottom:8px;">• Pause up to two months</div>
+          <button class="btn">Switch to 12 months</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row cols-2" style="margin-bottom:16px;">
+      <div class="card">
+        <div class="card-h"><h3>Upcoming schedule</h3><a class="btn-link">Download .ics</a></div>
+        <table class="table">
+          <tbody>
+            <tr><td><strong>Tue, Oct 22, 2024</strong> <span class="tag green">Next</span><div class="tiny muted">Installment 4 of 6 · Autopay · Visa **4129</div></td><td class="right mono">$213.75</td></tr>
+            <tr><td><strong>Fri, Nov 22, 2024</strong><div class="tiny muted">Installment 5 of 6 · Autopay</div></td><td class="right mono">$213.75</td></tr>
+            <tr><td><strong>Sun, Dec 22, 2024</strong><div class="tiny muted">Installment 6 of 6 · Autopay</div></td><td class="right mono">$213.75</td></tr>
+            <tr><td><strong>Wed, Jan 22, 2025</strong><div class="tiny muted">Final true-up · only if any minor adjustments</div></td><td class="right mono">$213.25</td></tr>
+          </tbody>
+        </table>
+        <div class="tiny muted" style="margin-top:6px;">Total remaining $1,284.50 <span style="float:right;">Reschedule a payment</span></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Payment method</h3><a class="btn-link">Add new</a></div>
+        <div class="method-row">
+          <div class="brand-card">VISA</div>
+          <div style="flex:1;"><div style="font-weight:600;">Visa · 4129</div><div class="tiny muted">Exp 04/27 · Iris Calloway · default</div></div>
+          <span class="tag green">Default</span>
+        </div>
+        <div class="method-row">
+          <div class="brand-card mc">MC</div>
+          <div style="flex:1;"><div style="font-weight:600;">Mastercard · 8024</div><div class="tiny muted">Exp 11/26 · Backup</div></div>
+          <a class="btn-link tiny">Make default</a>
+        </div>
+        <div class="method-row">
+          <div class="brand-card bank">ACH</div>
+          <div style="flex:1;"><div style="font-weight:600;">Pinebrook Credit Union</div><div class="tiny muted">Checking ··· 7012 · verified</div></div>
+          <a class="btn-link tiny">Use this</a>
+        </div>
+        <div class="divider"></div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="switch on"></span>
+          <div>
+            <div style="font-weight:600;">Autopay</div>
+            <div class="tiny muted">Charge default card the day before each due date</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row cols-2" style="margin-bottom:16px;">
+      <div class="card">
+        <div class="card-h"><h3>Payment history</h3><div class="row-tight"><a class="btn-link">Export CSV</a><a class="btn-link">Print</a></div></div>
+        <table class="table">
+          <thead><tr><th>Date</th><th>Installment</th><th>Method</th><th>Status</th><th class="right">Amount</th><th>Receipt</th></tr></thead>
+          <tbody>
+            <tr><td>Sep 22, 2024</td><td>3 of 6</td><td>Visa **4129</td><td><span class="tag green">Paid</span></td><td class="right mono">$213.75</td><td><a class="btn-link tiny">QG-7843</a></td></tr>
+            <tr><td>Aug 22, 2024</td><td>2 of 6</td><td>Visa **4129</td><td><span class="tag green">Paid</span></td><td class="right mono">$213.75</td><td><a class="btn-link tiny">QG-7715</a></td></tr>
+            <tr><td>Jul 22, 2024</td><td>1 of 6</td><td>Visa **4129</td><td><span class="tag green">Paid</span></td><td class="right mono">$214.00</td><td><a class="btn-link tiny">QG-7610</a></td></tr>
+            <tr><td>Jun 23, 2024</td><td>—</td><td>Visa **4129</td><td><span class="tag blue">Deposit</span></td><td class="right mono">$214.25</td><td><a class="btn-link tiny">QG-7521</a></td></tr>
+            <tr><td>Jun 12, 2024</td><td>Setup</td><td>ACH · Pinebrook CU</td><td><span class="tag">Plan opened</span></td><td class="right mono">$2,140.00</td><td><a class="btn-link tiny">QG-7444</a></td></tr>
+            <tr><td>Jun 14, 2024</td><td>—</td><td>—</td><td><span class="tag amber">Pending</span></td><td class="right mono">—</td><td></td></tr>
+          </tbody>
+        </table>
+        <div class="tiny muted" style="margin-top:6px;">Showing 5 of 5 events</div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Plan activity</h3></div>
+        <div class="tl-item"><div class="dot"></div><div class="body"><div class="title">Sep 22 · Installment 4 paid</div><div class="meta">Autopay charged to Visa **4129 · Confirmation: QG-7843</div></div></div>
+        <div class="tl-item"><div class="dot"></div><div class="body"><div class="title">Sep 18 · Reminder sent</div><div class="meta">SMS · "Your payment of $213.75 will charge Sep 22"</div></div></div>
+        <div class="tl-item"><div class="dot"></div><div class="body"><div class="title">Aug 22 · Card updated</div><div class="meta">Default method changed from Visa to Mastercard, then back</div></div></div>
+        <div class="tl-item"><div class="dot"></div><div class="body"><div class="title">Jul 28 · Plan started</div><div class="meta">6-month installments · No interest · No fees </div></div></div>
+      </div>
+    </div>
+
+    <div class="row cols-2" style="margin-bottom:16px;">
+      <div class="card">
+        <div class="card-h"><h3>Make a one-time payment</h3><div class="tiny muted">Pay ahead to settle in full</div></div>
+        <div class="row cols-2">
+          <div>
+            <div class="tiny muted">AMOUNT</div>
+            <div class="btn" style="width:100%; justify-content:space-between;">$213.75 ▾</div>
+            <div class="tiny muted" style="margin-top:6px;">Minimum $25.00 · Anything more goes toward the next installment</div>
+          </div>
+          <div>
+            <div class="tiny muted">PAY WITH</div>
+            <div class="btn" style="width:100%; justify-content:space-between;">Visa · 4129 (default) ▾</div>
+            <div class="row-tight" style="margin-top:8px;"><span class="tag">$25</span><span class="tag">$50</span><span class="tag">$100</span><span class="tag blue">Full $1,284.50</span></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div class="tiny muted">☐ Email me a receipt</div>
+          <button class="btn btn-primary">Charge $213.75</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>Common questions</h3></div>
+        <div class="row cols-2">
+          <div>
+            <div class="faq"><span class="q">Will this affect my credit?</span><span class="chev">+</span></div>
+            <div class="faq"><span class="q">What if a month is tight?</span><span class="chev">+</span></div>
+          </div>
+          <div>
+            <div class="faq"><span class="q">Can I pay off early?</span><span class="chev">+</span></div>
+            <div class="faq"><span class="q">Do you offer external financing?</span><span class="chev">+</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px;">
+      <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:220px;">
+          <h3 style="margin: 0 0 4px;">Need to talk it through?</h3>
+          <div class="tiny muted">Naren at the front desk handles every plan personally. Most questions take less than five minutes.</div>
+        </div>
+        <div class="tiny muted">(925) 555-0140</div>
+        <button class="btn btn-primary">Message billing</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© 2024 Quartz Grove Lab · 612 Linden Way, Portland, OR</div>
+      <div class="footer-links"><a>Patient</a><a>Appointments</a><a>Billing</a><a>Plans</a><a>Settings</a></div>
+      <div>Support: billing@quartzgrove.health · HIPAA-compliant · Build 4.21.1</div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rates &amp; Availability — Sable Echo Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.cal-toolbar {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+.cal-toolbar .seg {
+  display: inline-flex;
+  border: 1px solid var(--border-2);
+  border-radius: 999px;
+  overflow: hidden;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cal-toolbar .seg span {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.cal-toolbar .seg span.on { background: var(--ink); color: #fff; }
+
+.cal-toolbar .legend { display: flex; gap: 14px; font-size: 11px; color: var(--muted); flex-wrap: wrap; }
+.cal-toolbar .legend span { display: inline-flex; align-items: center; gap: 6px; }
+.swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+
+.two-cal { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 800px) { .two-cal { grid-template-columns: 1fr; } }
+
+.range-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+@media (max-width: 768px) { .range-form { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 420px) { .range-form { grid-template-columns: 1fr; } }
+
+.defaults-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 768px) { .defaults-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px) { .defaults-grid { grid-template-columns: 1fr; } }
+.default-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 16px;
+}
+.default-card .label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.default-card .v {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  color: var(--gold-3);
+}
+.default-card .sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+.season-table-card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 8px 16px; overflow-x: auto; }
+
+.fc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 768px) { .fc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px) { .fc-grid { grid-template-columns: 1fr; } }
+
+.subnav {
+  display: flex;
+  gap: 18px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+  margin: 22px 0 18px;
+  flex-wrap: wrap;
+}
+.subnav a.active { color: var(--ink); border-bottom: 2px solid var(--gold); padding-bottom: 12px; margin-bottom: -11px; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a class="brand">Sable Echo. <span>Studio</span></a>
+    <nav class="primary-nav">
+      <a>Properties</a>
+      <a>Property</a>
+      <a>Guest Messages</a>
+      <a class="active">Rates &amp; Availability</a>
+      <a>Reports</a>
+    </nav>
+    <a class="cta">Publish changes</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="eyebrow">CALENDAR &amp; PRICING <span class="sep">—</span> SUMMER PASSAGE</div>
+    <h1 class="title">The year, priced to its mood.</h1>
+    <p class="lede">Each night is a decision — what to charge, who to welcome, when to rest the rooms. Set the rhythm once, the calendar carries it across every channel you sell on.</p>
+
+    <div class="cal-toolbar" style="margin-top: 26px;">
+      <select class="select" style="max-width: 220px;"><option>Maison Verre — Suite Aubier</option></select>
+      <span class="muted small">·</span>
+      <span class="small">Linked to 6 channels</span>
+      <div style="flex:1"></div>
+      <div class="seg">
+        <span class="on">Month view</span><span>Year view</span><span>List</span>
+      </div>
+      <a class="btn ghost small">Copy to other rooms</a>
+    </div>
+
+    <div class="cal-toolbar">
+      <div class="legend">
+        <span><span class="swatch" style="background:var(--card)"></span> Open</span>
+        <span><span class="swatch" style="background:#efe6cf"></span> Booked</span>
+        <span><span class="swatch" style="background:#fbe9a4"></span> High season</span>
+        <span><span class="swatch" style="background:var(--gold)"></span> Today</span>
+        <span><span class="swatch" style="background:#f4eedb"></span> Blocked</span>
+      </div>
+      <div style="flex:1"></div>
+      <a class="btn ghost small">Block dates</a>
+      <a class="btn ghost small">Open dates</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">CHAPTER I <span class="sep">—</span> THE YEAR ON A PAGE</div>
+    <div class="split">
+      <div>
+        <h2 class="section-title">Twelve months, set in advance.</h2>
+        <p class="lede">A two-month working view sits below. You'd be obliged to begin with the first weekend, since that's also a base rate. Touch a date to edit its rate, hold to drag a range.</p>
+      </div>
+      <div class="dark-image illus" style="aspect-ratio: 16/8;"></div>
+    </div>
+
+    <div class="two-cal" style="margin-top: 22px;">
+      <!-- November 2024 -->
+      <div class="cal">
+        <h4>November 2024 <span class="muted small">€335 avg</span></h4>
+        <div class="cal-grid">
+          <div class="dow">M</div><div class="dow">T</div><div class="dow">W</div><div class="dow">T</div><div class="dow">F</div><div class="dow">S</div><div class="dow">S</div>
+          <div class="cal-cell muted"><span>28</span></div><div class="cal-cell muted"><span>29</span></div><div class="cal-cell muted"><span>30</span></div><div class="cal-cell muted"><span>31</span></div>
+          <div class="cal-cell"><span>1</span><span class="rate">€320</span></div>
+          <div class="cal-cell booked"><span>2</span><span class="rate">€340</span></div>
+          <div class="cal-cell booked"><span>3</span><span class="rate">€340</span></div>
+          <div class="cal-cell"><span>4</span><span class="rate">€320</span></div>
+          <div class="cal-cell"><span>5</span><span class="rate">€320</span></div>
+          <div class="cal-cell"><span>6</span><span class="rate">€320</span></div>
+          <div class="cal-cell"><span>7</span><span class="rate">€320</span></div>
+          <div class="cal-cell booked"><span>8</span><span class="rate">€340</span></div>
+          <div class="cal-cell booked"><span>9</span><span class="rate">€340</span></div>
+          <div class="cal-cell booked"><span>10</span><span class="rate">€340</span></div>
+          <div class="cal-cell"><span>11</span><span class="rate">€320</span></div>
+          <div class="cal-cell"><span>12</span><span class="rate">€320</span></div>
+          <div class="cal-cell"><span>13</span><span class="rate">€320</span></div>
+          <div class="cal-cell high"><span>14</span><span class="rate">€365</span></div>
+          <div class="cal-cell high"><span>15</span><span class="rate">€365</span></div>
+          <div class="cal-cell high"><span>16</span><span class="rate">€380</span></div>
+          <div class="cal-cell high"><span>17</span><span class="rate">€380</span></div>
+          <div class="cal-cell"><span>18</span><span class="rate">€320</span></div>
+          <div class="cal-cell"><span>19</span><span class="rate">€320</span></div>
+          <div class="cal-cell"><span>20</span><span class="rate">€320</span></div>
+          <div class="cal-cell"><span>21</span><span class="rate">€320</span></div>
+          <div class="cal-cell"><span>22</span><span class="rate">€340</span></div>
+          <div class="cal-cell booked"><span>23</span><span class="rate">€340</span></div>
+          <div class="cal-cell booked"><span>24</span><span class="rate">€340</span></div>
+          <div class="cal-cell"><span>25</span><span class="rate">€320</span></div>
+          <div class="cal-cell"><span>26</span><span class="rate">€320</span></div>
+          <div class="cal-cell"><span>27</span><span class="rate">€320</span></div>
+          <div class="cal-cell cal-row-last"><span>28</span><span class="rate">€320</span></div>
+          <div class="cal-cell cal-row-last"><span>29</span><span class="rate">€340</span></div>
+          <div class="cal-cell cal-row-last"><span>30</span><span class="rate">€340</span></div>
+          <div class="cal-cell muted cal-row-last"><span>1</span></div>
+          <div class="cal-cell muted cal-row-last"><span>2</span></div>
+          <div class="cal-cell muted cal-row-last"><span>3</span></div>
+          <div class="cal-cell muted cal-row-last"><span>4</span></div>
+        </div>
+      </div>
+      <!-- December 2024 -->
+      <div class="cal">
+        <h4>December 2024 <span class="muted small">€395 avg</span></h4>
+        <div class="cal-grid">
+          <div class="dow">M</div><div class="dow">T</div><div class="dow">W</div><div class="dow">T</div><div class="dow">F</div><div class="dow">S</div><div class="dow">S</div>
+          <div class="cal-cell muted"><span>25</span></div><div class="cal-cell muted"><span>26</span></div><div class="cal-cell muted"><span>27</span></div><div class="cal-cell muted"><span>28</span></div><div class="cal-cell muted"><span>29</span></div><div class="cal-cell muted"><span>30</span></div>
+          <div class="cal-cell"><span>1</span><span class="rate">€340</span></div>
+          <div class="cal-cell"><span>2</span><span class="rate">€340</span></div>
+          <div class="cal-cell"><span>3</span><span class="rate">€340</span></div>
+          <div class="cal-cell"><span>4</span><span class="rate">€340</span></div>
+          <div class="cal-cell"><span>5</span><span class="rate">€365</span></div>
+          <div class="cal-cell high"><span>6</span><span class="rate">€385</span></div>
+          <div class="cal-cell high"><span>7</span><span class="rate">€385</span></div>
+          <div class="cal-cell high"><span>8</span><span class="rate">€385</span></div>
+          <div class="cal-cell"><span>9</span><span class="rate">€340</span></div>
+          <div class="cal-cell"><span>10</span><span class="rate">€340</span></div>
+          <div class="cal-cell"><span>11</span><span class="rate">€340</span></div>
+          <div class="cal-cell today"><span>12</span><span class="rate">€365</span></div>
+          <div class="cal-cell booked"><span>13</span><span class="rate">€365</span></div>
+          <div class="cal-cell booked"><span>14</span><span class="rate">€365</span></div>
+          <div class="cal-cell booked"><span>15</span><span class="rate">€365</span></div>
+          <div class="cal-cell"><span>16</span><span class="rate">€340</span></div>
+          <div class="cal-cell"><span>17</span><span class="rate">€340</span></div>
+          <div class="cal-cell"><span>18</span><span class="rate">€340</span></div>
+          <div class="cal-cell high"><span>19</span><span class="rate">€445</span></div>
+          <div class="cal-cell high"><span>20</span><span class="rate">€445</span></div>
+          <div class="cal-cell high"><span>21</span><span class="rate">€445</span></div>
+          <div class="cal-cell high"><span>22</span><span class="rate">€445</span></div>
+          <div class="cal-cell high"><span>23</span><span class="rate">€445</span></div>
+          <div class="cal-cell booked"><span>24</span><span class="rate">€445</span></div>
+          <div class="cal-cell booked"><span>25</span><span class="rate">€485</span></div>
+          <div class="cal-cell booked"><span>26</span><span class="rate">€485</span></div>
+          <div class="cal-cell booked"><span>27</span><span class="rate">€485</span></div>
+          <div class="cal-cell booked"><span>28</span><span class="rate">€485</span></div>
+          <div class="cal-cell booked"><span>29</span><span class="rate">€485</span></div>
+          <div class="cal-cell cal-row-last"><span>30</span><span class="rate">€445</span></div>
+          <div class="cal-cell high cal-row-last"><span>31</span><span class="rate">€485</span></div>
+          <div class="cal-cell muted cal-row-last"><span>1</span></div>
+          <div class="cal-cell muted cal-row-last"><span>2</span></div>
+          <div class="cal-cell muted cal-row-last"><span>3</span></div>
+          <div class="cal-cell muted cal-row-last"><span>4</span></div>
+          <div class="cal-cell muted cal-row-last"><span>5</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">BULK EDITOR</div>
+    <h2 class="section-title">Reprice a range.</h2>
+    <div class="range-form">
+      <div>
+        <span class="field-label">Date from</span>
+        <input class="input" value="01/09/2024">
+      </div>
+      <div>
+        <span class="field-label">Date to</span>
+        <input class="input" value="14/09/2024">
+      </div>
+      <div>
+        <span class="field-label">Nightly rate up to 5,000</span>
+        <input class="input" value="€345">
+      </div>
+      <a class="btn">Apply to 14 nights</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">RULES</div>
+    <h2 class="section-title">Defaults that govern the year.</h2>
+    <div class="defaults-grid">
+      <div class="default-card">
+        <div class="label">Minimum Stay</div>
+        <div class="v">2 nights</div>
+        <div class="sub">three on bank holidays</div>
+      </div>
+      <div class="default-card">
+        <div class="label">Check-in window</div>
+        <div class="v">15:00 — 19:00</div>
+        <div class="sub">arranged from 13:00</div>
+      </div>
+      <div class="default-card">
+        <div class="label">Check-out</div>
+        <div class="v">14 days</div>
+        <div class="sub">cancellation cut-off</div>
+      </div>
+      <div class="default-card">
+        <div class="label">Lead time</div>
+        <div class="v">36 hours</div>
+        <div class="sub">before booking arrival</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="split">
+      <div>
+        <div class="section-eyebrow">SEASONS</div>
+        <h2 class="section-title">Seasons declared, then honoured.</h2>
+        <p class="lede">Rather than fiddle with single nights, define four broad seasons and let them carry the pricing forward. Override only where the calendar — or an exhibition opening, a regional festival, the long sigh of February — calls for it.</p>
+      </div>
+      <div class="dark-image illus" style="aspect-ratio: 16/9;"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">SEASONS, AT A GLANCE</div>
+    <h2 class="section-title">Four moods, plotted across the year.</h2>
+    <div class="season-table-card">
+      <table class="tbl">
+        <thead>
+          <tr><th>Season</th><th>Window</th><th>Mood</th><th>Min. stay</th><th class="num-col">Nightly rate</th><th class="num-col">Weekend lift</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="dot gold"></span>High</td><td>15 Jun — 31 Aug</td><td>Bright, full, plotted in advance.</td><td>3 nights</td><td class="num-col">€485</td><td class="num-col">+15%</td></tr>
+          <tr><td><span class="dot green"></span>Shoulder — Spring</td><td>15 Mar — 14 Jun</td><td>Open, gentle, with longer light.</td><td>2 nights</td><td class="num-col">€365</td><td class="num-col">+10%</td></tr>
+          <tr><td><span class="dot blue"></span>Shoulder — Autumn</td><td>1 Sep — 14 Nov</td><td>Quiet, leaves down, fireside.</td><td>2 nights</td><td class="num-col">€340</td><td class="num-col">+8%</td></tr>
+          <tr><td><span class="dot gray"></span>Low — Deep Winter</td><td>15 Nov — 14 Mar</td><td>Hushed, for those who read.</td><td>2 nights</td><td class="num-col">€295</td><td class="num-col">+5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">HOW THE YEAR LOOKS</div>
+    <h2 class="section-title">What the calendar is forecasting.</h2>
+    <div class="fc-grid">
+      <div class="default-card">
+        <div class="label">Avg. nightly rate, Q4</div>
+        <div class="v">€371</div>
+        <div class="sub" style="color:#6c8a3a">+8.4% vs Q3</div>
+      </div>
+      <div class="default-card">
+        <div class="label">Forward occupancy, 90 days</div>
+        <div class="v">68%</div>
+        <div class="sub" style="color:#6c8a3a">+12 pp on pace</div>
+      </div>
+      <div class="default-card">
+        <div class="label">Nights priced, Q4</div>
+        <div class="v">342</div>
+        <div class="sub">of 366 in calendar</div>
+      </div>
+      <div class="default-card">
+        <div class="label">RevPAR, projected Q4</div>
+        <div class="v">€194</div>
+        <div class="sub" style="color:#6c8a3a">+9.2% vs prior year</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="split">
+      <div class="dark-image illus" style="aspect-ratio: 16/9;"></div>
+      <div>
+        <div class="section-eyebrow">SYNDICATION</div>
+        <h2 class="section-title">Distributed, but never duplicated.</h2>
+        <p class="lede">When you publish, the calendar pushes outward to those minutes — to the direct booking engine, to Airbnb, to the partner channels you've grown to trust over the years. Most travel-policy changes pull back inside fifteen minutes. We remain a small, considered list.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">DISTRIBUTION</div>
+    <h2 class="section-title">Where these rates appear.</h2>
+    <div class="season-table-card">
+      <table class="tbl">
+        <thead>
+          <tr><th>Channel</th><th>Status</th><th>Last sync</th><th>Commission</th><th class="right">Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Direct &mdash; sableecho.studio</td><td><span class="pill green">Live</span></td><td>2 min ago</td><td>—</td><td class="right"><a class="btn ghost small">Manage</a></td></tr>
+          <tr><td>Airbnb</td><td><span class="pill green">Live</span></td><td>9 min ago</td><td>14%</td><td class="right"><a class="btn ghost small">Manage</a></td></tr>
+          <tr><td>Mr &amp; Mrs Smith</td><td><span class="pill green">Live</span></td><td>14 min ago</td><td>17%</td><td class="right"><a class="btn ghost small">Manage</a></td></tr>
+          <tr><td>Plum Guide</td><td><span class="pill green">Live</span></td><td>22 min ago</td><td>15%</td><td class="right"><a class="btn ghost small">Manage</a></td></tr>
+          <tr><td>Slow Stays</td><td><span class="pill">Paused</span></td><td>4 days ago</td><td>10%</td><td class="right"><a class="btn ghost small">Reconnect</a></td></tr>
+          <tr><td>Booking.com</td><td><span class="pill">Disabled</span></td><td>last quarter</td><td>—</td><td class="right"><a class="btn ghost small">Configure</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">AUDIT TRAIL</div>
+    <h2 class="section-title">Recent changes to the calendar.</h2>
+    <div class="season-table-card">
+      <table class="tbl">
+        <thead>
+          <tr><th>Date</th><th>Property</th><th>Change</th><th>By</th><th class="num-col">Nights affected</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Today, 11:08</td><td>Maison Verre</td><td>Lifted nightly rate to €445 over Christmas</td><td>Camille A.</td><td class="num-col">9</td></tr>
+          <tr><td>Today, 09:52</td><td>Cap Ferret Cabin</td><td>Blocked the weekend of 14 — 16 March</td><td>Camille A.</td><td class="num-col">3</td></tr>
+          <tr><td>Yesterday, 17:24</td><td>The Black Barn</td><td>Reduced shoulder-rate by €20</td><td>Eleanor W.</td><td class="num-col">28</td></tr>
+          <tr><td>Yesterday, 13:11</td><td>Atelier sur la Galange</td><td>Re-opened 7 — 14 October</td><td>Margaux F.</td><td class="num-col">7</td></tr>
+          <tr><td>3 days ago</td><td>Plaza Terraza</td><td>Set minimum stay to 3 nights in July</td><td>Anders C.</td><td class="num-col">31</td></tr>
+          <tr><td>Last week</td><td>Casa Lente</td><td>Pushed updated rates to Airbnb</td><td>Automation</td><td class="num-col">62</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <h4>Sable Echo. Studio</h4>
+      <p>A booking studio for a small portfolio of considered stays — operated with the patience of a gallery, and the urgency of a marketplace.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Most resources</h5>
+      <a>Properties</a>
+      <a>Rates &amp; Availability</a>
+      <a>Guest Messages</a>
+      <a>Reports</a>
+    </div>
+    <div class="footer-col">
+      <h5>Studio</h5>
+      <a>Editorial</a>
+      <a>Contact</a>
+      <a>Terms &amp; Privacy</a>
+      <a>Instagram, but quiet</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">© 2025 Sable Echo Studio. Composed in ivory and linen. All correspondence is held in confidence between host and guest.</div>
+</footer>
+
+</body>
+</html>

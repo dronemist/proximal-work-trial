@@ -171,7 +171,14 @@ def _grade_page_viewport(
         vlm_result=vlm_result,
     )
     subscores = {k: dataclasses.asdict(v) for k, v in results.items()}
-    composite = _weighted_arith({k: v.score for k, v in results.items()})
+    # Structured arithmetic mean (VLM excluded by its weight=0 in METRIC_WEIGHTS).
+    structured = _weighted_arith({k: v.score for k, v in results.items() if k != "vlm_judge"})
+    # VLM is applied as a min() ceiling — content fabrication that structured
+    # metrics undercount (chart values, icon glyphs, semantic correctness) is
+    # caught here, while structured gives the smooth gradient for RL.
+    vlm_score = results.get("vlm_judge").score if results.get("vlm_judge") else None
+    composite = structured if vlm_score is None else min(structured, vlm_score)
+    subscores["_structured"] = structured
     subscores["_composite"] = composite
     return subscores
 

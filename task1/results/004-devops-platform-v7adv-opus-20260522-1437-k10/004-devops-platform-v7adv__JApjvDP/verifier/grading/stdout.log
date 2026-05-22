@@ -1,0 +1,180 @@
+[grade] VLM judge: 15 pairs in 11.9s
+{
+  "per_page_viewport": {
+    "alerts": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6320998920386027,
+          "extra": {
+            "reference_size": [
+              1440,
+              2271
+            ],
+            "candidate_size": [
+              1440,
+              1746
+            ],
+            "compared_size": [
+              1440,
+              1746
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.3633146286010742,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 316,
+            "matched_pairs": 316,
+            "mean_matched_iou": 0.13199752569198608,
+            "raw_score_before_sqrt": 0.13199752569198608
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.632659822106507,
+          "extra": {
+            "reference_blocks": 400,
+            "candidate_blocks": 316,
+            "matched_pairs": 316,
+            "mean_normalized_centroid_distance": 0.3673401778934931,
+            "page_diagonal_px": 2689.336619208539
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7729475858310858,
+          "extra": {
+            "bg_score": 0.8029526447256405,
+            "fg_score": 0.7429425269365311,
+            "bg": {
+              "reference_palette_size": 9,
+              "candidate_palette_size": 10,
+              "weighted_mean_oklab_distance": 0.029557103291153908,
+              "base_score_before_penalty": 0.8029526447256405,
+              "over_color_penalty": 0.0
+            },
+            "fg": {
+              "reference_palette_size": 7,
+              "candidate_palette_size": 9,
+              "weighted_mean_oklab_distance": 0.03855862095952034,
+              "base_score_before_penalty": 0.7429425269365311,
+              "over_color_penalty": 0.0
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.613979788560827,
+          "extra": {
+            "bucket_score": 1.0,
+            "size_score": 0.4485425550868958,
+            "reference_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "candidate_buckets": [
+              "mono",
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                11.0,
+                0.28217821782178215
+              ],
+              [
+                14.0,
+                0.45544554455445546
+              ],
+              [
+                16.0,
+                0.22772277227722773
+              ],
+              [
+                18.0,
+                0.022277227722772276
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.5,
+                0.04746835443037975
+              ],
+              [
+                11.0,
+                0.07278481012658228
+              ],
+              [
+                11.5,
+                0.21518987341772153
+              ],
+              [
+                12.0,
+                0.17088607594936708
+              ],
+              [
+                12.5,
+                0.28164556962025317
+              ],
+              [
+                13.0,
+                0.12658227848101267
+              ],
+              [
+                13.5,
+                0.06645569620253164
+              ],
+              [
+                19.0,
+                0.012658227848101266
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system",
+              "georgia",
+              "ui-monospace"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "georgia",
+              "sfmono-regular"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.5441988950276243,
+          "extra": {
+            "reference_tokens": 592,
+            "candidate_tokens": 526,
+            "matched_tokens": 394,
+            "union_tokens": 724,
+            "reference_unique": 313,
+            "candidate_unique": 287
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple significant differences: the candidate changes severity levels (e.g., media-worker queue from SEV-2 to SEV-3, certificate expiry from SEV

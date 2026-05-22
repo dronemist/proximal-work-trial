@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f4ecd6;
+  color: #5a4530;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.site-title {
+  margin: 0 0 18px 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: #2e1f10;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #d4c19a;
+}
+
+.nav a {
+  color: #a87a3c;
+  text-decoration: none;
+}
+
+main {
+  padding-top: 18px;
+}
+
+main h1 {
+  margin: 30px 0 22px 0;
+  font-size: 32px;
+  font-weight: bold;
+  color: #2e1f10;
+  letter-spacing: 0.2px;
+}
+
+main p {
+  margin: 0 0 18px 0;
+}
+
+main ul {
+  margin: 0 0 18px 0;
+  padding-left: 28px;
+}
+
+main li {
+  margin: 0 0 14px 0;
+}
+
+footer {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #d4c19a;
+  color: #a87a3c;
+  font-size: 14px;
+}
+
+@media (max-width: 800px) {
+  .container {
+    max-width: 100%;
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+  .container {
+    padding: 22px 18px;
+  }
+  .site-title {
+    font-size: 20px;
+  }
+  main h1 {
+    font-size: 26px;
+    margin: 24px 0 18px 0;
+  }
+  .nav {
+    gap: 14px;
+  }
+}

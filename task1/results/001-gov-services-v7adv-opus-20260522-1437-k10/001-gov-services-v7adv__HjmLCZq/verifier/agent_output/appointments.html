@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book an in-person visit — Ember Field</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="brand">Ember Field<span class="dot">.</span></div>
+  <div class="search"><input placeholder="Search services, forms, offices…"></div>
+  <div class="nav-right">
+    <span class="bell"></span>
+    <span class="avatar">MR</span>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Services</h4>
+    <ul>
+      <li><a href="service-catalog.html">Service catalog</a></li>
+      <li><a href="application.html">Start an application</a></li>
+      <li><a href="appointments.html" class="active">Book an appointment</a></li>
+    </ul>
+    <h4>By appointment</h4>
+    <ul>
+      <li><a href="#">Motor Vehicles</a></li>
+      <li><a href="#">Vital Records</a></li>
+      <li><a href="#">Housing</a></li>
+      <li><a href="#">Permits &amp; Inspections</a></li>
+      <li><a href="#">Parks &amp; Recreation</a></li>
+      <li><a href="#">Tax &amp; Assessor</a></li>
+    </ul>
+    <h4>My account</h4>
+    <ul>
+      <li><a href="account.html">Profile &amp; settings</a></li>
+      <li><a href="notifications.html">Notifications</a></li>
+      <li><a href="#">Applications</a></li>
+      <li><a href="#">Payments</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <div class="crumbs">
+      <a href="service-catalog.html">Services</a><span class="sep">›</span>
+      <a href="#">Appointments</a><span class="sep">›</span>
+      <span class="here">Book in-person visit</span>
+    </div>
+
+    <h1 class="page-title">Book an <span class="accent">in-person</span> visit.</h1>
+    <p class="lede">Pick a date, pick a window, walk in like you own the place. We hold your slot for ten minutes after check-in — please be on time, and bring the paperwork below.</p>
+
+    <h2 style="font-size: 16px; margin: 8px 0 10px;">Your upcoming visits</h2>
+    <div class="grid-3">
+      <div class="visit-card">
+        <div class="date"><div class="m">NOV</div><div class="d">14</div></div>
+        <div>
+          <h4>Next up <span class="pill pill-green">Confirmed</span></h4>
+          <p style="font-weight: 700; color: var(--text);">Driver's license renewal</p>
+          <p>10:45 AM — 25 min · Window 3</p>
+          <p>DMV — Westbrook Station</p>
+          <p class="mono muted-row">CFR DTS-AL-44913-Q</p>
+          <div class="actions"><button class="btn btn-ghost btn-sm">Add to calendar</button><button class="btn btn-link btn-sm">Reschedule</button><button class="btn btn-link btn-sm text-red">Cancel</button></div>
+        </div>
+      </div>
+      <div class="visit-card">
+        <div class="date"><div class="m">DEC</div><div class="d">02</div></div>
+        <div>
+          <h4>Also on the books</h4>
+          <p style="font-weight: 700; color: var(--text);">Property tax review</p>
+          <p>9:00 AM — 45 min</p>
+          <p>City Hall, Annex · Room 220</p>
+          <div class="actions"><button class="btn btn-link btn-sm">Reschedule</button></div>
+        </div>
+      </div>
+      <div class="visit-card">
+        <div class="date"><div class="m">DEC</div><div class="d">19</div></div>
+        <div>
+          <h4></h4>
+          <p style="font-weight: 700; color: var(--text);">Birth certificate pickup</p>
+          <p>3:30 PM — 10 min</p>
+          <p>Vital Records · Marion building</p>
+          <div class="actions"><button class="btn btn-link btn-sm">Reschedule</button></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="book">
+      <h2>Book a new appointment</h2>
+      <p class="section-sub">Four short steps. We'll save your progress as you go.</p>
+
+      <div class="stepper">
+        <div class="step done"><div class="bar"></div><span class="num">1</span><span class="title">Service</span></div>
+        <div class="step done"><div class="bar"></div><span class="num">2</span><span class="title">Location</span></div>
+        <div class="step active"><div class="bar"></div><span class="num">3</span><span class="title">Date &amp; time</span></div>
+        <div class="step"><div class="bar"></div><span class="num">4</span><span class="title">Confirm</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-row" style="margin-bottom: 10px;">
+          <h3 style="margin:0;">1 · Service</h3>
+          <span class="pill pill-green"><span class="icon-check">✓</span> Selected</span>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label class="label">What are you here for?</label>
+            <select class="select"><option>Driver's license — renewal or replacement</option></select>
+          </div>
+          <div class="field">
+            <label class="label">Who's the appointment for?</label>
+            <select class="select"><option>Myself (Marisol Ortega)</option></select>
+          </div>
+        </div>
+        <p class="muted-row text-small">Bring a single photo ID. Renewals processed during the visit.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-row" style="margin-bottom: 10px;">
+          <h3 style="margin:0;">2 · Location</h3>
+          <span class="pill pill-green"><span class="icon-check">✓</span> Selected</span>
+        </div>
+        <div class="flex-gap" style="margin-bottom: 10px;">
+          <span class="chip active">In-person</span>
+          <span class="chip">Open Saturdays</span>
+          <span class="chip">Walk-in queues</span>
+        </div>
+        <div class="grid-3">
+          <div class="card" style="background: rgba(182,244,86,0.04); border-color: var(--green);">
+            <div class="card-row" style="margin-bottom: 4px;">
+              <strong>DMV — Westbrook Station</strong>
+              <span class="pill pill-amber">Busiest</span>
+            </div>
+            <div class="muted-row text-small">4216 Walling Ave, Floor 2<br>2.1 mi · Mon–Sat</div>
+          </div>
+          <div class="card">
+            <div class="card-row" style="margin-bottom: 4px;">
+              <strong>DMV — Halpern Plaza</strong>
+              <span class="pill">Open</span>
+            </div>
+            <div class="muted-row text-small">85 E. Halpern Way, Ste 120<br>4.8 mi · Tue–Fri</div>
+          </div>
+          <div class="card">
+            <div class="card-row" style="margin-bottom: 4px;">
+              <strong>DMV — Northridge Express</strong>
+              <span class="pill">Open</span>
+            </div>
+            <div class="muted-row text-small">2772 Pruette Rd<br>6.0 mi · Mon–Fri</div>
+          </div>
+          <div class="card">
+            <div class="card-row" style="margin-bottom: 4px;">
+              <strong>DMV — South Bay Annex</strong>
+              <span class="pill pill-blue">Walk-in only</span>
+            </div>
+            <div class="muted-row text-small">42 Pier Ave, Bldg D-1<br>8.4 mi · Mon, Wed, Fri</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-row" style="margin-bottom: 10px;">
+          <h3 style="margin:0;">3 · Date &amp; time</h3>
+          <span class="pill pill-green">● In-progress</span>
+        </div>
+
+        <div class="grid-2" style="grid-template-columns: 1.1fr 1fr;">
+          <div class="calendar">
+            <div class="flex-between" style="margin-bottom: 8px;">
+              <button class="btn btn-link btn-sm">←</button>
+              <strong>November 2025</strong>
+              <button class="btn btn-link btn-sm">→</button>
+            </div>
+            <div class="cal-grid">
+              <div class="dow">S</div><div class="dow">M</div><div class="dow">T</div><div class="dow">W</div><div class="dow">T</div><div class="dow">F</div><div class="dow">S</div>
+              <div class="cal-day mute">26</div><div class="cal-day mute">27</div><div class="cal-day mute">28</div><div class="cal-day mute">29</div><div class="cal-day mute">30</div><div class="cal-day mute">31</div><div class="cal-day">1</div>
+              <div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div>
+              <div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day sel">14</div><div class="cal-day">15</div>
+              <div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day">22</div>
+              <div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div>
+              <div class="cal-day">30</div><div class="cal-day mute">1</div><div class="cal-day mute">2</div><div class="cal-day mute">3</div><div class="cal-day mute">4</div><div class="cal-day mute">5</div><div class="cal-day mute">6</div>
+            </div>
+            <div class="muted-row text-small" style="margin-top: 8px;">
+              <span style="display: inline-block; width: 8px; height: 8px; background: var(--green); border-radius: 2px; margin-right: 4px;"></span> Selected
+              <span style="display: inline-block; width: 8px; height: 8px; background: var(--bg-3); border-radius: 2px; margin: 0 4px 0 10px;"></span> Open hold
+            </div>
+          </div>
+
+          <div>
+            <div class="flex-between" style="margin-bottom: 6px;">
+              <strong style="font-size: 13px;">Open windows</strong>
+              <span class="muted-row text-small">Friday, Nov 14 · 14 slots available</span>
+            </div>
+            <p class="muted-row text-small">Each visit is held for 10 minutes after check-in. Bright? Sign up for SMS reminders and we'll send a 24-hour heads up.</p>
+            <p class="muted-row text-small" style="text-transform: uppercase; letter-spacing: 0.05em; margin-top: 12px;">Mornings</p>
+            <div class="slots">
+              <span class="slot">8:30</span>
+              <span class="slot">9:00</span>
+              <span class="slot">9:30</span>
+              <span class="slot">10:00</span>
+              <span class="slot sel">10:45</span>
+              <span class="slot">11:15</span>
+            </div>
+            <p class="muted-row text-small" style="text-transform: uppercase; letter-spacing: 0.05em; margin-top: 10px;">Afternoons</p>
+            <div class="slots">
+              <span class="slot">1:00</span>
+              <span class="slot">1:30</span>
+              <span class="slot">2:15</span>
+              <span class="slot">2:45</span>
+              <span class="slot">3:15</span>
+              <span class="slot">4:00</span>
+            </div>
+            <div class="alert" style="margin-top: 12px;">
+              <strong style="color: var(--text);">Your selection</strong><br>
+              Thursday, November 14 · 10:45 AM<br>
+              DMV — Westbrook Station, Window 3 · 25 min
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-between" style="margin-top: 14px;">
+          <button class="btn btn-ghost">← Back</button>
+          <button class="btn btn-primary">Continue to confirm →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bring">
+      <h2>What to bring</h2>
+      <p class="section-sub">Skip a return trip. Have these ready before you head out.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Required documents</h3>
+          <ul class="chk-list">
+            <li>Current driver's license (even if expired)</li>
+            <li>Proof of residency dated within 90 days</li>
+            <li>Valid SS# or last-4 from the last 12 months</li>
+            <li>Payment for the $24 renewal fee — card or check, no cash above $25</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Helpful, not required</h3>
+          <ul class="chk-list">
+            <li>Eyeglasses or contacts if you wear them (we test vision on site)</li>
+            <li>Updated address or emergency contact</li>
+            <li>Organ donor preference (yes, no, or "ask me later")</li>
+            <li>A book. Honestly. Even on time, we run a little behind.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="print">
+      <h2>The fine print, briefly</h2>
+      <table class="tbl tbl-card">
+        <thead><tr><th>Scenario</th><th>What happens</th><th>Fee</th></tr></thead>
+        <tbody>
+          <tr><td>Reschedule, 24+ hours ahead</td><td>Free, no questions asked</td><td>—</td></tr>
+          <tr><td>Reschedule, under 24 hours</td><td>One-time courtesy; second time you'll wait 7 days</td><td>—</td></tr>
+          <tr><td>No-show</td><td>Slot released, rebooking allowed after 48 hours</td><td>—</td></tr>
+          <tr><td>Missing documents on arrival</td><td>Check in deferred; you may join the walk-in queue same day</td><td>—</td></tr>
+          <tr><td>Office closure (weather, civic)</td><td>We move you and notify by your default preference</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section" id="access">
+      <h2>Accessibility &amp; accommodations</h2>
+      <div class="card">
+        <p class="muted-row" style="margin: 0 0 10px;">All EFS offices are step-free, with assistive listening at every staffed counter and large-print forms available on request. Service-animal welcome.</p>
+        <div class="grid-3">
+          <div>
+            <strong>I'd like a quieter check-in area.</strong>
+            <p class="muted-row text-small">An alcove away from the queue</p>
+          </div>
+          <div>
+            <strong>I'll need an interpreter — Spanish</strong>
+            <p class="muted-row text-small">I'm bringing a companion or aide</p>
+          </div>
+          <div>
+            <strong>Anything else we should know?</strong>
+            <textarea class="textarea" rows="2" placeholder="A sentence is plenty. We'll route it to the office manager."></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="confirm">
+      <h2>Confirmation preview</h2>
+      <p class="section-sub">Here's what we'll send to your inbox once you finish booking.</p>
+      <div class="card">
+        <div class="card-row" style="margin-bottom: 8px;">
+          <div class="flex-gap"><span class="icon-check" style="width: 18px; height: 18px; font-size: 11px;">✓</span> <strong>You're booked.</strong></div>
+          <span class="pill pill-green">Confirmed</span>
+        </div>
+        <p class="muted-row" style="margin: 0 0 12px;">A receipt was sent to <span class="mono">m.ortega@ember.gov</span>.</p>
+        <h3>Questions I've been asked</h3>
+        <dl class="kv">
+          <dt>I'm here for</dt><dd>Driver's license renewal</dd>
+          <dt>When</dt><dd>Thursday, November 14, 2025</dd>
+          <dt>What if I'm running late?</dt><dd>10:45 AM (25 min)</dd>
+          <dt>Why are we doing this?</dt><dd>DMV — Westbrook Station, Window 3</dd>
+          <dt>What I do remember</dt><dd>Confirmation: DTS-DL-44913-Q</dd>
+        </dl>
+        <div class="flex-between" style="margin-top: 14px;">
+          <button class="btn btn-ghost">View all appointments</button>
+          <div class="flex-gap">
+            <button class="btn btn-link">Back to services</button>
+            <button class="btn btn-primary">Finish booking</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <aside class="rightrail sticky">
+    <h5>On this page</h5>
+    <ul>
+      <li><a>Your upcoming visits</a></li>
+      <li><a class="active">Book a new appointment</a></li>
+      <li><a href="#bring">What to bring</a></li>
+      <li><a href="#print">The fine print</a></li>
+      <li><a href="#access">Accessibility</a></li>
+      <li><a href="#confirm">Confirmation preview</a></li>
+    </ul>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div><span class="brand">Ember Field.</span></div>
+  <div class="foot-links">
+    <a href="service-catalog.html">Services</a>
+    <a href="account.html">My Account</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="appointments.html">Appointments</a>
+    <a href="application.html">Apply</a>
+    <a href="#">Privacy</a>
+    <a href="#">Contact</a>
+  </div>
+  <div>Updated 2025-11-04 · 09:03</div>
+</footer>
+
+</body>
+</html>

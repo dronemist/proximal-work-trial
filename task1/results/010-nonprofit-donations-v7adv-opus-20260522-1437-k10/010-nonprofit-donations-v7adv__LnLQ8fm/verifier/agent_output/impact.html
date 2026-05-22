@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Annual Impact Ledger — Fiscal Year 2024</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .alloc-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 1024px) { .alloc-charts { grid-template-columns: 1fr; } }
+  .alloc-chart { background: var(--card); border: 1px solid var(--line); padding: 16px 18px; }
+  .alloc-chart h4 { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0 0 14px; }
+  .bar-row { display: grid; grid-template-columns: 130px 1fr 60px; gap: 12px; align-items: center; padding: 5px 0; font-family: var(--mono); font-size: 11px; }
+  .bar-row .label { color: var(--text); text-transform: uppercase; letter-spacing: .04em; }
+  .bar-row .track { background: #1a1815; height: 14px; position: relative; }
+  .bar-row .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); }
+  .bar-row .pct { color: var(--muted); text-align: right; }
+  .donut-card { background: var(--card); border: 1px solid var(--line); padding: 16px 18px; }
+  .donut-card h4 { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+  .heatmap { display: grid; grid-template-columns: repeat(26, 1fr); gap: 2px; }
+  .heatmap .cell { aspect-ratio: 1/1; }
+  .audit-table { background: var(--card); border: 1px solid var(--line); }
+  .audit-row { display: grid; grid-template-columns: 200px repeat(6, 1fr); gap: 0; border-bottom: 1px solid var(--line); }
+  .audit-row:last-child { border-bottom: none; }
+  .audit-row > div { padding: 8px 12px; font-family: var(--mono); font-size: 11px; }
+  .audit-row .lbl { color: var(--text); text-transform: uppercase; letter-spacing: .06em; border-right: 1px solid var(--line); }
+  .audit-row .v { color: var(--text-strong); text-align: center; }
+  .three-photo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 1024px) { .three-photo { grid-template-columns: 1fr; } }
+  .photo-card { background: var(--card); border: 1px solid var(--line); }
+  .photo-card .img { aspect-ratio: 4/3; position: relative; overflow: hidden; }
+  .photo-card .img svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .photo-card .body { padding: 16px 18px; }
+  .photo-card h3 { margin: 0 0 8px; color: var(--text-strong); font-size: 14.5px; font-weight: 600; line-height: 1.35; }
+  .photo-card p { margin: 0 0 10px; color: var(--muted); font-size: 12.5px; line-height: 1.55; }
+  .photo-card .meta { font-family: var(--mono); font-size: 10px; color: var(--muted-2); letter-spacing: .1em; text-transform: uppercase; }
+  .two-meth { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 768px) { .two-meth { grid-template-columns: 1fr; } }
+  .meth-card { background: var(--card); border: 1px solid var(--line); padding: 18px 20px; }
+  .meth-card h4 { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin: 0 0 8px; }
+  .meth-card h3 { margin: 0 0 8px; color: var(--text-strong); font-size: 15px; }
+  .meth-card p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
+  .report-row { display: grid; grid-template-columns: 40px 1fr 110px 90px; gap: 14px; align-items: center; padding: 11px 16px; border-bottom: 1px solid var(--line); }
+  .report-row:last-child { border-bottom: none; }
+  .report-row .pad { font-family: var(--mono); color: var(--muted); font-size: 11px; }
+  .report-row h4 { margin: 0; color: var(--text-strong); font-size: 13px; font-weight: 600; }
+  .report-row p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+  .footstat { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 768px) { .footstat { grid-template-columns: 1fr; } }
+  .footstat .panel { background: var(--card); border: 1px solid var(--line); padding: 20px 22px; }
+  .footstat .panel .label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 10px; }
+  .footstat .panel .value { font-size: 28px; color: var(--text-strong); font-weight: 700; }
+  .footstat .panel p { color: var(--muted); margin: 8px 0 0; font-size: 12.5px; line-height: 1.55; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">GABLE GROUND FOUNDRY<span class="dot">·</span></span>
+    <nav>
+      <a href="cause-overview.html">Cause Overview</a>
+      <a href="projects.html">Projects</a>
+      <a href="impact.html" class="active">Impact</a>
+      <a href="blog.html">Field Notes</a>
+      <a href="donor-dashboard.html">Donor Dashboard</a>
+    </nav>
+    <div class="right">
+      <a>Sign in</a>
+      <a>Give now</a>
+      <a>Contact</a>
+    </div>
+  </div>
+</header>
+
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="breadcrumb">Foundry / Impact / <span class="crumb-current">Fiscal year 2024</span></span>
+    <span class="sep">·</span><a>Allocation</a>
+    <span class="sep">·</span><a>Audit</a>
+    <span class="sep">·</span><a>Cycle ledger</a>
+    <span class="sep">·</span><a>Reports</a>
+  </div>
+</div>
+
+<main class="container">
+
+  <section class="page-header">
+    <div class="meta" style="margin-bottom: 14px;"><span><strong>FISCAL YEAR · 2024</strong></span><span>· PUBLISHED 2026-04-30</span><span>· VERSION 2.1.0</span></div>
+    <h1>Annual Impact Ledger — Fiscal Year 2024.</h1>
+    <p class="lede">A full account of every euro deployed, every hectare measured, and every milestone closed across forty-seven projects under the foundry's stewardship in 2024. Cycle ledger and 24 December below.</p>
+    <div class="hero-actions" style="margin-top: 18px;">
+      <a class="btn btn-primary">Download report</a>
+      <a class="btn">Methodology</a>
+      <a class="btn">Audit trail</a>
+      <a class="btn btn-ghost">Reporting standards →</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">01</span>Headline figures · fiscal year 2024</h2>
+      <div class="section-actions"><a>As-of 2024-12-31</a><a>CSV</a></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="label">Capital deployed</div><div class="value">€14.82M</div><div class="sub"><span class="up">▲ €1.92M</span> YoY</div></div>
+      <div class="stat"><div class="label">Hectares under stewardship</div><div class="value">8,471</div><div class="sub"><span class="up">▲ 1,118</span> YoY</div></div>
+      <div class="stat"><div class="label">Milestones closed</div><div class="value">12,408</div><div class="sub">95.9% on-cycle</div></div>
+      <div class="stat"><div class="label">Operating overhead</div><div class="value">6.2%</div><div class="sub"><span class="down">▼ 0.4 pp</span> YoY</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">02</span>Allocation of capital</h2>
+      <div class="section-actions"><a>By region</a><a>By cohort</a><a>By outcome</a></div>
+    </div>
+    <div class="alloc-charts">
+      <div class="donut-card">
+        <h4>BY MANDATE CATEGORY</h4>
+        <div style="display: grid; grid-template-columns: 160px 1fr; gap: 18px; align-items: center;">
+          <svg viewBox="0 0 200 200" style="width: 100%;">
+            <circle cx="100" cy="100" r="70" fill="none" stroke="#38332c" stroke-width="28"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="#e07a3e" stroke-width="28"
+              stroke-dasharray="220 220" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="#c25a52" stroke-width="28"
+              stroke-dasharray="80 360" stroke-dashoffset="-220" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="#6f8a55" stroke-width="28"
+              stroke-dasharray="70 370" stroke-dashoffset="-300" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="#8a8275" stroke-width="28"
+              stroke-dasharray="70 370" stroke-dashoffset="-370" transform="rotate(-90 100 100)"/>
+            <text x="100" y="95" text-anchor="middle" fill="#ece3d0" font-family="ui-monospace,monospace" font-size="18" font-weight="700">50.0</text>
+            <text x="100" y="115" text-anchor="middle" fill="#8a8275" font-family="ui-monospace,monospace" font-size="9">COASTAL %</text>
+          </svg>
+          <ul class="legend-list">
+            <li><span><span class="sw" style="background:#e07a3e;"></span>Coastal &amp; tidal</span><span>50.0%</span></li>
+            <li><span><span class="sw" style="background:#c25a52;"></span>Peat blanket</span><span>18.2%</span></li>
+            <li><span><span class="sw" style="background:#6f8a55;"></span>Freshwater &amp; beaver</span><span>15.9%</span></li>
+            <li><span><span class="sw" style="background:#8a8275;"></span>Forestry — native</span><span>15.9%</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="alloc-chart">
+        <h4>OUTCOME COVERAGE — DAILY (FY24)</h4>
+        <div class="heatmap" style="margin-top: 6px;">
+          <!-- Generate a heatmap of 26 x 7 cells -->
+        </div>
+        <svg viewBox="0 0 520 140" style="width: 100%; height: 140px;">
+          <defs>
+            <pattern id="hp" width="520" height="140"></pattern>
+          </defs>
+          <g>
+            <!-- 52 weeks × 7 days approximated as 26 × 7 to keep cells visible -->
+            <!-- generate cells programmatically -->
+          </g>
+          <g>
+            <!-- inline-generated cells -->
+          </g>
+          <!-- We'll inline 26x7 = 182 cells with varied opacity -->
+          <g>
+          </g>
+          <!-- below: 26 columns of 7 rectangles each -->
+          <g>
+            <!-- Row 1..7, columns 1..26, width 18, height 16, padding 2 -->
+          </g>
+          <g fill="#e07a3e">
+            <!-- Manually-drawn cells. Light cells for sparse, intense for active months -->
+            <!-- Compute via JS not allowed; hand-listing a pseudo-random pattern -->
+            <!-- 26 weeks x 7 days = 182 cells -->
+            <!-- col 0 -->
+            <rect x="0" y="0" width="18" height="16" opacity=".25"/>
+            <rect x="0" y="18" width="18" height="16" opacity=".4"/>
+            <rect x="0" y="36" width="18" height="16" opacity=".15"/>
+            <rect x="0" y="54" width="18" height="16" opacity=".5"/>
+            <rect x="0" y="72" width="18" height="16" opacity=".25"/>
+            <rect x="0" y="90" width="18" height="16" opacity=".7"/>
+            <rect x="0" y="108" width="18" height="16" opacity=".4"/>
+            <!-- col 1 -->
+            <rect x="20" y="0" width="18" height="16" opacity=".55"/>
+            <rect x="20" y="18" width="18" height="16" opacity=".25"/>
+            <rect x="20" y="36" width="18" height="16" opacity=".7"/>
+            <rect x="20" y="54" width="18" height="16" opacity=".4"/>
+            <rect x="20" y="72" width="18" height="16" opacity=".6"/>
+            <rect x="20" y="90" width="18" height="16" opacity=".3"/>
+            <rect x="20" y="108" width="18" height="16" opacity=".5"/>
+            <!-- col 2 -->
+            <rect x="40" y="0" width="18" height="16" opacity=".3"/>
+            <rect x="40" y="18" width="18" height="16" opacity=".75"/>
+            <rect x="40" y="36" width="18" height="16" opacity=".5"/>
+            <rect x="40" y="54" width="18" height="16" opacity=".25"/>
+            <rect x="40" y="72" width="18" height="16" opacity=".45"/>
+            <rect x="40" y="90" width="18" height="16" opacity=".9"/>
+            <rect x="40" y="108" width="18" height="16" opacity=".3"/>
+            <!-- col 3 -->
+            <rect x="60" y="0" width="18" height="16" opacity=".4"/>
+            <rect x="60" y="18" width="18" height="16" opacity=".55"/>
+            <rect x="60" y="36" width="18" height="16" opacity=".3"/>
+            <rect x="60" y="54" width="18" height="16" opacity=".7"/>
+            <rect x="60" y="72" width="18" height="16" opacity=".4"/>
+            <rect x="60" y="90" width="18" height="16" opacity=".25"/>
+            <rect x="60" y="108" width="18" height="16" opacity=".55"/>
+            <!-- col 4 -->
+            <rect x="80" y="0" width="18" height="16" opacity=".7"/>
+            <rect x="80" y="18" width="18" height="16" opacity=".4"/>
+            <rect x="80" y="36" width="18" height="16" opacity=".6"/>
+            <rect x="80" y="54" width="18" height="16" opacity=".3"/>
+            <rect x="80" y="72" width="18" height="16" opacity=".95"/>
+            <rect x="80" y="90" width="18" height="16" opacity=".5"/>
+            <rect x="80" y="108" width="18" height="16" opacity=".2"/>
+            <!-- col 5 -->
+            <rect x="100" y="0" width="18" height="16" opacity=".45"/>
+            <rect x="100" y="18" width="18" height="16" opacity=".8"/>
+            <rect x="100" y="36" width="18" height="16" opacity=".25"/>
+            <rect x="100" y="54" width="18" height="16" opacity=".55"/>
+            <rect x="100" y="72" width="18" height="16" opacity=".4"/>
+            <rect x="100" y="90" width="18" height="16" opacity=".7"/>
+            <rect x="100" y="108" width="18" height="16" opacity=".3"/>
+            <!-- col 6 -->
+            <rect x="120" y="0" width="18" height="16" opacity=".3"/>
+            <rect x="120" y="18" width="18" height="16" opacity=".5"/>
+            <rect x="120" y="36" width="18" height="16" opacity=".75"/>
+            <rect x="120" y="54" width="18" height="16" opacity=".4"/>
+            <rect x="120" y="72" width="18" height="16" opacity=".6"/>
+            <rect x="120" y="90" width="18" height="16" opacity=".25"/>
+            <rect x="120" y="108" width="18" height="16" opacity=".85"/>
+            <!-- col 7 -->
+            <rect x="140" y="0" width="18" height="16" opacity=".55"/>
+            <rect x="140" y="18" width="18" height="16" opacity=".4"/>
+            <rect x="140" y="36" width="18" height="16" opacity=".7"/>
+            <rect x="140" y="54" width="18" height="16" opacity=".3"/>
+            <rect x="140" y="72" width="18" height="16" opacity=".5"/>
+            <rect x="140" y="90" width="18" height="16" opacity=".8"/>
+            <rect x="140" y="108" width="18" height="16" opacity=".35"/>
+            <!-- col 8 -->
+            <rect x="160" y="0" width="18" height="16" opacity=".4"/>
+            <rect x="160" y="18" width="18" height="16" opacity=".25"/>
+            <rect x="160" y="36" width="18" height="16" opacity=".55"/>
+            <rect x="160" y="54" width="18" height="16" opacity=".7"/>
+            <rect x="160" y="72" width="18" height="16" opacity=".4"/>
+            <rect x="160" y="90" width="18" height="16" opacity=".3"/>
+            <rect x="160" y="108" width="18" height="16" opacity=".5"/>
+            <!-- col 9 -->
+            <rect x="180" y="0" width="18" height="16" opacity=".65"/>
+            <rect x="180" y="18" width="18" height="16" opacity=".4"/>
+            <rect x="180" y="36" width="18" height="16" opacity=".75"/>
+            <rect x="180" y="54" width="18" height="16" opacity=".35"/>
+            <rect x="180" y="72" width="18" height="16" opacity=".55"/>
+            <rect x="180" y="90" width="18" height="16" opacity=".25"/>
+            <rect x="180" y="108" width="18" height="16" opacity=".7"/>
+            <!-- col 10 -->
+            <rect x="200" y="0" width="18" height="16" opacity=".3"/>
+            <rect x="200" y="18" width="18" height="16" opacity=".55"/>
+            <rect x="200" y="36" width="18" height="16" opacity=".4"/>
+            <rect x="200" y="54" width="18" height="16" opacity=".9"/>
+            <rect x="200" y="72" width="18" height="16" opacity=".5"/>
+            <rect x="200" y="90" width="18" height="16" opacity=".25"/>
+            <rect x="200" y="108" width="18" height="16" opacity=".6"/>
+            <!-- col 11 -->
+            <rect x="220" y="0" width="18" height="16" opacity=".5"/>
+            <rect x="220" y="18" width="18" height="16" opacity=".3"/>
+            <rect x="220" y="36" width="18" height="16" opacity=".7"/>
+            <rect x="220" y="54" width="18" height="16" opacity=".4"/>
+            <rect x="220" y="72" width="18" height="16" opacity=".6"/>
+            <rect x="220" y="90" width="18" height="16" opacity=".3"/>
+            <rect x="220" y="108" width="18" height="16" opacity=".55"/>
+            <!-- col 12 -->
+            <rect x="240" y="0" width="18" height="16" opacity=".75"/>
+            <rect x="240" y="18" width="18" height="16" opacity=".4"/>
+            <rect x="240" y="36" width="18" height="16" opacity=".55"/>
+            <rect x="240" y="54" width="18" height="16" opacity=".3"/>
+            <rect x="240" y="72" width="18" height="16" opacity=".85"/>
+            <rect x="240" y="90" width="18" height="16" opacity=".45"/>
+            <rect x="240" y="108" width="18" height="16" opacity=".3"/>
+            <!-- col 13 -->
+            <rect x="260" y="0" width="18" height="16" opacity=".4"/>
+            <rect x="260" y="18" width="18" height="16" opacity=".55"/>
+            <rect x="260" y="36" width="18" height="16" opacity=".7"/>
+            <rect x="260" y="54" width="18" height="16" opacity=".3"/>
+            <rect x="260" y="72" width="18" height="16" opacity=".5"/>
+            <rect x="260" y="90" width="18" height="16" opacity=".65"/>
+            <rect x="260" y="108" width="18" height="16" opacity=".25"/>
+            <!-- col 14 -->
+            <rect x="280" y="0" width="18" height="16" opacity=".6"/>
+            <rect x="280" y="18" width="18" height="16" opacity=".3"/>
+            <rect x="280" y="36" width="18" height="16" opacity=".4"/>
+            <rect x="280" y="54" width="18" height="16" opacity=".55"/>
+            <rect x="280" y="72" width="18" height="16" opacity=".7"/>
+            <rect x="280" y="90" width="18" height="16" opacity=".3"/>
+            <rect x="280" y="108" width="18" height="16" opacity=".9"/>
+            <!-- col 15 -->
+            <rect x="300" y="0" width="18" height="16" opacity=".25"/>
+            <rect x="300" y="18" width="18" height="16" opacity=".5"/>
+            <rect x="300" y="36" width="18" height="16" opacity=".75"/>
+            <rect x="300" y="54" width="18" height="16" opacity=".4"/>
+            <rect x="300" y="72" width="18" height="16" opacity=".3"/>
+            <rect x="300" y="90" width="18" height="16" opacity=".55"/>
+            <rect x="300" y="108" width="18" height="16" opacity=".6"/>
+            <!-- col 16 -->
+            <rect x="320" y="0" width="18" height="16" opacity=".45"/>
+            <rect x="320" y="18" width="18" height="16" opacity=".7"/>
+            <rect x="320" y="36" width="18" height="16" opacity=".35"/>
+            <rect x="320" y="54" width="18" height="16" opacity=".25"/>
+            <rect x="320" y="72" width="18" height="16" opacity=".5"/>
+            <rect x="320" y="90" width="18" height="16" opacity=".8"/>
+            <rect x="320" y="108" width="18" height="16" opacity=".3"/>
+            <!-- col 17 -->
+            <rect x="340" y="0" width="18" height="16" opacity=".55"/>
+            <rect x="340" y="18" width="18" height="16" opacity=".3"/>
+            <rect x="340" y="36" width="18" height="16" opacity=".7"/>
+            <rect x="340" y="54" width="18" height="16" opacity=".4"/>
+            <rect x="340" y="72" width="18" height="16" opacity=".6"/>
+            <rect x="340" y="90" width="18" height="16" opacity=".25"/>
+            <rect x="340" y="108" width="18" height="16" opacity=".5"/>
+            <!-- col 18 -->
+            <rect x="360" y="0" width="18" height="16" opacity=".3"/>
+            <rect x="360" y="18" width="18" height="16" opacity=".55"/>
+            <rect x="360" y="36" width="18" height="16" opacity=".75"/>
+            <rect x="360" y="54" width="18" height="16" opacity=".4"/>
+            <rect x="360" y="72" width="18" height="16" opacity=".25"/>
+            <rect x="360" y="90" width="18" height="16" opacity=".7"/>
+            <rect x="360" y="108" width="18" height="16" opacity=".4"/>
+            <!-- col 19 -->
+            <rect x="380" y="0" width="18" height="16" opacity=".5"/>
+            <rect x="380" y="18" width="18" height="16" opacity=".85"/>
+            <rect x="380" y="36" width="18" height="16" opacity=".4"/>
+            <rect x="380" y="54" width="18" height="16" opacity=".6"/>
+            <rect x="380" y="72" width="18" height="16" opacity=".3"/>
+            <rect x="380" y="90" width="18" height="16" opacity=".55"/>
+            <rect x="380" y="108" width="18" height="16" opacity=".75"/>
+            <!-- col 20 -->
+            <rect x="400" y="0" width="18" height="16" opacity=".4"/>
+            <rect x="400" y="18" width="18" height="16" opacity=".3"/>
+            <rect x="400" y="36" width="18" height="16" opacity=".55"/>
+            <rect x="400" y="54" width="18" height="16" opacity=".7"/>
+            <rect x="400" y="72" width="18" height="16" opacity=".25"/>
+            <rect x="400" y="90" width="18" height="16" opacity=".5"/>
+            <rect x="400" y="108" width="18" height="16" opacity=".35"/>
+            <!-- col 21 -->
+            <rect x="420" y="0" width="18" height="16" opacity=".7"/>
+            <rect x="420" y="18" width="18" height="16" opacity=".55"/>
+            <rect x="420" y="36" width="18" height="16" opacity=".4"/>
+            <rect x="420" y="54" width="18" height="16" opacity=".95"/>
+            <rect x="420" y="72" width="18" height="16" opacity=".3"/>
+            <rect x="420" y="90" width="18" height="16" opacity=".5"/>
+            <rect x="420" y="108" width="18" height="16" opacity=".6"/>
+            <!-- col 22 -->
+            <rect x="440" y="0" width="18" height="16" opacity=".4"/>
+            <rect x="440" y="18" width="18" height="16" opacity=".25"/>
+            <rect x="440" y="36" width="18" height="16" opacity=".55"/>
+            <rect x="440" y="54" width="18" height="16" opacity=".7"/>
+            <rect x="440" y="72" width="18" height="16" opacity=".4"/>
+            <rect x="440" y="90" width="18" height="16" opacity=".3"/>
+            <rect x="440" y="108" width="18" height="16" opacity=".5"/>
+            <!-- col 23 -->
+            <rect x="460" y="0" width="18" height="16" opacity=".55"/>
+            <rect x="460" y="18" width="18" height="16" opacity=".7"/>
+            <rect x="460" y="36" width="18" height="16" opacity=".4"/>
+            <rect x="460" y="54" width="18" height="16" opacity=".25"/>
+            <rect x="460" y="72" width="18" height="16" opacity=".85"/>
+            <rect x="460" y="90" width="18" height="16" opacity=".5"/>
+            <rect x="460" y="108" width="18" height="16" opacity=".35"/>
+            <!-- col 24 -->
+            <rect x="480" y="0" width="18" height="16" opacity=".3"/>
+            <rect x="480" y="18" width="18" height="16" opacity=".55"/>
+            <rect x="480" y="36" width="18" height="16" opacity=".75"/>
+            <rect x="480" y="54" width="18" height="16" opacity=".4"/>
+            <rect x="480" y="72" width="18" height="16" opacity=".6"/>
+            <rect x="480" y="90" width="18" height="16" opacity=".25"/>
+            <rect x="480" y="108" width="18" height="16" opacity=".5"/>
+            <!-- col 25 -->
+            <rect x="500" y="0" width="18" height="16" opacity=".5"/>
+            <rect x="500" y="18" width="18" height="16" opacity=".4"/>
+            <rect x="500" y="36" width="18" height="16" opacity=".3"/>
+            <rect x="500" y="54" width="18" height="16" opacity=".55"/>
+            <rect x="500" y="72" width="18" height="16" opacity=".7"/>
+            <rect x="500" y="90" width="18" height="16" opacity=".95"/>
+            <rect x="500" y="108" width="18" height="16" opacity=".4"/>
+          </g>
+        </svg>
+        <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; color:var(--muted-2); padding-top:6px;">
+          <span>JAN</span><span>MAR</span><span>MAY</span><span>JUL</span><span>SEP</span><span>NOV</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">03</span>Restoration by biome</h2>
+      <div class="section-actions"><a>By value</a><a>By hectare</a></div>
+    </div>
+    <div class="alloc-charts">
+      <div class="alloc-chart">
+        <h4>HECTARES UNDER MANAGEMENT</h4>
+        <div class="bar-row"><span class="label">Coastal &amp; tidal</span><span class="track"><span class="fill" style="width: 72%;"></span></span><span class="pct">72%</span></div>
+        <div class="bar-row"><span class="label">Peat blanket</span><span class="track"><span class="fill" style="width: 58%; background:#c25a52;"></span></span><span class="pct">58%</span></div>
+        <div class="bar-row"><span class="label">Native forestry</span><span class="track"><span class="fill" style="width: 44%; background:#8a8275;"></span></span><span class="pct">44%</span></div>
+        <div class="bar-row"><span class="label">Freshwater</span><span class="track"><span class="fill" style="width: 36%; background:#6f8a55;"></span></span><span class="pct">36%</span></div>
+        <div class="bar-row"><span class="label">Riparian buffer</span><span class="track"><span class="fill" style="width: 28%; background:#5a4631;"></span></span><span class="pct">28%</span></div>
+        <div class="bar-row"><span class="label">Urban edge</span><span class="track"><span class="fill" style="width: 14%; background:#9a8466;"></span></span><span class="pct">14%</span></div>
+      </div>
+      <div class="alloc-chart">
+        <h4>EXPENSE AGAINST FY24 PLAN</h4>
+        <div class="bar-row"><span class="label">Disbursement</span><span class="track"><span class="fill" style="width: 92%;"></span></span><span class="pct">92%</span></div>
+        <div class="bar-row"><span class="label">Match capital</span><span class="track"><span class="fill" style="width: 88%; background:#c96a35;"></span></span><span class="pct">88%</span></div>
+        <div class="bar-row"><span class="label">Monitoring</span><span class="track"><span class="fill" style="width: 76%; background:#c25a52;"></span></span><span class="pct">76%</span></div>
+        <div class="bar-row"><span class="label">Survey crew</span><span class="track"><span class="fill" style="width: 64%; background:#6f8a55;"></span></span><span class="pct">64%</span></div>
+        <div class="bar-row"><span class="label">Audit &amp; legal</span><span class="track"><span class="fill" style="width: 36%; background:#8a8275;"></span></span><span class="pct">36%</span></div>
+        <div class="bar-row"><span class="label">Office &amp; ops</span><span class="track"><span class="fill" style="width: 18%; background:#5a4631;"></span></span><span class="pct">18%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">04</span>Audit ratings by category</h2>
+      <div class="section-actions"><a>Rubric →</a><a>Past years</a></div>
+    </div>
+    <div class="audit-table">
+      <div class="audit-row" style="background:#211e1a;">
+        <div class="lbl" style="color:var(--muted);">CATEGORY</div>
+        <div class="v" style="color:var(--muted);">Q1</div>
+        <div class="v" style="color:var(--muted);">Q2</div>
+        <div class="v" style="color:var(--muted);">Q3</div>
+        <div class="v" style="color:var(--muted);">Q4</div>
+        <div class="v" style="color:var(--muted);">FY24</div>
+        <div class="v" style="color:var(--muted);">FY23</div>
+      </div>
+      <div class="audit-row"><div class="lbl">Ledger integrity</div><div class="v" style="background:#3c2a1c;">B+</div><div class="v" style="background:#5a3520;">A−</div><div class="v" style="background:#6b3a23;">A</div><div class="v" style="background:#7a4126;">A+</div><div class="v" style="background:#6b3a23;">A</div><div class="v" style="background:#5a3520;">A−</div></div>
+      <div class="audit-row"><div class="lbl">Field methodology</div><div class="v" style="background:#5a3520;">A−</div><div class="v" style="background:#5a3520;">A−</div><div class="v" style="background:#6b3a23;">A</div><div class="v" style="background:#5a3520;">A−</div><div class="v" style="background:#6b3a23;">A</div><div class="v" style="background:#5a3520;">A−</div></div>
+      <div class="audit-row"><div class="lbl">Reporting cadence</div><div class="v" style="background:#7a4126;">A+</div><div class="v" style="background:#7a4126;">A+</div><div class="v" style="background:#7a4126;">A+</div><div class="v" style="background:#6b3a23;">A</div><div class="v" style="background:#7a4126;">A+</div><div class="v" style="background:#6b3a23;">A</div></div>
+      <div class="audit-row"><div class="lbl">Cost discipline</div><div class="v" style="background:#3c2a1c;">B+</div><div class="v" style="background:#3c2a1c;">B+</div><div class="v" style="background:#5a3520;">A−</div><div class="v" style="background:#5a3520;">A−</div><div class="v" style="background:#5a3520;">A−</div><div class="v" style="background:#3c2a1c;">B+</div></div>
+      <div class="audit-row"><div class="lbl">Variance vs plan</div><div class="v" style="background:#2c2823;">B</div><div class="v" style="background:#3c2a1c;">B+</div><div class="v" style="background:#3c2a1c;">B+</div><div class="v" style="background:#5a3520;">A−</div><div class="v" style="background:#3c2a1c;">B+</div><div class="v" style="background:#2c2823;">B</div></div>
+      <div class="audit-row"><div class="lbl">Stakeholder trust</div><div class="v" style="background:#6b3a23;">A</div><div class="v" style="background:#6b3a23;">A</div><div class="v" style="background:#7a4126;">A+</div><div class="v" style="background:#7a4126;">A+</div><div class="v" style="background:#7a4126;">A+</div><div class="v" style="background:#6b3a23;">A</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">05</span>Cycle ledger · selected dispatches</h2>
+      <div class="section-actions"><a>All entries →</a></div>
+    </div>
+    <div class="three-photo">
+      <div class="photo-card">
+        <div class="img">
+          <svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#3a4a32"/><stop offset="1" stop-color="#0f1411"/>
+            </linearGradient></defs>
+            <rect width="200" height="150" fill="url(#g1)"/>
+            <path d="M0,110 L40,90 L80,100 L120,80 L160,85 L200,70 L200,150 L0,150 Z" fill="#1c241a"/>
+            <path d="M0,130 L50,120 L100,125 L150,115 L200,118 L200,150 L0,150 Z" fill="#0e1410"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">2026-03-04 · COASTAL · CARDIGAN BAY</div>
+          <h3>Holding the line on the Berris de Goide Lyne Dim-Bach.</h3>
+          <p>Three-year sediment accretion at the southern transect now exceeds the 2021 baseline by 0.42m. The fix was unglamorous and overdue.</p>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="img">
+          <svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#5a3520"/><stop offset="1" stop-color="#1a0f08"/>
+            </linearGradient></defs>
+            <rect width="200" height="150" fill="url(#g2)"/>
+            <path d="M0,120 L40,110 L80,115 L120,100 L160,95 L200,90 L200,150 L0,150 Z" fill="#2a1a10"/>
+            <circle cx="160" cy="60" r="22" fill="#e07a3e" opacity=".6"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">2026-02-18 · FORESTRY · LOCH AWE</div>
+          <h3>Six furrows recovery across the Lithoma headwaters.</h3>
+          <p>Year-1 audit of the Loch Awe Phase II planting. Survival came in at 78.4% against a modelled 71%. Parcel C-9 was the surprise.</p>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="img">
+          <svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="g3" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#4a3a26"/><stop offset="1" stop-color="#0e0a07"/>
+            </linearGradient></defs>
+            <rect width="200" height="150" fill="url(#g3)"/>
+            <ellipse cx="100" cy="120" rx="120" ry="40" fill="#1a1208"/>
+            <circle cx="60" cy="50" r="3" fill="#e07a3e" opacity=".7"/>
+            <circle cx="120" cy="40" r="2" fill="#e07a3e" opacity=".5"/>
+            <circle cx="160" cy="60" r="4" fill="#e07a3e" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="body">
+          <div class="meta">2026-01-22 · PEAT · BORDEN MIRES</div>
+          <h3>Peat hydrology restored across the Lithoma headwaters.</h3>
+          <p>The water table held within 4cm of the surface for 142 of 158 monitored days. The plug method we'd flagged as low-confidence ended up the workhorse of the year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">06</span>Project ledger · selected</h2>
+      <div class="section-actions"><a>All projects →</a><a>CSV</a></div>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>ID</th><th>NAME</th><th>BIOME</th><th>STATUS</th><th>HECTARES</th><th>DEPLOYED</th><th>RATING</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">GGF-271</td><td class="strong">The Cardigan Saltmarsh Cluster</td><td>Coastal</td><td><span class="tag green">Active</span></td><td class="num">428</td><td class="num">€2.14M</td><td class="num">A+</td></tr>
+          <tr><td class="mono">GGF-244</td><td class="strong">Glen Lowan Beaver Reach</td><td>Freshwater</td><td><span class="tag green">Active</span></td><td class="num">112</td><td class="num">€612k</td><td class="num">A</td></tr>
+          <tr><td class="mono">GGF-238</td><td class="strong">Borden Mires Re-Wetting</td><td>Peat</td><td><span class="tag green">Active</span></td><td class="num">844</td><td class="num">€3.21M</td><td class="num">A</td></tr>
+          <tr><td class="mono">GGF-219</td><td class="strong">Loch Awe Phase II</td><td>Forestry</td><td><span class="tag accent">Phase 2</span></td><td class="num">1,206</td><td class="num">€4.89M</td><td class="num">A+</td></tr>
+          <tr><td class="mono">GGF-204</td><td class="strong">Whitewater Cooperative</td><td>Freshwater</td><td><span class="tag green">Active</span></td><td class="num">288</td><td class="num">€981k</td><td class="num">A−</td></tr>
+          <tr><td class="mono">GGF-188</td><td class="strong">Allt Mhór Riparian Buffer</td><td>Riparian</td><td><span class="tag">Monitoring</span></td><td class="num">94</td><td class="num">€404k</td><td class="num">B+</td></tr>
+          <tr><td class="mono">GGF-167</td><td class="strong">Pwllheli Saltmarsh</td><td>Coastal</td><td><span class="tag green">Active</span></td><td class="num">312</td><td class="num">€1.40M</td><td class="num">A</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">07</span>Methodology</h2>
+      <div class="section-actions"><a>Full paper →</a></div>
+    </div>
+    <div class="two-meth">
+      <div class="meth-card">
+        <h4>FIELD MEASUREMENTS</h4>
+        <h3>Every site has a six-year axis.</h3>
+        <p>Before any disbursement clears, the project signs a measurement plan: what we will measure, on what cadence, to what tolerance, and what specific findings would cause us to withdraw funding. The plan is published with the project, not buried in an annex, and is held to in audit.</p>
+      </div>
+      <div class="meth-card">
+        <h4>CAPITAL ACCOUNTING</h4>
+        <h3>Public ledger, daily close.</h3>
+        <p>Every euro out of the foundry is published to the public ledger by close of next business day. The ledger is human-readable, machine-readable, and unchangeable after entry. Reconciliations against bank ledgers are run twice monthly.</p>
+      </div>
+      <div class="meth-card">
+        <h4>COMMUNITY ATTRIBUTION</h4>
+        <h3>Outcomes belong to the place.</h3>
+        <p>We don't claim outcomes that other groups produced or supported. Co-funded projects are co-attributed. Where local stewards run the work, they hold the narrative; we hold only the spreadsheet.</p>
+      </div>
+      <div class="meth-card">
+        <h4>WITHDRAWAL PROTOCOL</h4>
+        <h3>The "no" file is public.</h3>
+        <p>Projects that fail their six-year axis are wound down. The reasoning, the data, and the cost of the wind-down are published. Withdrawal is uncommon but ordinary; the file is the most-read section of the year.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">08</span>Annual reports &amp; downloads</h2>
+      <div class="section-actions"><a>RSS</a><a>All →</a></div>
+    </div>
+    <div style="border: 1px solid var(--line); background: var(--card);">
+      <div class="report-row">
+        <span class="pad">2024</span>
+        <div><h4>Annual Impact Ledger — Fiscal Year 2024 (full)</h4><p>184 pages · 24 December · audited by Hessel &amp; Lyons LLP.</p></div>
+        <span class="mono muted">PDF · 24.1MB</span>
+        <a class="btn btn-sm btn-primary">Download</a>
+      </div>
+      <div class="report-row">
+        <span class="pad">2023</span>
+        <div><h4>Annual Impact Ledger — Fiscal Year 2023.</h4><p>172 pages · published 2024-04-22 · two revisions.</p></div>
+        <span class="mono muted">PDF · 22.3MB</span>
+        <a class="btn btn-sm">Download</a>
+      </div>
+      <div class="report-row">
+        <span class="pad">2022</span>
+        <div><h4>Annual Impact Ledger — Fiscal Year 2022.</h4><p>156 pages · first year with field-level audit trail.</p></div>
+        <span class="mono muted">PDF · 19.8MB</span>
+        <a class="btn btn-sm">Download</a>
+      </div>
+      <div class="report-row">
+        <span class="pad">2021</span>
+        <div><h4>Annual Impact Ledger — Fiscal Year 2021.</h4><p>142 pages · adoption of the six-year axis methodology.</p></div>
+        <span class="mono muted">PDF · 18.4MB</span>
+        <a class="btn btn-sm">Download</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom: none;">
+    <div class="section-head">
+      <h2 class="section-title"><span class="num">09</span>Points of trust</h2>
+      <div class="section-actions"><a>Methodology →</a></div>
+    </div>
+    <div class="footstat">
+      <div class="panel">
+        <div class="label">CO₂-EQ AVOIDED (FY24)</div>
+        <div class="value">18,300 ha</div>
+        <p>Aggregate carbon-equivalent avoided across the FY24 portfolio. Methodology and confidence intervals in the appendix.</p>
+      </div>
+      <div class="panel">
+        <div class="label">IBERIAN LYNX CORRIDOR</div>
+        <div class="value">€17.40 / ha</div>
+        <p>Median cost per hectare on the corridor project last fiscal year. Down 9% on FY23 thanks to community-led monitoring.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="name">GABLE GROUND FOUNDRY ·</div>
+        <p>Capital for land returned to function. Established 2016, audited annually, published quarterly.</p>
+        <p style="font-family:var(--mono); font-size:11px; color:var(--muted-2); margin-top:14px;">
+          UNIT 4 / OLD FOUNDRY YARD<br>
+          ABERAERON, CEREDIGION<br>
+          SA46 0AH · UNITED KINGDOM
+        </p>
+      </div>
+      <div><h4>Foundry</h4><ul><li><a>About</a></li><li><a>Methodology</a></li><li><a>Governance</a></li><li><a>Annual ledger</a></li><li><a>Audit trail</a></li></ul></div>
+      <div><h4>Programs</h4><ul><li><a>Coastal</a></li><li><a>Forestry</a></li><li><a>Peat</a></li><li><a>Freshwater</a></li><li><a>Urban edge</a></li></ul></div>
+      <div><h4>Reading</h4><ul><li><a>Field notes</a></li><li><a>Quarterly</a></li><li><a>Dispatches</a></li><li><a>Research</a></li><li><a>Press</a></li></ul></div>
+      <div><h4>Give</h4><ul><li><a>One-time</a></li><li><a>Recurring</a></li><li><a>Cohort matching</a></li><li><a>Bequest</a></li><li><a>Donor portal</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 GABLE GROUND FOUNDRY · CHARITY NO. 1175521</span>
+      <div class="links"><a>PRIVACY</a><a>TERMS</a><a>COOKIES</a><a>RSS</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

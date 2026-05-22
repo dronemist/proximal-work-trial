@@ -1,0 +1,182 @@
+[grade] VLM judge: 15 pairs in 15.5s
+{
+  "per_page_viewport": {
+    "account-overview": {
+      "desktop": {
+        "ssim": {
+          "name": "ssim",
+          "score": 0.6837034565324868,
+          "extra": {
+            "reference_size": [
+              1440,
+              1684
+            ],
+            "candidate_size": [
+              1440,
+              1422
+            ],
+            "compared_size": [
+              1440,
+              1422
+            ]
+          }
+        },
+        "block_match": {
+          "name": "block_match",
+          "score": 0.4777509868144989,
+          "extra": {
+            "reference_blocks": 284,
+            "candidate_blocks": 259,
+            "matched_pairs": 259,
+            "mean_matched_iou": 0.22824598848819733,
+            "raw_score_before_sqrt": 0.22824601829051971
+          }
+        },
+        "position": {
+          "name": "position",
+          "score": 0.7826991255821859,
+          "extra": {
+            "reference_blocks": 284,
+            "candidate_blocks": 259,
+            "matched_pairs": 259,
+            "mean_normalized_centroid_distance": 0.21730087441781412,
+            "page_diagonal_px": 2215.9548648685886
+          }
+        },
+        "palette": {
+          "name": "palette",
+          "score": 0.7208701675037542,
+          "extra": {
+            "bg_score": 0.8086025483806927,
+            "fg_score": 0.6331377866268157,
+            "bg": {
+              "reference_palette_size": 6,
+              "candidate_palette_size": 12,
+              "weighted_mean_oklab_distance": 0.02030961774289608,
+              "base_score_before_penalty": 0.8646025483806927,
+              "over_color_penalty": 0.055999999999999994
+            },
+            "fg": {
+              "reference_palette_size": 5,
+              "candidate_palette_size": 10,
+              "weighted_mean_oklab_distance": 0.04662933200597763,
+              "base_score_before_penalty": 0.6891377866268158,
+              "over_color_penalty": 0.055999999999999994
+            }
+          }
+        },
+        "typography": {
+          "name": "typography",
+          "score": 0.49240796218800076,
+          "extra": {
+            "bucket_score": 0.5,
+            "size_score": 0.489154231697144,
+            "reference_buckets": [
+              "sans"
+            ],
+            "candidate_buckets": [
+              "sans",
+              "serif"
+            ],
+            "reference_size_hist": [
+              [
+                13.0,
+                0.3380281690140845
+              ],
+              [
+                15.0,
+                0.6126760563380281
+              ],
+              [
+                22.0,
+                0.02464788732394366
+              ],
+              [
+                32.0,
+                0.017605633802816902
+              ]
+            ],
+            "candidate_size_hist": [
+              [
+                10.0,
+                0.03088803088803089
+              ],
+              [
+                10.5,
+                0.05019305019305019
+              ],
+              [
+                11.0,
+                0.138996138996139
+              ],
+              [
+                11.5,
+                0.03474903474903475
+              ],
+              [
+                12.0,
+                0.33204633204633205
+              ],
+              [
+                12.5,
+                0.04633204633204633
+              ],
+              [
+                13.0,
+                0.27413127413127414
+              ],
+              [
+                14.0,
+                0.011583011583011582
+              ],
+              [
+                16.0,
+                0.05019305019305019
+              ],
+              [
+                22.0,
+                0.023166023166023165
+              ]
+            ],
+            "reference_fonts": [
+              "-apple-system"
+            ],
+            "candidate_fonts": [
+              "-apple-system",
+              "iowan old style"
+            ]
+          }
+        },
+        "text": {
+          "name": "text",
+          "score": 0.735224586288416,
+          "extra": {
+            "reference_tokens": 368,
+            "candidate_tokens": 366,
+            "matched_tokens": 311,
+            "union_tokens": 423,
+            "reference_unique": 218,
+            "candidate_unique": 220
+          }
+        },
+        "overflow": {
+          "name": "overflow",
+          "score": 1.0,
+          "extra": {
+            "candidate_scroll_width": 1440,
+            "reference_scroll_width": 1440,
+            "candidate_png_width": 1440,
+            "reference_png_width": 1440,
+            "effective_candidate_width": 1440,
+            "effective_reference_width": 1440,
+            "viewport_width": 1440,
+            "over_px": 0,
+            "under_px": 0,
+            "width_diff_ratio": 0.0
+          }
+        },
+        "vlm_judge": {
+          "name": "vlm_judge",
+          "score": 0.3,
+          "extra": {
+            "reason": "Multiple content hallucinations and data errors throughout: wrong 

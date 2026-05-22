@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Time Off · Onyx Works</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span class="logo">O</span> Onyx Works</div>
+    <div class="nav-section">
+      <div class="nav-title">Workspace</div>
+      <a class="nav-link" href="people-directory.html">People</a>
+      <a class="nav-link" href="org-chart.html">Org Chart</a>
+      <a class="nav-link active" href="time-off.html">Time Off</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-title">Finance</div>
+      <a class="nav-link" href="expenses.html">Expenses</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-title">Admin</div>
+      <a class="nav-link" href="settings.html">Company Settings</a>
+    </div>
+    <div class="me">
+      <div class="avatar pink">MD</div>
+      <div class="who"><span class="name">Mara Devlin</span><span class="role">People Operations Lead</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="mobile-topbar">
+      <span class="logo" style="width:22px;height:22px;background:#111;color:#fff;display:grid;place-items:center;border-radius:4px;font-weight:800;font-size:12px;">O</span>
+      <strong>Onyx Works</strong>
+    </div>
+    <div class="mobile-tabs">
+      <a href="people-directory.html">People</a>
+      <a href="org-chart.html">Org Chart</a>
+      <a href="time-off.html" class="active">Time Off</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="settings.html">Company Settings</a>
+    </div>
+
+    <div class="crumb">
+      <span>Contract holdings</span><span class="sep">›</span>
+      <span>Atelier North LLC</span>
+    </div>
+
+    <div class="topbar">
+      <h1 class="page-title" style="margin:0">Time Off</h1>
+      <div class="grow"></div>
+      <select><option>Atelier North — USA</option></select>
+      <input type="search" placeholder="Search by person or date" />
+    </div>
+
+    <!-- Sub-tabs -->
+    <div class="tabs">
+      <a class="active">Calendar</a>
+      <a>Requests</a>
+      <a>Balances</a>
+      <a>Policies</a>
+      <a>Holidays</a>
+    </div>
+
+    <!-- Your balances -->
+    <div class="sh">
+      <div>
+        <div class="title">Your balances</div>
+        <div class="tiny">Accrual policy: monthly, capped · Updated 02 Oct 2025</div>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <div class="label">Vacation</div>
+        <div class="val">14.5 <span style="font-size:11px;color:var(--text-3);font-weight:400">days</span></div>
+        <div class="balance-bar"><div class="fill green" style="width:60%"></div></div>
+        <div class="sub" style="margin-top:6px">3.5 used of 25 annual · Carryover allowed to 31 Mar</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Sick</div>
+        <div class="val">8.0 <span style="font-size:11px;color:var(--text-3);font-weight:400">days</span></div>
+        <div class="balance-bar"><div class="fill blue" style="width:80%"></div></div>
+        <div class="sub" style="margin-top:6px">2.0 used of 10 banked</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Personal</div>
+        <div class="val">3.0 <span style="font-size:11px;color:var(--text-3);font-weight:400">days</span></div>
+        <div class="balance-bar"><div class="fill amber" style="width:60%"></div></div>
+        <div class="sub" style="margin-top:6px">2.0 used of 5 annual · Expires 31 Dec</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Bereavement</div>
+        <div class="val">5.0 <span style="font-size:11px;color:var(--text-3);font-weight:400">days</span></div>
+        <div class="balance-bar"><div class="fill pink" style="width:100%"></div></div>
+        <div class="sub" style="margin-top:6px">Full balance available · Documentation required</div>
+      </div>
+    </div>
+
+    <!-- Calendar + new request -->
+    <div class="with-aside">
+      <div>
+        <div class="cal">
+          <div class="cal-head">
+            <div class="title">October 2025 · Atelier North</div>
+            <div class="row gap-sm">
+              <button class="btn btn-sm">‹</button>
+              <button class="btn btn-sm">Today</button>
+              <button class="btn btn-sm">›</button>
+            </div>
+          </div>
+
+          <div style="padding:6px 14px;display:flex;gap:14px;font-size:11px;color:var(--text-3);border-bottom:1px solid var(--border-2)">
+            <span class="item"><span class="dot green"></span> Approved</span>
+            <span class="item"><span class="dot amber"></span> Pending</span>
+            <span class="item"><span class="dot blue"></span> Holiday</span>
+            <span class="item"><span class="dot pink"></span> Selected</span>
+          </div>
+
+          <div class="cal-grid">
+            <div class="dow">Mon</div><div class="dow">Tue</div><div class="dow">Wed</div><div class="dow">Thu</div><div class="dow">Fri</div><div class="dow">Sat</div><div class="dow">Sun</div>
+
+            <div class="day muted"><span class="n">29</span></div>
+            <div class="day muted"><span class="n">30</span></div>
+            <div class="day"><span class="n">1</span></div>
+            <div class="day"><span class="n">2</span><span class="cal-pill amber">Liam – Travel</span></div>
+            <div class="day"><span class="n">3</span><span class="cal-pill amber">Liam – Travel</span></div>
+            <div class="day muted"><span class="n">4</span></div>
+            <div class="day muted"><span class="n">5</span></div>
+
+            <div class="day"><span class="n">6</span></div>
+            <div class="day"><span class="n">7</span><span class="cal-pill green">Omar Wahn</span></div>
+            <div class="day"><span class="n">8</span><span class="cal-pill green">Omar Wahn</span></div>
+            <div class="day"><span class="n">9</span></div>
+            <div class="day"><span class="n">10</span><span class="cal-pill blue">Indigenous P. Day</span></div>
+            <div class="day muted"><span class="n">11</span></div>
+            <div class="day muted"><span class="n">12</span></div>
+
+            <div class="day"><span class="n">13</span><span class="cal-pill blue">Holiday</span></div>
+            <div class="day"><span class="n">14</span></div>
+            <div class="day"><span class="n">15</span><span class="cal-pill solid-pink">Mara · Vacation</span></div>
+            <div class="day"><span class="n">16</span><span class="cal-pill solid-pink">Mara · Vacation</span></div>
+            <div class="day"><span class="n">17</span><span class="cal-pill solid-pink">Mara · Vacation</span></div>
+            <div class="day muted"><span class="n">18</span></div>
+            <div class="day muted"><span class="n">19</span></div>
+
+            <div class="day"><span class="n">20</span><span class="cal-pill solid-pink">Mara · Vacation</span></div>
+            <div class="day"><span class="n">21</span><span class="cal-pill green">Sam W</span></div>
+            <div class="day"><span class="n">22</span></div>
+            <div class="day"><span class="n">23</span><span class="cal-pill amber">Half day</span></div>
+            <div class="day"><span class="n">24</span></div>
+            <div class="day muted"><span class="n">25</span></div>
+            <div class="day muted"><span class="n">26</span></div>
+
+            <div class="day"><span class="n">27</span></div>
+            <div class="day"><span class="n">28</span><span class="cal-pill green">Elena · Vac</span></div>
+            <div class="day"><span class="n">29</span></div>
+            <div class="day today"><span class="n">30 · Today</span></div>
+            <div class="day"><span class="n">31</span><span class="cal-pill solid-dark">All hands</span></div>
+            <div class="day muted"><span class="n">1</span></div>
+            <div class="day muted"><span class="n">2</span></div>
+          </div>
+
+          <div class="legend">
+            Calendar shows requests across Atelier North only. Switch entities to see other teams. Times are local to America/New_York.
+          </div>
+        </div>
+
+        <!-- Awaiting your review -->
+        <div class="sh">
+          <div>
+            <div class="title">Awaiting your review</div>
+            <div class="tiny">5 pending · oldest 5 days</div>
+          </div>
+          <div class="row gap-sm">
+            <span class="chip gray">Status: Pending</span>
+            <span class="chip gray">Entity: Atelier North</span>
+            <span class="chip gray">Type: All</span>
+            <span class="tiny">Showing 1–5 of 5</span>
+          </div>
+        </div>
+
+        <div class="card tight" style="padding:0">
+          <table class="tbl">
+            <thead><tr>
+              <th>Person</th><th>Type</th><th>Dates</th><th class="num">Days</th><th>Coverage</th><th>Submitted</th><th>Status</th><th></th>
+            </tr></thead>
+            <tbody>
+              <tr><td><div class="row" style="gap:8px"><div class="avatar sm pink">MO</div>Mara Okafor</div></td><td>Sick</td><td>Oct 04–5</td><td class="num">1.5</td><td>—</td><td>5 days ago</td><td><span class="chip amber">● Pending</span></td><td><a style="color:var(--pink)">Review</a></td></tr>
+              <tr><td><div class="row" style="gap:8px"><div class="avatar sm amber">JR</div>Jorge Reyes</div></td><td>Personal</td><td>Oct 14–15</td><td class="num">1.0</td><td>Omar Wahn</td><td>3 days ago</td><td><span class="chip amber">● Pending</span></td><td><a style="color:var(--pink)">Review</a></td></tr>
+              <tr><td><div class="row" style="gap:8px"><div class="avatar sm blue">SW</div>Sam Whittaker</div></td><td>Personal</td><td>Oct 21–21</td><td class="num">1.0</td><td>Naj Brennan</td><td>2 day ago</td><td><span class="chip amber">● Pending</span></td><td><a style="color:var(--pink)">Review</a></td></tr>
+              <tr><td><div class="row" style="gap:8px"><div class="avatar sm green">EM</div>Elena Mathers</div></td><td>Vacation</td><td>17 Nov — 21 Nov</td><td class="num">5.0</td><td>Priya Nahokpan</td><td>1 hr ago</td><td><span class="chip amber">● Pending</span></td><td><a style="color:var(--pink)">Review</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Recent activity + Holidays -->
+        <div class="two-col mt-3">
+          <div class="card">
+            <div class="row between">
+              <div>
+                <strong>Recent activity</strong>
+                <div class="tiny">Last 14 days</div>
+              </div>
+            </div>
+            <div class="list-row mt-2">
+              <span>04 Oct</span>
+              <div><strong>Lee Katz — Vacation approved</strong><div class="tiny">02 Oct · 07 Oct · 5 days · by Mara Devlin</div></div>
+              <span class="chip green">● Approved</span>
+            </div>
+            <div class="list-row">
+              <span>27 Sep</span>
+              <div><strong>Priya Naturajan — Vacation approved</strong><div class="tiny">01 Oct · 10 Oct · 8 days · by Aaron Lee</div></div>
+              <span class="chip green">● Approved</span>
+            </div>
+            <div class="list-row">
+              <span>23 Sep</span>
+              <div><strong>Drew Marin — Sick recorded</strong><div class="tiny">22 Sep · 1 day · auto-recorded</div></div>
+              <span class="chip blue">● Recorded</span>
+            </div>
+            <div class="list-row">
+              <span>16 Sep</span>
+              <div><strong>Theo Lin — Personal declined</strong><div class="tiny">22 Sep · conflicts with client deliverable</div></div>
+              <span class="chip red">● Declined</span>
+            </div>
+            <div class="list-row">
+              <span>09 Sep</span>
+              <div><strong>Ola Brennan — Vacation approved</strong><div class="tiny">27 Oct · 31 Oct · 5 days · by Mara Devlin</div></div>
+              <span class="chip green">● Approved</span>
+            </div>
+            <div class="row between mt-2"><span class="tiny">5 of 23 entries</span><span class="tiny" style="color:var(--pink)">View full log ›</span></div>
+          </div>
+
+          <div class="card">
+            <div class="row between">
+              <strong>Company holidays · USA</strong>
+              <span class="tiny">Q4 2025</span>
+            </div>
+            <div class="card subtle-card mt-2">
+              <strong>Mon, 13 Oct — Indigenous Peoples' Day</strong>
+              <div class="tiny mt-1">Office closed. Applies to all US-based entities. Payroll cycles unaffected; processed Friday 10 Oct as a half-day.</div>
+            </div>
+            <div class="rule mt-2"><strong>Fri, 31 Oct — Half day, all hands</strong><span class="chev">⌄</span></div>
+            <div class="rule"><strong>Thu, 27 Nov — Thanksgiving</strong><span class="chev">⌄</span></div>
+            <div class="rule"><strong>Wed, 24 Dec — Fri, 02 Jan — Winter recess</strong><span class="chev">⌄</span></div>
+            <div class="row between mt-2"><span class="tiny">4 upcoming · 21 total this year</span><span class="tiny" style="color:var(--pink)">Manage in Settings ›</span></div>
+          </div>
+        </div>
+
+        <!-- Team out this week -->
+        <div class="sh">
+          <div class="title">Team out this week</div>
+          <span class="tiny">Week of 13 Oct 2025 · 6 of 42 people away</span>
+        </div>
+        <div class="kpis">
+          <div class="kpi">
+            <div class="label">Approved this week</div>
+            <div class="val">12</div>
+            <div class="sub" style="color:var(--green)">▲ 4 vs last</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Pending review</div>
+            <div class="val">4</div>
+            <div class="sub">Oldest: 5 days</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Coverage gaps</div>
+            <div class="val">1</div>
+            <div class="sub" style="color:var(--pink)">Design · 19 Oct</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Avg. days used YTD</div>
+            <div class="val">9.2</div>
+            <div class="sub">Target 12.5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: New request panel -->
+      <aside>
+        <div class="card">
+          <div class="row between">
+            <strong>New request</strong>
+            <span class="chev">›</span>
+          </div>
+          <div class="tiny mt-1">Submitting for yourself · Mara Devlin</div>
+
+          <div class="field mt-2">
+            <label>Leave type</label>
+            <select><option>Vacation — 14.5 days available</option></select>
+          </div>
+          <div class="two-col mt-2">
+            <div class="field"><label>Start</label><input value="Thu, 16 Oct 2025" /></div>
+            <div class="field"><label>End</label><input value="Mon, 20 Oct 2025" /></div>
+          </div>
+          <div class="field mt-2">
+            <label>Duration</label>
+            <input value="2.5" />
+            <div class="tiny">Hours · 1 working day = 8 hours</div>
+          </div>
+          <div class="tiny mt-1">Weekends and the 13 Oct holiday are excluded automatically.</div>
+
+          <div class="field mt-2">
+            <label>Coverage</label>
+            <select><option>Jorge Reyes — Senior Partner</option></select>
+            <div class="tiny">They will receive a hand-off summary on the day before you leave.</div>
+          </div>
+
+          <div class="field mt-2">
+            <label>Note for approver</label>
+            <textarea rows="3">Family trip booked in August. All Q4 client check-ins are pre-scheduled around these dates.</textarea>
+            <label class="row mt-1" style="gap:8px;font-size:12px"><input type="checkbox" checked /> Add out-of-office reply to email and chat</label>
+          </div>
+
+          <div class="row mt-3" style="gap:8px">
+            <button class="btn" style="flex:1">Save draft</button>
+            <button class="btn btn-primary" style="flex:1">Submit request</button>
+          </div>
+
+          <div class="tiny mt-2" style="color:var(--text-4)">Submitting locks the dates from edits until your manager replies. Approvers usually respond within 2 business days at this request and the people queue.</div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      <span>Onyx Works Group · v4.18.2 · environment: production-us</span>
+      <span class="grow"></span>
+      <div class="links"><a>People</a><a>Org Chart</a><a>Time Off</a><a>Expenses</a><a>Settings</a></div>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reports — Sable Echo Studio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">Sable Echo<span class="dot"></span>Studio</div>
+    <nav class="nav-links">
+      <a href="properties.html">Properties</a>
+      <a href="property-detail.html">Property</a>
+      <a href="messaging.html">Guest Messages</a>
+      <a href="rates.html">Rates &amp; Availability</a>
+      <a href="reports.html" class="active">Reports</a>
+    </nav>
+    <a class="btn" href="#">Export PDF</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow"><span class="sep"></span>STUDIO LEDGER · Q3 ANALYSIS</div>
+    <h1>The quarter, read in figures and in feeling.</h1>
+    <p class="lede">A measured account of how the portfolio performed between July and September — occupancy held by season, average rates lifted four ratebands across the year, and a thread of letters across the studio's nine stays.</p>
+
+    <div class="filterbar" style="margin-top:18px;">
+      <div class="field"><span style="font-size:11px; color:var(--muted);">RANGE</span><input value="Q3 2024 — Q3 2023"></div>
+      <div class="field"><select><option>All properties</option></select><span class="caret">▾</span></div>
+      <div class="field"><select><option>Group by week, then month</option></select><span class="caret">▾</span></div>
+      <button class="filter-btn">Refine</button>
+    </div>
+
+    <div class="kpis" style="grid-template-columns: repeat(4, 1fr); margin-top:16px;">
+      <div class="kpi"><div class="lbl">Occupancy</div><div class="val">76.4% <span class="trend up">▲ 4.1</span></div><div class="sub">average across nine open stays</div></div>
+      <div class="kpi"><div class="lbl">Avg. nightly rate</div><div class="val">€412 <span class="trend up">▲ 6%</span></div><div class="sub">€24 higher than '23</div></div>
+      <div class="kpi"><div class="lbl">RevPAR</div><div class="val">€323 <span class="trend up">▲ 11%</span></div><div class="sub">trailing 90 days</div></div>
+      <div class="kpi"><div class="lbl">Net revenue, Q3</div><div class="val">€268k <span class="trend up">▲ 8%</span></div><div class="sub">across 9 properties</div></div>
+    </div>
+  </section>
+
+  <section class="two-col">
+    <div class="chart-card">
+      <div class="lbl">OCCUPANCY BY WEEK</div>
+      <h3>Occupancy by week</h3>
+      <svg class="line-chart" viewBox="0 0 400 200" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#c89215" stop-opacity="0.25"/>
+            <stop offset="1" stop-color="#c89215" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g stroke="#e6dfcd" stroke-width="0.5">
+          <line x1="0" y1="40" x2="400" y2="40"/>
+          <line x1="0" y1="80" x2="400" y2="80"/>
+          <line x1="0" y1="120" x2="400" y2="120"/>
+          <line x1="0" y1="160" x2="400" y2="160"/>
+        </g>
+        <path d="M0,140 L30,120 L60,100 L90,110 L120,80 L150,60 L180,70 L210,50 L240,45 L270,55 L300,80 L330,95 L360,110 L400,130 L400,200 L0,200 Z" fill="url(#g1)"/>
+        <path d="M0,140 L30,120 L60,100 L90,110 L120,80 L150,60 L180,70 L210,50 L240,45 L270,55 L300,80 L330,95 L360,110 L400,130" stroke="#c89215" stroke-width="2" fill="none"/>
+        <path d="M0,160 L30,150 L60,135 L90,140 L120,120 L150,105 L180,115 L210,95 L240,90 L270,100 L300,120 L330,130 L360,140 L400,155" stroke="#1a1410" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+      </svg>
+      <div class="legend" style="margin-top:8px;">
+        <span><span class="dot" style="background:#c89215;"></span>2024</span>
+        <span><span class="dot" style="background:#1a1410;"></span>2023</span>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow"><span class="sep"></span>READING THE CURVE</div>
+      <h3 style="font-family:var(--serif); font-size:22px; margin:6px 0 10px;">A summer held its breath, and the rooms stayed full.</h3>
+      <p style="color:var(--muted); font-size:12.5px; line-height:1.6;">Mid-August broke the curve high, with three closures absorbed almost as soon as they were filled. The pattern carried into the second week of September — only one lull, at Maison Verre, when the kitchen was being restored. Occupancy then settled along its old shape.</p>
+    </div>
+  </section>
+
+  <section class="two-col" style="margin-top:8px;">
+    <div>
+      <div class="eyebrow"><span class="sep"></span>READING THE BARS</div>
+      <h3 style="font-family:var(--serif); font-size:22px; margin:6px 0 10px;">Rates lifted without strain, the market simply followed.</h3>
+      <p style="color:var(--muted); font-size:12.5px; line-height:1.6;">We raised across the board in March, and the curve stayed broad. The strain that often follows a rate change — a longer lead time, more cancellations — did not appear this year, and so we kept the ceiling where it was.</p>
+      <div class="kpis" style="grid-template-columns:1fr 1fr; margin-top:10px;">
+        <div class="card-min"><div class="lbl">RATE INCREASE, '23 → '24</div><div class="val">+12.4%</div></div>
+        <div class="card-min"><div class="lbl">CANCELLATIONS, Q3</div><div class="val">4</div></div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="lbl">AVERAGE DAILY RATE</div>
+      <h3>Average Daily Rate</h3>
+      <svg class="bar-chart" viewBox="0 0 400 200" preserveAspectRatio="none">
+        <g fill="#c89215">
+          <rect x="20" y="120" width="20" height="70"/>
+          <rect x="60" y="100" width="20" height="90"/>
+          <rect x="100" y="80" width="20" height="110"/>
+          <rect x="140" y="60" width="20" height="130"/>
+          <rect x="180" y="40" width="20" height="150"/>
+          <rect x="220" y="50" width="20" height="140"/>
+          <rect x="260" y="70" width="20" height="120"/>
+          <rect x="300" y="90" width="20" height="100"/>
+          <rect x="340" y="110" width="20" height="80"/>
+        </g>
+        <g fill="#1a1410" opacity="0.7">
+          <rect x="40" y="140" width="20" height="50"/>
+          <rect x="80" y="125" width="20" height="65"/>
+          <rect x="120" y="100" width="20" height="90"/>
+          <rect x="160" y="80" width="20" height="110"/>
+          <rect x="200" y="65" width="20" height="125"/>
+          <rect x="240" y="75" width="20" height="115"/>
+          <rect x="280" y="95" width="20" height="95"/>
+          <rect x="320" y="110" width="20" height="80"/>
+          <rect x="360" y="130" width="20" height="60"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="two-col" style="margin-top:8px;">
+    <div class="chart-card">
+      <div class="lbl">REVPAR BY PROGRAM</div>
+      <h3>RevPAR by program</h3>
+      <svg class="bar-chart" viewBox="0 0 400 240" preserveAspectRatio="none">
+        <g font-size="10" fill="#7a6f5e" font-family="-apple-system, sans-serif">
+          <text x="0" y="20">Maison Verre</text>
+          <text x="0" y="45">Casa Encinal</text>
+          <text x="0" y="70">Cap Ferret Cabin</text>
+          <text x="0" y="95">The Cormorant H.</text>
+          <text x="0" y="120">Atelier Nord</text>
+          <text x="0" y="145">Plaza Tercera</text>
+          <text x="0" y="170">Black Barn</text>
+          <text x="0" y="195">Casa Lumi</text>
+          <text x="0" y="220">Kuro Moku</text>
+        </g>
+        <g fill="#c89215">
+          <rect x="110" y="12" width="220" height="10"/>
+          <rect x="110" y="37" width="200" height="10"/>
+          <rect x="110" y="62" width="170" height="10"/>
+          <rect x="110" y="87" width="155" height="10"/>
+          <rect x="110" y="112" width="140" height="10"/>
+          <rect x="110" y="137" width="120" height="10"/>
+          <rect x="110" y="162" width="110" height="10"/>
+          <rect x="110" y="187" width="90" height="10"/>
+          <rect x="110" y="212" width="70" height="10"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <div class="eyebrow"><span class="sep"></span>READING THE LADDER</div>
+      <h3 style="font-family:var(--serif); font-size:22px; margin:6px 0 10px;">The portfolio ranks itself, top to bottom, by quiet preference.</h3>
+      <p style="color:var(--muted); font-size:12.5px; line-height:1.6;">Maison Verre leads, as it has every quarter since opening. Behind it, the steadier middle: the Cabin in Cap Ferret, the Cormorant, the new Casa Lumi. Atelier Nord — the most recently added — completes the ladder, though it brings up the bottom by design, not by accident.</p>
+      <div class="kpis" style="grid-template-columns:1fr 1fr; margin-top:10px;">
+        <div class="card-min"><div class="lbl">TOP ALL QUARTER</div><div class="val">Maison V.</div></div>
+        <div class="card-min"><div class="lbl">NEW THIS YEAR</div><div class="val">€120</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="two-col" style="margin-top:8px;">
+    <div>
+      <div class="eyebrow"><span class="sep"></span>READING THE DONUT</div>
+      <h3 style="font-family:var(--serif); font-size:22px; margin:6px 0 10px;">Where the bookings come from, and what that says.</h3>
+      <p style="color:var(--muted); font-size:12.5px; line-height:1.6;">Direct bookings through the studio's own pages still hold steady, and remain the most lucrative of the channels. Airbnb still leads in number; the smaller of the curated partners — Plum Guide, Smith — bring up the rest.</p>
+      <div class="kpis" style="grid-template-columns:1fr 1fr; margin-top:10px;">
+        <div class="card-min"><div class="lbl">DIRECT</div><div class="val">42%</div></div>
+        <div class="card-min"><div class="lbl">AVG. LEAD TIME</div><div class="val">54 days</div></div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="lbl">BOOKING CHANNEL MIX</div>
+      <svg viewBox="0 0 240 240" style="width:200px; height:200px; display:block; margin: 8px auto;">
+        <circle cx="120" cy="120" r="80" fill="none" stroke="#1a1410" stroke-width="40" stroke-dasharray="210 503"/>
+        <circle cx="120" cy="120" r="80" fill="none" stroke="#c89215" stroke-width="40" stroke-dasharray="160 503" stroke-dashoffset="-210"/>
+        <circle cx="120" cy="120" r="80" fill="none" stroke="#a8780f" stroke-width="40" stroke-dasharray="80 503" stroke-dashoffset="-370"/>
+        <circle cx="120" cy="120" r="80" fill="none" stroke="#d9d1bd" stroke-width="40" stroke-dasharray="53 503" stroke-dashoffset="-450"/>
+        <text x="120" y="125" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#1a1410" font-weight="600">€268k</text>
+      </svg>
+      <div class="legend" style="margin-top:8px; justify-content:center;">
+        <span><span class="dot" style="background:#1a1410;"></span>Direct</span>
+        <span><span class="dot" style="background:#c89215;"></span>Airbnb</span>
+        <span><span class="dot" style="background:#a8780f;"></span>Smith</span>
+        <span><span class="dot" style="background:#d9d1bd;"></span>Other</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top:30px;">
+    <div class="eyebrow"><span class="sep"></span>READING THE GRID</div>
+    <h3 style="font-family:var(--serif); font-size:22px; margin:6px 0 14px;">Occupancy heatmap, property by month.</h3>
+    <div class="heatmap">
+      <div class="row" style="grid-template-columns: 110px repeat(12, 1fr);">
+        <div></div>
+        <div class="lab">JAN</div><div class="lab">FEB</div><div class="lab">MAR</div><div class="lab">APR</div><div class="lab">MAY</div><div class="lab">JUN</div><div class="lab">JUL</div><div class="lab">AUG</div><div class="lab">SEP</div><div class="lab">OCT</div><div class="lab">NOV</div><div class="lab">DEC</div>
+      </div>
+      <div class="row"><div class="lab">Maison Verre</div>
+        <div class="cell" style="background:#f3d77e;">62</div><div class="cell" style="background:#e6c050;">71</div><div class="cell" style="background:#d4a730;">79</div><div class="cell" style="background:#c89215;">85</div><div class="cell" style="background:#a87a10;color:#fff;">91</div><div class="cell" style="background:#8a6308;color:#fff;">97</div><div class="cell" style="background:#8a6308;color:#fff;">98</div><div class="cell" style="background:#8a6308;color:#fff;">97</div><div class="cell" style="background:#a87a10;color:#fff;">90</div><div class="cell" style="background:#d4a730;">82</div><div class="cell" style="background:#e6c050;">68</div><div class="cell" style="background:#f3d77e;">52</div>
+      </div>
+      <div class="row"><div class="lab">Casa Encinal</div>
+        <div class="cell" style="background:#f7e9b8;">48</div><div class="cell" style="background:#f3d77e;">61</div><div class="cell" style="background:#e6c050;">70</div><div class="cell" style="background:#d4a730;">80</div><div class="cell" style="background:#c89215;">88</div><div class="cell" style="background:#a87a10;color:#fff;">94</div><div class="cell" style="background:#8a6308;color:#fff;">99</div><div class="cell" style="background:#8a6308;color:#fff;">99</div><div class="cell" style="background:#a87a10;color:#fff;">88</div><div class="cell" style="background:#d4a730;">75</div><div class="cell" style="background:#f3d77e;">58</div><div class="cell" style="background:#f7e9b8;">45</div>
+      </div>
+      <div class="row"><div class="lab">Cormorant H.</div>
+        <div class="cell" style="background:#f7e9b8;">42</div><div class="cell" style="background:#f3d77e;">55</div><div class="cell" style="background:#e6c050;">68</div><div class="cell" style="background:#d4a730;">78</div><div class="cell" style="background:#c89215;">84</div><div class="cell" style="background:#a87a10;color:#fff;">90</div><div class="cell" style="background:#8a6308;color:#fff;">96</div><div class="cell" style="background:#8a6308;color:#fff;">94</div><div class="cell" style="background:#a87a10;color:#fff;">85</div><div class="cell" style="background:#d4a730;">72</div><div class="cell" style="background:#f3d77e;">55</div><div class="cell" style="background:#f7e9b8;">38</div>
+      </div>
+      <div class="row"><div class="lab">Cap Ferret Cab.</div>
+        <div class="cell" style="background:#f7e9b8;">38</div><div class="cell" style="background:#f3d77e;">52</div><div class="cell" style="background:#e6c050;">66</div><div class="cell" style="background:#d4a730;">78</div><div class="cell" style="background:#c89215;">86</div><div class="cell" style="background:#a87a10;color:#fff;">92</div><div class="cell" style="background:#8a6308;color:#fff;">98</div><div class="cell" style="background:#8a6308;color:#fff;">96</div><div class="cell" style="background:#a87a10;color:#fff;">82</div><div class="cell" style="background:#d4a730;">70</div><div class="cell" style="background:#f3d77e;">50</div><div class="cell" style="background:#f7e9b8;">34</div>
+      </div>
+      <div class="row"><div class="lab">Atelier Nord</div>
+        <div class="cell" style="background:#f7e9b8;">35</div><div class="cell" style="background:#f3d77e;">48</div><div class="cell" style="background:#e6c050;">60</div><div class="cell" style="background:#d4a730;">72</div><div class="cell" style="background:#c89215;">82</div><div class="cell" style="background:#a87a10;color:#fff;">88</div><div class="cell" style="background:#8a6308;color:#fff;">94</div><div class="cell" style="background:#8a6308;color:#fff;">92</div><div class="cell" style="background:#a87a10;color:#fff;">78</div><div class="cell" style="background:#d4a730;">65</div><div class="cell" style="background:#f3d77e;">47</div><div class="cell" style="background:#f7e9b8;">30</div>
+      </div>
+      <div class="row"><div class="lab">Casa Lumi</div>
+        <div class="cell" style="background:#f7e9b8;">42</div><div class="cell" style="background:#f3d77e;">54</div><div class="cell" style="background:#e6c050;">65</div><div class="cell" style="background:#d4a730;">75</div><div class="cell" style="background:#c89215;">84</div><div class="cell" style="background:#a87a10;color:#fff;">90</div><div class="cell" style="background:#8a6308;color:#fff;">95</div><div class="cell" style="background:#8a6308;color:#fff;">93</div><div class="cell" style="background:#a87a10;color:#fff;">82</div><div class="cell" style="background:#d4a730;">70</div><div class="cell" style="background:#f3d77e;">52</div><div class="cell" style="background:#f7e9b8;">36</div>
+      </div>
+      <div class="row"><div class="lab">Plaza Tercera</div>
+        <div class="cell" style="background:#f7e9b8;">40</div><div class="cell" style="background:#f3d77e;">50</div><div class="cell" style="background:#e6c050;">62</div><div class="cell" style="background:#d4a730;">75</div><div class="cell" style="background:#c89215;">83</div><div class="cell" style="background:#a87a10;color:#fff;">90</div><div class="cell" style="background:#8a6308;color:#fff;">95</div><div class="cell" style="background:#8a6308;color:#fff;">93</div><div class="cell" style="background:#a87a10;color:#fff;">80</div><div class="cell" style="background:#d4a730;">68</div><div class="cell" style="background:#f3d77e;">50</div><div class="cell" style="background:#f7e9b8;">34</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top:36px;">
+    <div class="eyebrow"><span class="sep"></span>CHAPTER · LEDGER · Q3 2024</div>
+    <h3 style="font-family:var(--serif); font-size:24px; margin:6px 0 14px;">Property-level statement, Q3 2024.</h3>
+    <table class="tbl">
+      <thead>
+        <tr><th>Property</th><th>Nights sold</th><th>Occupancy</th><th>ADR</th><th>RevPAR</th><th>Gross</th><th>Net</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Maison Verre, Antibes</td><td>78</td><td>89%</td><td>€620</td><td>€551</td><td>€48,360</td><td>€41,400</td><td><a href="#" class="gold">View</a></td></tr>
+        <tr><td>The Cormorant House</td><td>72</td><td>84%</td><td>€365</td><td>€307</td><td>€26,280</td><td>€22,100</td><td><a href="#" class="gold">View</a></td></tr>
+        <tr><td>Casa Encinal, Mallorca</td><td>74</td><td>86%</td><td>€385</td><td>€331</td><td>€28,490</td><td>€24,200</td><td><a href="#" class="gold">View</a></td></tr>
+        <tr><td>Cap Ferret Cabin</td><td>68</td><td>78%</td><td>€340</td><td>€266</td><td>€23,120</td><td>€19,200</td><td><a href="#" class="gold">View</a></td></tr>
+        <tr><td>Casa Lumi, Lisbon</td><td>62</td><td>72%</td><td>€295</td><td>€213</td><td>€18,290</td><td>€15,300</td><td><a href="#" class="gold">View</a></td></tr>
+        <tr><td>Plaza Tercera, Porto</td><td>60</td><td>70%</td><td>€295</td><td>€207</td><td>€17,700</td><td>€14,800</td><td><a href="#" class="gold">View</a></td></tr>
+        <tr><td>Atelier Nord, Copenhagen</td><td>54</td><td>62%</td><td>€345</td><td>€214</td><td>€18,630</td><td>€15,600</td><td><a href="#" class="gold">View</a></td></tr>
+        <tr><td>Kuro Moku, Hidaka</td><td>48</td><td>56%</td><td>€515</td><td>€288</td><td>€24,720</td><td>€20,900</td><td><a href="#" class="gold">View</a></td></tr>
+        <tr><td>Black Barn, Korenborg</td><td>40</td><td>46%</td><td>€460</td><td>€211</td><td>€18,400</td><td>€15,600</td><td><a href="#" class="gold">View</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="two-col" style="margin-top:32px;">
+    <div>
+      <div class="eyebrow"><span class="sep"></span>COMMITMENT</div>
+      <h3 style="font-family:var(--serif); font-size:24px; margin:6px 0 12px;">What the figures are not yet saying.</h3>
+      <p style="color:var(--muted); font-size:13px; line-height:1.6;">A repeating point is a routine practice. The studio's longer arc — the past quarter year out, the breaking of the slow rooms in winter, the new properties this spring — sits in a steadier curve, one not visible in a quarterly summary. We will return to it in the new year.</p>
+      <p style="color:var(--muted); font-size:13px; line-height:1.6;">This was, however, a December's note that draws the year forward into the longer story.</p>
+    </div>
+    <div class="card-min">
+      <div class="lbl">SCHEDULED REPORTS</div>
+      <table style="width:100%; font-size:12.5px; margin-top:8px;">
+        <tr style="border-bottom:1px dashed var(--line-2);"><td style="padding:8px 0;">Monthly summary</td><td style="text-align:right; color:var(--muted);">1st</td></tr>
+        <tr style="border-bottom:1px dashed var(--line-2);"><td style="padding:8px 0;">Quarterly close</td><td style="text-align:right; color:var(--muted);">Apr · Jul · Oct</td></tr>
+        <tr style="border-bottom:1px dashed var(--line-2);"><td style="padding:8px 0;">Owner statement</td><td style="text-align:right; color:var(--muted);">15th</td></tr>
+        <tr><td style="padding:8px 0;">Annual letter</td><td style="text-align:right; color:var(--muted);">January</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <div>
+        <div class="brand">Sable Echo<span class="dot"></span>Studio</div>
+        <p>A booking studio for a small portfolio of considered stays, drawn with the patience of a gallery rather than the urgency of a marketplace.</p>
+      </div>
+      <div>
+        <h5>Host Resources</h5>
+        <ul>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="messaging.html">Guest Messages</a></li>
+          <li><a href="rates.html">Rates &amp; Availability</a></li>
+          <li><a href="reports.html">Reports</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="#">Editorial</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms &amp; Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <div>© 2025 Sable Echo Studio.</div>
+      <div>All correspondence held in confidence.</div>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
