@@ -38,10 +38,21 @@ _DOM_DUMP_JS = r"""
       color: s.color,
       background_color: s.backgroundColor,
       font_family: s.fontFamily,
+      font_size_px: parseFloat(s.fontSize) || 0,
+      font_weight: s.fontWeight,
       bbox: { x: r.x, y: r.y, w: r.width, h: r.height },
     });
   }
-  return out;
+  return {
+    elements: out,
+    text: document.body ? document.body.innerText : "",
+    page: {
+      scrollWidth: document.documentElement.scrollWidth,
+      scrollHeight: document.documentElement.scrollHeight,
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight,
+    },
+  };
 }
 """
 
@@ -126,12 +137,12 @@ def render(
         page.screenshot(path=str(output_png), full_page=full_page, type="png")
 
         try:
-            dom_elements = page.evaluate(_DOM_DUMP_JS)
+            dom_payload = page.evaluate(_DOM_DUMP_JS)
         except Exception as e:
-            dom_elements = []
+            dom_payload = {"elements": [], "page": {}}
             console_messages.append({"type": "dom_dump_error", "text": str(e)})
         dom_sidecar = output_png.with_suffix(".dom.json")
-        dom_sidecar.write_text(json.dumps({"elements": dom_elements}))
+        dom_sidecar.write_text(json.dumps(dom_payload))
 
         browser_version = browser.version
         browser.close()

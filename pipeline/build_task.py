@@ -39,10 +39,9 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "pipeline"))
+sys.path.insert(0, str(REPO_ROOT / "pipeline" / "grader"))
 
-VIEWPORTS = {
-    "desktop": (1440, 900),
-}
+from viewports import VIEWPORTS
 
 
 def _sha256(path: Path) -> str:
@@ -60,10 +59,13 @@ def _hash_source(source_dir: Path) -> dict[str, str]:
 
 
 def _source_dir_for(task_dir: Path) -> Path:
-    """Canonical source HTMLs live OUTSIDE the task dir at
-    `repo_root/reference_sites/{task_name}/`. Keeping them out of `tasks/`
-    means Harbor's task uploads cannot ship them into any container.
+    """Canonical source HTMLs live OUTSIDE the task dir. Check both
+    `reference_sites/` and `reference_sites_viewport/` for the task name.
     """
+    for parent in ("reference_sites", "reference_sites_viewport"):
+        candidate = REPO_ROOT / parent / task_dir.name
+        if candidate.is_dir():
+            return candidate
     return REPO_ROOT / "reference_sites" / task_dir.name
 
 
@@ -138,7 +140,11 @@ def build(task_dir: Path) -> dict:
         chromium_version = meta.get("chromium_version") or chromium_version
         # Write to BOTH the agent-visible env/reference dir and the verifier-
         # visible tests/reference_truth dir. Same bytes, same DOM sidecar.
-        dom_payload = json.dumps({"elements": _extract_dom_from_meta(meta)})
+        dom_payload = json.dumps({
+            "elements": meta.get("elements") or [],
+            "text": meta.get("text") or "",
+            "page": meta.get("page") or {},
+        })
         for target in (env_ref, ver_ref):
             (target / name).write_bytes(png_bytes)
         # DOM sidecar only the verifier needs (agent never reads DOM).

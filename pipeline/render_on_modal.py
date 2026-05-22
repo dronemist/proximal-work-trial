@@ -19,15 +19,12 @@ Supports two modes:
 """
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 import modal
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-
-DEFAULT_VIEWPORTS = {
-    "desktop": (1440, 900),
-}
 
 image = (
     modal.Image.from_registry("ubuntu:24.04", add_python="3.12")
@@ -133,10 +130,21 @@ _DOM_DUMP_JS = r"""
       color: s.color,
       background_color: s.backgroundColor,
       font_family: s.fontFamily,
+      font_size_px: parseFloat(s.fontSize) || 0,
+      font_weight: s.fontWeight,
       bbox: { x: r.x, y: r.y, w: r.width, h: r.height },
     });
   }
-  return out;
+  return {
+    elements: out,
+    text: document.body ? document.body.innerText : "",
+    page: {
+      scrollWidth: document.documentElement.scrollWidth,
+      scrollHeight: document.documentElement.scrollHeight,
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight,
+    },
+  };
 }
 """
 
@@ -163,7 +171,7 @@ def _render_one(
     console: list = []
     requests_log: list = []
     off_origin: list = []
-    dom_elements_out: list = []  # _do_render appends the dom dump here
+    dom_payload_out: list = []  # _do_render appends the dom payload dict here
 
     def _do_render(b):
         nonlocal console, requests_log, off_origin
@@ -188,12 +196,11 @@ def _render_one(
         page.wait_for_timeout(500)
         page.screenshot(path=str(output_png), full_page=True, type="png")
         try:
-            dom_elements = page.evaluate(_DOM_DUMP_JS)
+            dom_payload = page.evaluate(_DOM_DUMP_JS)
         except Exception as e:
-            dom_elements = []
+            dom_payload = {"elements": [], "page": {}}
             console.append({"type": "dom_dump_error", "text": str(e)})
-        # Stash so the outer function can fold into the returned meta.
-        dom_elements_out.append(dom_elements)
+        dom_payload_out.append(dom_payload)
         ctx.close()
 
     if browser is not None:
@@ -212,7 +219,9 @@ def _render_one(
         "console": console,
         "network": requests_log,
         "off_origin_requests": off_origin,
-        "elements": dom_elements_out[0] if dom_elements_out else [],
+        "elements": (dom_payload_out[0].get("elements") if dom_payload_out else []) or [],
+        "text": (dom_payload_out[0].get("text") if dom_payload_out else "") or "",
+        "page": (dom_payload_out[0].get("page") if dom_payload_out else {}) or {},
     }
     if meta_path is not None:
         import json as _json
@@ -251,6 +260,9 @@ def batch(site_dir: str, output_dir: str):
     Any non-HTML file in site_dir (e.g. styles.css, images) is uploaded as-is
     so relative references inside the HTMLs resolve.
     """
+    sys.path.insert(0, str(REPO_ROOT / "pipeline" / "grader"))
+    from viewports import VIEWPORTS as DEFAULT_VIEWPORTS
+
     site = Path(site_dir).resolve()
     out = Path(output_dir).resolve()
     if not site.is_dir():
