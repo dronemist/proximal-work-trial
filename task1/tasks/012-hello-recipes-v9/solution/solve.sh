@@ -1,0 +1,38 @@
+#!/bin/bash
+# Oracle solution: extracts the canonical reference site into /app/.
+set -euo pipefail
+
+base64 -d <<'B64' | tar xzf - -C /app/
+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
+ESNGjBgxYqSRfwBMFu/CAFAAAA==
+B64
+
+echo "wrote /app/ contents:"
+ls /app/
