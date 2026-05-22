@@ -216,7 +216,7 @@ tasks/<site-name>/
 ├── environment/
 │   ├── Dockerfile         # Ubuntu + Playwright + Chromium
 │   ├── entrypoint.sh      # Starts HTTP server for agent
-│   ├── proxy.py           # Local file server
+│   ├── proxy.py           # CONNECT-logging HTTPS egress proxy (observability)
 │   └── reference/         # Reference PNGs (what the agent sees)
 ├── tests/
 │   ├── grade.py           # Grader entrypoint

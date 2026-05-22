@@ -48,12 +48,3 @@ The current spec system covers 15 domains, 15 archetypes, 12 palettes, and 3 the
 
 ### LLM Judge on Generated References
 Currently, reference quality is validated by structural checks (DOM depth, overflow, off-origin requests). Adding an LLM judge pass on the generated websites — evaluating visual coherence, brand fidelity to the spec, and design quality — would catch subtle issues that structural checks miss: awkward layouts that technically pass validation, inconsistent visual hierarchy, or pages that don't match the brand spec's intent. This would act as a quality gate before packaging, filtering out the ~10-20% of generated sites that are technically valid but visually weak.
-
-### Corpus-Level Diversity Audit
-Currently diversity is controlled by the spec sampling strategy (shuffle-then-iterate across axes). A production system should add corpus-level audits:
-- Vendi-CLIP score across all generated sites (measures visual diversity)
-- DreamSim pairwise distances (catches near-duplicate layouts)
-- Coverage matrix verification (all axis combinations exercised)
-
-### Grading Calibration
-Running the grader on oracle solutions (solve.sh) should produce scores near 1.0. Any deviation reveals calibration issues in the metrics. Similarly, running on intentionally-degraded solutions (wrong colors, missing pages, broken responsive) provides a calibration ladder.

@@ -7,8 +7,9 @@
 - **Viewports:** Desktop 1440×900, Tablet 768×1024, Mobile 375×812
 - **Trials per task:** 10 (k=10) — both `mean` (excluding regression-zeros) and `best@10` reported
 - **Grading:** locked composite (see [grading.md](grading.md)) — weighted-mean of 6 structured metrics, VLM `min()` ceiling, overflow multiplier, anticheat
+- **Score scale:** all scores in this document are in [0.0, 1.0] — 0.0 = no faithful reproduction, 1.0 = visually and structurally identical. Per-feature scores, composite, and final reward all share this scale.
 - **Score columns:** `mean` averages reward across the `n_valid` trials whose reward > 0.01 (excluding [end_turn regression](#end_turn-regression) zeros); `best` is max reward over all 10 trials; `p≥0.5` is the **fraction of trials (over all 10, including zeros)** whose final reward ≥ 0.5 — a reliability proxy.
-- **Compute:** Modal sandboxes, ~$300 Anthropic spend per full run
+- **Compute:** Modal sandboxes (130 trials = 13 tasks × k=10), Anthropic API spend on the order of a few hundred dollars per full k=10 run
 - **Calibration anchors:** Oracle = 1.000, Nop = 0.000 (validated separately in `tasks/000-smoke`)
 
 ## Overall Score Table
@@ -46,6 +47,14 @@ The reward function does what it should: visually faithful reproductions score h
 | ![ref](../../tasks/v9/012-hello-recipes-v9/tests/reference_truth/about.desktop.png) | ![cand](../results/012-hello-recipes-v9-opus-20260522-1437-k10/012-hello-recipes-v9__fGfNnuW/verifier/grading/rendered/about.desktop.png) |
 
 Same layout, same color palette, content reproduced verbatim (text=1.000, palette=0.880).
+
+**Mid — 009-real-estate-crm (reward 0.550)** — agent gets the design system mostly right but misses on density and accent colors:
+
+| Reference | Candidate (best trial) |
+|---|---|
+| ![ref](../../tasks/v9/009-real-estate-crm-v7adv/tests/reference_truth/listings.desktop.png) | ![cand](../results/009-real-estate-crm-v7adv-opus-20260522-1437-k10/009-real-estate-crm-v7adv__XZE9bJe/verifier/grading/rendered/listings.desktop.png) |
+
+Nav, footer, and overall layout match; the listing-card grid has the right column count; typography is in the correct family. But the accent palette drifts away from the reference's terracotta toward generic warm-grey (palette=0.76), and several listing fields are fabricated (text=0.67). The score lands in the 0.5–0.6 band that characterises "structurally faithful, content imperfect" trials — the bulk of the dashboard tier.
 
 **Worst — 010-nonprofit-donations (reward 0.292)** — agent invents a parallel universe of the brand:
 
@@ -107,7 +116,9 @@ Palette feature score (best trial per task) spans **0.422 → 0.872** — wider 
 - **Dark themes drift toward a generic "default dark"** (#1a1a2e-ish indigo). Tasks with cyan, teal, or specifically-tinted darks score 0.49 – 0.64. The agent does not faithfully reproduce the *tint* of darkness.
 - **Branded accent colors are unreliable.** Even when the overall theme matches, accent pills (status badges, KPI deltas, button highlights) often shift hue — the agent picks "similar enough" rather than exact.
 
-Implication: a small set of palette priors explains a large slice of cross-task variance.
+**Why the metric had to split background vs foreground.** An early version of `palette` pooled every visible color into a single distribution and compared centroids. A white-text-on-dark-blue page and a white-text-on-black page averaged to roughly the same centroid and scored as a match — the metric was blind to the actual brand identity (the background). The current metric separately aggregates foreground (text) colors and background colors via area-weighted OKLab L2, then averages the two channel scores. Without this split, the dark-theme drift above wouldn't show up at all: agents that get the text contrast right would mask the background mismatch.
+
+Implication: a small set of palette priors explains a large slice of cross-task variance, and *which* color channel is wrong matters as much as how much it's wrong.
 
 ---
 

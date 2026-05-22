@@ -25,6 +25,21 @@ fold them into a single `AnticheatResult` with the multiplicative penalty.
 
 We use a **flat 0.1× penalty if ANY violation fires**. One knob; easy to tune.
 Flipping to hard-zero is a one-line change.
+
+NOTE — the agent's instruction.md does NOT mention any of these checks, nor
+any of the structured metrics in metrics.py, nor the harmonic aggregation in
+grade.py. The agent is told only the task ("replicate these screenshots"),
+the output paths, the viewports it will be rendered at, and a short list of
+generic constraints (HTML/CSS only, no JS, no external resources, avoid
+horizontal overflow). It is NOT told:
+  - which metrics are used, or their weights
+  - that VLM judging is part of the score
+  - that the score uses a harmonic mean across viewports/pages
+  - that data:image URIs, oversized SVGs, raster files, off-origin requests,
+    or reference image copies will trip an anticheat multiplier
+This is deliberate: we want to measure faithful replication, not score-hacking
+against a known rubric. Any leak of grader internals into instruction.md would
+let the agent optimise the metric instead of the design.
 """
 from __future__ import annotations
 

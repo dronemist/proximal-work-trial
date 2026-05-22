@@ -6,16 +6,16 @@
 
 | # | Task | Domain | Archetype | Palette | Theme | Pages |
 |---|------|--------|-----------|---------|-------|-------|
-| 1 | 001-gov-services-v9 | Government Services | dashboard-sidebar | slate-red | light | 5 |
-| 2 | 002-restaurant-ops-v9 | Restaurant Operations | data-dense-table | rose-mauve | dark | 5 |
-| 3 | 003-travel-booking-v9 | Travel / Property Mgmt | card-feed-masonry | warm-ivory | light | 5 |
-| 4 | 004-devops-platform-v9 | DevOps / CI-CD | kanban-board | stone-neutral | light | 5 |
-| 5 | 005-ecommerce-admin-v9 | E-Commerce Admin | swiss-grid | coral-cream | light | 5 |
-| 6 | 006-fintech-banking-v9 | Consumer Banking | three-pane-docs | cream-gold | light | 5 |
-| 7 | 007-healthcare-emr-v9 | Healthcare / EMR | calendar-grid | clinical-blue | light | 5 |
-| 8 | 008-hr-payroll-v9 | HR / Payroll | wizard-stepper | neon-yellow-pink | light | 5 |
-| 9 | 009-real-estate-crm-v9 | Real Estate CRM | magazine-editorial | terracotta-sage | dark | 5 |
-| 10 | 010-nonprofit-donations-v9 | Nonprofit / Donations | bento-grid | warm-earth | light | 5 |
+| 1 | 001-gov-services-v7adv | Government Services | dashboard-sidebar | slate-red | light | 5 |
+| 2 | 002-restaurant-ops-v7adv | Restaurant Operations | data-dense-table | rose-mauve | dark | 5 |
+| 3 | 003-travel-booking-v7adv | Travel / Property Mgmt | card-feed-masonry | warm-ivory | light | 5 |
+| 4 | 004-devops-platform-v7adv | DevOps / CI-CD | kanban-board | stone-neutral | light | 5 |
+| 5 | 005-ecommerce-admin-v7adv | E-Commerce Admin | swiss-grid | coral-cream | light | 5 |
+| 6 | 006-fintech-banking-v7adv | Consumer Banking | three-pane-docs | cream-gold | light | 5 |
+| 7 | 007-healthcare-emr-v7adv | Healthcare / EMR | calendar-grid | clinical-blue | light | 5 |
+| 8 | 008-hr-payroll-v7adv | HR / Payroll | wizard-stepper | neon-yellow-pink | light | 5 |
+| 9 | 009-real-estate-crm-v7adv | Real Estate CRM | magazine-editorial | terracotta-sage | dark | 5 |
+| 10 | 010-nonprofit-donations-v7adv | Nonprofit / Donations | bento-grid | warm-earth | light | 5 |
 | 11 | 011-hello-portfolio-v9 | Portfolio | minimal-single-column | monochrome-gray | light | 5 |
 | 12 | 012-hello-recipes-v9 | Recipes | card-grid | parchment-brown | light | 5 |
 | 13 | 001-conference-event-v9 | Conference / Events | feed-and-suggestions | mint-peach | light | 8 |
@@ -105,7 +105,7 @@ The same page rendered at all three viewports, showing how the layout must adapt
 Each task has `{page}.{viewport}.png` files for every page at every viewport:
 
 ```
-tasks/001-gov-services-v9/environment/reference/
+tasks/001-gov-services-v7adv/environment/reference/
 ├── account.desktop.png
 ├── account.tablet.png
 ├── account.mobile.png

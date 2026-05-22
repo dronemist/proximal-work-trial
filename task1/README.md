@@ -26,11 +26,11 @@ The pipeline generates websites from scratch (no crawling), packages them as [Ha
 │   ├── scaffold_task.py     # Harbor task scaffolding from template
 │   └── task_template/       # Canonical Harbor task template
 ├── tasks/                   # 13 ready-to-run Harbor tasks
-│   ├── 001-gov-services-v9/    (5 pages, light theme, gov services)
-│   ├── 002-restaurant-ops-v9/  (5 pages, dark theme, restaurant ops)
+│   ├── 001-gov-services-v7adv/    (5 pages, light theme, gov services)
+│   ├── 002-restaurant-ops-v7adv/  (5 pages, dark theme, restaurant ops)
 │   ├── ...
-│   ├── 010-nonprofit-donations-v9/
-│   ├── 011-hello-portfolio-v9/   (5 pages, portfolio)
+│   ├── 010-nonprofit-donations-v7adv/
+│   ├── 011-hello-portfolio-v9/    (5 pages, portfolio)
 │   ├── 012-hello-recipes-v9/
 │   └── 001-conference-event-v9/   (8 pages, mixed theme, conference)
 └── results/                 # Evaluation results from Opus runs
@@ -41,7 +41,7 @@ The pipeline generates websites from scratch (no crawling), packages them as [Ha
 ### Run an existing task with Harbor
 
 ```bash
-harbor run tasks/001-gov-services-v9 --agent claude
+harbor run tasks/001-gov-services-v7adv --agent claude
 ```
 
 ### Generate new tasks
