@@ -29,14 +29,18 @@ from PIL import Image
 from scipy.optimize import linear_sum_assignment
 from skimage.metrics import structural_similarity
 
-# One place to tune. grade.py reads this dict.
+# Six structured features with equal weights. VLM is intentionally absent —
+# grade.py applies it as a min() ceiling on the structured mean, not as an
+# averaged term. Overflow stays defined for diagnostics but with weight 0.
 METRIC_WEIGHTS = {
-    "ssim": 0.20,
-    "block_match": 0.20,
-    "palette": 0.20,
-    "typography": 0.15,
-    "overflow": 0.15,    # horizontal-overflow check at the rendered viewport
-    "vlm_judge": 0.10,   # gestalt sanity; narrow discriminating range so low weight
+    "ssim": 1 / 6,         # pixel-level visual similarity
+    "block_match": 1 / 6,  # bbox IoU after Hungarian matching
+    "palette": 1 / 6,      # color similarity in OKLab
+    "text": 1 / 6,         # visible-text token similarity
+    "position": 1 / 6,     # centroid drift after block matching
+    "typography": 1 / 6,   # font-family bucket + font-size hierarchy
+    "overflow": 0.0,       # diagnostic only
+    "vlm_judge": 0.0,      # applied as min() ceiling in grade.py
 }
 
 
@@ -51,11 +55,14 @@ class MetricResult:
 # 1. SSIM
 # ---------------------------------------------------------------------------
 
-CATASTROPHIC_RATIO = 0.5  # if either dim differs by ≥50%, hard-fail
-
-
 def ssim(reference: Path, candidate: Path) -> MetricResult:
-    """SSIM with both-dim zero-padding, hard-fail on ≥50% size delta."""
+    """SSIM on a common top-left crop of size min(ref, cand) per axis.
+
+    Cropping (instead of zero-padding to max dims) measures visual fidelity of
+    the rendered overlap. Missed content is penalized separately by
+    block_match / position (unmatched-block penalty), so we don't want SSIM
+    to double-count by comparing real pixels against black bars.
+    """
     ref = Image.open(reference).convert("RGB")
     cand = Image.open(candidate).convert("RGB")
     ref_arr = np.array(ref)
@@ -63,28 +70,14 @@ def ssim(reference: Path, candidate: Path) -> MetricResult:
 
     ref_h, ref_w = ref_arr.shape[:2]
     cand_h, cand_w = cand_arr.shape[:2]
+    crop_h = min(ref_h, cand_h)
+    crop_w = min(ref_w, cand_w)
 
-    height_ratio = abs(ref_h - cand_h) / max(ref_h, cand_h)
-    width_ratio = abs(ref_w - cand_w) / max(ref_w, cand_w)
-
-    if height_ratio >= CATASTROPHIC_RATIO or width_ratio >= CATASTROPHIC_RATIO:
-        return MetricResult(
-            name="ssim",
-            score=0.0,
-            extra={
-                "reference_size": [ref_w, ref_h],
-                "candidate_size": [cand_w, cand_h],
-                "dim_catastrophic": True,
-            },
-        )
-
-    if (ref_h, ref_w) != (cand_h, cand_w):
-        target_h, target_w = max(ref_h, cand_h), max(ref_w, cand_w)
-        ref_arr = _pad_to(ref_arr, target_h, target_w)
-        cand_arr = _pad_to(cand_arr, target_h, target_w)
+    ref_crop = ref_arr[:crop_h, :crop_w, :]
+    cand_crop = cand_arr[:crop_h, :crop_w, :]
 
     score, _ = structural_similarity(
-        ref_arr, cand_arr, channel_axis=2, data_range=255, full=True
+        ref_crop, cand_crop, channel_axis=2, data_range=255, full=True
     )
     score = float(max(0.0, min(1.0, score)))
     return MetricResult(
@@ -93,17 +86,11 @@ def ssim(reference: Path, candidate: Path) -> MetricResult:
         extra={
             "reference_size": [ref_w, ref_h],
             "candidate_size": [cand_w, cand_h],
+            "compared_size": [crop_w, crop_h],
         },
     )
 
 
-def _pad_to(arr: np.ndarray, target_h: int, target_w: int) -> np.ndarray:
-    cur_h, cur_w = arr.shape[:2]
-    if cur_h >= target_h and cur_w >= target_w:
-        return arr
-    out = np.zeros((target_h, target_w, arr.shape[2]), dtype=arr.dtype)
-    out[:cur_h, :cur_w, :] = arr
-    return out
 
 
 # ---------------------------------------------------------------------------
@@ -132,17 +119,11 @@ def _set_jaccard(a: set, b: set) -> float:
 # 2. Block-Match — Hungarian-matched bbox IoU
 # ---------------------------------------------------------------------------
 #
-# Design2Code-style. For each element in reference and candidate we have its
-# bounding box. We Hungarian-assign reference blocks to candidate blocks
-# minimizing (1 - IoU), then aggregate the matched IoUs and penalize unmatched
-# blocks on either side: final = sum(IoU) / max(N_ref, N_cand).
-#
-# Two simplifications vs. the published Design2Code Block-Match:
-#   1. Per-pair score is bbox IoU only, no per-block text/color sub-scores.
-#      Color and typography are already separate metrics in our stack; text
-#      content is out of v1 scope.
-#   2. We cap N at MAX_BLOCKS to keep the cost matrix small. Large pages
-#      ( > 1k elements) would make Hungarian O(N^3) painful otherwise.
+# For each element in reference and candidate we have its bounding box. We
+# Hungarian-assign reference blocks to candidate blocks minimizing (1 - IoU),
+# then aggregate the matched IoUs. Per-pair score is bbox IoU only — color
+# and content are scored by separate metrics. N is capped at MAX_BLOCKS to
+# keep Hungarian's O(N^3) tractable on large pages.
 
 
 MAX_BLOCKS = 400
@@ -222,6 +203,64 @@ def block_match(reference_dom: Path, candidate_dom: Path) -> MetricResult:
 
 
 # ---------------------------------------------------------------------------
+# 2b. Position-Match — centroid drift after Hungarian block matching
+# ---------------------------------------------------------------------------
+#
+# After Hungarian-matching blocks by IoU, score by normalised centroid drift.
+# IoU couples position with size; this isolates pure positional fidelity.
+# Unmatched blocks on either side contribute the worst-case 1.0 normalised
+# distance so the metric punishes both over- and under-creation of elements.
+
+
+def position_match(reference_dom: Path, candidate_dom: Path) -> MetricResult:
+    ref = _bboxes(_load_dom(reference_dom))
+    cand = _bboxes(_load_dom(candidate_dom))
+    if not ref and not cand:
+        return MetricResult(name="position", score=1.0, extra={"empty": True})
+    if not ref or not cand:
+        return MetricResult(
+            name="position", score=0.0,
+            extra={"reference_blocks": len(ref), "candidate_blocks": len(cand)},
+        )
+
+    n_ref, n_cand = len(ref), len(cand)
+    cost = np.ones((n_ref, n_cand), dtype=np.float32)
+    for i, r in enumerate(ref):
+        for j, c in enumerate(cand):
+            cost[i, j] = 1.0 - _iou(r, c)
+    row_idx, col_idx = linear_sum_assignment(cost)
+
+    ref_w = max(b["x"] + b["w"] for b in ref)
+    ref_h = max(b["y"] + b["h"] for b in ref)
+    cand_w = max(b["x"] + b["w"] for b in cand)
+    cand_h = max(b["y"] + b["h"] for b in cand)
+    diag = float(np.hypot(max(ref_w, cand_w), max(ref_h, cand_h))) or 1.0
+
+    norm_dists: list[float] = []
+    for i, j in zip(row_idx, col_idx):
+        r, c = ref[i], cand[j]
+        rcx, rcy = r["x"] + r["w"] / 2, r["y"] + r["h"] / 2
+        ccx, ccy = c["x"] + c["w"] / 2, c["y"] + c["h"] / 2
+        norm_dists.append(float(np.hypot(rcx - ccx, rcy - ccy) / diag))
+
+    unmatched = abs(n_ref - n_cand)
+    all_dists = norm_dists + [1.0] * unmatched
+    mean_d = float(np.mean(all_dists)) if all_dists else 1.0
+    score = float(max(0.0, min(1.0, 1.0 - mean_d)))
+    return MetricResult(
+        name="position",
+        score=score,
+        extra={
+            "reference_blocks": n_ref,
+            "candidate_blocks": n_cand,
+            "matched_pairs": len(norm_dists),
+            "mean_normalized_centroid_distance": mean_d,
+            "page_diagonal_px": diag,
+        },
+    )
+
+
+# ---------------------------------------------------------------------------
 # 3. Palette — area-weighted Hungarian matching in OKLab
 # ---------------------------------------------------------------------------
 #
@@ -238,7 +277,7 @@ def block_match(reference_dom: Path, candidate_dom: Path) -> MetricResult:
 # on a K×K matrix is exactly EMD up to mass-equalization. Avoids the POT dep.
 
 PALETTE_TOP_K = 8
-PALETTE_DIST_NORMALIZER = 0.6  # OKLab L2 ≈ 0.6 between strong palette mismatches
+PALETTE_DIST_NORMALIZER = 0.15  # OKLab L2 threshold for "perceptually different identity"; ~15 JNDs
 _RGB_RE = re.compile(r"rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)")
 _HEX_RE = re.compile(r"^#([0-9a-fA-F]{3,8})$")
 
@@ -288,11 +327,14 @@ def _rgb_to_oklab(rgb: tuple[int, int, int]) -> tuple[float, float, float]:
     )
 
 
-def _aggregate_palette(elements: list[dict]) -> list[tuple[tuple[float, float, float], float]]:
-    """Group colors by quantized OKLab bucket (so #0a0a0a and #000000 merge),
-    weight by total bbox area where that color appeared.
-
-    Returns: [((L,a,b), area_weight), ...] sorted descending by weight.
+def _aggregate_palette(
+    elements: list[dict], field: str
+) -> list[tuple[tuple[float, float, float], float]]:
+    """Group colors from a single style field (e.g. "color" or "background_color")
+    by quantized OKLab bucket, weighted by total bbox area where that color
+    appeared. Aggregating fg and bg separately matters: on a dark-themed page,
+    pooling text-color with background-color makes the (light) text dominate
+    the area-weighted palette and falsely reports a "light" page.
     """
     buckets: dict[tuple[int, int, int], tuple[tuple[float, float, float], float]] = {}
     for el in elements:
@@ -300,48 +342,35 @@ def _aggregate_palette(elements: list[dict]) -> list[tuple[tuple[float, float, f
         area = float(bbox.get("w", 0)) * float(bbox.get("h", 0))
         if area <= 0:
             continue
-        for k in ("color", "background_color"):
-            rgb = _parse_color(el.get(k, ""))
-            if rgb is None:
-                continue
-            lab = _rgb_to_oklab(rgb)
-            # Quantize bucket: 0.02 in L (resolution 50), 0.01 in a/b (resolution 100)
-            key = (round(lab[0] / 0.02), round(lab[1] / 0.01), round(lab[2] / 0.01))
-            existing = buckets.get(key)
-            if existing is None:
-                buckets[key] = (lab, area)
-            else:
-                buckets[key] = (existing[0], existing[1] + area)
+        rgb = _parse_color(el.get(field, ""))
+        if rgb is None:
+            continue
+        lab = _rgb_to_oklab(rgb)
+        # Quantize bucket: 0.02 in L (resolution 50), 0.01 in a/b (resolution 100)
+        key = (round(lab[0] / 0.02), round(lab[1] / 0.01), round(lab[2] / 0.01))
+        existing = buckets.get(key)
+        if existing is None:
+            buckets[key] = (lab, area)
+        else:
+            buckets[key] = (existing[0], existing[1] + area)
     return sorted(buckets.values(), key=lambda x: -x[1])
 
 
-def palette(reference_dom: Path, candidate_dom: Path) -> MetricResult:
-    ref_palette = _aggregate_palette(_load_dom(reference_dom))
-    cand_palette = _aggregate_palette(_load_dom(candidate_dom))
-
+def _score_palette_channel(
+    ref_palette: list[tuple[tuple[float, float, float], float]],
+    cand_palette: list[tuple[tuple[float, float, float], float]],
+) -> tuple[float, dict]:
+    """Score a single palette channel (fg or bg). Returns (score, extras)."""
     if not ref_palette and not cand_palette:
-        return MetricResult(name="palette", score=1.0, extra={"empty": True})
+        return 1.0, {"empty": True}
     if not ref_palette or not cand_palette:
-        return MetricResult(
-            name="palette",
-            score=0.0,
-            extra={
-                "reference_palette_size": len(ref_palette),
-                "candidate_palette_size": len(cand_palette),
-            },
-        )
+        return 0.0, {
+            "reference_palette_size": len(ref_palette),
+            "candidate_palette_size": len(cand_palette),
+        }
 
-    ref_top = ref_palette[:PALETTE_TOP_K]   # [(lab, area), ...] sorted desc by area
+    ref_top = ref_palette[:PALETTE_TOP_K]
     cand_top = cand_palette[:PALETTE_TOP_K]
-
-    # Mass-weighted Hungarian matching. Why mass-weighting:
-    # eyeball calibration (R12) showed that a single accent-color shift on
-    # a high-area element (e.g. brand-blue → brand-purple on a hero button
-    # used across the page) reads as "noticeably different design" to a
-    # human, but unweighted averaging dilutes this — only 1 of K matched
-    # pairs has the shift, so its distance is averaged with K-1 close pairs.
-    # Weighting by total bbox area where each color appears makes the
-    # accent shift contribute proportionally to its visual prominence.
     ref_total = sum(m for _, m in ref_top) or 1.0
     cand_total = sum(m for _, m in cand_top) or 1.0
 
@@ -355,8 +384,6 @@ def palette(reference_dom: Path, candidate_dom: Path) -> MetricResult:
             ) ** 0.5
 
     row_idx, col_idx = linear_sum_assignment(rect)
-
-    matched_distances: list[float] = []
     weighted_total = 0.0
     weight_total = 0.0
     for i, j in zip(row_idx, col_idx):
@@ -365,112 +392,326 @@ def palette(reference_dom: Path, candidate_dom: Path) -> MetricResult:
         pair_weight = (ref_share + cand_share) / 2.0
         weighted_total += pair_weight * rect[i, j]
         weight_total += pair_weight
-        matched_distances.append(float(rect[i, j]))
-
     avg_weighted = float(weighted_total / max(weight_total, 1e-9))
     base = float(max(0.0, min(1.0, 1.0 - avg_weighted / PALETTE_DIST_NORMALIZER)))
 
-    # Over-coloring penalty: dock if the candidate's distinct-color count
-    # is much larger than the reference's. Stronger than the previous
-    # tuning because mass-weighted matching otherwise rewards bringing
-    # extra "close enough" colors.
     size_ratio = (
         max(len(ref_palette), len(cand_palette))
         / max(1, min(len(ref_palette), len(cand_palette)))
     )
     over_color_penalty = float(max(0.0, min(0.20, 0.08 * (size_ratio - 1.3))))
     score = float(max(0.0, base - over_color_penalty))
+    return score, {
+        "reference_palette_size": len(ref_palette),
+        "candidate_palette_size": len(cand_palette),
+        "weighted_mean_oklab_distance": avg_weighted,
+        "base_score_before_penalty": base,
+        "over_color_penalty": over_color_penalty,
+    }
+
+
+def palette(reference_dom: Path, candidate_dom: Path) -> MetricResult:
+    """Average of background-palette and text-palette sub-scores.
+
+    Splitting fg/bg is necessary because elements without an explicit
+    background_color report rgba(0,0,0,0) (transparent) in computedStyle and
+    get filtered out — leaving the candidate's text color to dominate the
+    area-weighted palette pool. On a dark-themed page that means the light
+    text color is reported as "the background," which makes any dark candidate
+    look like a light reference.
+    """
+    ref_elems = _load_dom(reference_dom)
+    cand_elems = _load_dom(candidate_dom)
+    ref_bg = _aggregate_palette(ref_elems, "background_color")
+    cand_bg = _aggregate_palette(cand_elems, "background_color")
+    ref_fg = _aggregate_palette(ref_elems, "color")
+    cand_fg = _aggregate_palette(cand_elems, "color")
+
+    bg_score, bg_extra = _score_palette_channel(ref_bg, cand_bg)
+    fg_score, fg_extra = _score_palette_channel(ref_fg, cand_fg)
+    score = (bg_score + fg_score) / 2.0
 
     return MetricResult(
         name="palette",
         score=score,
         extra={
-            "reference_palette_size": len(ref_palette),
-            "candidate_palette_size": len(cand_palette),
-            "matched_pairs": len(matched_distances),
-            "weighted_mean_oklab_distance": avg_weighted,
-            "base_score_before_penalty": base,
-            "over_color_penalty": over_color_penalty,
+            "bg_score": bg_score,
+            "fg_score": fg_score,
+            "bg": bg_extra,
+            "fg": fg_extra,
         },
     )
 
 
 # ---------------------------------------------------------------------------
-# 4. Typography — set Jaccard over font-family stacks
+# 4. Typography — font-family bucket match + font-size hierarchy match
 # ---------------------------------------------------------------------------
+#
+# Two-part score:
+#   bucket_score: 1.0 if ref and cand both use the same font categories (serif
+#     / sans / mono). Cheap sanity check — catches a monospace reference that
+#     gets rendered in serif, but rarely fires for capable agents.
+#   size_score:   how well the candidate reproduces the reference's distinct
+#     font-size scale (e.g. 12/14/16/20/24/32/48 px). Computed via Hungarian
+#     matching on px distance, weighted by element-share so a one-off size
+#     doesn't dominate. This is the part that actually discriminates for RL.
+#
+# Combined: 0.3 * bucket_score + 0.7 * size_score
 
 
-def _collect_fonts(elements: list[dict]) -> set[str]:
-    out: set[str] = set()
+# Coarse classifier: maps a primary font-family name to one of three buckets.
+# Same-bucket fonts look essentially identical to the eye for our purposes
+# (e.g. "sf mono" vs "ui-monospace", "georgia" vs "iowan old style"), so
+# bucketing avoids penalising the agent for choosing a different-but-equivalent
+# fallback font.
+_MONO_TOKENS = (
+    "mono", "courier", "consolas", "menlo", "monaco", "jetbrains",
+    "fira code", "source code", "roboto mono",
+)
+_SERIF_TOKENS = (
+    "serif",  # plain "serif" generic family
+    "georgia", "times", "garamond", "iowan", "palatino", "cambria",
+    "book antiqua", "didot", "baskerville",
+)
+
+
+def _font_bucket(name: str) -> str:
+    n = name.lower()
+    if "sans-serif" in n or "sans serif" in n:
+        return "sans"
+    if any(tok in n for tok in _MONO_TOKENS):
+        return "mono"
+    if any(tok in n for tok in _SERIF_TOKENS):
+        return "serif"
+    return "sans"  # default for -apple-system, system-ui, inter, helvetica, …
+
+
+def _collect_font_buckets(elements: list[dict]) -> tuple[set[str], set[str]]:
+    """Return (bucket_set, primary_name_set) — buckets drive the score, primary
+    names are kept for debug visibility in `extra`.
+    """
+    primaries: set[str] = set()
     for el in elements:
         fam = (el.get("font_family") or "").strip()
         if fam:
-            # Take the first family in the stack ("Inter, sans-serif" → "Inter")
             primary = fam.split(",")[0].strip().strip('"').strip("'").lower()
             if primary:
-                out.add(primary)
-    return out
+                primaries.add(primary)
+    buckets = {_font_bucket(p) for p in primaries}
+    return buckets, primaries
+
+
+def _collect_size_histogram(elements: list[dict], min_share: float = 0.01) -> list[tuple[float, float]]:
+    """Return [(size_px, element_share), ...] for sizes used by at least
+    `min_share` of visible elements. Filtered list prevents one-off accidental
+    sizes from polluting the hierarchy comparison.
+    """
+    from collections import Counter
+    sizes = [round(float(el.get("font_size_px") or 0), 1) for el in elements]
+    sizes = [s for s in sizes if s > 0]
+    if not sizes:
+        return []
+    total = len(sizes)
+    counts = Counter(sizes)
+    return sorted(
+        ((sz, c / total) for sz, c in counts.items() if c / total >= min_share),
+        key=lambda x: x[0],
+    )
+
+
+def _size_hierarchy_score(ref_hist: list[tuple[float, float]], cand_hist: list[tuple[float, float]]) -> float:
+    """Hungarian-match ref sizes ↔ cand sizes on px distance, weighted by
+    element-share. Score = 1 - mean_normalized_distance, clipped to [0, 1].
+
+    Normalization: px distance / 24 (one typographic step). A 0-px gap → 1.0,
+    a 24-px gap (e.g. ref 16px ↔ cand 40px) → 0.0.
+    """
+    from scipy.optimize import linear_sum_assignment
+
+    if not ref_hist or not cand_hist:
+        return 0.0
+    n_ref, n_cand = len(ref_hist), len(cand_hist)
+    n = max(n_ref, n_cand)
+    cost = np.full((n, n), 24.0)  # padding = worst-case distance
+    for i, (rs, _) in enumerate(ref_hist):
+        for j, (cs, _) in enumerate(cand_hist):
+            cost[i, j] = min(24.0, abs(rs - cs))
+    row, col = linear_sum_assignment(cost)
+    # Weight each pair by combined element-share. Unmatched (padded) rows
+    # contribute their worst-case 24px distance.
+    pair_dists = []
+    pair_weights = []
+    for i, j in zip(row, col):
+        if i < n_ref and j < n_cand:
+            w = (ref_hist[i][1] + cand_hist[j][1]) / 2
+        else:
+            # unmatched: penalise but with low weight (shape of the unmatched side)
+            w_ref = ref_hist[i][1] if i < n_ref else 0
+            w_cand = cand_hist[j][1] if j < n_cand else 0
+            w = max(w_ref, w_cand)
+        pair_dists.append(cost[i, j])
+        pair_weights.append(w)
+    total_w = sum(pair_weights)
+    if total_w <= 0:
+        return 0.0
+    mean_norm = sum(d * w for d, w in zip(pair_dists, pair_weights)) / total_w / 24.0
+    return float(max(0.0, min(1.0, 1.0 - mean_norm)))
 
 
 def typography(reference_dom: Path, candidate_dom: Path) -> MetricResult:
     ref = _load_dom(reference_dom)
     cand = _load_dom(candidate_dom)
-    ref_set = _collect_fonts(ref)
-    cand_set = _collect_fonts(cand)
-    score = _set_jaccard(ref_set, cand_set)
+    ref_buckets, ref_names = _collect_font_buckets(ref)
+    cand_buckets, cand_names = _collect_font_buckets(cand)
+    bucket_score = _set_jaccard(ref_buckets, cand_buckets)
+
+    ref_hist = _collect_size_histogram(ref)
+    cand_hist = _collect_size_histogram(cand)
+    size_score = _size_hierarchy_score(ref_hist, cand_hist)
+
+    combined = 0.3 * bucket_score + 0.7 * size_score
     return MetricResult(
         name="typography",
-        score=score,
+        score=float(combined),
         extra={
-            "reference_fonts": sorted(ref_set),
-            "candidate_fonts": sorted(cand_set),
+            "bucket_score": bucket_score,
+            "size_score": size_score,
+            "reference_buckets": sorted(ref_buckets),
+            "candidate_buckets": sorted(cand_buckets),
+            "reference_size_hist": ref_hist,
+            "candidate_size_hist": cand_hist,
+            "reference_fonts": sorted(ref_names),
+            "candidate_fonts": sorted(cand_names),
         },
     )
 
 
 # ---------------------------------------------------------------------------
-# 5. Overflow — penalize candidates rendered wider than the declared viewport
+# 5. Overflow — penalise candidates whose horizontal content exceeds viewport
 # ---------------------------------------------------------------------------
 #
-# Eyeball calibration (R12) found a failure mode where the candidate's bbox
-# positions matched the reference (block_match looked fine) but the rendered
-# content overflowed horizontally — visible text was clipped at the viewport
-# edge. None of SSIM / block_match / palette / typography caught this.
+# Detection uses `document.documentElement.scrollWidth` captured during the
+# render and stored under the dom.json sidecar's `page` key. This is the
+# total rightmost extent of the page's content — it catches BOTH visibly-
+# rendered overflow AND content that was clipped by `overflow:hidden` (which
+# a PNG-width comparison would miss, since the PNG would stay at viewport
+# width).
 #
-# Detection: a full-page screenshot's width equals max(viewport_w, scrollWidth).
-# So PNG width > viewport_w directly indicates horizontal overflow. We compare
-# the candidate's PNG width against max(viewport_width, reference_width)
-# rather than the raw viewport — references occasionally legitimately overflow
-# for wide <pre> blocks; the candidate gets a free pass to overflow up to the
-# reference's tolerance, but is penalized linearly past that.
+# Allowance = max(viewport_width, reference_scrollWidth). The candidate gets
+# a free pass to overflow up to the reference's own scrollWidth — some
+# legitimate designs have wide elements (long code blocks, full-bleed
+# graphics) — and is penalised linearly past that.
+#
+# Empty / near-empty candidates return score=None so the composer drops the
+# metric: an empty page can't overflow but also can't replicate the design,
+# and we don't want the vacuous "no overflow detected" to credit the page.
 
-
-OVERFLOW_PENALTY_SLOPE = 2.0  # 1 unit of overflow ratio costs 2× score
+OVERFLOW_PENALTY_SLOPE = 2.0     # 1 unit of overflow ratio costs 2× score
+OVERFLOW_MIN_ELEMENTS = 5        # candidates with <5 visible elements → None
 
 
 def overflow(
-    candidate_png: Path,
-    reference_png: Path,
+    candidate_dom: Path,
+    reference_dom: Path,
     viewport_width: int,
 ) -> MetricResult:
-    cand_w, _ = Image.open(candidate_png).size
-    ref_w, _ = Image.open(reference_png).size
-    allowance = max(viewport_width, ref_w)
-    over_px = max(0, cand_w - allowance)
+    cand_data = _load_dom_full(candidate_dom)
+    ref_data = _load_dom_full(reference_dom)
+    cand_elements = cand_data.get("elements") or []
+
+    if len(cand_elements) < OVERFLOW_MIN_ELEMENTS:
+        return MetricResult(
+            name="overflow",
+            score=None,
+            extra={
+                "skipped": "candidate has too few visible elements",
+                "candidate_element_count": len(cand_elements),
+            },
+        )
+
+    cand_scroll_w = int((cand_data.get("page") or {}).get("scrollWidth") or viewport_width)
+    ref_scroll_w = int((ref_data.get("page") or {}).get("scrollWidth") or viewport_width)
+
+    allowance = max(viewport_width, ref_scroll_w)
+    over_px = max(0, cand_scroll_w - allowance)
     over_ratio = over_px / max(viewport_width, 1)
-    score = max(0.0, min(1.0, 1.0 - OVERFLOW_PENALTY_SLOPE * over_ratio))
+    score = float(max(0.0, min(1.0, 1.0 - OVERFLOW_PENALTY_SLOPE * over_ratio)))
+
     return MetricResult(
         name="overflow",
         score=score,
         extra={
-            "candidate_width": cand_w,
-            "reference_width": ref_w,
+            "candidate_scroll_width": cand_scroll_w,
+            "reference_scroll_width": ref_scroll_w,
             "viewport_width": viewport_width,
             "allowance_width": allowance,
             "overflow_px": over_px,
             "overflow_ratio": round(over_ratio, 4),
         },
     )
+
+
+# ---------------------------------------------------------------------------
+# 6. Text similarity — weighted-Jaccard on visible tokens
+# ---------------------------------------------------------------------------
+#
+# Catches content hallucination: row counts inflated, table data invented,
+# numbers fabricated. Tokenisation is intentionally simple (lowercase, alnum
+# runs, length≥2) so that punctuation, casing, and whitespace don't dominate.
+# Weighted Jaccard ( sum min / sum max ) rather than set Jaccard so that
+# "9 builds" vs "100 builds" gets the deserved low score: the extra 91 token
+# occurrences inflate the union without finding matches in the intersection.
+
+
+import re as _re
+from collections import Counter as _Counter
+
+_TOKEN_RE = _re.compile(r"[a-z0-9]+")
+
+
+def _tokenize(text: str) -> _Counter:
+    if not text:
+        return _Counter()
+    return _Counter(t for t in _TOKEN_RE.findall(text.lower()) if len(t) >= 2)
+
+
+def text_similarity(reference_dom: Path, candidate_dom: Path) -> MetricResult:
+    ref = _load_dom_full(reference_dom).get("text") or ""
+    cand = _load_dom_full(candidate_dom).get("text") or ""
+    ref_t = _tokenize(ref)
+    cand_t = _tokenize(cand)
+    if not ref_t and not cand_t:
+        return MetricResult(name="text", score=1.0, extra={"skipped": "both empty"})
+    if not ref_t or not cand_t:
+        return MetricResult(
+            name="text", score=0.0,
+            extra={"reference_tokens": sum(ref_t.values()), "candidate_tokens": sum(cand_t.values())},
+        )
+    inter = sum((ref_t & cand_t).values())
+    union = sum((ref_t | cand_t).values())
+    score = float(inter / max(union, 1))
+    return MetricResult(
+        name="text",
+        score=score,
+        extra={
+            "reference_tokens": sum(ref_t.values()),
+            "candidate_tokens": sum(cand_t.values()),
+            "matched_tokens": inter,
+            "union_tokens": union,
+            "reference_unique": len(ref_t),
+            "candidate_unique": len(cand_t),
+        },
+    )
+
+
+def _load_dom_full(dom_path: Path) -> dict:
+    """Load full dom.json including both `elements` and `page` keys."""
+    if not dom_path.exists():
+        return {"elements": [], "page": {}}
+    try:
+        return json.loads(dom_path.read_text())
+    except Exception:
+        return {"elements": [], "page": {}}
 
 
 # ---------------------------------------------------------------------------
@@ -490,9 +731,11 @@ def compute_all(
     out = {
         "ssim": ssim(reference_png, candidate_png),
         "block_match": block_match(reference_dom, candidate_dom),
+        "position": position_match(reference_dom, candidate_dom),
         "palette": palette(reference_dom, candidate_dom),
         "typography": typography(reference_dom, candidate_dom),
-        "overflow": overflow(candidate_png, reference_png, viewport_width),
+        "text": text_similarity(reference_dom, candidate_dom),
+        "overflow": overflow(candidate_dom, reference_dom, viewport_width),
     }
     if vlm_result is not None:
         out["vlm_judge"] = vlm_result

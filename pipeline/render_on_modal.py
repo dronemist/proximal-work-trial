@@ -26,9 +26,6 @@ import modal
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
-sys.path.insert(0, str(REPO_ROOT / "pipeline" / "grader"))
-from viewports import VIEWPORTS as DEFAULT_VIEWPORTS
-
 image = (
     modal.Image.from_registry("ubuntu:24.04", add_python="3.12")
     .apt_install("ca-certificates", "curl")
@@ -263,6 +260,9 @@ def batch(site_dir: str, output_dir: str):
     Any non-HTML file in site_dir (e.g. styles.css, images) is uploaded as-is
     so relative references inside the HTMLs resolve.
     """
+    sys.path.insert(0, str(REPO_ROOT / "pipeline" / "grader"))
+    from viewports import VIEWPORTS as DEFAULT_VIEWPORTS
+
     site = Path(site_dir).resolve()
     out = Path(output_dir).resolve()
     if not site.is_dir():

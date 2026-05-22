@@ -43,7 +43,6 @@ import random
 import shutil
 import time
 import traceback
-from dataclasses import asdict
 from pathlib import Path
 
 from pipeline.eval_gen.config import REPO_ROOT, DEFAULT
@@ -56,7 +55,6 @@ from pipeline.eval_gen.generator.brand_spec import (
 from pipeline.eval_gen.generator.brief import generate_brief
 from pipeline.eval_gen.generator.library import generate_library
 from pipeline.eval_gen.generator.pages import generate_page
-from pipeline.eval_gen.packaging.harbor_task import package_site
 from pipeline.eval_gen.render_validate import render_and_validate, validate_library_css
 
 
@@ -173,50 +171,6 @@ def _generate_one(spec: BrandSpec, site_work_dir: Path, cfg) -> dict:
     return site_summary
 
 
-def _package_from_work(cfg) -> list[dict]:
-    """Phase 2 — read existing _work/<site_id>/ outputs and write Harbor task dirs.
-
-    Skips sites that don't have _brand_spec.json + _summary.json (i.e., didn't
-    finish Phase 1). Reads brand_spec + brief + coherence from the work dir.
-    """
-    packaged: list[dict] = []
-    if not WORK_ROOT.exists():
-        print(f"!! work root {WORK_ROOT} does not exist; run Phase 1 first")
-        return packaged
-
-    for site_work_dir in sorted(WORK_ROOT.iterdir()):
-        if not site_work_dir.is_dir():
-            continue
-        spec_path = site_work_dir / "_brand_spec.json"
-        summary_path = site_work_dir / "_summary.json"
-        brief_path = site_work_dir / "_brief.txt"
-        if not (spec_path.exists() and summary_path.exists() and brief_path.exists()):
-            print(f"  skip {site_work_dir.name}: missing provenance files")
-            continue
-        spec_dict = json.loads(spec_path.read_text())
-        spec = BrandSpec(**spec_dict)
-        site_summary = json.loads(summary_path.read_text())
-        coherence = site_summary.get("coherence")
-        brief_text = brief_path.read_text()
-
-        print(f"  packaging {spec.site_id}...")
-        try:
-            task_dir = package_site(
-                spec=spec,
-                site_dir=site_work_dir,
-                brief_text=brief_text,
-                coherence_report=coherence,
-                cfg=cfg,
-            )
-            print(f"    -> {task_dir}")
-            packaged.append({"site_id": spec.site_id, "task_dir": str(task_dir), "ok": True})
-        except Exception as e:
-            print(f"    FAILED: {e}")
-            traceback.print_exc()
-            packaged.append({"site_id": spec.site_id, "ok": False, "error": str(e)})
-
-    return packaged
-
 
 def cmd_generate(cfg) -> int:
     """Phase 1 — generate websites to _work/. No Harbor packaging."""
@@ -280,28 +234,7 @@ def cmd_generate(cfg) -> int:
     return 0 if n_ok == cfg.n_tasks else 1
 
 
-def cmd_package(cfg) -> int:
-    """Phase 2 — package the already-generated _work/ sites as Harbor tasks."""
-    print(f">>> Phase 2: PACKAGE Harbor task directories")
-    print(f">>> output root: {cfg.output_root}")
-    cfg.output_root.mkdir(parents=True, exist_ok=True)
-
-    started = time.time()
-    packaged = _package_from_work(cfg)
-    elapsed = time.time() - started
-
-    (cfg.output_root / "_package_summary.json").write_text(json.dumps({
-        "elapsed_s": elapsed,
-        "n_packaged": sum(1 for p in packaged if p.get("ok")),
-        "sites": packaged,
-    }, indent=2))
-
-    n_ok = sum(1 for p in packaged if p.get("ok"))
-    print(f"\n>>> done in {elapsed:.1f}s. packaged {n_ok}/{len(packaged)} sites")
-    print(f">>> next: harbor run {cfg.output_root}/<site> --agent claude")
-    return 0 if n_ok == len(packaged) and n_ok > 0 else 1
-
 
 # The Modal entrypoint (create_websites_modal.py) is the only invocation path
-# for this module. cmd_generate and cmd_package are called directly from there;
-# there is no local CLI.
+# for this module. cmd_generate is called directly from there; there is no
+# local CLI. Packaging is handled by pipeline/package.py.

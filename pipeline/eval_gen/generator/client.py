@@ -67,13 +67,17 @@ def complete(
             # duration would exceed 10 minutes (true at our 32K/64K caps).
             # Streaming has no such limit; the context manager accumulates
             # the final message just like create() would have returned.
-            with client.messages.stream(
-                model=model,
-                max_tokens=max_tokens,
-                temperature=temperature,
-                system=system,
-                messages=[{"role": "user", "content": user}],
-            ) as stream:
+            kwargs = {
+                "model": model,
+                "max_tokens": max_tokens,
+                "system": system,
+                "messages": [{"role": "user", "content": user}],
+            }
+            # opus-4-7 rejects `temperature` (only the default is accepted).
+            # Earlier sonnet models took it; pass it through only for non-opus.
+            if not model.startswith("claude-opus-4-7"):
+                kwargs["temperature"] = temperature
+            with client.messages.stream(**kwargs) as stream:
                 final = stream.get_final_message()
             latency = time.time() - t0
             text = "".join(

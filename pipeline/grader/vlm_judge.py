@@ -20,22 +20,38 @@ VLM_TIMEOUT_SEC = 30.0
 VLM_MAX_TOKENS = 256
 
 
-_VLM_PROMPT = """You are evaluating whether a candidate webpage screenshot replicates a reference webpage screenshot.
+_VLM_PROMPT = """You are evaluating whether a candidate webpage screenshot faithfully replicates a reference webpage screenshot. The candidate was produced by an AI agent trying to copy the reference exactly. Be a strict critic — small differences are evidence of failure, not stylistic choice.
 
 The first image is the REFERENCE (what the page should look like).
-The second image is the CANDIDATE (what an AI agent produced trying to replicate the reference).
+The second image is the CANDIDATE (what the AI agent produced).
 
-Score visual similarity from 0.0 to 1.0:
-  1.0 = visually identical
-  0.8 = clearly the same design, minor differences
-  0.5 = recognizably similar but different in obvious ways
-  0.2 = related but very different
+Score from 0.0 to 1.0 by checking each of these in order. **Charts, tables, icons, and content count more than overall layout** — those are where agents fabricate.
+
+1. **Content fidelity (most important)**
+   - Are charts/graphs data-accurate? Same shape, same trend, same axis labels?
+   - Do tables have the same number of rows? Same values in matching cells?
+   - Are icons rendered correctly (right glyph, right style)?
+   - Did the agent hallucinate extra UI elements, data points, or sections?
+
+2. **Visual fidelity**
+   - Colors: do background tones, button colors, accent colors match? Look carefully at the *dominant* background color — even a small hue shift (e.g. cyan-tinted black vs navy blue) means the page identity is different. Don't treat "both look dark" as a match.
+   - Typography hierarchy: do heading sizes match? Body weights match?
+   - Layout: do panels, spacing, and alignment match?
+
+3. **Faithfulness penalties**
+   - Major content hallucination (e.g. 9 rows in ref → 100 rows in candidate): cap at 0.4.
+   - Wrong chart data or wrong icons: cap at 0.6.
+   - Wrong colors but right layout: cap at 0.7.
+
+Scoring scale:
+  1.0 = visually and structurally identical
+  0.8 = same design, only minor color/spacing drift, content fully matches
+  0.5 = layout matches but content wrong (hallucinated data, wrong chart, wrong icons)
+  0.3 = different at a glance OR significant content fabrication
   0.0 = unrelated
 
-Consider: layout, color palette, typography, spacing, visual hierarchy, overall design fidelity.
-
 Respond ONLY with this JSON, nothing else:
-{"score": 0.0, "reason": "one sentence explaining the score"}"""
+{"score": 0.0, "reason": "one sentence calling out the most important difference"}"""
 
 
 @dataclass

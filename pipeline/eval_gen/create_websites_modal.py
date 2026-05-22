@@ -61,14 +61,14 @@ image = (
 )
 
 
-app = modal.App("worktrial-create-websites-v4", image=image)
+app = modal.App("worktrial-create-websites-v5-opus", image=image)
 
 # Persistent volume for the generated output. Phase 1 writes reference_sites/<site>/
 # here; Phase 2 reads it back to assemble Harbor task directories under
 # the same volume at smoke/<site>/. The local entrypoint downloads the
 # volume contents to the user's filesystem after each phase.
 output_volume = modal.Volume.from_name(
-    "worktrial-eval-gen-output", create_if_missing=True
+    "worktrial-eval-gen-v6", create_if_missing=True
 )
 
 VOLUME_MOUNT_PATH = "/work/output"
@@ -141,40 +141,12 @@ def generate_one_site_remote(args: dict) -> dict:
 # pure-sequential fallback is ever needed.
 
 
-@app.function(
-    timeout=1800,
-    volumes={VOLUME_MOUNT_PATH: output_volume},
-    cpu=2.0,
-    memory=4096,
-)
-def package_remote() -> dict:
-    """Phase 2 on Modal: package the already-generated _work/ sites as Harbor tasks."""
-    import sys
-    sys.path.insert(0, "/work")
-
-    from pipeline.eval_gen import config, create_websites
-    config.REPO_ROOT = Path("/work")
-    config.DEFAULT.output_root = Path(VOLUME_MOUNT_PATH) / "tasks"
-    config.DEFAULT.reference_sites_root = Path(VOLUME_MOUNT_PATH) / "reference_sites"
-    create_websites.WORK_ROOT = config.DEFAULT.reference_sites_root
-
-    exit_code = create_websites.cmd_package(config.DEFAULT)
-    output_volume.commit()
-
-    summary_path = config.DEFAULT.output_root / "_package_summary.json"
-    summary = {}
-    if summary_path.exists():
-        import json
-        summary = json.loads(summary_path.read_text())
-    return {"exit_code": exit_code, "summary": summary}
-
-
 # ---------------------------------------------------------------------------
 # Volume <-> local sync helpers
 # ---------------------------------------------------------------------------
 
 
-def _download_volume_subtree(remote_prefix: str, local_dir: Path) -> int:
+def _download_volume_subtree(remote_prefix: str, local_dir: Path, depth: int = 0) -> int:
     """Pull every file under `remote_prefix` in the volume to `local_dir`.
 
     Returns count of files downloaded. Skips directories.
@@ -189,13 +161,17 @@ def _download_volume_subtree(remote_prefix: str, local_dir: Path) -> int:
         rel = entry.path[len(remote_prefix):].lstrip("/")
         target = local_dir / rel
         if entry.type == modal.volume.FileEntryType.DIRECTORY:
-            n += _download_volume_subtree(entry.path, target)
+            if depth < 2:
+                print(f"  downloading {entry.path}/...", flush=True)
+            n += _download_volume_subtree(entry.path, target, depth + 1)
         else:
             target.parent.mkdir(parents=True, exist_ok=True)
             with open(target, "wb") as f:
                 for chunk in output_volume.read_file(entry.path):
                     f.write(chunk)
             n += 1
+            if depth < 2:
+                print(f"    {rel}", flush=True)
     return n
 
 
@@ -253,25 +229,31 @@ def generate(n_sites: int = 5, run_suffix: str = ""):
     print(f">>> dispatching {len(site_args)} site jobs (Modal .map())...")
     results = list(generate_one_site_remote.map(site_args))
     n_ok = sum(1 for r in results if r.get("ok"))
-    print(f">>> {n_ok}/{len(results)} sites generated")
-
-    print(">>> downloading reference_sites/ from Modal volume...")
-    local_ref = REPO_ROOT / "reference_sites"
-    n_files = _download_volume_subtree("/reference_sites", local_ref)
-    print(f">>> downloaded {n_files} file(s) -> {local_ref}")
-    print(f">>> inspect screenshots at {local_ref}/<site>/screenshots/")
-    print(f">>> when satisfied, run:  modal run pipeline/eval_gen/create_websites_modal.py::package")
+    print(f">>> {n_ok}/{len(results)} sites generated on the Modal volume")
+    print(f">>> sync to local with:  modal run pipeline/eval_gen/create_websites_modal.py::download")
 
 
 @app.local_entrypoint()
-def package():
-    """Run Phase 2 on Modal, then sync tasks/ back to local."""
-    print(">>> kicking off Phase 2 on Modal...")
-    result = package_remote.remote()
-    print(f">>> Modal function returned exit_code={result['exit_code']}")
+def download(prefix: str = ""):
+    """Sync reference_sites/ from the Modal volume to local.
 
-    print(">>> downloading tasks/ from Modal volume...")
-    local_smoke = REPO_ROOT / "tasks"
-    n_files = _download_volume_subtree("/tasks", local_smoke)
-    print(f">>> downloaded {n_files} file(s) -> {local_smoke}")
-    print(f">>> next: harbor run {local_smoke}/<site> --agent claude")
+    Decoupled from `generate` so a stuck log stream on the generate run
+    never blocks (or hides) the download. Re-runnable; pass `--prefix`
+    to filter (e.g. `--prefix v5opus2` only pulls that run's sites).
+    """
+    local_ref = REPO_ROOT / "reference_sites"
+    remote_root = "/reference_sites"
+    if prefix:
+        all_entries = list(output_volume.iterdir(remote_root))
+        targets = [e for e in all_entries if prefix in e.path]
+        print(f">>> downloading {len(targets)} site(s) matching {prefix!r}...")
+        n_files = 0
+        for entry in targets:
+            n_files += _download_volume_subtree(entry.path, local_ref / Path(entry.path).name)
+    else:
+        print(">>> downloading all reference_sites/ from Modal volume...")
+        n_files = _download_volume_subtree(remote_root, local_ref)
+    print(f">>> downloaded {n_files} file(s) -> {local_ref}")
+    print(f">>> next: modal run pipeline/eval_gen/create_websites_modal.py::package")
+
+
