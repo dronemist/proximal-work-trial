@@ -1,8 +1,10 @@
 # Task 2 — Animation Support
 
-Extends the Task 1 pipeline (static website replication) to generate and grade websites with CSS animations.
+Extends the Task 1 pipeline (static website replication) to generate and grade websites with CSS animations. Currently supports two animation types: entrance (page-load) and ambient (looping). The pipeline is end-to-end: generation, capture, packaging, and grading.
 
-## Eval Generation
+## What We Have
+
+### Eval Generation
 
 The generation pipeline adds animations to reference websites via a spec-driven approach.
 
@@ -33,7 +35,13 @@ The generation pipeline adds animations to reference websites via a spec-driven 
 - Output stored under `task2/<run_suffix>/` on the Modal volume for per-run isolation
 - `download --run-suffix <suffix>` pulls a specific run
 
-## Grader
+**Packaging** (`pipeline/scaffold_task.py`, `pipeline/package.py`):
+- Copies all animation artifacts into Harbor tasks: `.animations.json`, keyframe PNGs, filmstrips, videos, `animation_metrics.py`
+- Agent sees: static screenshots + filmstrips + videos in `environment/reference/`
+- Grader sees: all of the above plus keyframe PNGs and animation metadata in `tests/reference_truth/`
+- `instruction.md` auto-generated with animation names, types, durations, and references to filmstrip/video files
+
+### Grader
 
 The grader detects animated tasks and combines static + animation scores.
 
@@ -62,15 +70,15 @@ animation_score = 0.40 * structured_metrics + 0.60 * vlm_animation
 
 **Detection and capture** (`pipeline/grader/grade.py`):
 - Animated tasks detected by presence of `.animations.json` files in the reference directory
-- Agent animation keyframes captured using the same Web Animations API approach as the reference pipeline
-- Agent filmstrips and videos captured for VLM comparison
+- Agent animation keyframes + filmstrips + 5-second videos captured using the same approach as the reference pipeline
 - All animation details written to `subscores.json`
 
-## Open Questions / Not Yet Solved
+## What We Need to Think About
 
-**Hover animations**: CSS transitions on `:hover` (button color shifts, card scale-ups, underline slides) are common on real websites but hard to evaluate. The core problem is element matching — a "Contact Us" button in the reference might be at a completely different DOM position in the candidate. We'd need to discover all hoverable elements, semantically match them across ref vs candidate, then trigger hover on each, wait for the transition, and compare. Playwright can `element.hover()` to trigger transitions, but the choreography (which elements, in what order, how to match across different DOMs) is fragile. The VLM could judge "does this site have nice hover effects" from a video of someone mousing around, but producing a deterministic, comparable capture is the unsolved part.
+We currently only support entrance (page-load) and ambient (looping) CSS animations. These are the easiest to capture deterministically because they fire automatically with no user interaction. To make the eval more challenging and realistic, we should consider expanding to other animation types:
 
-**Scroll-triggered animations**: Elements that animate in as the user scrolls down (e.g., Intersection Observer patterns). Playwright can `window.scrollTo()` step by step, but the capture script needs to know how far to scroll, how fast, and where animated elements live. This adds significant complexity to both generation (telling the LLM to use scroll-triggered animations without JS — pure CSS `scroll-timeline` is still limited) and capture (deterministic scroll choreography).
+**Hover animations**: CSS transitions on `:hover` (button color shifts, card scale-ups, underline slides). The core challenge is element matching — the agent's DOM structure won't match the reference, so we can't just hover the same selectors. We'd need semantic matching to find corresponding elements, then trigger and compare hover effects. Playwright can `element.hover()`, but the choreography across different DOMs is fragile.
 
-**JS-driven animations**: Libraries like GSAP, Framer Motion, Lottie. Agents would need to pick and use the right library, and the current no-JS constraint would need to be relaxed. Grading becomes harder because the Web Animations API may not expose JS-driven animations the same way. Likely requires a fundamentally different capture approach (video-only, no structured metrics).
+**Scroll-triggered animations**: Elements that animate in as the user scrolls. Playwright can `window.scrollTo()` step by step, but the capture needs to know how far/fast to scroll and where animated elements live. Generation is also harder — pure CSS `scroll-timeline` has limited browser support, and Intersection Observer requires JS (which we currently prohibit).
 
+**JS-driven animations**: Libraries like GSAP, Framer Motion, Lottie. Would require relaxing the no-JS constraint. The Web Animations API may not expose JS-driven animations, so grading would likely need to be video/VLM-only.
