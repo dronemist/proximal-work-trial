@@ -399,6 +399,18 @@ def render_and_validate(
             except Exception as e:
                 res.issues.append(f"{vp_name}: filmstrip capture failed: {e}")
 
+            try:
+                capture_animation_video(
+                    html_path=html_path,
+                    screenshots_dir=screenshots_dir,
+                    page_slug=page_slug,
+                    viewport_w=w,
+                    viewport_h=h,
+                    vp_name=vp_name,
+                )
+            except Exception as e:
+                res.issues.append(f"{vp_name}: video capture failed: {e}")
+
     # DOM-depth + tag-count check via simple text parsing.
     tag_count, depth = _estimate_dom_metrics(html_text)
     if tag_count < cfg.min_tag_count:
@@ -822,6 +834,54 @@ def capture_animation_filmstrip(
         pass
 
     return filmstrip_path
+
+
+def capture_animation_video(
+    html_path: Path,
+    screenshots_dir: Path,
+    page_slug: str,
+    viewport_w: int,
+    viewport_h: int,
+    vp_name: str = "desktop",
+    duration_s: float = 5.0,
+) -> Path | None:
+    """Record a video of the first few seconds of the page with animations playing.
+
+    Uses Playwright's built-in video recording. Returns the path to the
+    WebM file, or None on failure.
+    """
+    from playwright.sync_api import sync_playwright
+
+    source_url = f"file://{html_path.resolve()}"
+    videos_dir = screenshots_dir / "videos"
+    videos_dir.mkdir(parents=True, exist_ok=True)
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(args=["--no-sandbox", "--disable-dev-shm-usage"])
+        ctx = browser.new_context(
+            viewport={"width": viewport_w, "height": viewport_h},
+            device_scale_factor=1,
+            record_video_dir=str(videos_dir),
+            record_video_size={"width": viewport_w, "height": viewport_h},
+        )
+        page = ctx.new_page()
+        page.goto(source_url, wait_until="load")
+        try:
+            page.evaluate("() => document.fonts ? document.fonts.ready : Promise.resolve()")
+        except Exception:
+            pass
+
+        page.wait_for_timeout(int(duration_s * 1000))
+
+        video_path_tmp = page.video.path()
+        ctx.close()
+        browser.close()
+
+    if video_path_tmp and Path(video_path_tmp).exists():
+        final_path = videos_dir / f"{page_slug}.{vp_name}.webm"
+        Path(video_path_tmp).rename(final_path)
+        return final_path
+    return None
 
 
 def _estimate_dom_metrics(html: str) -> tuple[int, int]:

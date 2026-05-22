@@ -93,10 +93,18 @@ def package_one_local(site_dir: Path, output_root: Path) -> Path:
     env_ref.mkdir(parents=True, exist_ok=True)
     ver_ref.mkdir(parents=True, exist_ok=True)
 
+    # Clean stale viewport PNGs but preserve animation files (.animations.json,
+    # keyframe PNGs, filmstrips/) that scaffold already copied.
+    _ANIM_SUFFIXES = (".animations.json",)
     for d in (env_ref, ver_ref):
         for old in d.iterdir():
-            if old.is_file():
-                old.unlink()
+            if not old.is_file():
+                continue
+            if old.name.endswith(_ANIM_SUFFIXES):
+                continue
+            if ".anim_" in old.name:
+                continue
+            old.unlink()
 
     htmls = sorted(p for p in site_dir.glob("*.html") if p.is_file())
     chromium_version = ""
