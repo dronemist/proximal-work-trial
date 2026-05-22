@@ -44,7 +44,7 @@ The reward function does what it should: visually faithful reproductions score h
 
 | Reference | Candidate (best trial) |
 |---|---|
-| ![ref](../../tasks/v9/012-hello-recipes-v9/tests/reference_truth/about.desktop.png) | ![cand](../results/012-hello-recipes-v9-opus-20260522-1437-k10/012-hello-recipes-v9__fGfNnuW/verifier/grading/rendered/about.desktop.png) |
+| ![ref](../tasks/012-hello-recipes-v9/tests/reference_truth/about.desktop.png) | ![cand](../results/012-hello-recipes-v9-opus-20260522-1437-k10/012-hello-recipes-v9__fGfNnuW/verifier/grading/rendered/about.desktop.png) |
 
 Same layout, same color palette, content reproduced verbatim (text=1.000, palette=0.880).
 
@@ -52,7 +52,7 @@ Same layout, same color palette, content reproduced verbatim (text=1.000, palett
 
 | Reference | Candidate (best trial) |
 |---|---|
-| ![ref](../../tasks/v9/009-real-estate-crm-v7adv/tests/reference_truth/listings.desktop.png) | ![cand](../results/009-real-estate-crm-v7adv-opus-20260522-1437-k10/009-real-estate-crm-v7adv__XZE9bJe/verifier/grading/rendered/listings.desktop.png) |
+| ![ref](../tasks/009-real-estate-crm-v7adv/tests/reference_truth/listings.desktop.png) | ![cand](../results/009-real-estate-crm-v7adv-opus-20260522-1437-k10/009-real-estate-crm-v7adv__XZE9bJe/verifier/grading/rendered/listings.desktop.png) |
 
 Nav, footer, and overall layout match; the listing-card grid has the right column count; typography is in the correct family. But the accent palette drifts away from the reference's terracotta toward generic warm-grey (palette=0.76), and several listing fields are fabricated (text=0.67). The score lands in the 0.5–0.6 band that characterises "structurally faithful, content imperfect" trials — the bulk of the dashboard tier.
 
@@ -60,7 +60,7 @@ Nav, footer, and overall layout match; the listing-card grid has the right colum
 
 | Reference | Candidate (best trial) |
 |---|---|
-| ![ref](../../tasks/v9/010-nonprofit-donations-v7adv/tests/reference_truth/projects.desktop.png) | ![cand](../results/010-nonprofit-donations-v7adv-opus-20260522-1437-k10/010-nonprofit-donations-v7adv__T4wM727/verifier/grading/rendered/projects.desktop.png) |
+| ![ref](../tasks/010-nonprofit-donations-v7adv/tests/reference_truth/projects.desktop.png) | ![cand](../results/010-nonprofit-donations-v7adv-opus-20260522-1437-k10/010-nonprofit-donations-v7adv__T4wM727/verifier/grading/rendered/projects.desktop.png) |
 
 The candidate keeps the layout structure but **invents every text field** — brand name, project names, funding totals, currency. VLM rated this 0.3 ("fundamentally different website"); text=0.148. The score collapse to 0.262 is the right answer.
 
@@ -88,7 +88,7 @@ Mobile averages slightly above desktop *only* because of the strong-mobile easy 
 
 | Reference | Candidate |
 |---|---|
-| ![ref](../../tasks/v9/008-hr-payroll-v7adv/tests/reference_truth/time-off.mobile.png) | ![cand](../results/008-hr-payroll-v7adv-opus-20260522-1437-k10/008-hr-payroll-v7adv__HHedLui/verifier/grading/rendered/time-off.mobile.png) |
+| ![ref](../tasks/008-hr-payroll-v7adv/tests/reference_truth/time-off.mobile.png) | ![cand](../results/008-hr-payroll-v7adv-opus-20260522-1437-k10/008-hr-payroll-v7adv__HHedLui/verifier/grading/rendered/time-off.mobile.png) |
 
 Candidate renders at 588px on a 375px viewport (57% wider than viewport) and is 34% shorter than the reference (missing content). The overflow multiplier halves the composite: structured=0.576 × (0.5+0.5×0.0) = **0.288**.
 
@@ -137,7 +137,7 @@ Text-similarity score (Jaccard over visible tokens) reveals systematic number fa
 
 | Reference | Candidate (best trial) |
 |---|---|
-| ![ref](../../tasks/v9/006-fintech-banking-v7adv/tests/reference_truth/transactions.desktop.png) | ![cand](../results/006-fintech-banking-v7adv-opus-20260522-1437-k10/006-fintech-banking-v7adv__k9GFXxy/verifier/grading/rendered/transactions.desktop.png) |
+| ![ref](../tasks/006-fintech-banking-v7adv/tests/reference_truth/transactions.desktop.png) | ![cand](../results/006-fintech-banking-v7adv-opus-20260522-1437-k10/006-fintech-banking-v7adv__k9GFXxy/verifier/grading/rendered/transactions.desktop.png) |
 
 The candidate reproduces the table shape, column headers, row count, and visual styling. But a substantial share of transaction amounts differ (some by 5–20%), several merchant names are wrong, and dates shift. SSIM (0.62) and block_match (0.45) don't catch this — the *layout* is correct. Only text similarity (0.52) and the VLM judge (0.45) drive the score down.
 
