@@ -132,7 +132,7 @@ Validation checks run on every generated page before it's accepted:
 - Font-family and color-token variance within expected bounds
 - No contradictory theme signals (dark page in a light site, unless explicitly mixed-mode)
 
-Running the same anti-cheat checks at generation time (not just grading time) ensures the reference sites don't contain patterns that would be penalized if an agent reproduced them faithfully. This was motivated by an early finding where ~22% of agent trials were false-positive penalized for correctly reproducing inline SVG icons from the reference — the reference itself contained patterns the grader flagged as cheating.
+Running the same anti-cheat checks at generation time (not just grading time) ensures the reference sites don't contain patterns that would be penalized if an agent reproduced them faithfully. This was motivated by an early finding where ~18% of agent trials (9/50) were false-positive penalized for correctly reproducing inline SVG icons from the reference — the reference itself contained patterns the grader flagged as cheating.
 
 ## Infrastructure: Modal Parallelism
 
@@ -185,7 +185,7 @@ Getting the pipeline to produce correct, grader-compatible reference sites requi
 
 **Off-origin requests cause silent render drift.** A reference page that loads Google Fonts renders differently when the agent (with no network access) renders it. Early sites occasionally embedded `@import url('fonts.googleapis.com/...')` in CSS — invisible during generation but causing font substitution at grading time. The off-origin check catches this at generation time and triggers a retry.
 
-**Anticheat patterns in references cause false positives.** The reference generator sometimes embedded small SVG icons as `data:image` URIs or used full-width SVGs for decorative elements. When agents faithfully reproduced these patterns, they tripped anticheat checks — ~22% of early trials were false-positive penalized. Running the same anticheat checks during generation prevents references from containing patterns the grader would flag.
+**Anticheat patterns in references cause false positives.** The reference generator sometimes embedded small SVG icons as `data:image` URIs or used full-width SVGs for decorative elements. When agents faithfully reproduced these patterns, they tripped anticheat checks — ~18% (9/50) of early trials were false-positive penalized. Running the same anticheat checks during generation prevents references from containing patterns the grader would flag.
 
 **Degenerate pages waste the eval set.** Without structural validation (minimum DOM depth, tag count), the generator occasionally produced near-empty pages — a single `<div>` with a background color, or a page with all content in one `<p>` tag. These are trivially replicable and add no signal to the eval set. The validation floor ensures every reference page is substantive enough to test design replication.
 

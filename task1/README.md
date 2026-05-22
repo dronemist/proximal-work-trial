@@ -19,11 +19,13 @@ The pipeline generates websites from scratch (no crawling), packages them as [Ha
 │   └── limitations.md       # Honest assessment + future work (animations, frameworks)
 ├── pipeline/
 │   ├── eval_gen/            # Website generation (brand spec → brief → library → pages)
-│   ├── grader/              # Grading (metrics.py, vlm_judge.py, anticheat.py)
+│   ├── grader/              # Grading (grade.py, metrics.py, vlm_judge.py, anticheat.py, viewports.py, job_table.py)
 │   ├── render.py            # Playwright rendering (same code for reference + verifier)
 │   ├── render_on_modal.py   # Modal-based rendering (deterministic Linux environment)
 │   ├── package.py           # Scaffold + render Harbor tasks
 │   ├── scaffold_task.py     # Harbor task scaffolding from template
+│   ├── build_task.py        # Task build helpers
+│   ├── proxy.py             # CONNECT-logging HTTPS egress proxy
 │   └── task_template/       # Canonical Harbor task template
 ├── tasks/                   # 13 ready-to-run Harbor tasks
 │   ├── 001-gov-services-v7adv/    (5 pages, light theme, gov services)
@@ -51,7 +53,7 @@ pip install modal anthropic playwright
 modal token new
 modal secret create anthropic-api-key ANTHROPIC_API_KEY=sk-ant-...
 
-# Generate 5 sites with 5 pages each
+# Generate 5 sites with 5-8 pages each
 modal run pipeline/eval_gen/create_websites_modal.py::generate --run-suffix myrun
 
 # Download results
@@ -71,7 +73,7 @@ Detailed in the docs, but the highlights:
 1. **Multi-viewport grading** — Desktop + tablet + mobile, aggregated with harmonic mean. Forces genuine responsive design.
 2. **8 complementary metrics** — Pixel (SSIM), structural (block match, position), semantic (text, palette, typography), visual (VLM judge), and integrity (overflow). No single metric can be gamed.
 3. **Harmonic aggregation** — One bad page or viewport tanks the whole score. Rewards consistency.
-4. **Anti-cheat** — 6 checks (image copy, raster files, oversized SVGs, off-origin requests, data URIs, embed tags). Any violation → 0.1× multiplier.
+4. **Anti-cheat** — 6 checks (reference image copy, raster files, oversized inline SVGs, off-origin requests, large data URIs, iframe/canvas/object/embed tags). Any violation → 0.1× multiplier at eval time.
 5. **Same renderer everywhere** — Reference PNGs, agent output, and grader all use the same Playwright+Chromium on the same OS. Eliminates drift.
 6. **Diversity by construction** — 15 domains × 15 archetypes × 12 palettes × 3 themes, shuffled to guarantee no axis reuse within a batch.
 

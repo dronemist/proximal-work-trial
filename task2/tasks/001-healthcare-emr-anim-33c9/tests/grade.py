@@ -180,20 +180,12 @@ def _capture_agent_animation_keyframes(
                         )
                         kf_screenshots[pct_label] = str(out_png)
 
-                    # Filmstrip capture — use entrance-only duration so
-                    # entrance animations are visible across frames.
-                    finite_ends = [
-                        a.get("duration", 0) + a.get("delay", 0)
-                        for a in animation_meta
-                        if a.get("iterations", 1) != float("inf") and a.get("iterations", 1) > 0
-                    ]
-                    filmstrip_duration = max(finite_ends, default=0) or max_duration
-
+                    # Filmstrip capture — more frames for VLM judging
                     frame_images: list[Image.Image] = []
                     frame_pcts: list[float] = []
                     for i in range(n_filmstrip_frames):
                         fpct = i / max(n_filmstrip_frames - 1, 1)
-                        target_ms = fpct * filmstrip_duration
+                        target_ms = fpct * max_duration
                         page.evaluate(f"""() => {{
                             document.getAnimations().forEach(a => {{
                                 a.pause();
@@ -221,7 +213,7 @@ def _capture_agent_animation_keyframes(
                         for idx, frame in enumerate(frame_images):
                             c, r = idx % cols, idx // cols
                             x, y = c * (fw + pad), r * (fh + label_h + pad)
-                            ms = frame_pcts[idx] * filmstrip_duration
+                            ms = frame_pcts[idx] * max_duration
                             draw.text((x + 2, y), f"{int(frame_pcts[idx]*100)}% ({int(ms)}ms)", fill=(0, 0, 0))
                             strip.paste(frame, (x, y + label_h))
                         filmstrips_subdir = screenshots_dir / "filmstrips"

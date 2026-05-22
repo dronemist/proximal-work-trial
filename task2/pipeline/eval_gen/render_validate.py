@@ -739,7 +739,17 @@ def capture_animation_filmstrip(
             browser.close()
             return None
 
-        max_duration = max((a.get("duration", 0) for a in animation_meta), default=0)
+        # Use entrance-only duration (finite animations) so the filmstrip
+        # focuses on entrance animations rather than being dominated by
+        # long ambient loops. Fall back to max of all if no finite ones.
+        finite_ends = [
+            a.get("duration", 0) + a.get("delay", 0)
+            for a in animation_meta
+            if a.get("iterations", 1) != float("inf") and a.get("iterations", 1) > 0
+        ]
+        max_duration = max(finite_ends, default=0)
+        if max_duration <= 0:
+            max_duration = max((a.get("duration", 0) for a in animation_meta), default=1000)
         if max_duration <= 0:
             max_duration = 1000
 

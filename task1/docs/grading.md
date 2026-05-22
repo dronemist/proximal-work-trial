@@ -165,7 +165,7 @@ There are no "cliff edges" where a good change hurts the score. The only discont
 
 ### The grading is continuous and differentiable in practice
 
-Across the 13-task evaluation suite, best-of-10 rewards span **0.26 → 0.90** with a clear visual correlation between score and quality (see [Results](results.md)). Within a single task, trial-to-trial variance is typically 0.02–0.05. This gives RL algorithms a usable gradient: small improvements in design fidelity produce small increases in reward.
+Across the 13-task evaluation suite, best-of-10 rewards span **0.292 → 0.901** with a clear visual correlation between score and quality (see [Results](results.md)). Within a single task, trial-to-trial variance is typically 0.02–0.05. This gives RL algorithms a usable gradient: small improvements in design fidelity produce small increases in reward.
 
 ### Multi-viewport prevents shortcut learning
 
@@ -204,7 +204,7 @@ The "what" of each metric is in the [Metric Suite](#metric-suite) tables. This s
 
 ### Calibration History
 
-The reward function went through 8 calibration iterations (v1–v6) before being locked. Each step was validated against oracle/nop/Claude outputs and direct eyeball verdicts on candidate screenshots before proceeding.
+The reward function went through 8 calibration iterations before being locked. Each step was validated against oracle/nop/Claude outputs and direct eyeball verdicts on candidate screenshots before proceeding.
 
 Key calibration discoveries:
 
@@ -332,7 +332,7 @@ Both factors are in [0, 1], so their product is also in [0, 1]. ∎
 
 **Tightness.** Both bounds are attained:
 - `reward = 0` when every metric scores 0 (the nop / empty-candidate case) **or** the all-missing-pages branch fires.
-- `reward = 1` when every metric scores 1 and there are no anticheat violations (the oracle case, confirmed empirically in `tasks/000-smoke`).
+- `reward = 1` when every metric scores 1 and there are no anticheat violations (the oracle case, confirmed empirically against oracle solutions).
 
 QED.
 

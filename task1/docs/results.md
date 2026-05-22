@@ -10,7 +10,7 @@
 - **Score scale:** all scores in this document are in [0.0, 1.0] — 0.0 = no faithful reproduction, 1.0 = visually and structurally identical. Per-feature scores, composite, and final reward all share this scale.
 - **Score columns:** `mean` averages reward across the `n_valid` trials whose reward > 0.01 (excluding [end_turn regression](#end_turn-regression) zeros); `best` is max reward over all 10 trials; `p≥0.5` is the **fraction of trials (over all 10, including zeros)** whose final reward ≥ 0.5 — a reliability proxy.
 - **Compute:** Modal sandboxes (130 trials = 13 tasks × k=10), Anthropic API spend on the order of a few hundred dollars per full k=10 run
-- **Calibration anchors:** Oracle = 1.000, Nop = 0.000 (validated separately in `tasks/000-smoke`)
+- **Calibration anchors:** Oracle = 1.000, Nop = 0.000 (validated separately against oracle / empty-candidate baselines)
 
 ## Overall Score Table
 
@@ -68,7 +68,7 @@ This validates that **(a)** the structured + VLM combination catches both visual
 
 ---
 
-## Observation 2 — Mobile underperforms desktop on average
+## Observation 2 — Mobile underperforms desktop on hard dashboard tasks
 
 Per-viewport composite (averaged over best trial of each task):
 

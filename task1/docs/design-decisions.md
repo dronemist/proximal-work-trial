@@ -1,6 +1,6 @@
 # Design Decisions
 
-The key architectural choices behind the pipeline and grading system, grouped by area.
+Key architectural choices behind the pipeline and grading system, grouped by area.
 
 ---
 
@@ -8,78 +8,54 @@ The key architectural choices behind the pipeline and grading system, grouped by
 
 ### Generate, Don't Crawl
 
-The task specification requires that websites are generated, not crawled. We embraced this constraint because it also gives us significant advantages:
-- **Perfect ground truth.** We have the exact HTML+CSS that produced each reference screenshot, which becomes the oracle solution.
-- **Controlled complexity.** We choose the difficulty distribution rather than inheriting whatever the web happens to have.
-- **No legal/licensing risk.** Generated content is original.
-- **Reproducibility.** Given a seed, every site is deterministic.
-
-The tradeoff is that LLM-generated sites are stylistically narrower than real websites. We mitigate this with diversity by construction (below) and acknowledge it as a [limitation](limitations.md#single-generator-model).
+The task spec requires generated, not crawled, websites — and the constraint pays off: we get perfect ground truth (the exact HTML+CSS becomes the oracle), controlled difficulty, no licensing risk, and seed-level reproducibility. The tradeoff is stylistic narrowness, mitigated by diversity-by-construction (below) and acknowledged as a [limitation](limitations.md#single-generator-model).
 
 ### Diversity by Construction, Not Sampling
 
-Random generation with LLMs collapses to a narrow aesthetic — typically clean SaaS landing pages. We force diversity by defining 5 independent axes (domain, archetype, palette, typography, theme) and shuffling each independently with deterministic seeds. Site *i* gets `pool[i % pool_size]` from each shuffled pool, guaranteeing no two sites in a batch share any axis value.
+Random LLM generation collapses to clean SaaS landing pages. We force diversity by shuffling 5 independent axes (domain, archetype, palette, typography, theme) with deterministic seeds, so site *i* gets `pool[i % pool_size]` from each — no two sites in a batch share any axis value. This matters for RL: shared domain + archetype invites overfitting. See [Pipeline — Stage 1](data-generation.md#stage-1-brand-spec-sampling).
 
-This matters for RL: if two tasks share a domain AND an archetype, the agent could overfit to that combination rather than learning general design replication. See [Pipeline — Stage 1](data-generation.md#stage-1-brand-spec-sampling) for the full mechanism.
+### Parallel Site Generation, Sequential Page Generation
 
-### Shared Component Library Per Site
+Sites run in parallel across Modal containers (one container per site), but pages within a site run sequentially. Parallel-across-sites cuts wall-clock from hours to minutes at 100+ site batches; sequential-within-site preserves shared state — every page sees the same brief and the same `styles.css`, so navigation, footer, and component usage stay consistent. Parallelising pages would risk divergent header/footer implementations across the same site. Within a container, the render step parallelises across viewports (3 Chromium contexts at once), reclaiming the obvious win without breaking site-level coherence. See [Pipeline — Modal Parallelism](data-generation.md#infrastructure-modal-parallelism).
 
-Each site has a single `styles.css` that all pages share, rather than per-page styles. This mirrors real web development (a design system consumed by multiple pages) and makes the task harder: the agent must discover the underlying system from screenshots, not just pixel-match individual pages. It also enforces cross-page consistency — shared headers, footers, color tokens, and component patterns. See [Pipeline — Stage 3](data-generation.md#stage-3-component-library-stylescss) for how the library is generated.
+### Multi-Viewport, Validated for Responsiveness
 
-### Multi-Viewport Generation
+LLMs are weak at responsive CSS — ~30% of early reference pages overflowed at mobile. A non-responsive reference inverts the gradient: a properly-responsive agent submission scores *worse* because its layout doesn't match the cropped reference. Fixed via overflow validation with retries before inclusion; this validation step is load-bearing. See [Pipeline — Stage 5](data-generation.md#stage-5-render--validate).
 
-Early pipeline runs revealed that LLMs are weak at generating genuinely responsive CSS — ~30% of reference pages overflowed at mobile despite retry loops. When the reference itself isn't responsive, a properly-responsive agent submission actually scores *worse* (the responsive layout doesn't match the cropped reference), inverting the gradient. We resolved this through improved generation prompts, overflow validation with retries, and validating reference sites for responsiveness before inclusion. This validation step is load-bearing. See [Pipeline — Stage 5](data-generation.md#stage-5-render--validate) for the full validation checklist and [Results](results.md) for the empirical observations.
+### Symmetric Validation: Reference Must Pass Same Checks as Agent
 
-### Validation at Generation Time and Grading Time
-
-Every reference page passes structural validation, anti-cheat checks, and cross-page coherence verification before inclusion. The same checks run again at grading time on agent output — ensuring the reference never contains patterns that would be penalized if an agent reproduced them. Each check exists because of a specific failure discovered during development: ~30% of early pages overflowed at mobile, off-origin font imports caused silent render drift, and ~18% of agent trials (9/50) were false-positive flagged by the anticheat system for faithfully reproducing inline SVG icons and data URIs that the reference itself contained.
-
-See [Data Generation — Stage 5](data-generation.md#stage-5-render--validate) for the full validation checklist and [Data Generation — Why Validation Was Hard](data-generation.md#why-validation-was-hard-and-necessary) for the iteration story.
+Every anti-cheat and structural check runs on the reference at generation time and on agent output at grading time. Originally only the agent was checked, and 18% (9/50) of trials were clobbered by false positives — agents faithfully reproducing an inline SVG icon or small data URI from the *reference itself*. Now any reference that wouldn't pass agent-time checks is rejected upfront. See [Data Generation — Stage 5](data-generation.md#stage-5-render--validate).
 
 ---
 
 ## 2. Grading Philosophy
 
-### Continuous Composite Scoring, Not Pass/Fail
+### Continuous Composite, Not Pass/Fail
 
-A single pixel-similarity metric conflates many failure modes and gives no gradient signal for RL. We decompose the score into 8 independent axes — each measuring a different quality (layout structure, color accuracy, text fidelity, typography, pixel similarity, positional accuracy, responsiveness, semantic match). This tells the agent *what* it got wrong, not just *how wrong* it is.
-
-Each metric returns a continuous score in [0.0, 1.0]. There are no cliff edges where a good change hurts the score — every improvement in any visual dimension increases the reward. See [Grading — Metric Suite](grading.md#metric-suite) for the full breakdown.
+A single pixel-similarity metric conflates failure modes and gives no RL gradient. We decompose into 8 axes (layout, color, text, typography, pixel, position, responsiveness, semantic). Every metric is continuous on [0, 1] — no cliff edges where a good change hurts the score. See [Grading — Metric Suite](grading.md#metric-suite).
 
 ### Harmonic Aggregation Punishes Inconsistency
 
-We use harmonic mean across viewports (within a page) and across pages (within a site). A site that nails 4 pages but completely misses the 5th scores much lower than one that does all 5 at 70%. A page with perfect desktop but broken mobile scores lower than one that is adequate everywhere.
-
-This is deliberate: for multi-page responsive design replication, consistency matters more than peak performance. Arithmetic mean would hide failures; harmonic mean surfaces them. See [Grading — Three-Tier Aggregation](grading.md#three-tier-aggregation) for the full aggregation diagram.
+Harmonic mean across viewports (within a page) and across pages (within a site). One broken page or one broken viewport drags the whole score down — arithmetic mean would hide failures. See [Grading — Three-Tier Aggregation](grading.md#three-tier-aggregation).
 
 ### VLM as Ceiling, Overflow as Multiplier
-
-Overflow and VLM judge have weight 0 in the arithmetic mean but are applied separately to the composite. The locked v6 form is:
 
 ```text
 base       = min(structured, vlm_score)
 composite  = base × (0.5 + 0.5 × overflow_score)
 ```
 
-This separation exists because each measures a qualitatively different axis:
-- **VLM judge** acts as a `min()` ceiling on the structured score. It catches semantic errors that no structured metric covers (wrong chart shapes, fabricated UI elements, mismatched icons). During calibration we found VLM's discrimination was too weak in the middle band to be a reliable weighted metric (Oracle-vs-Claude gap of only 0.044), but it works well as a ceiling that pulls down scores on qualitative mismatches. See [`grade.py`](../pipeline/grader/grade.py).
-- **Overflow** acts as a multiplicative factor on the (already VLM-capped) base. A fully non-responsive page (overflow_score = 0) drags the composite down by 50%; a fully responsive page (overflow_score = 1) leaves it untouched. We chose a multiplier over a `min()` here because responsiveness is a graded failure — a page can be partially broken at mobile — and we want that partiality reflected smoothly rather than clamped. See [`grade.py`](../pipeline/grader/grade.py) and [`metrics.py`](../pipeline/grader/metrics.py).
+- **VLM judge** as `min()` ceiling — catches qualitative errors (wrong chart shapes, fabricated UI, semantic mismatches) that no structured metric covers. Calibration showed VLM's discrimination is too weak in the middle band to be a weighted metric (Oracle–Claude gap 0.044), but it works as a one-sided cap.
+- **Overflow** as multiplier — responsiveness is a graded property, so a smooth `0.5 + 0.5·x` factor reflects partial breakage better than a hard `min()`. A fully non-responsive page loses 50%.
 
-The two ceilings stack: VLM caps content-fidelity errors, then overflow scales the result by responsiveness. A page that looks right but doesn't reflow loses up to half its score; a page that reflows perfectly but has fabricated content is capped by VLM.
+### Anti-Cheat
 
-### Anti-Cheat Philosophy
+The reference PNGs sit on disk in the agent's container, so the trivial winning strategy is "copy reference, score 1.0". Four choices defeat it and its near-variants (data URI, iframe, network fetch, giant SVG):
 
-The reference HTML/CSS *is* the ground truth, and at grading time the reference PNGs sit on disk inside the container. Without anti-cheat, the dominant strategy is trivially: copy the reference into `/app/` and score 1.0. The anti-cheat layer exists to make that strategy fail, and to make near-variants of it fail (embedding the reference as a base64 data URI, fetching it over the network, wrapping it in an iframe, encoding it as one giant SVG path). Four principles shape the design:
-
-**1. Defense in depth, three layers.** Static checks scan the source HTML/CSS (data-URI size, iframe/canvas/object/embed tags, raster image files, oversized inline SVGs, byte-identical copies of reference PNGs). Dynamic checks read the rendered DOM and Playwright request log (off-origin HTTP requests, post-render SVG bbox vs viewport). Network checks read the logging proxy's CONNECT log. Each layer catches things the others can't — a CSS-only fetch trick that bypasses the static scan still appears in the proxy log; a static SVG that looks fine in source but renders huge is caught by the rendered-bbox check. See [Grading — Anti-Cheat System](grading.md#anti-cheat-system) for the full check list.
-
-**2. Logging proxy over firewall.** Modal containers run on gVisor, which doesn't support iptables, so kernel-level network blocking isn't an option. We use a userspace HTTPS proxy that logs every CONNECT — fully observable, and converting it to a blocking proxy is a one-line change. We deliberately log rather than block during eval because seeing *what* the agent tries to fetch is more useful than silently denying it; the proxy catches CDN hotlinking, image fetching, npm pulls, and any hostname-addressed request. See [Grading — Network Proxy](grading.md#network-proxy-observability-layer).
-
-**3. Asymmetric penalties for eval vs RL.** For eval, any violation triggers a flat **0.1× multiplier** — a single cheat attempt drops a 0.8 score to 0.08. This is categorical because at eval time we want a clean signal: "did this trial cheat or not?" For RL training, that cliff destroys gradient — the agent has no way to learn *which* violation to fix. So RL uses a softer subtractive penalty: 0.05 per distinct violation type, capped at 0.20. Same checks, two penalty modes, picked at scoring time.
-
-**4. Symmetric validation: the reference must pass the same checks.** Early calibration found 9/50 trials (18%) were clobbered by false positives — the agent faithfully reproduced an inline SVG icon or a small data URI that the *reference itself* contained, and got penalised for it. We fixed this by running every anti-cheat check on the reference at generation time and rejecting any reference that doesn't pass. This is load-bearing: it's why `data_image_uri` has a 2KB threshold (small icons in the reference are legitimate), why `oversized_svg` requires both >50% viewport area *and* >4KB body (so a faithful small inline SVG isn't a violation), and why we have the symmetric validation principle in §1.
-
-**5. The agent doesn't know what's checked.** [`instruction.md`](../../tasks/v9/001-gov-services-v7adv/instruction.md) tells the agent only the task ("replicate these screenshots"), the output paths, the viewports, and a short list of generic constraints (HTML/CSS only, no JS, no external resources, avoid horizontal overflow). It does *not* mention any specific anti-cheat check, the structured metrics, VLM judging, or the harmonic aggregation. This is deliberate: we measure faithful replication, not score-hacking against a known rubric. The module docstring in [`anticheat.py`](../pipeline/grader/anticheat.py) records exactly which internals are withheld.
+- **Three-layer defense.** Static source scan, dynamic rendered-DOM check, network proxy log. See [Grading — Anti-Cheat](grading.md#anti-cheat-system).
+- **Logging proxy, not firewall.** gVisor blocks iptables; a userspace HTTPS proxy logs every CONNECT and is one line away from blocking.
+- **Asymmetric penalties.** Eval: flat 0.1× multiplier (clean cheat/no-cheat signal). RL: subtractive `0.05 × distinct_violations`, capped at 0.20 (preserves gradient).
+- **Rubric withheld from the agent.** `instruction.md` lists task and output paths only — no metrics, weights, ceilings, or checks. We measure replication, not rubric-gaming.
 
 ---
 
@@ -87,16 +63,9 @@ The reference HTML/CSS *is* the ground truth, and at grading time the reference 
 
 ### Framework-Agnostic Grading via Headless Render
 
-The grader renders agent output in headless Chromium and grades the *rendered result*, not the source code. This means the same grader works for HTML+CSS today and for React+Tailwind or SolidJS in future parts — adding a framework only requires that it renders to HTML. The grader cares about what the user sees, not how the code is written.
+The grader renders agent output in headless Chromium and grades the *rendered result*. Adding React/Tailwind/SolidJS later requires only that it renders to HTML — the grader cares about what the user sees, not how the code is written.
 
 ### Same Renderer Everywhere
 
-`render.py` is used by the reference generator, the packager, and the grader. Same Chromium version, same viewport sizes, same font stack, same Linux container image. This eliminates cross-platform rendering drift (macOS vs Linux, different Chromium versions, different system fonts). Oracle solutions score exactly 1.000 — any deviation would indicate a renderer inconsistency. See [Pipeline — Ensuring Training Data Correctness](data-generation.md#ensuring-training-data-correctness) for the full list of determinism guarantees.
+`render.py` is used by the generator, packager, and grader — same Chromium version, viewports, font stack, container image. Eliminates macOS/Linux drift. Oracle solutions score exactly 1.000; any deviation indicates renderer inconsistency. See [Pipeline — Ensuring Training Data Correctness](data-generation.md#ensuring-training-data-correctness).
 
----
-
-## 4. Iterative Calibration
-
-The reward function went through 8 calibration steps, each motivated by a specific failure mode observed in real agent trials. Key discoveries: SSIM zero-padding triple-counted truncation; palette needed bg/fg splitting for dark themes; block_match saturated at 400 blocks; overflow measured the wrong width when `overflow:hidden` was set; anticheat had 18% false positives from legitimate icons. See [Grading — Calibration History](grading.md#calibration-history) for the full story.
-
-The calibration process itself is a key design output: it demonstrates that the reward function was empirically validated, not just theoretically motivated.
