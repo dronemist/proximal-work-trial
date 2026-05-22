@@ -247,7 +247,7 @@ So every present metric score `s_i ∈ [0, 1]`. ∎
 
 #### 2. Weighted arithmetic mean over present metrics is in [0, 1]
 
-```
+```text
 structured = Σ_{i ∈ present} (w_i · s_i)  /  Σ_{i ∈ present} w_i
 ```
 
@@ -260,7 +260,7 @@ The empty-present case (`Σ w_i = 0`) is handled by `_weighted_arith` returning 
 
 #### 3. The `min()` of values in [0, 1] is in [0, 1]
 
-```
+```text
 base = min(structured, vlm_score)        if vlm_score is not None
      = structured                        otherwise
 ```
@@ -269,7 +269,7 @@ base = min(structured, vlm_score)        if vlm_score is not None
 
 #### 4. The overflow factor is in [0.5, 1], so the product is in [0, 1]
 
-```
+```text
 overflow_factor = 0.5 + 0.5 · overflow_score    (overflow_score ∈ [0, 1])
                 ⇒ overflow_factor ∈ [0.5, 1.0]
 
@@ -283,19 +283,19 @@ If `overflow_score` is `None` (no DOM dump), the code substitutes `1.0`, so `ove
 
 For positive values `x_1, …, x_n`:
 
-```
+```text
 HM(x_1, …, x_n) = n / Σ (1 / x_i)
 ```
 
 A standard inequality:
 
-```
+```text
 min_i x_i  ≤  HM  ≤  max_i x_i
 ```
 
 (harmonic mean is sandwiched between min and max). Applied with `x_i = composite_vp ∈ [0, 1]`:
 
-```
+```text
 0  ≤  min_i x_i  ≤  HM_viewports  ≤  max_i x_i  ≤  1
 ```
 
@@ -305,7 +305,7 @@ So `per_page_score ∈ [0, 1]`. ∎
 
 The same argument applies again to the page → site aggregation:
 
-```
+```text
 0  ≤  HM_pages  ≤  1
 ```
 
@@ -315,7 +315,7 @@ So `site_score ∈ [0, 1]`. ∎
 
 From [`anticheat.py`](../pipeline/grader/anticheat.py):
 
-```
+```text
 penalty_multiplier = 0.1   if any violation
                    = 1.0   otherwise
 ```
@@ -324,7 +324,7 @@ So `anticheat_multiplier ∈ {0.1, 1.0} ⊆ [0, 1]`. ∎
 
 #### 7. Final reward is in [0, 1]
 
-```
+```text
 reward = site_score · anticheat_multiplier
 ```
 

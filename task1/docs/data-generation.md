@@ -209,7 +209,7 @@ Several mechanisms ensure the reference screenshots are faithful to the generate
 
 Each packaged task contains:
 
-```
+```text
 tasks/<site-name>/
 ├── task.toml              # Harbor metadata (timeouts, resources)
 ├── instruction.md         # Agent instructions (page list, viewport specs)

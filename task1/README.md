@@ -10,7 +10,7 @@ The pipeline generates websites from scratch (no crawling), packages them as [Ha
 
 ## Repository Structure
 
-```
+```text
 ├── docs/
 │   ├── data-generation.md          # How websites are generated + infrastructure design decisions
 │   ├── grading.md           # Metric suite, aggregation, anti-cheat, why it works for RL

@@ -56,7 +56,7 @@ This is deliberate: for multi-page responsive design replication, consistency ma
 
 Overflow and VLM judge have weight 0 in the arithmetic mean but are applied separately to the composite. The locked v6 form is:
 
-```
+```text
 base       = min(structured, vlm_score)
 composite  = base × (0.5 + 0.5 × overflow_score)
 ```

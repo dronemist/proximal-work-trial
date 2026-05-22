@@ -104,7 +104,7 @@ The same page rendered at all three viewports, showing how the layout must adapt
 
 Each task has `{page}.{viewport}.png` files for every page at every viewport:
 
-```
+```text
 tasks/001-gov-services-v7adv/environment/reference/
 ├── account.desktop.png
 ├── account.tablet.png
