@@ -84,15 +84,29 @@ Mobile averages slightly above desktop *only* because of the strong-mobile easy 
 2. **Multi-column dashboards don't collapse.** Reference designs reflow a 4-column grid to stacked cards at mobile. The agent produces the same 4-column grid that overflows horizontally.
 3. **Missing widgets at mobile.** Sometimes the agent simply drops a widget that the reference shows (e.g. calendar grid → bullet list on hr-payroll/time-off).
 
-**Worst case — hr-payroll/time-off mobile:**
+**Worst case — hr-payroll/time-off mobile:** overflow=**0.000**, structured=0.576, composite=**0.288** (structured × (0.5 + 0.5×0.0)). Candidate renders at 588px on a 375px viewport (57% wider than viewport) and is 34% shorter than the reference (missing content).
 
 | Reference | Candidate |
 |---|---|
 | ![ref](../tasks/008-hr-payroll-v7adv/tests/reference_truth/time-off.mobile.png) | ![cand](../results/008-hr-payroll-v7adv-opus-20260522-1437-k10/008-hr-payroll-v7adv__HHedLui/verifier/grading/rendered/time-off.mobile.png) |
 
-Candidate renders at 588px on a 375px viewport (57% wider than viewport) and is 34% shorter than the reference (missing content). The overflow multiplier halves the composite: structured=0.576 × (0.5+0.5×0.0) = **0.288**.
-
 This is the design intent of the overflow multiplier — non-responsive output is genuinely caught, not just dinged.
+
+**More mobile-overflow examples:**
+
+*nonprofit-donations / cause-overview* — overflow=**0.000**, composite=**0.267**. Multi-column bento grid renders as a fixed-width layout with no media query.
+
+| Reference (375px) | Candidate (overflows) |
+|---|---|
+| ![ref-nonprofit](../tasks/010-nonprofit-donations-v7adv/tests/reference_truth/cause-overview.mobile.png) | ![cand-nonprofit](../results/010-nonprofit-donations-v7adv-opus-20260522-1437-k10/010-nonprofit-donations-v7adv__T4wM727/verifier/grading/rendered/cause-overview.mobile.png) |
+
+*hr-payroll / expenses* — overflow=**0.184**, composite=**0.296**. Wide expenses table keeps all columns at mobile instead of collapsing.
+
+| Reference (375px) | Candidate (overflows) |
+|---|---|
+| ![ref-hr-exp](../tasks/008-hr-payroll-v7adv/tests/reference_truth/expenses.mobile.png) | ![cand-hr-exp](../results/008-hr-payroll-v7adv-opus-20260522-1437-k10/008-hr-payroll-v7adv__HHedLui/verifier/grading/rendered/expenses.mobile.png) |
+
+The pattern is consistent: the agent writes one set of CSS rules and applies them at every viewport. Reference designs use media queries to collapse multi-column layouts to single-column on mobile; the agent generally does not. Whenever this happens the overflow score collapses (often to exactly 0) and the multiplier halves the page composite, dragging the harmonic mean across viewports down sharply.
 
 ---
 
