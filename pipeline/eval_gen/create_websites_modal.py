@@ -254,7 +254,7 @@ def generate(n_sites: int = 5, run_suffix: str = ""):
     results = list(generate_one_site_remote.map(site_args))
     n_ok = sum(1 for r in results if r.get("ok"))
     print(f">>> {n_ok}/{len(results)} sites generated")
-    print(f">>> to download: modal run pipeline/eval_gen/create_websites_modal.py::download")
+    print(f">>> to download: modal run pipeline/eval_gen/create_websites_modal.py::download [--target-dir ./output/{run_suffix}]")
 
 
 @app.local_entrypoint()
@@ -294,10 +294,16 @@ def retry(site_index: int, n_sites: int = 10, run_suffix: str = ""):
 
 
 @app.local_entrypoint()
-def download():
-    """Download reference_sites/ from Modal volume to local filesystem."""
-    print(">>> downloading reference_sites/ from Modal volume...")
-    local_ref = REPO_ROOT / "reference_sites"
+def download(target_dir: str = ""):
+    """Download reference_sites/ from Modal volume to local filesystem.
+
+    Examples:
+        modal run pipeline/eval_gen/create_websites_modal.py::download
+        modal run pipeline/eval_gen/create_websites_modal.py::download --target-dir ./output/v7adv
+    """
+    local_ref = Path(target_dir) if target_dir else REPO_ROOT / "reference_sites"
+    local_ref = local_ref.resolve()
+    print(f">>> downloading reference_sites/ from Modal volume -> {local_ref}")
     n_files = _download_volume_subtree("/reference_sites", local_ref)
     print(f">>> downloaded {n_files} file(s) -> {local_ref}")
     print(f">>> inspect screenshots at {local_ref}/<site>/screenshots/")
