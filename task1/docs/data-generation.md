@@ -28,7 +28,7 @@ Every site starts with a deterministic brand spec sampled from five diversity ax
 |------|-----------|----------|
 | **Domain** | 15 verticals | healthcare-emr, devops-platform, ecommerce-admin, fintech-banking |
 | **Archetype** | 15+ layout grammars | dashboard-sidebar, kanban-board, swiss-grid, wizard-stepper, bento-grid |
-| **Palette** | 12+ curated schemes | ocean-brass, tailwind-slate, midcentury-orange, terracotta-sage |
+| **Palette** | 12+ curated schemes | slate-red, coral-cream, terracotta-sage, mint-peach, clinical-blue (illustrative — see [Task Showcase](task-showcase.md) for palettes used in the eval set) |
 | **Typography** | system stacks | serif, sans-serif, monospace combinations with size scales |
 | **Theme** | 3 modes | light, dark, mixed (some pages dark, some light) |
 

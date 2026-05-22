@@ -12,7 +12,7 @@ The pipeline generates websites from scratch (no crawling), packages them as [Ha
 
 ```text
 ├── docs/
-│   ├── data-generation.md          # How websites are generated + infrastructure design decisions
+│   ├── data-generation.md          # Generation stages, Modal parallelism, validation
 │   ├── grading.md           # Metric suite, aggregation, anti-cheat, why it works for RL
 │   ├── results.md           # Evaluation scores + observations on model behavior
 │   ├── task-showcase.md     # Visual gallery of the 13 tasks
