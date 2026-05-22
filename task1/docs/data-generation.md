@@ -132,7 +132,7 @@ Validation checks run on every generated page before it's accepted:
 - Font-family and color-token variance within expected bounds
 - No contradictory theme signals (dark page in a light site, unless explicitly mixed-mode)
 
-Running the same anti-cheat checks at generation time (not just grading time) ensures the reference sites don't contain patterns that would be penalized if an agent reproduced them faithfully. This was motivated by an early finding where ~18% of agent trials (9/50) were false-positive penalized for correctly reproducing inline SVG icons from the reference — the reference itself contained patterns the grader flagged as cheating.
+Running the same anti-cheat checks at generation time (not just grading time) ensures the reference sites don't contain patterns that would be penalized if an agent reproduced them faithfully. Without this, agents faithfully reproducing inline SVG icons or small data URIs from the reference get false-positive penalized — the reference itself contains patterns the grader flags as cheating.
 
 ## Infrastructure: Modal Parallelism
 
@@ -179,17 +179,17 @@ Each container runs the full pipeline for one site: brief → library → pages 
 
 ## Why Validation Was Hard (and Necessary)
 
-Getting the pipeline to produce correct, grader-compatible reference sites required significant iteration. Each validation check exists because of a specific failure mode discovered during development:
+Each validation check exists because of a specific failure mode that produces a misleading reward signal:
 
-**Responsive generation is the hardest problem.** Early runs (v2/v3) showed ~30% of pages overflowing at mobile viewport despite retry loops. The root cause is structural: LLMs generate fixed-width patterns (wide tables, multi-column dashboards) that can't be patched with per-page CSS overrides when the underlying primitives assume desktop widths. We improved the generation prompts, added overflow validation with retries, and ultimately validated all reference sites for responsiveness before inclusion. Without this, the grader would punish agents for being *more* responsive than the reference — an inverted gradient.
+**Responsive generation.** LLMs default to fixed-width patterns (wide tables, multi-column dashboards) that don't reflow at mobile. A non-responsive reference inverts the gradient: a properly-responsive agent submission scores *worse* because its layout doesn't match the cropped reference. Validation rejects references that overflow.
 
-**Off-origin requests cause silent render drift.** A reference page that loads Google Fonts renders differently when the agent (with no network access) renders it. Early sites occasionally embedded `@import url('fonts.googleapis.com/...')` in CSS — invisible during generation but causing font substitution at grading time. The off-origin check catches this at generation time and triggers a retry.
+**Off-origin requests.** A reference that loads Google Fonts renders differently from the agent's (network-isolated) render, causing silent font substitution drift. The off-origin check rejects references with external resources.
 
-**Anticheat patterns in references cause false positives.** The reference generator sometimes embedded small SVG icons as `data:image` URIs or used full-width SVGs for decorative elements. When agents faithfully reproduced these patterns, they tripped anticheat checks — ~18% (9/50) of early trials were false-positive penalized. Running the same anticheat checks during generation prevents references from containing patterns the grader would flag.
+**Anti-cheat patterns in references.** If the reference embeds inline data URIs or full-width SVGs, an agent faithfully reproducing them trips the same anti-cheat checks at grading time. Running the anti-cheat checks at generation time (symmetric validation) prevents this.
 
-**Degenerate pages waste the eval set.** Without structural validation (minimum DOM depth, tag count), the generator occasionally produced near-empty pages — a single `<div>` with a background color, or a page with all content in one `<p>` tag. These are trivially replicable and add no signal to the eval set. The validation floor ensures every reference page is substantive enough to test design replication.
+**Degenerate pages.** Without a structural floor (minimum DOM depth, tag count), the generator occasionally produces near-empty pages — a single `<div>` or all content in one `<p>`. These are trivially replicable and add no signal. The structural floor ensures every reference is substantive enough to test design replication.
 
-These checks are not optional quality polish — they are load-bearing for the correctness of the RL training signal. A reference site that fails any of them produces a grading environment where the reward function gives misleading signal. See [Design Decisions](design-decisions.md) for the architectural reasoning behind each choice.
+These checks are load-bearing for the correctness of the reward signal. See [Design Decisions](design-decisions.md) for the architectural reasoning behind each choice.
 
 ## Ensuring Training Data Correctness
 

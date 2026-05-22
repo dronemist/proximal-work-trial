@@ -65,3 +65,12 @@ animation_score = 0.40 * structured_metrics + 0.60 * vlm_animation
 - Agent animation keyframes captured using the same Web Animations API approach as the reference pipeline
 - Agent filmstrips and videos captured for VLM comparison
 - All animation details written to `subscores.json`
+
+## Open Questions / Not Yet Solved
+
+**Hover animations**: CSS transitions on `:hover` (button color shifts, card scale-ups, underline slides) are common on real websites but hard to evaluate. The core problem is element matching — a "Contact Us" button in the reference might be at a completely different DOM position in the candidate. We'd need to discover all hoverable elements, semantically match them across ref vs candidate, then trigger hover on each, wait for the transition, and compare. Playwright can `element.hover()` to trigger transitions, but the choreography (which elements, in what order, how to match across different DOMs) is fragile. The VLM could judge "does this site have nice hover effects" from a video of someone mousing around, but producing a deterministic, comparable capture is the unsolved part.
+
+**Scroll-triggered animations**: Elements that animate in as the user scrolls down (e.g., Intersection Observer patterns). Playwright can `window.scrollTo()` step by step, but the capture script needs to know how far to scroll, how fast, and where animated elements live. This adds significant complexity to both generation (telling the LLM to use scroll-triggered animations without JS — pure CSS `scroll-timeline` is still limited) and capture (deterministic scroll choreography).
+
+**JS-driven animations**: Libraries like GSAP, Framer Motion, Lottie. Agents would need to pick and use the right library, and the current no-JS constraint would need to be relaxed. Grading becomes harder because the Web Animations API may not expose JS-driven animations the same way. Likely requires a fundamentally different capture approach (video-only, no structured metrics).
+

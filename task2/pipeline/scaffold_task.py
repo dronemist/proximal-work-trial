@@ -37,6 +37,7 @@ def _summarize_animations(screenshots_dir: Path, page_stems: list[str]) -> dict:
     vp_names = list(VIEWPORTS.keys())
     all_animations: list[dict] = []
     filmstrip_files: list[str] = []
+    video_files: list[str] = []
     loaded_pages: set[str] = set()
 
     for stem in page_stems:
@@ -48,6 +49,9 @@ def _summarize_animations(screenshots_dir: Path, page_stems: list[str]) -> dict:
             filmstrip = screenshots_dir / "filmstrips" / f"{stem}.{vp}.filmstrip.png"
             if filmstrip.exists():
                 filmstrip_files.append(f"{stem}.{vp}.filmstrip.png")
+            video = screenshots_dir / "videos" / f"{stem}.{vp}.webm"
+            if video.exists():
+                video_files.append(f"{stem}.{vp}.webm")
 
     if not all_animations:
         return {}
@@ -78,6 +82,7 @@ def _summarize_animations(screenshots_dir: Path, page_stems: list[str]) -> dict:
         "total_count": len(all_animations),
         "unique_animations": list(seen.values()),
         "filmstrip_files": filmstrip_files,
+        "video_files": video_files,
     }
 
 
@@ -112,6 +117,16 @@ def _build_animation_section(anim_summary: dict) -> str:
     ])
     for f in anim_summary["filmstrip_files"]:
         lines.append(f"- `{f}`")
+
+    video_files = anim_summary.get("video_files", [])
+    if video_files:
+        lines.extend([
+            "",
+            "Video recordings of the animations (in `/reference/videos/`):",
+            "",
+        ])
+        for v in video_files:
+            lines.append(f"- `{v}`")
 
     lines.extend([
         "",
@@ -223,10 +238,18 @@ def scaffold(name: str, source_dir: Path | None = None, output_root: Path | None
                     for fp in filmstrips_src.glob("*.filmstrip.png"):
                         shutil.copy2(fp, filmstrips_dst / fp.name)
 
+            videos_src = screenshots_dir / "videos"
+            if videos_src.is_dir():
+                videos_dst = env_ref / "videos"
+                videos_dst.mkdir(parents=True, exist_ok=True)
+                for vf in videos_src.glob("*.webm"):
+                    shutil.copy2(vf, videos_dst / vf.name)
+
             n_anim_files = (
                 len(list(screenshots_dir.glob("*.animations.json")))
                 + len(list(screenshots_dir.glob("*.anim_*pct.png")))
                 + (len(list(filmstrips_src.glob("*.filmstrip.png"))) if filmstrips_src.is_dir() else 0)
+                + (len(list(videos_src.glob("*.webm"))) if videos_src.is_dir() else 0)
             )
             print(f"  animation files: {n_anim_files} copied to reference dirs")
 

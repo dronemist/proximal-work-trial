@@ -6,19 +6,19 @@
 
 | # | Task | Domain | Archetype | Palette | Theme | Pages |
 |---|------|--------|-----------|---------|-------|-------|
-| 1 | 001-gov-services-v7adv | Government Services | dashboard-sidebar | slate-red | light | 5 |
+| 1 | 001-gov-services-v7adv | Government Services | dashboard-sidebar | slate-red | mixed | 5 |
 | 2 | 002-restaurant-ops-v7adv | Restaurant Operations | data-dense-table | rose-mauve | dark | 5 |
 | 3 | 003-travel-booking-v7adv | Travel / Property Mgmt | card-feed-masonry | warm-ivory | light | 5 |
 | 4 | 004-devops-platform-v7adv | DevOps / CI-CD | kanban-board | stone-neutral | light | 5 |
-| 5 | 005-ecommerce-admin-v7adv | E-Commerce Admin | swiss-grid | coral-cream | light | 5 |
+| 5 | 005-ecommerce-admin-v7adv | E-Commerce Admin | swiss-grid | coral-cream | mixed | 5 |
 | 6 | 006-fintech-banking-v7adv | Consumer Banking | three-pane-docs | cream-gold | light | 5 |
 | 7 | 007-healthcare-emr-v7adv | Healthcare / EMR | calendar-grid | clinical-blue | light | 5 |
 | 8 | 008-hr-payroll-v7adv | HR / Payroll | wizard-stepper | neon-yellow-pink | light | 5 |
 | 9 | 009-real-estate-crm-v7adv | Real Estate CRM | magazine-editorial | terracotta-sage | dark | 5 |
-| 10 | 010-nonprofit-donations-v7adv | Nonprofit / Donations | bento-grid | warm-earth | light | 5 |
+| 10 | 010-nonprofit-donations-v7adv | Nonprofit / Donations | bento-grid | warm-earth | dark | 5 |
 | 11 | 011-hello-portfolio-v9 | Portfolio | minimal-single-column | monochrome-gray | light | 5 |
 | 12 | 012-hello-recipes-v9 | Recipes | card-grid | parchment-brown | light | 5 |
-| 13 | 001-conference-event-v9 | Conference / Events | feed-and-suggestions | mint-peach | light | 8 |
+| 13 | 001-conference-event-v9 | Conference / Events | feed-and-suggestions | mint-peach | mixed | 8 |
 
 ## What Makes These Tasks Challenging
 
@@ -45,26 +45,14 @@ The task set intentionally spans a difficulty range. Tasks 011 and 012 are simpl
 The screenshots below show one representative page per task at desktop viewport. Note the range of layout patterns, color schemes, content density, and themes — no two sites share the same visual identity.
 
 ### Dark Themes
-| Restaurant Ops — data-dense-table | Real Estate CRM — magazine-editorial |
-|---|---|
-| ![restaurant-ops](../tasks/002-restaurant-ops-v7adv/environment/reference/live-orders.desktop.png) | ![real-estate-crm](../tasks/009-real-estate-crm-v7adv/environment/reference/listings.desktop.png) |
+| Restaurant Ops — data-dense-table | Real Estate CRM — magazine-editorial | Nonprofit Donations — bento-grid |
+|---|---|---|
+| ![restaurant-ops](../tasks/002-restaurant-ops-v7adv/environment/reference/live-orders.desktop.png) | ![real-estate-crm](../tasks/009-real-estate-crm-v7adv/environment/reference/listings.desktop.png) | ![nonprofit](../tasks/010-nonprofit-donations-v7adv/environment/reference/donor-dashboard.desktop.png) |
 
 ### Light Themes
-| Gov Services — dashboard-sidebar | DevOps Platform — kanban-board |
-|---|---|
-| ![gov-services](../tasks/001-gov-services-v7adv/environment/reference/service-catalog.desktop.png) | ![devops-platform](../tasks/004-devops-platform-v7adv/environment/reference/builds.desktop.png) |
-
-| E-Commerce Admin — swiss-grid | Fintech Banking — three-pane-docs |
-|---|---|
-| ![ecommerce-admin](../tasks/005-ecommerce-admin-v7adv/environment/reference/orders.desktop.png) | ![fintech-banking](../tasks/006-fintech-banking-v7adv/environment/reference/account-overview.desktop.png) |
-
-| HR Payroll — wizard-stepper | Nonprofit Donations — bento-grid |
-|---|---|
-| ![hr-payroll](../tasks/008-hr-payroll-v7adv/environment/reference/org-chart.desktop.png) | ![nonprofit](../tasks/010-nonprofit-donations-v7adv/environment/reference/donor-dashboard.desktop.png) |
-
-| Healthcare EMR — calendar-grid | Travel Booking — card-feed-masonry |
-|---|---|
-| ![healthcare-emr](../tasks/007-healthcare-emr-v7adv/environment/reference/appointment-calendar.desktop.png) | ![travel-booking](../tasks/003-travel-booking-v7adv/environment/reference/properties.desktop.png) |
+| Travel Booking — card-feed-masonry | DevOps Platform — kanban-board | HR Payroll — wizard-stepper |
+|---|---|---|
+| ![travel-booking](../tasks/003-travel-booking-v7adv/environment/reference/properties.desktop.png) | ![devops-platform](../tasks/004-devops-platform-v7adv/environment/reference/builds.desktop.png) | ![hr-payroll](../tasks/008-hr-payroll-v7adv/environment/reference/org-chart.desktop.png) |
 
 ### Simple "Hello World" Tasks (calibration anchors)
 | Portfolio — minimal-single-column | Recipes — card-grid |

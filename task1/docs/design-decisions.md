@@ -20,11 +20,11 @@ Sites run in parallel across Modal containers (one container per site), but page
 
 ### Multi-Viewport, Validated for Responsiveness
 
-LLMs are weak at responsive CSS — ~30% of early reference pages overflowed at mobile. A non-responsive reference inverts the gradient: a properly-responsive agent submission scores *worse* because its layout doesn't match the cropped reference. Fixed via overflow validation with retries before inclusion; this validation step is load-bearing. See [Pipeline — Stage 5](data-generation.md#stage-5-render--validate).
+LLMs are weak at responsive CSS — early reference pages overflowed at mobile often enough to be a systemic problem. A non-responsive reference inverts the gradient: a properly-responsive agent submission scores *worse* because its layout doesn't match the cropped reference. Fixed via overflow validation with retries before inclusion; this validation step is load-bearing. See [Pipeline — Stage 5](data-generation.md#stage-5-render--validate).
 
 ### Symmetric Validation: Reference Must Pass Same Checks as Agent
 
-Every anti-cheat and structural check runs on the reference at generation time and on agent output at grading time. Originally only the agent was checked, and 18% (9/50) of trials were clobbered by false positives — agents faithfully reproducing an inline SVG icon or small data URI from the *reference itself*. Now any reference that wouldn't pass agent-time checks is rejected upfront. See [Data Generation — Stage 5](data-generation.md#stage-5-render--validate).
+Every anti-cheat and structural check runs on the reference at generation time and on agent output at grading time. Originally only the agent was checked, and a meaningful share of trials were clobbered by false positives — agents faithfully reproducing an inline SVG icon or small data URI from the *reference itself*. Now any reference that wouldn't pass agent-time checks is rejected upfront. See [Data Generation — Stage 5](data-generation.md#stage-5-render--validate).
 
 ---
 

@@ -68,21 +68,21 @@ This validates that **(a)** the structured + VLM combination catches both visual
 
 ---
 
-## Observation 2 — Mobile underperforms desktop on hard dashboard tasks
+## Observation 2 — Mobile triggers the overflow penalty
 
-Per-viewport composite (averaged over best trial of each task):
+Structured score per viewport across all 13 tasks (averaged over best trial of each task, VLM-free, with the overflow multiplier applied):
 
-| Viewport | avg composite | stdev | range |
-|---|---|---|---|
-| desktop | **0.561** | 0.162 | 0.300 – 0.891 |
-| tablet | 0.614 | 0.134 | 0.365 – 0.902 |
-| mobile | **0.575** | 0.147 | 0.293 – 0.911 |
+| Viewport | mean | min | max |
+|---|---:|---:|---:|
+| desktop | **0.664** | 0.527 | 0.918 |
+| tablet | 0.658 | 0.448 | 0.935 |
+| mobile | **0.607** | 0.267 | 0.912 |
 
-Mobile averages slightly above desktop *only* because of the strong-mobile easy tasks (hello-recipes, hello-portfolio). On the hard v7adv dashboards, **mobile consistently underperforms desktop** because:
+Mobile consistently lands ~6 points below desktop. The drop is driven by **overflow** — desktop and tablet renders almost never overflow their viewport (overflow ≈ 1.0), while mobile overflow averages 0.87 with high variance, dropping to 0.000 on the worst pages. The multiplier then halves the page composite. Three failure modes drive mobile overflow:
 
-1. **Agent CSS is desktop-first.** Inspecting the candidate PNGs: most agent-generated layouts render at ~600–1000px wide even on a 375px viewport. The overflow metric catches this — average overflow score on dashboard mobile renders is 0.71 vs 0.99 on desktop.
-2. **Multi-column dashboards don't collapse.** Reference designs reflow a 4-column grid to stacked cards at mobile. The agent produces the same 4-column grid that overflows horizontally.
-3. **Missing widgets at mobile.** Sometimes the agent simply drops a widget that the reference shows (e.g. calendar grid → bullet list on hr-payroll/time-off).
+1. **Agent CSS is desktop-first.** Most candidate layouts render at ~600–1000px wide on a 375px viewport.
+2. **Multi-column dashboards don't collapse.** Reference designs reflow a 4-column grid to stacked cards at mobile. The agent reuses the same 4-column grid that overflows horizontally.
+3. **Missing widgets at mobile.** Sometimes the agent simply drops a widget the reference shows (e.g. calendar grid → bullet list on hr-payroll/time-off).
 
 **Worst case — hr-payroll/time-off mobile:** overflow=**0.000**, structured=0.576, composite=**0.288** (structured × (0.5 + 0.5×0.0)). Candidate renders at 588px on a 375px viewport (57% wider than viewport) and is 34% shorter than the reference (missing content).
 
@@ -110,7 +110,27 @@ The pattern is consistent: the agent writes one set of CSS rules and applies the
 
 ---
 
-## Observation 3 — Some colour palettes are harder to replicate than others
+## Observation 3 — VLM judges desktop more harshly than mobile
+
+Mean VLM score per viewport across all 13 tasks (best trial each):
+
+| Viewport | mean | min | max |
+|---|---:|---:|---:|
+| desktop | **0.574** | 0.200 | 0.930 |
+| tablet | 0.653 | 0.200 | 0.950 |
+| mobile | 0.643 | 0.300 | 0.950 |
+
+VLM is consistently ~0.07 lower on desktop than on tablet/mobile, even though the structured score is essentially flat across viewports (0.65 ± 0.01). Three plausible mechanisms (we haven't isolated which dominates):
+
+1. **More visible defects per frame.** Desktop renders pack denser content — full tables, side-by-side charts, multi-column dashboards — all visible at once. The VLM has more material to find disagreements over. Mobile stacks content vertically; each "screenful" of attention covers fewer elements, so fewer comparison opportunities per look.
+2. **Content fabrication is harder to hide on a wide canvas.** Wrong numbers in a 12-column table, fabricated chart shapes, or a missing widget are immediately visible on desktop. On mobile the same content is one-column-tall, and the VLM may anchor on layout shape (which the agent gets right) over content (which the agent often fabricates).
+3. **Aspect-ratio compression.** We downscale images >7800px on any axis before submitting to the VLM (Anthropic API limit). Desktop pages frequently exceed this on the height axis (1440 × 4000+ is common), so they get downscaled more aggressively than mobile pages. Fine pixel-level detail survives less well, but the *overall* shape comparison the VLM does shouldn't care much about this — listed as a hypothesis but probably the weakest of the three.
+
+Practical implication: VLM's harshness on desktop is *useful* — it catches the content-fabrication errors that the structured score under-counts (text is only weight 0.20, and Jaccard over tokens misses sub-token digit errors). The composite-flat-across-viewports observation in §2 is partly because this VLM harshness on desktop offsets the overflow penalty on mobile. Both ceilings are doing their job, on different axes.
+
+---
+
+## Observation 4 — Some colour palettes are harder to replicate than others
 
 Palette feature score (best trial per task) spans **0.422 → 0.872** — wider than any other structured metric. The pattern is consistent across runs:
 
@@ -136,7 +156,7 @@ Implication: a small set of palette priors explains a large slice of cross-task 
 
 ---
 
-## Observation 4 — Numeric content is rarely copied correctly
+## Observation 5 — Numeric content is rarely copied correctly
 
 Text-similarity score (Jaccard over visible tokens) reveals systematic number fabrication. The lowest text scores in the fleet:
 
