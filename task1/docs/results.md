@@ -124,7 +124,7 @@ VLM is consistently ~0.07 lower on desktop than on tablet/mobile, even though th
 
 1. **More visible defects per frame.** Desktop renders pack denser content — full tables, side-by-side charts, multi-column dashboards — all visible at once. The VLM has more material to find disagreements over. Mobile stacks content vertically; each "screenful" of attention covers fewer elements, so fewer comparison opportunities per look.
 2. **Content fabrication is harder to hide on a wide canvas.** Wrong numbers in a 12-column table, fabricated chart shapes, or a missing widget are immediately visible on desktop. On mobile the same content is one-column-tall, and the VLM may anchor on layout shape (which the agent gets right) over content (which the agent often fabricates).
-3. **Aspect-ratio compression.** We downscale images >7800px on any axis before submitting to the VLM (Anthropic API limit). Desktop pages frequently exceed this on the height axis (1440 × 4000+ is common), so they get downscaled more aggressively than mobile pages. Fine pixel-level detail survives less well, but the *overall* shape comparison the VLM does shouldn't care much about this — listed as a hypothesis but probably the weakest of the three.
+3. **Aspect-ratio compression.** We downscale images >7800px on any axis before submitting to the VLM (Anthropic API limit). Mobile pages frequently exceed this on the height axis (content stacks vertically on a 375px-wide screen, producing pages 10,000+ px tall), so they get downscaled more aggressively than desktop pages — 13/68 mobile screenshots exceed the threshold vs. 0/68 desktop. Downscaling compresses away fine detail, which may make VLM comparisons *more forgiving* on mobile. Listed as a hypothesis — the effect direction is clear but we haven't isolated its magnitude.
 
 Practical implication: VLM's harshness on desktop is *useful* — it catches the content-fabrication errors that the structured score under-counts (text is only weight 0.20, and Jaccard over tokens misses sub-token digit errors). The composite-flat-across-viewports observation in §2 is partly because this VLM harshness on desktop offsets the overflow penalty on mobile. Both ceilings are doing their job, on different axes.
 
@@ -206,7 +206,7 @@ Per-feature score statistics across the 13 best trials (one per task):
 | ssim | 0.112 | 0.56 → 0.93 | Moderate |
 | typography | 0.111 | 0.59 → 0.99 | Moderate |
 | position | 0.075 | 0.68 → 0.98 | Low |
-| overflow | 0.047 | 0.86 → 1.00 | Low (rarely fires below 0.85 on desktop) |
+| overflow | 0.047 | 0.86 → 1.00 | Low cross-task, but **high within-task**: desktop is nearly always 1.0 while mobile drops to 0 on non-responsive pages. Per-task averaging across viewports compresses this into a narrow band |
 
 **block_match has a known floor at ~0.37** even on totally-wrong layouts. The Hungarian-IoU formulation with `MAX_BLOCKS=100` cap saturates at "some blocks match by coincidence." Future work could replace it with grid-cell occupancy.
 
